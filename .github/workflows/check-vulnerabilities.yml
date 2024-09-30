@@ -1,0 +1,47 @@
+name: 'Package Audit'
+on:
+    pull_request:
+        branches:
+            - main
+        paths:
+            - '**/package.json'
+            - '**/pnpm-lock.yaml'
+
+jobs:
+    audit:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+
+            - name: Install pnpm
+              run: npm install -g pnpm
+
+            - name: Set up PNPM_HOME and PATH
+              run: |
+                  echo "PNPM_HOME=$HOME/.local/share/pnpm" >> $GITHUB_ENV
+                  echo "PATH=$HOME/.local/share/pnpm:$PATH" >> $GITHUB_ENV
+                  mkdir -p $HOME/.local/share/pnpm
+                  export PNPM_HOME=$HOME/.local/share/pnpm
+                  export PATH=$PNPM_HOME:$PATH
+
+            - name: Install dependencies
+              run: pnpm install --no-frozen-lockfile
+
+            - name: Run pnpm audit
+              id: audit
+              run: |
+                  result=$(pnpm audit --json)
+                  echo "Audit result: $result"
+                  echo "$result" > audit-result.json
+                  if echo "$result" | grep -q '"advisory"'; then
+                    echo "Vulnerabilities found"
+                    exit 1
+                  else
+                    echo "No vulnerabilities found."
+                  fi

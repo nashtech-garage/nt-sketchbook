@@ -1,0 +1,41 @@
+{
+    "name": "@nashtech/nt-sketchbook",
+    "version": "2.0.1",
+    "description": "A customizable styling library for UI components, built with Storybook for visual documentation and component development. Provides reusable styles, themes, and design system components to maintain consistent look and feel across the application.",
+    "main": "index.js",
+    "packageManager": "pnpm@9.0.5",
+    "engines": {
+        "node": "20"
+    },
+    "keywords": [],
+    "author": "Nashtech",
+    "license": "MIT",
+    "devDependencies": {
+        "@nrwl/eslint-plugin-nx": "^19.8.4",
+        "@nrwl/linter": "^19.8.4",
+        "husky": "^9.0.11",
+        "lint-staged": "13.2.3",
+        "nx": "^20.0.1",
+        "prettier": "3.0.1"
+    },
+    "pnpm": {
+        "overrides": {
+            "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
+            "@eslint/plugin-kit@<0.2.3": ">=0.2.3"
+        }
+    },
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nashtech-garage/nt-sketchbook.git"
+    },
+    "bugs": {
+        "url": "https://github.com/nashtech-garage/nt-sketchbook/issues"
+    },
+    "homepage": "https://github.com/nashtech-garage/nt-sketchbook#readme"
+}
