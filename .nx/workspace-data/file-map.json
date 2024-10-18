@@ -1,0 +1,59 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.0.1",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": ".gitignore",
+        "hash": "11612638887042922903"
+      },
+      {
+        "file": "LICENSE",
+        "hash": "13285613827379048718"
+      },
+      {
+        "file": "README.md",
+        "hash": "1933592057434249439"
+      },
+      {
+        "file": "apps/base-ui-toolkit-react/components/button/index.tsx",
+        "hash": "5368325298208476028"
+      },
+      {
+        "file": "apps/base-ui-toolkit-react/components/index.tsx",
+        "hash": "1328739968008703832"
+      },
+      {
+        "file": "apps/base-ui-toolkit-react/index.tsx",
+        "hash": "5427156499007266749"
+      },
+      {
+        "file": "apps/base-ui-toolkit-react/package.json",
+        "hash": "5735548619877834231"
+      },
+      {
+        "file": "apps/base-ui-toolkit-react/pnpm-lock.yaml",
+        "hash": "3001557215349455856"
+      },
+      {
+        "file": "apps/base-ui-toolkit-react/tsconfig.json",
+        "hash": "11752303486256164328"
+      },
+      {
+        "file": "package.json",
+        "hash": "15450394069747511826"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "17805659841914438264"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "11152307065299503255"
+      }
+    ]
+  }
+}
