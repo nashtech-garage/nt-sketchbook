@@ -1,0 +1,23 @@
+{
+    "name": "nt-sketchbook",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "prepare": "husky install"
+    },
+    "engines": {
+        "node": "20"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@nrwl/eslint-plugin-nx": "^19.8.4",
+        "@nrwl/linter": "^19.8.4",
+        "husky": "^9.0.11",
+        "lint-staged": "13.2.3",
+        "nx": "^20.0.1",
+        "prettier": "3.0.1"
+    }
+}
