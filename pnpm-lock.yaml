@@ -258,9 +258,6 @@ importers:
       prop-types:
         specifier: 15.8.1
         version: 15.8.1
-      sass:
-        specifier: ^1.69.5
-        version: 1.80.3
       storybook:
         specifier: ^8.1.6
         version: 8.3.6
@@ -1484,7 +1481,7 @@ packages:
     resolution: {integrity: sha512-2D6y7fNvFmsLmRt6UCOFJPvFoPMJGT0Uh1Wg0RaigUp7kdQPs6yYn8Dmx6GZkOH/NW0yMTwRz/p0SRMMRo50vA==}
     peerDependencies:
       typescript: '>= 4.3.x'
-      vite: '>=4.4.12'
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -9033,6 +9030,7 @@ snapshots:
       '@parcel/watcher-win32-arm64': 2.4.1
       '@parcel/watcher-win32-ia32': 2.4.1
       '@parcel/watcher-win32-x64': 2.4.1
+    optional: true
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -11245,6 +11243,7 @@ snapshots:
   chokidar@4.0.1:
     dependencies:
       readdirp: 4.0.2
+    optional: true
 
   chromatic@11.12.6: {}
 
@@ -11554,7 +11553,8 @@ snapshots:
 
   detect-element-overflow@1.4.2: {}
 
-  detect-libc@1.0.3: {}
+  detect-libc@1.0.3:
+    optional: true
 
   detect-node-es@1.1.0: {}
 
@@ -12597,7 +12597,8 @@ snapshots:
   image-size@0.5.5:
     optional: true
 
-  immutable@4.3.7: {}
+  immutable@4.3.7:
+    optional: true
 
   import-fresh@3.3.0:
     dependencies:
@@ -13559,7 +13560,8 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  node-addon-api@7.1.1: {}
+  node-addon-api@7.1.1:
+    optional: true
 
   node-fetch@2.7.0:
     dependencies:
@@ -14311,7 +14313,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  readdirp@4.0.2: {}
+  readdirp@4.0.2:
+    optional: true
 
   recast@0.23.9:
     dependencies:
@@ -14528,6 +14531,7 @@ snapshots:
       chokidar: 4.0.1
       immutable: 4.3.7
       source-map-js: 1.2.1
+    optional: true
 
   sax@1.4.1:
     optional: true
