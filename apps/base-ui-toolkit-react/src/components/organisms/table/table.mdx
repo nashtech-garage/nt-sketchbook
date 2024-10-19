@@ -1,0 +1,86 @@
+import { Markdown } from '@storybook/blocks'
+import { Meta, Story, Canvas } from '@storybook/blocks'
+
+import { userData, columns } from './mock/data';
+import Table from './';
+
+<Meta title="Components/Data Display/Table" />
+
+## Example
+
+## Usage
+
+<Table data={userData} columns={columns} />
+
+```tsx
+import { createColumnHelper } from '@tanstack/react-table'
+
+export const userData = [
+  {
+    firstName: 'Tanner',
+    lastName: 'Linsley',
+    age: 24,
+    visits: 100,
+    status: 'Active',
+    progress: 50,
+  },
+  {
+    firstName: 'Tandy',
+    lastName: 'Miller',
+    age: 40,
+    visits: 40,
+    status: 'Inactive',
+    progress: 80,
+  },
+  {
+    firstName: 'Joe',
+    lastName: 'Dirte',
+    age: 45,
+    visits: 20,
+    status: 'Active',
+    progress: 10,
+  }
+]
+
+const columnHelper = createColumnHelper()
+const columns = [
+  columnHelper.accessor('firstName', {
+    cell: (info) => info.getValue(),
+    header: () => <span>First Name</span>,
+  }),
+  columnHelper.accessor('lastName', {
+    cell: (info) => <i>{info.getValue()}</i>,
+    header: () => <span>Last Name</span>,
+  }),
+  columnHelper.accessor('age', {
+    header: () => 'Age',
+    cell: (info) => info.renderValue(),
+  }),
+  columnHelper.accessor('visits', {
+    header: () => <span>Visits</span>,
+  }),
+  columnHelper.accessor('status', {
+    cell: (info: any) => (
+      <span
+        className={`py-1 px-3 rounded-full text-sm ${
+          info.getValue().toLowerCase() === 'active'
+            ? 'bg-green-200 text-green-900'
+            : 'bg-red-200 text-red-900'
+        }`}
+      >
+        {info.getValue()}{' '}
+      </span>
+    ),
+    header: 'Status',
+  }),
+  columnHelper.accessor('progress', {
+    header: 'Profile Progress',
+  }),
+]
+
+<Table 
+    data={userData}
+    columns={columns} 
+/>
+
+```
