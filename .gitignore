@@ -5,6 +5,7 @@ dist
 tmp
 out-tsc
 storybook-static
+.nx
 
 # dependencies
 node_modules
@@ -41,3 +42,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+pnpm-lock-error.yaml
