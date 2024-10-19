@@ -1,8 +1,8 @@
-import { create } from "@storybook/theming/create";
+import { create } from '@storybook/theming/create'
 
 export default create({
-  base: "dark",
-  brandTitle: "Circuit Storybook",
-  brandImage: "/assets/images/circuit-logo.png",
-  brandTarget: "_self",
-});
+  base: 'dark',
+  brandTitle: 'Nashtech Storybook',
+  brandImage: '/assets/images/nashtech-logo.svg',
+  brandTarget: '_self',
+})
