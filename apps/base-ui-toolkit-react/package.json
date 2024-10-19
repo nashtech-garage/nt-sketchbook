@@ -21,11 +21,8 @@
     "dev": "storybook dev -p 3000",
     "build": "storybook build",
     "build:lib": "tsc && vite build",
-    "lint": "eslint src/**/*.{ts,tsx} --fix",
-    "prettier": "prettier --write \"src/**/*.{ts,tsx,js,mdx}\"",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
-    "prepare": "husky install",
     "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
   },
   "dependencies": {
@@ -122,11 +119,6 @@
   "files": [
     "dist"
   ],
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx,json,css,md}": [
-      "prettier -w"
-    ]
-  },
   "pnpm": {
     "overrides": {
       "semver@<5.7.2": ">=5.7.2",

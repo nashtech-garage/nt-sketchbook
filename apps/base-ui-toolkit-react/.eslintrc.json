@@ -5,6 +5,7 @@
     "es2021": true
   },
   "extends": [
+    "../../.eslintrc.json",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",

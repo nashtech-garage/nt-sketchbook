@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nx": "^20.0.1"
+    "@nrwl/eslint-plugin-nx": "^19.8.4",
+    "@nrwl/linter": "^19.8.4",
+    "husky": "^9.0.11",
+    "lint-staged": "13.2.3",
+    "nx": "^20.0.1",
+    "prettier": "3.0.1"
   }
 }
