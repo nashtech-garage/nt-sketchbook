@@ -1,43 +1,41 @@
-import type { StorybookConfig } from "@storybook/react-vite";
-import path from "path";
+import type { StorybookConfig } from '@storybook/react-vite'
+import path from 'path'
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.@(mdx|stories.@(js|jsx|ts|tsx))"],
+  stories: ['../src/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
 
   viteFinal: async (config: any) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@": path.resolve(__dirname, "../src"),
-      "@sdk": path.resolve(__dirname, "../src/sdk"),
-      "@sdk-type-global": path.resolve(__dirname, "../src/sdk/types/index.ts"),
-    };
-    return config;
+      '@': path.resolve(__dirname, '../src'),
+    }
+    return config
   },
 
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/addon-styling",
-    "@storybook/addon-mdx-gfm",
-    "@chromatic-com/storybook",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-styling',
+    '@storybook/addon-mdx-gfm',
+    '@chromatic-com/storybook',
   ],
 
   framework: {
-    name: "@storybook/react-vite",
+    name: '@storybook/react-vite',
     options: {
       builder: {
-        viteConfigPath: ".storybook/vite.config.ts",
+        viteConfigPath: '.storybook/vite.config.ts',
       },
     },
   },
 
   docs: {},
 
-  staticDirs: ["../public"],
+  staticDirs: ['../public'],
 
   typescript: {
-    reactDocgen: "react-docgen-typescript",
+    reactDocgen: 'react-docgen-typescript',
   },
-};
-export default config;
+}
+export default config
