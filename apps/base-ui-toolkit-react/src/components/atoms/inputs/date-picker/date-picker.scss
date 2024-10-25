@@ -1,0 +1,15 @@
+.react-date-picker {
+  @apply border-gray-200;
+
+  &__wrapper {
+    @apply border-none;
+  }
+
+  &__button {
+    @apply p-0;
+  }
+
+  &__clear-button {
+    @apply mr-1;
+  }
+}
