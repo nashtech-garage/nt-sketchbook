@@ -24,8 +24,7 @@
         "lint": {
             "inputs": [
                 "default",
-                "{workspaceRoot}/.eslintrc.json",
-                "{workspaceRoot}/.eslintignore"
+                "{workspaceRoot}/.eslintrc.json"
             ]
         }
     },

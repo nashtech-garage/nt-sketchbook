@@ -23,6 +23,7 @@
         "build:lib": "tsc && vite build",
         "test": "vitest",
         "test:cov": "vitest run --coverage",
+        "lint": "eslint src/**/*.{ts,tsx} --fix",
         "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
     },
     "dependencies": {
