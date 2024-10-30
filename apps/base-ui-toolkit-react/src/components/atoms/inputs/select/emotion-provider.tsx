@@ -3,22 +3,22 @@ import { CacheProvider } from '@emotion/react'
 import React from 'react'
 
 type EmotionProviderProps = {
-  children: React.ReactNode
+    children: React.ReactNode
 }
 
 export const EmotionProvider = ({
-  children,
+    children,
 }: EmotionProviderProps) => {
-  const cache = React.useMemo(
-    () =>
-      createCache({
-        key: 'with-tailwind',
-        insertionPoint: document.querySelector('title')!,
-      }),
-    [],
-  )
+    const cache = React.useMemo(
+        () =>
+            createCache({
+                key: 'with-tailwind',
+                insertionPoint: document.querySelector('title')!,
+            }),
+        [],
+    )
 
-  return <CacheProvider value={cache}>{children}</CacheProvider>
+    return <CacheProvider value={cache}>{children}</CacheProvider>
 }
 
 export default EmotionProvider

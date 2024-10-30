@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { DatePicker, Value } from '.'
 
 const meta: Meta<typeof DatePicker> = {
-  component: DatePicker,
-  title: 'Components/Data Entry/DatePicker',
+    component: DatePicker,
+    title: 'Components/Data Entry/DatePicker',
 }
 
 export default meta
@@ -13,10 +13,12 @@ export default meta
 type Story = StoryObj<typeof DatePicker>
 
 export const DateDefault: Story = {
-  args: {},
+    args: {},
 
-  render: () => {
-    const [startDate, setStartDate] = useState<Value>(new Date())
-    return <DatePicker value={startDate} onChange={setStartDate} />
-  },
+    render: () => {
+        const [startDate, setStartDate] = useState<Value>(new Date())
+        return (
+            <DatePicker value={startDate} onChange={setStartDate} />
+        )
+    },
 }
