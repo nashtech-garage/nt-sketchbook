@@ -1,26 +1,31 @@
 module.exports = {
     theme: {
-        fontFamily: {
-            primary: [
-                'LightItalic, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-            ],
-        },
-        colors: {
-            primary: '#D6001C',
-            'secondary-1': '#6A1F7A',
-            'secondary-2': '#0094D5',
-            black: '#000000',
-            white: '#FFFFFF',
-            text: '#28292B',
-            grey: '#C9CCD4',
-            red: '#D6001C',
-            orange: '#FF8800',
-            yellow: '#F4AD33',
-            blue: '#0094D5',
-            purple: '#6A1F7A',
-            pink: '#E31C79',
-        },
         extend: {
+            gap: {
+                lg: '18px',
+                DEFAULT: '12px',
+                sm: '8px',
+                xs: '6px',
+            },
+            spacing: {
+                xxxlg: '80px',
+                xxlg: '64px',
+                xlg: '48px',
+                lg: '36px',
+                DEFAULT: '24px',
+                sm: '18px',
+                xs: '12px',
+                xxs: '8px',
+                xxxs: '4px',
+            },
+            borderRadius: {
+                xxxlg: '20px',
+                xxlg: '12px',
+                md: '8px',
+                lg: '6px',
+                DEFAULT: '4px',
+                sm: '2px',
+            },
             keyframes: {
                 'fade-in': {
                     '0%': { opacity: '0%' },
@@ -42,6 +47,14 @@ module.exports = {
                 progress: 'progress 1s infinite linear',
             },
             colors: {
+                black: '#000000',
+                white: '#FFFFFF',
+                text: '#28292B',
+                grey: '#C9CCD4',
+                red: '#D6001C',
+                orange: '#FF8800',
+                blue: '#0094D5',
+                purple: '#6A1F7A',
                 primary: {
                     DEFAULT: '#D6001C',
                     90: '#DA1A33',
