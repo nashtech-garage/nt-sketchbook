@@ -1,4 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-  "words": ["datepicker", "testid"]
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+    "words": ["datepicker", "testid"],
+    "files": ["./app/**/theme.ts"]
 }
