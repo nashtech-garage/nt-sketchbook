@@ -21,7 +21,7 @@ export const Badge = (props: BadgeProps) => {
         }
 
         if (variant === 'green') {
-            return 'bg-green-default ring-green-500/10'
+            return 'bg-success ring-green-500/10'
         }
 
         if (variant === 'yellow') {

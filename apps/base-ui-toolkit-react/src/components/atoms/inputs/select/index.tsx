@@ -57,14 +57,14 @@ export const Select = (props: SelectProps) => {
         if (ThemeUtils.isPrimaryTheme(themeProvide)) {
             return style['select-theme--active']
         }
-        return 'bg-green-default '
+        return 'bg-success '
     }, [])
 
     const hoverWithTheme = useMemo(() => {
         if (ThemeUtils.isPrimaryTheme(themeProvide)) {
             return style['select-theme--hover']
         }
-        return 'hover:bg-green-default hover:text-white'
+        return 'hover:bg-success hover:text-white'
     }, [])
 
     return (

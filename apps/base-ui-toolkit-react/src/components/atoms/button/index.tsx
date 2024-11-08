@@ -25,9 +25,9 @@ export const Button = (props: ButtonProps) => {
 
     const bgTheme = useMemo(() => {
         if (isPrimaryTheme(theme)) {
-            return 'bg-crimson-default hover:bg-crimson-hover'
+            return 'bg-primary hover:bg-primary-hover'
         }
-        return 'bg-green-default hover:bg-green-hover'
+        return 'bg-success hover:bg-green-hover'
     }, [theme])
 
     return (
