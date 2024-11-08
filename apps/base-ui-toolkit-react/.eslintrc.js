@@ -26,7 +26,6 @@ module.exports = {
         'vite.config.ts',
         'typings.d.ts',
         'tailwind.config.js',
-        'theme.ts',
         'themes/*',
         '*.stories.mdx',
         '.eslintrc.js',
