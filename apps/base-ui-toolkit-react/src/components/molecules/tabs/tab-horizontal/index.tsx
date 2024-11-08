@@ -35,7 +35,7 @@ const TabHorizontal = (props: TabHorizontalProps) => {
                             width: `calc(100% / ${items.length})`,
                         }}
                         className={combineClasses({
-                            'border-b border-b-green-default':
+                            'border-b border-b-success':
                                 activeKey === item.key,
                         })}
                     >
@@ -44,7 +44,7 @@ const TabHorizontal = (props: TabHorizontalProps) => {
                                 'tabs-label inline-block text-gray-500 rounded-sm p-3 text-sm font-medium text-center cursor-pointer',
                                 'hover:bg-gray-100',
                                 {
-                                    'active text-green-default ':
+                                    'active text-success ':
                                         activeKey === item.key,
                                     'cursor-not-allowed text-gray-300 hover:bg-transparent':
                                         item.disabled,

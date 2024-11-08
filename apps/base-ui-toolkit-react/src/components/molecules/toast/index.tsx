@@ -30,7 +30,7 @@ export const Toast = (props: ToastProps) => {
     const typeValues = useMemo(() => {
         if (type === 'success') {
             return {
-                classResult: 'text-green-default',
+                classResult: 'text-success',
                 icon: <HiCheck data-testid="success-icon" />,
             }
         }

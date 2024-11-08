@@ -27,6 +27,7 @@ module.exports = {
         'typings.d.ts',
         'tailwind.config.js',
         'theme.ts',
+        'themes/*',
         '*.stories.mdx',
         '.eslintrc.js',
     ],

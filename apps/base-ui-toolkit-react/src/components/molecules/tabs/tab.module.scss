@@ -1,24 +1,24 @@
 .tab-theme {
-  @apply w-full;
-  @apply overflow-x-auto md:overflow-hidden;
+    @apply w-full;
+    @apply overflow-x-auto md:overflow-hidden;
 
-  ul {
-    @apply w-full xl:w-1/2;
+    ul {
+        @apply w-full xl:w-1/2;
 
-    li {
-      margin-right: 0;
-      @apply border-0;
+        li {
+            margin-right: 0;
+            @apply border-0;
+        }
     }
-  }
 
-  &__item {
-    @apply text-center block  text-crimson-default rounded-none;
-    @apply hover:bg-transparent hover:border-b-2 hover:border-crimson-default;
-    @apply text-sm md:text-xl uppercase italic;
+    &__item {
+        @apply text-center block  text-primary rounded-none;
+        @apply hover:bg-transparent hover:border-b-2 hover:border-primary;
+        @apply text-sm md:text-xl uppercase italic;
 
-    &--active {
-      @apply border-crimson-default border-b-2;
-      @apply bg-transparent;
+        &--active {
+            @apply border-primary border-b-2;
+            @apply bg-transparent;
+        }
     }
-  }
 }

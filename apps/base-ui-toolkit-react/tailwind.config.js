@@ -3,6 +3,6 @@
 module.exports = {
     content: ['./index.html', './src/**/*.{ts,tsx}'],
     darkMode: ['class', '[data-mode="dark"]'],
-    presets: [require('./theme.ts')],
+    presets: [require('./theme')],
     plugins: [],
 }
