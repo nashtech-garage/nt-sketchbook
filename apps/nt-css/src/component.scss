@@ -1,0 +1,165 @@
+@layer components {
+    .avatar {
+        @apply rounded-full;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .avatar-xs {
+        @apply rounded-full;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .avatar-sm {
+        @apply rounded-full;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .avatar-xlg {
+        @apply rounded-full;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .avatar-xxlg {
+        @apply rounded-full;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .avatar-xxxlg {
+        @apply rounded-full;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .icon {
+        font-size: 1rem;
+    }
+
+    .icon-xlg {
+        font-size: 1.5rem;
+    }
+
+    .icon-lg {
+        font-size: 1.125rem;
+    }
+
+    .icon-sm {
+        font-size: 0.875rem;
+    }
+
+    .icon-xs {
+        font-size: 0.75rem;
+    }
+
+    .text-body,
+    .text-heading,
+    .text-group {
+        @apply text-neutral;
+    }
+
+    .text-sub-heading,
+    .text-sub-group,
+    .text-description {
+        @apply text-neutral-60;
+    }
+
+    .text-hint {
+        @apply text-neutral-40;
+    }
+
+    .text-placeholder {
+        @apply text-neutral-30;
+    }
+
+    .text-action {
+        @apply text-secondary-2;
+    }
+
+    .text-action-hover {
+        @apply text-secondary-2-70;
+    }
+
+    .text-action-visited {
+        @apply text-secondary-2-50;
+    }
+
+    .text-action-disabled {
+        @apply text-neutral-20;
+    }
+
+    .group,
+    .body-xlg,
+    .body-lg {
+        font-size: 1rem;
+    }
+
+    @media (min-width: theme('screens.md')) {
+        .group,
+        .body-xlg {
+            font-size: 1.125rem;
+        }
+    }
+
+    .body {
+        font-size: 0.875rem;
+    }
+
+    .body-sm {
+        font-size: 0.875rem;
+    }
+
+    .line {
+        @apply text-neutral-10;
+    }
+
+    .panel {
+        @apply bg-white;
+        width: 16.25rem;
+        max-width: 30rem;
+        min-width: 2rem;
+    }
+
+    .input,
+    .button {
+        height: 2.5rem;
+        line-height: 0.9375rem;
+        padding-top: 0.5625rem;
+        padding-bottom: 0.625rem;
+        padding-left: 1.125rem;
+        padding-right: 1.125rem;
+    }
+
+    .input-lg,
+    .button-lg {
+        height: 3rem;
+        line-height: 1.0625rem;
+        padding-top: 0.6875rem;
+        padding-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .input-sm,
+    .button-sm {
+        height: 2rem;
+        line-height: 0.8125rem;
+        padding-top: 0.4375rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .input-xs,
+    .button-xs {
+        height: 1.5rem;
+        line-height: 0.6875rem;
+        padding-top: 0.3125rem;
+        padding-bottom: 0.375rem;
+        padding-left: 0.375rem;
+        padding-right: 0.375rem;
+    }
+}
