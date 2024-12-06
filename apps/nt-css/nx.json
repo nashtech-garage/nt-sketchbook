@@ -1,0 +1,23 @@
+{
+    "$schema": "./node_modules/nx/schemas/nx-schema.json",
+    "namedInputs": {
+        "default": ["{projectRoot}/**/*", "sharedGlobals"],
+        "production": ["default"],
+        "sharedGlobals": []
+    },
+    "nxCloudId": "6752610020042e40ba2adc15",
+    "plugins": [
+        {
+            "plugin": "@nx/js/typescript",
+            "options": {
+                "typecheck": {
+                    "targetName": "typecheck"
+                },
+                "build": {
+                    "targetName": "build",
+                    "configName": "tsconfig.lib.json"
+                }
+            }
+        }
+    ]
+}
