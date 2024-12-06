@@ -1,0 +1,36 @@
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build-and-publish:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+
+            - name: Install pnpm
+              run: npm install -g pnpm
+
+            - name: Install postcss-cli
+              run: pnpm add -g postcss-cli
+
+            - name: Install dependencies
+              run: pnpm install
+              working-directory: apps/nt-css
+
+            - name: Build CSS framework
+              run: pnpm run build:css
+              working-directory: apps/nt-css
+
+            - name: Publish to npm
+              run: pnpm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+              working-directory: apps/nt-css
