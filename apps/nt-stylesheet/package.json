@@ -1,11 +1,11 @@
 {
-    "name": "@nt-css/source",
+    "name": "nt-stylesheet",
     "version": "1.0.0",
     "description": "",
     "packageManager": "pnpm@9.0.5",
     "scripts": {
         "build:css": "pnpm exec postcss src/styles.scss -o dist/styles.css",
-        "publish:css": "pnpm run build:css && npm publish dist/apps/nt-css"
+        "publish:css": "pnpm run build:css && npm publish dist/apps/nt-stylesheet"
     },
     "engines": {
         "node": "20"

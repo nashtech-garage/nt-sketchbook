@@ -1,11 +1,11 @@
 {
-    "name": "nt-css",
+    "name": "nt-stylesheet",
     "targets": {
         "build": {
             "executor": "@nrwl/node:build",
             "outputs": ["{options.outputPath}"],
             "options": {
-                "outputPath": "dist/apps/nt-css",
+                "outputPath": "dist/apps/nt-stylesheet",
                 "assets": ["src/**/*"]
             }
         }

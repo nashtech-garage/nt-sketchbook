@@ -34,14 +34,14 @@ jobs:
 
             - name: Install dependencies
               run: pnpm install
-              working-directory: apps/nt-css
+              working-directory: apps/nt-stylesheet
 
             - name: Build CSS framework
               run: pnpm run build:css
-              working-directory: apps/nt-css
+              working-directory: apps/nt-stylesheet
 
             - name: Publish to npm
               run: pnpm publish --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-              working-directory: apps/nt-css
+              working-directory: apps/nt-stylesheet
