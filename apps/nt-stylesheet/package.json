@@ -4,8 +4,8 @@
     "description": "",
     "packageManager": "pnpm@9.0.5",
     "scripts": {
-        "build:css": "pnpm exec postcss src/styles.scss -o dist/styles.css",
-        "publish:css": "pnpm run build:css && npm publish dist/apps/nt-stylesheet"
+        "build:css": "pnpm rollup -c",
+        "publish:css": "pnpm rollup -c && npm publish dist/apps/nt-stylesheet"
     },
     "engines": {
         "node": "20"
@@ -22,8 +22,8 @@
         "tailwindcss": "^3.4.0",
         "typescript": "^5.6.3"
     },
-    "files": [
-        "dist",
-        "README.md"
-    ]
+    "dependencies": {
+        "rollup": "^4.28.1",
+        "rollup-plugin-postcss": "^4.0.2"
+    }
 }
