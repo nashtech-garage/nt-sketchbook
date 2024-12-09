@@ -18,7 +18,13 @@ jobs:
             - name: Install pnpm
               run: npm install -g pnpm
 
-            - name: Install postcss-cli
+            - name: Set up pnpm
+              run: pnpm setup
+    
+            - name: Update PATH
+              run: echo "PATH=$HOME/.local/share/pnpm:$PATH" >> $GITHUB_ENV
+    
+            - name: Install postcss-cli globally
               run: pnpm add -g postcss-cli
 
             - name: Install dependencies
