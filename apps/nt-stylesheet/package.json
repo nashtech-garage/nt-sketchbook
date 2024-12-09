@@ -1,6 +1,6 @@
 {
     "name": "nt-stylesheet",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "",
     "packageManager": "pnpm@9.0.5",
     "scripts": {
