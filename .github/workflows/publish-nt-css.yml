@@ -41,7 +41,7 @@ jobs:
               working-directory: apps/nt-css
 
             - name: Publish to npm
-              run: pnpm publish
+              run: pnpm publish --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
               working-directory: apps/nt-css
