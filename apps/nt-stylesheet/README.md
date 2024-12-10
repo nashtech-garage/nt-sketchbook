@@ -24,33 +24,6 @@ npm install nt-stylesheet
 
 ### Usage
 
-To use nt-stylesheet in your project, include the generated `styles.css` file in the `<head>` section of your HTML file.
-
-```html
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        />
-        <link
-            href="node_modules/nt-stylesheet/dist/styles.css"
-            rel="stylesheet"
-        />
-        <title>Example</title>
-    </head>
-    <body>
-        <h1 class="text-3xl font-bold underline">
-            Hello, nt-stylesheet!
-        </h1>
-    </body>
-</html>
-```
-
-### Customization
-
 You can customize nt-stylesheet by editing the `tailwind.config.js` file. Add your own styles or override existing ones to fit your design needs.
 
 ```css
@@ -62,15 +35,12 @@ You can customize nt-stylesheet by editing the `tailwind.config.js` file. Add yo
 
 ```js
 /** @type {import('tailwindcss').Config} */
+const ntTheme = require('nt-stylesheet/themes')
+
 module.exports = {
-    content: ['./src/**/*.{html,js}'],
+    content: ['*.{html,js}'],
     theme: {
-        extend: {
-            colors: {
-                primary: '#ff6347',
-                secondary: '#4b5563',
-            },
-        },
+        extend: ntTheme.theme.extend,
     },
     plugins: [],
 }
