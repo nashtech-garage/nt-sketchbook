@@ -1,6 +1,0 @@
-export { InlineEdit } from './inline-edit'
-export { InputGroup } from './input-group'
-export { LoadingDialog } from './loading-dialog'
-export { Modal } from './modal'
-export { ModalMessage } from './modal-message'
-export { Tabs } from './tabs'

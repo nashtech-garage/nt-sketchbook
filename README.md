@@ -14,9 +14,9 @@ This project is a **monorepo** managed with [Nx](https://nx.dev), designed to cr
 
 Before running the project, ensure the following tools are installed:
 
-- [Node.js](https://nodejs.org/) (v20 or higher)
-- [Pnpm](https://pnpm.io/)
-- [Nx CLI](https://nx.dev/getting-started/intro)
+-   [Node.js](https://nodejs.org/) (v20 or higher)
+-   [Pnpm](https://pnpm.io/)
+-   [Nx CLI](https://nx.dev/getting-started/intro)
 
 ## Getting Started
 
@@ -24,10 +24,4 @@ Before running the project, ensure the following tools are installed:
 
 ```bash
 pnpm install
-```
-
-## Running the project
-
-```bash
-npx nx dev base-ui-toolkit-react
 ```
