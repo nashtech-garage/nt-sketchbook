@@ -1,10 +1,10 @@
 {
     "name": "nt-stylesheet",
-    "version": "1.0.5-rc.2",
+    "version": "1.0.5-rc.3",
     "description": "",
     "packageManager": "pnpm@9.0.5",
     "scripts": {
-        "build:css": "pnpm rollup -c",
+        "build:css": "pnpm exec postcss src/styles.scss -o dist/styles.css",
         "publish:css": "pnpm rollup -c && npm publish dist/apps/nt-stylesheet"
     },
     "engines": {
@@ -21,9 +21,5 @@
         "postcss-import": "^16.1.0",
         "tailwindcss": "^3.4.0",
         "typescript": "^5.6.3"
-    },
-    "dependencies": {
-        "rollup": "^4.28.1",
-        "rollup-plugin-postcss": "^4.0.2"
     }
 }
