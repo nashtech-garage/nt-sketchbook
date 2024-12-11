@@ -1,9 +1,11 @@
-import { colors, backgroundColor, boxShadow } from './colors'
+import './styles/styles.scss'
+
+import { backgroundColor, boxShadow, colors } from './colors'
 import { fontFamily, fontWeight } from './font'
-import { spacing, gap } from './spacing'
-import { borderRadius } from './radius'
+import { gap, spacing } from './spacing'
 
 import { ThemeConfig } from 'tailwindcss/types/config'
+import { borderRadius } from './radius'
 
 export const theme: Partial<
     ThemeConfig & { extend: Partial<ThemeConfig> }
@@ -27,3 +29,5 @@ export const theme: Partial<
         },
     },
 }
+
+export default theme

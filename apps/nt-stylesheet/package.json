@@ -12,12 +12,26 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/theme.umd.cjs",
+    "module": "./dist/theme.js",
+    "exports": {
+        ".": {
+            "import": "./dist/theme.js",
+            "require": "./dist/theme.umd.cjs"
+        },
+        "./style.css": "./dist/styles.css"
+    },
     "devDependencies": {
         "@types/node": "20.4.9",
         "autoprefixer": "^10.4.20",
         "nx": "^20.0.5",
         "postcss": "^8.4.49",
         "postcss-import": "^16.1.0",
+        "sass": "^1.82.0",
         "tailwindcss": "^3.4.0",
         "typescript": "^5.6.3",
         "vite": "^6.0.3"
