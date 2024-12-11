@@ -1,29 +1,51 @@
+import tailwindcss, { postcss } from 'tailwindcss'
+
 import autoprefixer from 'autoprefixer'
 import { defineConfig } from 'vite'
 import path from 'path'
-import tailwindcss from 'tailwindcss'
 import viteSassDts from 'vite-plugin-sass-dts'
 
 export default defineConfig({
     build: {
         lib: {
-            entry: path.resolve(__dirname, 'themes/index.ts'),
+            entry: path.resolve(__dirname, 'main.ts'),
             name: 'theme',
             fileName: 'theme',
         },
         rollupOptions: {
-            external: ['tailwindcss'],
             output: {
-                globals: {
-                    tailwindcss: 'tailwindcss',
-                },
+                assetFileNames: '[name].[ext]',
             },
         },
     },
     css: {
         postcss: {
-            plugins: [tailwindcss, autoprefixer],
+            plugins: [
+                tailwindcss({
+                    config: path.resolve(
+                        __dirname,
+                        'tailwind.config.js',
+                    ),
+                }),
+                autoprefixer(),
+            ],
         },
     },
-    plugins: [viteSassDts()],
+    plugins: [
+        viteSassDts(),
+        postcss({
+            extract: true,
+            minimize: true,
+            plugins: [
+                tailwindcss({
+                    config: path.resolve(
+                        __dirname,
+                        'tailwind.config.js',
+                    ),
+                }),
+                autoprefixer(),
+            ],
+            use: ['sass'],
+        }),
+    ],
 })
