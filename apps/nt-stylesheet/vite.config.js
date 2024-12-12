@@ -1,9 +1,13 @@
-import tailwindcss, { postcss } from 'tailwindcss'
-
-import autoprefixer from 'autoprefixer'
 import { defineConfig } from 'vite'
+import autoprefixer from 'autoprefixer'
 import path from 'path'
+import tailwindcss from 'tailwindcss'
 import viteSassDts from 'vite-plugin-sass-dts'
+
+console.log(
+    'Tailwind Config Path:',
+    path.resolve(__dirname, 'tailwind.config.js'),
+)
 
 export default defineConfig({
     build: {
@@ -20,32 +24,8 @@ export default defineConfig({
     },
     css: {
         postcss: {
-            plugins: [
-                tailwindcss({
-                    config: path.resolve(
-                        __dirname,
-                        'tailwind.config.js',
-                    ),
-                }),
-                autoprefixer(),
-            ],
+            plugins: [tailwindcss, autoprefixer],
         },
     },
-    plugins: [
-        viteSassDts(),
-        postcss({
-            extract: true,
-            minimize: true,
-            plugins: [
-                tailwindcss({
-                    config: path.resolve(
-                        __dirname,
-                        'tailwind.config.js',
-                    ),
-                }),
-                autoprefixer(),
-            ],
-            use: ['sass'],
-        }),
-    ],
+    plugins: [viteSassDts()],
 })

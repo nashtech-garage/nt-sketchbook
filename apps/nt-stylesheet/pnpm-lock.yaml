@@ -30,9 +30,6 @@ importers:
       postcss-import:
         specifier: ^16.1.0
         version: 16.1.0(postcss@8.4.49)
-      sass:
-        specifier: ^1.82.0
-        version: 1.82.0
       tailwindcss:
         specifier: ^3.4.16
         version: 3.4.16
@@ -1933,6 +1930,7 @@ snapshots:
   chokidar@4.0.1:
     dependencies:
       readdirp: 4.0.2
+    optional: true
 
   cli-cursor@3.1.0:
     dependencies:
@@ -2423,7 +2421,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  readdirp@4.0.2: {}
+  readdirp@4.0.2:
+    optional: true
 
   require-directory@2.1.1: {}
 
@@ -2574,6 +2573,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.0
+    optional: true
 
   semver@7.6.3: {}
 

@@ -1,10 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+const ntTheme = require('./themes').default
 
 module.exports = {
     content: [
-        './styles/**/*.{scss}',
-        './themes/**/*.{html,js,jsx,ts,tsx,scss}',
+        './styles/**/*.scss',
+        './themes/**/*.ts',
+        './index.html',
     ],
-    presets: [require('./themes')],
+    theme: {
+        extend: ntTheme.extend,
+    },
     plugins: [],
 }
