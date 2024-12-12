@@ -22,8 +22,7 @@
         ".": {
             "import": "./dist/theme.js",
             "require": "./dist/theme.umd.cjs"
-        },
-        "./style.css": "./dist/styles.css"
+        }
     },
     "devDependencies": {
         "@types/node": "20.4.9",
