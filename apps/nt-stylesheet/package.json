@@ -4,6 +4,7 @@
     "description": "",
     "packageManager": "pnpm@9.0.5",
     "scripts": {
+        "postinstall": "node init-tailwind.js",
         "build": "pnpm vite build"
     },
     "engines": {
