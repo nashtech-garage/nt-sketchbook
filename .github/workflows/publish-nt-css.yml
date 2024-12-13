@@ -28,15 +28,12 @@ jobs:
                   export PNPM_HOME=$HOME/.local/share/pnpm
                   export PATH=$PNPM_HOME:$PATH
 
-            - name: Install postcss-cli globally
-              run: pnpm add -g postcss-cli
-
             - name: Install dependencies
               run: pnpm install
               working-directory: apps/nt-stylesheet
 
             - name: Build CSS framework
-              run: pnpm run build:css
+              run: pnpm run build
               working-directory: apps/nt-stylesheet
 
             - name: Publish to npm
