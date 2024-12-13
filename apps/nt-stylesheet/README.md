@@ -35,7 +35,7 @@ You can customize nt-stylesheet by editing the `tailwind.config.js` file. Add yo
 
 ```js
 /** @type {import('tailwindcss').Config} */
-const ntTheme = require('nt-stylesheet/dist/theme').default
+const ntTheme = require('nt-stylesheet/dist/theme.cjs')
 
 module.exports = {
     content: ['*.{html,js}'],
