@@ -29,7 +29,7 @@ rl.question(
 
                 const tailwindConfigContent = `
                     /** @type {import('tailwindcss').Config} */
-                    const ntTheme = require('nt-stylesheet/dist/theme').default;
+                    const ntTheme = require("nt-stylesheet/dist/theme.cjs");
 
                     module.exports = {
                         content: ['*.{html,js}'],
