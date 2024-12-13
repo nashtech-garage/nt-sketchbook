@@ -52,3 +52,7 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
+
+    - name: npm audit action
+      uses: oke-py/npm-audit-action@v2.4.4
+            
