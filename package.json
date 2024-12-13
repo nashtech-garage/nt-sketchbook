@@ -1,6 +1,6 @@
 {
     "name": "nt-sketchbook",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -26,5 +26,7 @@
             "@eslint/plugin-kit@<0.2.3": ">=0.2.3"
         }
     },
-    "workspaces": [ "apps/nt-stylesheet" ]
+    "workspaces": [
+        "apps/nt-stylesheet"
+    ]
 }
