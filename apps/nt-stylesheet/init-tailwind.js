@@ -6,16 +6,15 @@ const isNotDevEnvironment =
     !process.env.INIT_CWD || process.env.INIT_CWD !== process.cwd()
 
 const createTailwindConfig = (rl) => {
-    const tailwindConfigContent = `
-    /** @type {import('tailwindcss').Config} */
-        const ntTheme = require('nt-stylesheet/dist/theme.cjs');
-        module.exports = {
-            content: ['*.{html,js}'],
-            theme: {
-                extend: ntTheme.theme.extend,
-            },
-            plugins: [],
-        };
+    const tailwindConfigContent = `/** @type {import('tailwindcss').Config} */
+const ntTheme = require('nt-stylesheet/dist/theme.cjs');
+module.exports = {
+    content: ['*.{html,js}'],
+    theme: {
+        extend: ntTheme.theme.extend,
+    },
+    plugins: [],
+};
     `
     fs.writeFile(
         'tailwind.config.js',
@@ -37,15 +36,14 @@ const createTailwindConfig = (rl) => {
 }
 
 const createPostCSSConfig = (rl) => {
-    const postcssConfigContent = `
-        module.exports = {
-            plugins: {
-                'postcss-import': {},
-                'tailwindcss/nesting': 'postcss-nesting',
-                tailwindcss: {},
-                autoprefixer: {},
-            },
-        };
+    const postcssConfigContent = `module.exports = {
+    plugins: {
+        'postcss-import': {},
+        'tailwindcss/nesting': 'postcss-nesting',
+        tailwindcss: {},
+        autoprefixer: {},
+    },
+};
     `
 
     fs.writeFile(
@@ -67,43 +65,43 @@ const createPostCSSConfig = (rl) => {
     )
 }
 
-if (isNotDevEnvironment) {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-    })
+// if (!isNotDevEnvironment) {
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+})
 
-    rl.question(
-        'Do you want to initialize Tailwind CSS? (y/n) ',
-        (answer) => {
-            if (answer.toLowerCase() === 'y') {
-                exec('npx tailwindcss init', (error, _, stderr) => {
-                    if (error) {
-                        console.error(
-                            `Error initializing Tailwind CSS: ${error.message}`,
-                        )
-                        rl.close()
-                        return
-                    }
-                    if (stderr) {
-                        console.error(
-                            `Error initializing Tailwind CSS: ${stderr}`,
-                        )
-                        rl.close()
-                        return
-                    }
+rl.question(
+    'Do you want to initialize Tailwind CSS? (y/n) ',
+    (answer) => {
+        if (answer.toLowerCase() === 'y') {
+            exec('npx tailwindcss init', (error, _, stderr) => {
+                if (error) {
+                    console.error(
+                        `Error initializing Tailwind CSS: ${error.message}`,
+                    )
+                    rl.close()
+                    return
+                }
+                if (stderr) {
+                    console.error(
+                        `Error initializing Tailwind CSS: ${stderr}`,
+                    )
+                    rl.close()
+                    return
+                }
 
-                    createTailwindConfig(rl)
-                    createPostCSSConfig(rl)
-                })
-            } else {
-                console.log('Tailwind CSS initialization skipped.')
-                rl.close()
-            }
-        },
-    )
-} else {
-    console.log(
-        'Development environment detected, skipping Tailwind CSS initialization.',
-    )
-}
+                createTailwindConfig(rl)
+                createPostCSSConfig(rl)
+            })
+        } else {
+            console.log('Tailwind CSS initialization skipped.')
+            rl.close()
+        }
+    },
+)
+// } else {
+//     console.log(
+//         'Development environment detected, skipping Tailwind CSS initialization.',
+//     )
+// }
