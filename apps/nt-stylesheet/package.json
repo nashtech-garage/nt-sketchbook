@@ -1,11 +1,11 @@
 {
     "name": "nt-stylesheet",
-    "version": "1.0.5-rc.4",
+    "version": "1.1.0",
     "description": "",
     "packageManager": "pnpm@9.0.5",
     "scripts": {
-        "build:css": "pnpm exec postcss src/styles.scss -o dist/styles.css",
-        "publish:css": "pnpm rollup -c && npm publish dist/apps/nt-stylesheet"
+        "postinstall": "node init-tailwind.js",
+        "build": "pnpm vite build"
     },
     "engines": {
         "node": "20"
@@ -13,16 +13,30 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/theme.umd.cjs",
+    "module": "./dist/theme.js",
+    "exports": {
+        ".": {
+            "import": "./dist/theme.js",
+            "require": "./dist/theme.umd.cjs"
+        }
+    },
     "devDependencies": {
         "@types/node": "20.4.9",
-        "autoprefixer": "^10.4.20",
-        "nx": "^20.0.5",
-        "postcss": "^8.4.49",
-        "postcss-import": "^16.1.0",
-        "tailwindcss": "^3.4.0",
-        "typescript": "^5.6.3"
+        "nx": "^20.2.2",
+        "typescript": "^5.7.2",
+        "vite": "^6.0.3",
+        "vite-plugin-sass-dts": "^1.3.29"
     },
     "dependencies": {
-        "postcss-nesting": "^13.0.1"
+        "postcss": "^8.4.49",
+        "autoprefixer": "^10.4.20",
+        "postcss-import": "^16.1.0",
+        "postcss-nesting": "^13.0.1",
+        "tailwindcss": "^3.4.16"
     }
 }
