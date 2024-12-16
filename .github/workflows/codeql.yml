@@ -60,6 +60,12 @@ jobs:
                       npm install --audit --prefer-offline
                       npm audit --json > npm-audit-report.json || true
                       cat npm-audit-report.json
+                  elif [ -f "pnpm-lock.yaml" ]; then
+                      echo "Detected pnpm project. Running pnpm audit..."
+                      npm install -g pnpm
+                      pnpm install --frozen-lockfile
+                      pnpm audit --json > pnpm-audit-report.json || true
+                      cat pnpm-audit-report.json
                   elif [ -f "yarn.lock" ]; then
                       echo "Detected Yarn project. Running yarn audit..."
                       yarn install --prefer-offline
