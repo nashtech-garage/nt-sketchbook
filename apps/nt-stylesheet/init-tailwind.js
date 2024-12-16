@@ -1,7 +1,6 @@
 import fs from 'fs'
 import { exec } from 'child_process'
 import readline from 'readline'
-
 const isNotDevEnvironment =
     !process.env.INIT_CWD || process.env.INIT_CWD !== process.cwd()
 
@@ -65,7 +64,7 @@ const createPostCSSConfig = (rl) => {
     )
 }
 
-if (!isNotDevEnvironment) {
+if (isNotDevEnvironment) {
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout,
