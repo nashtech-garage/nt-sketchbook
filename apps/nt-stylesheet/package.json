@@ -1,6 +1,6 @@
 {
     "name": "nt-stylesheet",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "",
     "packageManager": "pnpm@9.0.5",
     "scripts": {
@@ -14,9 +14,6 @@
     "author": "",
     "license": "ISC",
     "type": "module",
-    "files": [
-        "dist"
-    ],
     "main": "./dist/theme.umd.cjs",
     "module": "./dist/theme.js",
     "exports": {
