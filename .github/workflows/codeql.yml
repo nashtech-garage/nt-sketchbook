@@ -14,9 +14,7 @@ jobs:
         runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
         permissions:
             security-events: write
-
             packages: read
-
             actions: read
             contents: read
 
@@ -31,6 +29,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
+            # Initializes the CodeQL tools for scanning.
             - name: Initialize CodeQL
               uses: github/codeql-action/init@v3
               with:
@@ -61,6 +60,17 @@ jobs:
                       npm install --audit --prefer-offline
                       npm audit --json > npm-audit-report.json || true
                       cat npm-audit-report.json
+                  elif [ -f "pnpm-lock.yaml" ]; then
+                      echo "Detected pnpm project. Running pnpm audit..."
+                      npm install -g pnpm
+                      pnpm install --frozen-lockfile
+                      pnpm audit --json > pnpm-audit-report.json || true
+                      cat pnpm-audit-report.json
+                  elif [ -f "yarn.lock" ]; then
+                      echo "Detected Yarn project. Running yarn audit..."
+                      yarn install --prefer-offline
+                      yarn audit --json > yarn-audit-report.json || true
+                      cat yarn-audit-report.json
                   else
                       echo "No recognized lockfile found. Skipping dependency audit."
                       exit 1
