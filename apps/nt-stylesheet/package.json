@@ -4,7 +4,7 @@
     "description": "",
     "packageManager": "pnpm@9.0.5",
     "scripts": {
-        "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json && node ./scripts/init-tailwind.js",
+        "postinstall": "node ./scripts/init-tailwind.js",
         "build": "pnpm vite build"
     },
     "engines": {
@@ -22,6 +22,9 @@
             "require": "./dist/theme.umd.cjs"
         }
     },
+    "devEngines": {
+        "node": "20.x "
+    },
     "devDependencies": {
         "@types/node": "20.4.9",
         "nx": "^20.2.2",
@@ -31,7 +34,6 @@
     },
     "dependencies": {
         "autoprefixer": "^10.4.20",
-        "fbjs-scripts": "^3.0.1",
         "postcss": "^8.4.49",
         "postcss-import": "^16.1.0",
         "postcss-nesting": "^13.0.1",

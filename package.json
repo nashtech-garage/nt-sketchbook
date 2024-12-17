@@ -3,9 +3,6 @@
     "version": "2.0.0",
     "description": "",
     "main": "index.js",
-    "scripts": {
-        "prepare": "husky install"
-    },
     "engines": {
         "node": "20"
     },
