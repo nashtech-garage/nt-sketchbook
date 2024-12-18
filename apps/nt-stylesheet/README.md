@@ -19,7 +19,7 @@ You can install **nt-stylesheet** via npm or pnpm.
 ### Using npm
 
 ```sh
-npm install nt-stylesheet
+npx nt-stylesheet
 ```
 
 ### Usage
@@ -35,15 +35,16 @@ You can customize nt-stylesheet by editing the `tailwind.config.js` file. Add yo
 
 ```js
 /** @type {import('tailwindcss').Config} */
-const ntTheme = require('nt-stylesheet/dist/theme.cjs')
+const ntTheme = require('nt-stylesheet/dist/theme.cjs');
 
 module.exports = {
     content: ['*.{html,js}'],
     theme: {
-        extend: ntTheme.theme.extend,
+        extend: ntTheme.extend,
     },
     plugins: [],
-}
+};
+
 ```
 
 ### Acknowledgements
