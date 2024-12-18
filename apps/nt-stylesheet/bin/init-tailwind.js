@@ -1,8 +1,7 @@
+#!/usr/bin/env node
+
 import fs from 'fs'
 import readline from 'readline'
-
-// Check if running in an interactive environment
-const isInteractive = process.stdout.isTTY
 
 const createTailwindConfig = () => {
     const tailwindConfigContent = `/** @type {import('tailwindcss').Config} */
@@ -60,24 +59,20 @@ const createPostCSSConfig = () => {
     )
 }
 
-if (isInteractive) {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-    })
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+})
 
-    rl.question(
-        'Do you want to initialize Tailwind CSS? (y/n) ',
-        (answer) => {
-            if (answer.toLowerCase() === 'y') {
-                createTailwindConfig()
-                createPostCSSConfig()
-            } else {
-                console.log('Tailwind CSS initialization skipped.')
-            }
-            rl.close()
-        },
-    )
-} else {
-    console.log('Non-interactive mode detected.')
-}
+rl.question(
+    'Do you want to initialize Tailwind CSS? (y/n) ',
+    (answer) => {
+        if (answer.toLowerCase() === 'y') {
+            createTailwindConfig()
+            createPostCSSConfig()
+        } else {
+            console.log('Tailwind CSS initialization skipped.')
+        }
+        rl.close()
+    },
+)
