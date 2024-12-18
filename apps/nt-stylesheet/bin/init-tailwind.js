@@ -1,7 +1,24 @@
 #!/usr/bin/env node
 
 import fs from 'fs'
+import { exec } from 'child_process'
 import readline from 'readline'
+
+const installPackage = (packageName) => {
+    return new Promise((resolve, reject) => {
+        exec(`npm install ${packageName}`, (error) => {
+            if (error) {
+                console.error(
+                    `Error installing ${packageName}: ${error.message}`,
+                )
+                reject(error)
+                return
+            }
+            console.log(`${packageName} installed successfully!`)
+            resolve()
+        })
+    })
+}
 
 const createTailwindConfig = () => {
     const tailwindConfigContent = `/** @type {import('tailwindcss').Config} */
@@ -9,7 +26,7 @@ const ntTheme = require('nt-stylesheet/dist/theme.cjs');
 module.exports = {
     content: ['*.{html,js}'],
     theme: {
-        extend: ntTheme.theme.extend,
+        extend: ntTheme.extend,
     },
     plugins: [],
 };
@@ -59,20 +76,31 @@ const createPostCSSConfig = () => {
     )
 }
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-})
+const initialize = async () => {
+    try {
+        await installPackage('nt-stylesheet')
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout,
+        })
 
-rl.question(
-    'Do you want to initialize Tailwind CSS? (y/n) ',
-    (answer) => {
-        if (answer.toLowerCase() === 'y') {
-            createTailwindConfig()
-            createPostCSSConfig()
-        } else {
-            console.log('Tailwind CSS initialization skipped.')
-        }
-        rl.close()
-    },
-)
+        rl.question(
+            'Do you want to initialize Tailwind CSS? (y/n) ',
+            (answer) => {
+                if (answer.toLowerCase() === 'y') {
+                    createTailwindConfig()
+                    createPostCSSConfig()
+                } else {
+                    console.log(
+                        'Tailwind CSS initialization skipped.',
+                    )
+                }
+                rl.close()
+            },
+        )
+    } catch (error) {
+        console.error('Initialization failed:', error)
+    }
+}
+
+initialize()
