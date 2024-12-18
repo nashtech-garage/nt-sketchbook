@@ -4,8 +4,10 @@
     "description": "",
     "packageManager": "pnpm@9.0.5",
     "scripts": {
-        "postinstall": "node ./scripts/init-tailwind.js",
         "build": "pnpm vite build"
+    },
+    "bin": {
+        "nt-stylesheet": "./scripts/init-tailwind.js"
     },
     "engines": {
         "node": "20"
