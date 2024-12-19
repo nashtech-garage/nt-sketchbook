@@ -26,16 +26,20 @@ npx nt-stylesheet
 
 You can customize nt-stylesheet by editing the `tailwind.config.js` file. Add your own styles or override existing ones to fit your design needs.
 
-```css
-@import 'nt-stylesheet/dist/styles.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+-   Import css file
+
+```html
+<link
+    rel="stylesheet"
+    href="node_modules/nt-stylesheet/dist/theme.css"
+/>
 ```
+
+-   Import theme file to tailwind config
 
 ```js
 /** @type {import('tailwindcss').Config} */
-const ntTheme = require('nt-stylesheet/dist/theme.cjs');
+const ntTheme = require('nt-stylesheet/dist/theme.cjs')
 
 module.exports = {
     content: ['*.{html,js}'],
@@ -43,8 +47,7 @@ module.exports = {
         extend: ntTheme.extend,
     },
     plugins: [],
-};
-
+}
 ```
 
 ### Acknowledgements
