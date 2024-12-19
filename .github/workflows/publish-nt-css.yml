@@ -1,3 +1,5 @@
+name: 'Publish NT CSS Framework'
+
 on:
     push:
         branches:
