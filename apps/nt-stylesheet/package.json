@@ -14,7 +14,7 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "type": "module",
     "main": "./dist/theme.umd.cjs",
     "module": "./dist/theme.js",
