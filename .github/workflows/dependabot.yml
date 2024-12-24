@@ -1,14 +1,9 @@
 version: 2
 updates:
     - package-ecosystem: "npm"
-        directory: "/"
+        directory: "/apps/nt-stylesheet"
         schedule:
             interval: "daily"
-        commit-message:
-            prefix: "chore"
         open-pull-requests-limit: 5
         assignees:
             - "khoilen"
-        labels:
-            - "dependencies"
-            - "automated"
