@@ -24,9 +24,9 @@ npx nt-stylesheet
 
 ### Usage
 
-You can customize nt-stylesheet by editing the `tailwind.config.js` file. Add your own styles or override existing ones to fit your design needs.
+1. **Include the Stylesheet**
 
--   Import css file
+Add the following line to your HTML file to include the `nt-stylesheet` theme:
 
 ```html
 <link
@@ -35,7 +35,9 @@ You can customize nt-stylesheet by editing the `tailwind.config.js` file. Add yo
 />
 ```
 
--   Import theme file to tailwind config
+2. **Import Theme File to Tailwind Config**
+
+Create or update your tailwind.config.js file to include the nt-stylesheet theme:
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -50,6 +52,14 @@ module.exports = {
 }
 ```
 
+3. **Execute Your Styles**
+
+Run the following command to generate your CSS file:
+
+```bash
+npx tailwindcss -i ./input.css -o ./dist/output.css --watch
+```
+
 ### Acknowledgements
 
-`nt-stylesheet` is built upon the powerful Tailwind CSS framework, making it easy to use and customize. We extend our gratitude to the Tailwind CSS community for their continuous support and contributions.
+`nt-stylesheet` is built upon the powerful Tailwind CSS framework, making it easy to use and customize.
