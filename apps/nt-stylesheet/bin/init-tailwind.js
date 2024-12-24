@@ -4,7 +4,7 @@ import fs from 'fs'
 import { exec } from 'child_process'
 import readline from 'readline'
 
-const installPackage = (packageName) => {
+export const installPackage = (packageName) => {
     return new Promise((resolve, reject) => {
         exec(`npm install ${packageName}`, (error) => {
             if (error) {
@@ -20,7 +20,7 @@ const installPackage = (packageName) => {
     })
 }
 
-const createTailwindConfig = () => {
+export const createTailwindConfig = () => {
     const tailwindConfigContent = `/** @type {import('tailwindcss').Config} */
 const ntTheme = require('nt-stylesheet/dist/theme.cjs');
 module.exports = {
@@ -48,7 +48,7 @@ module.exports = {
     )
 }
 
-const createPostCSSConfig = () => {
+export const createPostCSSConfig = () => {
     const postcssConfigContent = `module.exports = {
     plugins: {
         'postcss-import': {},
@@ -76,7 +76,7 @@ const createPostCSSConfig = () => {
     )
 }
 
-const initialize = async () => {
+export const initialize = async () => {
     try {
         await installPackage('nt-stylesheet')
         const rl = readline.createInterface({
