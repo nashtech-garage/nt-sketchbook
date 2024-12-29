@@ -5,16 +5,22 @@ import tailwindcss from 'tailwindcss'
 import viteSassDts from 'vite-plugin-sass-dts'
 
 export default defineConfig({
+    root: path.resolve(__dirname),
     build: {
         lib: {
             entry: path.resolve(__dirname, 'main.ts'),
-            name: 'theme',
-            fileName: 'theme',
+            name: 'nt-stylesheet',
+            fileName: 'nt-stylesheet',
             formats: ['cjs'],
+            cssFileName: 'nt-stylesheet',
         },
         rollupOptions: {
             output: {
-                assetFileNames: '[name].[ext]',
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo?.name === 'style.css')
+                        return 'nt-stylesheet.css';
+                    return assetInfo?.name;
+                },
             },
         },
     },

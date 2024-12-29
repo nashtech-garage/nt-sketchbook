@@ -2,11 +2,10 @@
     "name": "nt-stylesheet",
     "targets": {
         "build": {
-            "executor": "@nrwl/node:build",
-            "outputs": ["{options.outputPath}"],
+            "executor": "@nx/vite:build",
             "options": {
-                "outputPath": "dist/apps/nt-stylesheet",
-                "assets": ["src/**/*"]
+                "configFile": "apps/nt-stylesheet/vite.config.js",
+                "outputPath": "dist/apps/nt-stylesheet/"
             }
         }
     }
