@@ -11,7 +11,7 @@ storybook-static
 node_modules
 
 # IDEs and editors
-/.idea
+.idea
 .project
 .classpath
 .c9/
@@ -43,3 +43,5 @@ testem.log
 .DS_Store
 Thumbs.db
 pnpm-lock-error.yaml
+
+vite.config.*.timestamp*
