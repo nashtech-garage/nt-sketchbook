@@ -17,6 +17,6 @@ jobs:
       - name: Install dependencies with pnpm
         run: pnpm install
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@v1.8.0
+        uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
