@@ -17,6 +17,9 @@
         "lint": {
             "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
             "cache": true
+        },
+        "e2e-ci--**/*": {
+            "dependsOn": ["^build"]
         }
     },
     "namedInputs": {
@@ -27,7 +30,8 @@
             "!{projectRoot}/tsconfig.spec.json",
             "!{projectRoot}/.eslintrc.json",
             "!{projectRoot}/jest.config.[jt]s",
-            "!{projectRoot}/src/test-setup.[jt]s"
+            "!{projectRoot}/src/test-setup.[jt]s",
+            "!{projectRoot}/test-setup.[jt]s"
         ],
         "sharedGlobals": []
     },
@@ -42,6 +46,35 @@
                 "serveStaticTargetName": "serve-static",
                 "typecheckTargetName": "typecheck"
             }
+        },
+        {
+            "plugin": "@nx/next/plugin",
+            "options": {
+                "startTargetName": "start",
+                "buildTargetName": "build",
+                "devTargetName": "dev",
+                "serveStaticTargetName": "serve-static"
+            }
+        },
+        {
+            "plugin": "@nx/playwright/plugin",
+            "options": {
+                "targetName": "e2e"
+            }
+        },
+        {
+            "plugin": "@nx/jest/plugin",
+            "options": {
+                "targetName": "test"
+            }
         }
-    ]
+    ],
+    "generators": {
+        "@nx/next": {
+            "application": {
+                "style": "tailwind",
+                "linter": "none"
+            }
+        }
+    }
 }

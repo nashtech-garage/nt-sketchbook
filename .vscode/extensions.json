@@ -11,10 +11,10 @@
         "eamodio.gitlens",
         "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
-        "dbaeumer.vscode-eslint",
-        "davidanson.vscode-markdownlint",
         "ambar.bundle-size",
         "yoavbls.pretty-ts-errors",
-        "csstools.postcss"
+        "csstools.postcss",
+        "ms-playwright.playwright",
+        "firsttris.vscode-jest-runner"
     ]
 }

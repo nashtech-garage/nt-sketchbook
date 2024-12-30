@@ -45,3 +45,7 @@ Thumbs.db
 pnpm-lock-error.yaml
 
 vite.config.*.timestamp*
+
+# Next.js
+.next
+out
