@@ -1,5 +1,5 @@
 {
-    "name": "nt-sketchbook",
+    "name": "@nashtech/nt-sketchbook",
     "version": "2.0.1",
     "description": "A customizable styling library for UI components, built with Storybook for visual documentation and component development. Provides reusable styles, themes, and design system components to maintain consistent look and feel across the application.",
     "main": "index.js",
@@ -31,5 +31,10 @@
     },
     "workspaces": [
         "apps/nt-stylesheet"
-    ]
+    ],
+    "dependencies": {
+        "next": "14.2.16",
+        "react": "18.3.1",
+        "react-dom": "18.3.1"
+    }
 }
