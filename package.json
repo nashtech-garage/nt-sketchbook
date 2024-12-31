@@ -7,8 +7,8 @@
         "node": "20"
     },
     "keywords": [],
-    "author": "Khoi Le Nguyen",
-    "license": "ISC",
+    "author": "Nashtech",
+    "license": "MIT",
     "devDependencies": {
         "@nrwl/eslint-plugin-nx": "^19.8.4",
         "@nrwl/linter": "^19.8.4",

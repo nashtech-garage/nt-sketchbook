@@ -31,7 +31,7 @@ Add the following line to your HTML file to include the `nt-stylesheet` theme:
 ```html
 <link
     rel="stylesheet"
-    href="node_modules/nt-stylesheet/dist/theme.css"
+    href="node_modules/nt-stylesheet/dist/nt-stylesheet.css"
 />
 ```
 
@@ -41,7 +41,7 @@ Create or update your tailwind.config.js file to include the nt-stylesheet theme
 
 ```js
 /** @type {import('tailwindcss').Config} */
-const ntTheme = require('nt-stylesheet/dist/theme.cjs')
+const ntTheme = require('nt-stylesheet/dist/nt-stylesheet.cjs')
 
 module.exports = {
     content: ['*.{html,js}'],
