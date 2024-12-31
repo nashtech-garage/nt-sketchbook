@@ -1,12 +1,6 @@
 {
     "name": "nt-stylesheet",
     "targets": {
-        "build": {
-            "executor": "@nx/vite:build",
-            "options": {
-                "configFile": "apps/nt-stylesheet/vite.config.js",
-                "outputPath": "dist/apps/nt-stylesheet/"
-            }
-        }
     }
 }
+
