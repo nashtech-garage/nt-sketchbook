@@ -22,7 +22,7 @@ export const installPackage = (packageName) => {
 
 export const createTailwindConfig = () => {
     const tailwindConfigContent = `/** @type {import('tailwindcss').Config} */
-const ntTheme = require('nt-stylesheet/dist/theme.cjs');
+const ntTheme = require('@nashtech/nt-stylesheet/dist/theme.cjs');
 module.exports = {
     content: ['*.{html,js}'],
     theme: {
@@ -78,7 +78,7 @@ export const createPostCSSConfig = () => {
 
 export const initialize = async () => {
     try {
-        await installPackage('nt-stylesheet')
+        await installPackage('@nashtech/nt-stylesheet')
         const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout,
