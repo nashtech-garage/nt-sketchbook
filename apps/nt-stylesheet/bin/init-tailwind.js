@@ -22,7 +22,7 @@ export const installPackage = (packageName) => {
 
 export const createTailwindConfig = () => {
     const tailwindConfigContent = `/** @type {import('tailwindcss').Config} */
-const ntTheme = require('@nashtech/nt-stylesheet/dist/theme.cjs');
+const ntTheme = require('@nashtech/nt-stylesheet/dist/nt-stylesheet.cjs');
 module.exports = {
     content: ['*.{html,js}'],
     theme: {
