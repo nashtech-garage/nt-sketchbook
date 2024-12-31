@@ -19,7 +19,7 @@ You can install **nt-stylesheet** via npm or pnpm.
 ### Using npm
 
 ```sh
-npx nt-stylesheet
+npx @nashtech/nt-stylesheet
 ```
 
 ### Usage
@@ -31,7 +31,7 @@ Add the following line to your HTML file to include the `nt-stylesheet` theme:
 ```html
 <link
     rel="stylesheet"
-    href="node_modules/nt-stylesheet/dist/nt-stylesheet.css"
+    href="node_modules/@nashtech/nt-stylesheet/dist/nt-stylesheet.css"
 />
 ```
 
@@ -41,7 +41,7 @@ Create or update your tailwind.config.js file to include the nt-stylesheet theme
 
 ```js
 /** @type {import('tailwindcss').Config} */
-const ntTheme = require('nt-stylesheet/dist/nt-stylesheet.cjs')
+const ntTheme = require('@nashtech/nt-stylesheet/dist/nt-stylesheet.cjs')
 
 module.exports = {
     content: ['*.{html,js}'],
