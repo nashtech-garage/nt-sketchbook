@@ -1,0 +1,42 @@
+name: 'Package Audit and Comment on Vulnerabilities'
+
+on:
+    pull_request:
+        branches:
+            - main
+        paths:
+            - '**/package.json'
+            - '**/pnpm-lock.yaml'
+
+jobs:
+    audit:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Run pnpm audit
+              id: audit
+              run: |
+                  result=$(pnpm audit --json)
+                  echo "Audit result: $result"
+                  echo "$result" > audit-result.json
+                  if echo "$result" | grep -q '"advisory"'; then
+                    echo "Vulnerabilities found!"
+                    exit 1
+                  else
+                    echo "No vulnerabilities found."
+                  fi
+
+            - name: Post comment on PR if vulnerabilities found
+              if: failure()
+              uses: peter-evans/create-or-update-comment@v2
+              with:
+                  issue-number: ${{ github.event.pull_request.number }}
+                  body: |
+                      🚨 **Vulnerabilities Found** 🚨
+                      There are vulnerabilities detected during the `pnpm audit`. Please check the audit results.
+                      You can run `pnpm audit` locally to view more details.
