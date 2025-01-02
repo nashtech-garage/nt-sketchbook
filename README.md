@@ -25,3 +25,5 @@ Before running the project, ensure the following tools are installed:
 ```bash
 pnpm install
 ```
+
+### Commit message follow [format](https://semantic-release.gitbook.io/semantic-release#commit-message-format)

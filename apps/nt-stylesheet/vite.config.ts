@@ -35,7 +35,7 @@ export default defineConfig({
                 assetFileNames: (assetInfo) => {
                     if (assetInfo?.name === 'style.css')
                         return 'nt-stylesheet.css'
-                    return assetInfo?.name || 'default.css'
+                    return assetInfo?.name || 'nt-stylesheet.css'
                 },
             },
         },
