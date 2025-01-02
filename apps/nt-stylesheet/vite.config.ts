@@ -1,5 +1,5 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import dts from 'vite-plugin-dts'
 import * as path from 'path'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
@@ -29,14 +29,13 @@ export default defineConfig({
             name: 'nt-stylesheet',
             fileName: 'nt-stylesheet',
             formats: ['cjs'],
-            cssFileName: 'nt-stylesheet',
         },
         rollupOptions: {
             output: {
                 assetFileNames: (assetInfo) => {
                     if (assetInfo?.name === 'style.css')
                         return 'nt-stylesheet.css'
-                    return assetInfo?.name
+                    return assetInfo?.name || 'default.css'
                 },
             },
         },
@@ -49,13 +48,10 @@ export default defineConfig({
     test: {
         watch: false,
         globals: true,
-        environment: 'jsdom',
-        include: [
-            '**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
-        ],
+        include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
         reporters: ['default'],
         coverage: {
-            reportsDirectory: '../../coverage/apps/nt-stylesheet',
+            reportsDirectory: './coverage',
             provider: 'v8',
         },
     },
