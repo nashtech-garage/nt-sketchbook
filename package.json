@@ -25,13 +25,8 @@
         }
     },
     "workspaces": [
-        "apps/nt-stylesheet"
+        "apps/*"
     ],
-    "dependencies": {
-        "next": "14.2.16",
-        "react": "18.3.1",
-        "react-dom": "18.3.1"
-    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },

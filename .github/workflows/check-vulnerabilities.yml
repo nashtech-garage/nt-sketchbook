@@ -1,4 +1,4 @@
-name: 'Package Audit and Comment on Vulnerabilities'
+name: 'Package Audit'
 on:
     pull_request:
         branches:
