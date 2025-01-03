@@ -38,6 +38,7 @@ jobs:
                   TAG=${{ github.event.release.tag_name }}
                   echo "Using release tag: $TAG"
                   pnpm version $TAG --no-git-tag-version || true
+                  cat apps/nt-stylesheet/package.json | grep version
               working-directory: apps/nt-stylesheet
 
             - name: Test CSS framework
