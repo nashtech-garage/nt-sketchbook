@@ -8,12 +8,14 @@
         }
     ],
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "es2015",
         "forceConsistentCasingInFileNames": true,
         "strict": true,
         "noImplicitOverride": true,
         "noPropertyAccessFromIndexSignature": true,
         "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+        "noEmit": false,
+        "rootDirs": ["src", "themes"]
     }
 }

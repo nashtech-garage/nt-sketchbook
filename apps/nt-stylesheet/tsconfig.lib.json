@@ -6,6 +6,7 @@
     "compilerOptions": {
         "types": ["vite/client"]
     },
+    "include": ["src/**/*", "themes/**/*"],
     "exclude": [
         "vite.config.ts",
         "vite.config.mts",
