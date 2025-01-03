@@ -33,6 +33,13 @@ jobs:
               run: pnpm install
               working-directory: apps/nt-stylesheet
 
+            - name: Update package version
+              run: |
+                  TAG=${{ github.event.release.tag_name }}
+                  echo "Using release tag: $TAG"
+                  pnpm version $TAG --no-git-tag-version
+                  working-directory: apps/nt-stylesheet
+
             - name: Test CSS framework
               run: pnpm run test
               working-directory: apps/nt-stylesheet
