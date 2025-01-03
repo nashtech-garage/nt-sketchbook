@@ -15,6 +15,8 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: 20
+                  cache: 'pnpm'
+
             - name: Authenticate with npm
               run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}" > ~/.npmrc
 
@@ -33,14 +35,6 @@ jobs:
               run: pnpm install
               working-directory: apps/nt-stylesheet
 
-            - name: Update package version
-              run: |
-                  TAG=${{ github.event.release.tag_name }}
-                  echo "Using release tag: $TAG"
-                  pnpm version $TAG --no-git-tag-version || true
-                  cat apps/nt-stylesheet/package.json | grep version
-              working-directory: apps/nt-stylesheet
-
             - name: Test CSS framework
               run: pnpm run test
               working-directory: apps/nt-stylesheet
@@ -50,7 +44,8 @@ jobs:
               working-directory: apps/nt-stylesheet
 
             - name: Publish to npm
-              run: pnpm publish --no-git-checks
+              run: npx semantic-release
               env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
               working-directory: apps/nt-stylesheet
