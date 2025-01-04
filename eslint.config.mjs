@@ -1,8 +1,8 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import nxEslintPlugin from '@nx/eslint-plugin';
-import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin';
-import typescriptParser from '@typescript-eslint/parser';
-import prettierPlugin from 'eslint-plugin-prettier';
+import { FlatCompat } from '@eslint/eslintrc'
+import nxEslintPlugin from '@nx/eslint-plugin'
+import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin'
+import typescriptParser from '@typescript-eslint/parser'
+import prettierPlugin from 'eslint-plugin-prettier'
 
 const compat = new FlatCompat({
     baseConfig: {
@@ -11,11 +11,10 @@ const compat = new FlatCompat({
             'eslint:recommended',
             'plugin:@typescript-eslint/recommended',
             'plugin:@nx/recommended',
-            'prettier',
             'plugin:prettier/recommended',
         ],
     },
-});
+})
 
 export default [
     {
@@ -31,17 +30,12 @@ export default [
             '@nx': nxEslintPlugin,
             prettier: prettierPlugin,
         },
-        ignores: ['apps/**/coverage/**', 'apps/**/dist/**', 'apps/**/.nx/**'],
+        ignores: [
+            'apps/**/coverage/**',
+            'apps/**/dist/**',
+            'apps/**/.nx/**',
+        ],
         rules: {
-            'prettier/prettier': [
-                'error',
-                {},
-                {
-                    fileInfoOptions: {
-                        withNodeModules: true,
-                    },
-                },
-            ],
             'brace-style': ['error', '1tbs'],
             'object-curly-spacing': ['error', 'always'],
             '@nx/enforce-module-boundaries': [
@@ -66,4 +60,4 @@ export default [
             },
         ],
     }),
-];
+]

@@ -1,4 +1,4 @@
-import { ThemeConfig } from 'tailwindcss/types/config';
+import { ThemeConfig } from 'tailwindcss/types/config'
 
 export const colors: ThemeConfig['colors'] = {
     black: '#000000',
@@ -141,7 +141,7 @@ export const colors: ThemeConfig['colors'] = {
         white: '#FFFFFF',
         diabled: '#C9CCD4',
     },
-};
+}
 
 export const boxShadow = {
     primary: '0 0.125rem 0.25rem rgba(214, 0, 28, 0.15)',
@@ -150,7 +150,7 @@ export const boxShadow = {
     warning: '0 0.25rem 0.375rem rgba(223, 119, 0, 0.15)',
     danger: '0 0.25rem 0.375rem rgba(229, 16, 16, 0.15)',
     neutral: '0 0.25rem 0.375rem rgba(0, 0, 0, 0.1)',
-};
+}
 
 export const backgroundColor = {
     dark: '#E6E6E6',
@@ -158,4 +158,4 @@ export const backgroundColor = {
     light: '#F6F6F6',
     white: '#FFFFFF',
     disabled: '#C9CCD4',
-};
+}
