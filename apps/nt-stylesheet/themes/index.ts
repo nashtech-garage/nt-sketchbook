@@ -24,6 +24,6 @@ const theme = {
             DEFAULT: 'repeat(12, minmax(0, 1fr))',
         },
     },
-}
+} as Partial<ThemeConfig & { extend: Partial<ThemeConfig> }>
 
 export default theme
