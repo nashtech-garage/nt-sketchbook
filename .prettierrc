@@ -7,5 +7,16 @@
     "endOfLine": "auto",
     "bracketSpacing": true,
     "jsxBracketSameLine": true,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "importOrder": [
+        "^@core/(.*)$",
+        "^@server/(.*)$",
+        "^@ui/(.*)$",
+        "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "importOrderSideEffects": true,
+    "importOrderCaseInsensitive": true,
+    "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }
