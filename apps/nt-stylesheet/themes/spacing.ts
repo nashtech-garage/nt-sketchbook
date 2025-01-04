@@ -8,10 +8,10 @@ export const spacing = {
     xs: '0.75rem',
     xxs: '0.5rem',
     xxxs: '0.25rem',
-}
+};
 export const gap = {
     lg: '1.125rem',
     DEFAULT: '0.75rem',
     sm: '0.5rem',
     xs: '0.375rem',
-}
+};

@@ -9,5 +9,6 @@
     "files.associations": {
         "*.css": "tailwindcss",
         "*.scss": "tailwindcss"
-    }
+    },
+    "prettier.bracketSpacing": false
 }

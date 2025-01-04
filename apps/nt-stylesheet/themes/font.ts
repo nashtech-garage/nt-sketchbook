@@ -1,6 +1,6 @@
 export const fontFamily = {
     sans: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-}
+};
 
 export const fontWeight = {
     black: '900',
@@ -12,4 +12,4 @@ export const fontWeight = {
     light: '300',
     extralight: '200',
     thin: '100',
-}
+};

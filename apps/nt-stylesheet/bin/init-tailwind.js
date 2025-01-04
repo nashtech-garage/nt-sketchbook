@@ -1,23 +1,23 @@
 #!/usr/bin/env node
-import { exec } from 'child_process'
-import fs from 'fs'
-import readline from 'readline'
+import {exec} from 'child_process';
+import fs from 'fs';
+import readline from 'readline';
 
 export const installPackage = (packageName) => {
     return new Promise((resolve, reject) => {
         exec(`npm install ${packageName}`, (error) => {
             if (error) {
                 console.error(
-                    `Error installing ${packageName}: ${error.message}`,
-                )
-                reject(error)
-                return
+                    `Error installing ${packageName}: ${error.message}`
+                );
+                reject(error);
+                return;
             }
-            console.log(`${packageName} installed successfully!`)
-            resolve()
-        })
-    })
-}
+            console.log(`${packageName} installed successfully!`);
+            resolve();
+        });
+    });
+};
 
 export const createTailwindConfig = () => {
     const tailwindConfigContent = `/** @type {import('tailwindcss').Config} */
@@ -29,23 +29,17 @@ module.exports = {
     },
     plugins: [],
 };
-    `
-    fs.writeFile(
-        'tailwind.config.js',
-        tailwindConfigContent,
-        (writeError) => {
-            if (writeError) {
-                console.error(
-                    `Error writing tailwind.config.js: ${writeError.message}`,
-                )
-                return
-            }
-            console.log(
-                'tailwind.config.js has been initialized successfully!',
-            )
-        },
-    )
-}
+    `;
+    fs.writeFile('tailwind.config.js', tailwindConfigContent, (writeError) => {
+        if (writeError) {
+            console.error(
+                `Error writing tailwind.config.js: ${writeError.message}`
+            );
+            return;
+        }
+        console.log('tailwind.config.js has been initialized successfully!');
+    });
+};
 
 export const createPostCSSConfig = () => {
     const postcssConfigContent = `module.exports = {
@@ -56,50 +50,42 @@ export const createPostCSSConfig = () => {
         autoprefixer: {},
     },
 };
-    `
+    `;
 
-    fs.writeFile(
-        'postcss.config.js',
-        postcssConfigContent,
-        (writeError) => {
-            if (writeError) {
-                console.error(
-                    `Error writing postcss.config.js: ${writeError.message}`,
-                )
-                return
-            }
-            console.log(
-                'postcss.config.js has been created successfully!',
-            )
-        },
-    )
-}
+    fs.writeFile('postcss.config.js', postcssConfigContent, (writeError) => {
+        if (writeError) {
+            console.error(
+                `Error writing postcss.config.js: ${writeError.message}`
+            );
+            return;
+        }
+        console.log('postcss.config.js has been created successfully!');
+    });
+};
 
 export const initialize = async () => {
     try {
-        await installPackage('@nashtech/nt-stylesheet')
+        await installPackage('@nashtech/nt-stylesheet');
         const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout,
-        })
+        });
 
         rl.question(
             'Do you want to initialize Tailwind CSS? (y/n) ',
             (answer) => {
                 if (answer.toLowerCase() === 'y') {
-                    createTailwindConfig()
-                    createPostCSSConfig()
+                    createTailwindConfig();
+                    createPostCSSConfig();
                 } else {
-                    console.log(
-                        'Tailwind CSS initialization skipped.',
-                    )
+                    console.log('Tailwind CSS initialization skipped.');
                 }
-                rl.close()
-            },
-        )
+                rl.close();
+            }
+        );
     } catch (error) {
-        console.error('Initialization failed:', error)
+        console.error('Initialization failed:', error);
     }
-}
+};
 
-initialize()
+initialize();

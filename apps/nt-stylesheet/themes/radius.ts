@@ -5,4 +5,4 @@ export const borderRadius = {
     lg: '0.375rem',
     DEFAULT: '0.25rem',
     sm: '0.125rem',
-}
+};
