@@ -1,9 +1,9 @@
+import { ThemeConfig } from 'tailwindcss/types/config'
+
 import { backgroundColor, boxShadow, colors } from './colors'
 import { fontFamily, fontWeight } from './font'
-import { gap, spacing } from './spacing'
-
-import { ThemeConfig } from 'tailwindcss/types/config'
 import { borderRadius } from './radius'
+import { gap, spacing } from './spacing'
 
 const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> =
     {

@@ -1,9 +1,8 @@
 module.exports = {
-    '{apps,!apps/dist}/**/*.{ts,tsx}': (files) => {
-        return `nx affected --target=typecheck --files=${files.join(',')}`
+    '{apps}/**/*.{js,ts,jsx,tsx,json,css,scss,md}': (files) => {
+        return [
+            `prettier --write ${files.join(' ')}`,
+            `pnpm eslint . --fix`,
+        ]
     },
-    '{apps,!apps/dist}/**/*.{js,ts,jsx,tsx,json}': [
-        (files) => `nx affected:lint --files=${files.join(',')}`,
-        (files) => `nx format:write --files=${files.join(',')}`,
-    ],
 }
