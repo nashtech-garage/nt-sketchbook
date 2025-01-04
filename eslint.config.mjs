@@ -27,7 +27,7 @@ export default [
             '@typescript-eslint': typescriptEslintPlugin,
             '@nx': nxEslintPlugin,
         },
-        ignores: ['coverage/**', 'dist/**'],
+        ignores: ['apps/**/coverage/**', 'apps/**/dist/**'],
         rules: {
             '@nx/enforce-module-boundaries': [
                 'error',
