@@ -4,10 +4,11 @@ export const colors: ThemeConfig['colors'] = {
     black: '#000000',
 
     white: '#FFFFFF',
-    text: '#28292B',
 
+    text: '#28292B',
     grey: '#C9CCD4',
     red: '#D6001C',
+
     orange: '#FF8800',
     purple: '#6A1F7A',
 
