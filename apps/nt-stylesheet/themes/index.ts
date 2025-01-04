@@ -1,11 +1,11 @@
-import {ThemeConfig} from 'tailwindcss/types/config';
+import { ThemeConfig } from 'tailwindcss/types/config';
 
-import {backgroundColor, boxShadow, colors} from './colors';
-import {fontFamily, fontWeight} from './font';
-import {borderRadius} from './radius';
-import {gap, spacing} from './spacing';
+import { backgroundColor, boxShadow, colors } from './colors';
+import { fontFamily, fontWeight } from './font';
+import { borderRadius } from './radius';
+import { gap, spacing } from './spacing';
 
-const theme: Partial<ThemeConfig & {extend: Partial<ThemeConfig>}> = {
+const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> = {
     extend: {
         gap,
         spacing,

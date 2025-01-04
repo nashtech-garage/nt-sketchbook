@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {exec} from 'child_process';
+import { exec } from 'child_process';
 import fs from 'fs';
 import readline from 'readline';
 

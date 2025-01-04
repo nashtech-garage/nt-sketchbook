@@ -1,7 +1,7 @@
-import {exec} from 'child_process';
+import { exec } from 'child_process';
 import fs from 'fs';
 import readline from 'readline';
-import {describe, expect, it, vi} from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
     createPostCSSConfig,

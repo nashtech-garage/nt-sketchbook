@@ -1,11 +1,11 @@
 /// <reference types='vitest' />
-import {nxCopyAssetsPlugin} from '@nx/vite/plugins/nx-copy-assets.plugin';
-import {nxViteTsPaths} from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import autoprefixer from 'autoprefixer';
 import * as path from 'path';
 import tailwindcss from 'tailwindcss';
 import dts from 'vite-plugin-dts';
-import {defineConfig} from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
     root: path.resolve(__dirname),

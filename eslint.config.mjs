@@ -1,4 +1,4 @@
-import {FlatCompat} from '@eslint/eslintrc';
+import { FlatCompat } from '@eslint/eslintrc';
 import nxEslintPlugin from '@nx/eslint-plugin';
 import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
@@ -43,6 +43,7 @@ export default [
                 },
             ],
             'brace-style': ['error', '1tbs'],
+            'object-curly-spacing': ['error', 'always'],
             '@nx/enforce-module-boundaries': [
                 'error',
                 {
