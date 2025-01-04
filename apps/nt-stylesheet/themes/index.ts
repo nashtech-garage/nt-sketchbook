@@ -1,31 +1,32 @@
-import { ThemeConfig } from 'tailwindcss/types/config';
+import { ThemeConfig } from 'tailwindcss/types/config'
 
-import { backgroundColor, boxShadow, colors } from './colors';
-import { fontFamily, fontWeight } from './font';
-import { borderRadius } from './radius';
-import { gap, spacing } from './spacing';
+import { backgroundColor, boxShadow, colors } from './colors'
+import { fontFamily, fontWeight } from './font'
+import { borderRadius } from './radius'
+import { gap, spacing } from './spacing'
 
-const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> = {
-    extend: {
-        gap,
-        spacing,
-        borderRadius,
-        colors,
-        fontFamily,
-        fontWeight,
-        screens: {
-            'viewport-min': '80rem',
+const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> =
+    {
+        extend: {
+            gap,
+            spacing,
+            borderRadius,
+            colors,
+            fontFamily,
+            fontWeight,
+            screens: {
+                'viewport-min': '80rem',
 
-            'viewport-max': '120rem',
-            'page-container-max': '80rem',
+                'viewport-max': '120rem',
+                'page-container-max': '80rem',
+            },
+            backgroundColor,
+            boxShadow,
+
+            gridTemplateColumns: {
+                DEFAULT: 'repeat(12, minmax(0, 1fr))',
+            },
         },
-        backgroundColor,
-        boxShadow,
+    }
 
-        gridTemplateColumns: {
-            DEFAULT: 'repeat(12, minmax(0, 1fr))',
-        },
-    },
-};
-
-export default theme;
+export default theme

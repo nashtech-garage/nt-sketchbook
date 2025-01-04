@@ -1,4 +1,4 @@
-import './styles/styles.scss';
-import ntTheme from './themes';
+import './styles/styles.scss'
+import ntTheme from './themes'
 
-export default ntTheme;
+export default ntTheme

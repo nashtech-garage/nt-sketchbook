@@ -37,6 +37,7 @@ export default [
         ],
         rules: {
             'brace-style': ['error', '1tbs'],
+            semi: ['error', 'never'],
             'object-curly-spacing': ['error', 'always'],
             '@nx/enforce-module-boundaries': [
                 'error',
