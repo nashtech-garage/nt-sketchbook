@@ -1,4 +1,15 @@
 {
+    "importOrder": [
+        "^@core/(.*)$",
+        "^@server/(.*)$",
+        "^@ui/(.*)$",
+        "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "importOrderSideEffects": true,
+    "importOrderCaseInsensitive": true,
+    "plugins": ["@trivago/prettier-plugin-sort-imports"],
     "semi": false,
     "trailingComma": "all",
     "arrowParens": "always",
