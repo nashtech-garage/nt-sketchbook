@@ -43,6 +43,13 @@ jobs:
               run: pnpm run build
               working-directory: apps/nt-stylesheet
 
+            - name: Update package version
+              run: |
+                  TAG=${{ github.event.release.tag_name }}
+                  echo "Using release tag: $TAG"
+                  npm version $TAG --no-git-tag-version --allow-same-version
+              working-directory: apps/nt-stylesheet
+
             - name: Publish to npm
               run: npx semantic-release
               env:
