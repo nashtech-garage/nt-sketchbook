@@ -16,11 +16,13 @@ const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> =
             fontWeight,
             screens: {
                 'viewport-min': '80rem',
+
                 'viewport-max': '120rem',
                 'page-container-max': '80rem',
             },
             backgroundColor,
             boxShadow,
+
             gridTemplateColumns: {
                 DEFAULT: 'repeat(12, minmax(0, 1fr))',
             },
