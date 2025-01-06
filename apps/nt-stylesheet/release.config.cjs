@@ -2,7 +2,7 @@ const name = '@nashtech/nt-stylesheet'
 const srcRoot = `apps/nt-stylesheet`
 
 module.exports = {
-    extends: 'release.config.base.cjs',
+    extends: '../../release.config.base.cjs',
     pkgRoot: `dist/`,
     tagFormat: name + '-v${version}',
     commitPaths: [`${srcRoot}/*`],
