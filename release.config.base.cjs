@@ -1,4 +1,4 @@
 module.exports = {
-    branches: ["main", "beta", "release-*"],
-    extends: 'semantic-release-npm-github-publish',
-}
+  branches: ["main", "beta", "release-*", { name: "*", prerelease: true }],
+  extends: "semantic-release-npm-github-publish",
+};
