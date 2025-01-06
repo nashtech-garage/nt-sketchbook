@@ -37,7 +37,7 @@ jobs:
                   git config user.email 'khoilen@nastechglobal.com'
 
             - name: bump version
-              run: npm version ${{ github.event.inputs.version }}
+              run: pnpm version ${{ github.event.inputs.version }}
               working-directory: apps/nt-stylesheet
 
             - name: Push latest version
