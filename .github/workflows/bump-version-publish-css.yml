@@ -38,6 +38,7 @@ jobs:
 
             - name: bump version
               run: npm version ${{ github.event.inputs.version }}
+              working-directory: apps/nt-stylesheet
 
             - name: Push latest version
               run: git push origin main --follow-tags
