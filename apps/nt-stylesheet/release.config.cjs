@@ -4,7 +4,7 @@ const srcRoot = `apps/nt-stylesheet`
 module.exports = {
     extends: '../../release.config.base.cjs',
     pkgRoot: `dist/`,
-    tagFormat: name + '-v${version}',
+    tagFormat: `${name}-v${version}`,
     commitPaths: [`${srcRoot}/*`],
     plugins: [
         '@semantic-release/commit-analyzer',
