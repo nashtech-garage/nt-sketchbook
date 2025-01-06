@@ -1,5 +1,5 @@
 # This file has been auto-generated. Do not edit manually.
-# If you would like to contribute new rules, please use 
+# If you would like to contribute new rules, please use
 # cmd/generate/config/main.go and follow the contributing guidelines
 # at https://github.com/zricethezav/gitleaks/blob/master/CONTRIBUTING.md
 
@@ -244,7 +244,7 @@ id = "digitalocean-access-token"
 regex = '''(?i)\b(doo_v1_[a-f0-9]{64})(?:['|\"|\n|\r|\s|\x60|;]|$)'''
 secretGroup = 1
 keywords = [
-    "doo_v1_",
+    "doo_v1_"
 ]
 
 [[rules]]
