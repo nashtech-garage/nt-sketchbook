@@ -1,6 +1,13 @@
 {
     "name": "nt-stylesheet",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "targets": {
+        "release": {
+            "executor": "nx:run-commands",
+            "outputs": [],
+            "options": {
+                "command": "npx semantic-release-plus --extends ./apps/nt-stylesheet/release.config.js"
+            }
+        }
     }
 }
-
