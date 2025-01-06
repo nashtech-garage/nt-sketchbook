@@ -1,8 +1,9 @@
 name: 'Publish NT CSS Framework'
 
 on:
-    release:
-        types: [created]
+    push:
+        branches:
+            - main
     workflow_dispatch:
 
 jobs:
@@ -23,31 +24,16 @@ jobs:
             - name: Install pnpm
               run: npm install -g pnpm
 
-            - name: Set up PNPM_HOME and PATH
-              run: |
-                  echo "PNPM_HOME=$HOME/.local/share/pnpm" >> $GITHUB_ENV
-                  echo "PATH=$HOME/.local/share/pnpm:$PATH" >> $GITHUB_ENV
-                  mkdir -p $HOME/.local/share/pnpm
-                  export PNPM_HOME=$HOME/.local/share/pnpm
-                  export PATH=$PNPM_HOME:$PATH
-
             - name: Install dependencies
-              run: pnpm install
+              run: pnpm install --frozen-lockfile
               working-directory: apps/nt-stylesheet
 
             - name: Test CSS framework
-              run: pnpm run test
+              run: pnpm test
               working-directory: apps/nt-stylesheet
 
             - name: Build CSS framework
-              run: pnpm run build
-              working-directory: apps/nt-stylesheet
-
-            - name: Update package version
-              run: |
-                  TAG=${{ github.event.release.tag_name }}
-                  echo "Using release tag: $TAG"
-                  npm version $TAG --no-git-tag-version --allow-same-version
+              run: pnpm build
               working-directory: apps/nt-stylesheet
 
             - name: Publish to npm
