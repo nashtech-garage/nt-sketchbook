@@ -5,8 +5,7 @@
     "packageManager": "pnpm@9.0.5",
     "scripts": {
         "build": "pnpm vite build",
-        "test": "npx vitest",
-        "semantic-release": "semantic-release"
+        "test": "npx vitest"
     },
     "bin": {
         "@nashtech/nt-stylesheet": "bin/init-tailwind.js"
