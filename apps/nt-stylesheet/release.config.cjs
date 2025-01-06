@@ -1,6 +1,4 @@
-import pkg from './package.json'
-
-const name = pkg.name
+const name = '@nashtech/nt-stylesheet'
 const srcRoot = `apps/nt-stylesheet`
 
 module.exports = {
