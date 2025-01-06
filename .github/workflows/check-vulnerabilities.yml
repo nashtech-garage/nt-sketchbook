@@ -22,13 +22,6 @@ jobs:
             - name: Install pnpm
               run: npm install -g pnpm
 
-            - name: Set up PNPM_HOME and PATH
-              run: |
-                  echo "PNPM_HOME=$HOME/.local/share/pnpm" >> $GITHUB_ENV
-                  echo "PATH=$HOME/.local/share/pnpm:$PATH" >> $GITHUB_ENV
-                  mkdir -p $HOME/.local/share/pnpm
-                  export PNPM_HOME=$HOME/.local/share/pnpm
-                  export PATH=$PNPM_HOME:$PATH
             - name: Install dependencies
               run: pnpm install --no-frozen-lockfile
 
