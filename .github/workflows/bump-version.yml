@@ -50,6 +50,10 @@ jobs:
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                git tag "v${{ steps.bump-version.outputs.new_version }}"
-                git push origin "v${{ steps.bump-version.outputs.new_version }}"
+                if [ "${{ env.new_version }}" != "unknown" ]; then
+                    git tag "v${{ env.new_version }}"
+                    git push origin "v${{ env.new_version }}"
+                else
+                    echo "Skipping push due to unknown version"
+                fi
               working-directory: apps/nt-stylesheet
