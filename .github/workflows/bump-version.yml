@@ -3,6 +3,13 @@ name: Bump version Publish NT CSS Framework
 on:
     workflow_dispatch:
         inputs:
+            app:
+                description: 'App to bump version'
+                required: true
+                type: choice
+                default: nt-stylesheet
+                options:
+                    - nt-stylesheet
             version:
                 description: 'Semver type of new version (major / minor / patch)'
                 required: true
@@ -51,15 +58,15 @@ jobs:
                   echo "Bumped version: $version"
                   echo "new_version=$version" >> $GITHUB_ENV
                   if [$version != "unknown" ]; then
-                    git checkout -b bump-version-$version
+                    git checkout -b bump-${{ github.event.inputs.app }}-version-$version
                     git add .
-                    git commit -m "Bump version to $version"
+                    git commit -m "Bump ${{ github.event.inputs.app }} version to $version"
                     git tag "v$version"
-                    git push origin bump-version-$version --follow-tags
+                    git push origin bump-${{ github.event.inputs.app }}-version-$version --follow-tags
                   else
                     echo "Skipping push due to unknown version"
                   fi
-              working-directory: apps/nt-stylesheet
+              working-directory: apps/${{ github.event.inputs.app }}
               continue-on-error: true
 
             - name: Create Pull Request
@@ -68,9 +75,9 @@ jobs:
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 base: main
-                branch: bump-version-${{ env.new_version }}
-                title: "Bump version to ${{ env.new_version }}"
-                body: "This PR bumps the version to ${{ env.new_version }}."
+                branch: bump-${{ github.event.inputs.app }}-version-${{ env.new_version }}
+                title: "Bump version to ${{ env.new_version }} for ${{ github.event.inputs.app }}"
+                body: "This PR bumps the version to ${{ env.new_version }} for ${{ github.event.inputs.app }}."
                 labels: version-bump
                 assignees: khoilen
                 reviewers: khoilen
