@@ -76,6 +76,5 @@ jobs:
                 title: "Bump version to ${{ env.new_version }}"
                 body: "This PR bumps the version to ${{ env.new_version }}."
                 labels: version-bump
-                delete-branch: true
                 assignees: khoilen
                 reviewers: khoilen
