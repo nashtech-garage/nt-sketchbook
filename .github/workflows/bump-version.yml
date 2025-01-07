@@ -12,6 +12,11 @@ on:
                     - minor
                     - major
 
+
+permissions:
+    contents: write
+    pull-requests: write
+
 jobs:
     bump-version:
         runs-on: ubuntu-latest
@@ -63,11 +68,13 @@ jobs:
 
             - name: Create Pull Request
               if: env.new_version != 'unknown'
-              uses: peter-evans/create-pull-request@v3
+              uses: peter-evans/create-pull-request@v7
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 branch: bump-version-${{ env.new_version }}
                 title: "Bump version to ${{ env.new_version }}"
                 body: "This PR bumps the version to ${{ env.new_version }}."
                 labels: version-bump
-                base: main
+                delete-branch: true
+                assignees: khoilen
+                reviewers: khoilen
