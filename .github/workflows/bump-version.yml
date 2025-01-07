@@ -40,7 +40,7 @@ jobs:
               id: bump-version
               run: |
                   pnpm version ${{ github.event.inputs.version }} || true
-                  version=$(jq -r '.version' apps/nt-stylesheet/package.json)
+                  version=$(jq -r '.version' ./package.json)
                   echo "Bumped version: $version"
                   echo "new_version=$version" >> $GITHUB_ENV
               working-directory: apps/nt-stylesheet
