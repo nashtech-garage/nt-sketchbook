@@ -50,12 +50,12 @@ jobs:
                   version=$(jq -r '.version' ./package.json)
                   echo "Bumped version: $version"
                   echo "new_version=$version" >> $GITHUB_ENV
-                  if [ "${{ env.new_version }}" != "unknown" ]; then
-                    git checkout -b bump-version-${{ env.new_version }}
+                  if [$version != "unknown" ]; then
+                    git checkout -b bump-version-$version
                     git add .
-                    git commit -m "Bump version to ${{ env.new_version }}"
-                    git tag "v${{ env.new_version }}"
-                    git push origin bump-version-${{ env.new_version }} --follow-tags
+                    git commit -m "Bump version to $version"
+                    git tag "v$version"
+                    git push origin bump-version-$version --follow-tags
                   else
                     echo "Skipping push due to unknown version"
                   fi
