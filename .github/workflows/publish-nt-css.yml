@@ -55,6 +55,8 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Create Release
-              run: gh release create ${{ github.ref }} --generate-notes
+              run: |
+                version=$(jq -r '.version' apps/nt-stylesheet/package.json)
+                gh release create "v$version" --generate-notes
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
