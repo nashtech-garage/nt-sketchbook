@@ -1,6 +1,6 @@
 {
-    "name": "@nashtech/nt-stylesheet",
-    "version": "1.0.2",
+    "name": "@nashtech/stylesheet",
+    "version": "1.0.0",
     "description": "Style sheet for the NT Design System",
     "packageManager": "pnpm@9.15.3",
     "scripts": {
@@ -9,7 +9,7 @@
         "semantic-release": "semantic-release"
     },
     "bin": {
-        "@nashtech/nt-stylesheet": "bin/init-tailwind.js"
+        "@nashtech/stylesheet": "bin/init-tailwind.js"
     },
     "engines": {
         "node": ">=20"
