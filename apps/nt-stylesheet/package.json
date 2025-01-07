@@ -1,6 +1,6 @@
 {
     "name": "@nashtech/nt-stylesheet",
-    "version": "1.0.9",
+    "version": "1.0.0",
     "description": "Style sheet for the NT Design System",
     "packageManager": "pnpm@9.15.3",
     "scripts": {
