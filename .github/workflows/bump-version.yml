@@ -41,30 +41,26 @@ jobs:
                   git config user.name 'khoilen'
                   git config user.email 'khoilen@nastechglobal.com'
 
-            - name: bump version
+            - name: Bump version and push to local branch
               id: bump-version
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   pnpm version ${{ github.event.inputs.version }} || true
                   version=$(jq -r '.version' ./package.json)
                   echo "Bumped version: $version"
                   echo "new_version=$version" >> $GITHUB_ENV
-              working-directory: apps/nt-stylesheet
-              continue-on-error: true
-
-            - name: Push latest version
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: |
-                if [ "${{ env.new_version }}" != "unknown" ]; then
+                  if [ "${{ env.new_version }}" != "unknown" ]; then
                     git checkout -b bump-version-${{ env.new_version }}
                     git add .
                     git commit -m "Bump version to ${{ env.new_version }}"
                     git tag "v${{ env.new_version }}"
                     git push origin bump-version-${{ env.new_version }} --follow-tags
-                else
+                  else
                     echo "Skipping push due to unknown version"
-                fi
+                  fi
               working-directory: apps/nt-stylesheet
+              continue-on-error: true
 
             - name: Create Pull Request
               if: env.new_version != 'unknown'
