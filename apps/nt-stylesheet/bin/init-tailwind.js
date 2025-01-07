@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-
-import fs from 'fs'
 import { exec } from 'child_process'
+import fs from 'fs'
 import readline from 'readline'
 
 export const installPackage = (packageName) => {
@@ -22,7 +21,7 @@ export const installPackage = (packageName) => {
 
 export const createTailwindConfig = () => {
     const tailwindConfigContent = `/** @type {import('tailwindcss').Config} */
-const ntTheme = require('@nashtech/nt-stylesheet/dist/nt-stylesheet.cjs');
+const ntTheme = require('@nashtech/stylesheet/dist/nt-stylesheet.cjs');
 module.exports = {
     content: ['*.{html,js}'],
     theme: {
@@ -78,7 +77,7 @@ export const createPostCSSConfig = () => {
 
 export const initialize = async () => {
     try {
-        await installPackage('@nashtech/nt-stylesheet')
+        await installPackage('@nashtech/stylesheet')
         const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout,
