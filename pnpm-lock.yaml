@@ -11,10 +11,6 @@ overrides:
 importers:
 
   .:
-    dependencies:
-      '@trivago/prettier-plugin-sort-imports':
-        specifier: ^5.2.1
-        version: 5.2.1(prettier@3.0.1)
     devDependencies:
       '@nrwl/eslint-plugin-nx':
         specifier: ^19.8.4
@@ -25,6 +21,9 @@ importers:
       '@nx/eslint-plugin':
         specifier: ^20.3.0
         version: 20.3.0(@babel/traverse@7.26.4)(@swc-node/register@1.9.2(@swc/core@1.5.29)(@swc/types@0.1.17)(typescript@5.4.5))(@swc/core@1.5.29)(@types/node@18.16.9)(@typescript-eslint/parser@8.19.0(eslint@9.17.0(jiti@1.21.6))(typescript@5.4.5))(eslint-config-prettier@9.1.0(eslint@9.17.0(jiti@1.21.6)))(eslint@9.17.0(jiti@1.21.6))(nx@20.2.2(@swc-node/register@1.9.2(@swc/core@1.5.29)(@swc/types@0.1.17)(typescript@5.4.5))(@swc/core@1.5.29))(typescript@5.4.5)
+      '@trivago/prettier-plugin-sort-imports':
+        specifier: ^5.2.1
+        version: 5.2.1(prettier@3.0.1)
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.19.0
         version: 8.19.0(@typescript-eslint/parser@8.19.0(eslint@9.17.0(jiti@1.21.6))(typescript@5.4.5))(eslint@9.17.0(jiti@1.21.6))(typescript@5.4.5)
