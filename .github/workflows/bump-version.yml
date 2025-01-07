@@ -1,4 +1,4 @@
-name: Bump version Publish NT CSS Framework
+name: Bump version app and create PR
 
 on:
     workflow_dispatch:
