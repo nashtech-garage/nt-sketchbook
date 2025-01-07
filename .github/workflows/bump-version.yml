@@ -42,4 +42,6 @@ jobs:
               continue-on-error: true
 
             - name: Push latest version
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: git push origin main --follow-tags
