@@ -5,7 +5,7 @@
     "main": "index.js",
     "packageManager": "pnpm@9.0.5",
     "engines": {
-        "node": "20"
+        "node": ">= 20"
     },
     "keywords": [],
     "author": "Nashtech",
@@ -14,7 +14,6 @@
         "@nrwl/eslint-plugin-nx": "^19.8.4",
         "@nrwl/linter": "^19.8.4",
         "@nx/eslint-plugin": "^20.3.0",
-        "@trivago/prettier-plugin-sort-imports": "^5.2.1",
         "@typescript-eslint/eslint-plugin": "^8.19.0",
         "@typescript-eslint/parser": "^8.19.0",
         "eslint": "^9.17.0",
@@ -44,5 +43,8 @@
     "bugs": {
         "url": "https://github.com/nashtech-garage/nt-sketchbook/issues"
     },
-    "homepage": "https://github.com/nashtech-garage/nt-sketchbook#readme"
+    "homepage": "https://github.com/nashtech-garage/nt-sketchbook#readme",
+    "dependencies": {
+        "@trivago/prettier-plugin-sort-imports": "^5.2.1"
+    }
 }
