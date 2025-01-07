@@ -5,7 +5,7 @@
     "main": "index.js",
     "packageManager": "pnpm@9.0.5",
     "engines": {
-        "node": "20"
+        "node": ">= 20"
     },
     "keywords": [],
     "author": "Nashtech",
@@ -35,7 +35,8 @@
         "apps/*"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "husky install"
     },
     "repository": {
         "type": "git",
@@ -44,5 +45,10 @@
     "bugs": {
         "url": "https://github.com/nashtech-garage/nt-sketchbook/issues"
     },
-    "homepage": "https://github.com/nashtech-garage/nt-sketchbook#readme"
+    "homepage": "https://github.com/nashtech-garage/nt-sketchbook#readme",
+    "husky": {
+        "hooks": {
+            "pre-commit": "npx lint-staged"
+        }
+    }
 }
