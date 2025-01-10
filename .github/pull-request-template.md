@@ -12,7 +12,7 @@ Closes #
 -   [ ] My code requires changes to the documentation
 -   [ ] I have updated the documentation as required
 -   [ ] All the tests have passed
--   [ ] The dependencies in `package.json` are correct and necessary (no unused or missing package
+-   [ ] The dependencies in `package.json` are correct and necessary (no unused or missing package)
 
 ## ℹ Additional Information
 
