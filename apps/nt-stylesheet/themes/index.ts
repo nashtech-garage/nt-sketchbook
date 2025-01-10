@@ -12,7 +12,7 @@ const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> =
             spacing: {
                 ...spacing,
                 ...gap,
-                gutter: '24px',
+                gutter: '1.5rem',
             },
             borderRadius,
             colors,
@@ -25,7 +25,7 @@ const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> =
             backgroundColor,
             boxShadow,
             gridTemplateColumns: {
-                '12': 'repeat(12, minmax(0, 1fr))',
+                DEFAULT: 'repeat(12, minmax(0, 1fr))',
             },
         },
     }
