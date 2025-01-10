@@ -21,7 +21,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: 20
+                node-version: 20
 
             - name: Authenticate with npm
               run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}" > ~/.npmrc
@@ -40,8 +40,8 @@ jobs:
             - name: Publish to npm
               run: npm publish
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
               working-directory: apps/nt-stylesheet
 
     create-github-release:
@@ -57,6 +57,8 @@ jobs:
             - name: Create Release
               run: |
                 version=$(jq -r '.version' apps/nt-stylesheet/package.json)
-                gh release create "v$version" --generate-notes
+                custom_tag="v$version-stylesheet"
+                title="$custom_tag"
+                gh release create "$custom_tag" --title "$title" --generate-notes
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
