@@ -9,7 +9,11 @@ const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> =
     {
         extend: {
             gap,
-            spacing,
+            spacing: {
+                ...spacing,
+                ...gap,
+                gutter: '24px',
+            },
             borderRadius,
             colors,
             fontFamily,
@@ -17,12 +21,11 @@ const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> =
             screens: {
                 'viewport-min': '80rem',
                 'viewport-max': '120rem',
-                'page-container-max': '80rem',
             },
             backgroundColor,
             boxShadow,
             gridTemplateColumns: {
-                DEFAULT: 'repeat(12, minmax(0, 1fr))',
+                '12': 'repeat(12, minmax(0, 1fr))',
             },
         },
     }
