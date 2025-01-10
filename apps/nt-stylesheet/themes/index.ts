@@ -9,7 +9,11 @@ const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> =
     {
         extend: {
             gap,
-            spacing,
+            spacing: {
+                ...spacing,
+                ...gap,
+                gutter: '1.5rem',
+            },
             borderRadius,
             colors,
             fontFamily,
@@ -17,7 +21,6 @@ const theme: Partial<ThemeConfig & { extend: Partial<ThemeConfig> }> =
             screens: {
                 'viewport-min': '80rem',
                 'viewport-max': '120rem',
-                'page-container-max': '80rem',
             },
             backgroundColor,
             boxShadow,
