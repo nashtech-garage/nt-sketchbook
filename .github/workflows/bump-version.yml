@@ -59,9 +59,9 @@ jobs:
                   echo "new_version=$version" >> $GITHUB_ENV
                   if [$version != "unknown" ]; then
                     git checkout -b bump-${{ github.event.inputs.app }}-version-$version
-                    git add package.json
+                    git add .
                     git commit -m "Bump ${{ github.event.inputs.app }} version to $version"
-                    git tag "v$version"
+                    git tag "v${{ github.event.inputs.app }}-version-$version"
                     git push origin bump-${{ github.event.inputs.app }}-version-$version --follow-tags
                   else
                     echo "Skipping push due to unknown version"
