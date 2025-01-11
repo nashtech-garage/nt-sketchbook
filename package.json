@@ -8,6 +8,8 @@
     "author": "Nashtech",
     "license": "MIT",
     "devDependencies": {
+        "@commitlint/cli": "^19.6.1",
+        "@commitlint/config-conventional": "^19.6.0",
         "@nrwl/eslint-plugin-nx": "^19.8.4",
         "@nrwl/linter": "^19.8.4",
         "@nx/eslint-plugin": "^20.3.0",
@@ -47,8 +49,5 @@
         "hooks": {
             "pre-commit": "npx lint-staged"
         }
-    },
-    "dependencies": {
-        "@commitlint/config-conventional": "^19.6.0"
     }
 }
