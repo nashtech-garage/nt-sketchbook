@@ -35,7 +35,8 @@
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "husky install"
+        "postinstall": "husky install",
+        "commitlint": "commitlint --edit"
     },
     "repository": {
         "type": "git",
