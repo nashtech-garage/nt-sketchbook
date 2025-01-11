@@ -4,13 +4,12 @@
     "description": "A customizable styling library for UI components, built with Storybook for visual documentation and component development. Provides reusable styles, themes, and design system components to maintain consistent look and feel across the application.",
     "main": "index.js",
     "packageManager": "pnpm@9.15.3",
-    "engines": {
-        "node": ">= 20"
-    },
     "keywords": [],
     "author": "Nashtech",
     "license": "MIT",
     "devDependencies": {
+        "@commitlint/cli": "^19.6.1",
+        "@commitlint/config-conventional": "^19.6.0",
         "@nrwl/eslint-plugin-nx": "^19.8.4",
         "@nrwl/linter": "^19.8.4",
         "@nx/eslint-plugin": "^20.3.0",
@@ -36,7 +35,8 @@
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "husky install"
+        "postinstall": "husky install",
+        "commitlint": "commitlint --edit"
     },
     "repository": {
         "type": "git",
