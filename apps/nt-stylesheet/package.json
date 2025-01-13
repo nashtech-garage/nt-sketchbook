@@ -6,7 +6,7 @@
     "scripts": {
         "build": "pnpm vite build",
         "test": "npx vitest",
-        "semantic-release": "semantic-release"
+        "lint": "pnpm eslint"
     },
     "bin": {
         "@nashtech/stylesheet": "bin/init-tailwind.js"
