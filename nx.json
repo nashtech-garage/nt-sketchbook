@@ -1,36 +1,28 @@
 {
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
-    "npmScope": "nx-precommit-hooks",
-    "tasksRunnerOptions": {
-        "default": {
-            "runner": "nx/tasks-runners/default",
-            "options": {
-                "cacheableOperations": [
-                    "build",
-                    "lint",
-                    "test",
-                    "build-storybook"
-                ]
-            }
-        }
-    },
     "targetDefaults": {
         "build": {
             "dependsOn": ["^build"],
-            "inputs": ["production", "^production"]
+            "inputs": ["production", "^production"],
+            "cache": true
         },
         "test": {
             "inputs": [
                 "default",
                 "^production",
                 "{workspaceRoot}/jest.preset.js"
-            ]
+            ],
+            "cache": true
         },
         "lint": {
             "inputs": [
                 "default",
                 "{workspaceRoot}/.eslint.config.mjs"
-            ]
+            ],
+            "cache": true
+        },
+        "build-storybook": {
+            "cache": true
         }
     },
     "namedInputs": {

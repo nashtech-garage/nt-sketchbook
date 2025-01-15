@@ -1,5 +1,5 @@
 {
-    "name": "nt-stylesheet",
+    "name": "nt-headless-ui",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "targets": {}
 }
