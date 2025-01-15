@@ -75,3 +75,7 @@ yarn-error.log*
 # misc
 .DS_Store
 *.pem
+
+
+# storybook
+doctor-storybook.log

@@ -1,13 +1,15 @@
 {
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "target": "ES2017",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
         "skipLibCheck": true,
         "strict": true,
-        "noEmit": true,
+        "declaration": true,
         "esModuleInterop": true,
         "module": "esnext",
+        "composite": true,
         "moduleResolution": "bundler",
         "resolveJsonModule": true,
         "isolatedModules": true,
@@ -28,5 +30,10 @@
         "**/*.tsx",
         ".next/types/**/*.ts"
     ],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "**/*.stories.ts", "**/*.stories.js"],
+    "references": [
+        {
+            "path": "./tsconfig.storybook.json"
+        }
+    ]
 }

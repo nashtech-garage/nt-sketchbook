@@ -5,7 +5,12 @@
         "default": {
             "runner": "nx/tasks-runners/default",
             "options": {
-                "cacheableOperations": ["build", "lint", "test"]
+                "cacheableOperations": [
+                    "build",
+                    "lint",
+                    "test",
+                    "build-storybook"
+                ]
             }
         }
     },
@@ -35,8 +40,22 @@
             "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
             "!{projectRoot}/tsconfig.spec.json",
             "!{projectRoot}/.eslint.config.mjs",
-            "!{projectRoot}/jest.config.[jt]s"
+            "!{projectRoot}/jest.config.[jt]s",
+            "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+            "!{projectRoot}/.storybook/**/*",
+            "!{projectRoot}/tsconfig.storybook.json"
         ],
         "sharedGlobals": []
-    }
+    },
+    "plugins": [
+        {
+            "plugin": "@nx/storybook/plugin",
+            "options": {
+                "serveStorybookTargetName": "storybook",
+                "buildStorybookTargetName": "build-storybook",
+                "testStorybookTargetName": "test-storybook",
+                "staticStorybookTargetName": "static-storybook"
+            }
+        }
+    ]
 }
