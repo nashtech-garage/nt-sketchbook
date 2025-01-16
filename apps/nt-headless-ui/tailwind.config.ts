@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 
-// const ntTheme = require('@nashtech/stylesheet/dist/nt-stylesheet.cjs')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const ntTheme = require('@nashtech/stylesheet/dist/nt-stylesheet.cjs')
 
 export default {
     darkMode: ['class'],
@@ -9,7 +10,9 @@ export default {
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
-    theme: {},
+    theme: {
+        extend: ntTheme.extend,
+    },
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     plugins: [require('tailwindcss-animate')],
 } satisfies Config
