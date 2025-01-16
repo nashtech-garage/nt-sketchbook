@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "target": "ES2017",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "composite": true,
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./*"]
+        },
+        "noEmit": true
+    },
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts"
+    ],
+    "exclude": ["node_modules", "**/*.stories.ts", "**/*.stories.js"],
+    "references": [
+        {
+            "path": "./tsconfig.storybook.json"
+        }
+    ]
+}

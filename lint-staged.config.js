@@ -4,9 +4,8 @@ module.exports = {
             `prettier --write ${files
                 .map((file) => `"${file}"`)
                 .join(' ')}`,
-            `pnpm eslint --fix ${files
-                .map((file) => `"${file}"`)
-                .join(' ')}`,
+            `nx lint nt-stylesheet --fix`,
+            `nx lint nt-headless-ui --fix`,
         ]
     },
 }

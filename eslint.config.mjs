@@ -3,17 +3,16 @@ import nxEslintPlugin from '@nx/eslint-plugin'
 import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin'
 import typescriptParser from '@typescript-eslint/parser'
 import prettierPlugin from 'eslint-plugin-prettier'
+import { fileURLToPath } from 'url'
+import path from 'path'
+
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const compat = new FlatCompat({
-    baseConfig: {
-        plugins: ['@typescript-eslint', '@nx', 'prettier'],
-        extends: [
-            'eslint:recommended',
-            'plugin:@typescript-eslint/recommended',
-            'plugin:@nx/recommended',
-            'plugin:prettier/recommended',
-        ],
-    },
+    baseDirectory: __dirname,
+    recommendedConfig: {}
 })
 
 export default [
@@ -54,11 +53,5 @@ export default [
             ],
         },
     },
-    ...compat.config({
-        overrides: [
-            {
-                files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
-            },
-        ],
-    }),
+    ...compat.extends('eslint:recommended', 'prettier'),
 ]
