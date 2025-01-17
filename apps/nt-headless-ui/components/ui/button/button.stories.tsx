@@ -12,16 +12,16 @@ const Template: StoryFn<ButtonProps> = (args: ButtonProps) => (
     <Button {...args}>Button</Button>
 )
 
-export const Default: StoryFn<ButtonProps> = Template.bind({})
-Default.args = {
+export const Primary: StoryFn<ButtonProps> = Template.bind({})
+Primary.args = {
     onClick: () => alert('Button clicked!'),
-    variant: 'default',
+    variant: 'primary',
 }
 
-export const Destructive: StoryFn<ButtonProps> = Template.bind({})
-Destructive.args = {
+export const Secondary: StoryFn<ButtonProps> = Template.bind({})
+Secondary.args = {
     onClick: () => alert('Button clicked!'),
-    variant: 'destructive',
+    variant: 'seconadry',
 }
 
 export const Outline: StoryFn<ButtonProps> = Template.bind({})
@@ -30,20 +30,10 @@ Outline.args = {
     variant: 'outline',
 }
 
-export const Secondary: StoryFn<ButtonProps> = Template.bind({})
-Secondary.args = {
+export const OutlineSecondary: StoryFn<ButtonProps> = Template.bind(
+    {},
+)
+OutlineSecondary.args = {
     onClick: () => alert('Button clicked!'),
-    variant: 'secondary',
-}
-
-export const Ghost: StoryFn<ButtonProps> = Template.bind({})
-Ghost.args = {
-    onClick: () => alert('Button clicked!'),
-    variant: 'ghost',
-}
-
-export const Link: StoryFn<ButtonProps> = Template.bind({})
-Link.args = {
-    onClick: () => alert('Button clicked!'),
-    variant: 'link',
+    variant: 'outline-secondary',
 }
