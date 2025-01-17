@@ -1,16 +1,15 @@
 import { cn } from '@/lib/utils'
-import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 
 const buttonVariants = cva(
-    'inline-flex items-center justify-center rounded-badge text-sm font-medium shadow-md',
+    'inline-flex items-center justify-center rounded-md text-sm font-medium shadow-md',
     {
         variants: {
             variant: {
                 primary:
                     'bg-primary text-white hover:bg-shade-primary-80 active:bg-shade-primary-110 disabled:bg-shade-primary-20 disabled:text-white',
-                seconadry:
+                secondary:
                     'bg-shade-secondary-1 text-white hover:bg-shade-secondary-1-80 active:bg-shade-secondary-1-110 disabled:bg-shade-secondary-1-20 disabled:text-white',
                 outline:
                     'border border-primary text-primary hover:shadow active:bg-shade-primary-10 disabled:bg-primary-20 disabled:text-white',
@@ -34,23 +33,39 @@ const buttonVariants = cva(
 export interface ButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement>,
         VariantProps<typeof buttonVariants> {
-    asChild?: boolean
+    icon?: React.ReactNode
+    iconPosition?: 'left' | 'right'
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     (
-        { className, variant, size, asChild = false, ...props },
+        {
+            className,
+            variant,
+            size,
+            icon = null,
+            iconPosition = 'left',
+            children,
+            ...props
+        },
         ref,
     ) => {
-        const Comp = asChild ? Slot : 'button'
         return (
-            <Comp
+            <button
                 className={cn(
                     buttonVariants({ variant, size, className }),
                 )}
                 ref={ref}
                 {...props}
-            />
+            >
+                {icon && iconPosition === 'left' && (
+                    <span className="mr-2">{icon}</span>
+                )}
+                {children}
+                {icon && iconPosition === 'right' && (
+                    <span className="ml-2">{icon}</span>
+                )}
+            </button>
         )
     },
 )
