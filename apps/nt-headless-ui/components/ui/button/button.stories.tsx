@@ -21,7 +21,7 @@ Primary.args = {
 export const Secondary: StoryFn<ButtonProps> = Template.bind({})
 Secondary.args = {
     onClick: () => alert('Button clicked!'),
-    variant: 'seconadry',
+    variant: 'secondary',
 }
 
 export const Outline: StoryFn<ButtonProps> = Template.bind({})
@@ -36,4 +36,14 @@ export const OutlineSecondary: StoryFn<ButtonProps> = Template.bind(
 OutlineSecondary.args = {
     onClick: () => alert('Button clicked!'),
     variant: 'outline-secondary',
+}
+export const WithIcon: StoryFn<ButtonProps> = Template.bind({})
+WithIcon.args = {
+    onClick: () => alert('Button with icon clicked!'),
+    variant: 'primary',
+    icon: (
+        <span role="img" aria-label="icon">
+            🚀
+        </span>
+    ),
 }
