@@ -12,6 +12,7 @@ export const colors: ThemeConfig['colors'] = {
         DEFAULT: '#0094D5',
     },
     primary: '#D6001C',
+    'secondary-6': '#C9CCD4',
     'shade-secondary-1': {
         '190': '#0B030C',
         '180': '#150618',
