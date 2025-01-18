@@ -9,7 +9,7 @@
         "lint": "next lint",
         "dev": "storybook dev -p 6006 -c .storybook",
         "build-storybook": "storybook -c .storybook -o dist/storybook",
-        "test": "npx vitest"
+        "test": "pnpm vitest"
     },
     "dependencies": {
         "@radix-ui/react-slot": "^1.1.1",

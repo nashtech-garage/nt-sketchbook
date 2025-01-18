@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
     resolve: {
@@ -13,5 +13,9 @@ export default defineConfig({
         globals: true,
         environment: 'jsdom',
         setupFiles: path.resolve(__dirname, './setup-test.ts'),
+        coverage: {
+            reporter: ['cobertura', 'lcov'],
+            reportOnFailure: true,
+        },
     },
 })
