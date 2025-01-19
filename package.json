@@ -58,7 +58,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "postinstall": "husky install",
-        "commitlint": "commitlint --edit"
+        "commitlint": "commitlint --edit",
+        "build:headlessui-storybook": "npx nx run nt-stylesheet:build && npx nx run nt-headless-ui:build-storybook"
     },
     "repository": {
         "type": "git",
