@@ -8,7 +8,7 @@
         "start": "next start",
         "lint": "next lint",
         "dev": "storybook dev -p 6006 -c .storybook",
-        "build-storybook": "storybook -c .storybook -o dist/storybook",
+        "build-storybook": "storybook build",
         "test": "pnpm vitest"
     },
     "dependencies": {
