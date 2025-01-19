@@ -1,85 +1,86 @@
 import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
 
-import { Avatar, AvatarFallback, AvatarImage } from './avatar'
+import { Avatar, AvatarProps } from './avatar'
 
-const URL_IMAGE =
-    'https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg'
+const URL_IMAGE = './image.png'
 
-const meta: Meta = {
+const meta: Meta<AvatarProps> = {
     title: 'Components/Avatar',
     component: Avatar,
-    subcomponents: { AvatarImage, AvatarFallback },
-    parameters: {
-        docs: {
-            description: {
-                component:
-                    'A flexible Avatar component using Radix UI.',
-            },
+    args: {
+        src: URL_IMAGE,
+        fallBack: 'JD',
+    },
+    argTypes: {
+        src: {
+            control: 'text',
+            description: 'Source URL for the avatar image.',
+        },
+        fallBack: {
+            control: 'text',
+            description:
+                'Fallback content displayed when the image is unavailable.',
+        },
+        className: {
+            control: 'text',
+            description: 'Custom CSS classes for the avatar root.',
+        },
+        badge: {
+            control: 'text',
+            description: 'Badge content displayed on the avatar.',
+        },
+        badgePosition: {
+            control: 'select',
+            options: [
+                'top-left',
+                'top-right',
+                'bottom-left',
+                'bottom-right',
+            ],
+            description: 'Position of the badge on the avatar.',
         },
     },
 }
 
 export default meta
 
-type Story = StoryObj<typeof Avatar>
-
-export const Default: Story = {
-    render: (args) => (
-        <Avatar {...args}>
-            <AvatarImage src={URL_IMAGE} alt="User Avatar" />
-            <AvatarFallback>
-                <div className="bg-slate-500" />
-            </AvatarFallback>
-        </Avatar>
-    ),
+export const Default: StoryObj<AvatarProps> = {
     args: {
-        className: '',
-    },
-    parameters: {
-        docs: {
-            description: {
-                story: 'Default Avatar with an image and fallback text.',
-            },
-        },
+        src: URL_IMAGE,
+        fallBack: 'JD',
     },
 }
 
-export const WithFallbackOnly: Story = {
-    render: (args) => (
-        <Avatar {...args}>
-            <AvatarFallback>
-                <div className="bg-slate-500" />
-            </AvatarFallback>
-        </Avatar>
-    ),
+export const NoImage: StoryObj<AvatarProps> = {
     args: {
-        className: '',
-    },
-    parameters: {
-        docs: {
-            description: {
-                story: 'Avatar displaying only fallback text.',
-            },
-        },
+        src: '',
+        fallBack: 'NA',
     },
 }
 
-export const CustomSize: Story = {
-    render: (args) => (
-        <Avatar {...args}>
-            <AvatarImage src={URL_IMAGE} alt="User Avatar" />
-            <AvatarFallback>loading..</AvatarFallback>
-        </Avatar>
-    ),
+export const CustomSize: StoryObj<AvatarProps> = {
     args: {
-        className: 'h-16 w-16',
+        src: URL_IMAGE,
+        fallBack: 'CS',
+        className: 'h-[100px] w-[100px]',
     },
-    parameters: {
-        docs: {
-            description: {
-                story: 'Avatar with a custom size.',
-            },
-        },
+}
+
+export const NoBadge: StoryObj<AvatarProps> = {
+    args: {
+        src: URL_IMAGE,
+        fallBack: 'JD',
+        badge: undefined,
+    },
+}
+
+export const CustomBadge: StoryObj<AvatarProps> = {
+    args: {
+        src: URL_IMAGE,
+        fallBack: 'JD',
+        badge: (
+            <span className="bg-red-500 text-white px-1 rounded" />
+        ),
+        badgePosition: 'bottom-right',
     },
 }
