@@ -21,7 +21,6 @@
         "@swc/core": "~1.5.7",
         "@swc/helpers": "~0.5.11",
         "@testing-library/jest-dom": "^6.6.3",
-        "@testing-library/react": "^16.2.0",
         "@trivago/prettier-plugin-sort-imports": "^5.2.1",
         "@typescript-eslint/eslint-plugin": "^8.19.0",
         "@typescript-eslint/parser": "^8.19.0",
@@ -56,10 +55,11 @@
         "apps/*"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "npx nx run-many --target=test --all --skip-nx-cache",
         "postinstall": "husky install",
         "commitlint": "commitlint --edit",
-        "build:headlessui-storybook": "npx nx run nt-stylesheet:build && npx nx run nt-headless-ui:build-storybook"
+        "build:headlessui-storybook": "npx nx run nt-stylesheet:build && npx nx run nt-headless-ui:build-storybook",
+        "lint": "npx nx run-many --target=lint --all --skip-nx-cache"
     },
     "repository": {
         "type": "git",

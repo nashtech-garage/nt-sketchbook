@@ -6,10 +6,13 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname),
+            react: path.resolve('./node_modules/react'),
+            'react-dom': path.resolve('./node_modules/react-dom'),
         },
     },
     plugins: [react()],
     test: {
+        watch: false,
         globals: true,
         environment: 'jsdom',
         setupFiles: path.resolve(__dirname, './setup-test.ts'),

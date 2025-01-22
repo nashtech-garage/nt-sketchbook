@@ -12,6 +12,7 @@ module.exports = {
         name: getAbsolutePath('@storybook/nextjs'),
         options: {},
     },
+    staticDirs: ['../public'],
     docs: {
         autodocs: true,
     },
