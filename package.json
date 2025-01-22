@@ -48,16 +48,14 @@
     "pnpm": {
         "overrides": {
             "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
-            "@eslint/plugin-kit@<0.2.3": ">=0.2.3",
-            "react": "^18.2.0",
-            "react-dom": "^18.2.0"
+            "@eslint/plugin-kit@<0.2.3": ">=0.2.3"
         }
     },
     "workspaces": [
         "apps/*"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "pnpm vitest",
         "postinstall": "husky install",
         "commitlint": "commitlint --edit",
         "build:headlessui-storybook": "npx nx run nt-stylesheet:build && npx nx run nt-headless-ui:build-storybook",
