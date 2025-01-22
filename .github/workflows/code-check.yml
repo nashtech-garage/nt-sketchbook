@@ -1,0 +1,30 @@
+name: 'Code Check '
+
+on:
+    pull_request:
+        branches: ['main']
+
+jobs:
+    code-check:
+        name: Code Check
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '22.12.0'
+
+            - name: Install pnpm
+              run: npm install -g pnpm
+
+            - name: Install dependencies
+              run: pnpm install --no-frozen-lockfile
+
+            - name: Run lint
+              run: pnpm lint
+
+            - name: Run tests
+              run: pnpm test
