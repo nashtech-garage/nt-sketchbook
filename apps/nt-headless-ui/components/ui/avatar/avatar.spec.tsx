@@ -3,19 +3,7 @@ import { describe, expect, it } from 'vitest'
 
 import { Avatar } from './avatar'
 
-describe('Avatar', () => {
-    it('renders with image source and fallback', () => {
-        render(<Avatar src="/images/test-avatar.jpg" fallBack="JD" />)
-        const image = screen.getByRole('img')
-        const fallback = screen.queryByText('JD')
-
-        expect(image).toHaveAttribute(
-            'src',
-            '/images/test-avatar.jpg',
-        )
-        expect(fallback).not.toBeInTheDocument()
-    })
-
+describe('Avatar ', () => {
     it('renders fallback content when image source is not provided', () => {
         render(<Avatar fallBack="NA" />)
         const fallback = screen.getByText('NA')

@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils'
 import { cva, VariantProps } from 'class-variance-authority'
-import React from 'react'
 
 const badgeVariants = cva(
     'inline-flex items-center hover:cursor-pointer px-2.5 py-1.5',
