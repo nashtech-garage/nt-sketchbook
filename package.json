@@ -55,11 +55,11 @@
         "apps/*"
     ],
     "scripts": {
-        "test": "pnpm vitest",
+        "test": "npx nx run-many --target=test --all --skip-nx-cache",
         "postinstall": "husky install",
         "commitlint": "commitlint --edit",
         "build:headlessui-storybook": "npx nx run nt-stylesheet:build && npx nx run nt-headless-ui:build-storybook",
-        "lint": "npx nx run-many --target=lint --all"
+        "lint": "npx nx run-many --target=lint --all --skip-nx-cache"
     },
     "repository": {
         "type": "git",
