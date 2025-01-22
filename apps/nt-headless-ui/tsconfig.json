@@ -21,6 +21,10 @@
                 "name": "next"
             }
         ],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["*"]
+        },
         "noEmit": true
     },
     "include": [
