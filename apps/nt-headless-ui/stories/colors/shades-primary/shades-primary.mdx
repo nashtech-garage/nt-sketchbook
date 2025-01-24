@@ -1,0 +1,44 @@
+import { Markdown } from '@storybook/blocks'
+import {
+    Canvas,
+    ColorItem,
+    ColorPalette,
+    Meta,
+    Story,
+} from '@storybook/blocks'
+
+<Meta title="Color/Shades primary" />
+
+<ColorPalette>
+    <ColorItem
+        title="Shades primary"
+        subtitle="Shades of primary color 190 to 100 default is 100"
+        colors={{
+            190: '#150003',
+            180: '#2B0006',
+            170: '#400008',
+            160: '#56000B',
+            150: '#6B000E',
+            140: '#800011',
+            130: '#960014',
+            120: '#AB0016',
+            110: '#C10019',
+            100: '#D6001C',
+        }}
+    />
+    <ColorItem
+        title="Shades primary"
+        subtitle="Shades of primary color 90 to 10"
+        colors={{
+            90: '#DA1A33',
+            80: '#DE3349',
+            70: '#E24D60',
+            60: '#E66677',
+            50: '#EB808E',
+            40: '#EF99A4',
+            30: '#F3B3BB',
+            20: '#F7CCD2',
+            10: '#FBE6E8',
+        }}
+    />
+</ColorPalette>
