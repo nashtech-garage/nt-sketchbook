@@ -1,0 +1,22 @@
+import { Markdown } from '@storybook/blocks'
+import {
+    Canvas,
+    ColorItem,
+    ColorPalette,
+    Meta,
+    Story,
+} from '@storybook/blocks'
+
+import colors from './colors.json'
+
+<Meta title="Color/Brand" />
+
+<ColorPalette>
+    {colors.map((color) => (
+        <ColorItem
+            key={color.title}
+            title={color.name}
+            colors={{ [color.name]: color.value }}
+        />
+    ))}
+</ColorPalette>
