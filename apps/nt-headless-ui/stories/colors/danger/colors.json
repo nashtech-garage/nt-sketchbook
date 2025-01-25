@@ -1,0 +1,18 @@
+[
+    {
+        "name": "bold",
+        "value": "#E51010"
+    },
+    {
+        "name": "regular (default)",
+        "value": "#FA5151"
+    },
+    {
+        "name": "light",
+        "value": "#F9BBBB"
+    },
+    {
+        "name": "thin",
+        "value": "#FFE9E9"
+    }
+]
