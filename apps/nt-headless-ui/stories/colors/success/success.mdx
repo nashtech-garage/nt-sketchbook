@@ -7,12 +7,29 @@ import {
     Story,
 } from '@storybook/blocks'
 
-import colors from './colors.json'
+import { colors } from '../../../../nt-stylesheet/themes/colors.ts'
 
 <Meta title="Colors/Success" />
 
 <ColorPalette>
-    {colors.map((color) => (
+    {[
+        {
+            name: 'bold',
+            value: colors.success.bold,
+        },
+        {
+            name: 'regular (default)',
+            value: colors.success.DEFAULT,
+        },
+        {
+            name: 'light',
+            value: colors.success.light,
+        },
+        {
+            name: 'thin',
+            value: colors.success.thin,
+        },
+    ].map((color) => (
         <ColorItem
             key={color.title}
             title={color.name}

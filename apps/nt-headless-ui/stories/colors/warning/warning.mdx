@@ -7,12 +7,29 @@ import {
     Story,
 } from '@storybook/blocks'
 
-import colors from './colors.json'
+import { colors } from '../../../../nt-stylesheet/themes/colors.ts'
 
 <Meta title="Colors/Warning" />
 
 <ColorPalette>
-    {colors.map((color) => (
+    {[
+        {
+            name: 'bold',
+            value: colors.warning.bold,
+        },
+        {
+            name: 'regular (default)',
+            value: colors.warning.DEFAULT,
+        },
+        {
+            name: 'light',
+            value: colors.warning.light,
+        },
+        {
+            name: 'thin',
+            value: colors.warning.thin,
+        },
+    ].map((color) => (
         <ColorItem
             key={color.title}
             title={color.name}

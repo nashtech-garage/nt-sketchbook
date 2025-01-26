@@ -7,36 +7,38 @@ import {
     Story,
 } from '@storybook/blocks'
 
-<Meta title="colors/Shades primary" />
+import { colors } from '../../../../nt-stylesheet/themes/colors.ts'
+
+<Meta title="Colors/Shades/Primary" />
 
 <ColorPalette>
     <ColorItem
         title="190-100"
         colors={{
-            190: '#150003',
-            180: '#2B0006',
-            170: '#400008',
-            160: '#56000B',
-            150: '#6B000E',
-            140: '#800011',
-            130: '#960014',
-            120: '#AB0016',
-            110: '#C10019',
-            100: '#D6001C',
+            190: colors['shade-primary']['190'],
+            180: colors['shade-primary']['180'],
+            170: colors['shade-primary']['170'],
+            160: colors['shade-primary']['160'],
+            150: colors['shade-primary']['150'],
+            140: colors['shade-primary']['140'],
+            130: colors['shade-primary']['130'],
+            120: colors['shade-primary']['120'],
+            110: colors['shade-primary']['110'],
+            100: colors['shade-primary'].DEFAULT,
         }}
     />
     <ColorItem
         title="90-10"
         colors={{
-            90: '#DA1A33',
-            80: '#DE3349',
-            70: '#E24D60',
-            60: '#E66677',
-            50: '#EB808E',
-            40: '#EF99A4',
-            30: '#F3B3BB',
-            20: '#F7CCD2',
-            10: '#FBE6E8',
+            90: colors['shade-primary']['90'],
+            80: colors['shade-primary']['80'],
+            70: colors['shade-primary']['70'],
+            60: colors['shade-primary']['60'],
+            50: colors['shade-primary']['50'],
+            40: colors['shade-primary']['40'],
+            30: colors['shade-primary']['30'],
+            20: colors['shade-primary']['20'],
+            10: colors['shade-primary']['20'],
         }}
     />
 </ColorPalette>
