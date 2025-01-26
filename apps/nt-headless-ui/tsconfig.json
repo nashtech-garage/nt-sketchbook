@@ -23,8 +23,10 @@
         ],
         "baseUrl": ".",
         "paths": {
-            "@/*": ["*"]
+            "@/*": ["*"],
+            "@stylesheet/*": ["../nt-stylesheet/*"]
         },
+
         "noEmit": true
     },
     "include": [

@@ -6,6 +6,10 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname),
+            '@stylesheet': path.resolve(
+                __dirname,
+                '../nt-stylesheet',
+            ),
             react: path.resolve('./node_modules/react'),
             'react-dom': path.resolve('./node_modules/react-dom'),
         },
