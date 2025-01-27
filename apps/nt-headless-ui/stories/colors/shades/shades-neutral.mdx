@@ -7,23 +7,26 @@ import {
     Story,
 } from '@storybook/blocks'
 
-<Meta title="Colors/Shades neutral" />
+import { colors } from '@stylesheet/themes/colors.ts'
+
+<Meta title="Foundation/Colors/Shades/Neutral" />
 
 <ColorPalette>
     <ColorItem
-        title="100-10"
+        title="shade-neutral"
+        subtitle="100-9"
         colors={{
-            100: '#28292B',
-            90: '#3E3E40',
-            80: '#535455',
-            70: '#69696B',
-            60: '#7E7F80',
-            50: '#949495',
-            40: '#A9A9AA',
-            30: '#BFBFBF',
-            20: '#D4D4D5',
-            10: '#EAEAEA',
-            9: '#F6F6F6',
+            100: colors['shade-neutral'].DEFAULT,
+            90: colors['shade-neutral']['90'],
+            80: colors['shade-neutral']['80'],
+            70: colors['shade-neutral']['70'],
+            60: colors['shade-neutral']['60'],
+            50: colors['shade-neutral']['50'],
+            40: colors['shade-neutral']['40'],
+            30: colors['shade-neutral']['30'],
+            20: colors['shade-neutral']['20'],
+            10: colors['shade-neutral']['10'],
+            9: colors['shade-neutral']['9'],
         }}
     />
 </ColorPalette>

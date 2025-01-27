@@ -12,7 +12,13 @@
         "module": "esnext",
         "lib": ["es2017", "dom"],
         "skipLibCheck": true,
-        "skipDefaultLibCheck": true
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@share/*": ["*"],
+            "@stylesheet/*": ["./apps/nt-stylesheet/*"],
+            "@headless-ui/*": ["./apps/nt-headless-ui/*"]
+        }
     },
     "exclude": ["node_modules", "tmp"]
 }

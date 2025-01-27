@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@headless-ui/lib/utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
 const badgeVariants = cva(

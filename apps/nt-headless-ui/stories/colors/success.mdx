@@ -1,0 +1,41 @@
+import { Markdown } from '@storybook/blocks'
+import {
+    Canvas,
+    ColorItem,
+    ColorPalette,
+    Meta,
+    Story,
+} from '@storybook/blocks'
+
+import { colors } from '@stylesheet/themes/colors.ts'
+
+<Meta title="Foundation/Colors/Success" />
+
+<ColorPalette>
+    {[
+        {
+            name: 'success-bold',
+            value: colors.success.bold,
+        },
+        {
+            name: 'success-regular',
+            subtitle: '(default)',
+            value: colors.success.DEFAULT,
+        },
+        {
+            name: 'success-light',
+            value: colors.success.light,
+        },
+        {
+            name: 'success-thin',
+            value: colors.success.thin,
+        },
+    ].map((color) => (
+        <ColorItem
+            key={color.title}
+            title={color.name}
+            subtitle={color?.subtitle}
+            colors={{ [color.name]: color.value }}
+        />
+    ))}
+</ColorPalette>

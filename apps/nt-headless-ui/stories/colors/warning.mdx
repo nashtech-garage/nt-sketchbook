@@ -1,0 +1,41 @@
+import { Markdown } from '@storybook/blocks'
+import {
+    Canvas,
+    ColorItem,
+    ColorPalette,
+    Meta,
+    Story,
+} from '@storybook/blocks'
+
+import { colors } from '@stylesheet/themes/colors.ts'
+
+<Meta title="Foundation/Colors/Warning" />
+
+<ColorPalette>
+    {[
+        {
+            name: 'warning-bold',
+            value: colors.warning.bold,
+        },
+        {
+            name: 'warning-regular',
+            subtitle: '(default)',
+            value: colors.warning.DEFAULT,
+        },
+        {
+            name: 'warning-light',
+            value: colors.warning.light,
+        },
+        {
+            name: 'warning-thin',
+            value: colors.warning.thin,
+        },
+    ].map((color) => (
+        <ColorItem
+            key={color.title}
+            subtitle={color?.subtitle}
+            title={color.name}
+            colors={{ [color.name]: color.value }}
+        />
+    ))}
+</ColorPalette>

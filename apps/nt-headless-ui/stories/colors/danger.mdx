@@ -1,0 +1,41 @@
+import { Markdown } from '@storybook/blocks'
+import {
+    Canvas,
+    ColorItem,
+    ColorPalette,
+    Meta,
+    Story,
+} from '@storybook/blocks'
+
+import { colors } from '@stylesheet/themes/colors.ts'
+
+<Meta title="Foundation/Colors/Danger" />
+
+<ColorPalette>
+    {[
+        {
+            name: 'danger-bold',
+            value: colors.danger.bold,
+        },
+        {
+            name: 'danger-regular',
+            subtitle: '(default)',
+            value: colors.danger.DEFAULT,
+        },
+        {
+            name: 'danger-light',
+            value: colors.danger.light,
+        },
+        {
+            name: 'danger-thin',
+            value: colors.danger.thin,
+        },
+    ].map((color) => (
+        <ColorItem
+            key={color.name}
+            title={color.name}
+            subtitle={color?.subtitle}
+            colors={{ [color.name]: color.value }}
+        />
+    ))}
+</ColorPalette>

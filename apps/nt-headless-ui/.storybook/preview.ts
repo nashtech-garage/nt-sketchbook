@@ -8,5 +8,25 @@ export const parameters = {
             date: /Date$/,
         },
     },
+    options: {
+        storySort: {
+            method: 'alphabetical',
+            order: [
+                'Foundation',
+                [
+                    'Colors',
+                    [
+                        'Brand',
+                        'Shades',
+                        'Success',
+                        'Warning',
+                        'Danger',
+                        'Info',
+                    ],
+                ],
+                'Components',
+            ],
+        },
+    },
 }
 export const tags = ['autodocs', 'autodocs']

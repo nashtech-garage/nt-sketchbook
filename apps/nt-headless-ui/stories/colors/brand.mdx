@@ -1,0 +1,79 @@
+import { Markdown } from '@storybook/blocks'
+import {
+    Canvas,
+    ColorItem,
+    ColorPalette,
+    Meta,
+    Story,
+} from '@storybook/blocks'
+
+import { colors } from '@stylesheet/themes/colors.ts'
+
+<Meta title="Foundation/Colors/Brand" />
+
+<ColorPalette>
+    {[
+        {
+            name: 'primary',
+            value: colors.primary,
+        },
+        {
+            name: 'secondary-1',
+            value: colors['secondary-1'],
+        },
+        {
+            name: 'secondary-2',
+            value: colors['secondary-2'],
+        },
+        {
+            name: 'secondary-3',
+            value: colors['secondary-3'],
+        },
+        {
+            name: 'secondary-4',
+            value: colors['secondary-4'],
+        },
+        {
+            name: 'secondary-5',
+            value: colors['secondary-5'],
+        },
+        {
+            name: 'secondary-6',
+            value: colors['secondary-6'],
+        },
+        {
+            name: 'red',
+            value: colors.red,
+        },
+        {
+            name: 'yellow',
+            value: colors.yellow.DEFAULT,
+        },
+        {
+            name: 'blue',
+            value: colors.blue.DEFAULT,
+        },
+        {
+            name: 'purple',
+            value: colors.purple,
+        },
+        {
+            name: 'pink',
+            value: colors.pink,
+        },
+        {
+            name: 'black',
+            value: colors.black,
+        },
+        {
+            name: 'white',
+            value: colors.white,
+        },
+    ].map((color) => (
+        <ColorItem
+            key={color.name}
+            title={color.name}
+            colors={{ [color.name]: color.value }}
+        />
+    ))}
+</ColorPalette>

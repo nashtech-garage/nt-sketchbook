@@ -1,0 +1,41 @@
+import { Markdown } from '@storybook/blocks'
+import {
+    Canvas,
+    ColorItem,
+    ColorPalette,
+    Meta,
+    Story,
+} from '@storybook/blocks'
+
+import { colors } from '@stylesheet/themes/colors.ts'
+
+<Meta title="Foundation/Colors/Info" />
+
+<ColorPalette>
+    {[
+        {
+            name: 'info-bold',
+            value: colors.info.bold,
+        },
+        {
+            name: 'info-regular',
+            subtitle: '(default)',
+            value: colors.info.DEFAULT,
+        },
+        {
+            name: 'info-light',
+            value: colors.info.light,
+        },
+        {
+            name: 'info-thin',
+            value: colors.info.thin,
+        },
+    ].map((color) => (
+        <ColorItem
+            key={color.title}
+            title={color.name}
+            subtitle={color?.subtitle}
+            colors={{ [color.name]: color.value }}
+        />
+    ))}
+</ColorPalette>

@@ -7,22 +7,25 @@ import {
     Story,
 } from '@storybook/blocks'
 
-<Meta title="Colors/Shades secondary 4" />
+import { colors } from '@stylesheet/themes/colors.ts'
+
+<Meta title="Foundation/Colors/Shades/Secondary 4" />
 
 <ColorPalette>
     <ColorItem
-        title="100-10"
+        title="shade-secondary-4"
+        subtitle="100-10"
         colors={{
-            100: '#F4AD33',
-            90: '#F5B547',
-            80: '#F6BD5C',
-            70: '#F7C670',
-            60: '#F8CE85',
-            50: '#FAD699',
-            40: '#FBDEAD',
-            30: '#FCE6C2',
-            20: '#FDEFD6',
-            10: '#FEF7EB',
+            100: colors['shade-secondary-4'].DEFAULT,
+            90: colors['shade-secondary-4']['90'],
+            80: colors['shade-secondary-4']['80'],
+            70: colors['shade-secondary-4']['70'],
+            60: colors['shade-secondary-4']['60'],
+            50: colors['shade-secondary-4']['50'],
+            40: colors['shade-secondary-4']['40'],
+            30: colors['shade-secondary-4']['30'],
+            20: colors['shade-secondary-4']['20'],
+            10: colors['shade-secondary-4']['10'],
         }}
     />
 </ColorPalette>

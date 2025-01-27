@@ -7,36 +7,41 @@ import {
     Story,
 } from '@storybook/blocks'
 
-<Meta title="Colors/Shades secondary 1" />
+import { colors } from '@stylesheet/themes/colors.ts'
+
+<Meta title="Foundation/Colors/Shades/Secondary 1" />
 
 <ColorPalette>
     <ColorItem
-        title="190-100"
+        title="shade-secondary-1"
+        subtitle="190-100"
         colors={{
-            190: '#0B030C',
-            180: '#150618',
-            170: '#200925',
-            160: '#2A0C31',
-            150: '#35103D',
-            140: '#401349',
-            130: '#4A1655',
-            120: '#551962',
-            110: '#5F1C6E',
-            100: '#6A1F7A',
+            190: colors['shade-secondary-1']['190'],
+            180: colors['shade-secondary-1']['180'],
+            170: colors['shade-secondary-1']['170'],
+            160: colors['shade-secondary-1']['160'],
+            150: colors['shade-secondary-1']['150'],
+            140: colors['shade-secondary-1']['140'],
+            130: colors['shade-secondary-1']['130'],
+            120: colors['shade-secondary-1']['120'],
+            110: colors['shade-secondary-1']['110'],
+            100: colors['shade-secondary-1'].DEFAULT,
         }}
     />
     <ColorItem
-        title="90-10"
+        title="shade-secondary-1"
+        subtitle="90-10"
         colors={{
-            90: '#793587',
-            80: '#884C95',
-            70: '#9762A2',
-            60: '#A679AF',
-            50: '#B58FBD',
-            40: '#C3A5CA',
-            30: '#D2BCD7',
-            20: '#E1D2E4',
-            10: '#F0E9F2',
+            90: colors['shade-secondary-1']['90'],
+            80: colors['shade-secondary-1']['80'],
+            70: colors['shade-secondary-1']['70'],
+            60: colors['shade-secondary-1']['60'],
+            50: colors['shade-secondary-1']['50'],
+            40: colors['shade-secondary-1']['40'],
+            30: colors['shade-secondary-1']['30'],
+            20: colors['shade-secondary-1']['20'],
+            10: colors['shade-secondary-1']['10'],
         }}
     />
+
 </ColorPalette>
