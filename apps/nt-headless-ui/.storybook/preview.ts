@@ -13,7 +13,17 @@ export const parameters = {
             method: 'alphabetical',
             order: [
                 'Foundation',
-                ['Colors', ['Shades']],
+                [
+                    'Colors',
+                    [
+                        'Brand',
+                        'Shades',
+                        'Success',
+                        'Warning',
+                        'Danger',
+                        'Info',
+                    ],
+                ],
                 'Components',
             ],
         },
