@@ -14,24 +14,26 @@ import { colors } from '@stylesheet/themes/colors.ts'
 <ColorPalette>
     {[
         {
-            name: 'bold',
+            name: 'warning-bold',
             value: colors.warning.bold,
         },
         {
-            name: 'regular (default)',
+            name: 'warning-regular',
+            subtitle: '(default)',
             value: colors.warning.DEFAULT,
         },
         {
-            name: 'light',
+            name: 'warning-light',
             value: colors.warning.light,
         },
         {
-            name: 'thin',
+            name: 'warning-thin',
             value: colors.warning.thin,
         },
     ].map((color) => (
         <ColorItem
             key={color.title}
+            subtitle={color?.subtitle}
             title={color.name}
             colors={{ [color.name]: color.value }}
         />

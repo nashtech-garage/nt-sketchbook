@@ -14,25 +14,27 @@ import { colors } from '@stylesheet/themes/colors.ts'
 <ColorPalette>
     {[
         {
-            name: 'bold',
+            name: 'danger-bold',
             value: colors.danger.bold,
         },
         {
-            name: 'regular (default)',
+            name: 'danger-regular',
+            subtitle: '(default)',
             value: colors.danger.DEFAULT,
         },
         {
-            name: 'light',
+            name: 'danger-light',
             value: colors.danger.light,
         },
         {
-            name: 'thin',
+            name: 'danger-thin',
             value: colors.danger.thin,
         },
     ].map((color) => (
         <ColorItem
             key={color.name}
             title={color.name}
+            subtitle={color?.subtitle}
             colors={{ [color.name]: color.value }}
         />
     ))}
