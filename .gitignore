@@ -79,3 +79,5 @@ yarn-error.log*
 
 # storybook
 doctor-storybook.log
+
+megalinter-reports/
