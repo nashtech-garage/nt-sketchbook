@@ -26,4 +26,6 @@ Before running the project, ensure the following tools are installed:
 pnpm install
 ```
 
-### Commit message follows the [format](https://semantic-release.gitbook.io/semantic-release#commit-message-format)
+### Deploy Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/16aab6c1-676b-46d6-848e-913c21a1faf1/deploy-status)](https://app.netlify.com/sites/nashtech-storybook/deploys)
