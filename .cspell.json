@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
     "ignorePaths": [
         "**/node_modules/**",
         "**/vscode-extension/**",
@@ -11,6 +12,6 @@
     ],
     "language": "en",
     "noConfigSearch": true,
-    "words": ["megalinter", "oxsecurity"],
+    "words": ["megalinter", "oxsecurity", "testid"],
     "version": "0.2"
 }
