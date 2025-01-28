@@ -60,12 +60,18 @@ importers:
       '@storybook/addon-links':
         specifier: ^8.4.7
         version: 8.5.0(react@18.3.1)(storybook@8.5.1)
+      '@storybook/manager-api':
+        specifier: ^8.5.2
+        version: 8.5.2(storybook@8.5.1)
       '@storybook/nextjs':
         specifier: ^8.4.7
         version: 8.5.0(esbuild@0.24.2)(next@15.1.4(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.1)(type-fest@2.19.0)(typescript@5.7.3)(webpack-hot-middleware@2.26.1)(webpack@5.97.1(esbuild@0.24.2))
       '@storybook/react':
         specifier: ^8.4.7
         version: 8.5.0(@storybook/test@8.5.0(storybook@8.5.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.1)(typescript@5.7.3)
+      '@storybook/theming':
+        specifier: ^8.5.2
+        version: 8.5.2(storybook@8.5.1)
       '@types/node':
         specifier: ^20
         version: 20.17.14
@@ -1307,6 +1313,11 @@ packages:
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
+  '@storybook/manager-api@8.5.2':
+    resolution: {integrity: sha512-Cn+oINA6BOO2GmGHinGsOWnEpoBnurlZ9ekMq7H/c1SYMvQWNg5RlELyrhsnyhNd83fqFZy9Asb0RXI8oqz7DQ==}
+    peerDependencies:
+      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+
   '@storybook/nextjs@8.5.0':
     resolution: {integrity: sha512-zUU0wQd4F2p006gZX0XC3+Zsj0tB4DOz+7FjSlnyGbzf5cDE6cD74l0Azj6aZluR4Q2say7gWDIpHu05YvIJsg==}
     engines: {node: '>=18.0.0'}
@@ -1375,6 +1386,11 @@ packages:
 
   '@storybook/theming@8.5.0':
     resolution: {integrity: sha512-591LbOj/HMmHYUfLgrMerxhF1A9mY61HWKxcRpB6xxalc1Xw1kRtQ49DcwuTXnUu9ktBB3nuOzPNPQPFSh/7PQ==}
+    peerDependencies:
+      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+
+  '@storybook/theming@8.5.2':
+    resolution: {integrity: sha512-vro8vJx16rIE0UehawEZbxFFA4/VGYS20PMKP6Y6Fpsce0t2/cF/U9qg3jOzVb/XDwfx+ne3/V+8rjfWx8wwJw==}
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
@@ -5454,6 +5470,10 @@ snapshots:
     dependencies:
       storybook: 8.5.1
 
+  '@storybook/manager-api@8.5.2(storybook@8.5.1)':
+    dependencies:
+      storybook: 8.5.1
+
   '@storybook/nextjs@8.5.0(esbuild@0.24.2)(next@15.1.4(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.1)(type-fest@2.19.0)(typescript@5.7.3)(webpack-hot-middleware@2.26.1)(webpack@5.97.1(esbuild@0.24.2))':
     dependencies:
       '@babel/core': 7.26.0
@@ -5597,6 +5617,10 @@ snapshots:
       storybook: 8.5.1
 
   '@storybook/theming@8.5.0(storybook@8.5.1)':
+    dependencies:
+      storybook: 8.5.1
+
+  '@storybook/theming@8.5.2(storybook@8.5.1)':
     dependencies:
       storybook: 8.5.1
 

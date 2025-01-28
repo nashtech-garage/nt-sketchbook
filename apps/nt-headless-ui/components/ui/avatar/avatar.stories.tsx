@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { Avatar, AvatarProps } from './avatar'
 
-const URL_IMAGE = './image.png'
+const URL_IMAGE = './images/image.png'
 
 const meta: Meta<AvatarProps> = {
     title: 'Components/Avatar',
