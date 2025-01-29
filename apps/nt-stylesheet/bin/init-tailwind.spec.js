@@ -1,12 +1,13 @@
-import { describe, it, expect, vi } from 'vitest'
-import fs from 'fs'
 import { exec } from 'child_process'
+import fs from 'fs'
 import readline from 'readline'
+import { describe, expect, it, vi } from 'vitest'
+
 import {
-    installPackage,
-    createTailwindConfig,
     createPostCSSConfig,
+    createTailwindConfig,
     initialize,
+    installPackage,
 } from './init-tailwind.js'
 
 vi.mock('fs')
