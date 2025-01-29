@@ -1,82 +1,82 @@
 name: Bump version app and create PR
 
 on:
-    workflow_dispatch:
-        inputs:
-            app:
-                description: 'App to bump version'
-                required: true
-                type: choice
-                default: nt-stylesheet
-                options:
-                    - nt-stylesheet
-            version:
-                description: 'Semver type of new version (major / minor / patch)'
-                required: true
-                type: choice
-                options:
-                    - patch
-                    - minor
-                    - major
+  workflow_dispatch:
+    inputs:
+      app:
+        description: "App to bump version"
+        required: true
+        type: choice
+        default: nt-stylesheet
+        options:
+          - nt-stylesheet
+      version:
+        description: "Semver type of new version (major / minor / patch)"
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
 
 permissions:
-    contents: write
-    pull-requests: write
+  contents: write
+  pull-requests: write
 
 jobs:
-    bump-version:
-        runs-on: ubuntu-latest
+  bump-version:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Check out source
-              uses: actions/checkout@v4
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
 
-            - name: Set up Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-            - name: Install pnpm
-              run: npm install -g pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-            - name: Install dependencies
-              run: pnpm install --no-frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
 
-            - name: Setup Git
-              run: |
-                  git config user.name 'khoilen'
-                  git config user.email 'khoilen@nastechglobal.com'
+      - name: Setup Git
+        run: |
+          git config user.name 'khoilen'
+          git config user.email 'khoilen@nastechglobal.com'
 
-            - name: Bump version and push to local branch
-              id: bump-version
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: |
-                  pnpm version ${{ github.event.inputs.version }} || true
-                  version=$(jq -r '.version' ./package.json)
-                  echo "Bumped version: $version"
-                  echo "new_version=$version" >> $GITHUB_ENV
-                  if [$version != "unknown" ]; then
-                    git checkout -b bump-${{ github.event.inputs.app }}-version-$version
-                    git add .
-                    git commit -m "Bump ${{ github.event.inputs.app }} version to $version"
-                    git tag "v${{ github.event.inputs.app }}-version-$version"
-                    git push origin bump-${{ github.event.inputs.app }}-version-$version --follow-tags
-                  else
-                    echo "Skipping push due to unknown version"
-                  fi
-              working-directory: apps/${{ github.event.inputs.app }}
-              continue-on-error: true
+      - name: Bump version and push to local branch
+        id: bump-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pnpm version ${{ github.event.inputs.version }} || true
+          version=$(jq -r '.version' ./package.json)
+          echo "Bumped version: $version"
+          echo "new_version=$version" >> $GITHUB_ENV
+          if [$version != "unknown" ]; then
+            git checkout -b bump-${{ github.event.inputs.app }}-version-$version
+            git add .
+            git commit -m "Bump ${{ github.event.inputs.app }} version to $version"
+            git tag "v${{ github.event.inputs.app }}-version-$version"
+            git push origin bump-${{ github.event.inputs.app }}-version-$version --follow-tags
+          else
+            echo "Skipping push due to unknown version"
+          fi
+        working-directory: apps/${{ github.event.inputs.app }}
+        continue-on-error: true
 
-            - name: Create Pull Request
-              if: env.new_version != 'unknown'
-              uses: peter-evans/create-pull-request@v7
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  base: main
-                  branch: bump-${{ github.event.inputs.app }}-version-${{ env.new_version }}
-                  title: 'Bump version to ${{ env.new_version }} for ${{ github.event.inputs.app }}'
-                  body: 'This PR bumps the version to ${{ env.new_version }} for ${{ github.event.inputs.app }}.'
-                  labels: version-bump
-                  assignees: khoilen, tintungtang
-                  reviewers: khoilen, tintungtang
+      - name: Create Pull Request
+        if: env.new_version != 'unknown'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: bump-${{ github.event.inputs.app }}-version-${{ env.new_version }}
+          title: "Bump version to ${{ env.new_version }} for ${{ github.event.inputs.app }}"
+          body: "This PR bumps the version to ${{ env.new_version }} for ${{ github.event.inputs.app }}."
+          labels: version-bump
+          assignees: khoilen, tintungtang
+          reviewers: khoilen, tintungtang
