@@ -26,8 +26,3 @@ Disabled.args = {
     className: '',
     disabled: true,
 }
-
-export const CustomClass = Template.bind({})
-CustomClass.args = {
-    className: 'text-blue-500',
-}
