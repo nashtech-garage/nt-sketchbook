@@ -21,7 +21,6 @@ const variantStyles = {
         'border-success hover:border-success-bold focus:border-success disabled:bg-light disabled:border-secondary-6',
     warning:
         'border-warning hover:border-warning-bold focus:border-warning disabled:bg-light disabled:border-secondary-6',
-    bare: '',
 }
 
 const Select = (props: SelectProps) => {
