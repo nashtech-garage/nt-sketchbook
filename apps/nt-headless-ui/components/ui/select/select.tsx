@@ -10,7 +10,7 @@ import {
 
 export type SelectProps = {
     className?: string
-    variant?: 'default' | 'danger' | 'success' | 'warning' | 'bare'
+    variant?: 'default' | 'danger' | 'success' | 'warning'
 }
 
 const variantStyles = {
