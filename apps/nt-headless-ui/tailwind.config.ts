@@ -1,6 +1,5 @@
+import ntTheme from '@stylesheet/dist/nt-stylesheet.cjs'
 import type { Config } from 'tailwindcss'
-
-import ntTheme from '../nt-stylesheet/dist/nt-stylesheet.cjs'
 
 export default {
     darkMode: ['class'],
