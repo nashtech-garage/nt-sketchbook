@@ -14,9 +14,17 @@ import {
 
 export type Options = { value: string; label: string }[]
 
+export type SelectVariant =
+    | 'default'
+    | 'danger'
+    | 'success'
+    | 'warning'
+export type SelectSize = 'small' | 'medium' | 'large'
+
 export type SelectProps = {
     className?: string
-    variant?: 'default' | 'danger' | 'success' | 'warning'
+    variant?: SelectVariant
+    size?: SelectSize
     options: Options
     groups?: {
         label: string
@@ -34,11 +42,11 @@ const variantStyles = {
     default:
         'border-secondary-6 hover:border-shade-secondary-1-50 ' +
         'focus:border-shade-secondary-1-50 ',
-    danger: 'border-danger hover:border-danger-bold focus:border-danger',
+    danger: 'border-danger hover:border-danger focus:border-danger ',
     success:
-        'border-success hover:border-success-bold focus:border-success',
+        'border-success hover:border-success focus:border-success',
     warning:
-        'border-warning hover:border-warning-bold focus:border-warning',
+        'border-warning hover:border-warning focus:border-warning',
 }
 
 const variantIcon = {
@@ -49,10 +57,17 @@ const variantIcon = {
     warning: 'group-hover:text-warning group-focus:text-warning',
 }
 
+const sizeStyles = {
+    small: 'text-sm py-1 px-2',
+    medium: 'text-base py-2 px-3',
+    large: 'text-lg py-3 px-4',
+}
+
 const Select = (props: SelectProps) => {
     const {
         className,
         variant = 'default',
+        size = 'small',
         options = [],
         classOption = '',
         placeholder = '',
@@ -72,6 +87,7 @@ const Select = (props: SelectProps) => {
                 className={clsx(
                     'group',
                     variantStyles[variant],
+                    sizeStyles[size],
                     className,
                 )}
             >
@@ -82,7 +98,7 @@ const Select = (props: SelectProps) => {
                                 iconLeft as React.ReactElement,
                                 {
                                     className: cn(
-                                        'w-[14px] h-[14px] icon-left text-inherit',
+                                        'w-[14px] h-[14px] icon-left',
                                         variantIcon[variant],
                                         classIconLeft,
                                     ),

@@ -7,7 +7,20 @@ import { Select, SelectProps } from './select'
 export default {
     title: 'Components/Select',
     component: Select,
-    argTypes: {},
+    argTypes: {
+        variant: {
+            control: {
+                type: 'select',
+                options: ['default', 'danger', 'success', 'warning'],
+            },
+        },
+        size: {
+            control: {
+                type: 'select',
+                options: ['small', 'medium', 'large'],
+            },
+        },
+    },
 } as Meta
 
 const Template: StoryFn<SelectProps> = (args: SelectProps) => (
