@@ -51,8 +51,15 @@ export default defineConfig({
         include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
         reporters: ['default'],
         coverage: {
-            reportsDirectory: './coverage',
-            provider: 'v8',
+            reporter: ['cobertura', 'lcov', 'json-summary', 'json'],
+            reportOnFailure: true,
         },
+        exclude: [
+            '**/vite.config.{ts,mts}',
+            '**/vitest.config.{ts,mts}',
+            'tailwind.config.ts',
+            '**/node_modules/**',
+            '**/dist/**',
+        ],
     },
 })

@@ -28,6 +28,7 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
+        "../nt-stylesheet/dist/nt-stylesheet.cjs",
         "../../vite.base.config.ts"
     ],
     "exclude": ["node_modules", "**/*.stories.ts", "**/*.stories.js"],
