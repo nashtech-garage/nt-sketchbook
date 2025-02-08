@@ -1,0 +1,49 @@
+name: Publish Coverage
+
+on:
+    pull_request:
+        types: [opened, synchronize]
+
+jobs:
+    publish-coverage:
+        runs-on: ubuntu-latest
+
+        permissions:
+            pull-requests: write
+
+        strategy:
+            matrix:
+                include:
+                    - name: 'Style Sheet'
+                      app: 'nt-stylesheet'
+                    - name: 'Headless UI'
+                      app: 'nt-headless-ui'
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+              with:
+                  clean: true
+                  fetch-depth: 0
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20
+
+            - name: Install pnpm
+              run: npm install -g pnpm
+
+            - name: Install dependencies
+              run: pnpm install --no-frozen-lockfile
+
+            - name: Run tests
+              run: pnpm run test --coverage
+
+            - name: Report Coverage
+              if: always()
+              uses: davelosert/vitest-coverage-report-action@v2
+              with:
+                  name: ${{ matrix.name }}
+                  json-summary-path: ./apps/${{ matrix.app }}/coverage/coverage-summary.json
+                  json-final-path: ./apps/${{ matrix.app }}/coverage/coverage-final.json

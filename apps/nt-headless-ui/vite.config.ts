@@ -17,8 +17,16 @@ export default defineConfig({
         environment: 'jsdom',
         setupFiles: path.resolve(__dirname, './setup-test.ts'),
         coverage: {
-            reporter: ['cobertura', 'lcov'],
+            reporter: ['cobertura', 'lcov', 'json-summary', 'json'],
             reportOnFailure: true,
         },
+        exclude: [
+            'tailwind.config.ts',
+            'vite.config.ts',
+            '**/node_modules/**',
+            '**/*.stories.ts',
+            '**/*.stories.tsx',
+            'setup-test.ts',
+        ],
     },
 })
