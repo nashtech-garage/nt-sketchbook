@@ -6,6 +6,21 @@ import { Button, ButtonProps } from './button'
 export default {
     title: 'Components/Button',
     component: Button,
+    argTypes: {
+        variant: {
+            options: [
+                'primary',
+                'secondary',
+                'outline',
+                'outline-secondary',
+            ],
+            control: { type: 'select' },
+        },
+        size: {
+            options: ['small', 'medium', 'large'],
+            control: { type: 'select' },
+        },
+    },
 } as Meta
 
 const Template: StoryFn<ButtonProps> = (args: ButtonProps) => (
@@ -46,4 +61,16 @@ WithIcon.args = {
             🚀
         </span>
     ),
+}
+
+export const Icon: StoryFn<ButtonProps> = Template.bind({})
+Icon.args = {
+    onClick: () => alert('Icon clicked!'),
+    variant: 'primary',
+    icon: (
+        <span role="img" aria-label="icon">
+            🚀
+        </span>
+    ),
+    size: 'icon',
 }

@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 
 const buttonVariants = cva(
-    'inline-flex items-center justify-center rounded-md text-sm font-medium shadow-md',
+    'inline-flex items-center justify-center text-sm font-medium shadow-md',
     {
         variants: {
             variant: {
@@ -17,15 +17,19 @@ const buttonVariants = cva(
                     'border border-shade-secondary-1 text-shade-secondary-1 hover:shadow active:bg-shade-secondary-10 disabled:bg-shade-secondary-20 disabled:text-white',
             },
             size: {
-                default: 'h-9 px-4 py-2',
-                sm: 'h-8 px-3 text-xs',
-                lg: 'h-10 px-8',
+                small: 'h-8 px-3 text-xs',
+                medium: 'h-9 px-4 py-2 text-sm',
+                large: 'h-10 px-8 text-md',
                 icon: 'h-9 w-9',
+            },
+            rounded: {
+                true: 'rounded-full',
+                false: 'rounded',
             },
         },
         defaultVariants: {
             variant: 'primary',
-            size: 'default',
+            size: 'small',
         },
     },
 )
@@ -35,6 +39,7 @@ export interface ButtonProps
         VariantProps<typeof buttonVariants> {
     icon?: React.ReactNode
     iconPosition?: 'left' | 'right'
+    rounded?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -42,10 +47,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {
             className,
             variant,
-            size,
+            size = 'small',
             icon = null,
             iconPosition = 'left',
             children,
+            rounded = true,
             ...props
         },
         ref,
@@ -53,7 +59,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <button
                 className={cn(
-                    buttonVariants({ variant, size, className }),
+                    buttonVariants({
+                        variant,
+                        size,
+                        rounded,
+                        className,
+                    }),
                 )}
                 ref={ref}
                 {...props}
