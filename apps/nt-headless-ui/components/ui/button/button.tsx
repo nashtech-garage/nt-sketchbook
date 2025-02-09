@@ -20,7 +20,7 @@ const buttonVariants = cva(
                 small: 'h-8 px-3 text-xs',
                 medium: 'h-9 px-4 py-2 text-sm',
                 large: 'h-10 px-8 text-md',
-                icon: 'h-9 w-9',
+                icon: 'h-9 w-9 p-3',
             },
             rounded: {
                 true: 'rounded-full',
