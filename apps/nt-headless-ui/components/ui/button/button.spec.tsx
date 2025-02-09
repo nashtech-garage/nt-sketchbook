@@ -40,13 +40,13 @@ describe('Button', () => {
     })
 
     it('renders with different sizes', () => {
-        render(<Button size="sm">Small Button</Button>)
+        render(<Button size="small">Small Button</Button>)
         const button = screen.getByRole('button', {
             name: /small button/i,
         })
         expect(button).toHaveClass('h-8 px-3 text-xs')
 
-        render(<Button size="lg">Large Button</Button>)
+        render(<Button size="large">Large Button</Button>)
         const largeButton = screen.getByRole('button', {
             name: /large button/i,
         })
