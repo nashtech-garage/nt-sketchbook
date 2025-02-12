@@ -10,7 +10,7 @@ import {
     RadixSelectLabel,
     RadixSelectTrigger,
     RadixSelectValue,
-} from './radix-select'
+} from '../../radix/select'
 
 export type Options = { value: string; label: string }[]
 

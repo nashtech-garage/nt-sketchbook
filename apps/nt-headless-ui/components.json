@@ -11,7 +11,7 @@
         "prefix": ""
     },
     "aliases": {
-        "components": "@headless-ui/components",
+        "components": "@headless-ui/components/radix",
         "utils": "@headless-ui/lib/utils",
         "ui": "@headless-ui/components/ui",
         "lib": "@headless-ui/lib",
