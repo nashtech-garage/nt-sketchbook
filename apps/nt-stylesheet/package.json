@@ -11,9 +11,6 @@
     "bin": {
         "@nashtech/stylesheet": "bin/init-tailwind.js"
     },
-    "engines": {
-        "node": ">=20"
-    },
     "keywords": [],
     "author": "NashTech",
     "license": "MIT",
@@ -31,9 +28,6 @@
     ],
     "exports": {
         "./dist/nt-stylesheet.cjs": "./dist/nt-stylesheet.cjs"
-    },
-    "devEngines": {
-        "node": "20.x "
     },
     "devDependencies": {
         "@types/node": "20.4.9",
