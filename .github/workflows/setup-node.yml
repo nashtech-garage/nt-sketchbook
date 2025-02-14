@@ -7,6 +7,10 @@ on:
                 required: false
                 type: string
                 default: '20.18.2'
+            pnpm-version:
+                required: false
+                type: string
+                default: '9.15.3'
 
 jobs:
     setup:
@@ -19,7 +23,7 @@ jobs:
             - name: Install pnpm
               uses: pnpm/action-setup@v4
               with:
-                  version: 9.15.3
+                  version: ${{ inputs.pnpm-version }}
                   run_install: false
 
             - name: Install Node.js
