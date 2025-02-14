@@ -21,7 +21,7 @@ jobs:
 
         steps:
             - name: Setup Node.js & Install Dependencies
-              uses: ./.github/workflows/setup-node.yml
+              uses: nashtech-garage/nt-sketchbook/.github/workflows/setup-node.yml@main
 
             - name: Run tests
               run: pnpm run test --coverage
