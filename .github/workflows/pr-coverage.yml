@@ -53,7 +53,7 @@ jobs:
                       pnpm-store-
 
             - name: Install dependencies
-              run: pnpm install --store-dir=${{ github.workspace }}/.pnpm-store --node-linker=hoisted --frozen-lockfile
+              run: pnpm install --store-dir=${{ github.workspace }}/.pnpm-store --node-linker=hoisted --frozen-lockfile --shell:true
 
             - name: Run tests
               run: pnpm run test --coverage
