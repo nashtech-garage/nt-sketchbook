@@ -1,0 +1,33 @@
+name: Setup Node.js & Install Dependencies
+
+on:
+    workflow_call:
+        inputs:
+            node-version:
+                required: false
+                type: string
+                default: '20.18.2'
+            pnpm-version:
+                required: false
+                type: string
+                default: '9.15.3'
+
+jobs:
+    setup:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: ${{ inputs.pnpm-version }}
+                  run_install: false
+
+            - name: Install Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ inputs.node-version }}
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile

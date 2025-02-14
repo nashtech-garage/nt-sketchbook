@@ -11,9 +11,6 @@
     "bin": {
         "@nashtech/stylesheet": "bin/init-tailwind.js"
     },
-    "engines": {
-        "node": ">=20"
-    },
     "keywords": [],
     "author": "NashTech",
     "license": "MIT",
@@ -32,12 +29,8 @@
     "exports": {
         "./dist/nt-stylesheet.cjs": "./dist/nt-stylesheet.cjs"
     },
-    "devEngines": {
-        "node": "20.x "
-    },
     "devDependencies": {
         "@types/node": "20.4.9",
-        "nx": "^20.2.2",
         "sass-embedded": "^1.83.4",
         "typescript": "^5.7.2",
         "vite-plugin-dts": "^4.4.0",

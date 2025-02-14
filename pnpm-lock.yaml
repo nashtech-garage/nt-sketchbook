@@ -44,9 +44,6 @@ devDependencies:
   '@swc-node/register':
     specifier: ~1.9.1
     version: 1.9.2(@swc/core@1.5.29)(@swc/types@0.1.17)(typescript@5.6.3)
-  '@swc/core':
-    specifier: ~1.5.7
-    version: 1.5.29(@swc/helpers@0.5.15)
   '@swc/helpers':
     specifier: ~0.5.11
     version: 0.5.15
@@ -1943,6 +1940,14 @@ packages:
       fastq: 1.19.0
     dev: true
 
+  /@nrwl/devkit@19.8.4(nx@19.8.4):
+    resolution: {integrity: sha512-OoIqDjj2mWzLs3aSF6w5OiC2xywYi/jBxHc7t7Lyi56Vc4dQq8vJMELa9WtG6qH0k05fF7N+jAoKlfvLgbbEFA==}
+    dependencies:
+      '@nx/devkit': 19.8.4(nx@19.8.4)
+    transitivePeerDependencies:
+      - nx
+    dev: true
+
   /@nrwl/devkit@19.8.4(nx@20.4.2):
     resolution: {integrity: sha512-OoIqDjj2mWzLs3aSF6w5OiC2xywYi/jBxHc7t7Lyi56Vc4dQq8vJMELa9WtG6qH0k05fF7N+jAoKlfvLgbbEFA==}
     dependencies:
@@ -2079,7 +2084,7 @@ packages:
     peerDependencies:
       nx: '>= 17 <= 20'
     dependencies:
-      '@nrwl/devkit': 19.8.4(nx@20.4.2)
+      '@nrwl/devkit': 19.8.4(nx@19.8.4)
       ejs: 3.1.10
       enquirer: 2.3.6
       ignore: 5.3.2

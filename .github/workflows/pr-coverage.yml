@@ -5,7 +5,11 @@ on:
         types: [opened, synchronize]
 
 jobs:
+    setup-node:
+        uses: nashtech-garage/nt-sketchbook/.github/workflows/setup-node.yml@feat/pr-check-pkg
+
     publish-coverage:
+        needs: setup-node
         runs-on: ubuntu-latest
 
         permissions:
@@ -22,20 +26,6 @@ jobs:
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v4
-              with:
-                  clean: true
-                  fetch-depth: 0
-
-            - name: Set up Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 20
-
-            - name: Install pnpm
-              run: npm install -g pnpm
-
-            - name: Install dependencies
-              run: pnpm install --no-frozen-lockfile
 
             - name: Run tests
               run: pnpm run test --coverage
