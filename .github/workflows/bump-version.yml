@@ -19,7 +19,6 @@ on:
                     - minor
                     - major
 
-
 permissions:
     contents: write
     pull-requests: write
@@ -29,19 +28,23 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Check out source
+            - name: Checkout repository
               uses: actions/checkout@v4
 
-            - name: Set up Node.js
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9.15.3
+                  run_install: false
+
+            - name: Install Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: 20
-
-            - name: Install pnpm
-              run: npm install -g pnpm
+                  node-version: 20.18.2
+                  cache: 'pnpm'
 
             - name: Install dependencies
-              run: pnpm install --no-frozen-lockfile
+              run: pnpm install --frozen-lockfile
 
             - name: Setup Git
               run: |
@@ -51,7 +54,7 @@ jobs:
             - name: Bump version and push to local branch
               id: bump-version
               env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   pnpm version ${{ github.event.inputs.version }} || true
                   version=$(jq -r '.version' ./package.json)
@@ -60,7 +63,7 @@ jobs:
                   if [$version != "unknown" ]; then
                     git checkout -b bump-${{ github.event.inputs.app }}-version-$version
                     git add .
-                    git commit -m "Bump ${{ github.event.inputs.app }} version to $version"
+                    git commit -m "chore: bump ${{ github.event.inputs.app }} version to $version"
                     git tag "v${{ github.event.inputs.app }}-version-$version"
                     git push origin bump-${{ github.event.inputs.app }}-version-$version --follow-tags
                   else
@@ -73,11 +76,12 @@ jobs:
               if: env.new_version != 'unknown'
               uses: peter-evans/create-pull-request@v7
               with:
-                token: ${{ secrets.GITHUB_TOKEN }}
-                base: main
-                branch: bump-${{ github.event.inputs.app }}-version-${{ env.new_version }}
-                title: "Bump version to ${{ env.new_version }} for ${{ github.event.inputs.app }}"
-                body: "This PR bumps the version to ${{ env.new_version }} for ${{ github.event.inputs.app }}."
-                labels: version-bump
-                assignees: khoilen, tintungtang
-                reviewers: khoilen, tintungtang
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  base: main
+                  branch: bump-${{ github.event.inputs.app }}-version-${{ env.new_version }}
+                  title: 'Bump version to ${{ env.new_version }} for ${{ github.event.inputs.app }}'
+                  body: 'This PR bumps the version to ${{ env.new_version }} for ${{ github.event.inputs.app }}.'
+                  labels: version-bump
+                  commit-message: 'chore: bump version to ${{ env.new_version }} for ${{ github.event.inputs.app }}'
+                  assignees: khoilen, tintungtang
+                  reviewers: khoilen, tintungtang
