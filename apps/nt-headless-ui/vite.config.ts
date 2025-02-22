@@ -19,6 +19,7 @@ export default defineConfig({
         coverage: {
             reporter: ['cobertura', 'lcov', 'json-summary', 'json'],
             reportOnFailure: true,
+            provider: 'v8'
         },
         exclude: [
             'tailwind.config.ts',

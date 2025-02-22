@@ -1,0 +1,38 @@
+@use "variables" as variables;
+
+@mixin prefix-class($prefix, $name) {
+    .#{$prefix}-#{$name} {
+        @content;
+    }
+}
+
+@mixin create-theme(
+     $theme-name,
+     $bg-color: variables.$nt-dark-bg,
+     $text-color: variables.$nt-dark-text,
+     $primary: variables.$nt-primary,
+     $secondary: variables.$nt-secondary,
+) {
+    [data-theme="#{$theme-name}"] {
+        --background-color: #{$bg-color};
+        --text-color: #{$text-color};
+        --primary-color: #{$primary};
+        --secondary-color: #{$secondary};
+    }
+}
+
+@mixin material-icon(
+    $size: 24px,
+    $color: currentColor,
+    $margin: 0,
+    $align: middle
+) {
+    display: inline-block;
+    font-family: "Material Icons";
+    font-size: $size;
+    color: $color;
+    vertical-align: $align;
+    margin: $margin;
+    line-height: 1;
+    user-select: none;
+}

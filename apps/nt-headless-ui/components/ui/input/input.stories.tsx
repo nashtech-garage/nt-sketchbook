@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { Input, InputProps, InputSize } from './input'
+import { Input, InputSize } from './input'
 
 export default {
     title: 'Components/Input',
@@ -37,7 +37,7 @@ export default {
     },
 } as Meta
 
-const Template: StoryFn<InputProps> = (args) => <Input {...args} />
+const Template: StoryFn = (args) => <Input {...args} />
 
 export const Text = Template.bind({})
 Text.args = {

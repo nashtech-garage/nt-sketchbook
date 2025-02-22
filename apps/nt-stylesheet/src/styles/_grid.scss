@@ -1,0 +1,96 @@
+/**
+ * NT Stylesheet default grid system
+ */
+
+@use 'sass:math';
+@use "sass:map";
+@use "variables" as variables;
+
+/* Grid container */
+.nt-container {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @each $size, $width in variables.$nt-container-max-widths {
+        @media (min-width: map.get(variables.$nt-container-max-widths, $size)) {
+            max-width: $width;
+        }
+    }
+}
+
+/* Row */
+.nt-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+/* Columns */
+@for $i from 1 through 12 {
+    .nt-col-#{$i} {
+        flex: 0 0 math.percentage(math.div($i, 12));
+        max-width: math.percentage(math.div($i, 12));
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+/* Responsive Grid */
+@each $breakpoint, $size in variables.$nt-breakpoint-xs, variables.$nt-breakpoint-sm, variables.$nt-breakpoint-md, variables.$nt-breakpoint-lg, variables.$nt-breakpoint-xl {
+    @media (min-width: $size) {
+        @for $i from 1 through 12 {
+            .nt-col-#{$breakpoint}-#{$i} {
+                flex: 0 0 math.percentage(math.div($i,12));
+                max-width: math.percentage(math.div($i, 12));
+            }
+        }
+    }
+}
+
+/* Alignment */
+.nt-align-start {
+    align-items: flex-start;
+}
+
+.nt-align-center {
+    align-items: center;
+}
+
+.nt-align-end {
+    align-items: flex-end;
+}
+
+.nt-justify-start {
+    justify-content: flex-start;
+}
+
+.nt-justify-center {
+    justify-content: center;
+}
+
+.nt-justify-end {
+    justify-content: flex-end;
+}
+
+.nt-justify-between {
+    justify-content: space-between;
+}
+
+.nt-justify-around {
+    justify-content: space-around;
+}
+
+.nt-justify-evenly {
+    justify-content: space-evenly;
+}
+
+/* Gap system */
+@for $i from 1 through 5 {
+    .nt-gap-#{$i} {
+        gap: $i * 0.25rem;
+    }
+}
+

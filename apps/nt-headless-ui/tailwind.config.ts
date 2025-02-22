@@ -1,4 +1,4 @@
-import ntTheme from '@stylesheet/dist/nt-stylesheet.cjs'
+import { ntTheme } from '../nt-stylesheet/dist/integrations/tailwind/index.cjs'
 import type { Config } from 'tailwindcss'
 
 export default {
