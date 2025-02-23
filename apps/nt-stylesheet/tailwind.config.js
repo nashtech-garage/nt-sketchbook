@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const ntTheme = require('./themes').default
+const { ntTheme } = require('./src/integrations/tailwind/index.js');
 
 module.exports = {
     content: [

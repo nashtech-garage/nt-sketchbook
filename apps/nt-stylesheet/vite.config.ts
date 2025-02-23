@@ -1,22 +1,30 @@
 /// <reference types='vitest' />
+
+import { defineConfig } from "vite";
+import * as path from "path";
+import autoprefixer from 'autoprefixer'
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
-import autoprefixer from 'autoprefixer'
-import * as path from 'path'
-import tailwindcss from 'tailwindcss'
-import dts from 'vite-plugin-dts'
-import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
     root: path.resolve(__dirname),
-    cacheDir: '../../node_modules/.vite/apps/nt-stylesheet',
     plugins: [
         nxViteTsPaths(),
-        nxCopyAssetsPlugin(['*.md']),
-        dts({
-            entryRoot: 'main.ts',
-            tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
-        }),
+        nxCopyAssetsPlugin([{
+            input:  './src/styles',
+            output: 'styles',
+            glob: "*.scss",
+        }]),
+        nxCopyAssetsPlugin([{
+            input:  './docs',
+            output: 'docs',
+            glob: "*.md",
+        }]),
+        nxCopyAssetsPlugin([{
+            input:  './integrations',
+            output: './integrations/tailwind',
+            glob: "*.ts",
+        }]),
     ],
     build: {
         emptyOutDir: true,
@@ -25,24 +33,27 @@ export default defineConfig({
             transformMixedEsModules: true,
         },
         lib: {
-            entry: path.resolve(__dirname, 'main.ts'),
-            name: 'nt-stylesheet',
-            fileName: 'nt-stylesheet',
-            formats: ['cjs'],
+            entry: {
+                index: './src/index.ts',
+                'tailwind-integrations': './src/integrations/tailwind/index.ts',
+            },
+            name: "nt-stylesheet",
+            formats: ["cjs"],
         },
         rollupOptions: {
             output: {
-                assetFileNames: (assetInfo) => {
-                    if (assetInfo?.name === 'style.css')
-                        return 'nt-stylesheet.css'
-                    return assetInfo?.name || 'nt-stylesheet.css'
-                },
+                entryFileNames: ({ name }) => {
+                    if (name === 'tailwind-integrations') return 'integrations/tailwind/index.cjs';
+
+                    return '[name].cjs';
+                }
             },
         },
     },
     css: {
+        preprocessorOptions: {},
         postcss: {
-            plugins: [tailwindcss, autoprefixer],
+            plugins: [autoprefixer]
         },
     },
     test: {
@@ -62,4 +73,4 @@ export default defineConfig({
             '**/dist/**',
         ],
     },
-})
+});

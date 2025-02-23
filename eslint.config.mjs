@@ -33,6 +33,7 @@ export default [
             'apps/**/coverage/**',
             'apps/**/dist/**',
             'apps/**/.nx/**',
+            'eslint.config.mjs'
         ],
         rules: {
             'brace-style': ['error', '1tbs'],

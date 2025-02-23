@@ -19,7 +19,11 @@ export default defineConfig({
         coverage: {
             reporter: ['cobertura', 'lcov', 'json-summary', 'json'],
             reportOnFailure: true,
+            provider: 'v8',
         },
+        include: [
+            path.resolve(__dirname, 'components/**/*.spec.{ts,tsx}'),
+        ],
         exclude: [
             'tailwind.config.ts',
             'vite.config.ts',
@@ -27,7 +31,8 @@ export default defineConfig({
             '**/*.stories.ts',
             '**/*.stories.tsx',
             'setup-test.ts',
-            '**/components/radix/**',
+            '**/radix/**',
+            'storybook-static/**',
         ],
     },
 })

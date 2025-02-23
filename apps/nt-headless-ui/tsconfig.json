@@ -2,6 +2,7 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
+        "noImplicitAny": false,
         "target": "ES2017",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
@@ -21,14 +22,14 @@
                 "name": "next"
             }
         ],
-        "noEmit": true
+        "noEmit": true,
     },
     "include": [
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "../nt-stylesheet/dist/nt-stylesheet.cjs",
+        "../nt-stylesheet/dist/integrations/tailwind/index.cjs",
         "../../vite.base.config.ts"
     ],
     "exclude": ["node_modules", "**/*.stories.ts", "**/*.stories.js"],

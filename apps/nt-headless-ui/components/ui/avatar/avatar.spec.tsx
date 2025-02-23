@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { Avatar } from './avatar'
+import { Avatar, AvatarSize } from './avatar'
 
 describe('Avatar ', () => {
     it('renders fallback content when image source is not provided', () => {
@@ -37,4 +37,20 @@ describe('Avatar ', () => {
 
         expect(badge).not.toBeInTheDocument()
     })
+
+    it.each([
+        { size: 'small', expectedClass: 'h-10 w-10' },
+        { size: 'medium', expectedClass: 'h-20 w-20' },
+        { size: 'large', expectedClass: 'h-40 w-40' },
+    ])(
+        'applies the correct size class for %s avatars',
+        ({ size, expectedClass }) => {
+            const { container } = render(
+                <Avatar size={size as AvatarSize} />,
+            )
+            const avatarElement = container.firstChild
+
+            expect(avatarElement).toHaveClass(expectedClass)
+        },
+    )
 })

@@ -1,0 +1,16 @@
+.table-nt {
+    &__tbody {
+        tr:nth-of-type(2n) {
+            @apply bg-white !important;
+        }
+        tr:nth-of-type(odd) {
+            @apply bg-line !important;
+        }
+    }
+}
+
+.pagination-select {
+    > span {
+        @apply text-sm !important;
+    }
+}
