@@ -44,9 +44,14 @@ export const useTable = (props: UseTableProps) => {
         [startIndex, rowsPerPage],
     )
 
+    const handlePageClick = (page: number) => {
+        table.setPageIndex(page - 1)
+    }
+
     return {
         table,
         startIndex,
         endIndex,
+        handlePageClick,
     }
 }

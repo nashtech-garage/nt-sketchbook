@@ -2,6 +2,7 @@ import { cn } from '@headless-ui/lib/utils'
 
 import { Pagination, Th, Tr, TrLoading } from './components'
 import { useTable } from './hooks/use-table'
+import './table.scss'
 
 export { createColumnHelper } from '@tanstack/react-table'
 
@@ -22,7 +23,8 @@ export const Table = (props: TableProps) => {
         ...useTableProps
     } = props
 
-    const { endIndex, startIndex, table } = useTable(useTableProps)
+    const { endIndex, startIndex, table, handlePageClick } =
+        useTable(useTableProps)
 
     return (
         <div className={cn('flex flex-col ', classNameContainer)}>
@@ -46,8 +48,8 @@ export const Table = (props: TableProps) => {
                         )}
                     </div>
                     <div className="w-full ">
-                        <table className="w-full ">
-                            <thead className="bg-white p-3">
+                        <table className="w-full table-nt">
+                            <thead className="bg-white p-3 table-nt__thead">
                                 {table
                                     .getHeaderGroups()
                                     .map((headerGroup) => (
@@ -57,7 +59,7 @@ export const Table = (props: TableProps) => {
                                         />
                                     ))}
                             </thead>
-                            <tbody className="bg-white ">
+                            <tbody className="bg-white table-nt__tbody">
                                 {isLoading &&
                                     [...Array(5)].map((_, i) => (
                                         <TrLoading
@@ -82,6 +84,7 @@ export const Table = (props: TableProps) => {
                                 table={table}
                                 startIndex={startIndex}
                                 endIndex={endIndex}
+                                handlePageClick={handlePageClick}
                             />
                         )}
                     </div>

@@ -1,0 +1,17 @@
+.table-nt {
+    &__thead {
+        tr {
+            th {
+                span {
+                    @apply text-sm !important;
+                    @apply font-semibold;
+                }
+            }
+        }
+    }
+    &__tbody {
+        tr:nth-of-type(2n) {
+            @apply bg-line !important;
+        }
+    }
+}

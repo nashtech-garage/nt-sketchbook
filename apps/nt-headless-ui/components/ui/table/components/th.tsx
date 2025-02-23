@@ -20,7 +20,7 @@ const Th = (props: ThProps) => {
                     key={header.id}
                     colSpan={header.colSpan}
                     scope="col"
-                    className="text-left text-xs font-medium !border-none !p-0 !pl-2  "
+                    className="text-left  !border-none !p-0 !pl-2  "
                 >
                     {header.isPlaceholder ? null : (
                         <button
@@ -33,7 +33,7 @@ const Th = (props: ThProps) => {
                                     header.column.getToggleSortingHandler(),
                             }}
                         >
-                            <div className="uppercase font-semibold !text-xs flex items-center justify-between pr-4 text-shade-neutral-70">
+                            <div className="uppercase !font-semibold !text-sm flex items-center justify-between pr-4 text-shade-neutral-70">
                                 {flexRender(
                                     header.column.columnDef.header,
                                     header.getContext(),
