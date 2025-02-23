@@ -11,6 +11,8 @@ const badgeVariants = cva(
                 warning: 'text-white bg-warning text-xs',
                 info: 'text-white bg-info text-xs',
                 silver: 'text-black bg-secondary-6 text-xs',
+                secondary:
+                    'text-black bg-shade-secondary-2-9 text-xs',
             },
         },
         defaultVariants: {

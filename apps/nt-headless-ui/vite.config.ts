@@ -27,6 +27,7 @@ export default defineConfig({
             '**/*.stories.ts',
             '**/*.stories.tsx',
             'setup-test.ts',
+            '**/components/radix/**',
         ],
     },
 })

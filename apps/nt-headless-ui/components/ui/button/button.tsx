@@ -51,7 +51,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             icon = null,
             iconPosition = 'left',
             children,
-            rounded = true,
+            rounded = false,
             ...props
         },
         ref,
