@@ -41,6 +41,7 @@
         "@storybook/nextjs": "^8.4.7",
         "@storybook/react": "^8.4.7",
         "@storybook/theming": "^8.5.2",
+        "@tanstack/react-table": "^8.21.2",
         "@types/node": "^20",
         "@types/react": "^18.0.28",
         "@types/react-dom": "^18.0.11",
