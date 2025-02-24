@@ -1,0 +1,33 @@
+@use "variables" as variables;
+
+@mixin button(
+    $bg-color: var(--primary-color),
+    $text-color: var(--white),
+    $padding: 12px 20px,
+    $font-size: 16px,
+    $border-radius: 6px,
+    $border: none,
+    $hover-bg: darken($bg-color, 10%),
+    $hover-text: $text-color
+) {
+    display: inline-block;
+    padding: $padding;
+    font-size: $font-size;
+    color: $text-color;
+    background-color: $bg-color;
+    border: $border;
+    border-radius: $border-radius;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: $hover-bg;
+        color: $hover-text;
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}

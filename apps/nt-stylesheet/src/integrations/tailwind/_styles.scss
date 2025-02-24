@@ -1,6 +1,6 @@
-@use 'tailwindcss/base' as tailwind-base;
-@use 'tailwindcss/components' as tailwind-components;
-@use 'tailwindcss/utilities' as tailwind-utilities;
+@use '../../../../../node_modules/tailwindcss/base.css' as tailwind-base;
+@use '../../../../../node_modules/tailwindcss/components.css' as tailwind-components;
+@use '../../../../../node_modules/tailwindcss/utilities.css' as tailwind-utilities;
 
 @use './base' as custom-base;
 @use './component' as custom-component;

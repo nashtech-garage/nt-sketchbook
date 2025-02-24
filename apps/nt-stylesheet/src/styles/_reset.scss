@@ -1,0 +1,84 @@
+/* Reset Styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family, sans-serif);
+    background-color: var(--background-color, #fff);
+    color: var(--text-color, #333);
+    line-height: 1.6;
+}
+
+/* Remove list styles */
+ul, ol {
+    list-style: none;
+}
+
+/* Reset links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Reset buttons */
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+/* Remove default focus outlines */
+:focus {
+    outline: none;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Forms */
+input, textarea, select, button {
+    font: inherit;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    line-height: 1.2;
+}
+
+/* Default Flex & Grid Helper Classes */
+.nt-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.nt-flex {
+    display: flex;
+}
+
+.nt-grid {
+    display: grid;
+    gap: 16px;
+}
