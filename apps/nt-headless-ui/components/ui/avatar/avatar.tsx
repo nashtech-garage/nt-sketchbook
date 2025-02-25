@@ -45,11 +45,8 @@ const AvatarFallback = React.forwardRef<
     />
 ))
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
-
-export interface AvatarProps
-    extends React.ComponentPropsWithoutRef<
-        typeof AvatarPrimitive.Root
-    > {
+export type AvatarProps = {
+    className?: string
     src?: string
     fallBack?: React.ReactNode
     badge?: React.ReactNode
@@ -58,10 +55,25 @@ export interface AvatarProps
         | 'top-right'
         | 'bottom-left'
         | 'bottom-right'
-}
+    size?: 'small' | 'medium' | 'large'
+} & React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
 
 const Avatar = (props: AvatarProps) => {
-    const { src, fallBack, badge, badgePosition, ...args } = props
+    const {
+        src,
+        fallBack,
+        badge,
+        badgePosition,
+        className = '',
+        size = 'medium',
+        ...args
+    } = props
+
+    const sizeClasses = {
+        small: 'h-10 w-10',
+        medium: 'h-20 w-20',
+        large: 'h-40 w-40',
+    }
 
     const positionClasses = {
         'top-left': 'absolute top-[4px] left-[3px]',
@@ -71,7 +83,10 @@ const Avatar = (props: AvatarProps) => {
     }
 
     return (
-        <AvatarPrimitiveRoot {...args}>
+        <AvatarPrimitiveRoot
+            className={cn(sizeClasses[size], className)}
+            {...args}
+        >
             <AvatarImage src={src} />
             <AvatarFallback>{fallBack || null}</AvatarFallback>
             {badge && (

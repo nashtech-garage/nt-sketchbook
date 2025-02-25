@@ -27,7 +27,12 @@ export const Table = (props: TableProps) => {
         useTable(useTableProps)
 
     return (
-        <div className={cn('flex flex-col ', classNameContainer)}>
+        <div
+            className={cn(
+                'flex flex-col border p-5 rounded',
+                classNameContainer,
+            )}
+        >
             <div className="mt-6">
                 <div className="align-middle inline-block w-full ">
                     <div

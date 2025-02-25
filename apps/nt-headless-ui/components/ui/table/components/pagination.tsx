@@ -22,9 +22,10 @@ const Pagination = (props: PaginationProps) => {
                         { label: '20', value: '20' },
                     ]}
                     value="10"
-                    className="w-[63px]"
+                    className="w-[55px] pagination-select"
+                    classOption="!text-xs"
                 />
-                <span className="text-xs">Items on page</span>
+                <span className="!text-xs">Items on page</span>
             </div>
             {(table.getCanPreviousPage() ||
                 table.getCanNextPage()) && (

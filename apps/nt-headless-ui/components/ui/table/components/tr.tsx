@@ -11,7 +11,7 @@ const Tr = (props: TrProps) => {
             {row.getVisibleCells().map((cell) => (
                 <td key={cell.id} className="!p-0 !pl-2 !border-none">
                     <div className="flex items-center">
-                        <div className="text-sm ">
+                        <div className="!text-sm ">
                             {flexRender(
                                 cell.column.columnDef.cell,
                                 cell.getContext(),

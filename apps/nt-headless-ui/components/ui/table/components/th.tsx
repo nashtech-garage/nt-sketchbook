@@ -33,7 +33,7 @@ const Th = (props: ThProps) => {
                                     header.column.getToggleSortingHandler(),
                             }}
                         >
-                            <div className="uppercase !font-semibold !text-sm flex items-center justify-between pr-4 text-shade-neutral-70">
+                            <div className="uppercase !font-semibold !text-xs flex items-center justify-between pr-4 text-shade-neutral-70">
                                 {flexRender(
                                     header.column.columnDef.header,
                                     header.getContext(),
