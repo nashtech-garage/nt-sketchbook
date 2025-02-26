@@ -36,9 +36,14 @@ const Pagination = (props: PaginationProps) => {
                         { label: '10', value: '10' },
                         { label: '20', value: '20' },
                     ]}
-                    value="10"
+                    value={String(
+                        table.getState().pagination.pageSize,
+                    )}
                     className="w-[55px] pagination-select"
                     classOption={classFontSize}
+                    onChange={(value) => {
+                        table.setPageSize(Number(value))
+                    }}
                 />
                 <span className={classFontSize}>Items on page</span>
             </div>
