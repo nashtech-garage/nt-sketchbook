@@ -64,8 +64,8 @@ const Pagination = (props: PaginationProps) => {
                             key={page}
                             className={`px-2 py-1 rounded text-sm ${
                                 page === currentPage
-                                    ? 'bg-grey text-black'
-                                    : 'text-black hover:bg-grey'
+                                    ? 'bg-shade-neutral-10 text-black'
+                                    : 'text-black hover:bg-shade-neutral-10'
                             }`}
                             onClick={() => handlePageClick(page)}
                         >
