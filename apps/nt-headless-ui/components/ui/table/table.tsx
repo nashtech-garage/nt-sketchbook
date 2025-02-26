@@ -1,4 +1,5 @@
 import { cn } from '@headless-ui/lib/utils'
+import { ColumnDef } from '@tanstack/react-table'
 
 import { Pagination, Th, Tr, TrLoading } from './components'
 import { useTable } from './hooks/use-table'
@@ -8,16 +9,25 @@ export { createColumnHelper } from '@tanstack/react-table'
 
 export type TableProps = {
     classNameContainer?: string
+    classFontSize?: string
+    classFontSizeBody?: string
+    classPagination?: string
+    classPaginationFontSize?: string
+    classTh?: string
     searchable?: boolean
     isLoading?: boolean
-    data: any[] // eslint-disable-line
-    columns: any[] // eslint-disable-line
+    data: unknown[]
+    columns: ColumnDef<unknown>[]
 }
 
 export const Table = (props: TableProps) => {
     const {
         classNameContainer = '',
         isLoading = false,
+        classPagination = '',
+        classTh = '',
+        classFontSize = '!text-xs',
+        classFontSizeBody = '!text-sm',
         ...useTableProps
     } = props
 
@@ -37,6 +47,10 @@ export const Table = (props: TableProps) => {
                                         <Th
                                             key={headerGroup.id}
                                             headerGroup={headerGroup}
+                                            classTh={classTh}
+                                            classFontSize={
+                                                classFontSize
+                                            }
                                         />
                                     ))}
                             </thead>
@@ -53,6 +67,9 @@ export const Table = (props: TableProps) => {
                                         .getRowModel()
                                         .rows.map((row) => (
                                             <Tr
+                                                classFontSizeBody={
+                                                    classFontSizeBody
+                                                }
                                                 key={row.id}
                                                 row={row}
                                             />
@@ -66,6 +83,8 @@ export const Table = (props: TableProps) => {
                                 startIndex={startIndex}
                                 endIndex={endIndex}
                                 handlePageClick={handlePageClick}
+                                classPagination={classPagination}
+                                classFontSize={classFontSize}
                             />
                         )}
                     </div>

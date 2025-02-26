@@ -3,7 +3,7 @@ import { Table } from '@tanstack/react-table'
 import TdSkeleton from './td-skeleton'
 
 type TrLoadingProps = {
-    table: Table<object>
+    table: Table<unknown>
 }
 
 const TrLoading = (props: TrLoadingProps) => {

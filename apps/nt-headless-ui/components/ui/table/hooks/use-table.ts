@@ -1,4 +1,5 @@
 import {
+    ColumnDef,
     getCoreRowModel,
     getFacetedMinMaxValues,
     getFacetedRowModel,
@@ -11,8 +12,8 @@ import {
 import React from 'react'
 
 type UseTableProps = {
-    data: any[] // eslint-disable-line
-    columns: any[] // eslint-disable-line
+    data: unknown[]
+    columns: ColumnDef<unknown>[]
 }
 
 export const useTable = (props: UseTableProps) => {

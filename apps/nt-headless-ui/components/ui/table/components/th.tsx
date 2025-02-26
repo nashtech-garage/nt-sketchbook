@@ -8,13 +8,15 @@ import {
 import { ChevronsUpDown, MoveDown, MoveUp } from 'lucide-react'
 
 type ThProps = {
+    classTh?: string
+    classFontSize?: string
     headerGroup: HeaderGroup<RowData>
 }
 
 const Th = (props: ThProps) => {
-    const { headerGroup } = props
+    const { classTh = '', classFontSize = '', headerGroup } = props
     return (
-        <tr className="!border-t-0 h-[44px]">
+        <tr className={cn('!border-t-0 h-[44px]', classTh)}>
             {headerGroup.headers.map((header) => (
                 <th
                     key={header.id}
@@ -33,7 +35,12 @@ const Th = (props: ThProps) => {
                                     header.column.getToggleSortingHandler(),
                             }}
                         >
-                            <div className="uppercase !font-semibold !text-xs flex items-center justify-between pr-4 text-shade-neutral-70">
+                            <div
+                                className={cn(
+                                    'uppercase !font-semibold  flex items-center justify-between pr-4 text-shade-neutral-70',
+                                    classFontSize,
+                                )}
+                            >
                                 {flexRender(
                                     header.column.columnDef.header,
                                     header.getContext(),

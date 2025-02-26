@@ -1,3 +1,4 @@
+import { cn } from '@headless-ui/lib/utils'
 import { Table } from '@tanstack/react-table'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -6,15 +7,29 @@ import { Select } from '../../select/select'
 type PaginationProps = {
     startIndex: number
     endIndex: number
+    classPagination?: string
+    classFontSize?: string
     table: Table<any> //eslint-disable-line
     handlePageClick: (page: number) => void
 }
 
 const Pagination = (props: PaginationProps) => {
-    const { handlePageClick, table } = props
+    const {
+        handlePageClick,
+        table,
+        classPagination = '',
+        classFontSize = '',
+    } = props
+
     const currentPage = table.getState().pagination.pageIndex + 1
+
     return (
-        <div className="text-xs text-gray-500 flex items-center justify-between bg-white border-[#D4D4D8] ">
+        <div
+            className={cn(
+                'flex items-center justify-between ',
+                classPagination,
+            )}
+        >
             <div className="flex items-center gap-3 w-[200px]">
                 <Select
                     options={[
@@ -23,9 +38,9 @@ const Pagination = (props: PaginationProps) => {
                     ]}
                     value="10"
                     className="w-[55px] pagination-select"
-                    classOption="!text-xs"
+                    classOption={classFontSize}
                 />
-                <span className="!text-xs">Items on page</span>
+                <span className={classFontSize}>Items on page</span>
             </div>
             {(table.getCanPreviousPage() ||
                 table.getCanNextPage()) && (

@@ -15,8 +15,10 @@ const buttonVariants = cva(
                     'border border-primary text-primary hover:shadow active:bg-shade-primary-10 disabled:bg-primary-20 disabled:text-white',
                 'outline-secondary':
                     'border border-shade-secondary-1 text-shade-secondary-1 hover:shadow active:bg-shade-secondary-10 disabled:bg-shade-secondary-20 disabled:text-white',
+                ghost: 'bg-white text-black hover:bg-shade-neutral-10 active:bg-shade-neutral-20 disabled:bg-white disabled:text-black',
             },
             size: {
+                extraSmall: 'h-6 px-2 text-xs',
                 small: 'h-8 px-3 text-xs',
                 medium: 'h-9 px-4 py-2 text-sm',
                 large: 'h-10 px-8 text-md',
