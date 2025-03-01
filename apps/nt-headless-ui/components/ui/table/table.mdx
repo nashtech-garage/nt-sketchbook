@@ -1,0 +1,123 @@
+import { Markdown } from '@storybook/blocks'
+import {
+    Canvas,
+    ColorItem,
+    ColorPalette,
+    Meta,
+    Story,
+} from '@storybook/blocks'
+
+import { columns, userData } from './mock/data'
+import { Table } from './table'
+
+<Meta title="Components/Table" />
+
+## Example
+
+<Table data={userData} columns={columns} />
+
+## Usage
+
+```tsx
+import { createColumnHelper } from '@nt-headless-ui/table'
+
+export const userData = [
+  {
+    firstName: 'Tanner',
+    lastName: 'Linsley',
+    age: 24,
+    visits: 100,
+    status: 'Active',
+    progress: 50,
+  },
+  {
+    firstName: 'Tandy',
+    lastName: 'Miller',
+    age: 40,
+    visits: 40,
+    status: 'Inactive',
+    progress: 80,
+  },
+  {
+    firstName: 'Joe',
+    lastName: 'Dirte',
+    age: 45,
+    visits: 20,
+    status: 'Active',
+    progress: 10,
+  }
+]
+
+const columnHelper = createColumnHelper()
+const columns = const columns = [
+    columnHelper.accessor('id', {
+        cell: (info) => info.getValue(),
+        header: () => 'ID',
+        enableSorting: false,
+    }),
+    columnHelper.accessor('reportName', {
+        header: () => 'Report name',
+        cell: (info) => {
+            return <strong>{info.getValue()}</strong>
+        },
+    }),
+    columnHelper.accessor('audience', {
+        header: () => 'Audience',
+        cell: (info) => info.renderValue(),
+    }),
+
+    columnHelper.accessor('creationDate', {
+        header: () => 'Creation Date',
+        enableSorting: false,
+    }),
+    columnHelper.accessor('by', {
+        header: 'By',
+        cell: () => {
+            const URL_IMAGE = './assets/images/image.png'
+            return (
+                <Avatar
+                    src={URL_IMAGE}
+                    className="h-[25px] w-[25px]"
+                />
+            )
+        },
+        enableSorting: false,
+    }),
+    columnHelper.accessor('status', {
+        header: 'Status',
+        cell: (info) => (
+            <Badge
+                className={`!text-xs ${
+                    (info.getValue() as string).toLowerCase() ===
+                    'active'
+                        ? 'bg-success text-white'
+                        : 'bg-danger text-white'
+                }`}>
+                {info.getValue()}
+            </Badge>
+        ),
+        enableSorting: false,
+    }),
+    columnHelper.accessor('actions', {
+        header: '',
+        cell: () => (
+            <div className="flex items-center space-x-2">
+                <Button size="extraSmall" variant="ghost">
+                    <Edit size={12} />
+                </Button>
+                <Button size="extraSmall" variant="ghost">
+                    <Copy size={12} />
+                </Button>
+            </div>
+        ),
+        enableSorting: false,
+    }),
+]
+
+
+<Table
+    data={userData}
+    columns={columns}
+/>
+
+```

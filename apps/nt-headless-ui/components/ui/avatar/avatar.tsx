@@ -1,55 +1,16 @@
 import { cn } from '@headless-ui/lib/utils'
-import * as AvatarPrimitive from '@radix-ui/react-avatar'
-import * as React from 'react'
 
-const AvatarPrimitiveRoot = React.forwardRef<
-    React.ElementRef<typeof AvatarPrimitive.Root>,
-    React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
->(({ className, ...props }, ref) => (
-    <AvatarPrimitive.Root
-        ref={ref}
-        className={cn('relative flex h-20 w-20 shrink-0 ', className)}
-        {...props}
-    />
-))
+import {
+    AvatarFallback,
+    AvatarImage,
+    AvatarPrimitive,
+    AvatarPrimitiveRoot,
+} from '../../radix/avatar'
 
-AvatarPrimitiveRoot.displayName = AvatarPrimitive.Root.displayName
+export type AvatarSize = 'small' | 'medium' | 'large'
 
-const AvatarImage = React.forwardRef<
-    React.ElementRef<typeof AvatarPrimitive.Image>,
-    React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
->(({ className, ...props }, ref) => (
-    <AvatarPrimitive.Image
-        ref={ref}
-        alt="img"
-        className={cn(
-            'aspect-square h-full w-full  rounded-full',
-            className,
-        )}
-        {...props}
-    />
-))
-AvatarImage.displayName = AvatarPrimitive.Image.displayName
-
-const AvatarFallback = React.forwardRef<
-    React.ElementRef<typeof AvatarPrimitive.Fallback>,
-    React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
->(({ className, ...props }, ref) => (
-    <AvatarPrimitive.Fallback
-        ref={ref}
-        className={cn(
-            'flex h-full w-full items-center justify-center rounded-full bg-muted border',
-            className,
-        )}
-        {...props}
-    />
-))
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
-
-export interface AvatarProps
-    extends React.ComponentPropsWithoutRef<
-        typeof AvatarPrimitive.Root
-    > {
+export type AvatarProps = {
+    className?: string
     src?: string
     fallBack?: React.ReactNode
     badge?: React.ReactNode
@@ -58,10 +19,25 @@ export interface AvatarProps
         | 'top-right'
         | 'bottom-left'
         | 'bottom-right'
-}
+    size?: AvatarSize
+} & React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
 
 const Avatar = (props: AvatarProps) => {
-    const { src, fallBack, badge, badgePosition, ...args } = props
+    const {
+        src,
+        fallBack,
+        badge,
+        badgePosition,
+        className = '',
+        size = 'medium',
+        ...args
+    } = props
+
+    const sizeClasses = {
+        small: 'h-10 w-10',
+        medium: 'h-20 w-20',
+        large: 'h-40 w-40',
+    }
 
     const positionClasses = {
         'top-left': 'absolute top-[4px] left-[3px]',
@@ -71,7 +47,10 @@ const Avatar = (props: AvatarProps) => {
     }
 
     return (
-        <AvatarPrimitiveRoot {...args}>
+        <AvatarPrimitiveRoot
+            className={cn(sizeClasses[size], className)}
+            {...args}
+        >
             <AvatarImage src={src} />
             <AvatarFallback>{fallBack || null}</AvatarFallback>
             {badge && (
