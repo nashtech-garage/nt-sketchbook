@@ -1,0 +1,48 @@
+@use "../variables" as variables;
+@use "../utilities" as utils;
+@use "sass:map";
+
+.nt-badge {
+    @include utils.font-size('xs');
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: variables.$nt-font-weight-bold;
+    padding: variables.$nt-spacing-xs variables.$nt-spacing-sm;
+    border-radius: variables.$nt-border-radius-sm;
+    line-height: 1;
+    white-space: nowrap;
+    background-color: variables.$nt-color-primary-50;
+    color: variables.$nt-color-white;
+
+    &--secondary {
+        background-color: variables.$nt-color-secondary-50;
+    }
+
+    &--success {
+        background-color: variables.$nt-background-danger;
+    }
+
+    &--warning {
+        background-color: variables.$nt-color-warning;
+        color: variables.$nt-color-black;
+    }
+
+    &--danger {
+        background-color: variables.$nt-color-danger;
+    }
+
+    &--small {
+        @include utils.font-size('xxs');
+        padding: variables.$nt-spacing-xs;
+    }
+
+    &--large {
+        @include utils.font-size('lg');
+        padding: variables.$nt-spacing-sm variables.$nt-spacing-md;
+    }
+
+    &--rounded {
+        border-radius: 50%;
+    }
+}
