@@ -1,0 +1,177 @@
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use 'sass:map';
+
+@mixin current-focus-item {
+    color: vars.$nt-color-white;
+    background-color: vars.$nt-color-secondary-100;
+
+    .nti {
+        color: vars.$nt-color-white;
+    }
+}
+
+@mixin create-side-menu() {
+    padding: 0 12px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: vars.$nt-bg-side-menu;
+    color: vars.$nt-text-primary;
+    transform: translateX(-100%);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0 0 0 / 20%);
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    animation: slide-out 0.3s ease-in-out;
+
+    &.active {
+        transform: translateX(0);
+        animation: slide-in 0.3s ease-in-out;
+    }
+
+    /* === Header Section === */
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        background: vars.$nt-color-white;
+    }
+
+    &-logo {
+        @include utils.font-size('lg');
+        font-weight: bold;
+    }
+
+    &-toggle {
+        background: none;
+        border: none;
+        color: vars.$nt-text-primary;
+        cursor: pointer;
+    }
+
+    /* === Search Bar === */
+    &-search {
+        width: 100%;
+        padding: 0.5rem;
+        border: none;
+        border-radius: vars.$nt-border-radius-sm;
+        outline: none;
+        background: vars.$nt-color-white;
+        color: vars.$nt-text-primary;
+    }
+
+    /* === Menu Groups === */
+    &-groups {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &-group {
+        border-bottom: 1px solid vars.$nt-border-bold;
+    }
+
+    &-title {
+        @include utils.font-size('xs');
+        font-weight: vars.$nt-font-weight-medium;
+        text-transform: uppercase;
+        padding: vars.$nt-spacing-sm vars.$nt-spacing-md;
+        margin: 0;
+        color: vars.$nt-text-primary;
+    }
+
+    &-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* === Menu Items === */
+    &-item {
+        padding: vars.$nt-spacing-sm;
+        border-radius: vars.$nt-border-radius-sm;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        a {
+            flex-grow: 1;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-weight: vars.$nt-font-weight-semi-bold;
+            transition: background 0.2s;
+
+            &:focus {
+                text-decoration: none;
+                outline: none;
+            }
+        }
+
+        /* === Icon Before Item Text === */
+        &-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            font-size: 1rem;
+            color: vars.$nt-color-gray-60;
+        }
+
+        /* === Badge After Item Text === */
+        &-badge {
+            background-color: vars.$nt-color-secondary-80;
+            color: vars.$nt-color-white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: vars.$nt-border-radius-sm;
+        }
+
+        &:hover {
+            @include current-focus-item;
+        }
+
+        &.active {
+            @include current-focus-item;
+        }
+    }
+
+    /* === Footer Section === */
+    &-footer {
+        @include utils.font-size('sm');
+        padding: 1rem 0;
+        color: vars.$nt-text-primary;
+        margin-top: auto;
+
+        .nt-copyright {
+            border-bottom: 1px solid vars.$nt-border-bold;
+        }
+    }
+}
+
+/* === Keyframes for Sliding Animation === */
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}

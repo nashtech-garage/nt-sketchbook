@@ -1,6 +1,6 @@
 {
     "name": "@nashtech/stylesheet",
-    "version": "0.0.1",
+    "version": "1.0.5",
     "description": "Style sheet for the NT Design System",
     "scripts": {
         "build": "pnpm vite build",
@@ -29,15 +29,15 @@
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
-            "import": "./dist/index.cjs",
+            "import": "./dist/index.js",
             "require": "./dist/index.cjs"
         },
-        "./tailwind": {
+        "./integrations/tailwind": {
             "types": "./dist/integrations/tailwind/index.d.ts",
             "import": "./dist/integrations/tailwind/index.cjs",
             "require": "./dist/integrations/tailwind/index.cjs"
         },
-        "./tailwind/style.css": {
+        "./integrations/tailwind/style.css": {
             "default": "./dist/integrations/tailwind/style.css"
         }
     },
@@ -49,21 +49,24 @@
         }
     },
     "devDependencies": {
+        "cssnano": "7.0.6",
+        "postcss-reporter": "7.1.0",
+        "autoprefixer": "10.4.21",
+        "sass": "1.85.1",
         "sass-embedded": "1.83.4",
+        "vite-bundle-visualizer": "^1.2.1",
         "vite-plugin-dts": "4.5.0",
         "vite-plugin-sass-dts": "1.3.29",
-        "tsconfig": "workspace:*",
+        "eslint": "9.17.0",
         "eslint-config-custom-lib": "workspace:*",
         "stylelint-custom-lib": "workspace:*",
-        "stylelint": "16.19.1",
-        "eslint": "9.17.0",
-        "@eslint/eslintrc": "3.3.1"
+        "@eslint/eslintrc": "3.3.1",
+        "stylelint": "16.19.1"
     },
     "dependencies": {
-        "tailwindcss": "3.4.17",
-        "postcss": "8.5.3",
-        "postcss-import": "16.1.0",
-        "postcss-nesting": "13.0.1",
-        "autoprefixer": "10.4.20"
+        "@mdi/font": "7.4.47"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

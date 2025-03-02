@@ -1,0 +1,28 @@
+@mixin nt-expand-collapse($duration: 0.3s, $timing: ease-in-out) {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height $duration $timing, opacity $duration $timing, visibility 0s linear $duration;
+
+    &.nt-expanded {
+        max-height: 500px; // Adjust based on content height
+        opacity: 1;
+        visibility: visible;
+        transition: max-height $duration $timing, opacity $duration $timing;
+    }
+}
+
+@mixin fade-in {
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
