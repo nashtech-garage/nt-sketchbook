@@ -4,7 +4,7 @@ import { UserIcon } from 'lucide-react'
 import { MultipleSelect, MultipleSelectProps } from './multi-select'
 
 const meta = {
-    title: 'Components/MultipleSelect',
+    title: 'Components/Multiple select',
     component: MultipleSelect,
     argTypes: {
         variant: {

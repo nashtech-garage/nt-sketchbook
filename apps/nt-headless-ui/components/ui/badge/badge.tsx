@@ -21,13 +21,12 @@ const badgeVariants = cva(
     },
 )
 
-export interface BadgeProps
-    extends React.HTMLAttributes<HTMLDivElement>,
-        VariantProps<typeof badgeVariants> {
+export type BadgeProps = {
     rounded?: boolean
     icon?: React.ReactNode
     iconPosition?: 'left' | 'right'
-}
+} & React.HTMLAttributes<HTMLDivElement> &
+    VariantProps<typeof badgeVariants>
 
 const Badge: React.FC<BadgeProps> = ({
     children,

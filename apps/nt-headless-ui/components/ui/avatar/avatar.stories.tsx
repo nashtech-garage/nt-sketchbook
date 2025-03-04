@@ -25,8 +25,8 @@ const meta: Meta<AvatarProps> = {
             control: 'text',
             description: 'Custom CSS classes for the avatar root.',
         },
-        badge: {
-            control: 'text',
+        hasBadge: {
+            control: 'boolean',
             description: 'Badge content displayed on the avatar.',
         },
         badgePosition: {
@@ -70,7 +70,6 @@ export const NoBadge: StoryObj<AvatarProps> = {
     args: {
         src: URL_IMAGE,
         fallBack: 'JD',
-        badge: undefined,
     },
 }
 
@@ -78,9 +77,7 @@ export const CustomBadge: StoryObj<AvatarProps> = {
     args: {
         src: URL_IMAGE,
         fallBack: 'JD',
-        badge: (
-            <span className="bg-red-500 text-white px-1 rounded" />
-        ),
+        hasBadge: true,
         badgePosition: 'bottom-right',
     },
 }
