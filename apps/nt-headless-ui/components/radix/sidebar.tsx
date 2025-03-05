@@ -24,7 +24,7 @@ import * as React from 'react'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
-const SIDEBAR_WIDTH = '16rem'
+const SIDEBAR_WIDTH = '18rem'
 const SIDEBAR_WIDTH_MOBILE = '18rem'
 const SIDEBAR_WIDTH_ICON = '3rem'
 const SIDEBAR_KEYBOARD_SHORTCUT = 'b'
@@ -432,6 +432,7 @@ const SidebarContent = React.forwardRef<
             data-sidebar="content"
             className={cn(
                 'flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden',
+                'px-5',
                 className,
             )}
             {...props}
@@ -449,7 +450,7 @@ const SidebarGroup = React.forwardRef<
             ref={ref}
             data-sidebar="group"
             className={cn(
-                'relative flex w-full min-w-0 flex-col p-2',
+                'relative flex w-full min-w-0 flex-col px-4 py-3 border-b ',
                 className,
             )}
             {...props}
@@ -469,7 +470,7 @@ const SidebarGroupLabel = React.forwardRef<
             ref={ref as any}
             data-sidebar="group-label"
             className={cn(
-                'flex h-8 shrink-0 items-center rounded-md text-sidebar-foreground/70 outline-none mb-3',
+                'flex shrink-0 items-center rounded-md text-sidebar-foreground/70 outline-none mb-3',
                 'ring-sidebar-ring transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2',
                 '[&>svg]:size-4 [&>svg]:shrink-0 group-data-[collapsible=icohn]:-mt-8 group-data-[collapsible=icon]:opacity-0',
                 'text-shade-neutral-70 uppercase text-sm ',
@@ -539,7 +540,7 @@ const SidebarMenuItem = React.forwardRef<
     <li
         ref={ref}
         data-sidebar="menu-item"
-        className={cn('group/menu-item relative', className)}
+        className={cn('group/menu-item relative ', className)}
         {...props}
     />
 ))
@@ -554,7 +555,8 @@ const sidebarMenuButtonVariants = cva(
         'aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium ' +
         'data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent ' +
         'data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:!size-8 ' +
-        'group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
+        'group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 ' +
+        'text-text',
     {
         variants: {
             variant: {

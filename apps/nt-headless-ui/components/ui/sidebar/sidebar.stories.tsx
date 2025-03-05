@@ -1,5 +1,12 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { LayoutDashboard, SettingsIcon } from 'lucide-react'
+import {
+    Blocks,
+    Check,
+    LayoutDashboard,
+    SettingsIcon,
+    User2,
+    UsersRound,
+} from 'lucide-react'
 import React from 'react'
 
 import { Sidebar } from './sidebar'
@@ -22,6 +29,36 @@ export default {
                         title: 'Settings',
                         url: '/settings',
                         icon: SettingsIcon,
+                    },
+                ],
+            },
+            {
+                label: 'User & Account',
+                items: [
+                    {
+                        title: 'User management',
+                        url: '/account',
+                        icon: User2,
+                    },
+                    {
+                        title: 'Role & Permissions',
+                        url: '/permission',
+                        icon: Check,
+                    },
+                ],
+            },
+            {
+                label: 'App Features',
+                items: [
+                    {
+                        title: 'Features',
+                        url: '/features',
+                        icon: UsersRound,
+                    },
+                    {
+                        title: 'Widgets',
+                        url: '/widgets',
+                        icon: Blocks,
                     },
                 ],
             },

@@ -23,16 +23,28 @@ type Group = {
 type SidebarProps = {
     groups?: Group[]
     isToggleSideBar?: boolean
+    side: 'left' | 'right'
 }
 
 export const Sidebar = (props: SidebarProps) => {
-    const { groups = [], isToggleSideBar = true } = props
+    const {
+        groups = [],
+        isToggleSideBar = true,
+        side = 'left',
+    } = props
     return (
         <SidebarProviderRadix>
-            <SidebarRadix>
+            <SidebarRadix side={side}>
                 <SidebarContentRadix>
-                    {groups.map((group: Group) => (
-                        <SidebarGroupRadix key={group.label}>
+                    {groups.map((group: Group, key: number) => (
+                        <SidebarGroupRadix
+                            key={group.label}
+                            className={
+                                key === groups.length - 1
+                                    ? 'border-b-0'
+                                    : ''
+                            }
+                        >
                             <SidebarGroupLabelRadix>
                                 {group.label}
                             </SidebarGroupLabelRadix>
