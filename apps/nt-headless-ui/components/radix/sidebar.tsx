@@ -431,7 +431,7 @@ const SidebarContent = React.forwardRef<
             ref={ref}
             data-sidebar="content"
             className={cn(
-                'flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden',
+                'flex min-h-0 flex-1 flex-col  overflow-auto group-data-[collapsible=icon]:overflow-hidden',
                 'px-5',
                 className,
             )}
@@ -450,7 +450,7 @@ const SidebarGroup = React.forwardRef<
             ref={ref}
             data-sidebar="group"
             className={cn(
-                'relative flex w-full min-w-0 flex-col px-4 py-3 border-b ',
+                'relative flex w-full min-w-0 flex-col  border-b pt-6 pb-5 ',
                 className,
             )}
             {...props}
@@ -470,10 +470,10 @@ const SidebarGroupLabel = React.forwardRef<
             ref={ref as any}
             data-sidebar="group-label"
             className={cn(
-                'flex shrink-0 items-center rounded-md text-sidebar-foreground/70 outline-none mb-3',
+                'flex shrink-0 items-center rounded-md text-sidebar-foreground/70 outline-none pl-2',
                 'ring-sidebar-ring transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2',
                 '[&>svg]:size-4 [&>svg]:shrink-0 group-data-[collapsible=icohn]:-mt-8 group-data-[collapsible=icon]:opacity-0',
-                'text-shade-neutral-70 uppercase text-sm ',
+                'text-shade-neutral-70 uppercase text-sm mb-3',
                 className,
             )}
             {...props}
@@ -524,10 +524,7 @@ const SidebarMenu = React.forwardRef<
     <ul
         ref={ref}
         data-sidebar="menu"
-        className={cn(
-            'flex w-full min-w-0 flex-col gap-3',
-            className,
-        )}
+        className={cn('flex w-full min-w-0 flex-col  ', className)}
         {...props}
     />
 ))
@@ -540,7 +537,10 @@ const SidebarMenuItem = React.forwardRef<
     <li
         ref={ref}
         data-sidebar="menu-item"
-        className={cn('group/menu-item relative ', className)}
+        className={cn(
+            'group/menu-item relative px-2 py-2',
+            className,
+        )}
         {...props}
     />
 ))

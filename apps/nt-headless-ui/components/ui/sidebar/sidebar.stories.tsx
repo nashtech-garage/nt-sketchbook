@@ -29,6 +29,7 @@ export default {
                         title: 'Settings',
                         url: '/settings',
                         icon: SettingsIcon,
+                        active: true,
                     },
                 ],
             },

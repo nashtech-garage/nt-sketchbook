@@ -10,6 +10,8 @@ import {
     Sidebar as SidebarRadix,
     SidebarTrigger,
 } from '@headless-ui/components/radix/sidebar'
+import { cn } from '@share/apps/nt-headless-ui/lib/utils'
+import React from 'react'
 
 type Group = {
     label: string
@@ -17,6 +19,7 @@ type Group = {
         title: string
         url: string
         icon?: React.ComponentType
+        active?: boolean
     }[]
 }
 
@@ -53,14 +56,33 @@ export const Sidebar = (props: SidebarProps) => {
                                     {group.items.map((item) => (
                                         <SidebarMenuItemRadix
                                             key={item.title}
+                                            className={cn(
+                                                'group/item hover:bg-shade-secondary-1-60 hover:!text-white hover:rounded-sm ',
+                                                item.active &&
+                                                    'bg-purple text-white rounded-sm',
+                                            )}
                                         >
                                             <SidebarMenuButtonRadix
                                                 asChild
                                             >
-                                                <a href={item.url}>
-                                                    {item.icon && (
-                                                        <item.icon />
-                                                    )}
+                                                <a
+                                                    href={item.url}
+                                                    className="flex items-center gap-2 text-inherit "
+                                                >
+                                                    {item.icon &&
+                                                        React.createElement(
+                                                            item.icon as React.ComponentType<{
+                                                                className: string
+                                                            }>,
+                                                            {
+                                                                className:
+                                                                    cn(
+                                                                        'text-purple group-hover/item:text-white',
+                                                                        item.active &&
+                                                                            'text-white',
+                                                                    ),
+                                                            },
+                                                        )}
                                                     <span>
                                                         {item.title}
                                                     </span>
