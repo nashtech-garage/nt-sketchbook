@@ -40,6 +40,16 @@ export default {
                         title: 'User management',
                         url: '/account',
                         icon: User2,
+                        subItems: [
+                            {
+                                title: 'Users',
+                                url: '/users',
+                            },
+                            {
+                                title: 'Roles',
+                                url: '/roles',
+                            },
+                        ],
                     },
                     {
                         title: 'Role & Permissions',
