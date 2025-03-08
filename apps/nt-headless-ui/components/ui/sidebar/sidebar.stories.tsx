@@ -3,12 +3,16 @@ import {
     Blocks,
     Check,
     LayoutDashboard,
+    Search,
     SettingsIcon,
     User2,
     UsersRound,
 } from 'lucide-react'
 import React from 'react'
 
+import { Avatar } from '../avatar/avatar'
+import { Badge } from '../badge/badge'
+import { Input } from '../input/input'
 import { Sidebar } from './sidebar'
 
 export default {
@@ -16,6 +20,26 @@ export default {
     component: Sidebar,
     argTypes: {},
     args: {
+        header: (
+            <div className="flex-col flex gap-4 mt-5">
+                <div className="w-full justify-between flex items-center">
+                    <img
+                        src="/assets/images/stepone.png"
+                        alt="logo"
+                    />
+                    <Avatar
+                        src="/assets/images/image.png"
+                        size="small"
+                        hasBadge
+                        badgeClass="bg-success"
+                    />
+                </div>
+                <Input
+                    placeholder="Search app"
+                    rightIcon={<Search size={17} />}
+                />
+            </div>
+        ),
         groups: [
             {
                 label: 'Productivity',
@@ -24,12 +48,15 @@ export default {
                         title: 'Dashboard',
                         url: '/dashboard',
                         icon: LayoutDashboard,
+                        trailingBadge: (
+                            <Badge variant="danger">4</Badge>
+                        ),
                     },
                     {
                         title: 'Settings',
                         url: '/settings',
                         icon: SettingsIcon,
-                        active: true,
+                        trailingBadge: <Badge>2</Badge>,
                     },
                 ],
             },
@@ -38,12 +65,12 @@ export default {
                 items: [
                     {
                         title: 'User management',
-                        url: '/account',
                         icon: User2,
                         subItems: [
                             {
                                 title: 'Users',
                                 url: '/users',
+                                active: true,
                             },
                             {
                                 title: 'Roles',

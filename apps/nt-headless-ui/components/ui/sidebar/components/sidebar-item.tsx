@@ -26,7 +26,7 @@ export const SideBarItem = (props) => {
         return (
             <SidebarMenuItem
                 className={cn(
-                    'group/item hover:bg-shade-secondary-1-60 hover:text-white hover:rounded ',
+                    ' p-0  ',
                     item.active && 'bg-purple text-white rounded ',
                     className,
                 )}
@@ -35,10 +35,12 @@ export const SideBarItem = (props) => {
                     defaultOpen
                     className="group/collapsible "
                 >
-                    <div
+                    <CollapsibleTrigger
                         className={cn(
-                            ' justify-between flex items-center',
-                            'cursor-pointer',
+                            'justify-between flex items-center',
+                            'group/item hover:bg-shade-secondary-1-60',
+                            'hover:text-white hover:rounded px-2 py-3',
+                            'cursor-pointer w-full',
                         )}
                     >
                         <div className="flex gap-2 w-[90%]">
@@ -59,17 +61,15 @@ export const SideBarItem = (props) => {
                                 )}
                             {item.title}
                         </div>
-                        <CollapsibleTrigger asChild>
-                            <ChevronDown size={17} />
-                        </CollapsibleTrigger>
-                    </div>
+                        <ChevronDown size={17} />
+                    </CollapsibleTrigger>
                     <CollapsibleContent>
                         <SidebarMenuSub>
                             {item.subItems.map((subItem) => (
                                 <SideBarItem
                                     item={subItem}
                                     key={subItem.title}
-                                    className="p-0"
+                                    className="p-0 pl-8 py-1"
                                 />
                             ))}
                         </SidebarMenuSub>
@@ -90,29 +90,34 @@ export const SideBarItem = (props) => {
         >
             <SidebarMenuButtonRadix asChild>
                 <a
-                    // href={item.url}
-                    className="flex items-center gap-2 text-inherit "
+                    href={item.url}
+                    className="flex items-center gap-2 text-inherit justify-between"
                 >
-                    {item.icon &&
-                        React.createElement(
-                            item.icon as React.ComponentType<{
-                                className: string
-                            }>,
-                            {
-                                className: cn(
-                                    'text-purple group-hover/item:text-white',
-                                    item.active && 'text-white',
-                                ),
-                            },
-                        )}
-                    <span
-                        className={cn(
-                            'group-hover/item:text-white',
-                            item.active && 'text-white',
-                        )}
-                    >
-                        {item.title}
-                    </span>
+                    <div className="gap-2 flex items-center">
+                        {item.icon &&
+                            React.createElement(
+                                item.icon as React.ComponentType<{
+                                    className: string
+                                    size: number
+                                }>,
+                                {
+                                    className: cn(
+                                        'text-purple group-hover/item:text-white',
+                                        item.active && 'text-white',
+                                    ),
+                                    size: 17,
+                                },
+                            )}
+                        <span
+                            className={cn(
+                                'group-hover/item:text-white',
+                                item.active && 'text-white',
+                            )}
+                        >
+                            {item.title}
+                        </span>
+                    </div>
+                    {item.trailingBadge && item.trailingBadge}
                 </a>
             </SidebarMenuButtonRadix>
         </SidebarMenuItem>

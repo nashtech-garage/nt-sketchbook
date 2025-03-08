@@ -538,7 +538,7 @@ const SidebarMenuItem = React.forwardRef<
         ref={ref}
         data-sidebar="menu-item"
         className={cn(
-            'group/menu-item relative px-2 py-2',
+            'group/menu-item relative px-2 py-1',
             className,
         )}
         {...props}
@@ -746,7 +746,7 @@ const SidebarMenuSub = React.forwardRef<
         ref={ref}
         data-sidebar="menu-sub"
         className={cn(
-            'pl-6 flex min-w-0 translate-x-px flex-col gap-2 mt-3',
+            ' flex min-w-0 translate-x-px flex-col',
             'group-data-[collapsible=icon]:hidden',
             className,
         )}

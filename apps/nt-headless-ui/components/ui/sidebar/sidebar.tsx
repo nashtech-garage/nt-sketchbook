@@ -1,6 +1,7 @@
 import {
-    SidebarContent as SidebarContentRadix,
-    SidebarProvider as SidebarProviderRadix,
+    SidebarContent,
+    SidebarHeader,
+    SidebarProvider,
     Sidebar as SidebarRadix,
     SidebarTrigger,
 } from '@headless-ui/components/radix/sidebar'
@@ -18,6 +19,7 @@ export type SidebarItem = {
     title: string
     icon?: React.ComponentType
     active?: boolean
+    trailingBadge?: React.ReactNode
     subItems?: SidebarSubItem[]
 }
 
@@ -30,6 +32,7 @@ export type SidebarProps = {
     groups?: Group[]
     isToggleSideBar?: boolean
     side: 'left' | 'right'
+    header?: React.ReactNode
 }
 
 export const Sidebar = (props: SidebarProps) => {
@@ -37,11 +40,14 @@ export const Sidebar = (props: SidebarProps) => {
         groups = [],
         isToggleSideBar = true,
         side = 'left',
+        header = null,
     } = props
     return (
-        <SidebarProviderRadix>
+        <SidebarProvider>
             <SidebarRadix side={side}>
-                <SidebarContentRadix>
+                {header && <SidebarHeader>{header}</SidebarHeader>}
+
+                <SidebarContent>
                     {groups.map((group: Group, key: number) => (
                         <SidebarGroup
                             key={group.label}
@@ -53,9 +59,9 @@ export const Sidebar = (props: SidebarProps) => {
                             group={group}
                         />
                     ))}
-                </SidebarContentRadix>
+                </SidebarContent>
             </SidebarRadix>
             <main>{isToggleSideBar && <SidebarTrigger />}</main>
-        </SidebarProviderRadix>
+        </SidebarProvider>
     )
 }
