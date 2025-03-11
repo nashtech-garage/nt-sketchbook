@@ -1,5 +1,3 @@
-'use client'
-
 import { cn } from '@headless-ui/lib/utils'
 import * as SheetPrimitive from '@radix-ui/react-dialog'
 import { cva, type VariantProps } from 'class-variance-authority'
