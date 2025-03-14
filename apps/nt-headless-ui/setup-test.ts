@@ -19,3 +19,5 @@ global.window.matchMedia =
         removeEventListener: vi.fn(),
         dispatchEvent: vi.fn(),
     }))
+
+window.HTMLElement.prototype.scrollIntoView = vi.fn()

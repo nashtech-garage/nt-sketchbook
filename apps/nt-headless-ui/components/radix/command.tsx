@@ -15,7 +15,8 @@ const Command = React.forwardRef<
     <CommandPrimitive
         ref={ref}
         className={cn(
-            'flex h-full w-full flex-col overflow-hidden rounded-md bg-white text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50',
+            'flex h-full w-full flex-col overflow-hidden rounded-md',
+            'bg-white text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50',
             className,
         )}
         {...props}
@@ -40,7 +41,7 @@ const CommandInput = React.forwardRef<
     React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
     <div
-        className="flex items-center border-b px-3"
+        className="flex items-center border px-3 mx-3 mt-3 mb-5 rounded"
         cmdk-input-wrapper=""
     >
         <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
@@ -64,7 +65,7 @@ const CommandList = React.forwardRef<
     <CommandPrimitive.List
         ref={ref}
         className={cn(
-            'max-h-[300px] overflow-y-auto overflow-x-hidden',
+            'max-h-[300px] mt-0 overflow-y-auto overflow-x-hidden mb-3',
             className,
         )}
         {...props}
@@ -93,7 +94,7 @@ const CommandGroup = React.forwardRef<
     <CommandPrimitive.Group
         ref={ref}
         className={cn(
-            'overflow-hidden p-1 text-neutral-950 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-neutral-500 dark:text-neutral-50 dark:[&_[cmdk-group-heading]]:text-neutral-400',
+            'overflow-hidden px-3 text-neutral-950 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-neutral-500 dark:text-neutral-50 dark:[&_[cmdk-group-heading]]:text-neutral-400',
             className,
         )}
         {...props}
@@ -123,8 +124,11 @@ const CommandItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <CommandPrimitive.Item
         ref={ref}
+        role="option"
         className={cn(
-            'relative flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected=true]:bg-neutral-100 data-[selected=true]:text-neutral-900 data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 dark:data-[selected=true]:bg-neutral-800 dark:data-[selected=true]:text-neutral-50',
+            'relative flex cursor-pointer gap-3 select-none items-center rounded px-2 py-3',
+            'text-sm outline-none data-[disabled=true]:pointer-events-none',
+            '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
             className,
         )}
         {...props}
