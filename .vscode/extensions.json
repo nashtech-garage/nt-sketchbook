@@ -15,6 +15,7 @@
         "davidanson.vscode-markdownlint",
         "ambar.bundle-size",
         "yoavbls.pretty-ts-errors",
-        "csstools.postcss"
+        "csstools.postcss",
+        "formulahendry.auto-rename-tag"
     ]
 }
