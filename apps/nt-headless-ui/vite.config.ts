@@ -2,6 +2,8 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 import { defineConfig } from 'vitest/config'
 
+import { name } from './package.json'
+
 export default defineConfig({
     resolve: {
         alias: {
@@ -11,6 +13,30 @@ export default defineConfig({
         },
     },
     plugins: [react()],
+    build: {
+        lib: {
+            entry: path.resolve(__dirname, './main.ts'),
+            name,
+            formats: ['es', 'umd'],
+            fileName: (format) => `${name}.${format}.js`,
+        },
+        rollupOptions: {
+            external: [
+                'react',
+                'react/jsx-runtime',
+                'react-dom',
+                'tailwindcss',
+            ],
+            output: {
+                globals: {
+                    react: 'React',
+                    'react/jsx-runtime': 'react/jsx-runtime',
+                    'react-dom': 'ReactDOM',
+                    tailwindcss: 'tailwindcss',
+                },
+            },
+        },
+    },
     test: {
         watch: false,
         globals: true,

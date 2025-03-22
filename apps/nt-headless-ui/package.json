@@ -4,12 +4,24 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "build:lib": "tsc && vite build",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
         "dev": "pnpm --filter ../nt-stylesheet build && storybook dev -p 6006",
         "build-storybook": "storybook build",
         "test": "pnpm vitest"
+    },
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/circuit-ui.es.js",
+            "require": "./dist/circuit-ui.umd.js"
+        },
+        "./dist/style.css": "./dist/style.css"
     },
     "dependencies": {
         "@nashtech/nt-stylesheet": "1.0.2",
