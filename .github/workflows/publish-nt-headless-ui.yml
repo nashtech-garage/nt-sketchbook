@@ -37,7 +37,7 @@ jobs:
               working-directory: apps/nt-headless-ui
 
             - name: Build Libs
-              run: pnpm run build:lib
+              run: pnpm run build:headlessui-lib
               working-directory: apps/nt-headless-ui
 
             - name: Publish to npm
