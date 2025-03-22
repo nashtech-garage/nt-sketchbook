@@ -30,7 +30,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Authenticate with npm
-              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}" > ~/.npmrc
+              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN_UI }}" > ~/.npmrc
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
