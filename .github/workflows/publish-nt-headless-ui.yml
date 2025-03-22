@@ -36,8 +36,8 @@ jobs:
               run: pnpm install --frozen-lockfile
               working-directory: apps/nt-headless-ui
 
-            - name: Build CSS framework
-              run: pnpm run build
+            - name: Build Libs
+              run: pnpm run build:lib
               working-directory: apps/nt-headless-ui
 
             - name: Publish to npm
