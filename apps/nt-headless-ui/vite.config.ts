@@ -4,6 +4,7 @@ import { defineConfig } from 'vitest/config'
 
 import { name } from './package.json'
 
+const packageName = name.split('/').pop()
 export default defineConfig({
     resolve: {
         alias: {
@@ -15,10 +16,10 @@ export default defineConfig({
     plugins: [react()],
     build: {
         lib: {
-            entry: path.resolve(__dirname, './main.ts'),
-            name,
+            entry: path.resolve(__dirname, './index.ts'),
+            name: packageName,
             formats: ['es', 'umd'],
-            fileName: (format) => `${name}.${format}.js`,
+            fileName: (format) => `${packageName}.${format}.js`,
         },
         rollupOptions: {
             external: [
@@ -28,6 +29,7 @@ export default defineConfig({
                 'tailwindcss',
             ],
             output: {
+                dir: 'dist',
                 globals: {
                     react: 'React',
                     'react/jsx-runtime': 'react/jsx-runtime',

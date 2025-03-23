@@ -56,9 +56,6 @@ importers:
       cmdk:
         specifier: 1.0.4
         version: 1.0.4(@types/react-dom@18.2.25)(@types/react@18.2.25)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      eslint-config-next:
-        specifier: 15.1.4
-        version: 15.1.4(eslint@9.20.1(jiti@1.21.7))(typescript@5.7.3)
       lucide-react:
         specifier: 0.474.0
         version: 0.474.0(react@18.2.0)
@@ -120,6 +117,9 @@ importers:
       '@types/react-dom':
         specifier: 18.2.25
         version: 18.2.25
+      eslint-config-next:
+        specifier: 15.1.4
+        version: 15.1.4(eslint@9.20.1(jiti@1.21.7))(typescript@5.7.3)
       sass:
         specifier: 1.85.1
         version: 1.85.1

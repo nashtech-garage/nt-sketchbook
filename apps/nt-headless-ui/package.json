@@ -15,11 +15,14 @@
     "files": [
         "dist"
     ],
+    "main": "./dist/headless-ui.umd.js",
+    "module": "./dist/headless-ui.es.js",
+    "types": "./dist/index.d.ts",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
-            "import": "./dist/circuit-ui.es.js",
-            "require": "./dist/circuit-ui.umd.js"
+            "import": "./dist/headless-ui.es.js",
+            "require": "./dist/headless-ui.umd.js"
         },
         "./dist/style.css": "./dist/style.css"
     },
@@ -40,7 +43,6 @@
         "class-variance-authority": "0.7.1",
         "clsx": "2.1.1",
         "cmdk": "1.0.4",
-        "eslint-config-next": "15.1.4",
         "lucide-react": "0.474.0",
         "next": "15.1.4",
         "react": "18.2.0",
@@ -51,6 +53,7 @@
         "tailwindcss-animate": "1.0.7"
     },
     "devDependencies": {
+        "eslint-config-next": "15.1.4",
         "@chromatic-com/storybook": "3",
         "@storybook/addon-actions": "8.4.7",
         "@storybook/addon-essentials": "8.4.7",
