@@ -43,7 +43,7 @@ jobs:
               run: npm publish
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN_UI }}
               working-directory: apps/nt-headless-ui
 
     create-github-release:
