@@ -5,8 +5,6 @@ import { Pagination, Th, Tr, TrLoading } from './components'
 import { useTable } from './hooks/use-table'
 import './table.scss'
 
-export { createColumnHelper } from '@tanstack/react-table'
-
 export type TableProps = {
     data: unknown[]
     columns: ColumnDef<unknown>[]
