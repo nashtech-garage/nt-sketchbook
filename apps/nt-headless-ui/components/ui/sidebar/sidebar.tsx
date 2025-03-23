@@ -26,12 +26,16 @@ export type SidebarItem = {
 }
 
 export type Group = {
-    label: string
-    items: SidebarItem[]
+    title: string
+    active?: boolean
+    icon?: React.ReactNode
+    url?: string
+    items?: SidebarItem[]
 }
 
 export type SidebarProps = {
     groups?: Group[]
+    isSubmenuActive?: boolean
     isToggleSideBar?: boolean
     side?: 'left' | 'right'
     header?: React.ReactNode
@@ -46,6 +50,7 @@ export const Sidebar = (props: SidebarProps) => {
         header = null,
         footer = null,
     } = props
+
     return (
         <SidebarProvider>
             <SidebarRadix side={side}>
@@ -54,7 +59,7 @@ export const Sidebar = (props: SidebarProps) => {
                 <SidebarContent>
                     {groups.map((group: Group, key: number) => (
                         <SidebarGroup
-                            key={group.label}
+                            key={group.title}
                             className={
                                 key === groups.length - 1
                                     ? 'border-b-0'

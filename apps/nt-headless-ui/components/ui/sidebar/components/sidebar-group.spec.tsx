@@ -6,11 +6,14 @@ import { Group } from '../sidebar'
 import { SidebarGroup } from './sidebar-group'
 
 const mockGroup: Group = {
-    label: 'Test Group',
+    title: 'Test Group',
     items: [
         { title: 'Item 1', url: '/item1' },
         { title: 'Item 2', url: '/item2' },
     ],
+}
+const mockGroupWithNoItems: Group = {
+    title: 'Test Group',
 }
 
 const renderWithProvider = (ui: React.ReactElement) => {
@@ -39,5 +42,15 @@ describe('SidebarGroup', () => {
         expect(
             container.querySelector('.custom-class'),
         ).toBeInTheDocument()
+    })
+
+    it('renders a single item when no items are provided', () => {
+        renderWithProvider(
+            <SidebarGroup group={mockGroupWithNoItems} />,
+        )
+        expect(screen.getByText('Test Group')).toBeInTheDocument()
+        expect(
+            document.getElementsByClassName('list-none').length,
+        ).toBe(1)
     })
 })
