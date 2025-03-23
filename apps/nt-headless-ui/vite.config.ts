@@ -1,10 +1,9 @@
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vitest/config'
 
-import { name } from './package.json'
-
-const packageName = name.split('/').pop()
+const packageName = 'headless-ui'
 export default defineConfig({
     resolve: {
         alias: {
@@ -13,7 +12,14 @@ export default defineConfig({
             'react-dom': path.resolve('./node_modules/react-dom'),
         },
     },
-    plugins: [react()],
+    plugins: [
+        react(),
+        dts({
+            outDir: path.resolve(__dirname, 'dist'),
+            entryRoot: path.resolve(__dirname, './'),
+            cleanVueFileName: true,
+        }),
+    ],
     build: {
         lib: {
             entry: path.resolve(__dirname, './index.ts'),
@@ -21,6 +27,7 @@ export default defineConfig({
             formats: ['es', 'umd'],
             fileName: (format) => `${packageName}.${format}.js`,
         },
+        outDir: path.resolve(__dirname, 'dist'),
         rollupOptions: {
             external: [
                 'react',
@@ -29,7 +36,7 @@ export default defineConfig({
                 'tailwindcss',
             ],
             output: {
-                dir: 'dist',
+                dir: path.resolve(__dirname, 'dist'),
                 globals: {
                     react: 'React',
                     'react/jsx-runtime': 'react/jsx-runtime',
