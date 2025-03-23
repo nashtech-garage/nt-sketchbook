@@ -65,5 +65,8 @@
         "@types/react-dom": "18.2.25",
         "sass": "1.85.1",
         "typescript": "5"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }
