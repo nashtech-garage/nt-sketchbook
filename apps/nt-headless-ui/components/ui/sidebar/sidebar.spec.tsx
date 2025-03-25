@@ -6,14 +6,14 @@ import { Sidebar, SidebarProps } from './sidebar'
 
 const mockGroups: SidebarProps['groups'] = [
     {
-        label: 'Group 1',
+        title: 'Group 1',
         items: [
             { title: 'Item 1', url: '/item1' },
             { title: 'Item 2', url: '/item2' },
         ],
     },
     {
-        label: 'Group 2',
+        title: 'Group 2',
         items: [{ title: 'Item 3', url: '/item3' }],
     },
 ]

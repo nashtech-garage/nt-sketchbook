@@ -16,14 +16,22 @@ type SidebarGroupProps = {
 export const SidebarGroup = (props: SidebarGroupProps) => {
     const { group, className = '' } = props
 
+    if (group.items === undefined) {
+        return (
+            <div className=" mt-4 border-b pb-5">
+                <SideBarItem className="list-none" item={group} />
+            </div>
+        )
+    }
+
     return (
-        <SidebarGroupRadix key={group.label} className={className}>
+        <SidebarGroupRadix key={group.title} className={className}>
             <SidebarGroupLabelRadix>
-                {group.label}
+                {group.title}
             </SidebarGroupLabelRadix>
             <SidebarGroupContentRadix>
                 <SidebarMenu>
-                    {group.items.map((item) => (
+                    {group.items?.map((item) => (
                         <SideBarItem key={item.title} item={item} />
                     ))}
                 </SidebarMenu>

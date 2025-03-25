@@ -56,16 +56,14 @@ export default {
         ),
         groups: [
             {
-                label: 'Productivity',
+                title: 'Dashboard',
+                url: '/dashboard',
+                icon: LayoutDashboard,
+                trailingBadge: <Badge variant="danger">4</Badge>,
+            },
+            {
+                title: 'Productivity',
                 items: [
-                    {
-                        title: 'Dashboard',
-                        url: '/dashboard',
-                        icon: LayoutDashboard,
-                        trailingBadge: (
-                            <Badge variant="danger">4</Badge>
-                        ),
-                    },
                     {
                         title: 'Settings',
                         url: '/settings',
@@ -75,7 +73,7 @@ export default {
                 ],
             },
             {
-                label: 'User & Account',
+                title: 'User & Account',
                 items: [
                     {
                         title: 'User management',
@@ -100,7 +98,7 @@ export default {
                 ],
             },
             {
-                label: 'App Features',
+                title: 'App Features',
                 items: [
                     {
                         title: 'Features',
