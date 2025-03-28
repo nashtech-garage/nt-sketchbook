@@ -14,10 +14,11 @@ export type ProgressProps = React.ComponentPropsWithoutRef<
 > & {
     variant?: ProgressVariant
     size?: 'small' | 'medium' | 'large'
+    displayPercent?: boolean
 }
 
 const variantClasses = {
-    default: 'bg-secondary-6',
+    default: 'bg-shade-secondary-1-10',
     danger: 'bg-danger-thin',
     warning: 'bg-warning-thin',
     success: 'bg-success-thin',
@@ -25,7 +26,7 @@ const variantClasses = {
 }
 
 const variantIndicatorClasses = {
-    default: 'bg-black',
+    default: 'bg-purple',
     danger: 'bg-danger',
     warning: 'bg-warning',
     success: 'bg-success',
@@ -33,9 +34,9 @@ const variantIndicatorClasses = {
 }
 
 const sizeClasses = {
-    small: 'h-1',
-    medium: 'h-2',
-    large: 'h-3',
+    small: 'h-3',
+    medium: 'h-4',
+    large: 'h-5',
 }
 
 const Progress = React.forwardRef<
@@ -48,33 +49,55 @@ const Progress = React.forwardRef<
             value,
             variant = 'default',
             size = 'medium',
+            displayPercent = false,
             ...props
         },
         ref,
     ) => {
+        const remainingPercent = React.useMemo(
+            () => 100 - (value || 0),
+            [value],
+        )
         return (
-            <ProgressPrimitive.Root
-                ref={ref}
-                className={cn(
-                    'relative w-full overflow-hidden rounded-full',
-                    sizeClasses[size],
-                    variantClasses[variant],
-                    className,
-                )}
-                {...props}
-            >
-                <ProgressPrimitive.Indicator
+            <div className="flex items-center justify-between">
+                <ProgressPrimitive.Root
+                    ref={ref}
                     className={cn(
-                        'w-full flex-1 transition-all h-full progress-indicator',
-                        variantIndicatorClasses[variant],
+                        'relative overflow-hidden rounded-full w-full',
+                        {
+                            'flex items-center justify-between':
+                                displayPercent,
+                            'w-[95%]':
+                                displayPercent && Number(value) > 95,
+                        },
+                        sizeClasses[size],
+                        variantClasses[variant],
+                        className,
                     )}
-                    style={{
-                        transform: `translateX(-${
-                            100 - (value || 0)
-                        }%)`,
-                    }}
-                />
-            </ProgressPrimitive.Root>
+                    {...props}
+                >
+                    <ProgressPrimitive.Indicator
+                        className={cn(
+                            `flex-1 transition-all h-full progress-indicator `,
+                            variantIndicatorClasses[variant],
+                        )}
+                        style={{ width: `${value}%` }}
+                    />
+                    {displayPercent && value !== 100 && (
+                        <span
+                            style={{ width: remainingPercent + '%' }}
+                            className="pl-2 text-sm font-bold"
+                        >
+                            {Number(value) <= 95 && value + '%'}
+                        </span>
+                    )}
+                </ProgressPrimitive.Root>
+                {displayPercent && Number(value) > 95 && (
+                    <span className="pl-2 text-sm font-bold">
+                        {value}%
+                    </span>
+                )}
+            </div>
         )
     },
 )
