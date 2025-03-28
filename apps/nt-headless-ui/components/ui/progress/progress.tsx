@@ -54,7 +54,7 @@ const Progress = React.forwardRef<
         },
         ref,
     ) => {
-        const widthPercent = React.useMemo(
+        const remainingPercent = React.useMemo(
             () => 100 - (value || 0),
             [value],
         )
@@ -85,7 +85,7 @@ const Progress = React.forwardRef<
                     />
                     {displayPercent && value !== 100 && (
                         <span
-                            style={{ width: widthPercent + '%' }}
+                            style={{ width: remainingPercent + '%' }}
                             className="pl-2 text-sm font-bold"
                         >
                             {Number(value) <= 95 && value + '%'}
