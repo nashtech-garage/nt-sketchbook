@@ -7,22 +7,22 @@ describe('Progress Component', () => {
     const sizes = [
         {
             size: 'small',
-            expectClass: 'h-1',
+            expectClass: 'h-3',
         },
         {
             size: 'medium',
-            expectClass: 'h-2',
+            expectClass: 'h-4',
         },
         {
             size: 'large',
-            expectClass: 'h-3',
+            expectClass: 'h-5',
         },
     ] as const
     const variantsWithExpectClass = [
         {
             variant: 'default',
-            expectClass: 'bg-secondary-6',
-            expectIndicatorClass: 'bg-black',
+            expectClass: 'bg-shade-secondary-1-10',
+            expectIndicatorClass: 'bg-purple',
         },
         {
             variant: 'danger',
@@ -52,7 +52,9 @@ describe('Progress Component', () => {
             const { container } = render(
                 <Progress variant={variant} value={50} />,
             )
-            expect(container.firstChild).toHaveClass(expectClass)
+            expect(container.firstChild?.firstChild).toHaveClass(
+                expectClass,
+            )
             const indicator = container.querySelector(
                 '.progress-indicator',
             )
@@ -66,34 +68,59 @@ describe('Progress Component', () => {
             const { container } = render(
                 <Progress size={size} value={50} />,
             )
-            expect(container.firstChild).toHaveClass(expectClass)
+            expect(container.firstChild?.firstChild).toHaveClass(
+                expectClass,
+            )
         },
     )
 
     it('renders correctly with additional className', () => {
-        const { container } = render(
-            <Progress className="additional-class" value={50} />,
+        render(<Progress className="additional-class" value={50} />)
+        expect(
+            document.getElementsByClassName('additional-class'),
+        ).toHaveLength(1)
+    })
+    it('renders correctly with displayPercent enabled and value less than 100', () => {
+        const { getByText } = render(
+            <Progress value={75} displayPercent />,
         )
-        expect(container.firstChild).toHaveClass('additional-class')
+        const percentText = getByText('75%')
+        expect(percentText).toBeInTheDocument()
     })
 
+    it('renders correctly with displayPercent enabled and value equal to 100', () => {
+        const { container, getByText } = render(
+            <Progress value={100} displayPercent />,
+        )
+        const percentText = getByText('100%')
+        expect(percentText).toBeInTheDocument()
+        expect(container.firstChild).toHaveClass(
+            'flex items-center justify-between',
+        )
+    })
+
+    it('does not render percent text when displayPercent is disabled', () => {
+        const { queryByText } = render(<Progress value={50} />)
+        const percentText = queryByText('50%')
+        expect(percentText).not.toBeInTheDocument()
+    })
     const valuesWithExpectTransform = [
-        { value: 0, expectTransform: 'translateX(-100%)' },
-        { value: 25, expectTransform: 'translateX(-75%)' },
-        { value: 50, expectTransform: 'translateX(-50%)' },
-        { value: 75, expectTransform: 'translateX(-25%)' },
-        { value: 100, expectTransform: 'translateX(-0%)' },
+        { value: 0, width: '0%' },
+        { value: 25, width: '25%' },
+        { value: 50, width: '50%' },
+        { value: 75, width: '75%' },
+        { value: 100, width: '100%' },
     ] as const
 
     it.each(valuesWithExpectTransform)(
         'renders correctly with transform style based on value: $value',
-        ({ value, expectTransform }) => {
+        ({ value, width }) => {
             const { container } = render(<Progress value={value} />)
             const indicator = container.querySelector(
                 '.progress-indicator',
             )
             expect(indicator).toHaveStyle({
-                transform: expectTransform,
+                width,
             })
         },
     )
