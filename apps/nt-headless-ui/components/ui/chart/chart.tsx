@@ -53,11 +53,11 @@ export const Chart = <T extends ChartType>({
         bubble: Bubble,
     }
 
-    const Chart = ChartMap[type] as React.ElementType
+    const SelectedChart = ChartMap[type] as React.ElementType
 
     return (
         <div className={className || 'w-full max-w-lg mx-auto'}>
-            <Chart data={data} options={options} />
+            <SelectedChart data={data} options={options} />
         </div>
     )
 }
