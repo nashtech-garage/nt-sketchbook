@@ -1,5 +1,11 @@
 name: 'CodeQL Advanced'
 
+permissions:
+    actions: write
+    checks: write
+    contents: read
+    security-events: write
+
 on:
     push:
         branches: ['main']
@@ -50,4 +56,3 @@ jobs:
               uses: github/codeql-action/analyze@v3
               with:
                   category: '/language:${{matrix.language}}'
-
