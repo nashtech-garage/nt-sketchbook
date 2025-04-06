@@ -1,4 +1,11 @@
 name: Snyk Security Check
+
+permissions:
+    actions: write
+    checks: write
+    contents: read
+    security-events: write
+
 on:
     push:
     pull_request:
