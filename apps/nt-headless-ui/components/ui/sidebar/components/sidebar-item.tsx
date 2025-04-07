@@ -1,11 +1,11 @@
 import {
     SidebarMenuButton as SidebarMenuButtonRadix,
     SidebarMenuItem,
-} from '@headless-ui/components/radix/sidebar'
-import { cn } from '@headless-ui/lib/utils'
+} from '@/components/radix/sidebar'
+import { cn } from '@/lib/utils'
 import React from 'react'
 
-import { SidebarItem } from '../sidebar'
+import type { SidebarItem } from '../sidebar'
 import { SideBarSubItem } from './sidebar-subitem'
 
 export type SideBarItemProps = {
@@ -13,10 +13,10 @@ export type SideBarItemProps = {
     className?: string
 }
 
-export const SideBarItem = (props) => {
+export const SideBarItem = (props: SideBarItemProps) => {
     const { item, className = '' } = props
 
-    if (item.subItems?.length > 0) {
+    if ((item.subItems ?? []).length > 0) {
         return <SideBarSubItem item={item} className={className} />
     }
 

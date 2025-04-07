@@ -1,0 +1,11 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "./base.json",
+    "display": "EsLint",
+    "compilerOptions": {
+        "noEmit": true,
+        "allowJs": true
+    },
+    "include": ["**/*.js", "*.js"],
+    "exclude": ["node_modules"]
+}

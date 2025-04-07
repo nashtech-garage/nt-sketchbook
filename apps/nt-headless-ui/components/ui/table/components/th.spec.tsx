@@ -1,4 +1,4 @@
-import { HeaderGroup } from '@tanstack/react-table'
+import type { HeaderGroup, RowData } from '@tanstack/react-table'
 import { fireEvent, render } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
@@ -6,6 +6,7 @@ import Th from './th'
 
 vi.mock('@tanstack/react-table', async (importOriginal) => {
     const mod = await importOriginal<
+        // eslint-disable-next-line @typescript-eslint/consistent-type-imports
         typeof import('@tanstack/react-table')
     >()
     return {
@@ -26,7 +27,7 @@ const setup = (
 ) => {
     const toggleSortingMock = vi.fn()
 
-    const headerGroup: HeaderGroup<any> = {
+    const headerGroup: HeaderGroup<{ header: string }> = {
         headers: [
             {
                 id: 'sortableCol',
@@ -41,12 +42,14 @@ const setup = (
                 getContext: () => ({}),
             },
         ],
-    } as unknown as HeaderGroup<any>
+    } as unknown as HeaderGroup<{ header: string }>
 
     const utils = render(
         <table>
             <thead>
-                <Th headerGroup={headerGroup} />
+                <Th
+                    headerGroup={headerGroup as HeaderGroup<RowData>}
+                />
             </thead>
         </table>,
     )

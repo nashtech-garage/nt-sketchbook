@@ -2,7 +2,8 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
-import { Sidebar, SidebarProps } from './sidebar'
+import type { SidebarProps } from './sidebar'
+import { Sidebar } from './sidebar'
 
 const mockGroups: SidebarProps['groups'] = [
     {

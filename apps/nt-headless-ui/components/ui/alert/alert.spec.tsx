@@ -3,7 +3,8 @@ import userEvent from '@testing-library/user-event'
 import { X } from 'lucide-react'
 import { describe, expect, test, vi } from 'vitest'
 
-import { Alert, AlertVariant } from './alert'
+import type { AlertVariant } from './alert'
+import { Alert } from './alert'
 
 const variantClasses = {
     default: 'bg-shade-neutral-9',

@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import {
     Blocks,
     Check,
@@ -13,6 +13,7 @@ import React from 'react'
 import { Avatar } from '../avatar/avatar'
 import { Badge } from '../badge/badge'
 import { Input } from '../input/input'
+import type { SidebarProps } from './sidebar'
 import { Sidebar } from './sidebar'
 
 export default {
@@ -116,7 +117,9 @@ export default {
     },
 } as Meta
 
-const Template: StoryFn<any> = (args: any) => <Sidebar {...args} />
+const Template: StoryFn<SidebarProps> = (args: SidebarProps) => (
+    <Sidebar {...args} />
+)
 
 export const Default = Template.bind({})
 

@@ -2,6 +2,7 @@ import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, test, vi } from 'vitest'
 
+import type { SwitchSizes, SwitchVariants } from './switch'
 import { Switch } from './switch'
 
 describe('Switch Component', () => {
@@ -31,7 +32,7 @@ describe('Switch Component', () => {
     ])(
         'applies the correct variant classes for %s',
         (variant, expectedClass) => {
-            render(<Switch variant={variant as any} />)
+            render(<Switch variant={variant as SwitchVariants} />)
             const switchElement = screen.getByRole('switch')
 
             expect(switchElement).toHaveClass(
@@ -46,7 +47,7 @@ describe('Switch Component', () => {
     ])(
         'applies the correct size classes for %s',
         (size, expectedClass) => {
-            render(<Switch size={size as any} />)
+            render(<Switch size={size as SwitchSizes} />)
             const switchElement = screen.getByRole('switch')
 
             expect(switchElement).toHaveClass(

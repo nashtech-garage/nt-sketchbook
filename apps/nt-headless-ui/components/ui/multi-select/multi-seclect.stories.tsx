@@ -1,7 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { UserIcon } from 'lucide-react'
 
-import { MultipleSelect, MultipleSelectProps } from './multi-select'
+import type { MultipleSelectProps } from './multi-select'
+import { MultipleSelect } from './multi-select'
 
 const meta = {
     title: 'Components/Multiple select',

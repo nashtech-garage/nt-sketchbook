@@ -1,10 +1,5 @@
-import {
-    ChartData,
-    Chart as ChartJS,
-    ChartOptions,
-    ChartType,
-    registerables,
-} from 'chart.js'
+import type { ChartData, ChartOptions, ChartType } from 'chart.js'
+import { Chart as ChartJS, registerables } from 'chart.js'
 import React from 'react'
 import {
     Bar,

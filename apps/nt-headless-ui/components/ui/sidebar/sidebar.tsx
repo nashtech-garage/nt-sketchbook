@@ -5,7 +5,7 @@ import {
     SidebarProvider,
     Sidebar as SidebarRadix,
     SidebarTrigger,
-} from '@headless-ui/components/radix/sidebar'
+} from '@/components/radix/sidebar'
 import React from 'react'
 
 import { SidebarGroup } from './components/sidebar-group'

@@ -1,4 +1,4 @@
-import { ThemeConfig } from 'tailwindcss/types/config'
+import type { ThemeConfig } from 'tailwindcss/types/config'
 
 import { backgroundColor, boxShadow, colors } from './colors'
 import { fontFamily, fontWeight } from './font'

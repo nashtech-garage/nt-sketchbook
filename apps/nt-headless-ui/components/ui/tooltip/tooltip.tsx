@@ -3,8 +3,8 @@ import {
     TooltipProvider,
     Tooltip as TooltipRadix,
     TooltipTrigger,
-} from '@headless-ui/components/radix/tooltip'
-import { cn } from '@headless-ui/lib/utils'
+} from '@/components/radix/tooltip'
+import { cn } from '@/lib/utils'
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 import React from 'react'
 

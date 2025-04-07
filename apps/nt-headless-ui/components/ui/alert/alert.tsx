@@ -1,4 +1,4 @@
-import { cn } from '@headless-ui/lib/utils'
+import { cn } from '@/lib/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { X } from 'lucide-react'
 import * as React from 'react'
@@ -90,29 +90,25 @@ const Alert: React.FC<AlertProps> = ({
     icon = null,
     classTitle = '',
     classDescription = '',
-}) => {
-    return (
-        <AlertWrapper variant={variant} className={className}>
-            {icon && icon}
-            {title && (
-                <AlertTitle className={classTitle}>
-                    {title}
-                </AlertTitle>
-            )}
-            <AlertDescription className={classDescription}>
-                {description}
-            </AlertDescription>
-            {onClose && (
-                <X
-                    className="!left-auto right-[1rem] !pl-0 cursor-pointer !text-secondary-5"
-                    width="16"
-                    height="16"
-                    role="close-x"
-                    onClick={onClose}
-                />
-            )}
-        </AlertWrapper>
-    )
-}
+}) => (
+    <AlertWrapper variant={variant} className={className}>
+        {icon && icon}
+        {title && (
+            <AlertTitle className={classTitle}>{title}</AlertTitle>
+        )}
+        <AlertDescription className={classDescription}>
+            {description}
+        </AlertDescription>
+        {onClose && (
+            <X
+                className="!left-auto right-[1rem] !pl-0 cursor-pointer !text-secondary-5"
+                width="16"
+                height="16"
+                role="close-x"
+                onClick={onClose}
+            />
+        )}
+    </AlertWrapper>
+)
 
 export { Alert }

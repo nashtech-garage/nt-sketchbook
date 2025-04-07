@@ -1,10 +1,10 @@
-import { cn } from '@headless-ui/lib/utils'
-import {
-    flexRender,
+import { cn } from '@/lib/utils'
+import type {
     HeaderGroup,
     RowData,
     SortDirection,
 } from '@tanstack/react-table'
+import { flexRender } from '@tanstack/react-table'
 import { ChevronsUpDown, MoveDown, MoveUp } from 'lucide-react'
 
 type ThProps = {

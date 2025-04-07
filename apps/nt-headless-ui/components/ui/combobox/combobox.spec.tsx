@@ -2,7 +2,8 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 
-import { Combobox, VariantCombobox } from './combobox'
+import type { VariantCombobox } from './combobox'
+import { Combobox } from './combobox'
 
 const options = [
     { value: 'option1', label: 'Option 1' },

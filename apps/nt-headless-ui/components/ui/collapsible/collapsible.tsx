@@ -1,4 +1,4 @@
-import { cn } from '@headless-ui/lib/utils'
+import { cn } from '@/lib/utils'
 import * as CollapsiblePrimitive from '@radix-ui/react-collapsible'
 import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'

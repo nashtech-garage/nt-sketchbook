@@ -1,8 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { UserIcon } from 'lucide-react'
 import React from 'react'
 
-import { Select, SelectProps } from './select'
+import type { SelectProps } from './select'
+import { Select } from './select'
 
 export default {
     title: 'Components/Select',

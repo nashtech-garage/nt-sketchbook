@@ -1,5 +1,5 @@
-import { Meta, StoryFn } from '@storybook/react'
-import { ChartType } from 'chart.js'
+import type { Meta, StoryFn } from '@storybook/react'
+import type { ChartType } from 'chart.js'
 import React from 'react'
 
 import { Chart, type ChartProps } from './chart'
@@ -12,7 +12,7 @@ export default {
 } as Meta
 
 const Template: StoryFn<ChartProps<ChartType>> = (
-    args: ChartProps<any>,
+    args: ChartProps<ChartType>,
 ) => <Chart {...args} />
 
 export const Bar: StoryFn<ChartProps<ChartType>> = Template.bind({})
@@ -34,9 +34,7 @@ Bar.args = {
                 backgroundColor: '#4B1F60',
                 callbacks: {
                     title: () => '',
-                    label: (tooltipItem) => {
-                        return `${tooltipItem.raw}`
-                    },
+                    label: (tooltipItem) => `${tooltipItem.raw}`,
                 },
             },
         },

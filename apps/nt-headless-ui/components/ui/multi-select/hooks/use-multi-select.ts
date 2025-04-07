@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Option } from '../multi-select'
+import type { Option } from '../multi-select'
 
 export type UseMultiSelect = {
     options: Option[]

@@ -2,7 +2,8 @@ import { act, renderHook } from '@testing-library/react'
 import React from 'react'
 import { describe, expect, it, vi } from 'vitest'
 
-import { useMultiSelect, UseMultiSelect } from './use-multi-select'
+import type { UseMultiSelect } from './use-multi-select'
+import { useMultiSelect } from './use-multi-select'
 
 describe('useMultiSelect Hook', () => {
     const options = [
@@ -11,10 +12,8 @@ describe('useMultiSelect Hook', () => {
         { value: '3', label: 'Option 3' },
     ]
 
-    const renderUseMultiSelect = (
-        props?: Partial<UseMultiSelect>,
-    ) => {
-        return renderHook(() =>
+    const renderUseMultiSelect = (props?: Partial<UseMultiSelect>) =>
+        renderHook(() =>
             useMultiSelect({
                 options,
                 initialOption: props?.initialOption ?? [],
@@ -22,7 +21,6 @@ describe('useMultiSelect Hook', () => {
                 placeholder: props?.placeholder,
             }),
         )
-    }
 
     it('sets initial state correctly', () => {
         const { result } = renderUseMultiSelect({

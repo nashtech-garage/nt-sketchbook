@@ -1,6 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { Avatar, AvatarProps } from './avatar'
+import type { AvatarProps } from './avatar'
+import { Avatar } from './avatar'
 
 const URL_IMAGE = './assets/images/image.png'
 

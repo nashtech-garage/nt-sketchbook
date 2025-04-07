@@ -1,9 +1,9 @@
-import { SidebarProvider } from '@headless-ui/components/radix/sidebar'
+import { SidebarProvider } from '@/components/radix/sidebar'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { vi } from 'vitest'
 
-import { SidebarItem } from '../sidebar'
+import type { SidebarItem } from '../sidebar'
 import { SideBarSubItem } from './sidebar-subitem'
 
 vi.mock('./sidebar-item', () => ({
@@ -16,9 +16,8 @@ const mockItem: SidebarItem = {
     subItems: [{ title: 'Sub Item 1' }, { title: 'Sub Item 2' }],
 }
 
-const renderWithProvider = (ui: React.ReactElement) => {
-    return render(<SidebarProvider>{ui}</SidebarProvider>)
-}
+const renderWithProvider = (ui: React.ReactElement) =>
+    render(<SidebarProvider>{ui}</SidebarProvider>)
 
 describe('SideBarSubItem', () => {
     it('renders the item title', () => {

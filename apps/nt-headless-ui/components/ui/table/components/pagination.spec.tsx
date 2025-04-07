@@ -5,6 +5,7 @@ import Pagination from './pagination'
 
 vi.mock('lucide-react', async (importOriginal) => {
     const actual = await importOriginal<
+        // eslint-disable-next-line @typescript-eslint/consistent-type-imports
         typeof import('lucide-react')
     >()
     return {
@@ -44,6 +45,7 @@ const setup = (overrides = {}) => {
     const defaultProps = {
         startIndex: 1,
         endIndex: 10,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         table: mockTable as any,
         handlePageClick: vi.fn(),
         handleItemPerPageChange: vi.fn(),

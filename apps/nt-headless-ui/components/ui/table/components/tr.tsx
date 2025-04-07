@@ -1,4 +1,5 @@
-import { flexRender, Row } from '@tanstack/react-table'
+import type { Row } from '@tanstack/react-table'
+import { flexRender } from '@tanstack/react-table'
 
 type TrProps = {
     classFontSizeBody?: string

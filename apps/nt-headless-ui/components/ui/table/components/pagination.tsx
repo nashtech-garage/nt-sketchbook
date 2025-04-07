@@ -1,5 +1,5 @@
-import { cn } from '@headless-ui/lib/utils'
-import { Table } from '@tanstack/react-table'
+import { cn } from '@/lib/utils'
+import type { Table } from '@tanstack/react-table'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { Select } from '../../select/select'
@@ -10,7 +10,7 @@ type PaginationProps = {
     classPagination?: string
     classFontSize?: string
     textItemsPerPage?: string
-    table: Table<any>
+    table: Table<Record<string, unknown>>
     handlePageClick: (page: number) => void
     itemPerPage?: number
     handleItemPerPageChange?: (itemPerPage: number) => void

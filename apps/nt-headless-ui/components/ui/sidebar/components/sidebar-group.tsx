@@ -3,9 +3,9 @@ import {
     SidebarGroupLabel as SidebarGroupLabelRadix,
     SidebarGroup as SidebarGroupRadix,
     SidebarMenu,
-} from '@headless-ui/components/radix/sidebar'
+} from '@/components/radix/sidebar'
 
-import { Group } from '../sidebar'
+import type { Group, SidebarItem } from '../sidebar'
 import { SideBarItem } from './sidebar-item'
 
 type SidebarGroupProps = {
@@ -19,7 +19,10 @@ export const SidebarGroup = (props: SidebarGroupProps) => {
     if (group.items === undefined) {
         return (
             <div className=" mt-4 border-b pb-5">
-                <SideBarItem className="list-none" item={group} />
+                <SideBarItem
+                    className="list-none"
+                    item={group as SidebarItem}
+                />
             </div>
         )
     }

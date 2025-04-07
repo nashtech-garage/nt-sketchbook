@@ -1,7 +1,8 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { Progress, ProgressProps } from './progress'
+import type { ProgressProps } from './progress'
+import { Progress } from './progress'
 
 export default {
     title: 'Components/Progress',
@@ -28,7 +29,7 @@ export default {
     },
 } as Meta
 
-const Template: StoryFn<ProgressProps> = (args) => (
+const Template: StoryFn<ProgressProps> = (args: ProgressProps) => (
     <Progress {...args} />
 )
 

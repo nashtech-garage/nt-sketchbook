@@ -1,4 +1,4 @@
-import { ThemeConfig } from 'tailwindcss/types/config'
+import type { ThemeConfig } from 'tailwindcss/types/config'
 
 export const colors: ThemeConfig['colors'] = {
     black: '#000000',

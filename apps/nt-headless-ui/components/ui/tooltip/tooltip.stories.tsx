@@ -1,8 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
 import { Button } from '../button'
-import { Tooltip, TooltipProps } from './tooltip'
+import type { TooltipProps } from './tooltip'
+import { Tooltip } from './tooltip'
 
 export default {
     title: 'Components/Tooltip',
@@ -18,7 +19,7 @@ export default {
     },
 } as Meta
 
-const Template: StoryFn<TooltipProps> = (args) => (
+const Template: StoryFn<TooltipProps> = (args: TooltipProps) => (
     <Tooltip {...args} trigger={<Button>Hover me</Button>}>
         Hover me
     </Tooltip>

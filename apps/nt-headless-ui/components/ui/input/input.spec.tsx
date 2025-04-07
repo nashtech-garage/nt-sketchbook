@@ -2,7 +2,8 @@ import { render, screen } from '@testing-library/react'
 import React from 'react'
 import { describe, expect, test } from 'vitest'
 
-import { Input, InputSize, InputVariant } from './input'
+import type { InputSize, InputVariant } from './input'
+import { Input } from './input'
 
 const variantClasses: Record<InputVariant, string> = {
     default: 'border-secondary-6',

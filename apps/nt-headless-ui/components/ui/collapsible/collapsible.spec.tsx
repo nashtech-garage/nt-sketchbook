@@ -5,11 +5,12 @@ import { Collapsible } from './collapsible'
 
 vi.mock('lucide-react', async () => {
     const actual = await vi.importActual<
+        // eslint-disable-next-line @typescript-eslint/consistent-type-imports
         typeof import('lucide-react')
     >('lucide-react')
     return {
         ...actual,
-        ChevronDown: (props: any) => (
+        ChevronDown: (props: React.SVGProps<SVGSVGElement>) => (
             <svg data-testid="chevron-icon" {...props} />
         ),
     }

@@ -1,4 +1,4 @@
-import { Table } from '@tanstack/react-table'
+import type { Table } from '@tanstack/react-table'
 import { render } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
@@ -19,13 +19,12 @@ const mockTable = {
     ]),
 } as unknown as Table<unknown>
 
-const renderWithTableWrapper = (component: JSX.Element) => {
-    return render(
+const renderWithTableWrapper = (component: JSX.Element) =>
+    render(
         <table>
             <tbody>{component}</tbody>
         </table>,
     )
-}
 describe('TrLoading component', () => {
     it('renders correctly with given table headers', () => {
         const { container } = renderWithTableWrapper(

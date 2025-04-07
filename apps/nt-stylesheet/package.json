@@ -5,10 +5,11 @@
     "scripts": {
         "build": "pnpm vite build",
         "test": "npx vitest",
-        "lint": "pnpm eslint"
+        "lint": "pnpm eslint",
+        "typecheck": "tsc --pretty --noEmit"
     },
     "bin": {
-        "@nashtech/stylesheet": "bin/init-tailwind.js"
+        "@nashtech/stylesheet": "./src/bin/init-tailwind.js"
     },
     "keywords": [],
     "author": "NashTech",
@@ -31,9 +32,9 @@
     "devDependencies": {
         "sass-embedded": "1.83.4",
         "vite-plugin-dts": "4.5.0",
-        "vite-plugin-sass-dts": "1.3.29"
-    },
-    "publishConfig": {
-        "access": "public"
+        "vite-plugin-sass-dts": "1.3.29",
+        "tsconfig": "workspace:*",
+        "eslint-config-custom-lib": "workspace:*",
+        "eslint": "9.17.0"
     }
 }

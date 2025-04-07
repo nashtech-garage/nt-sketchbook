@@ -41,9 +41,7 @@ export const columns = [
     }),
     columnHelper.accessor('reportName', {
         header: () => 'Report name',
-        cell: (info) => {
-            return <strong>{info.getValue()}</strong>
-        },
+        cell: (info) => <strong>{info.getValue()}</strong>,
     }),
     columnHelper.accessor('audience', {
         header: () => 'Audience',

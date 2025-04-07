@@ -1,4 +1,4 @@
-import { cn } from '@headless-ui/lib/utils'
+import { cn } from '@/lib/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 
@@ -57,30 +57,28 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ...props
         },
         ref,
-    ) => {
-        return (
-            <button
-                className={cn(
-                    buttonVariants({
-                        variant,
-                        size,
-                        rounded,
-                        className,
-                    }),
-                )}
-                ref={ref}
-                {...props}
-            >
-                {icon && iconPosition === 'left' && (
-                    <span className="mr-2">{icon}</span>
-                )}
-                {children}
-                {icon && iconPosition === 'right' && (
-                    <span className="ml-2">{icon}</span>
-                )}
-            </button>
-        )
-    },
+    ) => (
+        <button
+            className={cn(
+                buttonVariants({
+                    variant,
+                    size,
+                    rounded,
+                    className,
+                }),
+            )}
+            ref={ref}
+            {...props}
+        >
+            {icon && iconPosition === 'left' && (
+                <span className="mr-2">{icon}</span>
+            )}
+            {children}
+            {icon && iconPosition === 'right' && (
+                <span className="ml-2">{icon}</span>
+            )}
+        </button>
+    ),
 )
 Button.displayName = 'Button'
 
