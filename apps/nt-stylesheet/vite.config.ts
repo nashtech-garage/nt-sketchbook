@@ -4,10 +4,15 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import autoprefixer from 'autoprefixer'
 import * as path from 'path'
 import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
     root: path.resolve(__dirname),
     plugins: [
+        dts({
+            outDir: 'dist',
+            include: ['src'], // ensure it includes your files
+        }),
         nxViteTsPaths(),
         nxCopyAssetsPlugin([
             {
@@ -60,7 +65,7 @@ export default defineConfig({
     css: {
         preprocessorOptions: {},
         postcss: {
-            plugins: [autoprefixer],
+            plugins: [autoprefixer()],
         },
     },
     test: {

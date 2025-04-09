@@ -27,7 +27,23 @@
         "package.json"
     ],
     "exports": {
-        "./dist/nt-stylesheet.cjs": "./dist/nt-stylesheet.cjs"
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.cjs",
+            "require": "./dist/index.cjs"
+        },
+        "./tailwind": {
+            "types": "./dist/integrations/tailwind/index.d.ts",
+            "import": "./dist/integrations/tailwind/index.cjs",
+            "require": "./dist/integrations/tailwind/index.cjs"
+        }
+    },
+    "typesVersions": {
+        "*": {
+            "tailwind": [
+                "dist/integrations/tailwind/index.d.ts"
+            ]
+        }
     },
     "devDependencies": {
         "sass-embedded": "1.83.4",
