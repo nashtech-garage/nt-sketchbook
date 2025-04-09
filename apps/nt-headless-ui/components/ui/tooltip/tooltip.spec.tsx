@@ -2,15 +2,15 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
-import { Tooltip, TooltipPosition, TooltipProps } from './tooltip'
+import type { TooltipPosition, TooltipProps } from './tooltip'
+import { Tooltip } from './tooltip'
 
-const renderTooltip = (props: Partial<TooltipProps> = {}) => {
-    return render(
+const renderTooltip = (props: Partial<TooltipProps> = {}) =>
+    render(
         <Tooltip trigger="Hover me" {...props}>
             Tooltip content
         </Tooltip>,
     )
-}
 const getToolTipContent = async () =>
     waitFor(() => screen.getByText('Tooltip content'))
 

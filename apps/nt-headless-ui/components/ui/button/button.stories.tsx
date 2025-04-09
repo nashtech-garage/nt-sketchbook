@@ -1,8 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { User } from 'lucide-react'
 import React from 'react'
 
-import { Button, ButtonProps } from './button'
+import type { ButtonProps } from './button'
+import { Button } from './button'
 
 export default {
     title: 'Components/Button',

@@ -1,6 +1,8 @@
-import { flexRender, Row } from '@tanstack/react-table'
+import type { Row } from '@tanstack/react-table'
+import { flexRender } from '@tanstack/react-table'
 import { render } from '@testing-library/react'
-import { describe, expect, it, Mock, vi } from 'vitest'
+import type { Mock } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import Tr from './tr'
 
@@ -23,13 +25,12 @@ const mockRow = {
     ]),
 } as unknown as Row<unknown>
 
-const renderWithTableWrapper = (component: JSX.Element) => {
-    return render(
+const renderWithTableWrapper = (component: JSX.Element) =>
+    render(
         <table>
             <tbody>{component}</tbody>
         </table>,
     )
-}
 
 describe('Tr component', () => {
     it('renders correctly with given props', () => {

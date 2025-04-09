@@ -1,9 +1,9 @@
-import { SidebarProvider } from '@headless-ui/components/radix/sidebar'
+import { SidebarProvider } from '@/components/radix/sidebar'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { vi } from 'vitest'
 
-import { SidebarItem } from '../sidebar'
+import type { SidebarItem } from '../sidebar'
 import { SideBarItem } from './sidebar-item'
 
 // Mock sub-item component
@@ -20,9 +20,8 @@ const mockItem: SidebarItem = {
 }
 
 // Helper function to wrap component with SidebarProvider
-const renderWithProvider = (ui: React.ReactElement) => {
-    return render(<SidebarProvider>{ui}</SidebarProvider>)
-}
+const renderWithProvider = (ui: React.ReactElement) =>
+    render(<SidebarProvider>{ui}</SidebarProvider>)
 
 describe('SideBarItem', () => {
     it('renders the item title', () => {

@@ -1,8 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { InfoIcon } from 'lucide-react'
 import React from 'react'
 
-import { Alert, AlertProps } from './alert'
+import type { AlertProps } from './alert'
+import { Alert } from './alert'
 
 export default {
     title: 'Components/Alert',

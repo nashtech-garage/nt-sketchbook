@@ -1,7 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Bus, Car, Truck } from 'lucide-react'
 
-import { Combobox, ComboboxProps } from './combobox'
+import type { ComboboxProps } from './combobox'
+import { Combobox } from './combobox'
 
 const meta: Meta<ComboboxProps> = {
     title: 'Components/Combobox',

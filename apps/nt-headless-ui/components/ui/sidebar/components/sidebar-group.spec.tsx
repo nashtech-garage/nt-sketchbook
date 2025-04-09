@@ -1,8 +1,8 @@
-import { SidebarProvider } from '@headless-ui/components/radix/sidebar'
+import { SidebarProvider } from '@/components/radix/sidebar'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { Group } from '../sidebar'
+import type { Group } from '../sidebar'
 import { SidebarGroup } from './sidebar-group'
 
 const mockGroup: Group = {
@@ -16,9 +16,8 @@ const mockGroupWithNoItems: Group = {
     title: 'Test Group',
 }
 
-const renderWithProvider = (ui: React.ReactElement) => {
-    return render(<SidebarProvider>{ui}</SidebarProvider>)
-}
+const renderWithProvider = (ui: React.ReactElement) =>
+    render(<SidebarProvider>{ui}</SidebarProvider>)
 
 describe('SidebarGroup', () => {
     it('renders the group label', () => {

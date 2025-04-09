@@ -1,0 +1,23 @@
+{
+    "name": "eslint-config-custom-lib",
+    "version": "0.0.0",
+    "main": "index.js",
+    "type": "module",
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": "9.17.0",
+        "eslint-config-next": "15.2.4",
+        "eslint-config-prettier": "10.1.1",
+        "eslint-formatter-pretty": "6.0.1",
+        "eslint-plugin-jsonc": "2.20.0",
+        "eslint-plugin-jsx-a11y": "6.10.2",
+        "eslint-plugin-prettier": "5.2.6",
+        "eslint-plugin-react": "7.37.5",
+        "eslint-plugin-testing-library": "7.1.1",
+        "eslint-plugin-unused-imports": "4.1.4",
+        "typescript": "5.7.2"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

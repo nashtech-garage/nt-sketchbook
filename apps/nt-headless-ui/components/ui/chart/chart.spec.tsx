@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { ChartData } from 'chart.js'
+import type { ChartData } from 'chart.js'
 import { describe, expect, it } from 'vitest'
 
 import { Chart } from './chart'

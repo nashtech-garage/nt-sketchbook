@@ -1,22 +1,23 @@
 {
-    "extends": "../../tsconfig.base.json",
-    "compileOnSave": false,
-    "files": [],
-    "references": [
-        {
-            "path": "./tsconfig.spec.json"
-        }
-    ],
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "tsconfig/base.json",
     "compilerOptions": {
-        "module": "es2015",
-        "forceConsistentCasingInFileNames": true,
-        "strict": true,
-        "noImplicitOverride": true,
-        "noPropertyAccessFromIndexSignature": true,
-        "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true,
-        "noEmit": false,
-        "rootDirs": ["src", "themes"],
-        "allowSyntheticDefaultImports": true
-    }
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "./eslint.config.mjs",
+        "./src/bin/init-tailwind.js",
+        "./src/bin/init-tailwind.spec.js"
+    ],
+    "exclude": [
+        "node_modules",
+        "vite.config.ts",
+        "tailwind.config.js",
+        "postcss.config.mjs"
+    ]
 }

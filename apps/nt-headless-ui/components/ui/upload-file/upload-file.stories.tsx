@@ -1,7 +1,8 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { UploadFile, UploadFileProps } from './upload-file'
+import type { UploadFileProps } from './upload-file'
+import { UploadFile } from './upload-file'
 
 export default {
     title: 'Components/UploadFile',

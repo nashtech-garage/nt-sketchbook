@@ -1,41 +1,31 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "../../tsconfig.base.json",
+    "extends": "tsconfig/base.json",
     "compilerOptions": {
-        "noImplicitAny": false,
-        "target": "ES2017",
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "strict": true,
-        "declaration": true,
-        "esModuleInterop": true,
-        "module": "esnext",
-        "composite": true,
-        "moduleResolution": "bundler",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "jsx": "preserve",
-        "incremental": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./*"],
+            "@nashtech/stylesheet/*": ["../nt-stylesheet/dist/*"]
+        },
         "plugins": [
             {
                 "name": "next"
             }
-        ],
-        "noEmit": true
+        ]
     },
+    "references": [
+        {
+            "path": "./tsconfig.storybook.json"
+        }
+    ],
     "include": [
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
         "../nt-stylesheet/dist/integrations/tailwind/index.cjs",
-        "../../vite.base.config.ts"
+        "../../vite.base.config.ts",
+        "./eslint.config.mjs"
     ],
-    "exclude": ["node_modules", "**/*.stories.ts", "**/*.stories.js"],
-    "references": [
-        {
-            "path": "./tsconfig.storybook.json"
-        }
-    ]
+    "exclude": ["node_modules", "**/*.stories.ts", "**/*.stories.js"]
 }

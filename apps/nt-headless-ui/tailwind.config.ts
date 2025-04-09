@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
+import { ntTheme } from '@nashtech/stylesheet/tailwind'
 import type { Config } from 'tailwindcss'
-
-import { ntTheme } from '../nt-stylesheet/dist/integrations/tailwind/index.cjs'
 
 export default {
     darkMode: ['class'],
@@ -14,6 +13,5 @@ export default {
     theme: {
         extend: ntTheme.extend,
     },
-
     plugins: [require('tailwindcss-animate')],
 } satisfies Config

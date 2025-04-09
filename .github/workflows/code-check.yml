@@ -27,13 +27,19 @@ jobs:
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
+            - name: Build stylesheet package
+              run: pnpm --filter @nashtech/stylesheet  build
+
+            - name: Run Typecheck
+              run: pnpm typecheck
+
             - name: Run lint
               run: pnpm lint
 
             - name: Run tests
               run: pnpm test
 
-            - name: Run build
+            - name: Run build storybook
               run: pnpm run build:headlessui-storybook
 
             - name: Run build libs

@@ -1,4 +1,4 @@
-import { Button } from '@headless-ui/components/radix/button'
+import { Button } from '@/components/radix/button'
 import {
     Command,
     CommandEmpty,
@@ -6,13 +6,13 @@ import {
     CommandInput,
     CommandItem,
     CommandList,
-} from '@headless-ui/components/radix/command'
+} from '@/components/radix/command'
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
-} from '@headless-ui/components/radix/popover'
-import { cn } from '@headless-ui/lib/utils'
+} from '@/components/radix/popover'
+import { cn } from '@/lib/utils'
 import { Check, ChevronDown } from 'lucide-react'
 import * as React from 'react'
 

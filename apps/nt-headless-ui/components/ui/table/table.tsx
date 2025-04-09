@@ -1,5 +1,8 @@
-import { cn } from '@headless-ui/lib/utils'
-import { ColumnDef } from '@tanstack/react-table'
+import { cn } from '@/lib/utils'
+import type {
+    ColumnDef,
+    Table as ReactTable,
+} from '@tanstack/react-table'
 
 import { Pagination, Th, Tr, TrLoading } from './components'
 import { useTable } from './hooks/use-table'
@@ -84,7 +87,11 @@ export const Table = (props: TableProps) => {
 
                         {!isLoading && table.getPageCount() > 0 && (
                             <Pagination
-                                table={table}
+                                table={
+                                    table as ReactTable<
+                                        Record<string, unknown>
+                                    >
+                                }
                                 startIndex={startIndex}
                                 endIndex={endIndex}
                                 handlePageClick={handlePageClick}

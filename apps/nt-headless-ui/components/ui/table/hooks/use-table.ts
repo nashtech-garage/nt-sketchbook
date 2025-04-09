@@ -1,5 +1,5 @@
+import type { ColumnDef } from '@tanstack/react-table'
 import {
-    ColumnDef,
     getCoreRowModel,
     getFacetedMinMaxValues,
     getFacetedRowModel,

@@ -11,11 +11,11 @@
         "prefix": ""
     },
     "aliases": {
-        "components": "@headless-ui/components/radix",
-        "utils": "@headless-ui/lib/utils",
-        "ui": "@headless-ui/components/ui",
-        "lib": "@headless-ui/lib",
-        "hooks": "@headless-ui/hooks"
+        "components": "@/components/radix",
+        "utils": "@/lib/utils",
+        "ui": "@/components/ui",
+        "lib": "@/lib",
+        "hooks": "@/hooks"
     },
     "iconLibrary": "lucide"
 }

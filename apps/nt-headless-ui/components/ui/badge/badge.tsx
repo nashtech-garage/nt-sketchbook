@@ -1,5 +1,6 @@
-import { cn } from '@headless-ui/lib/utils'
-import { cva, VariantProps } from 'class-variance-authority'
+import { cn } from '@/lib/utils'
+import type { VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 
 const badgeVariants = cva(
     'inline-flex items-center hover:cursor-pointer px-2.5 py-1.5',
@@ -36,26 +37,24 @@ const Badge: React.FC<BadgeProps> = ({
     icon = null,
     iconPosition = 'left',
     ...props
-}) => {
-    return (
-        <div
-            className={cn(
-                badgeVariants({ variant }),
-                rounded ? 'rounded-full' : 'rounded-md',
-                className,
-            )}
-            {...props}
-        >
-            {icon && iconPosition === 'left' && (
-                <span className="mr-2">{icon}</span>
-            )}
-            {children}
-            {icon && iconPosition === 'right' && (
-                <span className="ml-2">{icon}</span>
-            )}
-        </div>
-    )
-}
+}) => (
+    <div
+        className={cn(
+            badgeVariants({ variant }),
+            rounded ? 'rounded-full' : 'rounded-md',
+            className,
+        )}
+        {...props}
+    >
+        {icon && iconPosition === 'left' && (
+            <span className="mr-2">{icon}</span>
+        )}
+        {children}
+        {icon && iconPosition === 'right' && (
+            <span className="ml-2">{icon}</span>
+        )}
+    </div>
+)
 
 Badge.displayName = 'Badge'
 

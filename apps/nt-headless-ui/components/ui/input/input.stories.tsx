@@ -1,7 +1,8 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { Input, InputSize } from './input'
+import type { InputSize } from './input'
+import { Input } from './input'
 
 export default {
     title: 'Components/Input',

@@ -1,7 +1,8 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { Avatar, AvatarSize, BadgePosition } from './avatar'
+import type { AvatarSize, BadgePosition } from './avatar'
+import { Avatar } from './avatar'
 
 describe('Avatar', () => {
     it('renders fallback content when image source is not provided', () => {

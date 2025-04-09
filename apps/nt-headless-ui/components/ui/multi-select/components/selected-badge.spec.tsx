@@ -1,21 +1,21 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { SelectedBadge, SelectedBadgeProps } from './selected-badge'
+import type { SelectedBadgeProps } from './selected-badge'
+import { SelectedBadge } from './selected-badge'
 
 describe('SelectedBadge', () => {
     const mockHandleUnselect = vi.fn()
     const option = { value: '1', label: 'Option 1' }
 
-    const setup = (props?: Partial<SelectedBadgeProps>) => {
-        return render(
+    const setup = (props?: Partial<SelectedBadgeProps>) =>
+        render(
             <SelectedBadge
                 option={option}
                 handleUnselect={mockHandleUnselect}
                 disable={props?.disable ?? false}
             />,
         )
-    }
 
     afterEach(() => {
         vi.clearAllMocks()

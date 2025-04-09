@@ -7,7 +7,7 @@ const packageName = 'headless-ui'
 export default defineConfig({
     resolve: {
         alias: {
-            '@headless-ui': path.resolve(__dirname),
+            '@': path.resolve(__dirname),
             react: path.resolve('./node_modules/react'),
             'react-dom': path.resolve('./node_modules/react-dom'),
         },

@@ -10,7 +10,8 @@
         "lint": "next lint",
         "dev": "pnpm --filter ../nt-stylesheet build && storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "test": "pnpm vitest"
+        "test": "pnpm vitest",
+        "typecheck": "tsc --pretty --noEmit"
     },
     "files": [
         "dist"
@@ -69,8 +70,13 @@
         "@types/node": "20",
         "@types/react": "18.2.25",
         "@types/react-dom": "18.2.25",
+        "eslint": "9.17.0",
+        "typescript": "5.7.2",
         "eslint-config-next": "15.1.4",
-        "typescript": "5"
+        "@eslint/eslintrc": "3.3.1",
+        "tsconfig": "workspace:*",
+        "eslint-config-custom-lib": "workspace:*",
+        "@nashtech/stylesheet": "workspace:*"
     },
     "publishConfig": {
         "access": "public"

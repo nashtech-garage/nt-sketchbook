@@ -1,12 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import {
-    Select,
-    SelectProps,
-    SelectSize,
-    SelectVariant,
-} from './select'
+import type { SelectProps, SelectSize, SelectVariant } from './select'
+import { Select } from './select'
 
 const options = [
     { value: 'option1', label: 'Option 1' },
@@ -23,9 +19,8 @@ const groups = [
     },
 ]
 
-const renderSelect = (props: Partial<SelectProps> = {}) => {
-    return render(<Select options={options} {...props} />)
-}
+const renderSelect = (props: Partial<SelectProps> = {}) =>
+    render(<Select options={options} {...props} />)
 
 describe('Select Component', () => {
     it('renders options correctly', () => {

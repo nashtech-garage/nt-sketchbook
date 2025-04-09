@@ -1,24 +1,26 @@
-import { Button } from '@headless-ui/components/radix/button'
-import { Input } from '@headless-ui/components/radix/input'
-import { Separator } from '@headless-ui/components/radix/separator'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Button } from '@/components/radix/button'
+import { Input } from '@/components/radix/input'
+import { Separator } from '@/components/radix/separator'
 import {
     Sheet,
     SheetContent,
     SheetDescription,
     SheetHeader,
     SheetTitle,
-} from '@headless-ui/components/radix/sheet'
-import { Skeleton } from '@headless-ui/components/radix/skeleton'
+} from '@/components/radix/sheet'
+import { Skeleton } from '@/components/radix/skeleton'
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from '@headless-ui/components/radix/tooltip'
-import { useIsMobile } from '@headless-ui/hooks/use-mobile'
-import { cn } from '@headless-ui/lib/utils'
+} from '@/components/radix/tooltip'
+import { useIsMobile } from '@/hooks/use-mobile'
+import { cn } from '@/lib/utils'
 import { Slot } from '@radix-ui/react-slot'
-import { cva, VariantProps } from 'class-variance-authority'
+import type { VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import { PanelLeft } from 'lucide-react'
 import * as React from 'react'
 
@@ -96,11 +98,13 @@ const SidebarProvider = React.forwardRef<
             [setOpenProp, open],
         )
 
-        const toggleSidebar = React.useCallback(() => {
-            return isMobile
-                ? setOpenMobile((open) => !open)
-                : setOpen((open) => !open)
-        }, [isMobile, setOpen, setOpenMobile])
+        const toggleSidebar = React.useCallback(
+            () =>
+                isMobile
+                    ? setOpenMobile((open) => !open)
+                    : setOpen((open) => !open),
+            [isMobile, setOpen, setOpenMobile],
+        )
 
         React.useEffect(() => {
             const handleKeyDown = (event: KeyboardEvent) => {
@@ -344,119 +348,105 @@ SidebarRail.displayName = 'SidebarRail'
 const SidebarInset = React.forwardRef<
     HTMLDivElement,
     React.ComponentProps<'main'>
->(({ className, ...props }, ref) => {
-    return (
-        <main
-            ref={ref}
-            className={cn(
-                'relative flex w-full flex-1 flex-col bg-white dark:bg-neutral-950',
-                'md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow',
-                className,
-            )}
-            {...props}
-        />
-    )
-})
+>(({ className, ...props }, ref) => (
+    <main
+        ref={ref}
+        className={cn(
+            'relative flex w-full flex-1 flex-col bg-white dark:bg-neutral-950',
+            'md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow',
+            className,
+        )}
+        {...props}
+    />
+))
 SidebarInset.displayName = 'SidebarInset'
 
 const SidebarInput = React.forwardRef<
     React.ElementRef<typeof Input>,
     React.ComponentProps<typeof Input>
->(({ className, ...props }, ref) => {
-    return (
-        <Input
-            ref={ref}
-            data-sidebar="input"
-            className={cn(
-                'h-8 w-full bg-white shadow-none focus-visible:ring-2 focus-visible:ring-sidebar-ring dark:bg-neutral-950',
-                className,
-            )}
-            {...props}
-        />
-    )
-})
+>(({ className, ...props }, ref) => (
+    <Input
+        ref={ref}
+        data-sidebar="input"
+        className={cn(
+            'h-8 w-full bg-white shadow-none focus-visible:ring-2 focus-visible:ring-sidebar-ring dark:bg-neutral-950',
+            className,
+        )}
+        {...props}
+    />
+))
 SidebarInput.displayName = 'SidebarInput'
 
 const SidebarHeader = React.forwardRef<
     HTMLDivElement,
     React.ComponentProps<'div'>
->(({ className, ...props }, ref) => {
-    return (
-        <div
-            ref={ref}
-            data-sidebar="header"
-            className={cn('flex flex-col gap-2 p-2', className)}
-            {...props}
-        />
-    )
-})
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        data-sidebar="header"
+        className={cn('flex flex-col gap-2 p-2', className)}
+        {...props}
+    />
+))
 SidebarHeader.displayName = 'SidebarHeader'
 
 const SidebarFooter = React.forwardRef<
     HTMLDivElement,
     React.ComponentProps<'div'>
->(({ className, ...props }, ref) => {
-    return (
-        <div
-            ref={ref}
-            data-sidebar="footer"
-            className={cn('flex flex-col gap-2 p-2', className)}
-            {...props}
-        />
-    )
-})
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        data-sidebar="footer"
+        className={cn('flex flex-col gap-2 p-2', className)}
+        {...props}
+    />
+))
 SidebarFooter.displayName = 'SidebarFooter'
 
 const SidebarSeparator = React.forwardRef<
     React.ElementRef<typeof Separator>,
     React.ComponentProps<typeof Separator>
->(({ className, ...props }, ref) => {
-    return (
-        <Separator
-            ref={ref}
-            data-sidebar="separator"
-            className={cn('mx-2 w-auto bg-sidebar-border', className)}
-            {...props}
-        />
-    )
-})
+>(({ className, ...props }, ref) => (
+    <Separator
+        ref={ref}
+        data-sidebar="separator"
+        className={cn('mx-2 w-auto bg-sidebar-border', className)}
+        {...props}
+    />
+))
 SidebarSeparator.displayName = 'SidebarSeparator'
 
 const SidebarContent = React.forwardRef<
     HTMLDivElement,
     React.ComponentProps<'div'>
->(({ className, ...props }, ref) => {
-    return (
-        <div
-            ref={ref}
-            data-sidebar="content"
-            className={cn(
-                'flex min-h-0 flex-1 flex-col  overflow-auto group-data-[collapsible=icon]:overflow-hidden',
-                'px-5',
-                className,
-            )}
-            {...props}
-        />
-    )
-})
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        data-sidebar="content"
+        className={cn(
+            'flex min-h-0 flex-1 flex-col  overflow-auto group-data-[collapsible=icon]:overflow-hidden',
+            'px-5',
+            className,
+        )}
+        {...props}
+    />
+))
 SidebarContent.displayName = 'SidebarContent'
 
 const SidebarGroup = React.forwardRef<
     HTMLDivElement,
     React.ComponentProps<'div'>
->(({ className, ...props }, ref) => {
-    return (
-        <div
-            ref={ref}
-            data-sidebar="group"
-            className={cn(
-                'relative flex w-full min-w-0 flex-col  border-b pt-6 pb-5 ',
-                className,
-            )}
-            {...props}
-        />
-    )
-})
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        data-sidebar="group"
+        className={cn(
+            'relative flex w-full min-w-0 flex-col  border-b pt-6 pb-5 ',
+            className,
+        )}
+        {...props}
+    />
+))
 SidebarGroup.displayName = 'SidebarGroup'
 
 const SidebarGroupLabel = React.forwardRef<
@@ -704,9 +694,10 @@ const SidebarMenuSkeleton = React.forwardRef<
     }
 >(({ className, showIcon = false, ...props }, ref) => {
     // Random width between 50 to 90%.
-    const width = React.useMemo(() => {
-        return `${Math.floor(Math.random() * 40) + 50}%`
-    }, [])
+    const width = React.useMemo(
+        () => `${Math.floor(Math.random() * 40) + 50}%`,
+        [],
+    )
 
     return (
         <div

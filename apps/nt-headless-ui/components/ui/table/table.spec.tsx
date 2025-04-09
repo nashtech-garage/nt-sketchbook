@@ -1,8 +1,10 @@
-import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
+import type { ColumnDef } from '@tanstack/react-table'
+import { createColumnHelper } from '@tanstack/react-table'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
-import { Table, TableProps } from './table'
+import type { TableProps } from './table'
+import { Table } from './table'
 
 vi.mock('./components', () => ({
     Pagination: vi.fn(({ startIndex, endIndex, handlePageClick }) => (
