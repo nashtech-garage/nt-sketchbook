@@ -39,7 +39,7 @@ jobs:
             - name: Run tests
               run: pnpm test
 
-            - name: Run build
+            - name: Run build storybook
               run: pnpm run build:headlessui-storybook
 
             - name: Run build libs
