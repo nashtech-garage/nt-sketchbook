@@ -51,6 +51,7 @@
         "vite-plugin-sass-dts": "1.3.29",
         "tsconfig": "workspace:*",
         "eslint-config-custom-lib": "workspace:*",
-        "eslint": "9.17.0"
+        "eslint": "9.17.0",
+        "@eslint/eslintrc": "3.3.1"
     }
 }
