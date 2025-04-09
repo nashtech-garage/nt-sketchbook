@@ -27,6 +27,9 @@ jobs:
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
+            - name: Build stylesheet package
+              run: pnpm --filter @nashtech/stylesheet  build
+
             - name: Run Typecheck
               run: pnpm typecheck
 
