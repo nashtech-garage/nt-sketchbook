@@ -2,9 +2,6 @@ name: 'Package Audit'
 on:
     pull_request:
         branches: ['main']
-        paths:
-            - '**/package.json'
-            - '**/pnpm-lock.yaml'
 
 jobs:
     audit:
