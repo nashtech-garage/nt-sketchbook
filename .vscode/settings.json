@@ -7,7 +7,7 @@
     "eslint.validate": ["javascript"],
     "stylelint.validate": ["css", "scss"],
     "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
