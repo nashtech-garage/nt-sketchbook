@@ -5,9 +5,9 @@ import type { UploadFileProps } from './upload-file'
 import { UploadFile } from './upload-file'
 
 export default {
-    title: 'Components/UploadFile',
-    component: UploadFile,
     argTypes: {},
+    component: UploadFile,
+    title: 'Components/UploadFile',
 } as Meta
 
 const Template: StoryFn<UploadFileProps> = (
