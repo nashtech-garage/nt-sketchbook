@@ -12,7 +12,7 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
-    ...compat.extends('next/typescript'),
+    ...compat.extends('plugin:@typescript-eslint/recommended'),
     ...customConfig,
     {
         languageOptions: {
