@@ -9,7 +9,7 @@ describe('Modal', () => {
         render(
             <Modal
                 isOpen={false}
-                content={<div>Body Content</div>}
+                children={<div>Body Content</div>}
             />,
         )
         expect(
@@ -24,9 +24,10 @@ describe('Modal', () => {
                     isOpen
                     title="Test Title"
                     description="Test Description"
-                    content={<div>Body Content</div>}
                     footer={<div>Footer Content</div>}
-                />,
+                >
+                    <div>Body Content</div>
+                </Modal>,
             ),
         )
 

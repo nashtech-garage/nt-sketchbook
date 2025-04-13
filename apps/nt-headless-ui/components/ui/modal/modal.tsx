@@ -11,7 +11,6 @@ import { type DialogProps } from '@radix-ui/react-dialog'
 import React from 'react'
 
 export type ModalProps = {
-    content: React.ReactNode
     isOpen: boolean
     title?: React.ReactNode
     description?: React.ReactNode
@@ -30,7 +29,7 @@ export const Modal = (props: ModalProps) => {
         footer = null,
         classNameHeader = '',
         classNameFooter = '',
-        content = '',
+        children = '',
         ...dialogProps
     } = props
 
@@ -49,7 +48,7 @@ export const Modal = (props: ModalProps) => {
                         )}
                     </DialogHeader>
                 )}
-                {content}
+                {children}
                 {footer && (
                     <DialogFooter className={classNameFooter}>
                         {footer}
