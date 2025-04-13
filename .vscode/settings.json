@@ -7,7 +7,7 @@
     "eslint.validate": ["javascript"],
     "stylelint.validate": ["css", "scss"],
     "[typescriptreact]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -18,5 +18,14 @@
     "files.associations": {
         "*.css": "tailwindcss",
         "*.scss": "tailwindcss"
+    },
+    "extensions": {
+        "recommendations": [
+            "esbenp.prettier-vscode",
+            "dbaeumer.vscode-eslint",
+            "stylelint.vscode-stylelint",
+            "SonarSource.sonarlint-vscode",
+            "alexkrechik.cucumberautocomplete"
+        ]
     }
 }

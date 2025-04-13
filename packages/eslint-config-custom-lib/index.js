@@ -18,7 +18,7 @@ export default [
             '@typescript-eslint/no-var-requires': 'off',
             'import/order': 'off',
             'unused-imports/no-unused-imports': 'error',
-            'unused-imports/no-unused-vars': 'off',
+            'unused-imports/no-unused-vars': 'error',
             'react/react-in-jsx-scope': 'off',
             'arrow-body-style': ['warn', 'as-needed'],
         },
