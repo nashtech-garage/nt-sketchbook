@@ -20,9 +20,6 @@ permissions:
 jobs:
     publish-and-release:
         runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: apps/nt-headless-ui
 
         steps:
             - name: Checkout repo
