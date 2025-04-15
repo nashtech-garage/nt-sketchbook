@@ -37,7 +37,7 @@ jobs:
                   node-version: 20.18.2
                   cache: 'pnpm'
                   registry-url: 'https://npm.pkg.github.com'
-                  scope: '@khoilen'
+                  scope: '@nashtech'
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
