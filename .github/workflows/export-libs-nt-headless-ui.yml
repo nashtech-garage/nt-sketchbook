@@ -73,9 +73,10 @@ jobs:
                   git config user.name "github-actions"
                   git config user.email "github-actions@github.com"
                   git add package.json
-                  git commit -m "feat(release): bump to v${{ steps.pkg.outputs.version }}"
+                  git commit -m "feat: bump to v${{ steps.pkg.outputs.version }}"
                   git tag headless-ui@${{ steps.pkg.outputs.version }}
                   git push origin HEAD:main --tags
+              working-directory: apps/nt-headless-ui
 
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
