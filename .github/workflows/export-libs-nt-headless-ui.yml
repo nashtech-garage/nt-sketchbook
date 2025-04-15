@@ -1,5 +1,4 @@
-# .github/workflows/export-and-release-headlessui.yml
-name: Publish and Release nt-headless-ui
+name: Publish and Release headless-ui
 
 on:
     workflow_dispatch:
@@ -14,12 +13,13 @@ on:
                     - minor
                     - major
 
+permissions:
+    contents: read
+    packages: write
+
 jobs:
     publish-and-release:
         runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: apps/nt-headless-ui
 
         steps:
             - name: Checkout repo
@@ -41,16 +41,26 @@ jobs:
               run: pnpm install --frozen-lockfile
 
             - name: Bump version
-              run: pnpm version ${{ github.event.inputs.bump }}
+              id: bump-version
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  pnpm version ${{ github.event.inputs.version }} || true
+                  version=$(jq -r '.version' ./package.json)
+                  echo "Bumped version: $version"
+                  echo "new_version=$version" >> $GITHUB_ENV
+              working-directory: apps/nt-headless-ui
+              continue-on-error: true
 
             - name: Build lib
-              run: pnpm run build:headlessui-lib
+              run: pnpm run build:lib
+              working-directory: apps/nt-headless-ui
 
-            - name: Publish to npm
-              run: pnpm publish --no-git-checks
+            - name: Publish to github
+              run: pnpm publish
               working-directory: apps/nt-headless-ui/dist
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Get new version from package.json
               id: pkg
@@ -63,9 +73,10 @@ jobs:
                   git config user.name "github-actions"
                   git config user.email "github-actions@github.com"
                   git add package.json
-                  git commit -m "feat(release): bump to v${{ steps.pkg.outputs.version }}"
+                  git commit -m "feat: bump to v${{ steps.pkg.outputs.version }}"
                   git tag headless-ui@${{ steps.pkg.outputs.version }}
                   git push origin HEAD:main --tags
+              working-directory: apps/nt-headless-ui
 
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
