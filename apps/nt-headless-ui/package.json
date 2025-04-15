@@ -79,6 +79,6 @@
         "@nashtech/stylesheet": "workspace:*"
     },
     "publishConfig": {
-        "access": "public"
+        "registry": "https://npm.pkg.github.com"
     }
 }
