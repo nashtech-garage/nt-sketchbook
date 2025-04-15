@@ -51,15 +51,15 @@ jobs:
                   version=$(jq -r '.version' ./package.json)
                   echo "Bumped version: $version"
                   echo "new_version=$version" >> $GITHUB_ENV
-                  if [$version != "unknown" ]; then
-                    git config user.name "github-actions"
-                    git config user.email "github-actions@github.com"
-                    git add .
-                    git commit -m "chore: bump headless-ui to v${{ steps.pkg.outputs.version }}"
-                    git tag headless-ui@${{ steps.pkg.outputs.version }}
-                    git push origin HEAD:main --tags
+                  if [ "$version" != "unknown" ]; then
+                      git config user.name 'khoilen'
+                      git config user.email 'khoilen@nastechglobal.com'
+                      git add .
+                      git commit -m "chore: bump headless-ui to v$version"
+                      git tag headless-ui@$version
+                      git push origin HEAD:main --tags
                   else
-                    echo "Skipping push due to unknown version"
+                      echo "Skipping push due to unknown version"
                   fi
               working-directory: apps/nt-headless-ui
               continue-on-error: true
