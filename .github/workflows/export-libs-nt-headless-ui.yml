@@ -40,8 +40,17 @@ jobs:
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
-            - name: Bump version
-              run: pnpm version ${{ github.event.inputs.bump }}
+            - name: Bump version and push to local branch
+              id: bump-version
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  pnpm version ${{ github.event.inputs.version }} || true
+                  version=$(jq -r '.version' ./package.json)
+                  echo "Bumped version: $version"
+                  echo "new_version=$version" >> $GITHUB_ENV
+              working-directory: apps/${{ github.event.inputs.app }}
+              continue-on-error: true
 
             - name: Build lib
               run: pnpm run build:headlessui-lib
