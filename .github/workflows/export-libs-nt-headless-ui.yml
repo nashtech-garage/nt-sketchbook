@@ -40,7 +40,7 @@ jobs:
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
-            - name: Bump version and push to local branch
+            - name: Bump version
               id: bump-version
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -53,7 +53,8 @@ jobs:
               continue-on-error: true
 
             - name: Build lib
-              run: pnpm run build:headlessui-lib
+              run: pnpm run build:lib
+              working-directory: apps/nt-headless-ui
 
             - name: Publish to npm
               run: pnpm publish --no-git-checks
