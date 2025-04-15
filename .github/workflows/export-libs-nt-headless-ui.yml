@@ -51,6 +51,16 @@ jobs:
                   version=$(jq -r '.version' ./package.json)
                   echo "Bumped version: $version"
                   echo "new_version=$version" >> $GITHUB_ENV
+                  if [$version != "unknown" ]; then
+                    git config user.name "github-actions"
+                    git config user.email "github-actions@github.com"
+                    git add .
+                    git commit -m "chore: bump headless-ui to v${{ steps.pkg.outputs.version }}"
+                    git tag headless-ui@${{ steps.pkg.outputs.version }}
+                    git push origin HEAD:main --tags
+                  else
+                    echo "Skipping push due to unknown version"
+                  fi
               working-directory: apps/nt-headless-ui
               continue-on-error: true
 
@@ -69,16 +79,6 @@ jobs:
               run: |
                   version=$(jq -r .version apps/nt-headless-ui/package.json)
                   echo "version=$version" >> "$GITHUB_OUTPUT"
-
-            - name: Commit version bump and push tag
-              run: |
-                  git config user.name "github-actions"
-                  git config user.email "github-actions@github.com"
-                  git add .
-                  git commit -m "feat: bump headless-ui to v${{ steps.pkg.outputs.version }}"
-                  git tag headless-ui@${{ steps.pkg.outputs.version }}
-                  git push origin HEAD:main --tags
-              working-directory: apps/nt-headless-ui
 
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
