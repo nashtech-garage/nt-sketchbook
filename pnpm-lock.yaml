@@ -112,6 +112,9 @@ importers:
 
   apps/nt-headless-ui:
     dependencies:
+      '@nashtech/stylesheet':
+        specifier: workspace:*
+        version: link:../nt-stylesheet
       '@radix-ui/react-avatar':
         specifier: 1.1.2
         version: 1.1.2(@types/react-dom@18.2.25)(@types/react@18.2.25)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -200,9 +203,6 @@ importers:
       '@eslint/eslintrc':
         specifier: 3.3.1
         version: 3.3.1
-      '@nashtech/stylesheet':
-        specifier: workspace:*
-        version: link:../nt-stylesheet
       '@storybook/addon-actions':
         specifier: 8.4.7
         version: 8.4.7(storybook@8.5.1(prettier@3.0.1))
