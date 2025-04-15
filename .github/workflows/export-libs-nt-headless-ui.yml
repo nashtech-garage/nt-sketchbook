@@ -1,5 +1,4 @@
-# .github/workflows/export-and-release-headlessui.yml
-name: Publish and Release nt-headless-ui
+name: Publish and Release headless-ui
 
 on:
     workflow_dispatch:
@@ -13,6 +12,10 @@ on:
                     - patch
                     - minor
                     - major
+
+permissions:
+    contents: read
+    packages: write
 
 jobs:
     publish-and-release:
@@ -56,8 +59,8 @@ jobs:
               run: pnpm run build:lib
               working-directory: apps/nt-headless-ui
 
-            - name: Publish to npm
-              run: pnpm publish --no-git-checks
+            - name: Publish to github
+              run: pnpm publish
               working-directory: apps/nt-headless-ui/dist
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
