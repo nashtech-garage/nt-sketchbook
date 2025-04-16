@@ -80,6 +80,23 @@ jobs:
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+            - name: Generate changelog for headless-ui
+              id: changelog
+              run: |
+                  # Get last tag for this package (optional improvement: match tag pattern)
+                  LAST_TAG=$(git tag --list "headless-ui@*" --sort=-creatordate | head -n 1)
+
+                  echo "Last tag: $LAST_TAG"
+
+                  if [ -n "$LAST_TAG" ]; then
+                    LOG=$(git log $LAST_TAG..HEAD --pretty=format:"- %s" -- apps/nt-headless-ui/)
+                  else
+                    LOG=$(git log --pretty=format:"- %s" -- apps/nt-headless-ui/)
+                  fi
+                  echo "log<<EOF" >> $GITHUB_OUTPUT
+                  echo "$LOG" >> $GITHUB_OUTPUT
+                  echo "EOF" >> $GITHUB_OUTPUT
+
             - name: Get new version from package.json
               id: pkg
               run: |
@@ -89,9 +106,12 @@ jobs:
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
               with:
-                  tag_name: nt-headless-ui@${{ steps.pkg.outputs.version }}
-                  name: nt-headless-ui v${{ steps.pkg.outputs.version }}
+                  tag_name: headless-ui@${{ steps.pkg.outputs.version }}
+                  name: headless-ui@${{ steps.pkg.outputs.version }}
                   body: |
-                      📦 Released nt-headless-ui@${{ steps.pkg.outputs.version }}
+                      📦 Released headless-ui@${{ steps.pkg.outputs.version }}
+
+                      Changes:
+                      ${{ steps.changelog.outputs.log }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
