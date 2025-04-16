@@ -58,6 +58,8 @@ jobs:
                       if git diff --cached --quiet; then
                         echo "No changes to commit. Skipping."
                       else
+                        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/nashtech-garage/nt-sketchbook.git
+
                         HUSKY=0 git commit -m "chore: bump headless-ui to v$version"
                         git tag headless-ui@$version
                         git push origin HEAD:main --tags
