@@ -3,7 +3,7 @@ name: Publish and Release headless-ui
 on:
     workflow_dispatch:
         inputs:
-            bump:
+            version:
                 description: 'Version bump type'
                 required: true
                 default: 'patch'

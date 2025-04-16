@@ -40,7 +40,8 @@
         }
     },
     "workspaces": [
-        "apps/*"
+        "apps/*",
+        "package/*"
     ],
     "scripts": {
         "bootstrap": "pnpm recursive install",
