@@ -15,19 +15,16 @@ export const Label = ({
     children,
     className,
     variant = 'form-field'
-}: LabelProps) => {
-    return (
-        <label
-            {...(htmlFor ? { htmlFor } : {})}
-            className={cn(
-                'nt-label',
-                variant === 'hint'
-                    ? 'nt-label-hint'
-                    : 'nt-label-form-field',
-                className
-            )}
-        >
-            {children}
-        </label>
-    )
-}
+}: LabelProps) => (
+    <label
+        {...(htmlFor ? { htmlFor } : {})}
+        className={cn(
+            'nt-label',
+            variant === 'hint'
+                ? 'nt-label-hint'
+                : 'nt-label-form-field',
+            className
+        )}>
+        {children}
+    </label>
+)
