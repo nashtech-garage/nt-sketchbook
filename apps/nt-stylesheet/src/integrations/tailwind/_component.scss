@@ -129,36 +129,80 @@
     }
 
     .form-control {
-        min-height: 40px;
-        font-size: 16px;
+        min-height: 2.5rem;
+        font-size: 1rem;
         .icon {
-            font-size: 16px;
+            font-size: 1rem;
         }
-        padding: 0 18px;
+        padding: 0 1.125rem;
     }
 
     .form-control-lg {
-        min-height: 48px;
-        font-size: 18px;
+        min-height: 3rem;
+        font-size: 1.125rem;
         .icon {
-            font-size: 18px;
+            font-size: 1.125rem;
         }
-        padding: 0 24px;
+        padding: 0 1.5rem;
     }
     .form-control-sm {
-        min-height: 32px;
-        font-size: 14px;
+        min-height: 2rem;
+        font-size: 0.875rem;
         .icon {
             font-size: 14px;
         }
-        padding: 0 12px;
+        padding: 0 0.75rem;
     }
     .form-control-xs {
-        min-height: 24px;
-        font-size: 12px;
+        min-height: 1.5rem;
+        font-size: 0.75rem;
         .icon {
-            font-size: 12px;
+            font-size: 0.75rem;
         }
         padding: 0 8px;
+    }
+
+    .text-group {
+        font-size: 1rem;
+    }
+
+    .text-hint {
+        font-size: 0.75rem;
+    }
+
+    .text-para-lg {
+        font-size: 1.125rem;
+    }
+
+    .text-para-md {
+        font-size: 1rem;
+    }
+    .text-para-sm {
+        font-size: 0.875rem;
+    }
+    .text-para-xs {
+        font-size: 0.75rem;
+    }
+
+    .text-link-sm {
+        font-size: 0.875rem;
+    }
+    .text-link-xs {
+        font-size: 0.75rem;
+    }
+
+    .text-inline-md {
+        font-size: 1rem;
+    }
+
+    .text-inline-sm {
+        font-size: 0.875rem;
+    }
+
+    .text-inline-xs {
+        font-size: 0.75rem;
+    }
+    .text-inline-lg {
+        font-size: 1.125rem;
     }
 }

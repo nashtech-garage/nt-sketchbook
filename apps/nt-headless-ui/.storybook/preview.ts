@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '@nashtech/stylesheet/tailwind/style.css'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,6 +14,7 @@ export const parameters = {
             order: [
                 'Foundation',
                 [
+                    'Typography',
                     'Colors',
                     [
                         'Brand',
