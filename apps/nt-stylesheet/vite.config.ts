@@ -8,6 +8,7 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig({
     root: path.resolve(__dirname),
+    publicDir: 'public',
     plugins: [
         dts({
             outDir: 'dist',
