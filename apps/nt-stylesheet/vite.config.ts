@@ -51,10 +51,14 @@ export default defineConfig({
         },
         rollupOptions: {
             input: {
-                'tailwind-style':
+                tailwindStyle: path.resolve(
+                    __dirname,
                     './src/integrations/tailwind/_styles.scss',
-                'tailwind-integrations':
+                ),
+                tailwindIntegrations: path.resolve(
+                    __dirname,
                     './src/integrations/tailwind/index.ts',
+                ),
             },
             output: {
                 assetFileNames: (assetInfo) => {
@@ -64,7 +68,7 @@ export default defineConfig({
                     return '[name][extname]'
                 },
                 entryFileNames: ({ name }) => {
-                    if (name === 'tailwind-integrations')
+                    if (name === 'tailwindIntegrations')
                         return 'integrations/tailwind/index.cjs'
 
                     return '[name].cjs'
