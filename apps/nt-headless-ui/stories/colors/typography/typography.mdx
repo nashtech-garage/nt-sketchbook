@@ -1,0 +1,28 @@
+import {
+    Canvas,
+    ColorItem,
+    ColorPalette,
+    Meta,
+    Story,
+    Title,
+} from '@storybook/blocks'
+
+import * as TypographyStories from './typography.stories'
+
+<Meta title="Foundation/Typography" of={TypographyStories} />
+
+<Title>Typography</Title>
+
+To use a type class in your component, simply add a class name corresponding to the size you wish to use.
+For example `text-xl` or `text-2xl`
+
+You can also use helper classes such as `font-extrabold`, `font-bold` and `font-semibold` to set font weights to 800, 700 and 600.
+These are useful so you can easily set the weight of your text, especially if you don't need any other styling for that element.
+
+## Mulish
+
+<Story of={TypographyStories.Mulish} />
+
+## Headings
+
+<Story of={TypographyStories.Headings} />

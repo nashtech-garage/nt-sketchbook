@@ -8,10 +8,11 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig({
     root: path.resolve(__dirname),
+    publicDir: 'public',
     plugins: [
         dts({
             outDir: 'dist',
-            include: ['src'], // ensure it includes your files
+            include: ['src'],
         }),
         nxViteTsPaths(),
         nxCopyAssetsPlugin([
@@ -45,14 +46,24 @@ export default defineConfig({
         lib: {
             entry: {
                 index: './src/index.ts',
-                'tailwind-integrations':
-                    './src/integrations/tailwind/index.ts',
             },
             name: 'nt-stylesheet',
             formats: ['cjs'],
         },
         rollupOptions: {
+            input: {
+                'tailwind-style':
+                    './src/integrations/tailwind/_styles.scss',
+                'tailwind-integrations':
+                    './src/integrations/tailwind/index.ts',
+            },
             output: {
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name?.endsWith('.css')) {
+                        return 'integrations/tailwind/style.css'
+                    }
+                    return '[name][extname]'
+                },
                 entryFileNames: ({ name }) => {
                     if (name === 'tailwind-integrations')
                         return 'integrations/tailwind/index.cjs'
