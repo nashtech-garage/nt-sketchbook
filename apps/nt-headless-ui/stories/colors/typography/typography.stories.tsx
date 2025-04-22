@@ -65,7 +65,7 @@ export const Mulish: StoryObj<typeof DocsCanvas> = {
                     <p className="font-sans font-medium text-text text-2xl min-w-[200px]">
                         500 Medium
                     </p>
-                    <p className="font-sans font-semibold text-text text-2xl">
+                    <p className="font-sans font-medium text-text text-2xl">
                         abcdefghijklmnopqrstuvwxyz
                     </p>
                 </div>
