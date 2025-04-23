@@ -96,6 +96,7 @@ export default defineConfig({
             '**/vite.config.{ts,mts}',
             '**/vitest.config.{ts,mts}',
             'tailwind.config.ts',
+            '**/integrations/tailwind/themes/*.ts',
             '**/node_modules/**',
             '**/dist/**',
         ],
