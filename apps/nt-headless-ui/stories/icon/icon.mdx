@@ -1,0 +1,31 @@
+import { IconGallery, IconItem, Meta, Title } from '@storybook/blocks'
+import * as LucideIcons from 'lucide-react'
+
+<Meta title="Foundation/Iconography" />
+
+<Title>Lucide Iconography</Title>
+
+export const AllIcons = () => {
+    return (
+        <IconGallery>
+            {Object.entries(LucideIcons)
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([name, IconComponent]) => {
+            console.log(name, IconComponent);
+
+            return (
+             <IconItem
+                key={name}
+                name={name}
+              >
+
+<IconComponent size={24} stroke="currentColor" color="black" />
+              </IconItem>
+            );
+          })}
+        </IconGallery>
+    )
+
+}
+
+<AllIcons />
