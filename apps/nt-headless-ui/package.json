@@ -7,7 +7,7 @@
         "build:lib": "pnpm --filter ../nt-stylesheet build && tsc && vite build",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
+        "lint": "next lint  && npx stylelint \"**/*.scss\"",
         "dev": "pnpm --filter ../nt-stylesheet build && storybook dev -p 6006",
         "build-storybook": "storybook build",
         "test": "pnpm vitest",
@@ -76,7 +76,10 @@
         "eslint-config-next": "15.1.4",
         "@eslint/eslintrc": "3.3.1",
         "tsconfig": "workspace:*",
-        "eslint-config-custom-lib": "workspace:*"
+        "eslint-config-custom-lib": "workspace:*",
+        "stylelint-custom-lib": "workspace:*",
+        "stylelint": "16.19.1",
+        "jsdom": "26.0.0"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Mulish';
+    font-family: Mulish;
     src: url('/assets/fonts/Mulish/Mulish-Regular.ttf') format('ttf');
     font-weight: 400;
     font-style: normal;
@@ -7,7 +7,7 @@
 }
 
 @font-face {
-    font-family: 'Mulish';
+    font-family: Mulish;
     src: url('/assets/fonts/Mulish/Mulish-Bold.ttf') format('ttf');
     font-weight: 700;
     font-style: normal;
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-    font-family: 'Mulish';
+    font-family: Mulish;
     src: url('/assets/fonts/Mulish/Mulish-Italic.ttf') format('ttf');
     font-weight: 400;
     font-style: italic;
@@ -23,5 +23,5 @@
 }
 
 body {
-    font-family: 'Mulish', sans-serif;
+    font-family: Mulish, sans-serif;
 }

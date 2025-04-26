@@ -8,7 +8,7 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
@@ -22,7 +22,8 @@ body {
 }
 
 /* Remove list styles */
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
@@ -57,21 +58,29 @@ table {
 }
 
 /* Forms */
-input, textarea, select, button {
+input,
+textarea,
+select,
+button {
     font: inherit;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: inherit;
     line-height: 1.2;
 }
 
 /* Default Flex & Grid Helper Classes */
 .nt-container {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 1rem;
 }
 
 .nt-flex {
@@ -80,5 +89,5 @@ h1, h2, h3, h4, h5, h6 {
 
 .nt-grid {
     display: grid;
-    gap: 16px;
+    gap: 1rem;
 }

@@ -1,8 +1,10 @@
-@use '../../styles/_typography.scss' as *;
+@use '../../styles/typography' as *;
+
 @layer base {
     h1 {
         font-size: 2.25rem;
         line-height: 3.375rem;
+
         @media (min-width: theme('screens.md')) {
             font-size: 2.25rem;
         }
@@ -11,6 +13,7 @@
     h2 {
         font-size: 2rem;
         line-height: 3rem;
+
         @media (min-width: theme('screens.md')) {
             font-size: 2rem;
         }
@@ -19,6 +22,7 @@
     h3 {
         font-size: 1.75rem;
         line-height: 2.625rem;
+
         @media (min-width: theme('screens.md')) {
             font-size: 1.75rem;
         }
@@ -27,6 +31,7 @@
     h4 {
         font-size: 1.5rem;
         line-height: 2.25rem;
+
         @media (min-width: theme('screens.md')) {
             font-size: 1.5rem;
         }
@@ -35,6 +40,7 @@
     h5 {
         font-size: 1.25rem;
         line-height: 1.875rem;
+
         @media (min-width: theme('screens.md')) {
             font-size: 1.25rem;
         }
@@ -42,7 +48,8 @@
 
     h6 {
         font-size: 1rem;
-        line-height: 24px;
+        line-height: 1.5rem;
+
         @media (min-width: theme('screens.md')) {
             font-size: 1rem;
         }

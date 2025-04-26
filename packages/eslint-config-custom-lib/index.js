@@ -42,6 +42,7 @@ export default [
             '**/coverage/**',
             'postcss.config.mjs',
             'tailwind.config.js',
+            'stylelint.config.js',
         ],
     },
 ]
