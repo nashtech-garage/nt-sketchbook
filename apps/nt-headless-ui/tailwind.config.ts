@@ -2,7 +2,7 @@
 import { ntTheme } from '@nashtech/stylesheet/tailwind'
 import type { Config } from 'tailwindcss'
 
-export default {
+const config: Config = {
     darkMode: ['class'],
     content: [
         './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -14,4 +14,6 @@ export default {
         extend: ntTheme.extend,
     },
     plugins: [require('tailwindcss-animate')],
-} satisfies Config
+}
+
+export default config
