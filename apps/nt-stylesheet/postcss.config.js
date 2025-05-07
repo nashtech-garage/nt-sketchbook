@@ -1,0 +1,14 @@
+export default {
+    plugins: {
+        autoprefixer: {},
+        'postcss-reporter': {
+            clearReportedMessages: true,
+            throwError: false,
+        },
+
+        cssnano:
+            process.env.NODE_ENV === 'production'
+                ? { preset: 'default' }
+                : false,
+    },
+}

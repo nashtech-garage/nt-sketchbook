@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Component</title>
+    <link rel="stylesheet" href="../dist/nt-stylesheet.css">
+</head>
+<body>
+
+<!-- Small Card -->
+<div class="nt-card-small">
+    <div class="nt-card-header">
+        <span class="nt-card-icon">📊</span>
+        <h3 class="nt-card-title">Single Metric</h3>
+    </div>
+    <div class="nt-card-content">
+        <p>Value: <strong>128.9</strong></p>
+        <p>Change: <span class="text-green-500">+12%</span></p>
+    </div>
+</div>
+
+<!-- Default Card -->
+<div class="nt-card-default">
+    <div class="nt-card-header">
+        <img src="icon.svg" alt="Card Icon" class="nt-card-icon">
+        <span class="nt-card-title">Card Title</span>
+        <div class="nt-card-actions">
+            <img src="edit-icon.svg" alt="Edit" class="nt-card-action">
+            <img src="delete-icon.svg" alt="Delete" class="nt-card-action">
+        </div>
+    </div>
+    <div class="nt-card-content">
+        <p>This is the main content of the card. It expands to fill available space.</p>
+    </div>
+    <div class="nt-card-footer">
+        <button class="nt-btn-primary">OK</button>
+    </div>
+</div>
+
+<!-- Success Card -->
+<div class="nt-card-success">
+    <div class="nt-card-header">
+        <img src="success-icon.svg" alt="Success Icon" class="nt-card-icon">
+        <span class="nt-card-title">Success Card</span>
+        <div class="nt-card-actions">
+            <img src="check-icon.svg" alt="Check" class="nt-card-action">
+            <img src="close-icon.svg" alt="Close" class="nt-card-action">
+        </div>
+    </div>
+    <div class="nt-card-content">
+        <p>Operation completed successfully.</p>
+    </div>
+    <div class="nt-card-footer">
+        <button class="nt-btn-success">Done</button>
+    </div>
+</div>
+
+<!-- Danger Card -->
+<div class="nt-card-danger">
+    <div class="nt-card-header">
+        <img src="warning-icon.svg" alt="Warning Icon" class="nt-card-icon">
+        <span class="nt-card-title">Danger Card</span>
+        <div class="nt-card-actions">
+            <img src="retry-icon.svg" alt="Retry" class="nt-card-action">
+            <img src="cancel-icon.svg" alt="Cancel" class="nt-card-action">
+        </div>
+    </div>
+    <div class="nt-card-content">
+        <p>Something went wrong. Please try again.</p>
+    </div>
+    <div class="nt-card-footer">
+        <button class="nt-btn-danger">Retry</button>
+    </div>
+</div>
+
+</body>
+</html>
