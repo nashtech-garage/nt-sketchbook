@@ -1,87 +1,114 @@
-/// <reference types='vitest' />
+/// <reference types="vitest/config" />
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
-import autoprefixer from 'autoprefixer'
 import * as path from 'path'
 import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
+import dtsPlugin from 'vite-plugin-dts'
 
 export default defineConfig({
     root: path.resolve(__dirname),
-    publicDir: 'public',
+
     plugins: [
-        dts({
-            outDir: 'dist',
-            include: ['src'],
+        dtsPlugin({
+            include: ['src'], // Make sure this includes the folder with `index.ts`
+            exclude: ['**/*.test.ts', '**/__tests__/**'],
+            // outDir: 'dist', // optional but ensures .d.ts goes where you expect
         }),
         nxViteTsPaths(),
         nxCopyAssetsPlugin([
             {
                 input: './src/styles',
-                output: 'styles',
+                output: 'scss',
                 glob: '*.scss',
             },
-        ]),
-        nxCopyAssetsPlugin([
             {
                 input: './docs',
                 output: 'docs',
                 glob: '*.md',
             },
         ]),
-        nxCopyAssetsPlugin([
-            {
-                input: './integrations',
-                output: './integrations/tailwind',
-                glob: '*.ts',
-            },
-        ]),
     ],
     build: {
+        sourcemap: true,
         emptyOutDir: true,
         reportCompressedSize: true,
+        cssCodeSplit: true,
         commonjsOptions: {
             transformMixedEsModules: true,
         },
-        lib: {
-            entry: {
-                index: './src/index.ts',
-            },
-            name: 'nt-stylesheet',
-            formats: ['cjs'],
-        },
         rollupOptions: {
+            preserveEntrySignatures: 'strict',
             input: {
-                tailwindStyle: path.resolve(
+                'styles/index': path.resolve(
                     __dirname,
-                    './src/integrations/tailwind/_styles.scss',
+                    'src/styles/index.ts',
                 ),
-                tailwindIntegrations: path.resolve(
+                'scripts/index': path.resolve(
                     __dirname,
-                    './src/integrations/tailwind/index.ts',
+                    'src/scripts/index.ts',
+                ),
+                'scripts/nt-menu-toggle': path.resolve(
+                    __dirname,
+                    'src/scripts/nt-menu-toggle.ts',
+                ),
+                'integrations/tailwind/index': path.resolve(
+                    __dirname,
+                    'src/integrations/tailwind/index.ts',
                 ),
             },
             output: {
-                assetFileNames: (assetInfo) => {
-                    if (assetInfo.name?.endsWith('.css')) {
-                        return 'integrations/tailwind/style.css'
-                    }
-                    return '[name][extname]'
-                },
+                dir: 'dist',
+                format: 'cjs',
                 entryFileNames: ({ name }) => {
-                    if (name === 'tailwindIntegrations')
+                    if (name === 'integrations/tailwind/index') {
                         return 'integrations/tailwind/index.cjs'
+                    }
+
+                    if (name === 'scripts/index') {
+                        return 'scripts/nt.cjs'
+                    }
 
                     return '[name].cjs'
+                },
+                assetFileNames: (assetInfo) => {
+                    if (
+                        assetInfo.name?.endsWith('.css') &&
+                        assetInfo.originalFileNames?.includes(
+                            'src/integrations/tailwind/index.ts',
+                        )
+                    ) {
+                        return 'integrations/tailwind/style.css'
+                    }
+
+                    if (
+                        assetInfo.name?.endsWith('.css') &&
+                        assetInfo.originalFileNames?.includes(
+                            'src/styles/index.ts',
+                        )
+                    ) {
+                        return 'css/nt.css'
+                    } else if (assetInfo.name?.endsWith('.css')) {
+                        return 'css/[name].css'
+                    }
+
+                    return 'assets/[name][extname]'
                 },
             },
         },
     },
+    optimizeDeps: {
+        exclude: ['materialdesignicons.min.css'],
+    },
+    resolve: {
+        alias: {
+            'materialdesignicons.min.css': path.resolve(
+                __dirname,
+                'node_modules/@mdi/font/css/materialdesignicons.min.css',
+            ),
+        },
+    },
     css: {
         preprocessorOptions: {},
-        postcss: {
-            plugins: [autoprefixer()],
-        },
     },
     test: {
         watch: false,
@@ -89,14 +116,14 @@ export default defineConfig({
         include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
         reporters: ['default'],
         coverage: {
-            reporter: ['cobertura', 'lcov', 'json-summary', 'json'],
+            provider: 'v8',
+            reporter: ['json', 'cobertura', 'json-summary', 'lcov'],
             reportOnFailure: true,
         },
         exclude: [
             '**/vite.config.{ts,mts}',
             '**/vitest.config.{ts,mts}',
             'tailwind.config.ts',
-            '**/integrations/tailwind/themes/*.ts',
             '**/node_modules/**',
             '**/dist/**',
         ],

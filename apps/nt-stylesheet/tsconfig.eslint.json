@@ -1,8 +1,8 @@
 {
-    "extends": "tsconfig/eslint.json",
+    "extends": "../../packages/tsconfig/eslint.json",
     "compilerOptions": {
         "baseUrl": "."
     },
     "include": ["**/*.ts", "*.ts"],
-    "exclude": ["node_modules", "**/**/node_modules"]
+    "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 {
-    "extends": "tsconfig/eslint.json",
+    "extends": "../../packages/tsconfig/eslint.json",
     "compilerOptions": {
         "baseUrl": "."
     },

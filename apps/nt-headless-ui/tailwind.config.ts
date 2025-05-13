@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import { ntTheme } from '@nashtech/stylesheet/tailwind'
+import { ntTheme } from '@nashtech/stylesheet/integrations/tailwind'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {

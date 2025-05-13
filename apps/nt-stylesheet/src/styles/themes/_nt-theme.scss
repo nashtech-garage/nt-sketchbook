@@ -1,2 +1,77 @@
+/* stylelint-disable */
+
 @use "variables";
 
+/* -------------------------------------- */
+/*              NT THEME                  */
+/* -------------------------------------- */
+
+:root {
+    /* --------- Gray (Neutral) --------- */
+    --nt-color-gray-9           : #F6F6F6;
+    --nt-color-gray-10          : #EAEAEA;
+    --nt-color-gray-20          : #D4D4D5;
+    --nt-color-gray-30          : #BFBFBF;
+    --nt-color-gray-40          : #A9A9AA;
+    --nt-color-gray-50          : #949495;
+    --nt-color-gray-60          : #7E7F80;
+    --nt-color-gray-70          : #69696B;
+    --nt-color-gray-80          : #535455;
+    --nt-color-gray-90          : #3E3E40;
+    --nt-color-gray-100         : #28292B;
+
+    /* --------- White & Black --------- */
+    --nt-color-white            : #FFF;
+    --nt-color-black            : #000;
+
+    /* --------- Primary Color Scale --------- */
+    --nt-color-primary-10       : #FBE6E8;
+    --nt-color-primary-20       : #F7CCD2;
+    --nt-color-primary-30       : #F3B3BB;
+    --nt-color-primary-40       : #EF99A4;
+    --nt-color-primary-50       : #EB808E;
+    --nt-color-primary-60       : #E66677;
+    --nt-color-primary-70       : #E24D60;
+    --nt-color-primary-80       : #DE3349;
+    --nt-color-primary-90       : #DA1A33;
+    --nt-color-primary-100      : #D6001C;
+
+    /* --------- Secondary Color Scale --------- */
+    --nt-color-secondary-10     : #F0E9F2;
+    --nt-color-secondary-20     : #E1D2E4;
+    --nt-color-secondary-30     : #D2BCD7;
+    --nt-color-secondary-40     : #C3A5CA;
+    --nt-color-secondary-50     : #B58FBD;
+    --nt-color-secondary-60     : #A679AF;
+    --nt-color-secondary-70     : #9762A2;
+    --nt-color-secondary-80     : #884C95;
+    --nt-color-secondary-90     : #793587;
+    --nt-color-secondary-100    : #6A1F7A;
+
+    /* --------- Signal Colors --------- */
+    --nt-text-success           : #359000;
+    --nt-text-warning           : #DF7700;
+    --nt-text-danger            : #E51010;
+    --nt-text-info              : #0094D5;
+
+    --nt-color-danger           : #FA5151;
+    --nt-color-warning          : #FFB92E;
+    --nt-color-success          : #6CD430;
+    --nt-color-info             : #33A9DD;
+
+    --nt-border-danger          : #F9BBBB;
+    --nt-border-warning         : #FED496;
+    --nt-border-success         : #ABE38B;
+    --nt-border-info            : #B3DFF2;
+
+    --nt-background-danger      : #FFE9E9;
+    --nt-background-warning     : #FFF0DA;
+    --nt-background-success     : #E4FFD5;
+    --nt-background-info        : #E6F4FB;
+
+    /* --------- Font Families --------- */
+    --nt-font-default           : "Mulish", sans-serif;
+
+    /* --------- Font Sizes --------- */
+    --nt-font-size-base         : 14px;
+}

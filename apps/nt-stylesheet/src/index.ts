@@ -1,5 +1,3 @@
-import './styles/_site.scss'
-
 // Welcome message
 console.log(
     '%c🚀 Welcome to NT Stylesheet Framework! 🚀',
