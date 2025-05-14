@@ -79,7 +79,9 @@
         "eslint-config-custom-lib": "workspace:*",
         "stylelint-custom-lib": "workspace:*",
         "stylelint": "16.19.1",
-        "jsdom": "26.0.0"
+        "jsdom": "26.0.0",
+        "postcss-nesting": "13.0.1",
+        "postcss-import": "16.1.0"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
