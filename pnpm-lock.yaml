@@ -214,6 +214,12 @@ importers:
       jsdom:
         specifier: 26.0.0
         version: 26.0.0
+      postcss-import:
+        specifier: 16.1.0
+        version: 16.1.0(postcss@8.5.3)
+      postcss-nesting:
+        specifier: 13.0.1
+        version: 13.0.1(postcss@8.5.3)
       stylelint:
         specifier: 16.19.1
         version: 16.19.1(typescript@5.7.2)
@@ -254,9 +260,6 @@ importers:
       cssnano:
         specifier: 7.0.6
         version: 7.0.6(postcss@8.5.3)
-      eslint:
-        specifier: 9.17.0
-        version: 9.17.0(jiti@2.4.2)
       eslint-config-custom-lib:
         specifier: workspace:*
         version: link:../../packages/eslint-config-custom-lib

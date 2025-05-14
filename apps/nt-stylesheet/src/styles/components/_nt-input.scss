@@ -28,12 +28,10 @@
     }
 }
 
-// Default input style
 .nt-input {
     @include nt-input;
 }
 
-// Variants
 .nt-input-primary {
     @include nt-input($focus-border: var(--nt-color-primary));
 }
