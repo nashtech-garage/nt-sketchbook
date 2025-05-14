@@ -1,1 +1,105 @@
-/* stylelint-disable no-empty-source */
+@use "sass:map";
+@use "sass:math";
+@use "variables" as vars;
+
+$nt-space-scale: (
+    "1": 4px,
+    "2": 8px,
+    "3": 12px,
+    "4": 16px,
+    "5": 20px,
+    "6": 24px,
+    "7": 28px,
+    "8": 32px
+);
+
+// Mixin to generate spacing classes
+@mixin generate-spacing-utilities($property, $prefix) {
+    @each $key, $value in $nt-space-scale {
+        .#{$prefix}-#{$key} {
+            #{$property}: $value !important;
+        }
+        .#{$prefix}t-#{$key} { #{$property}-top: $value !important; }
+        .#{$prefix}r-#{$key} { #{$property}-right: $value !important; }
+        .#{$prefix}b-#{$key} { #{$property}-bottom: $value !important; }
+        .#{$prefix}l-#{$key} { #{$property}-left: $value !important; }
+        .#{$prefix}x-#{$key} {
+            #{$property}-left: $value !important;
+            #{$property}-right: $value !important;
+        }
+        .#{$prefix}y-#{$key} {
+            #{$property}-top: $value !important;
+            #{$property}-bottom: $value !important;
+        }
+    }
+}
+
+// Generate utilities for margin and padding
+@include generate-spacing-utilities(margin, m);
+@include generate-spacing-utilities(padding, p);
+
+// Generate margin classes (e.g., nt-m-1, nt-mt-2, nt-mx-4, etc.)
+@include generate-spacing-utilities(margin, "nt-m");
+
+// Generate padding classes (e.g., nt-p-1, nt-pt-2, nt-px-4, etc.)
+@include generate-spacing-utilities(padding, "nt-p");
+
+//  Function to calculate line height based on font size
+@function calculate-line-height($font-size) {
+    @return round($font-size * 1.5, 3); // Line-height = 1.5 * font size
+}
+
+//  Scale factor for font sizes (1.2x increase per step)
+@function scale-font-size($step) {
+    @return calc(#{vars.$nt-font-size-base} * pow(1.2, $step));
+}
+
+//  Generate font sizes dynamically
+$nt-font-sizes: (
+    "xs": scale-font-size(-1), // ~11.4px (0.729rem)
+    "sm": vars.$nt-font-size-base,  // 14px (0.875rem)
+    "md": scale-font-size(1),  // ~16.8px (1.05rem)
+    "lg": scale-font-size(2),  // ~20.2px (1.26rem)
+    "xl": scale-font-size(3),  // ~24.2px (1.51rem)
+    "2xl": scale-font-size(4), // ~29px (1.81rem)
+    "3xl": scale-font-size(5), // ~35px (2.18rem)
+    "4xl": scale-font-size(6), // ~42px (2.62rem)
+    "5xl": scale-font-size(7)  // ~50px (3.14rem)
+);
+
+// Generate line heights dynamically based on font sizes
+$nt-line-heights: ();
+
+@each $size, $font-size in $nt-font-sizes {
+    $nt-line-heights: map.merge(
+            $nt-line-heights,
+            ($size: calculate-line-height($font-size))
+    );
+}
+
+// Mixin to apply font size
+@mixin font-size($size) {
+    @if map.has-key($nt-font-sizes, $size) {
+        font-size: map.get($nt-font-sizes, $size);
+    } @else {
+        @warn "Font size #{$size} not found in the map!";
+    }
+}
+
+// Mixin to generate font size utilities
+@mixin generate-font-size-utilities() {
+    @each $size, $value in $nt-font-sizes {
+        .nt-text-#{$size} {
+            font-size: $value !important;
+        }
+    }
+}
+
+// Mixin to generate line height utilities
+@mixin generate-line-height-utilities() {
+    @each $size, $value in $nt-line-heights {
+        .nt-line-height-#{$size} {
+            line-height: $value !important;
+        }
+    }
+}

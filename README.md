@@ -1,24 +1,68 @@
-# NashTech Design System
+# **NT Sketchbook**
+Also known as the NashTech Design Ecosystem
+
+Welcome to NT Sketchbook, a repository designed to empower designers and developers to bring their creative visions to life with ease and efficiency.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Overview
 
-NashTech Design System provides a scalable, efficient, and customizable UI framework built with **Figma**, **Tailwind CSS**, and **shadcn/ui**. It includes a comprehensive set of **components, themes, layouts, and CLI tools** to streamline development.
-![alt text](./docs/image.png)
+NT Sketchbook is your ultimate tool for application development. We provide:
 
-## Prerequisites
+- CSS framework delivered with NashTech Design Style Guides as the default theme (nt-theme).
+- UI Components: Basic components include buttons, labels, inputs, etc.
+- CLI: Utilities for application scaffolding and component management.
 
-Before running the project, ensure the following tools are installed:
 
--   [Node.js](https://nodejs.org/) (v20)
--   [Pnpm](https://pnpm.io/)
--   [Nx CLI](https://nx.dev/getting-started/intro)
+## Installation
 
-### Install dependencies
+Getting started with NT Sketchbook is simple and straightforward:
 
+1. **Clone the Repository:**
+   ```bash
+   https://github.com/nashtech-garage/nt-sketchbook
+   ```
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd nt-sketchbook
+   ```
+3. **Install Essential Dependencies:**
+   ```bash
+   pnpm install
+   ```
+
+## Storybook
 ```bash
-pnpm install
+nx run nt-headless-ui:storybook
 ```
 
-### Deploy Status
+Then, open your favorite web browser and navigate to ` http://localhost:56053/` to immerse yourself in the NT Sketchbook experience.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/16aab6c1-676b-46d6-848e-913c21a1faf1/deploy-status)](https://app.netlify.com/sites/nashtech-storybook/deploys)
+## Contributing
+
+Join our vibrant community of creators! Your contributions can make a significant impact. Here’s how to get involved:
+
+1. **Fork the Repository.**
+2. **Create Your Feature Branch:**
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. **Commit Your Changes:**
+   ```bash
+   git commit -m "Add a compelling new feature"
+   ```
+4. **Push to the Branch:**
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. **Open a Pull Request.**
+
+## License
+
+This project is proudly licensed under the MIT License. For more details, see the [LICENSE](LICENSE.md) file.

@@ -1,1 +1,84 @@
-/* stylelint-disable no-empty-source */
+@use 'variables' as vars;
+@use 'utilities' as utils;
+@use 'sass:map';
+
+@mixin material-icon($color: white) {
+    @include utils.font-size('lg');
+    font-family: 'Material Design Icons', serif;
+    font-weight: 300;
+    font-style: normal;
+    display: inline-block;
+    color: $color;
+    text-rendering: auto;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+
+.nti {
+    @include material-icon(vars.$nt-color-secondary-60);
+
+    &:focus,
+    &:active {
+        color: white;
+    }
+
+    &-dashboard {
+        &::before {
+            content: '\F0A1D';
+        }
+    }
+
+    &-list {
+        &::before {
+            content: '\F096A';
+        }
+    }
+
+    &-calendar {
+        &::before {
+            content: '\F0ED8';
+        }
+    }
+
+    &-lightning {
+        &::before {
+            content: '\F140C';
+        }
+    }
+
+    &-accounts {
+        &::before {
+            content: '\F0B58';
+        }
+    }
+
+    &-checked {
+        &::before {
+            content: '\F05E1';
+        }
+    }
+
+    &-shapes {
+        &::before {
+            content: '\F0832';
+        }
+    }
+
+    &-cog {
+        &::before {
+            content: '\F08BB';
+        }
+    }
+
+    &-help {
+        &::before {
+            content: '\F0625';
+        }
+    }
+
+    &-widgets {
+        &::before {
+            content: '\F1355';
+        }
+    }
+}

@@ -1,4 +1,15 @@
-/* Reset Styles */
+:root {
+    /* Typography */
+    --nt-font-size-base: 0.875rem; /* 14px */
+    --nt-line-height-base: 1.5;
+    --nt-font-family-base: "Mulish", sans-serif;
+
+    /* Colors */
+    --nt-text-color: #333;
+    --nt-bg-color: #fff;
+}
+
+/* Reset default styles */
 *,
 *::before,
 *::after {
@@ -7,23 +18,33 @@
     box-sizing: border-box;
 }
 
+/* Improve text rendering */
 html {
-    font-size: 1rem;
+    box-sizing: border-box;
+    font-size: var(--nt-font-size-base, 0.875rem);
+    font-weight: var(--nt-font-weight-medium, 500);
+    font-family: var(--nt-font-family-base, sans-serif);
+    line-height: var(--nt-line-height-base, 1.5);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
 }
 
+/* Body reset */
 body {
-    font-family: var(--font-family, sans-serif);
-    background-color: var(--background-color, #fff);
-    color: var(--text-color, #333);
-    line-height: 1.6;
+    color: var(--nt-text-primary, #28292B);
+    background-color: var(--nt-bg-body, #fff);
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Remove default spacing on common elements */
+h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, figure {
+    margin: 0;
+    padding: 0;
 }
 
 /* Remove list styles */
-ul,
-ol {
+ul, ol {
     list-style: none;
 }
 
@@ -31,63 +52,44 @@ ol {
 a {
     text-decoration: none;
     color: inherit;
+    font-size: inherit;
 }
 
 /* Reset buttons */
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+}
+
+/* Remove button defaults */
 button {
-    all: unset;
     cursor: pointer;
 }
 
-/* Remove default focus outlines */
-:focus {
-    outline: none;
-}
-
-/* Images */
-img {
+/* Images and media */
+img, video {
     max-width: 100%;
     height: auto;
-    display: block;
 }
 
 /* Tables */
 table {
-    width: 100%;
     border-collapse: collapse;
+    width: 100%;
 }
 
 /* Forms */
-input,
-textarea,
-select,
-button {
-    font: inherit;
+input, textarea, select {
+    appearance: none;
 }
 
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: inherit;
-    line-height: 1.2;
-}
-
-/* Default Flex & Grid Helper Classes */
-.nt-container {
-    max-width: 75rem;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.nt-flex {
-    display: flex;
-}
-
-.nt-grid {
-    display: grid;
-    gap: 1rem;
+/* Reset focus styles */
+:focus {
+    outline: 2px solid var(--nt-text-color, #333);
+    outline-offset: 2px;
 }
