@@ -1,0 +1,45 @@
+@use 'side-menu' as side-menu;
+
+@mixin nt-layout-push-menu($menu-width: 16.25rem) {
+    .nt-layout {
+        display: grid;
+        grid-template: auto 1fr/ 0 1fr;
+        grid-template-areas:
+            'side-menu nav'
+            'side-menu content';
+        height: 100%;
+
+        .nt-side-menu {
+            grid-area: side-menu;
+
+            @include side-menu.create-side-menu;
+        }
+
+        &-nav {
+            grid-area: nav;
+            background: var(--nt-bg-nav, #333);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-content {
+            grid-area: content;
+            padding: 1rem;
+            background: var(--nt-bg-content, #f9f9f9);
+            overflow-y: auto;
+        }
+
+        &.menu-active {
+            grid-template-columns: $menu-width 1fr;
+
+            .nt-side-menu {
+                visibility: visible;
+                opacity: 1;
+                transition: opacity 0.3s ease;
+            }
+        }
+    }
+}

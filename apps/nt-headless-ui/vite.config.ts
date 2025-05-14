@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import { PluginOption } from 'vite'
 import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vitest/config'
 
@@ -18,7 +19,7 @@ export default defineConfig({
             outDir: path.resolve(__dirname, 'dist'),
             entryRoot: path.resolve(__dirname, './'),
             cleanVueFileName: true,
-        }),
+        }) as PluginOption,
     ],
     build: {
         lib: {

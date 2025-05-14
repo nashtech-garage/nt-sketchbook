@@ -1,0 +1,5 @@
+@use 'layouts/default' as layout;
+@use 'layouts/page';
+@use 'layouts/widgets-container';
+@use 'layouts/nt-layout' as ntLayout;
+@include ntLayout.nt-layout-push-menu;

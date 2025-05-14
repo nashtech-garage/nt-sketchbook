@@ -1,3 +1,7 @@
+@use 'mixins' as mixins;
+@use 'variables' as variables;
+@use 'utilities' as utils;
+
 @font-face {
     font-family: Mulish;
     src: url('/assets/fonts/Mulish/Mulish-Regular.ttf') format('ttf');
@@ -22,6 +26,10 @@
     font-display: swap;
 }
 
-body {
-    font-family: Mulish, sans-serif;
+/* Font Families */
+.nt-font {
+    font-family: var(--nt-font-default), serif;
 }
+
+@include utils.generate-font-size-utilities;
+@include utils.generate-line-height-utilities;

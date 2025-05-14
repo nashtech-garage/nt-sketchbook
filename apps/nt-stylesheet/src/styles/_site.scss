@@ -1,20 +1,12 @@
-/**
- * Site CSS to use in website
- */
-
 @use 'reset';
 @use 'variables' as variables;
 @use 'typography';
 @use 'grid';
 @use 'components';
+@use 'layouts';
 @use 'icons';
 @use 'mixins' as fns;
+@use 'utilities';
 @use 'themes/nt-theme';
-
-body {
-    font-size: variables.$nt-font-size-base;
-    font-family: variables.$nt-font-family-sans-serif;
-    line-height: variables.$nt-line-height;
-}
-
+@use 'branding/nashtech';
 @include fns.create-theme('nt-stylesheet');

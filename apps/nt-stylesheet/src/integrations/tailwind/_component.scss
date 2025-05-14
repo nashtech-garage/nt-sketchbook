@@ -1,35 +1,30 @@
 @layer components {
     .avatar {
         @apply rounded-full;
-
         width: 1.5rem;
         height: 1.5rem;
     }
 
     .avatar-sm {
         @apply rounded-full;
-
         width: 1.25rem;
         height: 1.25rem;
     }
 
     .avatar-xlg {
         @apply rounded-full;
-
         width: 2.5rem;
         height: 2.5rem;
     }
 
     .avatar-lg {
         @apply rounded-full;
-
         width: 2rem;
         height: 2rem;
     }
 
     .avatar-xs {
         @apply rounded-full;
-
         width: 1rem;
         height: 1rem;
     }

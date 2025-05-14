@@ -8,10 +8,10 @@
 
 @mixin create-theme(
     $theme-name,
-    $bg-color: variables.$nt-dark-bg,
-    $text-color: variables.$nt-dark-text,
-    $primary: variables.$nt-primary,
-    $secondary: variables.$nt-secondary
+    $bg-color: variables.$nt-color-primary-10,
+    $text-color: variables.$nt-text-primary,
+    $primary: variables.$nt-color-primary-100,
+    $secondary: variables.$nt-color-secondary-100
 ) {
     [data-theme='#{$theme-name}'] {
         --background-color: #{$bg-color};
@@ -28,11 +28,18 @@
     $align: middle
 ) {
     display: inline-block;
-    font-family: 'Material Icons', sans-serif;
+    font-family: 'Material Icons', serif;
     font-size: $size;
     color: $color;
     vertical-align: $align;
     margin: $margin;
     line-height: 1;
     user-select: none;
+}
+
+@mixin nt-text-style($size, $weight: 400, $lh: md, $spacing: normal) {
+    font-size: var(--nt-font-size-#{$size});
+    font-weight: $weight;
+    line-height: var(--nt-line-height-#{$lh});
+    letter-spacing: var(--nt-letter-spacing-#{$spacing});
 }

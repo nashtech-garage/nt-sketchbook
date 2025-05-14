@@ -1,2 +1,77 @@
-@use "variables";
+/* stylelint-disable */
 
+@use 'variables';
+
+/* -------------------------------------- */
+/*              NT THEME                  */
+/* -------------------------------------- */
+
+:root {
+    /* --------- Gray (Neutral) --------- */
+    --nt-color-gray-9: #f6f6f6;
+    --nt-color-gray-10: #eaeaea;
+    --nt-color-gray-20: #d4d4d5;
+    --nt-color-gray-30: #bfbfbf;
+    --nt-color-gray-40: #a9a9aa;
+    --nt-color-gray-50: #949495;
+    --nt-color-gray-60: #7e7f80;
+    --nt-color-gray-70: #69696b;
+    --nt-color-gray-80: #535455;
+    --nt-color-gray-90: #3e3e40;
+    --nt-color-gray-100: #28292b;
+
+    /* --------- White & Black --------- */
+    --nt-color-white: #fff;
+    --nt-color-black: #000;
+
+    /* --------- Primary Color Scale --------- */
+    --nt-color-primary-10: #fbe6e8;
+    --nt-color-primary-20: #f7ccd2;
+    --nt-color-primary-30: #f3b3bb;
+    --nt-color-primary-40: #ef99a4;
+    --nt-color-primary-50: #eb808e;
+    --nt-color-primary-60: #e66677;
+    --nt-color-primary-70: #e24d60;
+    --nt-color-primary-80: #de3349;
+    --nt-color-primary-90: #da1a33;
+    --nt-color-primary-100: #d6001c;
+
+    /* --------- Secondary Color Scale --------- */
+    --nt-color-secondary-10: #f0e9f2;
+    --nt-color-secondary-20: #e1d2e4;
+    --nt-color-secondary-30: #d2bcd7;
+    --nt-color-secondary-40: #c3a5ca;
+    --nt-color-secondary-50: #b58fbd;
+    --nt-color-secondary-60: #a679af;
+    --nt-color-secondary-70: #9762a2;
+    --nt-color-secondary-80: #884c95;
+    --nt-color-secondary-90: #793587;
+    --nt-color-secondary-100: #6a1f7a;
+
+    /* --------- Signal Colors --------- */
+    --nt-text-success: #359000;
+    --nt-text-warning: #df7700;
+    --nt-text-danger: #e51010;
+    --nt-text-info: #0094d5;
+
+    --nt-color-danger: #fa5151;
+    --nt-color-warning: #ffb92e;
+    --nt-color-success: #6cd430;
+    --nt-color-info: #33a9dd;
+
+    --nt-border-danger: #f9bbbb;
+    --nt-border-warning: #fed496;
+    --nt-border-success: #abe38b;
+    --nt-border-info: #b3dff2;
+
+    --nt-background-danger: #ffe9e9;
+    --nt-background-warning: #fff0da;
+    --nt-background-success: #e4ffd5;
+    --nt-background-info: #e6f4fb;
+
+    /* --------- Font Families --------- */
+    --nt-font-default: 'Mulish', sans-serif;
+
+    /* --------- Font Sizes --------- */
+    --nt-font-size-base: 14px;
+}
