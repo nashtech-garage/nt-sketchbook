@@ -1,10 +1,9 @@
-/// <reference types="vitest/config" />
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import autoprefixer from 'autoprefixer'
 import * as path from 'path'
-import { defineConfig } from 'vite'
 import dtsPlugin from 'vite-plugin-dts'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
     root: path.resolve(__dirname),

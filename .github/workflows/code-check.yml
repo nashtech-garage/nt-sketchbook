@@ -40,7 +40,8 @@ jobs:
               run: pnpm test
 
             - name: Run build storybook
-              run: pnpm run build:headlessui-storybook
+              run: pnpm run build:storybook
+              working-directory: nt-headless-ui
 
             - name: Run build libs
               run: pnpm run build:headlessui-lib
