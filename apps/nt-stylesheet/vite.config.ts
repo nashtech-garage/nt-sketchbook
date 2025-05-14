@@ -57,7 +57,7 @@ export default defineConfig({
                     __dirname,
                     'src/scripts/nt-menu-toggle.ts',
                 ),
-                'integrations/tailwind/index': path.resolve(
+                tailwindIntegrations: path.resolve(
                     __dirname,
                     'src/integrations/tailwind/index.ts',
                 ),
@@ -66,7 +66,7 @@ export default defineConfig({
                 dir: 'dist',
                 format: 'cjs',
                 entryFileNames: ({ name }) => {
-                    if (name === 'integrations/tailwind/index') {
+                    if (name === 'tailwindIntegrations') {
                         return 'integrations/tailwind/index.cjs'
                     }
 
