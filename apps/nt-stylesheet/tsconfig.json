@@ -1,23 +1,12 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "../../packages/tsconfig/base.json",
+    "extends": "tsconfig/base.json",
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"]
         }
     },
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "./eslint.config.mjs",
-        "./src/bin/init-tailwind.js",
-        "./src/bin/init-tailwind.spec.js"
-    ],
-    "exclude": [
-        "node_modules",
-        "vite.config.ts",
-        "tailwind.config.js",
-        "postcss.config.mjs"
-    ]
+    "include": ["**/*.ts", "**/*.js"],
+    "exclude": ["node_modules", "vite.config.ts"]
 }

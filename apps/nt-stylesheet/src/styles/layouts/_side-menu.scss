@@ -12,7 +12,7 @@
 }
 
 @mixin create-side-menu() {
-    padding: 0 12px;
+    padding: 0 0.75rem;
     top: 0;
     left: 0;
     height: 100%;
@@ -21,7 +21,7 @@
     transform: translateX(-100%);
     display: flex;
     flex-direction: column;
-    box-shadow: 2px 0 5px rgba(0 0 0 / 20%);
+    box-shadow: 0.125rem 0 0.3125rem rgba(0 0 0 / 20%);
     overflow-y: auto;
     transition: transform 0.3s ease-in-out;
     animation: slide-out 0.3s ease-in-out;
@@ -72,7 +72,7 @@
     }
 
     &-group {
-        border-bottom: 1px solid vars.$nt-border-bold;
+        border-bottom: 0.0625rem solid vars.$nt-border-bold;
     }
 
     &-title {
@@ -117,8 +117,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 24px;
-            height: 24px;
+            width: 1.5rem;
+            height: 1.5rem;
             font-size: 1rem;
             color: vars.$nt-color-gray-60;
         }
@@ -150,7 +150,7 @@
         margin-top: auto;
 
         .nt-copyright {
-            border-bottom: 1px solid vars.$nt-border-bold;
+            border-bottom: 0.0625rem solid vars.$nt-border-bold;
         }
     }
 }

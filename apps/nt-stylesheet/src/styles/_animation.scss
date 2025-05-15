@@ -3,13 +3,18 @@
     max-height: 0;
     opacity: 0;
     visibility: hidden;
-    transition: max-height $duration $timing, opacity $duration $timing, visibility 0s linear $duration;
+    transition:
+        max-height $duration $timing,
+        opacity $duration $timing,
+        visibility 0s linear $duration;
 
     &.nt-expanded {
-        max-height: 500px; // Adjust based on content height
+        max-height: 31.25rem;
         opacity: 1;
         visibility: visible;
-        transition: max-height $duration $timing, opacity $duration $timing;
+        transition:
+            max-height $duration $timing,
+            opacity $duration $timing;
     }
 }
 
@@ -17,7 +22,7 @@
     @keyframes fade-in {
         from {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateY(-0.625rem);
         }
 
         to {

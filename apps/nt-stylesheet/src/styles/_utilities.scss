@@ -1,16 +1,16 @@
-@use "sass:map";
-@use "sass:math";
-@use "variables" as vars;
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as vars;
 
 $nt-space-scale: (
-    "1": 4px,
-    "2": 8px,
-    "3": 12px,
-    "4": 16px,
-    "5": 20px,
-    "6": 24px,
-    "7": 28px,
-    "8": 32px
+    '1': 0.25rem,
+    '2': 0.5rem,
+    '3': 0.75rem,
+    '4': 1rem,
+    '5': 1.25rem,
+    '6': 1.5rem,
+    '7': 1.75rem,
+    '8': 2rem,
 );
 
 // Mixin to generate spacing classes
@@ -19,10 +19,18 @@ $nt-space-scale: (
         .#{$prefix}-#{$key} {
             #{$property}: $value !important;
         }
-        .#{$prefix}t-#{$key} { #{$property}-top: $value !important; }
-        .#{$prefix}r-#{$key} { #{$property}-right: $value !important; }
-        .#{$prefix}b-#{$key} { #{$property}-bottom: $value !important; }
-        .#{$prefix}l-#{$key} { #{$property}-left: $value !important; }
+        .#{$prefix}t-#{$key} {
+            #{$property}-top: $value !important;
+        }
+        .#{$prefix}r-#{$key} {
+            #{$property}-right: $value !important;
+        }
+        .#{$prefix}b-#{$key} {
+            #{$property}-bottom: $value !important;
+        }
+        .#{$prefix}l-#{$key} {
+            #{$property}-left: $value !important;
+        }
         .#{$prefix}x-#{$key} {
             #{$property}-left: $value !important;
             #{$property}-right: $value !important;
@@ -39,14 +47,17 @@ $nt-space-scale: (
 @include generate-spacing-utilities(padding, p);
 
 // Generate margin classes (e.g., nt-m-1, nt-mt-2, nt-mx-4, etc.)
-@include generate-spacing-utilities(margin, "nt-m");
+@include generate-spacing-utilities(margin, 'nt-m');
 
 // Generate padding classes (e.g., nt-p-1, nt-pt-2, nt-px-4, etc.)
-@include generate-spacing-utilities(padding, "nt-p");
+@include generate-spacing-utilities(padding, 'nt-p');
 
 //  Function to calculate line height based on font size
 @function calculate-line-height($font-size) {
-    @return round($font-size * 1.5, 3); // Line-height = 1.5 * font size
+    @return round(
+        $font-size * 1.5,
+        3
+    ); // Line-height = 1.5 * font size
 }
 
 //  Scale factor for font sizes (1.2x increase per step)
@@ -56,15 +67,23 @@ $nt-space-scale: (
 
 //  Generate font sizes dynamically
 $nt-font-sizes: (
-    "xs": scale-font-size(-1), // ~11.4px (0.729rem)
-    "sm": vars.$nt-font-size-base,  // 14px (0.875rem)
-    "md": scale-font-size(1),  // ~16.8px (1.05rem)
-    "lg": scale-font-size(2),  // ~20.2px (1.26rem)
-    "xl": scale-font-size(3),  // ~24.2px (1.51rem)
-    "2xl": scale-font-size(4), // ~29px (1.81rem)
-    "3xl": scale-font-size(5), // ~35px (2.18rem)
-    "4xl": scale-font-size(6), // ~42px (2.62rem)
-    "5xl": scale-font-size(7)  // ~50px (3.14rem)
+    'xs': scale-font-size(-1),
+    // ~0.7125rem (11.664px)
+    'sm': vars.$nt-font-size-base,
+    // 0.875rem (14px)
+    'md': scale-font-size(1),
+    // ~1.05rem (16.8px)
+    'lg': scale-font-size(2),
+    // ~1.2625rem (20.16px)
+    'xl': scale-font-size(3),
+    // ~1.5125rem (24.16px)
+    '2xl': scale-font-size(4),
+    // ~1.8125rem (28.96px)
+    '3xl': scale-font-size(5),
+    // ~2.1875rem (34.88px)
+    '4xl': scale-font-size(6),
+    // ~2.625rem (41.92px)
+    '5xl': scale-font-size(7) // ~3.125rem (50.24px),,,,
 );
 
 // Generate line heights dynamically based on font sizes
@@ -72,8 +91,10 @@ $nt-line-heights: ();
 
 @each $size, $font-size in $nt-font-sizes {
     $nt-line-heights: map.merge(
-            $nt-line-heights,
-            ($size: calculate-line-height($font-size))
+        $nt-line-heights,
+        (
+            $size: calculate-line-height($font-size),
+        )
     );
 }
 
