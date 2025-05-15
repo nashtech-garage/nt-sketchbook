@@ -27,5 +27,10 @@
         "../../vite.base.config.ts",
         "./eslint.config.mjs"
     ],
-    "exclude": ["node_modules", "**/*.stories.ts", "**/*.stories.js"]
+    "exclude": [
+        "node_modules",
+        "**/*.stories.ts",
+        "**/*.stories.js",
+        "**/*.mjs"
+    ]
 }

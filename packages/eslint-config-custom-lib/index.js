@@ -43,6 +43,7 @@ export default [
             'postcss.config.mjs',
             'tailwind.config.js',
             'stylelint.config.js',
+            'eslint.config.mjs',
         ],
     },
 ]

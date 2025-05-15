@@ -8,16 +8,11 @@
         }
     },
     "include": [
-        "next-env.d.ts",
         "**/*.ts",
-        "./eslint.config.mjs",
-        "./src/bin/init-tailwind.js",
-        "./src/bin/init-tailwind.spec.js"
+        "**/*.js"
     ],
     "exclude": [
         "node_modules",
         "vite.config.ts",
-        "tailwind.config.js",
-        "postcss.config.mjs"
     ]
 }
