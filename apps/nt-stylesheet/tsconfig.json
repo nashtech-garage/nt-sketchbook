@@ -1,18 +1,12 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "../../packages/tsconfig/base.json",
+    "extends": "tsconfig/base.json",
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"]
         }
     },
-    "include": [
-        "**/*.ts",
-        "**/*.js"
-    ],
-    "exclude": [
-        "node_modules",
-        "vite.config.ts",
-    ]
+    "include": ["**/*.ts", "**/*.js"],
+    "exclude": ["node_modules", "vite.config.ts"]
 }
