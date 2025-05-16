@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
+// @ts-ignore
 import { ntTheme } from '@nashtech/stylesheet/integrations/tailwind'
 import type { Config } from 'tailwindcss'
 
