@@ -9,12 +9,12 @@
     justify-content: center;
     font-weight: vars.$nt-font-weight-bold;
     padding: vars.$nt-spacing-xs vars.$nt-spacing-sm;
-    border-radius: 24px;
+    border-radius: 1.5rem;
     line-height: 1;
     white-space: nowrap;
     background-color: vars.$nt-color-primary-50;
     color: vars.$nt-color-white;
-    border: 1px solid;
+    border: 0.0625rem solid;
 
     &-info {
         background-color: vars.$nt-color-info;
@@ -47,8 +47,8 @@
     }
 
     &-rounded {
-        height: 24px;
-        width: 24px;
+        height: 1.5rem;
+        width: 1.5rem;
         border-radius: 50%;
     }
 }

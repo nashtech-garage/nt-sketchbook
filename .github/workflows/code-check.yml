@@ -34,7 +34,7 @@ jobs:
               run: pnpm typecheck
 
             - name: Run lint
-              run: pnpm lint
+              run: pnpm -r --if-present run lint
 
             - name: Run tests
               run: pnpm test

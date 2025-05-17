@@ -1,18 +1,17 @@
-/// <reference types="vitest/config" />
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
+import autoprefixer from 'autoprefixer'
 import * as path from 'path'
-import { defineConfig } from 'vite'
 import dtsPlugin from 'vite-plugin-dts'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
     root: path.resolve(__dirname),
 
     plugins: [
         dtsPlugin({
-            include: ['src'], // Make sure this includes the folder with `index.ts`
+            include: ['src'],
             exclude: ['**/*.test.ts', '**/__tests__/**'],
-            // outDir: 'dist', // optional but ensures .d.ts goes where you expect
         }),
         nxViteTsPaths(),
         nxCopyAssetsPlugin([
@@ -25,6 +24,13 @@ export default defineConfig({
                 input: './docs',
                 output: 'docs',
                 glob: '*.md',
+            },
+        ]),
+        nxCopyAssetsPlugin([
+            {
+                input: './integrations',
+                output: './integrations/tailwind',
+                glob: '*.ts',
             },
         ]),
     ],
@@ -51,7 +57,7 @@ export default defineConfig({
                     __dirname,
                     'src/scripts/nt-menu-toggle.ts',
                 ),
-                'integrations/tailwind/index': path.resolve(
+                tailwindIntegrations: path.resolve(
                     __dirname,
                     'src/integrations/tailwind/index.ts',
                 ),
@@ -60,7 +66,7 @@ export default defineConfig({
                 dir: 'dist',
                 format: 'cjs',
                 entryFileNames: ({ name }) => {
-                    if (name === 'integrations/tailwind/index') {
+                    if (name === 'tailwindIntegrations') {
                         return 'integrations/tailwind/index.cjs'
                     }
 
@@ -96,6 +102,12 @@ export default defineConfig({
             },
         },
     },
+    css: {
+        preprocessorOptions: {},
+        postcss: {
+            plugins: [autoprefixer()],
+        },
+    },
     optimizeDeps: {
         exclude: ['materialdesignicons.min.css'],
     },
@@ -106,9 +118,6 @@ export default defineConfig({
                 'node_modules/@mdi/font/css/materialdesignicons.min.css',
             ),
         },
-    },
-    css: {
-        preprocessorOptions: {},
     },
     test: {
         watch: false,

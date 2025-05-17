@@ -1,3 +1,4 @@
+/* stylelint-disable no-empty-source */
 @use 'sass:map';
 @use '../utilities' as utils;
 @use '../variables' as vars;
@@ -6,8 +7,8 @@ $nt-card-variants: (
     'small': (
         'bg': vars.$nt-color-white,
         'border': vars.$nt-border-thin,
-        'width': 350px,
-        'height': 172px,
+        'width': 21.875rem,
+        'height': 10.75rem,
     ),
     'default': (
         'bg': vars.$nt-color-white,
@@ -30,14 +31,14 @@ $nt-card-variants: (
 @mixin nt-card(
     $border-radius: vars.$nt-border-radius-md,
     $padding: vars.$nt-spacing-lg,
-    $gap: 8px
+    $gap: 0.5rem
 ) {
     @each $variant, $styles in $nt-card-variants {
         .nt-card-#{$variant} {
             display: grid;
             grid-template-rows: auto 1fr auto;
             background-color: map.get($styles, 'bg');
-            border: 1px solid map.get($styles, 'border');
+            border: 0.0625rem solid map.get($styles, 'border');
             border-radius: $border-radius;
             padding: $padding;
             gap: $gap;
@@ -56,12 +57,12 @@ $nt-card-variants: (
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
-        padding-bottom: 8px;
+        padding-bottom: 0.5rem;
         gap: $gap;
 
         .nt-card-icon {
-            width: 24px;
-            height: 24px;
+            width: 1.5rem;
+            height: 1.5rem;
         }
 
         .nt-card-title {
@@ -80,8 +81,8 @@ $nt-card-variants: (
 
             .nt-card-action {
                 cursor: pointer;
-                width: 20px;
-                height: 20px;
+                width: 1.25rem;
+                height: 1.25rem;
                 color: vars.$nt-color-gray-100;
 
                 @include utils.font-size('sm');
@@ -90,11 +91,11 @@ $nt-card-variants: (
     }
 
     .nt-card-content {
-        padding: 8px 0;
+        padding: 0.5rem 0;
     }
 
     .nt-card-footer {
-        padding-top: 8px;
+        padding-top: 0.5rem;
         text-align: right;
     }
 }

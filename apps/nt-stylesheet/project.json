@@ -3,13 +3,9 @@
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "targets": {
         "build": {
-            "executor": "@nx/vite:build",
-            "outputs": [
-                "{options.outputPath}"
-            ],
+            "executor": "nx:run-commands",
             "options": {
-                "configFile": "apps/nt-stylesheet/vite.config.ts",
-                "outputPath": "apps/nt-stylesheet/dist"
+                "command": "vite build"
             }
         }
     }

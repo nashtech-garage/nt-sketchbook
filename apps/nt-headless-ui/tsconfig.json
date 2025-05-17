@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "../../packages/tsconfig/base.json",
+    "extends": "tsconfig/base.json",
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
@@ -27,5 +27,10 @@
         "../../vite.base.config.ts",
         "./eslint.config.mjs"
     ],
-    "exclude": ["node_modules", "**/*.stories.ts", "**/*.stories.js"]
+    "exclude": [
+        "node_modules",
+        "**/*.stories.ts",
+        "**/*.stories.js",
+        "**/*.mjs"
+    ]
 }

@@ -68,10 +68,10 @@
             }
 
             &-avatar {
-                width: 40px;
-                height: 40px;
+                width: 2.5rem;
+                height: 2.5rem;
                 border-radius: 50%;
-                border: 2px solid var(--nt-primary, #007bff);
+                border: 0.125rem solid var(--nt-primary, #007bff);
                 object-fit: cover;
             }
 
@@ -91,12 +91,15 @@
             @if $overlay {
                 .nt-main-page-side-menu {
                     position: fixed;
-                    left: -260px;
+                    left: -16.25rem;
                     top: 0;
-                    width: 260px;
+                    width: 16.25rem;
                     height: 100%;
                     background: var(--nt-bg-sidebar, white);
-                    box-shadow: 2px 0 5px rgba(0 0 0 / 10%);
+                    box-shadow: 0.125rem
+                        0
+                        0.3125rem
+                        rgba(0 0 0 / 10%);
                     transition: left 0.3s ease-in-out;
 
                     &.active {
@@ -127,7 +130,10 @@
                 .nt-main-page-side-menu {
                     grid-area: nt-main-page-side-menu;
                     background: var(--nt-bg-sidebar, white);
-                    box-shadow: 2px 0 5px rgba(0 0 0 / 10%);
+                    box-shadow: 0.125rem
+                        0
+                        0.3125rem
+                        rgba(0 0 0 / 10%);
                     transition: left 0.3s ease-in-out;
                 }
 

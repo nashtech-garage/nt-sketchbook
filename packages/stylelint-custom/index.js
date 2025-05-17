@@ -9,7 +9,7 @@ export default {
     ],
     plugins: ['stylelint-scss'],
     rules: {
-        'unit-allowed-list': ['em', 'rem', '%', 's', 'px', 'fr'],
+        'unit-allowed-list': ['em', 'rem', '%', 's', 'fr'],
         'at-rule-no-unknown': null,
         'scss/at-rule-no-unknown': [
             true,
@@ -18,15 +18,25 @@ export default {
             },
         ],
         'scss/dollar-variable-empty-line-before': null,
-        "declaration-empty-line-before": [
-            "never",
+        'declaration-empty-line-before': [
+            'never',
             {
-                "ignore": ["after-comment", "inside-single-line-block", "after-declaration"]
-            }
+                ignore: [
+                    'after-comment',
+                    'inside-single-line-block',
+                    'after-declaration',
+                ],
+            },
         ],
-        "function-no-unknown": [true, {
-            "ignoreFunctions": ["scale-font-size", "calculate-line-height"]
-        }]
+        'function-no-unknown': [
+            true,
+            {
+                ignoreFunctions: [
+                    'scale-font-size',
+                    'calculate-line-height',
+                ],
+            },
+        ],
     },
     ignoreFiles: [
         '**/node_modules/**',
