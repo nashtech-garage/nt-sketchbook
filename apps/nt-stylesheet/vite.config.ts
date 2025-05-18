@@ -7,7 +7,7 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
     root: path.resolve(__dirname),
-
+    publicDir: 'public',
     plugins: [
         dtsPlugin({
             include: ['src'],

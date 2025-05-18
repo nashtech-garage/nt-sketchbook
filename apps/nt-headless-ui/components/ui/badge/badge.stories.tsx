@@ -7,6 +7,26 @@ import { Badge } from './badge'
 export default {
     title: 'Components/Badge',
     component: Badge,
+    argTypes: {
+        variant: {
+            control: {
+                type: 'select',
+                options: ['success', 'danger', 'warning', 'info'],
+            },
+        },
+        iconPosition: {
+            control: {
+                type: 'select',
+                options: ['left', 'right'],
+            },
+        },
+        size: {
+            control: {
+                type: 'select',
+                options: ['small', 'large'],
+            },
+        },
+    },
 } as Meta
 
 const Template: StoryFn<BadgeProps> = (args: BadgeProps) => (
@@ -34,12 +54,6 @@ export const Info: StoryFn<BadgeProps> = Template.bind({})
 Info.args = {
     onClick: () => alert('Button clicked!'),
     variant: 'info',
-}
-
-export const Silver: StoryFn<BadgeProps> = Template.bind({})
-Silver.args = {
-    onClick: () => alert('Button clicked!'),
-    variant: 'silver',
 }
 
 export const WithIconLeft: StoryFn<BadgeProps> = Template.bind({})

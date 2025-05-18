@@ -16,7 +16,7 @@ export const SelectedBadge: React.FC<SelectedBadgeProps> = ({
 }) => (
     <Badge
         key={option.value}
-        variant="secondary"
+        variant="info"
         className={cn('mr-2 py-1', {
             'bg-shade-neutral-9 border !border-shade-neutral-10 !cursor-not-allowed text-shade-neutral-70':
                 disable,
