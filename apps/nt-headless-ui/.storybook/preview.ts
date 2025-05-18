@@ -1,3 +1,4 @@
+import '@nashtech/stylesheet/css/nt.css'
 import '@nashtech/stylesheet/integrations/tailwind/style.css'
 
 export const parameters = {

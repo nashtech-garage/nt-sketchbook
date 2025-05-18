@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils'
-import '@nashtech/stylesheet/css/nt.css'
 
 export type BadgeVariant = 'danger' | 'info' | 'success' | 'warning'
 export type BadgeSize = 'large' | 'small'
