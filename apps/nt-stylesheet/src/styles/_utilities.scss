@@ -121,3 +121,10 @@ $nt-line-heights: ();
         }
     }
 }
+
+// Mixin to set the width and height of an avatar
+// @param {Length} $size - The size (width and height) of the avatar.
+@mixin avatar-size($size) {
+    width: $size;
+    height: $size;
+}

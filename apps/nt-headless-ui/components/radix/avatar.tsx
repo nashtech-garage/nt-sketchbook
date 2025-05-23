@@ -9,7 +9,7 @@ const AvatarPrimitiveRoot = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <AvatarPrimitive.Root
         ref={ref}
-        className={cn('relative flex h-20 w-20 shrink-0 ', className)}
+        className={cn(className)}
         {...props}
     />
 ))
@@ -24,10 +24,7 @@ const AvatarImage = React.forwardRef<
         ref={ref}
         role="img"
         alt="img"
-        className={cn(
-            'aspect-square h-full w-full  rounded-full',
-            className,
-        )}
+        className={cn(className)}
         {...props}
     />
 ))

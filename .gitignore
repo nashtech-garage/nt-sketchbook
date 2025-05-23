@@ -81,3 +81,6 @@ yarn-error.log*
 doctor-storybook.log
 
 megalinter-reports/
+
+# bundle analyzer
+stats.html
