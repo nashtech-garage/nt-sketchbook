@@ -31,12 +31,12 @@ const Template: StoryFn<typeof Popover> = (args: PopoverProps) => (
 
 export const Default = Template.bind({})
 Default.args = {
-    trigger: 'Click me',
+    trigger: <button>Click me</button>,
 }
 
 export const CustomContent = Template.bind({})
 CustomContent.args = {
-    trigger: 'Hover over me',
+    trigger: <span>Hover over me</span>,
     children: (
         <div>
             <h4>Custom Content</h4>

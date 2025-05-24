@@ -54,10 +54,7 @@ $nt-space-scale: (
 
 //  Function to calculate line height based on font size
 @function calculate-line-height($font-size) {
-    @return round(
-        $font-size * 1.5,
-        3
-    ); // Line-height = 1.5 * font size
+    @return round($font-size * 1.5, 3);
 }
 
 //  Scale factor for font sizes (1.2x increase per step)
@@ -83,7 +80,7 @@ $nt-font-sizes: (
     // ~2.1875rem (34.88px)
     '4xl': scale-font-size(6),
     // ~2.625rem (41.92px)
-    '5xl': scale-font-size(7) // ~3.125rem (50.24px),,,,
+    '5xl': scale-font-size(7) // ~3.125rem (50.24px)
 );
 
 // Generate line heights dynamically based on font sizes

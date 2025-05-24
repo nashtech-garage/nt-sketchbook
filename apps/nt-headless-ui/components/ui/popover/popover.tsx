@@ -55,7 +55,7 @@ export const Popover = (props: PopoverProps) => {
 
     return (
         <PopoverComponent>
-            <PopoverTrigger>{trigger}</PopoverTrigger>
+            <PopoverTrigger asChild>{trigger}</PopoverTrigger>
             <PopoverContent
                 align={align}
                 className={cn(variantClasses[variant], className)}

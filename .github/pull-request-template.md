@@ -1,10 +1,10 @@
-Closes #
+Summary #
 
-<!-- addressed issue -->
+<!-- Change summarize -->
 
 ## 📑 Description
 
-<!-- describe root cause analysis -->
+<!-- Detailed description -->
 
 ## ✅ Checks
 

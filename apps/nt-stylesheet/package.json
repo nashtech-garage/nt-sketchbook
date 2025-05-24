@@ -32,6 +32,9 @@
             "import": "./dist/index.js",
             "require": "./dist/index.cjs"
         },
+        "./css/nt.css": {
+            "default": "./dist/css/nt.css"
+        },
         "./integrations/tailwind": {
             "types": "./dist/integrations/tailwind/index.d.ts",
             "import": "./dist/integrations/tailwind/index.cjs",

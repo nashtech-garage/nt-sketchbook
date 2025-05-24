@@ -235,6 +235,9 @@ importers:
       typescript:
         specifier: 5.7.2
         version: 5.7.2
+      vitest-canvas-mock:
+        specifier: 0.3.3
+        version: 0.3.3(vitest@3.0.9(@types/node@22.14.0)(jiti@2.4.2)(jsdom@26.0.0)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.39.0)(yaml@2.7.1))
 
   apps/nt-stylesheet:
     dependencies:
@@ -4158,6 +4161,9 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
+  cssfontparser@1.2.1:
+    resolution: {integrity: sha512-6tun4LoZnj7VN6YeegOVb67KBX/7JJsqvj+pv3ZA7F878/eN33AbGa5b/S/wXxS/tcp8nc40xRUrsPlxIyNUPg==}
+
   cssnano-preset-default@7.0.7:
     resolution: {integrity: sha512-jW6CG/7PNB6MufOrlovs1TvBTEVmhY45yz+bd0h6nw3h6d+1e+/TX+0fflZ+LzvZombbT5f+KC063w9VoHeHow==}
     engines: {node: ^18.12.0 || ^20.9.0 || >=22.0}
@@ -5416,6 +5422,9 @@ packages:
   javascript-natural-sort@0.7.1:
     resolution: {integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==}
 
+  jest-canvas-mock@2.5.2:
+    resolution: {integrity: sha512-vgnpPupjOL6+L5oJXzxTxFrlGEIbHdZqFU+LFNdtLxZ3lRDCl17FlTMM7IatoRQkrcyOTMlDinjUguqmQ6bR2A==}
+
   jest-diff@29.7.0:
     resolution: {integrity: sha512-LMIgiIrhigmPrs03JHpxUh2yISK3vLFPkAodPeo0+BuF7wA2FoQbkEg1u8gBYBThncu7e1oEDUfIXVuTqLRUjw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
@@ -5812,6 +5821,9 @@ packages:
 
   mlly@1.7.4:
     resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==}
+
+  moo-color@1.0.3:
+    resolution: {integrity: sha512-i/+ZKXMDf6aqYtBhuOcej71YSlbjT3wCO/4H1j8rPvxDJEifdwgg5MaFyu6iYAT8GBZJg2z0dkgK4YMzvURALQ==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -7716,6 +7728,11 @@ packages:
         optional: true
       yaml:
         optional: true
+
+  vitest-canvas-mock@0.3.3:
+    resolution: {integrity: sha512-3P968tYBpqYyzzOaVtqnmYjqbe13576/fkjbDEJSfQAkHtC5/UjuRHOhFEN/ZV5HVZIkaROBUWgazDKJ+Ibw+Q==}
+    peerDependencies:
+      vitest: '*'
 
   vitest@3.0.9:
     resolution: {integrity: sha512-BbcFDqNyBlfSpATmTtXOAOj71RNKDDvjBM/uPfnxxVGrG+FSH2RQIwgeEngTaTkuU/h0ScFvf+tRcKfYXzBybQ==}
@@ -12313,6 +12330,8 @@ snapshots:
 
   cssesc@3.0.0: {}
 
+  cssfontparser@1.2.1: {}
+
   cssnano-preset-default@7.0.7(postcss@8.5.3):
     dependencies:
       browserslist: 4.24.5
@@ -13823,6 +13842,11 @@ snapshots:
 
   javascript-natural-sort@0.7.1: {}
 
+  jest-canvas-mock@2.5.2:
+    dependencies:
+      cssfontparser: 1.2.1
+      moo-color: 1.0.3
+
   jest-diff@29.7.0:
     dependencies:
       chalk: 4.1.2
@@ -14206,6 +14230,10 @@ snapshots:
       pathe: 2.0.3
       pkg-types: 1.3.1
       ufo: 1.5.4
+
+  moo-color@1.0.3:
+    dependencies:
+      color-name: 1.1.4
 
   ms@2.1.3: {}
 
@@ -16544,6 +16572,11 @@ snapshots:
       sass-embedded: 1.83.4
       terser: 5.39.0
       yaml: 2.7.1
+
+  vitest-canvas-mock@0.3.3(vitest@3.0.9(@types/node@22.14.0)(jiti@2.4.2)(jsdom@26.0.0)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.39.0)(yaml@2.7.1)):
+    dependencies:
+      jest-canvas-mock: 2.5.2
+      vitest: 3.0.9(@types/node@22.14.0)(jiti@2.4.2)(jsdom@26.0.0)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.39.0)(yaml@2.7.1)
 
   vitest@3.0.9(@types/node@22.14.0)(jiti@2.4.2)(jsdom@26.0.0)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.39.0)(yaml@2.7.1):
     dependencies:

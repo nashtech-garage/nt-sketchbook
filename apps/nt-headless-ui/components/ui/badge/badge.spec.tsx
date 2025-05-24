@@ -1,87 +1,81 @@
 import { render, screen } from '@testing-library/react'
+import React from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { Badge } from './badge'
+import {
+    Badge,
+    type BadgeIconPosition,
+    type BadgeSize,
+    type BadgeVariant,
+} from './badge'
 
-describe('Badge', () => {
-    it('renders with default variant', () => {
-        render(<Badge>Default Badge</Badge>)
-        const badgeElement = screen.getByText('Default Badge')
-        expect(badgeElement).toBeInTheDocument()
-        expect(badgeElement).toHaveClass(
-            'text-white bg-success text-xs',
-        )
+describe('Badge component', () => {
+    it('renders children content', () => {
+        render(<Badge>Test Badge</Badge>)
+        expect(screen.getByText('Test Badge')).toBeInTheDocument()
     })
 
-    it('renders with danger variant', () => {
-        render(<Badge variant="danger">Danger Badge</Badge>)
-        const badgeElement = screen.getByText('Danger Badge')
-        expect(badgeElement).toBeInTheDocument()
-        expect(badgeElement).toHaveClass(
-            'text-white bg-danger text-xs',
-        )
-    })
+    it.each([['danger'], ['info'], ['success'], ['warning']])(
+        'applies variant class for variant=%s',
+        (variant) => {
+            const { container } = render(
+                <Badge variant={variant as BadgeVariant}>
+                    Badge
+                </Badge>,
+            )
+            const badge = container.firstChild as HTMLElement
+            expect(badge.className).toContain(`nt-badge-${variant}`)
+        },
+    )
 
-    it('renders with warning variant', () => {
-        render(<Badge variant="warning">Warning Badge</Badge>)
-        const badgeElement = screen.getByText('Warning Badge')
-        expect(badgeElement).toBeInTheDocument()
-        expect(badgeElement).toHaveClass(
-            'text-white bg-warning text-xs',
-        )
-    })
+    it.each([['small'], ['large']])(
+        'applies size class for size=%s',
+        (size) => {
+            const { container } = render(
+                <Badge size={size as BadgeSize}>Badge</Badge>,
+            )
+            const badge = container.firstChild as HTMLElement
+            expect(badge.className).toContain(`nt-badge-${size}`)
+        },
+    )
 
-    it('renders with info variant', () => {
-        render(<Badge variant="info">Info Badge</Badge>)
-        const badgeElement = screen.getByText('Info Badge')
-        expect(badgeElement).toBeInTheDocument()
-        expect(badgeElement).toHaveClass('text-white bg-info text-xs')
-    })
+    it.each([
+        [true, 'nt-badge-rounded'],
+        [false, undefined],
+    ])(
+        'conditionally applies rounded class when rounded=%s',
+        (rounded, expectedClass) => {
+            const { container } = render(
+                <Badge rounded={rounded}>Badge</Badge>,
+            )
+            const badge = container.firstChild as HTMLElement
 
-    it('renders with silver variant', () => {
-        render(<Badge variant="silver">Silver Badge</Badge>)
-        const badgeElement = screen.getByText('Silver Badge')
-        expect(badgeElement).toBeInTheDocument()
-        expect(badgeElement).toHaveClass(
-            'text-black bg-secondary-6 text-xs',
-        )
-    })
+            if (expectedClass) {
+                expect(badge.className).toContain(expectedClass)
+            } else {
+                expect(badge.className).not.toContain(
+                    'nt-badge-rounded',
+                )
+            }
+        },
+    )
 
-    it('renders with rounded full', () => {
-        render(<Badge rounded>Rounded Badge</Badge>)
-        const badgeElement = screen.getByText('Rounded Badge')
-        expect(badgeElement).toBeInTheDocument()
-        expect(badgeElement).toHaveClass('rounded-full')
-    })
-
-    it('renders with rounded md', () => {
-        render(<Badge rounded={false}>Rounded Badge</Badge>)
-        const badgeElement = screen.getByText('Rounded Badge')
-        expect(badgeElement).toBeInTheDocument()
-        expect(badgeElement).toHaveClass('rounded-md')
-    })
-
-    it('renders with left icon', () => {
-        render(
-            <Badge icon={<span>Icon</span>} iconPosition="left">
-                Badge with Icon
-            </Badge>,
-        )
-        const badgeElement = screen.getByText('Badge with Icon')
-        const iconElement = screen.getByText('Icon')
-        expect(badgeElement).toBeInTheDocument()
-        expect(iconElement).toBeInTheDocument()
-    })
-
-    it('renders with right icon', () => {
-        render(
-            <Badge icon={<span>Icon</span>} iconPosition="right">
-                Badge with Icon
-            </Badge>,
-        )
-        const badgeElement = screen.getByText('Badge with Icon')
-        const iconElement = screen.getByText('Icon')
-        expect(badgeElement).toBeInTheDocument()
-        expect(iconElement).toBeInTheDocument()
-    })
+    it.each([
+        ['left', 'mr-2'],
+        ['right', 'ml-2'],
+    ])(
+        'renders icon on the %s with correct margin class',
+        (position, expectedClass) => {
+            render(
+                <Badge
+                    icon={<span data-testid="icon">Icon</span>}
+                    iconPosition={position as BadgeIconPosition}
+                >
+                    Badge
+                </Badge>,
+            )
+            const icon = screen.getByTestId('icon')
+            expect(icon.parentElement).toHaveClass(expectedClass)
+        },
+    )
 })

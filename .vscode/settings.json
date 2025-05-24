@@ -15,10 +15,7 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "files.associations": {
-        "*.css": "tailwindcss",
-        "*.scss": "tailwindcss"
-    },
+    "tailwindCSS.validate": false,
     "extensions": {
         "recommendations": [
             "esbenp.prettier-vscode",

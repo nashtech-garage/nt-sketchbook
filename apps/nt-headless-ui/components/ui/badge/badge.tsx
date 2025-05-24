@@ -1,47 +1,33 @@
 import { cn } from '@/lib/utils'
-import type { VariantProps } from 'class-variance-authority'
-import { cva } from 'class-variance-authority'
 
-const badgeVariants = cva(
-    'inline-flex items-center hover:cursor-pointer px-2.5 py-1.5',
-    {
-        variants: {
-            variant: {
-                default: 'text-white bg-success text-xs',
-                danger: 'text-white bg-danger text-xs',
-                warning: 'text-white bg-warning text-xs',
-                info: 'text-white bg-info text-xs',
-                silver: 'text-black bg-secondary-6 text-xs',
-                secondary:
-                    'text-black bg-shade-secondary-2-9 text-xs',
-            },
-        },
-        defaultVariants: {
-            variant: 'default',
-        },
-    },
-)
+export type BadgeVariant = 'danger' | 'info' | 'success' | 'warning'
+export type BadgeSize = 'large' | 'small'
+export type BadgeIconPosition = 'left' | 'right'
 
 export type BadgeProps = {
     rounded?: boolean
     icon?: React.ReactNode
-    iconPosition?: 'left' | 'right'
-} & React.HTMLAttributes<HTMLDivElement> &
-    VariantProps<typeof badgeVariants>
+    iconPosition?: BadgeIconPosition
+    variant?: BadgeVariant
+    size?: BadgeSize
+} & React.HTMLAttributes<HTMLDivElement>
 
 const Badge: React.FC<BadgeProps> = ({
     children,
-    variant,
-    rounded = true,
+    variant = 'success',
+    rounded = false,
     className,
     icon = null,
     iconPosition = 'left',
+    size = 'small',
     ...props
 }) => (
     <div
         className={cn(
-            badgeVariants({ variant }),
-            rounded ? 'rounded-full' : 'rounded-md',
+            'nt-badge',
+            `nt-badge-${variant}`,
+            `nt-badge-${size}`,
+            { 'nt-badge-rounded': rounded },
             className,
         )}
         {...props}

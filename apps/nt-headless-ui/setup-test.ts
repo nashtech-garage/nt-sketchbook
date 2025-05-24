@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom'
 import { vi } from 'vitest'
+import 'vitest-canvas-mock'
 
 window.ResizeObserver =
     window.ResizeObserver ||
