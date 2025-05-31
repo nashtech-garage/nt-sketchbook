@@ -48,6 +48,7 @@
         "commitlint": "commitlint --edit",
         "build:headlessui-storybook": "npx nx run nt-stylesheet:build && npx nx run nt-headless-ui:build-storybook",
         "build:headlessui-lib": "npx nx run nt-headless-ui:build:lib",
+        "build:stylesheet": "npx nx run nt-stylesheet:build",
         "lint": "npx nx run-many --target=lint --all --skip-nx-cache",
         "typecheck": "npx nx run-many --target=typecheck --all --skip-nx-cache"
     },

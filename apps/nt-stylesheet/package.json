@@ -38,8 +38,8 @@
         },
         "./integrations/tailwind": {
             "types": "./dist/integrations/tailwind/index.d.ts",
-            "import": "./dist/integrations/tailwind/index.cjs",
-            "require": "./dist/integrations/tailwind/index.cjs"
+            "import": "./dist/integrations/tailwind/index.js",
+            "require": "./dist/integrations/tailwind/index.js"
         },
         "./integrations/tailwind/style.css": {
             "default": "./dist/integrations/tailwind/style.css"
