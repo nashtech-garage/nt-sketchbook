@@ -6,7 +6,8 @@
         "build": "pnpm vite build",
         "test": "npx vitest",
         "lint": "pnpm eslint && npx stylelint \"**/*.scss\"",
-        "typecheck": "tsc --pretty --noEmit"
+        "typecheck": "tsc --pretty --noEmit",
+        "serve": "npx vite "
     },
     "bin": {
         "@nashtech/stylesheet": "./src/bin/init-tailwind.js"
