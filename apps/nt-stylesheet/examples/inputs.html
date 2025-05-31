@@ -6,56 +6,115 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0"
         />
-        <title>NT Inputs Example</title>
-        <link rel="stylesheet" href="../dist/css/nt-stylesheet.css" />
-        <!-- Link your NT CSS framework -->
+        <title>NT Stylesheet Examples</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="../dist/css/nt.css" />
     </head>
-    <body>
-        <h2>Basic Inputs</h2>
-        <input
-            type="text"
-            class="nt-input"
-            placeholder="Default input"
-        />
-        <input
-            type="text"
-            class="nt-input-primary"
-            placeholder="Primary input"
-        />
-        <input
-            type="text"
-            class="nt-input-danger"
-            placeholder="Danger input"
-        />
-        <input
-            type="text"
-            class="nt-input-success"
-            placeholder="Success input"
-        />
-        <input
-            type="text"
-            class="nt-input"
-            disabled
-            placeholder="Disabled input"
-        />
+    <body class="h-screen">
+        <div class="flex h-full">
+            <aside class="w-64 bg-blue-900 text-white p-6 space-y-6">
+                <h1 class="text-2xl font-bold">NT CSS Framework</h1>
+                <nav>
+                    <ul class="space-y-2">
+                        <li>
+                            <a
+                                href="./inputs.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Inputs
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="./main.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="./layout.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Layout
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="./card.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Cards
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="./badge.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Badges
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="./avatar.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Avatar
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <main>
+                <h2>Basic Inputs</h2>
+                <input
+                    type="text"
+                    class="nt-input"
+                    placeholder="Default input"
+                />
+                <input
+                    type="text"
+                    class="nt-input-primary"
+                    placeholder="Primary input"
+                />
+                <input
+                    type="text"
+                    class="nt-input-danger"
+                    placeholder="Danger input"
+                />
+                <input
+                    type="text"
+                    class="nt-input-success"
+                    placeholder="Success input"
+                />
+                <input
+                    type="text"
+                    class="nt-input"
+                    disabled
+                    placeholder="Disabled input"
+                />
 
-        <h2>Input with Label</h2>
-        <label for="username">Username</label>
-        <input
-            type="text"
-            id="username"
-            class="nt-input"
-            placeholder="Enter your username"
-        />
+                <h2>Input with Label</h2>
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    class="nt-input"
+                    placeholder="Enter your username"
+                />
 
-        <h2>Input with Icon</h2>
-        <div class="nt-input-group">
-            <span class="nt-input-icon">🔍</span>
-            <input
-                type="text"
-                class="nt-input"
-                placeholder="Search..."
-            />
+                <h2>Input with Icon</h2>
+                <div class="nt-input-group">
+                    <span class="nt-input-icon">🔍</span>
+                    <input
+                        type="text"
+                        class="nt-input"
+                        placeholder="Search..."
+                    />
+                </div>
+            </main>
         </div>
     </body>
 </html>
