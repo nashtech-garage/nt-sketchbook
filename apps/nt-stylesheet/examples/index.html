@@ -82,7 +82,7 @@
             document.querySelectorAll('.nav-link').forEach((link) => {
                 link.addEventListener('click', async (e) => {
                     e.preventDefault()
-                    const url = e.target.getAttribute('href')
+                    const url = e.currentTarget.getAttribute('href')
                     try {
                         const response = await fetch(url)
                         const text = await response.text()
