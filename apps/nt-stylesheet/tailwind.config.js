@@ -5,6 +5,7 @@ module.exports = {
     content: [
         './styles/**/*.scss',
         './themes/**/*.ts',
+        './themes/**/*.scss',
         './index.html',
     ],
     theme: {

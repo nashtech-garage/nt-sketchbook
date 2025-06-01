@@ -4,6 +4,8 @@
 @tailwind utilities;
 @import '@nashtech/stylesheet/css/nt.css';
 
+@import '@nashtech/stylesheet/tailwind/style.css';
+
 @layer base {
     :root {
         --radius: 0.5rem;

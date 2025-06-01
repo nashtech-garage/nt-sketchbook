@@ -1,0 +1,91 @@
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use 'sass:map';
+
+$alert-types: (
+    info: (
+        color: vars.$nt-color-info-thin,
+        icon: '../assets/svg/info.svg'
+    ),
+    danger: (
+        color: vars.$nt-color-danger-thin,
+        icon: '../assets/svg/danger.svg'
+    ),
+    warning: (
+        color: vars.$nt-color-warning-thin,
+        icon: '../assets/svg/warning.svg'
+    ),
+    success: (
+        color: vars.$nt-color-success-thin,
+        icon: '../assets/svg/success.svg'
+    )
+);
+
+.nt-alert {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: vars.$nt-color-gray-100;
+
+    &-icon {
+        margin-right: 1.5rem;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+        flex-shrink: 0;
+    }
+
+    &-message {
+        flex: 1;
+        color: inherit;
+    }
+
+    &-close {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font-size: 1rem;
+        line-height: 1;
+        padding: 0;
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+
+        &:hover {
+            opacity: 0.75;
+        }
+    }
+
+    &-has-icon {
+        padding-left: 3rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.7rem;
+            height: 1.7rem;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .nt-alert-message {
+            margin-left: 1rem;
+        }
+    }
+
+    @each $type, $config in $alert-types {
+        &-#{$type} {
+            background-color: map.get($config, color);
+
+            &.nt-alert-has-icon::before {
+                background-image: url('#{map.get($config, icon)}');
+            }
+        }
+    }
+}

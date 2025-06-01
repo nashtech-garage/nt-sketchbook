@@ -1,4 +1,6 @@
 name: 'Code Check '
+permissions:
+    contents: read
 
 on:
     pull_request:
@@ -29,6 +31,9 @@ jobs:
 
             - name: Build stylesheet package
               run: pnpm --filter @nashtech/stylesheet  build
+
+            - name: Run lint:pkg
+              run: pnpm run lint:pkg
 
             - name: Run Typecheck
               run: pnpm typecheck
