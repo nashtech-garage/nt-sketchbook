@@ -12,27 +12,33 @@ export default defineConfig({
         dtsPlugin({
             include: ['src'],
             exclude: ['**/*.test.ts', '**/__tests__/**'],
+            outDir: 'dist/types',
+            entryRoot: 'src',
+            copyDtsFiles: true,
         }),
         nxViteTsPaths(),
         nxCopyAssetsPlugin([
             {
                 input: './src/styles',
                 output: 'scss',
-                glob: '*.scss',
+                glob: '**/*.scss',
             },
             {
                 input: './docs',
                 output: 'docs',
                 glob: '*.md',
-            },
+            }
         ]),
-        nxCopyAssetsPlugin([
-            {
-                input: './integrations',
-                output: './integrations/tailwind',
-                glob: '*.ts',
+        {
+            name: 'log-assets',
+            generateBundle(_, bundle) {
+                for (const file in bundle) {
+                    if (file.endsWith('.d.ts')) {
+                        console.log('📝 Generated type:', file)
+                    }
+                }
             },
-        ]),
+        }
     ],
     build: {
         sourcemap: true,
@@ -45,9 +51,9 @@ export default defineConfig({
         rollupOptions: {
             preserveEntrySignatures: 'strict',
             input: {
-                'styles/index': path.resolve(
+                'css': path.resolve(
                     __dirname,
-                    'src/styles/index.ts',
+                    'src/styles/_site.scss',
                 ),
                 'scripts/index': path.resolve(
                     __dirname,
@@ -65,6 +71,7 @@ export default defineConfig({
             output: {
                 dir: 'dist',
                 format: 'es',
+                preserveModules: false,
                 entryFileNames: ({ name }) => {
                     if (name === 'tailwindIntegrations') {
                         return 'integrations/tailwind/index.js'
@@ -86,15 +93,8 @@ export default defineConfig({
                         return 'integrations/tailwind/style.css'
                     }
 
-                    if (
-                        assetInfo.name?.endsWith('.css') &&
-                        assetInfo.originalFileNames?.includes(
-                            'src/styles/index.ts',
-                        )
-                    ) {
+                    if (assetInfo.name?.endsWith('.css')) {
                         return 'css/nt.css'
-                    } else if (assetInfo.name?.endsWith('.css')) {
-                        return 'css/[name].css'
                     }
 
                     return 'assets/[name][extname]'
