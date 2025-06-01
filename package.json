@@ -28,7 +28,8 @@
         "nx": "20.6.4",
         "prettier": "3.0.1",
         "vite": "6.3.5",
-        "vitest": "3.0.9"
+        "vitest": "3.0.9",
+        "npm-package-json-lint": "8.0.0"
     },
     "pnpm": {
         "overrides": {
@@ -54,7 +55,8 @@
         "build:stylesheet:lib": "npx nx run nt-stylesheet:build",
         "build:stylesheet-preview": "npx nx run nt-stylesheet:preview",
         "lint": "npx nx run-many --target=lint --all --skip-nx-cache",
-        "typecheck": "npx nx run-many --target=typecheck --all --skip-nx-cache"
+        "typecheck": "npx nx run-many --target=typecheck --all --skip-nx-cache",
+        "lint:pkg": "npmPkgJsonLint \"**/package.json\""
     },
     "repository": {
         "type": "git",
