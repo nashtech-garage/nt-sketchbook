@@ -1,0 +1,7 @@
+{
+    "rules": {
+        "version-format": "error",
+        "no-caret-version-devDependencies": "error",
+        "no-caret-version-dependencies": "error"
+    }
+}
