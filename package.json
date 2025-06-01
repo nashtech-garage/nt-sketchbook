@@ -11,8 +11,6 @@
         "@commitlint/cli": "19.6.1",
         "@commitlint/config-conventional": "19.6.0",
         "@nrwl/linter": "19.8.4",
-        "eslint-config-custom-lib": "workspace:*",
-        "eslint": "9.17.0",
         "@nx/js": "20.3.1",
         "@nx/storybook": "20.3.1",
         "@nx/vite": "20.6.4",
@@ -22,18 +20,24 @@
         "@trivago/prettier-plugin-sort-imports": "5.2.1",
         "@types/node": "22.14.0",
         "@vitejs/plugin-react": "4.3.4",
+        "@vitest/coverage-v8": "3.0.9",
+        "eslint": "9.17.0",
+        "eslint-config-custom-lib": "workspace:*",
         "husky": "9.0.11",
         "lint-staged": "13.2.3",
         "nx": "20.6.4",
         "prettier": "3.0.1",
         "vite": "6.3.5",
         "vitest": "3.0.9",
-        "@vitest/coverage-v8": "3.0.9"
+        "npm-package-json-lint": "8.0.0"
     },
     "pnpm": {
         "overrides": {
             "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
-            "esbuild@<=0.24.2": ">=0.25.0"
+            "esbuild@<=0.24.2": ">=0.25.0",
+            "braces@<2.3.1": ">=2.3.1",
+            "braces@<3.0.3": ">=3.0.3",
+            "micromatch@<4.0.8": ">=4.0.8"
         }
     },
     "workspaces": [
@@ -48,8 +52,11 @@
         "commitlint": "commitlint --edit",
         "build:headlessui-storybook": "npx nx run nt-stylesheet:build && npx nx run nt-headless-ui:build-storybook",
         "build:headlessui-lib": "npx nx run nt-headless-ui:build:lib",
+        "build:stylesheet:lib": "npx nx run nt-stylesheet:build",
+        "build:stylesheet-preview": "npx nx run nt-stylesheet:preview",
         "lint": "npx nx run-many --target=lint --all --skip-nx-cache",
-        "typecheck": "npx nx run-many --target=typecheck --all --skip-nx-cache"
+        "typecheck": "npx nx run-many --target=typecheck --all --skip-nx-cache",
+        "lint:pkg": "npmPkgJsonLint \"**/package.json\""
     },
     "repository": {
         "type": "git",

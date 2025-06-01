@@ -1,6 +1,6 @@
 @mixin nt-input(
     $bg: var(--nt-color-light),
-    $border: 1px solid var(--nt-color-dark),
+    $border: 0.0625rem solid var(--nt-color-dark),
     $color: var(--nt-color-dark),
     $padding: 0.75rem,
     $radius: 0.25rem,

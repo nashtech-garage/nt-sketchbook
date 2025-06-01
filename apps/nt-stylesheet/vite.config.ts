@@ -64,17 +64,17 @@ export default defineConfig({
             },
             output: {
                 dir: 'dist',
-                format: 'cjs',
+                format: 'es',
                 entryFileNames: ({ name }) => {
                     if (name === 'tailwindIntegrations') {
-                        return 'integrations/tailwind/index.cjs'
+                        return 'integrations/tailwind/index.js'
                     }
 
                     if (name === 'scripts/index') {
-                        return 'scripts/nt.cjs'
+                        return 'scripts/nt.js'
                     }
 
-                    return '[name].cjs'
+                    return '[name].js'
                 },
                 assetFileNames: (assetInfo) => {
                     if (

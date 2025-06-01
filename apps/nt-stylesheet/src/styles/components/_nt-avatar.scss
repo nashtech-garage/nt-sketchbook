@@ -1,1 +1,71 @@
-/* stylelint-disable no-empty-source */
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use 'sass:map';
+
+$avatar-sizes: (
+    xs: 3rem,
+    sm: 5rem,
+    md: 7rem,
+    lg: 9rem,
+);
+
+$status-offset-bottom: (
+    xs: 0.1rem,
+    sm: 0.5rem,
+    md: 1rem,
+    lg: 1.2rem,
+);
+
+$status-offset-right: (
+    xs: 0.15rem,
+    sm: 0.25rem,
+    md: 0.5rem,
+    lg: 0.7rem,
+);
+
+.nt-avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    display: unset;
+    vertical-align: unset;
+
+    @each $key, $size in $avatar-sizes {
+        &-#{$key} {
+            @include utils.avatar-size($size);
+        }
+
+        &-wrapper-#{$key} {
+            position: relative;
+            display: inline-block;
+
+            .nt-avatar-status {
+                bottom: map.get($status-offset-bottom, $key);
+                right: map.get($status-offset-right, $key);
+            }
+        }
+    }
+
+    &-status {
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        border: 0.125rem solid vars.$nt-color-white;
+
+        &--online {
+            background-color: vars.$nt-color-success;
+        }
+
+        &--offline {
+            background-color: vars.$nt-color-gray-50;
+        }
+
+        &--away {
+            background-color: vars.$nt-color-warning;
+        }
+
+        &--busy {
+            background-color: vars.$nt-color-danger;
+        }
+    }
+}

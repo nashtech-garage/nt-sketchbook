@@ -13,6 +13,16 @@ const meta: Meta<AvatarProps> = {
         fallBack: 'JD',
     },
     argTypes: {
+        size: {
+            control: 'select',
+            options: ['xs', 'sm', 'md', 'lg'],
+            description: 'Size of the avatar.',
+        },
+        status: {
+            control: 'select',
+            options: ['online', 'offline', 'busy', 'away'],
+            description: 'Status of the avatar.',
+        },
         src: {
             control: 'text',
             description: 'Source URL for the avatar image.',
@@ -29,16 +39,6 @@ const meta: Meta<AvatarProps> = {
         hasBadge: {
             control: 'boolean',
             description: 'Badge content displayed on the avatar.',
-        },
-        badgePosition: {
-            control: 'select',
-            options: [
-                'top-left',
-                'top-right',
-                'bottom-left',
-                'bottom-right',
-            ],
-            description: 'Position of the badge on the avatar.',
         },
     },
 }
@@ -79,6 +79,5 @@ export const CustomBadge: StoryObj<AvatarProps> = {
         src: URL_IMAGE,
         fallBack: 'JD',
         hasBadge: true,
-        badgePosition: 'bottom-right',
     },
 }

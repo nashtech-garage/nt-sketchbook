@@ -44,7 +44,7 @@ export default {
                     />
                     <Avatar
                         src="/assets/images/image.png"
-                        size="small"
+                        size="sm"
                         hasBadge
                         badgeClass="bg-success"
                     />
