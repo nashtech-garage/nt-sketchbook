@@ -24,20 +24,56 @@ NT Sketchbook is your ultimate tool for application development. We provide:
 
 Getting started with NT Sketchbook is simple and straightforward:
 
-1. **Clone the Repository:**
-    ```bash
-    https://github.com/nashtech-garage/nt-sketchbook
-    ```
-2. **Navigate to the Project Directory:**
-    ```bash
-    cd nt-sketchbook
-    ```
-3. **Install Essential Dependencies:**
-    ```bash
-    pnpm bootstrap
-    ```
+1. **Install node, nx, pnpm**
+
+-   Install Node
+
+```bash
+nvm install 20
+nvm use 20
+nvm alias default 20
+```
+
+-   Install pnpm
+
+```bash
+npm install -g pnpm
+pnpm --version
+```
+
+-   Install nx
+
+```bash
+pnpm add -g nx
+nx --version
+
+```
+
+2. **Clone the Repository:**
+```bash
+https://github.com/nashtech-garage/nt-sketchbook
+```
+3. **Navigate to the Project Directory:**
+```bash
+cd nt-sketchbook
+```
+4. **Install Essential Dependencies:**
+```bash
+pnpm bootstrap
+```
 
 ## Storybook
+
+1. **Build stylesheet and headlessui**
+
+    ```bash
+     pnpm run build:headlessui-storybook
+     pnpm run  build:headlessui-lib
+     pnpm run  build:stylesheet:lib
+     pnpm run  build:stylesheet-preview
+    ```
+
+2. Run storybook
 
 ```bash
 nx run nt-headless-ui:storybook
@@ -55,9 +91,11 @@ Join our vibrant community of creators! Your contributions can make a significan
     git checkout -b feature/YourFeature
     ```
 3. **Commit Your Changes:**
+
     ```bash
     git commit -m "Add a compelling new feature"
     ```
+
 4. **Push to the Branch:**
     ```bash
     git push origin feature/YourFeature
