@@ -46,34 +46,32 @@ const Card: React.FC<CardProps> = ({
         <CardContent
             className={cn('nt-card-content', classNameContent)}
         >
-            <CardHeader
-                className={cn('nt-card-header', classNameHeader)}
-            >
-                <div className="flex flex-col">
-                    <div className="flex">
-                        {icon && (
-                            <span className={cn('nt-card-icon mr-2')}>
-                                {icon}
-                            </span>
+            {icon && (
+                <span className={cn('nt-card-icon mr-2')}>
+                    {icon}
+                </span>
+            )}
+            <div className="nt-card-content-column">
+                <CardHeader
+                    className={cn('nt-card-header', classNameHeader)}
+                >
+                    <CardTitle
+                        className={cn(
+                            'nt-card-title',
+                            classNameHeader,
                         )}
-                        <CardTitle
-                            className={cn(
-                                'nt-card-title',
-                                classNameHeader,
-                            )}
-                        >
-                            {header}
-                        </CardTitle>
-                    </div>
-                </div>
-                <CardDescription>{description}</CardDescription>
-            </CardHeader>
-            {children}
-            <CardFooter
-                className={cn('nt-card-footer', classNameFooter)}
-            >
-                {footer}
-            </CardFooter>
+                    >
+                        {header}
+                    </CardTitle>
+                    <CardDescription>{description}</CardDescription>
+                </CardHeader>
+                {children}
+                <CardFooter
+                    className={cn('nt-card-footer', classNameFooter)}
+                >
+                    {footer}
+                </CardFooter>
+            </div>
         </CardContent>
     </CardWrapper>
 )
