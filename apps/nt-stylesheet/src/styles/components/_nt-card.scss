@@ -53,6 +53,19 @@ $nt-card-variants: (
         }
     }
 
+    .nt-card-icon {
+        width: 2rem;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nt-card-content-column {
+        width: 100%;
+        flex-direction: column;
+    }
+
     .nt-card-header {
         display: grid;
         grid-template-columns: auto 1fr auto;
@@ -60,15 +73,21 @@ $nt-card-variants: (
         padding-bottom: 0.5rem;
         gap: $gap;
 
-        .nt-card-icon {
-            width: 1.5rem;
-            height: 1.5rem;
+        .nt-card-description {
+            font-weight: vars.$nt-font-weight-thin;
+            color: vars.$nt-color-gray-70;
+
+            @include utils.font-size('sm');
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .nt-card-title {
             font-weight: vars.$nt-font-weight-bold;
+            color: vars.$nt-color-gray-100;
 
-            @include utils.font-size('sm');
+            @include utils.font-size('md');
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -92,6 +111,7 @@ $nt-card-variants: (
 
     .nt-card-content {
         padding: 0.5rem 0;
+        display: flex;
     }
 
     .nt-card-footer {
