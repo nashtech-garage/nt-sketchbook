@@ -69,15 +69,14 @@ $nt-card-variants: (
     .nt-card-header {
         display: grid;
         grid-template-columns: auto 1fr auto;
-        align-items: center;
         padding-bottom: 0.5rem;
         gap: $gap;
 
         .nt-card-description {
-            font-weight: vars.$nt-font-weight-thin;
+            font-weight: vars.$nt-font-weight-regular;
             color: vars.$nt-color-gray-70;
 
-            @include utils.font-size('sm');
+            @include utils.font-size('xs');
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -87,7 +86,7 @@ $nt-card-variants: (
             font-weight: vars.$nt-font-weight-bold;
             color: vars.$nt-color-gray-100;
 
-            @include utils.font-size('md');
+            @include utils.font-size('sm');
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -112,11 +111,15 @@ $nt-card-variants: (
     .nt-card-content {
         padding: 0.5rem 0;
         display: flex;
+
+        @include utils.font-size('sm');
     }
 
     .nt-card-footer {
         padding-top: 0.5rem;
         text-align: right;
+
+        @include utils.font-size('sm');
     }
 }
 
