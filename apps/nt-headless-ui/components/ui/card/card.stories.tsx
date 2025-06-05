@@ -23,6 +23,8 @@ export const Default: StoryObj<CardProps> = {
     args: {
         header: 'Card Title',
         children: 'This is a card content.',
+        description: 'This is a description',
+        footer: 'This is a footer',
     },
 }
 
