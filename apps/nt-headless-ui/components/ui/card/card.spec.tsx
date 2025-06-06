@@ -41,19 +41,16 @@ describe('Card Component', () => {
         const props: CardProps = {
             header: 'Card Title',
             children: 'This is a card content.',
-            icon: '📊',
+            icon: 'icon',
         }
-        const { getByText, getByRole } = render(<Card {...props} />)
+        const { getByText } = render(<Card {...props} />)
         expect(
             getByText((props.header ?? '').toString()),
         ).toBeInTheDocument()
         expect(
             getByText((props.children ?? '').toString()),
         ).toBeInTheDocument()
-        expect(getByRole('img')).toHaveAttribute(
-            'src',
-            props.icon ?? '',
-        )
+        expect(getByText('icon')).toBeInTheDocument()
     })
 
     it('renders with variant', () => {
