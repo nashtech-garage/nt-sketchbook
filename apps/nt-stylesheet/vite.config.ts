@@ -27,7 +27,7 @@ export default defineConfig({
                 input: './docs',
                 output: 'docs',
                 glob: '*.md',
-            }
+            },
         ]),
         {
             name: 'log-assets',
@@ -38,7 +38,7 @@ export default defineConfig({
                     }
                 }
             },
-        }
+        },
     ],
     build: {
         sourcemap: true,
@@ -51,10 +51,7 @@ export default defineConfig({
         rollupOptions: {
             preserveEntrySignatures: 'strict',
             input: {
-                'css': path.resolve(
-                    __dirname,
-                    'src/styles/_site.scss',
-                ),
+                css: path.resolve(__dirname, 'src/styles/_site.scss'),
                 'scripts/index': path.resolve(
                     __dirname,
                     'src/scripts/index.ts',

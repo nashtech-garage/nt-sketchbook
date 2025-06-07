@@ -1,0 +1,82 @@
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use 'sass:map';
+
+.nt-radio {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding-left: 2rem;
+
+    &-column {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+    }
+
+    &-row {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.125rem;
+        width: 1.125rem;
+        border: 0.125rem solid vars.$nt-color-gray-50;
+        border-radius: 50%;
+        transition: border-color 0.2s;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0.25rem;
+        top: 50%;
+        transform: translateY(-50%) scale(0);
+        height: 0.625rem;
+        width: 0.625rem;
+        border-radius: 50%;
+        background-color: vars.$nt-color-info;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    input[type='radio'] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    &:has(input[type='radio']:checked)::before {
+        border-color: vars.$nt-color-info;
+    }
+
+    &:has(input[type='radio']:checked)::after {
+        transform: translateY(-50%) scale(1);
+    }
+
+    &:has(input[type='radio']:disabled) {
+        cursor: not-allowed;
+        color: vars.$nt-color-gray-40;
+
+        &::before {
+            border-color: vars.$nt-color-gray-30;
+            background-color: vars.$nt-color-gray-10;
+        }
+
+        &::after {
+            background-color: vars.$nt-color-gray-30;
+            transform: translateY(-50%) scale(0);
+        }
+
+        input[type='radio'] {
+            cursor: not-allowed;
+        }
+    }
+}
