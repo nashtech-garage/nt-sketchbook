@@ -11,51 +11,43 @@ describe('Checkbox', () => {
         expect(checkbox).toBeInTheDocument()
     })
 
-    it('renders when disabled', () => {
-        render(<Checkbox disabled />)
+    it('renders the checkbox with label and info icon', () => {
+        const wrapper = render(
+            <Checkbox
+                label="paragraph label"
+                htmlFor="item"
+                info={true}
+            />,
+        )
         const checkbox = screen.getByRole('checkbox')
+        const label = screen.getByText('paragraph label')
+        const icon = wrapper.container.querySelector(
+            '.nt-checkbox-info',
+        )
+        expect(checkbox).toBeInTheDocument()
+        expect(label).toBeInTheDocument()
+        expect(icon).toBeInTheDocument()
+    })
+
+    it('renders when checkbox, label, icon when disabled', () => {
+        const wrapper = render(
+            <Checkbox
+                label="paragraph label"
+                htmlFor="item"
+                info={true}
+                disabled
+            />,
+        )
+        const checkbox = screen.getByRole('checkbox')
+        const label =
+            wrapper.container.querySelector('.checkbox-label')
+        const icon = wrapper.container.querySelector(
+            '.nt-checkbox-info',
+        )
+        expect(checkbox).toBeInTheDocument()
         expect(checkbox).toBeDisabled()
-        expect(checkbox).toHaveClass('disabled:cursor-not-allowed')
-    })
-
-    const sizes: {
-        size: 'small' | 'medium' | 'large'
-        expectedClass: string
-    }[] = [
-        { size: 'small', expectedClass: 'h-4 w-4' },
-        { size: 'medium', expectedClass: 'h-5 w-5' },
-        { size: 'large', expectedClass: 'h-6 w-6' },
-    ]
-
-    sizes.forEach(({ size, expectedClass }) => {
-        it(`renders with the correct class for size ${size}`, () => {
-            render(<Checkbox size={size} />)
-            const checkbox = screen.getByRole('checkbox')
-            expect(checkbox).toHaveClass(expectedClass)
-        })
-    })
-
-    const variants: {
-        variant: 'blue' | 'black'
-        expectedClass: string
-    }[] = [
-        {
-            variant: 'blue',
-            expectedClass:
-                'border-info data-[state=checked]:bg-info dark:data-[state=checked]:text-info dark:data-[state=checked]:bg-info',
-        },
-        {
-            variant: 'black',
-            expectedClass:
-                'border-black data-[state=checked]:bg-black dark:data-[state=checked]:text-black dark:data-[state=checked]:bg-black',
-        },
-    ]
-
-    variants.forEach(({ variant, expectedClass }) => {
-        it(`renders with the correct class for variant ${variant}`, () => {
-            render(<Checkbox variant={variant} />)
-            const checkbox = screen.getByRole('checkbox')
-            expect(checkbox).toHaveClass(expectedClass)
-        })
+        expect(label).toBeInTheDocument()
+        expect(label).toHaveClass('disabled')
+        expect(icon).toBeInTheDocument()
     })
 })

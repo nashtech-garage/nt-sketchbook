@@ -1,1 +1,137 @@
 /* stylelint-disable no-empty-source */
+@use 'sass:map';
+@use '../utilities' as utils;
+@use '../variables' as vars;
+
+@mixin nt-checkbox-color($border, $background) {
+    border-color: $border;
+    background-color: $background;
+}
+
+@mixin nt-checkbox-disabled($border, $background, $icon-color) {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    @include nt-checkbox-color($border, $background);
+
+    .nt-checkbox-indicator {
+        .lucide {
+            color: $icon-color;
+        }
+    }
+}
+
+@mixin nt-checkbox-state(
+    $state,
+    $border,
+    $background,
+    $icon-color,
+    $disabled-border,
+    $disabled-bg,
+    $disabled-icon
+) {
+    &[data-state='#{$state}'] {
+        @include nt-checkbox-color($border, $background);
+
+        .nt-checkbox-indicator {
+            .lucide {
+                color: $icon-color;
+            }
+        }
+
+        &:disabled {
+            @include nt-checkbox-disabled(
+                $disabled-border,
+                $disabled-bg,
+                $disabled-icon
+            );
+        }
+    }
+}
+
+.nt-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.1429rem; // 2px
+    border-style: solid;
+    border-radius: vars.$nt-border-radius-sm;
+
+    @include nt-checkbox-color(
+        vars.$nt-color-gray-70,
+        vars.$nt-color-white
+    );
+
+    &-indicator {
+        .lucide {
+            width: 0.7143rem; // 10px
+            height: 0.7143rem; // 10px
+            color: vars.$nt-color-white;
+            stroke-width: 0.2857rem; // 4px
+        }
+    }
+
+    // Indeterminate state
+    @include nt-checkbox-state(
+        'indeterminate',
+        vars.$nt-text-info,
+        vars.$nt-color-white,
+        vars.$nt-text-info,
+        vars.$nt-border-bold,
+        vars.$nt-color-white,
+        vars.$nt-border-bold
+    );
+
+    // Checked state
+    @include nt-checkbox-state(
+        'checked',
+        vars.$nt-text-info,
+        vars.$nt-text-info,
+        vars.$nt-color-white,
+        vars.$nt-border-bold,
+        vars.$nt-border-bold,
+        vars.$nt-color-white
+    );
+
+    &:focus {
+        outline: none;
+        border-color: vars.$nt-text-info;
+    }
+
+    // Default disabled (when not matched by data-state)
+    &:disabled {
+        @include nt-checkbox-disabled(
+            vars.$nt-border-bold,
+            vars.$nt-color-white,
+            vars.$nt-border-bold
+        );
+    }
+}
+
+.nt-checkbox-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5714rem; // 8px
+    .nt-checkbox-label {
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 150%;
+        letter-spacing: 0%;
+        color: vars.$nt-text-primary;
+    }
+
+    .nt-checkbox-label.disabled {
+        color: vars.$nt-text-secondary;
+    }
+
+    .nt-checkbox-info {
+        width: 1rem;
+        height: 1rem;
+        color: vars.$nt-text-info;
+    }
+}
