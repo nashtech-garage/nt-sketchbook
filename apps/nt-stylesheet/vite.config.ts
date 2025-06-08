@@ -14,20 +14,20 @@ export default defineConfig({
             exclude: ['**/*.test.ts', '**/__tests__/**'],
             outDir: 'dist/types',
             entryRoot: 'src',
-            copyDtsFiles: true,
+            copyDtsFiles: true
         }),
         nxViteTsPaths(),
         nxCopyAssetsPlugin([
             {
                 input: './src/styles',
                 output: 'scss',
-                glob: '**/*.scss',
+                glob: '**/*.scss'
             },
             {
                 input: './docs',
                 output: 'docs',
-                glob: '*.md',
-            },
+                glob: '*.md'
+            }
         ]),
         {
             name: 'log-assets',
@@ -37,8 +37,8 @@ export default defineConfig({
                         console.log('📝 Generated type:', file)
                     }
                 }
-            },
-        },
+            }
+        }
     ],
     build: {
         sourcemap: true,
@@ -46,7 +46,7 @@ export default defineConfig({
         reportCompressedSize: true,
         cssCodeSplit: true,
         commonjsOptions: {
-            transformMixedEsModules: true,
+            transformMixedEsModules: true
         },
         rollupOptions: {
             preserveEntrySignatures: 'strict',
@@ -54,16 +54,16 @@ export default defineConfig({
                 css: path.resolve(__dirname, 'src/styles/_site.scss'),
                 'scripts/index': path.resolve(
                     __dirname,
-                    'src/scripts/index.ts',
+                    'src/scripts/index.ts'
                 ),
                 'scripts/nt-menu-toggle': path.resolve(
                     __dirname,
-                    'src/scripts/nt-menu-toggle.ts',
+                    'src/scripts/nt-menu-toggle.ts'
                 ),
                 tailwindIntegrations: path.resolve(
                     __dirname,
-                    'src/integrations/tailwind/index.ts',
-                ),
+                    'src/integrations/tailwind/index.ts'
+                )
             },
             output: {
                 dir: 'dist',
@@ -84,7 +84,7 @@ export default defineConfig({
                     if (
                         assetInfo.name?.endsWith('.css') &&
                         assetInfo.originalFileNames?.includes(
-                            'src/integrations/tailwind/index.ts',
+                            'src/integrations/tailwind/index.ts'
                         )
                     ) {
                         return 'integrations/tailwind/style.css'
@@ -95,26 +95,26 @@ export default defineConfig({
                     }
 
                     return 'assets/[name][extname]'
-                },
-            },
-        },
+                }
+            }
+        }
     },
     css: {
         preprocessorOptions: {},
         postcss: {
-            plugins: [autoprefixer()],
-        },
+            plugins: [autoprefixer()]
+        }
     },
     optimizeDeps: {
-        exclude: ['materialdesignicons.min.css'],
+        exclude: ['materialdesignicons.min.css']
     },
     resolve: {
         alias: {
             'materialdesignicons.min.css': path.resolve(
                 __dirname,
-                'node_modules/@mdi/font/css/materialdesignicons.min.css',
-            ),
-        },
+                'node_modules/@mdi/font/css/materialdesignicons.min.css'
+            )
+        }
     },
     test: {
         watch: false,
@@ -124,14 +124,14 @@ export default defineConfig({
         coverage: {
             provider: 'v8',
             reporter: ['json', 'cobertura', 'json-summary', 'lcov'],
-            reportOnFailure: true,
+            reportOnFailure: true
         },
         exclude: [
             '**/vite.config.{ts,mts}',
             '**/vitest.config.{ts,mts}',
             'tailwind.config.ts',
             '**/node_modules/**',
-            '**/dist/**',
-        ],
-    },
+            '**/dist/**'
+        ]
+    }
 })
