@@ -11,7 +11,7 @@
     "importOrderCaseInsensitive": true,
     "plugins": ["@trivago/prettier-plugin-sort-imports"],
     "semi": false,
-    "trailingComma": "all",
+    "trailingComma": "none",
     "arrowParens": "always",
     "singleQuote": true,
     "printWidth": 70,
