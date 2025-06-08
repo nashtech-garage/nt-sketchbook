@@ -1,5 +1,7 @@
 # Radio group Component
 
+![alt text](./radio-group.png)
+
 The **Radio** component in NT Stylesheet provides customizable radio buttons with support for grid (column) and row layouts. It uses pseudo-elements to create custom radio visuals without additional markup.
 
 ## Features
