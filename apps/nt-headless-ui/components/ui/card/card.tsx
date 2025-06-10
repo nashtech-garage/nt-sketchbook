@@ -46,9 +46,7 @@ const Card: React.FC<CardProps> = ({
         <CardContent
             className={cn('nt-card-content', classNameContent)}
         >
-            {icon && (
-                <span className="nt-card-icon mr-6">{icon}</span>
-            )}
+            {icon && <span className="nt-card-icon">{icon}</span>}
             <div className="nt-card-content-column">
                 <CardHeader
                     className={cn('nt-card-header', classNameHeader)}
