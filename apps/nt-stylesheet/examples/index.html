@@ -228,29 +228,13 @@
                 </nav>
             </aside>
 
-            <main id="main-content" class="flex-1 p-10 overflow-auto">
-                <h2 class="text-3xl font-semibold mb-4">
-                    Explore NT CSS Components
-                </h2>
-                <p class="text-lg">
-                    Select a component from the menu to see how it
-                    works.
-                </p>
-            </main>
-        </div>
-        <script>
-            document.querySelectorAll('.nav-link').forEach((link) => {
-                link.addEventListener('click', async (e) => {
-                    e.preventDefault()
-                    const url = e.currentTarget.getAttribute('href')
-                    try {
-                        const response = await fetch(url)
-                        const text = await response.text()
-                        const parser = new DOMParser()
-                        const doc = parser.parseFromString(
-                            text,
-                            'text/html'
-                        )
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NT Stylesheet Examples</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./dist/css/nt.css" />
+</head>
 
                         const newMain = doc.querySelector('main')
                         if (newMain) {
@@ -271,10 +255,20 @@
                     } catch (err) {
                         document.getElementById(
                             'main-content'
-                        ).innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
+                        ).innerHTML = newMain.innerHTML
+                    } else {
+                        document.getElementById(
+                            'main-content'
+                        ).innerHTML = `<p class="text-red-500">Could not load content from ${url}</p>`
                     }
-                })
+                } catch (err) {
+                    document.getElementById(
+                        'main-content'
+                    ).innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
+                }
             })
-        </script>
-    </body>
+        })
+    </script>
+</body>
+
 </html>
