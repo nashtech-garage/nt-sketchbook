@@ -1,0 +1,48 @@
+@use '../variables' as vars;
+
+.nt-breadcrumb {
+    &-list {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 0;
+
+        &-item {
+            &-link {
+                text-decoration: none;
+                padding: vars.$nt-spacing-xs vars.$nt-spacing-md;
+                border-radius: vars.$nt-border-radius-sm;
+
+                &:hover {
+                    background-color: vars.$nt-bg-light;
+                }
+            }
+
+            &-current {
+                padding: vars.$nt-spacing-xs vars.$nt-spacing-md;
+                border-radius: vars.$nt-border-radius-sm;
+                color: vars.$nt-color-gray-50;
+
+                &:hover {
+                    background-color: vars.$nt-bg-light;
+                    color: vars.$nt-color-gray-100;
+                }
+            }
+
+            &:first-child {
+                .nt-breadcrumb-list-item-link {
+                    &::before {
+                        content: url('../assets/svg/breadcrumb.svg');
+                        margin-right: vars.$nt-spacing-xs;
+                    }
+                }
+            }
+
+            &:not(:last-child)::after {
+                content: '/';
+            }
+        }
+    }
+}
