@@ -1,138 +1,116 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        />
-        <title>NT Stylesheet Examples</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="./dist/css/nt.css" />
-    </head>
-    <body class="h-screen bg-gray-100 text-gray-800">
-        <div class="flex h-full">
-            <aside class="w-64 bg-blue-900 text-white p-6 space-y-6">
-                <h1 class="text-2xl font-bold">NT CSS Framework</h1>
-                <nav>
-                    <ul class="space-y-2">
-                        <li>
-                            <a
-                                href="./inputs.html"
-                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
-                            >
-                                Inputs
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="./main.html"
-                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
-                            >
-                                Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="./layout.html"
-                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
-                            >
-                                Layout
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="./card.html"
-                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
-                            >
-                                Cards
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="./badge.html"
-                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
-                            >
-                                Badges
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="./avatar.html"
-                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
-                            >
-                                Avatar
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="./radio-group.html"
-                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
-                            >
-                                Radio group
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="./alert.html"
-                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
-                            >
-                                Alert
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="./label.html"
-                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
-                            >
-                                Label
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
 
-            <main id="main-content" class="flex-1 p-10 overflow-auto">
-                <h2 class="text-3xl font-semibold mb-4">
-                    Explore NT CSS Components
-                </h2>
-                <p class="text-lg">
-                    Select a component from the menu to see how it
-                    works.
-                </p>
-            </main>
-        </div>
-        <script>
-            document.querySelectorAll('.nav-link').forEach((link) => {
-                link.addEventListener('click', async (e) => {
-                    e.preventDefault()
-                    const url = e.currentTarget.getAttribute('href')
-                    try {
-                        const response = await fetch(url)
-                        const text = await response.text()
-                        const parser = new DOMParser()
-                        const doc = parser.parseFromString(
-                            text,
-                            'text/html'
-                        )
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NT Stylesheet Examples</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./dist/css/nt.css" />
+</head>
 
-                        const newMain = doc.querySelector('main')
-                        if (newMain) {
-                            document.getElementById(
-                                'main-content'
-                            ).innerHTML = newMain.innerHTML
-                        } else {
-                            document.getElementById(
-                                'main-content'
-                            ).innerHTML = `<p class="text-red-500">Could not load content from ${url}</p>`
-                        }
-                    } catch (err) {
+<body class="h-screen bg-gray-100 text-gray-800">
+    <div class="flex h-full">
+        <aside class="w-64 bg-blue-900 text-white p-6 space-y-6">
+            <h1 class="text-2xl font-bold">NT CSS Framework</h1>
+            <nav>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="./inputs.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Inputs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./breadcrumb.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Breadcrumbs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./main.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./layout.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Layout
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./card.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Cards
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./badge.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Badges
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./avatar.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Avatar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./radio-group.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Radio group
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./alert.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Alert
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./label.html" class="nav-link block px-3 py-2 rounded hover:bg-blue-700">
+                            Label
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content" class="flex-1 p-10 overflow-auto">
+            <h2 class="text-3xl font-semibold mb-4">
+                Explore NT CSS Components
+            </h2>
+            <p class="text-lg">
+                Select a component from the menu to see how it
+                works.
+            </p>
+        </main>
+    </div>
+    <script>
+        document.querySelectorAll('.nav-link').forEach((link) => {
+            link.addEventListener('click', async (e) => {
+                e.preventDefault()
+                const url = e.currentTarget.getAttribute('href')
+                try {
+                    const response = await fetch(url)
+                    const text = await response.text()
+                    const parser = new DOMParser()
+                    const doc = parser.parseFromString(
+                        text,
+                        'text/html'
+                    )
+
+                    const newMain = doc.querySelector('main')
+                    if (newMain) {
                         document.getElementById(
                             'main-content'
-                        ).innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
+                        ).innerHTML = newMain.innerHTML
+                    } else {
+                        document.getElementById(
+                            'main-content'
+                        ).innerHTML = `<p class="text-red-500">Could not load content from ${url}</p>`
                     }
-                })
+                } catch (err) {
+                    document.getElementById(
+                        'main-content'
+                    ).innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
+                }
             })
-        </script>
-    </body>
+        })
+    </script>
+</body>
+
 </html>
