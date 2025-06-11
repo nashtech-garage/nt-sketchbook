@@ -196,10 +196,20 @@
                     } catch (err) {
                         document.getElementById(
                             'main-content'
-                        ).innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
+                        ).innerHTML = newMain.innerHTML
+                    } else {
+                        document.getElementById(
+                            'main-content'
+                        ).innerHTML = `<p class="text-red-500">Could not load content from ${url}</p>`
                     }
-                })
+                } catch (err) {
+                    document.getElementById(
+                        'main-content'
+                    ).innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
+                }
             })
-        </script>
-    </body>
+        })
+    </script>
+</body>
+
 </html>
