@@ -48,10 +48,6 @@
     --nt-text-warning: #df7700;
     --nt-text-danger: #e51010;
     --nt-text-info: #0094d5;
-    --nt-color-danger: #fa5151;
-    --nt-color-warning: #ffb92e;
-    --nt-color-success: #6cd430;
-    --nt-color-info: #33a9dd;
     --nt-border-danger: #f9bbbb;
     --nt-border-warning: #fed496;
     --nt-border-success: #abe38b;
@@ -60,6 +56,30 @@
     --nt-background-warning: #fff0da;
     --nt-background-success: #e4ffd5;
     --nt-background-info: #e6f4fb;
+
+    /* --------- Info Colors --------- */
+    --nt-color-info-bold: #0094d5;
+    --nt-color-info: #33a9dd;
+    --nt-color-info-light: #b3dff2;
+    --nt-color-info-thin: #e6f4fb;
+
+    /* --------- Danger Colors --------- */
+    --nt-color-danger-bold: #e51010;
+    --nt-color-danger: #fa5151;
+    --nt-color-danger-light: #f9bbbb;
+    --nt-color-danger-thin: #ffe9e9;
+
+    /* --------- Warning Colors --------- */
+    --nt-color-warning-bold: #df7700;
+    --nt-color-warning: #ffb92e;
+    --nt-color-warning-light: #fed496;
+    --nt-color-warning-thin: #fff0da;
+
+    /* --------- Success Colors --------- */
+    --nt-color-success-bold: #359000;
+    --nt-color-success: #6cd430;
+    --nt-color-success-light: #abe38b;
+    --nt-color-success-thin: #e4ffd5;
 
     /* --------- Font Families --------- */
     --nt-font-default: 'Mulish', sans-serif;
@@ -156,6 +176,30 @@ $nt-color-secondary-70: var(--nt-color-secondary-70, #9762a2);
 $nt-color-secondary-80: var(--nt-color-secondary-80, #884c95);
 $nt-color-secondary-90: var(--nt-color-secondary-90, #793587);
 $nt-color-secondary-100: var(--nt-color-secondary-100, #6a1f7a);
+
+/* --------- Info Colors --------- */
+$nt-color-info-bold: var(--nt-color-info-bold);
+$nt-color-info: var(--nt-color-info);
+$nt-color-info-light: var(--nt-color-info-light);
+$nt-color-info-thin: var(--nt-color-info-thin);
+
+/* --------- Danger Colors --------- */
+$nt-color-danger-bold: var(--nt-color-danger-bold);
+$nt-color-danger: var(--nt-color-danger);
+$nt-color-danger-light: var(--nt-color-danger-light);
+$nt-color-danger-thin: var(--nt-color-danger-thin);
+
+/* --------- Warning Colors --------- */
+$nt-color-warning-bold: var(--nt-color-warning-bold);
+$nt-color-warning: var(--nt-color-warning);
+$nt-color-warning-light: var(--nt-color-warning-light);
+$nt-color-warning-thin: var(--nt-color-warning-thin);
+
+/* --------- Success Colors --------- */
+$nt-color-success-bold: var(--nt-color-success-bold);
+$nt-color-success: var(--nt-color-success);
+$nt-color-success-light: var(--nt-color-success-light);
+$nt-color-success-thin: var(--nt-color-success-thin);
 
 /* === Text Colors === */
 $nt-text-primary: $nt-color-gray-100;
