@@ -1,0 +1,24 @@
+import {
+    Description,
+    Meta,
+    Story,
+    Subtitle,
+    Title
+} from '@storybook/blocks'
+
+import * as IconStories from './icon.stories'
+
+<Meta of={IconStories} />
+
+<Title>Lucide React Icons</Title>
+
+<Subtitle>
+    Preview all icons from the `lucide-react`
+    [package](https://lucide.dev/icons/).
+</Subtitle>
+
+These icons are React components. You can use them like: `import {(X, Menu)} from '@nashtech-garage/headless-ui/icons'`
+
+## Icons
+
+<Story of={IconStories.AllIcons} />
