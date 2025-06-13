@@ -6,8 +6,8 @@ export const parameters = {
     controls: {
         matchers: {
             color: /(background|color)$/i,
-            date: /Date$/,
-        },
+            date: /Date$/
+        }
     },
     options: {
         storySort: {
@@ -16,6 +16,7 @@ export const parameters = {
                 'Foundation',
                 [
                     'Typography',
+                    'Icons',
                     'Colors',
                     [
                         'Brand',
@@ -23,12 +24,12 @@ export const parameters = {
                         'Success',
                         'Warning',
                         'Danger',
-                        'Info',
-                    ],
+                        'Info'
+                    ]
                 ],
-                'Components',
-            ],
-        },
-    },
+                'Components'
+            ]
+        }
+    }
 }
 export const tags = ['autodocs', 'autodocs']
