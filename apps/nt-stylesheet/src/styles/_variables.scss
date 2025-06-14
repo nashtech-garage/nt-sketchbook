@@ -210,6 +210,8 @@ $nt-text-danger: var(--nt-text-danger, #e51010);
 $nt-text-success: var(--nt-text-success, #359000);
 $nt-text-warning: var(--nt-text-warning, #df7700);
 $nt-text-info: var(--nt-text-info, #0094d5);
+$nt-text-description: var(--nt-color-gray-70, #69696b);
+$nt-text-body: var(--nt-color-gray-100, #28292b);
 
 /* Signals */
 $nt-background-danger: var(--nt-background-danger, #ffe9e9);
@@ -234,7 +236,7 @@ $nt-bg-light: var(--nt-bg-light, #f6f6f6);
 $nt-bg-side-menu: $nt-bg-body;
 
 /* === Base font size === */
-$nt-font-size-base: var(--nt-font-size-base, 0.875rem);
+$nt-font-size-base: var(--nt-font-size-base, 1rem);
 
 /* === Font Families === */
 $nt-font-family-base: var(--nt-font-default, 'Mulish', sans-serif);
