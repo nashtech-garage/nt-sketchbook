@@ -6,7 +6,7 @@ import { Label, type LabelProps } from './label'
 const defaultProps: LabelProps = {
     htmlFor: 'default-id',
     children: 'Default Label',
-    className: undefined,
+    className: undefined
 }
 
 const setup = (props?: Partial<LabelProps>) =>
@@ -21,7 +21,7 @@ describe('Label', () => {
     it('overrides default className when provided', () => {
         setup({ className: 'custom-class' })
         expect(screen.getByText('Default Label')).toHaveClass(
-            'custom-class',
+            'custom-class'
         )
     })
 
@@ -29,7 +29,25 @@ describe('Label', () => {
         setup({ htmlFor: 'test-id', children: 'Test Label' })
         expect(screen.getByText('Test Label')).toHaveAttribute(
             'for',
-            'test-id',
+            'test-id'
         )
     })
+
+    it.each([
+        [
+            {
+                variant: 'form-field',
+                expectedClass: 'nt-label-form-field'
+            }
+        ],
+        [{ variant: 'hint', expectedClass: 'nt-label-hint' }]
+    ] as const)(
+        'applies correct class for variant "%s"',
+        ({ variant, expectedClass }) => {
+            const text = `Label for ${variant}`
+            setup({ variant, children: text })
+            const label = screen.getByText(text)
+            expect(label).toHaveClass('nt-label', expectedClass)
+        }
+    )
 })
