@@ -1,1 +1,17 @@
-/* stylelint-disable no-empty-source */
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use 'sass:map';
+
+.nt-label {
+    font-size: map.get(utils.$nt-font-sizes, 'md');
+
+    &-hint {
+        color: vars.$nt-text-description;
+        text-transform: uppercase;
+    }
+
+    &-form-field {
+        color: vars.$nt-text-body;
+        font-weight: vars.$nt-font-weight-bold;
+    }
+}
