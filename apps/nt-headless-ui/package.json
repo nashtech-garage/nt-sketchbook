@@ -82,7 +82,8 @@
         "stylelint-custom-lib": "workspace:*",
         "tsconfig": "workspace:*",
         "typescript": "5.7.2",
-        "vitest-canvas-mock": "0.3.3"
+        "vitest-canvas-mock": "0.3.3",
+        "@typescript-eslint/parser": "8.33.0"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

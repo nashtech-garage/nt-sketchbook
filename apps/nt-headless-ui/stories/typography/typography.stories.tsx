@@ -12,13 +12,13 @@ function DocsCanvas({ children }: Readonly<DocsCanvasProps>) {
 const meta: Meta<typeof DocsCanvas> = {
     title: 'Foundation/Typography',
     component: DocsCanvas,
-    tags: ['autodocs'],
+    tags: ['autodocs']
 }
 
 export default meta
 
 const DemoWrapper = ({
-    children,
+    children
 }: Readonly<{ children: ReactNode }>) => (
     <div className="demo-wrapper">{children}</div>
 )
@@ -102,8 +102,8 @@ export const Mulish: StoryObj<typeof DocsCanvas> = {
                     </p>
                 </div>
             </DemoWrapper>
-        ),
-    },
+        )
+    }
 }
 
 export const Headings: StoryObj<typeof DocsCanvas> = {
@@ -182,6 +182,6 @@ export const Headings: StoryObj<typeof DocsCanvas> = {
                     </div>
                 </div>
             </div>
-        ),
-    },
+        )
+    }
 }

@@ -1,76 +1,80 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { X } from 'lucide-react'
+import { InfoIcon } from 'lucide-react'
 import { describe, expect, test, vi } from 'vitest'
 
-import type { AlertVariant } from './alert'
-import { Alert } from './alert'
+import { Alert, type AlertProps, type AlertType } from './alert'
 
-const variantClasses = {
-    default: 'bg-shade-neutral-9',
-    danger: 'bg-danger-thin',
-    warning: 'bg-warning-thin',
-    success: 'bg-success-thin',
-    info: 'bg-info-thin',
+const typeClasses = {
+    info: 'nt-alert-info',
+    danger: 'nt-alert-danger',
+    success: 'nt-alert-success',
+    warning: 'nt-alert-warning'
+}
+const mockOnClose = vi.fn()
+
+const setup = (props: Partial<AlertProps> = {}) => {
+    const defaultProps: AlertProps = {
+        type: 'info',
+        message: 'Default message',
+        ...props
+    }
+    render(<Alert {...defaultProps} />)
 }
 
-const variants = ['default', 'danger', 'success', 'warning', 'info']
-
 describe('Alert Component', () => {
-    test.each(variants)(
-        'renders with correct variant class for %s',
-        (variant) => {
-            render(
-                <Alert
-                    variant={variant as AlertVariant}
-                    title="Test Alert"
-                    description="This is a test alert"
-                />,
+    test.each(Object.keys(typeClasses))(
+        'renders correct class for type "%s"',
+        (type) => {
+            setup({ type: type as AlertType })
+
+            expect(screen.getByRole('alert')).toHaveClass(
+                typeClasses[type as keyof typeof typeClasses]
             )
-            const alertElement = screen.getByRole('alert')
-            expect(alertElement).toHaveClass(
-                variantClasses[variant as AlertVariant],
-            )
-        },
+        }
     )
 
-    test('renders with icon if provided', () => {
-        render(
-            <Alert
-                title="With Icon"
-                description="Alert with an icon"
-                icon={<X data-testid="alert-icon" />}
-            />,
-        )
-        expect(screen.getByTestId('alert-icon')).toBeInTheDocument()
+    test('renders message correctly', () => {
+        setup({ message: 'Hello World' })
+
+        expect(screen.getByText('Hello World')).toBeInTheDocument()
     })
 
-    test('does not render an icon if none is provided', () => {
-        render(
-            <Alert
-                title="No Icon"
-                description="Alert without an icon"
-            />,
-        )
+    test('renders custom icon when provided', () => {
+        setup({
+            icon: <InfoIcon data-testid="custom-icon" />
+        })
+
+        expect(screen.getByTestId('custom-icon')).toBeInTheDocument()
+    })
+
+    test('does not render icon if icon prop is missing', () => {
+        setup()
+
         expect(
-            screen.queryByTestId('alert-icon'),
+            screen.queryByTestId('custom-icon')
         ).not.toBeInTheDocument()
     })
 
-    test('renders close icon and calls onClose when clicked', async () => {
-        const onCloseMock = vi.fn()
-        render(
-            <Alert
-                title="With Close"
-                description="Alert with close button"
-                onClose={onCloseMock}
-            />,
-        )
+    test('renders custom class', () => {
+        setup({
+            className: 'custom-class'
+        })
 
-        const closeButton = screen.getByRole('close-x')
+        expect(screen.getByRole('alert').className).toContain(
+            'custom-class'
+        )
+    })
+
+    test('renders close button and calls onClose when clicked', async () => {
+        setup({ onClose: mockOnClose })
+
+        const closeButton = screen.getByLabelText('Close')
+
         expect(closeButton).toBeInTheDocument()
 
         await userEvent.click(closeButton)
-        expect(onCloseMock).toHaveBeenCalled()
+
+        expect(mockOnClose).toHaveBeenCalledTimes(1)
     })
 })
