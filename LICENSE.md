@@ -1,21 +1,18 @@
-MIT License
+**NT Sketchbook**  
+Copyright (c) 2025, NashTech
 
-Copyright (c) 2024 NashTech Garage
+**TERMS AND CONDITIONS FOR USE**
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+**NT Sketchbook**
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+NashTech has developed and continuously enhances a repository of artifacts that may be deployed within any client project. When these artifacts are deployed, the client may use them royalty-free (effectively treating them as NashTech freeware). However, NashTech will not provide upgrades for any deployed artifacts and will not be responsible for any amendments made to the code or for its use in other contexts. The artifacts may include plugins, code snippets, commonly used modules, etc.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+**NT Sketchbook - Generic Code**
+
+All intellectual property rights related to deliverables created under this letter of intent (LOI) for the NT Sketchbook shall be owned by the client. The NT Sketchbook will also contain two types of additional code:
+
+1. **Pre-existing Generic Code:** This code is supplied and owned by NashTech. It must be declared via email by NashTech and approved via email by the client before inclusion. NashTech will grant the client a non-exclusive, perpetual license for its use.
+
+2. **Open Source Code:** This code must also be declared via email by NashTech and approved via email by the client before inclusion.
+
+Please ensure that all requirements are met for the successful deployment of code associated with the NT Sketchbook.
