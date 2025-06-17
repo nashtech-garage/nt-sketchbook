@@ -1,45 +1,163 @@
-@mixin nt-input(
-    $bg: var(--nt-color-light),
-    $border: 0.0625rem solid var(--nt-color-dark),
-    $color: var(--nt-color-dark),
-    $padding: 0.75rem,
-    $radius: 0.25rem,
-    $focus-border: var(--nt-color-primary)
-) {
-    background-color: $bg;
-    border: $border;
-    color: $color;
-    padding: $padding;
-    border-radius: $radius;
-    font-size: var(--nt-font-size-base);
-    font-family: var(--nt-font-family-primary), serif;
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use 'sass:map';
+@use 'sass:color';
+
+$input-colors: (
+    default: (
+        base: vars.$nt-color-line-regular,
+        hover: vars.$nt-color-secondary-50,
+        focus: vars.$nt-color-secondary-100
+    ),
+    danger: (
+        base: vars.$nt-color-danger,
+        hover: vars.$nt-color-danger-light,
+        focus: vars.$nt-color-danger-bold
+    ),
+    success: (
+        base: vars.$nt-color-success,
+        hover: vars.$nt-color-success-light,
+        focus: vars.$nt-color-success-bold
+    ),
+    warning: (
+        base: vars.$nt-color-warning,
+        hover: vars.$nt-color-warning-light,
+        focus: vars.$nt-color-warning-bold
+    )
+);
+
+$input-padding-x: 0.75rem;
+$input-border-radius: vars.$nt-border-radius-md;
+$icon-size: 1.5rem;
+$transition-duration: 0.3s;
+
+@mixin placeholder {
+    &::placeholder {
+        color: vars.$nt-color-gray-40;
+    }
+}
+
+@mixin input-base {
+    $default-color: map.get(map.get($input-colors, default), base);
+    width: 100%;
+    padding: $input-padding-x;
+    font-size: map.get(utils.$nt-font-sizes, 'sm');
+    border-radius: $input-border-radius;
+    border: 0.0625rem solid $default-color;
+    background-color: white;
+    transition:
+        border-color $transition-duration,
+        box-shadow $transition-duration;
     outline: none;
-    transition: border 0.3s ease-in-out;
+
+    @include placeholder;
+}
+
+@mixin input-variant($color-name) {
+    $color-map: map.get($input-colors, $color-name);
+    $base-color: map.get($color-map, base);
+    $hover-color: map.get($color-map, hover);
+    $focus-color: map.get($color-map, focus);
+    border-color: $base-color;
 
     &:focus {
-        border-color: $focus-border;
-        box-shadow: 0 0 0.3125rem rgba($focus-border, 0.5);
+        border-color: $focus-color;
+        box-shadow: rgb(0 0 0 / 16%) 0 0.0625rem 0.25rem;
+    }
+
+    &:hover {
+        border-color: $hover-color;
     }
 
     &:disabled {
-        background-color: rgba(0 0 0 / 10%);
+        background-color: vars.$nt-color-gray-9;
+        color: vars.$nt-color-gray-40;
         cursor: not-allowed;
-        opacity: 0.7;
+        border-color: vars.$nt-color-line-regular;
+        box-shadow: none;
     }
 }
 
+@mixin input-with-icon($icon-path) {
+    position: relative;
+
+    &::after {
+        content: '';
+        background-image: url(#{$icon-path});
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: $icon-size;
+        height: $icon-size;
+        position: absolute;
+        right: $input-padding-x;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+}
+
+@mixin input-icon-left {
+    position: relative;
+    padding-left: calc(#{$input-padding-x} + #{$icon-size} + 0.5rem);
+}
+
+@mixin icon-position {
+    width: $icon-size;
+    height: $icon-size;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .nt-input {
-    @include nt-input;
-}
+    @include input-base;
 
-.nt-input-primary {
-    @include nt-input($focus-border: var(--nt-color-primary));
-}
+    &-wrapper {
+        position: relative;
 
-.nt-input-danger {
-    @include nt-input($focus-border: var(--nt-color-danger));
-}
+        &-danger {
+            @include input-with-icon('../assets/svg/danger.svg');
+        }
 
-.nt-input-success {
-    @include nt-input($focus-border: var(--nt-color-success));
+        &-success {
+            @include input-with-icon('../assets/svg/success.svg');
+        }
+
+        &-warning {
+            @include input-with-icon('../assets/svg/warning.svg');
+        }
+    }
+
+    &-default {
+        @include input-variant(default);
+    }
+
+    &-danger {
+        @include input-variant(danger);
+    }
+
+    &-success {
+        @include input-variant(success);
+    }
+
+    &-warning {
+        @include input-variant(warning);
+    }
+
+    &-icon {
+        @include icon-position;
+        right: $input-padding-x;
+
+        &:first-child {
+            @include icon-position;
+            left: $input-padding-x;
+            right: auto;
+        }
+    }
+
+    &.has-icon-left {
+        padding-left: calc(
+            #{$input-padding-x} + #{$icon-size} + 0.5rem
+        );
+    }
 }
