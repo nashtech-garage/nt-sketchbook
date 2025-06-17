@@ -1,40 +1,84 @@
 <main>
-    <h2>Basic Inputs</h2>
-    <input type="text" class="nt-input" placeholder="Default input" />
+    <h2 class="text-3xl font-semibold mb-4">Basic Inputs</h2>
     <input
         type="text"
-        class="nt-input-primary"
-        placeholder="Primary input"
+        placeholder="Input default"
+        class="nt-input nt-input-default mb-3"
     />
     <input
         type="text"
-        class="nt-input-danger"
-        placeholder="Danger input"
-    />
-    <input
-        type="text"
-        class="nt-input-success"
-        placeholder="Success input"
-    />
-    <input
-        type="text"
-        class="nt-input"
+        placeholder="Input disabled"
+        class="nt-input nt-input-danger mb-3"
         disabled
-        placeholder="Disabled input"
     />
-
-    <h2>Input with Label</h2>
-    <label for="username">Username</label>
     <input
         type="text"
-        id="username"
-        class="nt-input"
-        placeholder="Enter your username"
+        placeholder="Input success"
+        class="nt-input nt-input-success mb-3"
     />
-
-    <h2>Input with Icon</h2>
-    <div class="nt-input-group">
-        <span class="nt-input-icon">🔍</span>
-        <input type="text" class="nt-input" placeholder="Search..." />
+    <input
+        type="text"
+        placeholder="Input danger"
+        class="nt-input nt-input-danger mb-3"
+    />
+    <input
+        type="text"
+        placeholder="Input warning"
+        class="nt-input nt-input-warning mb-3"
+    />
+    <h2 class="text-3xl font-semibold my-4">Inputs with icon</h2>
+    <div class="nt-input-wrapper nt-input-wrapper-success mb-3">
+        <input
+            type="text"
+            placeholder="input success with icon"
+            class="nt-input nt-input-success"
+        />
+    </div>
+    <div class="nt-input-wrapper nt-input-wrapper-danger mb-3">
+        <input
+            type="text"
+            placeholder="input danger with icon"
+            class="nt-input nt-input-danger"
+        />
+    </div>
+    <div class="nt-input-wrapper nt-input-wrapper-warning mb-3">
+        <input
+            type="text"
+            placeholder="input warning with icon"
+            class="nt-input nt-input-warning"
+        />
+    </div>
+    <div class="nt-input-wrapper mb-3">
+        <input
+            type="text"
+            placeholder="input icon custom"
+            class="nt-input nt-input-success"
+        />
+        <span class="nt-input-icon">🚀</span>
+    </div>
+    <div class="nt-input-wrapper mb-3">
+        <span class="nt-input-icon">🚀</span>
+        <input
+            type="text"
+            placeholder="input icon custom"
+            class="nt-input nt-input-success has-icon-left"
+        />
+    </div>
+    <div class="nt-input-wrapper nt-input-wrapper-warning mb-3">
+        <span class="nt-input-icon">🚀</span>
+        <input
+            type="text"
+            placeholder="input warning with 2 icons"
+            class="nt-input nt-input-warning has-icon-left"
+        />
+    </div>
+    <div class="nt-input-wrapper mb-3">
+        <span class="nt-input-icon">🚀</span>
+        <input
+            type="text"
+            placeholder="input custom with 2 icons"
+            class="nt-input nt-input-warning has-icon-left"
+        />
+        <span class="nt-input-icon">🚀</span>
     </div>
 </main>

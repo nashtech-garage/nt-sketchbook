@@ -81,6 +81,9 @@
     --nt-color-success-light: #abe38b;
     --nt-color-success-thin: #e4ffd5;
 
+    /* --------- Brand Colors --------- */
+    --nt-color-line-regular: #c9ccd4;
+
     /* --------- Font Families --------- */
     --nt-font-default: 'Mulish', sans-serif;
 
@@ -200,6 +203,10 @@ $nt-color-success-bold: var(--nt-color-success-bold);
 $nt-color-success: var(--nt-color-success);
 $nt-color-success-light: var(--nt-color-success-light);
 $nt-color-success-thin: var(--nt-color-success-thin);
+
+/* --------- Brand Colors --------- */
+$nt-color-line-regular: var(--nt-color-line-regular, #c9ccd4);
+$nt-color-line-bold: var(--nt-color-gray-30, #bfbfbf);
 
 /* === Text Colors === */
 $nt-text-primary: $nt-color-gray-100;
