@@ -1,47 +1,50 @@
-import type { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 
-import type { SwitchProps } from './switch'
-import { Switch } from './switch'
+import { Switch, type SwitchProps } from './switch'
 
-export default {
+const meta: Meta<SwitchProps> = {
     title: 'Components/Switch',
     component: Switch,
     argTypes: {
         variant: {
-            options: ['default', 'primary', 'black', 'danger'],
-            control: { type: 'select' },
-        },
-        size: {
-            options: ['small', 'medium'],
-            control: { type: 'select' },
-        },
+            options: ['default', 'danger', 'warning'],
+            control: { type: 'radio' }
+        }
     },
-} as Meta
-
-const Template: StoryFn<SwitchProps> = (args: SwitchProps) => (
-    <Switch {...args} />
-)
-
-export const Default: StoryFn<SwitchProps> = Template.bind({})
-Default.args = {
-    onClick: () => console.log('ok'),
-    variant: 'default',
+    args: {
+        variant: 'default',
+        disabled: false
+    }
 }
 
-export const Primary: StoryFn<SwitchProps> = Template.bind({})
-Primary.args = {
-    onClick: () => console.log('ok'),
-    variant: 'primary',
+export default meta
+
+type Story = StoryObj<SwitchProps>
+
+export const Basic: Story = {
+    args: {
+        name: 'basic-switch'
+    }
 }
 
-export const Silver: StoryFn<SwitchProps> = Template.bind({})
-Silver.args = {
-    onClick: () => console.log('ok'),
-    variant: 'silver',
+export const Danger: Story = {
+    args: {
+        name: 'danger-switch',
+        variant: 'danger'
+    }
 }
-export const Danger: StoryFn<SwitchProps> = Template.bind({})
-Danger.args = {
-    onClick: () => console.log('ok'),
-    variant: 'danger',
+
+export const Warning: Story = {
+    args: {
+        name: 'warning-switch',
+        variant: 'warning'
+    }
+}
+
+export const Disabled: Story = {
+    args: {
+        name: 'disabled-switch',
+        disabled: true,
+        checked: true
+    }
 }
