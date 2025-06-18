@@ -10,7 +10,7 @@ The Input component in NT Stylesheet is a customizable form element that support
 -   Visual variants: default, success, danger, warning
 -   Disabled state styling
 -   Optional left and/or right icons
--   Utility classes for layout (has-icon-left, wrapper helpers)
+-   Utility classes for layout (container helpers)
 
 ## Installation
 
@@ -62,24 +62,24 @@ Use nt-input along with a variant modifier class:
 
 ### Inputs with Status Icons
 
-Wrap inputs with nt-input-wrapper-[variant] to display right-side icons automatically:
+Wrap inputs with nt-input-container-[variant] to display right-side icons automatically:
 
 ```html
-<div class="nt-input-wrapper nt-input-wrapper-success">
+<div class="nt-input-container nt-input-container-success">
     <input
         type="text"
         class="nt-input nt-input-success"
         placeholder="Success with icon"
     />
 </div>
-<div class="nt-input-wrapper nt-input-wrapper-danger">
+<div class="nt-input-container nt-input-container-danger">
     <input
         type="text"
         class="nt-input nt-input-danger"
         placeholder="Danger with icon"
     />
 </div>
-<div class="nt-input-wrapper nt-input-wrapper-warning">
+<div class="nt-input-container nt-input-container-warning">
     <input
         type="text"
         class="nt-input nt-input-warning"
@@ -95,7 +95,7 @@ Use `<span class="nt-input-icon">` or `nt-input-icon-first` for custom emojis or
 #### Icon Right
 
 ```html
-<div class="nt-input-wrapper">
+<div class="nt-input-container">
     <input
         type="text"
         class="nt-input nt-input-success"
@@ -107,15 +107,13 @@ Use `<span class="nt-input-icon">` or `nt-input-icon-first` for custom emojis or
 
 #### Icon Left
 
--   Add `has-icon-left` to the input for spacing adjustment:
-
 ```html
-<div class="nt-input-wrapper">
+<div class="nt-input-container">
     <span class="nt-input-icon">🚀</span>
     <input
         type="text"
         placeholder="input icon custom"
-        class="nt-input nt-input-success has-icon-left"
+        class="nt-input nt-input-success"
     />
 </div>
 ```
@@ -123,12 +121,12 @@ Use `<span class="nt-input-icon">` or `nt-input-icon-first` for custom emojis or
 #### Both Sides
 
 ```html
-<div class="nt-input-wrapper mb-3">
+<div class="nt-input-container mb-3">
     <span class="nt-input-icon">🚀</span>
     <input
         type="text"
         placeholder="input custom with 2 icons"
-        class="nt-input nt-input-warning has-icon-left"
+        class="nt-input nt-input-warning"
     />
     <span class="nt-input-icon">🚀</span>
 </div>
@@ -138,7 +136,6 @@ Use `<span class="nt-input-icon">` or `nt-input-icon-first` for custom emojis or
 
 -   `.nt-input`: Base input style
 -   `.nt-input-[variant]`: Visual styling (e.g., success, danger, etc.)
--   `.nt-input-wrapper`: Enables icon positioning
--   `.nt-input-wrapper-[variant]` – Enables status icon per variant
+-   `.nt-input-container`: Enables icon positioning
+-   `.nt-input-container-[variant]` – Enables status icon per variant
 -   `.nt-input-icon`: Icon custom
--   `.has-icon-left`: Adds padding to accommodate left icon
