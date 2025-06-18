@@ -90,7 +90,7 @@ Wrap inputs with nt-input-container-[variant] to display right-side icons automa
 
 ### Inputs with Custom Icons
 
-Use `<span class="nt-input-icon">` or `nt-input-icon-first` for custom emojis or icon fonts.
+Use `<span class="nt-input-icon">` for custom emojis or icon fonts.
 
 #### Icon Right
 
