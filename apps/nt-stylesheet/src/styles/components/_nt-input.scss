@@ -112,7 +112,7 @@ $transition-duration: 0.3s;
 .nt-input {
     @include input-base;
 
-    &-wrapper {
+    &-container {
         position: relative;
 
         &-danger {
@@ -125,6 +125,10 @@ $transition-duration: 0.3s;
 
         &-warning {
             @include input-with-icon('../assets/svg/warning.svg');
+        }
+
+        .nt-input-icon:first-child + .nt-input {
+            padding-left: 2.5rem;
         }
     }
 
@@ -153,11 +157,5 @@ $transition-duration: 0.3s;
             left: $input-padding-x;
             right: auto;
         }
-    }
-
-    &.has-icon-left {
-        padding-left: calc(
-            #{$input-padding-x} + #{$icon-size} + 0.5rem
-        );
     }
 }
