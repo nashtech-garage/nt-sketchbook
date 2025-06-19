@@ -1,79 +1,73 @@
 import { cn } from '@/lib/utils'
-import * as React from 'react'
+import {
+    forwardRef,
+    type InputHTMLAttributes,
+    type ReactNode
+} from 'react'
 
 export type InputVariant =
     | 'default'
     | 'danger'
     | 'warning'
-    | 'violet'
     | 'success'
-export type InputSize = 'small' | 'medium' | 'large'
 
-export type InputProps = React.ComponentProps<'input'> & {
+export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     variant?: InputVariant
-    inputSize?: InputSize
-    leftIcon?: React.ReactNode | React.JSX.Element
-    rightIcon?: React.ReactNode | React.JSX.Element
+    leftIcon?: ReactNode
+    rightIcon?: ReactNode
+    className?: string
+    wrapperClassName?: string
+    hasIcon?: boolean
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    (
-        {
-            className,
-            type,
+const Input = forwardRef<HTMLInputElement, InputProps>(
+    (props, ref) => {
+        const {
+            className = '',
+            wrapperClassName = '',
             variant = 'default',
-            inputSize = 'medium',
             leftIcon,
             rightIcon,
-            ...props
-        },
-        ref,
-    ) => {
-        const variantClasses: Record<InputVariant, string> = {
-            default: 'border-secondary-6',
-            danger: 'border-danger',
-            warning: 'border-warning',
-            violet: 'border-secondary-1',
-            success: 'border-success',
-        }
+            hasIcon = false,
+            ...restProps
+        } = props
 
-        const sizeClasses: Record<InputSize, string> = {
-            small: 'h-8 text-xs',
-            medium: 'h-10 text-sm',
-            large: 'h-12 text-base',
-        }
+        const inputElement = (
+            <input
+                ref={ref}
+                className={cn(
+                    'nt-input',
+                    `nt-input-${variant}`,
+                    className
+                )}
+                {...restProps}
+            />
+        )
+
+        if (!hasIcon && !leftIcon && !rightIcon) return inputElement
 
         return (
-            <div className="relative flex items-center">
-                {leftIcon && (
-                    <span className="absolute left-3">
-                        {leftIcon}
-                    </span>
+            <div
+                className={cn(
+                    'nt-input-container',
+                    variant !== 'default' &&
+                        !rightIcon &&
+                        `nt-input-container-${variant}`,
+                    wrapperClassName
                 )}
-                <input
-                    type={type}
-                    className={cn(
-                        'flex w-full rounded px-3 py-1 transition-colors border',
-                        'placeholder:text-shade-neutral-20 text-secondary-5',
-                        'focus-visible:outline-none focus-visible:shadow hover:shadow',
-                        'disabled:shadow-none disabled:cursor-not-allowed',
-                        sizeClasses[inputSize],
-                        variantClasses[variant],
-                        leftIcon ? 'pl-10' : '',
-                        rightIcon ? 'pr-10' : '',
-                        className,
-                    )}
-                    ref={ref}
-                    {...props}
-                />
+            >
+                {leftIcon && (
+                    <span className="nt-input-icon">{leftIcon}</span>
+                )}
+
+                {inputElement}
+
                 {rightIcon && (
-                    <span className="absolute right-3">
-                        {rightIcon}
-                    </span>
+                    <span className="nt-input-icon">{rightIcon}</span>
                 )}
             </div>
         )
-    },
+    }
 )
 
 Input.displayName = 'Input'

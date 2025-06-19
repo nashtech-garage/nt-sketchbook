@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { InfoIcon } from 'lucide-react'
-import { describe, expect, test, vi } from 'vitest'
+import { describe, expect, it, test, vi } from 'vitest'
 
 import { Alert, type AlertProps, type AlertType } from './alert'
 
@@ -23,7 +23,7 @@ const setup = (props: Partial<AlertProps> = {}) => {
 }
 
 describe('Alert Component', () => {
-    test.each(Object.keys(typeClasses))(
+    it.each(Object.keys(typeClasses))(
         'renders correct class for type "%s"',
         (type) => {
             setup({ type: type as AlertType })
