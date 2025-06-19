@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import type { InputSize } from './input'
+import type { InputProps } from './input'
 import { Input } from './input'
 
 export default {
@@ -11,74 +11,50 @@ export default {
         type: {
             control: {
                 type: 'select',
-                options: ['text', 'password', 'email', 'number'],
-            },
+                options: ['text', 'password', 'email', 'number']
+            }
         },
         variant: {
             control: {
                 type: 'select',
-                options: [
-                    'default',
-                    'danger',
-                    'warning',
-                    'violet',
-                    'success',
-                ],
-            },
-        },
-        inputSize: {
-            control: {
-                type: 'select',
-                options: ['small', 'medium', 'large'] as const,
-            },
+                options: ['default', 'danger', 'warning', 'success']
+            }
         },
         disabled: { control: 'boolean' },
         placeholder: { control: 'text' },
-        className: { control: 'text' },
-    },
+        className: { control: 'text' }
+    }
 } as Meta
 
-const Template: StoryFn = (args) => <Input {...args} />
+const Template: StoryFn = (args: InputProps) => <Input {...args} />
 
 export const Text = Template.bind({})
 Text.args = {
     type: 'text',
-    placeholder: 'Enter text...',
-}
-
-export const Password = Template.bind({})
-Password.args = {
-    type: 'password',
-    placeholder: 'Enter password...',
-}
-
-export const Email = Template.bind({})
-Email.args = {
-    type: 'email',
-    placeholder: 'Enter email...',
+    placeholder: 'Enter text...'
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
     type: 'text',
     placeholder: 'Disabled input...',
-    disabled: true,
+    disabled: true
 }
 
-export const IconLeft = Template.bind({})
-IconLeft.args = {
+export const IconCustomLeft = Template.bind({})
+IconCustomLeft.args = {
     type: 'text',
     placeholder: 'Input with icon left...',
     className: 'icon-left',
-    leftIcon: <span className="icon-left">🔍</span>,
+    leftIcon: <span className="icon-left">🔍</span>
 }
 
-export const IconRight = Template.bind({})
-IconRight.args = {
+export const IconCustomRight = Template.bind({})
+IconCustomRight.args = {
     type: 'text',
     placeholder: 'Input with icon right...',
     className: 'icon-right',
-    rightIcon: <span className="icon-right">🔍</span>,
+    rightIcon: <span className="icon-right">🔍</span>
 }
 
 export const IconRightAndLeft = Template.bind({})
@@ -87,25 +63,38 @@ IconRightAndLeft.args = {
     placeholder: 'Input with icon right...',
     className: 'icon-right',
     rightIcon: <span className="icon-right">🔍</span>,
-    leftIcon: <span className="icon-right">🔍</span>,
+    leftIcon: <span className="icon-left">🔍</span>
 }
 
-export const Small = Template.bind({})
-Small.args = {
+export const SuccessWithDefaultIcon = Template.bind({})
+SuccessWithDefaultIcon.args = {
     type: 'text',
-    placeholder: 'Small input...',
-    inputSize: 'small' as InputSize,
+    placeholder: 'Success input with icon default',
+    variant: 'success',
+    hasIcon: true
 }
 
-export const Medium = Template.bind({})
-Medium.args = {
+export const DangerWithDefaultIcon = Template.bind({})
+DangerWithDefaultIcon.args = {
     type: 'text',
-    placeholder: 'Medium input...',
+    placeholder: 'Danger input with icon default',
+    variant: 'danger',
+    hasIcon: true
 }
 
-export const Large = Template.bind({})
-Large.args = {
+export const WarningWithDefaultIcon = Template.bind({})
+WarningWithDefaultIcon.args = {
     type: 'text',
-    placeholder: 'Large input...',
-    inputSize: 'large' as InputSize,
+    placeholder: 'Warning input with icon default',
+    variant: 'warning',
+    hasIcon: true
+}
+
+export const SuccessWithCustomIcon = Template.bind({})
+SuccessWithCustomIcon.args = {
+    type: 'text',
+    placeholder: 'Success input with icon custom',
+    variant: 'success',
+    leftIcon: <span className="icon-left">🔍</span>,
+    rightIcon: <span className="icon-right">🔍</span>
 }
