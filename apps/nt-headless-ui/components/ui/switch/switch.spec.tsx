@@ -1,87 +1,71 @@
 import '@testing-library/jest-dom'
-import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it, test, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { SwitchSizes, SwitchVariants } from './switch'
-import { Switch } from './switch'
+import { Switch, type SwitchProps } from './switch'
+
+const handleChangeMock = vi.fn()
+
+const setup = (props?: Partial<SwitchProps>) => {
+    render(<Switch {...props} />)
+}
 
 describe('Switch Component', () => {
-    test('renders the switch component', () => {
-        render(<Switch />)
-        const switchElement = screen.getByRole('switch')
-        expect(switchElement).toBeInTheDocument()
+    beforeEach(() => {
+        vi.clearAllMocks()
+    })
+
+    it('renders correctly', () => {
+        setup()
+
+        expect(screen.getByRole('switch')).toBeInTheDocument()
     })
 
     it.each([
-        [
-            'default',
-            'data-[state=checked]:bg-success data-[state=unchecked]:bg-neutral-200',
-        ],
-        [
-            'primary',
-            'data-[state=checked]:bg-blue-500 data-[state=unchecked]:bg-gray-200',
-        ],
-        [
-            'black',
-            'data-[state=checked]:bg-neutral-900 data-[state=unchecked]:bg-gray-200',
-        ],
-        [
-            'danger',
-            'data-[state=checked]:bg-danger data-[state=unchecked]:bg-gray-200',
-        ],
-    ])(
-        'applies the correct variant classes for %s',
+        ['default', 'nt-switch'],
+        ['danger', 'nt-switch nt-switch-danger'],
+        ['warning', 'nt-switch nt-switch-warning']
+    ] as const)(
+        'applies correct class for variant: %s',
         (variant, expectedClass) => {
-            render(<Switch variant={variant as SwitchVariants} />)
-            const switchElement = screen.getByRole('switch')
+            setup({ variant })
+            const input = screen.getByRole('switch')
+            const label = input.closest('label')
 
-            expect(switchElement).toHaveClass(
-                expectedClass.split(' ')[0],
-            )
-        },
+            expect(label).toHaveClass(expectedClass)
+        }
     )
 
-    it.each([
-        ['small', 'h-5 w-9'],
-        ['medium', 'h-8 w-12'],
-    ])(
-        'applies the correct size classes for %s',
-        (size, expectedClass) => {
-            render(<Switch size={size as SwitchSizes} />)
-            const switchElement = screen.getByRole('switch')
+    it('toggles state when clicked (uncontrolled)', async () => {
+        setup({ defaultChecked: false })
+        const input = screen.getByRole('switch') as HTMLInputElement
 
-            expect(switchElement).toHaveClass(
-                expectedClass.split(' ')[0],
-            )
-        },
-    )
+        expect(input.checked).toBe(false)
+        await userEvent.click(input)
+        expect(input.checked).toBe(true)
 
-    test('toggles state on click', () => {
-        render(<Switch />)
-        const switchElement = screen.getByRole('switch')
-
-        expect(switchElement).toHaveAttribute(
-            'data-state',
-            'unchecked',
-        )
-
-        fireEvent.click(switchElement)
-        expect(switchElement).toHaveAttribute('data-state', 'checked')
-
-        fireEvent.click(switchElement)
-        expect(switchElement).toHaveAttribute(
-            'data-state',
-            'unchecked',
-        )
+        await userEvent.click(input)
+        expect(input.checked).toBe(false)
     })
 
-    test('calls onCheckedChange when toggled', () => {
-        const handleChange = vi.fn()
-        render(<Switch onCheckedChange={handleChange} />)
+    it('calls onChange when toggled', async () => {
+        setup({ onChange: handleChangeMock })
+        await userEvent.click(screen.getByRole('switch'))
 
-        const switchElement = screen.getByRole('switch')
-        fireEvent.click(switchElement)
+        expect(handleChangeMock).toHaveBeenCalledTimes(1)
+    })
 
-        expect(handleChange).toHaveBeenCalledTimes(1)
+    it('respects disabled state', () => {
+        setup({ disabled: true })
+
+        expect(screen.getByRole('switch')).toBeDisabled()
+    })
+
+    it('respects controlled checked state', () => {
+        setup({ checked: true })
+        const input = screen.getByRole('switch') as HTMLInputElement
+
+        expect(input.checked).toBe(true)
     })
 })
