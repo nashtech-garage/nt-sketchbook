@@ -5,7 +5,7 @@ import { Checkbox } from './checkbox'
 
 export default {
     title: 'Components/Checkbox',
-    component: Checkbox,
+    component: Checkbox
 } as Meta
 
 const Template: StoryFn = (args) => {
@@ -24,7 +24,7 @@ export const Default = Template.bind({})
 Default.args = {
     className: '',
     checked: false,
-    label: 'Paragraph label',
+    label: 'Paragraph label'
 }
 
 export const Disabled = Template.bind({})
@@ -32,14 +32,14 @@ Disabled.args = {
     className: '',
     checked: false,
     disabled: true,
-    label: 'Paragraph label',
+    label: 'Paragraph label'
 }
 
 export const Checked = Template.bind({})
 Checked.args = {
     className: '',
     checked: true,
-    label: 'Paragraph label',
+    label: 'Paragraph label'
 }
 
 export const CheckedDisabled = Template.bind({})
@@ -47,14 +47,14 @@ CheckedDisabled.args = {
     className: '',
     checked: true,
     disabled: true,
-    label: 'Paragraph label',
+    label: 'Paragraph label'
 }
 
 export const Indeterminate = Template.bind({})
 Indeterminate.args = {
     className: '',
     indeterminate: true,
-    label: 'Paragraph label',
+    label: 'Paragraph label'
 }
 
 export const IndeterminateDisabled = Template.bind({})
@@ -62,5 +62,5 @@ IndeterminateDisabled.args = {
     className: '',
     indeterminate: true,
     disabled: true,
-    label: 'Paragraph label',
+    label: 'Paragraph label'
 }

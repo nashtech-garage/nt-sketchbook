@@ -17,7 +17,7 @@ describe('Checkbox', () => {
 
     it('renders the checkbox with label and info icon', () => {
         preRender({
-            label: 'paragraph label',
+            label: 'paragraph label'
         })
         const checkbox = screen.getByRole('checkbox')
         const label = screen.getByText('paragraph label')
@@ -28,7 +28,7 @@ describe('Checkbox', () => {
     it('renders when checkbox, label, icon when disabled', () => {
         const wrapper = preRender({
             label: 'paragraph label',
-            disabled: true,
+            disabled: true
         })
         const checkbox = screen.getByRole('checkbox')
         const label = wrapper.container.querySelector('.nt-checkbox')

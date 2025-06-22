@@ -13,13 +13,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             className={cn(
                 'nt-checkbox',
                 className,
-                props.disabled ? 'disabled' : '',
-            )}
-        >
+                props.disabled ? 'disabled' : ''
+            )}>
             <input ref={ref} type="checkbox" {...props} />
             {label}
         </label>
-    ),
+    )
 )
 
 export { Checkbox }
