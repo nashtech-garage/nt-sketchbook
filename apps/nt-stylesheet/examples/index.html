@@ -64,6 +64,14 @@
                                 Avatar
                             </a>
                         </li>
+                        <li>
+                            <a
+                                href="./checkbox.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Checkbox
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </aside>
@@ -97,6 +105,12 @@
                             document.getElementById(
                                 'main-content',
                             ).innerHTML = newMain.innerHTML
+                            document.getElementById(
+                                'indeterminate',
+                            ).indeterminate = true
+                            document.getElementById(
+                                'indeterminate-disabled',
+                            ).indeterminate = true
                         } else {
                             document.getElementById(
                                 'main-content',

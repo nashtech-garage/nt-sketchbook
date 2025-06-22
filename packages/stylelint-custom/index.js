@@ -9,7 +9,7 @@ export default {
     ],
     plugins: ['stylelint-scss'],
     rules: {
-        'unit-allowed-list': ['em', 'rem', '%', 's', 'fr'],
+        'unit-allowed-list': ['em', 'rem', '%', 's', 'fr', 'deg'],
         'at-rule-no-unknown': null,
         'scss/at-rule-no-unknown': [
             true,
