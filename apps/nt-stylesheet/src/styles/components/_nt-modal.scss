@@ -1,1 +1,106 @@
-/* stylelint-disable no-empty-source */
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use 'sass:map';
+
+@keyframes fade-in {
+    from {
+        transform: translateY(-1.25rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.nt-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0 0 0 / 60%);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    &.fade {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    &-box {
+        background: vars.$nt-color-white;
+        width: 100%;
+        margin: 10% auto;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 0.625rem 1.5625rem rgb(0 0 0 / 20%);
+        animation: fade-in 0.3s ease;
+
+        &-sm {
+            max-width: 20rem;
+        }
+
+        &-md {
+            max-width: 30rem;
+        }
+
+        &-lg {
+            max-width: 50rem;
+        }
+    }
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    &-title {
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    &-close {
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: vars.$nt-color-black;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    &-description {
+        font-size: 0.95rem;
+        color: vars.$nt-color-gray-60;
+    }
+
+    &-content {
+        padding: 1rem;
+        font-size: 1rem;
+        color: vars.$nt-color-black;
+    }
+
+    &-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+}
