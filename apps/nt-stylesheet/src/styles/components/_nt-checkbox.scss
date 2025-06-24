@@ -110,19 +110,6 @@
     cursor: pointer;
     user-select: none;
 
-    &::after {
-        content: '';
-        display: inline-block;
-        width: 1rem;
-        height: 1rem;
-        background-color: vars.$nt-text-info;
-        mask: url('/public/assets/icons/info.svg') no-repeat center;
-        mask-size: contain;
-        mask: url('/public/assets/icons/info.svg') no-repeat
-            center;
-        mask-size: contain;
-    }
-
     @include nt-checkbox-label(
         vars.$nt-font-weight-regular,
         1rem,
