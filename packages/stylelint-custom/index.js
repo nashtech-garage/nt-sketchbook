@@ -5,17 +5,17 @@ export default {
         'stylelint-config-standard',
         'stylelint-config-standard-scss',
         'stylelint-config-tailwindcss',
-        'stylelint-prettier',
+        'stylelint-prettier'
     ],
     plugins: ['stylelint-scss'],
     rules: {
-        'unit-allowed-list': ['em', 'rem', '%', 's', 'fr'],
+        'unit-allowed-list': ['em', 'rem', '%', 's', 'fr', 'deg'],
         'at-rule-no-unknown': null,
         'scss/at-rule-no-unknown': [
             true,
             {
-                ignoreAtRules: ['tailwind'],
-            },
+                ignoreAtRules: ['tailwind']
+            }
         ],
         'scss/dollar-variable-empty-line-before': null,
         'declaration-empty-line-before': [
@@ -24,25 +24,25 @@ export default {
                 ignore: [
                     'after-comment',
                     'inside-single-line-block',
-                    'after-declaration',
-                ],
-            },
+                    'after-declaration'
+                ]
+            }
         ],
         'function-no-unknown': [
             true,
             {
                 ignoreFunctions: [
                     'scale-font-size',
-                    'calculate-line-height',
-                ],
-            },
-        ],
+                    'calculate-line-height'
+                ]
+            }
+        ]
     },
     ignoreFiles: [
         '**/node_modules/**',
         '**/dist/**',
         '**/coverage/**',
         '**/*.js',
-        '**/*.ts',
-    ],
+        '**/*.ts'
+    ]
 }
