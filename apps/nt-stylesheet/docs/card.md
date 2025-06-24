@@ -34,22 +34,12 @@ Use the following variant classes for cards:
 
 #### Basic Example
 
+![alt text](image-card-default.png)
+
 ```html
 <div class="nt-card-default">
     <div class="nt-card-header">
         <span class="nt-card-title">Card Title</span>
-        <div class="nt-card-actions">
-            <img
-                src="https://img.icons8.com/?size=100&id=49&format=png&color=000000"
-                alt="Edit"
-                class="nt-card-action"
-            />
-            <img
-                src="https://img.icons8.com/?size=100&id=67884&format=png&color=000000"
-                alt="Delete"
-                class="nt-card-action"
-            />
-        </div>
     </div>
     <div class="nt-card-content">
         <p>This is the main content of the card.</p>
@@ -61,6 +51,8 @@ Use the following variant classes for cards:
 ```
 
 #### Example with Icon
+
+![alt text](image-card-icon.png)
 
 ```html
 <div class="nt-card-default">
@@ -80,21 +72,24 @@ Use the following variant classes for cards:
 
 #### Example with Variant
 
+![alt text](image-card-variant.png)
+
 ```html
 <div class="nt-card-success">
     <div class="nt-card-header">
-        <img
-            src="https://img.icons8.com/?size=100&id=63312&format=png&color=000000"
-            alt="Success Icon"
-            class="nt-card-icon"
-        />
         <span class="nt-card-title">Success Card</span>
     </div>
     <div class="nt-card-content">
-        <p>Operation completed successfully.</p>
+        <p>This is the main content of the card.</p>
     </div>
-    <div class="nt-card-footer">
-        <button class="nt-btn-success">Done</button>
+</div>
+
+<div class="nt-card-danger">
+    <div class="nt-card-header">
+        <span class="nt-card-title">Danger Card</span>
+    </div>
+    <div class="nt-card-content">
+        <p>This is the main content of the card.</p>
     </div>
 </div>
 ```
