@@ -1,18 +1,7 @@
 @use '../variables' as vars;
 @use '../utilities' as utils;
+@use '../animation' as effects;
 @use 'sass:map';
-
-@keyframes fade-in {
-    from {
-        transform: translateY(-1.25rem);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
 
 .nt-modal {
     position: fixed;
@@ -44,13 +33,13 @@
     }
 
     &-box {
+        @include effects.fade-in;
         background: vars.$nt-color-white;
         width: 100%;
         margin: 10% auto;
         border-radius: 0.5rem;
         overflow: hidden;
         box-shadow: 0 0.625rem 1.5625rem rgb(0 0 0 / 20%);
-        animation: fade-in 0.3s ease;
 
         &-sm {
             max-width: 20rem;
