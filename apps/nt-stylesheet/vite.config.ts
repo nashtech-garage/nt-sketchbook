@@ -118,6 +118,7 @@ export default defineConfig({
     },
     test: {
         watch: false,
+        environment: 'jsdom',
         globals: true,
         include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
         reporters: ['default'],

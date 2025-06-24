@@ -1,3 +1,6 @@
-import pkg from '../../package.json' assert { type: 'json' };
+import pkg from '../../package.json'
+import { NtModal } from './nt-modal'
 
-console.log(`🚀 Welcome to MyLibrary v${pkg.version} — Ready to go!`);
+NtModal.init()
+
+console.log(`🚀 Welcome to MyLibrary v${pkg.version} — Ready to go!`)
