@@ -10,7 +10,7 @@ $nt-space-scale: (
     '5': 1.25rem,
     '6': 1.5rem,
     '7': 1.75rem,
-    '8': 2rem,
+    '8': 2rem
 );
 
 // Mixin to generate spacing classes
@@ -90,7 +90,7 @@ $nt-line-heights: ();
     $nt-line-heights: map.merge(
         $nt-line-heights,
         (
-            $size: calculate-line-height($font-size),
+            $size: calculate-line-height($font-size)
         )
     );
 }

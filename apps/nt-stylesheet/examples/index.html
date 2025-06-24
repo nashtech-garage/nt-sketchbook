@@ -9,6 +9,7 @@
         <title>NT Stylesheet Examples</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="./dist/css/nt.css" />
+        <script src="./dist/scripts/nt.js"></script>
     </head>
     <body class="h-screen bg-gray-100 text-gray-800">
         <div class="flex h-full">
@@ -176,6 +177,57 @@
                                 Label
                             </a>
                         </li>
+
+                        <li>
+                            <a
+                                href="./breadcrumb.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Breadcrumb
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="./switch.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Switch
+
+                        <li>
+                            <a
+                                href="./modal.html"
+                                class="nav-link block px-3 py-2 rounded hover:bg-blue-700"
+                            >
+                                Modal
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main id="main-content" class="flex-1 p-10 overflow-auto">
+                <h2 class="text-3xl font-semibold mb-4">
+                    Explore NT CSS Components
+                </h2>
+                <p class="text-lg">
+                    Select a component from the menu to see how it
+                    works.
+                </p>
+            </main>
+        </div>
+        <script>
+            document.querySelectorAll('.nav-link').forEach((link) => {
+                link.addEventListener('click', async (e) => {
+                    e.preventDefault()
+                    const url = e.currentTarget.getAttribute('href')
+                    try {
+                        const response = await fetch(url)
+                        const text = await response.text()
+                        const parser = new DOMParser()
+                        const doc = parser.parseFromString(
+                            text,
+                            'text/html'
+                        )
 
                         const newMain = doc.querySelector('main')
                         if (newMain) {
