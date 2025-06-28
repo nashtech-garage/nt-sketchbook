@@ -1,65 +1,109 @@
-# nt-stylesheet
+# NT Stylesheet Documentation
+
+This package contains the styling library used across NT Sketchbook. See the [project README](../../README.md) for repository setup instructions.
+
+This directory contains documentation for the **NT Stylesheet** package, which provides the core CSS framework and design tokens for the NT Sketchbook ecosystem.
+
+---
 
 ## Overview
 
-**nt-stylesheet** is a lightweight, customizable CSS framework designed to simplify the process of styling your web projects. It leverages the power of Tailwind CSS to provide a robust set of utility classes, enabling you to build responsive and modern UIs with ease.
+**NT Stylesheet** delivers a lightweight, customizable set of CSS utilities and components built for consistency across NT products. It includes:
 
-## Features
+-   **Design Tokens**: Standardized values for colors, spacing, typography, and more.
+-   **Utility Classes**: Ready-to-use classes for layout, spacing, alignment, and responsiveness.
+-   **UI Components**: Pre-styled, accessible, and responsive interface elements.
+-   **JavaScript Enhancements**: Optional utilities for interactivity (modals, dropdowns, etc.).
 
--   Simple to use
--   Customizable with utility classes
--   Lightweight and fast
--   Responsive design support
--   Integration with Tailwind CSS
+---
 
 ## Installation
 
-You can install **nt-stylesheet** via npm or pnpm.
+### 1. Install via npm
 
-### Using npm
-
-```sh
-npx @nashtech/stylesheet
+```bash
+npm install @nashtech/nt-stylesheet
 ```
 
-### Usage
+### 2. Import in your JavaScript or TypeScript entry file
 
-1. **Include the Stylesheet**
+```javascript
+import '@nashtech/nt-stylesheet/dist/nt.css'
+import '@nashtech/nt-stylesheet/dist/nt.js'
+```
 
-Add the following line to your HTML file to include the `nt-stylesheet` theme:
+### 3. Or include via CDN in your HTML
 
 ```html
 <link
     rel="stylesheet"
-    href="node_modules/@nashtech/stylesheet/nt-stylesheet.css"
+    href="https://cdn.jsdelivr.net/npm/@nashtech/nt-stylesheet/dist/nt-stylesheet.css"
 />
+<script
+    src="https://cdn.jsdelivr.net/npm/@nashtech/nt-stylesheet/dist/nt-stylesheet.js"
+    defer
+></script>
 ```
 
-2. **Import Theme File to Tailwind Config**
+### 4. Use the CSS classes and design tokens in your components
 
-Create or update your tailwind.config.js file to include the nt-stylesheet theme:
+Example:
 
-```js
-/** @type {import('tailwindcss').Config} */
-const ntTheme = require('@nashtech/stylesheet/nt-stylesheet.cjs')
+```html
+<button class="nt-btn nt-btn-primary">Submit</button>
+```
 
-module.exports = {
-    content: ['*.{html,js}'],
-    theme: {
-        extend: ntTheme.extend,
-    },
-    plugins: [],
+---
+
+## Components
+
+NT Stylesheet includes a growing list of reusable and composable UI components.
+
+### Common Components
+
+| Component     | Description                       | Example Class                        |
+| ------------- | --------------------------------- | ------------------------------------ |
+| Button        | Styled buttons with variants      | `nt-btn`, `nt-btn-primary`           |
+| Card          | Container with header/body/footer | `nt-card`, `nt-card-body`            |
+| Alert         | Status messages                   | `nt-alert-success`, `nt-alert-error` |
+| Form Controls | Inputs, checkboxes, selects       | `nt-input`, `nt-label`               |
+| Modal         | Dialog box with overlay           | `nt-modal`, `nt-modal-open`          |
+| Tabs          | Navigational tabbed interface     | `nt-tabs`, `nt-tab-active`           |
+
+_More components will be documented soon._
+
+---
+
+## Design Tokens
+
+Tokens are available as CSS variables and Sass variables for design consistency.
+
+### Example CSS Variables
+
+```css
+:root {
+    --nt-color-primary: #0052cc;
+    --nt-spacing-md: 16px;
+    --nt-font-size-base: 16px;
 }
 ```
 
-3. **Execute Your Styles**
+### Utility Example
 
-Run the following command to generate your CSS file:
-
-```bash
-npx tailwindcss -i ./input.css -o ./dist/output.css --watch
+```html
+<div class="bg-primary text-white p-md">
+    Welcome to NT Sketchbook!
+</div>
 ```
 
-### Acknowledgements
+---
 
-`nt-stylesheet` is built upon the powerful Tailwind CSS framework, making it easy to use and customize.
+## Customization
+
+You can customize NT Stylesheet in several ways:
+
+-   Override CSS variables using `:root` or component scopes
+-   Extend component styles using custom classes
+-   Import SCSS files and modify tokens before compilation (Sass users)
+
+For detailed component guides, visit the [documentation folder](docs/README.md).

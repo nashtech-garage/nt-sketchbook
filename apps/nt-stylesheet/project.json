@@ -5,34 +5,19 @@
     "srcRoot": "apps/nt-stylesheet/src",
     "targets": {
         "build": {
-            "executor": "nx:run-commands",
-            "options": {
-                "command": "vite build"
-            }
-        },
-        "link:resources": {
-            "executor": "nx:run-commands",
-            "options": {
-                "command": "ln -s apps/nt-stylesheet/examples/dist apps/nt-stylesheet/dist || true"
-            }
-        },
-        "serve-static": {
-            "executor": "nx:run-commands",
-            "dependsOn": ["link:resources"],
-            "options": {
-                "command": "npx http-server apps/nt-stylesheet/examples -p 8000 -o"
-            }
-        },
-        "watch": {
             "executor": "@nx/vite:build",
             "options": {
-                "watch": true,
-                "outputPath": "dist/apps/nt-stylesheet",
-                "configFile": "apps/nt-stylesheet/vite.config.dev.ts"
+                "configFile": "{projectRoot}/vite.config.ts",
+                "outputPath": "{projectRoot}/dist"
             }
         },
         "dev": {
-            "dependsOn": ["watch", "serve-static"]
+            "executor": "@nx/vite:build",
+            "options": {
+                "configFile": "{projectRoot}/vite.config.ts",
+                "outputPath": "{projectRoot}/dist",
+                "watch": true
+            }
         }
     }
 }

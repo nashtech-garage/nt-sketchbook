@@ -63,3 +63,7 @@ Wrap a native checkbox input inside <label class="nt-switch"> to apply the base 
     </label>
 </main>
 ```
+
+---
+
+[Back to docs index](README.md)

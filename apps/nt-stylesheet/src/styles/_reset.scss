@@ -27,6 +27,7 @@ html {
     line-height: var(--nt-line-height-base, 1.5);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 100%;
 }
 
 /* Body reset */
@@ -35,6 +36,7 @@ body {
     background-color: var(--nt-bg-body, #fff);
     font-size: inherit;
     line-height: inherit;
+    height: 100%;
 }
 
 /* Remove default spacing on common elements */
