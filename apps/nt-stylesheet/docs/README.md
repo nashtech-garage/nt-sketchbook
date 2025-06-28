@@ -1,76 +1,86 @@
+Here is your updated **NT Stylesheet Documentation** with improved structure, clearer formatting, and added placeholder links and examples:
+
+---
+
 # NT Stylesheet Documentation
 
 This directory contains documentation for the **NT Stylesheet** package, which provides the core CSS framework and design tokens for the NT Sketchbook ecosystem.
 
+---
+
 ## Overview
 
-NT Stylesheet delivers:
+**NT Stylesheet** delivers a lightweight, customizable set of CSS utilities and components built for consistency across NT products. It includes:
+
+-   **Design Tokens**: Standardized values for colors, spacing, typography, and more.
+-   **Utility Classes**: Ready-to-use classes for layout, spacing, alignment, and responsiveness.
+-   **UI Components**: Pre-styled, accessible, and responsive interface elements.
+-   **JavaScript Enhancements**: Optional utilities for interactivity (modals, dropdowns, etc.).
+
+---
 
 ## Installation
 
-To use NT Stylesheet in your project:
+### 1. Install via npm
 
-1. Install the package via npm:
+```bash
+npm install @nashtech/nt-stylesheet
+```
 
-    ```bash
-    npm install @nashtech/nt-stylesheet
-    ```
+### 2. Import in your JavaScript or TypeScript entry file
 
-2. Import the CSS file in your main JavaScript or TypeScript file:
+```javascript
+import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech/nt-stylesheet/dist/nt-stylesheet.js'
+```
 
-    ```javascript
-    import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
-    import '@nashtech/nt-stylesheet/dist/nt-stylesheet.js'
-    ```
-
-3. Optionally, import the CSS file in your HTML file:
+### 3. Or include via CDN in your HTML
 
 ```html
 <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@nashtech/nt-stylesheet/dist/nt-stylesheet.css"
 />
-
-4. Use the provided CSS classes and design tokens in your components.
-## Components The NT Stylesheet package includes a variety of
-components, each designed to be reusable and customizable. Below is a
-list of some of the key components: - **Avatars**: A component for
-displaying user profile pictures or icons. - **Badges**: A component
-for displaying small labels or indicators. - **Accordions**: A
-component for displaying collapsible content sections. - **Tabs**: A
-component for displaying content in tabbed navigation. -
-**Carousels**: A component for displaying a series of images or
-content in a sliding format. - **Breadcrumbs**: A component for
-displaying the current page's location within a hierarchy. -
-**Pagination**: A component for navigating through a series of pages.
-- **Datepickers**: A component for selecting dates and times. -
-**Sliders**: A component for selecting a value from a range. -
-**Toolbars**: A component for displaying a set of actions or controls.
-- **Progress Indicators**: A component for displaying the progress of
-a task. - **Notifications**: A component for displaying alerts and
-messages. - **Toasts**: A component for displaying brief
-notifications. - **Chips**: A component for displaying small pieces of
-information. - **Tags**: A component for displaying labels or
-keywords. - **Lists**: A component for displaying a series of items. -
-**Trees**: A component for displaying hierarchical data. -
-**Loaders**: A component for indicating loading states. -
-**Dividers**: A component for separating content. - **Progress
-Circles**: A component for displaying progress in a circular format. -
-**Ratings**: A component for displaying ratings or scores. - **Color
-Pickers**: A component for selecting colors. - **File Uploads**: A
-component for uploading files. - **Search Bars**: A component for
-searching content. - **Steppers**: A component for displaying a series
-of steps in a process. - **Wizards**: A component for guiding users
-through a series of steps. - **Contextual Help**: A component for
-providing help and guidance. - **Image Galleries**: A component for
-displaying a collection of images. - **Maps**: A component for
-displaying maps and geolocation data. - **Charts**: A component for
-displaying data visualizations. - **Graphs**: A component for
-displaying data in graphical format. - **Data Grids**: A component for
-displaying tabular data with advanced features. - **Data
-Visualization**: A component for displaying data in various formats. -
-**Data Tables**: A component for displaying tabular data with sorting
-and filtering. - **Accessibility**: A set of styles and components
-designed to be accessible to all users, including those with
-disabilities.
+<script
+    src="https://cdn.jsdelivr.net/npm/@nashtech/nt-stylesheet/dist/nt-stylesheet.js"
+    defer
+></script>
 ```
+
+### 4. Use the CSS classes and design tokens in your components
+
+Example:
+
+```html
+<button class="nt-btn nt-btn-primary">Submit</button>
+```
+
+---
+
+## Components
+
+NT Stylesheet includes a growing list of reusable and composable UI components.
+
+### Common Components
+
+| Component | Description             | Example Class |
+| --------- | ----------------------- | ------------- |
+| Name      | component's description | examples      |
+
+_To be updated._
+
+---
+
+## Customization
+
+You can customize NT Stylesheet in several ways:
+
+-   Override CSS variables using `:root` or component scopes
+-   Extend component styles using custom classes
+-   Import SCSS files and modify tokens before compilation (Sass users)
+
+---
+
+## Contributions
+
+-   Following repository's bootstrap instruction
