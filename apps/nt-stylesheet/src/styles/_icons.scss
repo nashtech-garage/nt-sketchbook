@@ -19,12 +19,25 @@
 
     &:focus,
     &:active {
-        color: white;
+        border: none;
+        outline: none;
     }
 
     &-dashboard {
         &::before {
             content: '\F0A1D';
+        }
+    }
+
+    &-cart {
+        &::before {
+            content: '\F0111';
+        }
+    }
+
+    &-iot {
+        &::before {
+            content: '\F07D1';
         }
     }
 
@@ -43,6 +56,12 @@
     &-lightning {
         &::before {
             content: '\F140C';
+        }
+    }
+
+    &-sun {
+        &::before {
+            content: '\F05A8';
         }
     }
 
@@ -79,6 +98,24 @@
     &-widgets {
         &::before {
             content: '\F1355';
+        }
+    }
+
+    &-chevron-right {
+        &::before {
+            content: '\F0142';
+        }
+    }
+
+    &-menu {
+        &::before {
+            content: '\F035C';
+        }
+    }
+
+    &-bell {
+        &::before {
+            content: '\F009C';
         }
     }
 }

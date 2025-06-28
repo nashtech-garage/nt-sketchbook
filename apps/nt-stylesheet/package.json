@@ -1,6 +1,6 @@
 {
     "name": "@nashtech/stylesheet",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Style sheet for the NT Design System",
     "scripts": {
         "build": "pnpm vite build",
@@ -29,9 +29,9 @@
     ],
     "exports": {
         ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.js",
-            "require": "./dist/index.cjs"
+            "types": "./dist/types/index.d.ts",
+            "import": "./dist/scripts/index.js",
+            "require": "./dist/scripts/index.cjs"
         },
         "./css/nt.css": {
             "default": "./dist/css/nt.css"

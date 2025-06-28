@@ -1,0 +1,60 @@
+{
+    "version": "1.0.0",
+    "components": [
+        {
+            "name": "Alert",
+            "id": "alert",
+            "type": "Control"
+        },
+        {
+            "name": "Avatar",
+            "id": "avatar",
+            "type": "Control"
+        },
+        {
+            "name": "Badge",
+            "id": "badge",
+            "type": "Control"
+        },
+        {
+            "name": "Breadcrumb",
+            "id": "breadcrumb",
+            "type": "Control"
+        },
+        {
+            "name": "Card",
+            "id": "card",
+            "type": "Control"
+        },
+        {
+            "name": "Checkbox",
+            "id": "checkbox",
+            "type": "Control"
+        },
+        {
+            "name": "Inputs",
+            "id": "inputs",
+            "type": "Control"
+        },
+        {
+            "name": "Label",
+            "id": "label",
+            "type": "Control"
+        },
+        {
+            "name": "Modal",
+            "id": "modal",
+            "type": "Control"
+        },
+        {
+            "name": "Radio Group",
+            "id": "radio-group",
+            "type": "Control"
+        },
+        {
+            "name": "Switch",
+            "id": "switch",
+            "type": "Control"
+        }
+    ]
+}

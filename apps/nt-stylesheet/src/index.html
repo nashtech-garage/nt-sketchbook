@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>NT Sketchbook Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/nt.css" />
+    <script src="scripts/nt.js"></script>
+    <script defer src="scripts/nt-menu-toggle.js"></script>
+</head>
+<body>
+<div class="nt-layout">
+    <!-- Sidebar Navigation -->
+    <nav class="nt-navbar" aria-label="Sidebar">
+        <!-- Header Section -->
+        <div class="nt-navbar-header">
+            <div class="nt-navbar-header-logo">
+                <img alt="logo" src="assets/name.png"/>
+            </div>
+            <div class="nt-navbar-header-buttons">
+                <i class="nti nti-menu"></i>
+                <i class="nti nti-bell"></i>
+            </div>
+        </div>
+
+        <!-- Search Input -->
+        <input
+            type="text"
+            class="nt-input nt-input-default nt-navbar-search"
+            placeholder="Search..."
+        />
+
+        <!-- Menu Groups -->
+        <nav class="nt-navbar-groups">
+
+            <!-- Group 1: Dashboard -->
+            <div class="nt-navbar-group">
+                <p class="nt-navbar-title">Dashboard</p>
+                <ul class="nt-navbar-list">
+                    <li class="nt-navbar-item active">
+                                <span
+                                    class="nt-navbar-item-icon nti nti-dashboard"
+                                ></span>
+                        <a href="#">StepOne</a>
+                    </li>
+
+                    <li class="nt-navbar-item">
+                                <span
+                                    class="nt-navbar-item-icon nti nti-iot"
+                                >️</span
+                                >
+                        <a href="#">IoT</a>
+                    </li>
+                    <li class="nt-navbar-item">
+                                <span
+                                    class="nt-navbar-item-icon nti nti-cart"
+                                >️</span
+                                >
+                        <a href="#">e-Commerce</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Group 2: Components -->
+            <div class="nt-navbar-group">
+                <p class="nt-navbar-title">Features</p>
+                <ul class="nt-navbar-list">
+                    <li class="nt-navbar-item nt-navbar-primary">
+                        <div class="nt-navbar-link">
+                            <span class="nt-navbar-item-icon nti nti-shapes"></span>
+                            <a href="#">Auth</a>
+                            <span class="nt-navbar-item-icon nti nti-chevron-right"></span>
+                        </div>
+
+                        <!-- Auth Menu -->
+                        <ul class="nt-navbar-secondary">
+                            <li class="nt-navbar-secondary-item">
+                                <a href="#">Login</a>
+                            </li>
+                            <li class="nt-navbar-secondary-item">
+                                <a href="#">Register</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nt-navbar-item nt-navbar-primary">
+                        <div class="nt-navbar-link">
+                            <span class="nt-navbar-item-icon nti nti-widgets"></span>
+                            <a href="#" id="nt-widget-title">Widgets</a>
+                            <span class="nt-navbar-item-icon nti nti-chevron-right"></span>
+                        </div>
+                        <!-- Widgets Menu -->
+                        <ul class="nt-navbar-secondary" id="nt-widget-list">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Footer -->
+        <div class="nt-navbar-footer">
+            <div class="nt-copyright">
+                <p>© NashTech 2025</p>
+                <p id="sdk-version">Version 0.0.1</p>
+            </div>
+            <div class="nt-branding">
+                <img class="nt-logo" />
+                <p class="nt-slogan">
+                    Powered by Nashtech Accelerators
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="nt-main">
+        <header class="nt-main-header">
+            <div class="nt-main-header-greeting">Good morning, Alexandra!</div>
+            <div class="nt-main-header-actions">
+                <!-- Theme switch, avatars -->
+                <div>
+                    <i class="nti nti-sun mr-2"></i>
+                    <span class="nt-label nt-label-hint">Light</span>
+                    <label class="nt-switch ml-2" for="nt-theme-toggle">
+                        <input id="nt-theme-toggle" type="checkbox" class="nt-switch-input" />
+                        <span class="nt-switch-slider"></span>
+                    </label>
+                </div>
+
+                <div class="nt-avatar-wrapper-xs ml-4">
+                    <img class="nt-avatar nt-avatar-xs" src="https://media.istockphoto.com/id/1180778899/vi/anh/c%C3%B4-g%C3%A1i-tr%E1%BA%BB-ch%E1%BB%A5p-%E1%BA%A3nh.jpg?s=1024x1024&w=is&k=20&c=JUsS1ZSXOkVqeBRUF3OGo63ZuaV7iQpI4rBChMBd12s=" />
+                    <span class="nt-avatar-status nt-avatar-status--online"></span>
+                </div>
+            </div>
+        </header>
+        <div class="nt-main-container" id="main-container">
+            <div class="nt-page">
+                <!-- Header -->
+                <div class="nt-page-header">
+                    <h2 class="nt-title">Dashboard</h2>
+                    <p class="nt-sub-title">Insights report about team activities, products & services performance</p>
+                </div>
+
+                <!-- Body -->
+                <div class="nt-page-body" id="page-body">
+                    <!-- Filters -->
+                    <section class="nt-section filters">
+                    <!-- Filter controls -->
+                    </section>
+                    <!-- Metrics -->
+                    <section class="nt-section metrics">
+                    <!-- Single metrics and quick stats -->
+                    </section>
+                    <!-- Charts -->
+                    <section class="nt-section charts">
+                    <!-- Detail charts, graphs -->
+                    </section>
+                    <!-- Highlighted Tasks -->
+                    <section class="nt-section tasks">
+                    <h2>Highlighted Stories</h2>
+                    <!-- Task list items -->
+                    </section>
+
+                    <!-- Team Activities -->
+                    <aside class="nt-section team-activities">
+                        <h2>Team Activities</h2>
+                        <!-- Team progress and status -->
+                    </aside>
+
+                    <!-- Data Grid -->
+                    <section class="nt-section data-grid">
+                        <h2>Grid Data</h2>
+                        <!-- Table component -->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script type="text/javascript">
+    const updateVersion = () => {
+        return fetch('package.json')
+            .then((res) => res.json())
+            .then((data) => {
+                const skdVersionEl = document.getElementById('sdk-version')
+                if (skdVersionEl) {
+                    skdVersionEl.innerText = data.version
+                }
+            });
+    }
+
+    const renderComponentsList = (data) => {
+        const title = document.getElementById('nt-widget-title');
+        const list = document.getElementById('nt-widget-list');
+
+        data.components.forEach((item) => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+
+            li.className = 'nt-navbar-secondary-item';
+            li.id = item.id;
+
+            if (item.icon) {
+                const span  = document.createElement('span');
+                span.classList = `nt-navbar-item-icon nti ${item.icon}`;
+                li.appendChild(span);
+            }
+
+            a.innerText = item.name;
+            a.href = `javascript:void(0)`;
+
+            li.appendChild(a);
+            list.appendChild(li);
+        });
+
+        title.innerText = `${title.innerText} - v${data.version}`;
+    }
+
+    const initWidgetsList = () => {
+        return fetch('components-manifest.json')
+            .then((res) => res.json())
+            .then((data) => renderComponentsList(data));
+    }
+
+    const initMenu = () => {
+        const items = document.getElementsByClassName('nt-navbar-item');
+        if (items.length) {
+            Array.from(items).forEach((el) => {
+                el.onclick = () => {
+                    setMainMenuItemActive(el)
+                }
+
+                initSubMenu(el);
+            });
+        }
+        return true;
+    }
+
+    const initSubMenu = (menu) => {
+        const items = menu.getElementsByClassName('nt-navbar-secondary-item');
+
+        if (items.length) {
+            Array.from(items).forEach((item) => {
+                item.onclick = () => {
+                    const activated = menu.getElementsByClassName('active');
+
+                    if (activated) {
+                        Array.from(activated).forEach((el) => (el.className = 'nt-navbar-secondary-item'));
+                    }
+
+                    item.className = 'nt-navbar-secondary-item active'
+                    renderContent(`examples/${item.id}.html`)
+                };
+            })
+        }
+        return true;
+    }
+
+    const setMainMenuItemActive = (el) => {
+        const activated = document.getElementsByClassName('nt-navbar-item active');
+
+        if (activated.length) {
+            Array.from(activated).forEach((item) => {
+                let className = 'nt-navbar-item';
+
+                if (item.className.indexOf('nt-navbar-primary') > -1) {
+                    className = `${className} nt-navbar-primary`;
+                }
+
+                item.className = className;
+            });
+        }
+
+        let activeClassName = 'nt-navbar-item active';
+
+        if (el.className.indexOf('nt-navbar-primary') > -1) {
+            activeClassName = `nt-navbar-primary ${activeClassName} open`;
+        }
+
+        el.className = activeClassName;
+    }
+
+    const renderContent = async (url) => {
+        const mainContainer = document.getElementById('main-container');
+        try {
+            const response = await fetch(url)
+            const text = await response.text()
+            const parser = new DOMParser()
+            const doc = parser.parseFromString(text, 'text/html')
+            const newPage = doc.querySelector('.nt-page')
+
+            if (newPage) {
+                mainContainer.innerHTML = newPage.innerHTML
+            } else {
+                mainContainer.innerHTML = `<p class="text-red-500">Could not load content from ${url}</p>`
+            }
+        } catch (err) {
+            mainContainer.innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
+        }
+    }
+
+    updateVersion()
+    initWidgetsList()
+        .then(initMenu)
+</script>
+
+</body>
+</html>
+
+

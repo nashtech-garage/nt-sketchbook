@@ -139,3 +139,7 @@ Use `<span class="nt-input-icon">` for custom emojis or icon fonts.
 -   `.nt-input-container`: Enables icon positioning
 -   `.nt-input-container-[variant]` – Enables status icon per variant
 -   `.nt-input-icon`: Icon custom
+
+---
+
+[Back to docs index](README.md)

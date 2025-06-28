@@ -46,3 +46,7 @@ Wrap your checkbox component inside `<label class="nt-checkbox">` to get the hor
     </label>
 </main>
 ```
+
+---
+
+[Back to docs index](README.md)

@@ -62,3 +62,7 @@ All alerts include a close button:
 -   Add aria-label="Close" for accessibility.
 
 Note: Dismissing functionality should be implemented with JavaScript if needed.
+
+---
+
+[Back to docs index](README.md)

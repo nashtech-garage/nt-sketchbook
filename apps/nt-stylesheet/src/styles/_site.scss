@@ -9,4 +9,5 @@
 @use 'utilities';
 @use 'themes/nt-theme';
 @use 'branding/nashtech';
+@use 'materialdesignicons.min.css';
 @include fns.create-theme('nt-stylesheet');

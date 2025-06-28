@@ -32,3 +32,7 @@ Use semantic `<label>` elements with the appropriate NT classes:
 
 -   `nt-label-hint` – For auxiliary or instructional text
 -   `nt-label-form-field`– For standard form field labels
+
+---
+
+[Back to docs index](README.md)

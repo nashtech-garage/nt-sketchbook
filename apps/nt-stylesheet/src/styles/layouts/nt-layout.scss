@@ -1,45 +1,69 @@
 @use 'side-menu' as side-menu;
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use './page' as page;
 
-@mixin nt-layout-push-menu($menu-width: 16.25rem) {
-    .nt-layout {
+.nt-layout {
+    display: grid;
+    grid-template: 100% / 18.75rem 1fr;
+    grid-template-areas: 'nt-navbar nt-main';
+    height: 100%;
+}
+
+.nt-navbar {
+    grid-area: nt-navbar;
+
+    @include side-menu.create-side-menu;
+}
+
+.nt-main {
+    display: grid;
+    grid-area: nt-main;
+    grid-template-areas:
+        'nt-main-header'
+        'nt-main-container';
+    grid-template-rows: auto 1fr;
+    height: 100%;
+
+    &-header {
+        grid-area: nt-main-header;
         display: grid;
-        grid-template: auto 1fr/ 0 1fr;
-        grid-template-areas:
-            'side-menu nav'
-            'side-menu content';
-        height: 100%;
+        grid-template-areas: 'nt-main-header-greeting nt-main-header-actions';
+        grid-template-columns: 1fr auto;
+        padding: vars.$nt-spacing-lg;
+        align-items: center;
 
-        .nt-side-menu {
-            grid-area: side-menu;
-
-            @include side-menu.create-side-menu;
-        }
-
-        &-nav {
-            grid-area: nav;
-            background: var(--nt-bg-nav, #333);
-            color: white;
-            padding: 1rem;
-            display: flex;
+        &-greeting {
+            display: grid;
+            grid-area: nt-main-header-greeting;
+            font-size: 1.25rem;
+            font-weight: vars.$nt-font-weight-bold;
+            color: vars.$nt-color-primary-100;
             align-items: center;
-            justify-content: space-between;
         }
 
-        &-content {
-            grid-area: content;
-            padding: 1rem;
-            background: var(--nt-bg-content, #f9f9f9);
-            overflow-y: auto;
-        }
-
-        &.menu-active {
-            grid-template-columns: $menu-width 1fr;
-
-            .nt-side-menu {
-                visibility: visible;
-                opacity: 1;
-                transition: opacity 0.3s ease;
-            }
+        &-actions {
+            display: grid;
+            grid-area: nt-main-header-actions;
+            grid-template-columns: auto auto auto;
+            align-items: center;
+            align-self: end;
         }
     }
+
+    &-container {
+        grid-area: nt-main-container;
+        padding-left: vars.$nt-spacing-lg;
+        padding-bottom: vars.$nt-spacing-lg;
+        padding-right: vars.$nt-spacing-lg;
+
+        @include page.nt-page; // Assuming this mixin includes padding, background, etc.
+    }
+}
+
+.nt-footer {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: #999;
 }

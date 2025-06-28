@@ -86,3 +86,7 @@ Use one of the following classes inside .nt-modal-box:
 -   The modal uses `tabindex="-1"` and can be focused.
 -   Pressing ESC or clicking on the backdrop will close the modal.
 -   Use semantic HTML (e.g. <h2> for title) for better screen reader support.
+
+---
+
+[Back to docs index](README.md)

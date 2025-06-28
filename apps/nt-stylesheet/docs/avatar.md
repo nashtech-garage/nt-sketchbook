@@ -61,3 +61,7 @@ Add one of the following modifiers to display user status:
 <!-- Busy -->
 <span class="nt-avatar-status nt-avatar-status--busy"></span>
 ```
+
+---
+
+[Back to docs index](README.md)

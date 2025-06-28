@@ -1,112 +1,133 @@
 @use '../animation' as effects;
+@use '../variables' as vars;
+@use '../utilities' as utils;
 
-.nt-page {
-    display: grid;
-    grid-template-rows: auto auto auto 1fr;
-    grid-template-areas:
-        'nt-page-header'
-        'nt-page-bookmarks'
-        'nt-page-filters'
-        'nt-page-body';
-    padding: 1rem;
-    background: var(--nt-bg-page, #fff);
-    height: 100%;
-
-    &-header {
-        grid-area: nt-page-header;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 1rem;
-        border-bottom: 0.0625rem solid var(--nt-border-color, #ddd);
-
-        &-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--nt-text-color, #333);
-        }
-
-        &-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        &-btn {
-            background: var(--nt-primary, #007bff);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 0.25rem;
-
-            &:hover {
-                background: var(--nt-primary-dark, #0056b3);
-            }
-        }
-    }
-
-    &-bookmarks {
-        grid-area: nt-page-bookmarks;
-        display: flex;
-        gap: 0.5rem;
-        margin-top: 1rem;
-
-        &-btn {
-            background: var(--nt-secondary, #6c757d);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 0.25rem;
-
-            &:hover {
-                background: var(--nt-secondary-dark, #5a6268);
-            }
-        }
-    }
-
-    &-filters {
-        grid-area: nt-page-filters;
-        background: var(--nt-bg-filters, #f1f1f1);
-        padding: 1rem;
-        border-radius: 0.25rem;
-        margin-top: 1rem;
+@mixin nt-page {
+    .nt-page {
+        display: grid;
+        grid-template-rows: auto auto auto 1fr;
+        grid-template-areas:
+            'nt-page-header'
+            'nt-page-bookmarks'
+            'nt-page-filters'
+            'nt-page-body';
 
         &-header {
+            grid-area: nt-page-header;
+            display: grid;
+            grid-template-columns: auto 15rem;
+            grid-template-areas:
+                'nt-title nt-header-actions'
+                'nt-sub-title nt-header-actions';
+
+            .nt-title {
+                @include utils.font-size('2xl');
+                grid-area: nt-title;
+                font-weight: bold;
+                color: vars.$nt-text-body;
+            }
+
+            .nt-sub-title {
+                grid-area: nt-sub-title;
+
+                @include utils.font-size('md');
+                font-weight: vars.$nt-font-weight-light;
+                color: vars.$nt-color-gray-50;
+            }
+
+            &-actions {
+                grid-area: nt-header-actions;
+            }
+
+            &-btn {
+                background: var(--nt-primary, #007bff);
+                color: vars.$nt-color-white;
+                border: none;
+                padding: vars.$nt-spacing-xs vars.$nt-spacing-md;
+                cursor: pointer;
+                border-radius: vars.$nt-border-radius-sm;
+
+                &:hover {
+                    background: var(--nt-primary-dark, #0056b3);
+                }
+            }
+        }
+
+        &-bookmarks {
+            grid-area: nt-page-bookmarks;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: vars.$nt-spacing-xs;
+            margin-top: vars.$nt-spacing-md;
+
+            &-btn {
+                background: var(--nt-secondary, #6c757d);
+                color: vars.$nt-color-white;
+                border: none;
+                padding: vars.$nt-spacing-xs vars.$nt-spacing-md;
+                cursor: pointer;
+                border-radius: vars.$nt-border-radius-sm;
+
+                &:hover {
+                    background: var(--nt-secondary-dark, #5a6268);
+                }
+            }
         }
 
-        &-title {
-            font-size: 1.2rem;
-            font-weight: bold;
+        &-filters {
+            grid-area: nt-page-filters;
+            background: var(--nt-bg-filters, vars.$nt-bg-light);
+            padding: vars.$nt-spacing-md;
+            border-radius: vars.$nt-border-radius-sm;
+            margin-top: vars.$nt-spacing-md;
+
+            &-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            &-title {
+                @include utils.font-size('lg');
+                font-weight: bold;
+            }
+
+            &-toggle {
+                background: none;
+                border: none;
+                cursor: pointer;
+
+                @include utils.font-size('lg');
+            }
+
+            &-content {
+                margin-top: vars.$nt-spacing-xs;
+            }
         }
 
-        &-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
+        &-body {
+            grid-area: nt-page-body;
+            background: var(--nt-bg-body, vars.$nt-bg-body);
+            border-radius: vars.$nt-border-radius-sm;
+            margin-top: vars.$nt-spacing-md;
         }
 
-        &-content {
-            margin-top: 0.5rem;
+        &-section {
+            margin-bottom: 2rem;
+
+            &-title {
+                @include utils.font-size('xl');
+            }
+
+            &-content {
+                @include utils.font-size('md');
+            }
         }
     }
 
-    &-body {
-        grid-area: nt-page-body;
-        background: var(--nt-bg-body, white);
-        padding: 1rem;
-        border-radius: 0.25rem;
-        margin-top: 1rem;
+    .nt-page-filters,
+    .nt-page-bookmarks,
+    .nt-page-header,
+    .nt-page-body {
+        @include effects.fade-in;
     }
-}
-
-.nt-page-filters,
-.nt-page-bookmarks,
-.nt-page-header,
-.nt-page-body {
-    @include effects.fade-in;
 }
