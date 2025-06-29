@@ -1,60 +1,75 @@
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-} from '@/components/radix/dialog'
 import { cn } from '@/lib/utils'
-import { type DialogProps } from '@radix-ui/react-dialog'
-import React from 'react'
+import React, { type ReactNode } from 'react'
+import ReactDOM from 'react-dom'
+
+export type ModalSize = 'sm' | 'md' | 'lg'
 
 export type ModalProps = {
     isOpen: boolean
-    title?: React.ReactNode
-    description?: React.ReactNode
-    footer?: React.ReactNode
+    title: string
+    onClose: () => void
+    description?: string
+    children?: ReactNode
+    footer?: ReactNode
+    size?: ModalSize
     className?: string
-    classNameFooter?: string
     classNameHeader?: string
-} & DialogProps
+}
 
 export const Modal = (props: ModalProps) => {
     const {
-        isOpen = false,
+        isOpen,
         title,
         description,
+        children,
+        footer,
+        onClose,
+        size = 'sm',
         className = '',
-        footer = null,
-        classNameHeader = '',
-        classNameFooter = '',
-        children = '',
-        ...dialogProps
+        classNameHeader = ''
     } = props
 
-    return (
-        <Dialog open={isOpen} {...dialogProps}>
-            <DialogContent
-                className={cn('sm:max-w-[425px]', className)}
+    if (!isOpen) {
+        return null
+    }
+
+    return ReactDOM.createPortal(
+        <div className="nt-modal show" style={{ display: 'block' }}>
+            <div
+                className={cn(
+                    'nt-modal-box',
+                    'nt-modal-box-' + size,
+                    className
+                )}
             >
-                {(title || description) && (
-                    <DialogHeader className={classNameHeader}>
-                        {title && <DialogTitle>{title}</DialogTitle>}
+                <div
+                    className={cn('nt-modal-header', classNameHeader)}
+                >
+                    <div>
+                        <h2 className="nt-modal-title">{title}</h2>
                         {description && (
-                            <DialogDescription>
+                            <p className="nt-modal-description">
                                 {description}
-                            </DialogDescription>
+                            </p>
                         )}
-                    </DialogHeader>
-                )}
-                {children}
+                    </div>
+                    <button
+                        className="nt-modal-close"
+                        onClick={onClose}
+                        aria-label="Close modal"
+                        type="button"
+                    >
+                        &times;
+                    </button>
+                </div>
+
+                <div className="nt-modal-content">{children}</div>
+
                 {footer && (
-                    <DialogFooter className={classNameFooter}>
-                        {footer}
-                    </DialogFooter>
+                    <div className="nt-modal-footer">{footer}</div>
                 )}
-            </DialogContent>
-        </Dialog>
+            </div>
+        </div>,
+        document.body
     )
 }
