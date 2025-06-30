@@ -9,7 +9,6 @@
         <title>NT Stylesheet Examples</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="./dist/css/nt.css" />
-        <script src="./dist/scripts/nt.js"></script>
     </head>
 
     <body class="h-screen bg-gray-100 text-gray-800">
@@ -137,37 +136,7 @@
                 </p>
             </main>
         </div>
-        <script>
-            document.querySelectorAll('.nav-link').forEach((link) => {
-                link.addEventListener('click', async (e) => {
-                    e.preventDefault()
-                    const url = e.currentTarget.getAttribute('href')
-                    try {
-                        const response = await fetch(url)
-                        const text = await response.text()
-                        const parser = new DOMParser()
-                        const doc = parser.parseFromString(
-                            text,
-                            'text/html'
-                        )
-
-                        const newMain = doc.querySelector('main')
-                        if (newMain) {
-                            document.getElementById(
-                                'main-content'
-                            ).innerHTML = newMain.innerHTML
-                        } else {
-                            document.getElementById(
-                                'main-content'
-                            ).innerHTML = `<p class="text-red-500">Could not load content from ${url}</p>`
-                        }
-                    } catch (err) {
-                        document.getElementById(
-                            'main-content'
-                        ).innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
-                    }
-                })
-            })
-        </script>
     </body>
+    <script src="./dist/scripts/nt.js"></script>
+    <script src="./scripts/main.js"></script>
 </html>
