@@ -51,12 +51,16 @@
             } else {
                 document.getElementById(
                     'main-content'
-                ).innerHTML = `<p class="text-red-500">Could not load content from ${url}</p>`
+                ).innerHTML = `<p class="text-red-500">Could not load content from ${encodeURIComponent(
+                    url
+                )}</p>`
             }
         } catch (err) {
             document.getElementById(
                 'main-content'
-            ).innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
+            ).innerHTML = `<p class="text-red-500">Error loading ${encodeURIComponent(
+                url
+            )}</p>`
         }
     }
     const url = window.location.href
