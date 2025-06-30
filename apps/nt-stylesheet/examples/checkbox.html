@@ -1,4 +1,4 @@
-<main>
+<main id="main-content" class="flex-1 p-10 overflow-auto">
     <h2>Basic Checkbox</h2>
     <!-- Default Checkbox -->
     <label class="nt-checkbox">
@@ -31,3 +31,34 @@
         Indeterminate disabled
     </label>
 </main>
+<script>
+    const fetchPage = async (url) => {
+        try {
+            const response = await fetch(url)
+            const text = await response.text()
+            const parser = new DOMParser()
+            const doc = parser.parseFromString(text, 'text/html')
+            const newMain = doc.querySelector('main')
+            if (newMain) {
+                document.getElementById('main-content').innerHTML =
+                    newMain.innerHTML
+                document.getElementById(
+                    'indeterminate'
+                ).indeterminate = true
+                document.getElementById(
+                    'indeterminate-disabled'
+                ).indeterminate = true
+            } else {
+                document.getElementById(
+                    'main-content'
+                ).innerHTML = `<p class="text-red-500">Could not load content from ${url}</p>`
+            }
+        } catch (err) {
+            document.getElementById(
+                'main-content'
+            ).innerHTML = `<p class="text-red-500">Error loading ${url}</p>`
+        }
+    }
+    const url = window.location.href
+    fetchPage(url)
+</script>
