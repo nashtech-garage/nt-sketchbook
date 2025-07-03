@@ -1,79 +1,83 @@
 import type { Meta, StoryFn } from '@storybook/react'
 import { User } from 'lucide-react'
-import React from 'react'
 
 import type { ButtonProps } from './button'
 import { Button } from './button'
 
-export default {
+const meta: Meta<ButtonProps> = {
     title: 'Components/Button',
     component: Button,
     argTypes: {
         variant: {
-            options: [
-                'primary',
-                'secondary',
-                'outline',
-                'outline-secondary',
-            ],
-            control: { type: 'select' },
+            options: ['primary', 'secondary', 'success', 'gradient'],
+            control: { type: 'select' }
         },
         size: {
-            options: ['small', 'medium', 'large'],
-            control: { type: 'select' },
+            options: ['sm', 'md', 'lg'],
+            control: { type: 'select' }
         },
-    },
-} as Meta
+        outline: {
+            control: { type: 'boolean' }
+        }
+    }
+}
 
-const Template: StoryFn<ButtonProps> = (args: ButtonProps) => (
-    <Button {...args} />
-)
+export default meta
 
-export const Primary: StoryFn<ButtonProps> = Template.bind({})
+const Template: StoryFn<ButtonProps> = (args) => <Button {...args} />
+
+export const Primary = Template.bind({})
 Primary.args = {
-    onClick: () => alert('Button clicked!'),
     variant: 'primary',
-    children: 'Primary',
+    children: 'Primary'
 }
 
-export const Secondary: StoryFn<ButtonProps> = Template.bind({})
+export const Secondary = Template.bind({})
 Secondary.args = {
-    onClick: () => alert('Button clicked!'),
     variant: 'secondary',
-    children: 'Secondary',
+    children: 'Secondary'
 }
 
-export const Outline: StoryFn<ButtonProps> = Template.bind({})
+export const Outline = Template.bind({})
 Outline.args = {
-    onClick: () => alert('Button clicked!'),
-    variant: 'outline',
-    children: 'Outline',
+    variant: 'primary',
+    outline: true,
+    children: 'Outline'
 }
 
-export const OutlineSecondary: StoryFn<ButtonProps> = Template.bind(
-    {},
-)
+export const OutlineSecondary = Template.bind({})
 OutlineSecondary.args = {
-    onClick: () => alert('Button clicked!'),
-    variant: 'outline-secondary',
-    children: 'Outline Secondary',
-}
-export const WithIcon: StoryFn<ButtonProps> = Template.bind({})
-WithIcon.args = {
-    onClick: () => alert('Button with icon clicked!'),
-    variant: 'primary',
-    children: 'With Icon',
-    icon: (
-        <span role="img" aria-label="icon">
-            🚀
-        </span>
-    ),
+    variant: 'secondary',
+    outline: true,
+    children: 'Outline Secondary'
 }
 
-export const Icon: StoryFn<ButtonProps> = Template.bind({})
-Icon.args = {
-    onClick: () => alert('Icon clicked!'),
+export const Success = Template.bind({})
+Success.args = {
+    variant: 'success',
+    children: 'Success'
+}
+
+export const Gradient = Template.bind({})
+Gradient.args = {
+    variant: 'gradient',
+    children: 'Gradient'
+}
+
+export const WithIcon = Template.bind({})
+WithIcon.args = {
     variant: 'primary',
-    children: <User />,
-    size: 'icon',
+    children: (
+        <>
+            🚀 <span className="ml-1">With Icon</span>
+        </>
+    )
+}
+
+export const IconOnly = Template.bind({})
+IconOnly.args = {
+    variant: 'primary',
+    size: 'sm',
+    children: <User size={15} />,
+    'aria-label': 'User Icon'
 }

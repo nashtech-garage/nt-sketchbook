@@ -1,85 +1,55 @@
 import { cn } from '@/lib/utils'
-import { cva, type VariantProps } from 'class-variance-authority'
-import * as React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
-const buttonVariants = cva(
-    'inline-flex items-center justify-center text-sm font-medium shadow-md',
-    {
-        variants: {
-            variant: {
-                primary:
-                    'bg-primary text-white hover:bg-shade-primary-80 active:bg-shade-primary-110 disabled:bg-shade-primary-20 disabled:text-white',
-                secondary:
-                    'bg-shade-secondary-1 text-white hover:bg-shade-secondary-1-80 active:bg-shade-secondary-1-110 disabled:bg-shade-secondary-1-20 disabled:text-white',
-                outline:
-                    'border border-primary text-primary hover:shadow active:bg-shade-primary-10 disabled:bg-primary-20 disabled:text-white',
-                'outline-secondary':
-                    'border border-shade-secondary-1 text-shade-secondary-1 hover:shadow active:bg-shade-secondary-10 disabled:bg-shade-secondary-20 disabled:text-white',
-                ghost: 'bg-white text-black hover:bg-shade-neutral-10 active:bg-shade-neutral-20 disabled:bg-white disabled:text-black',
-            },
-            size: {
-                extraSmall: 'h-6 px-2 text-xs',
-                small: 'h-8 px-3 text-xs',
-                medium: 'h-9 px-4 py-2 text-sm',
-                large: 'h-10 px-8 text-md',
-                icon: 'h-9 w-9 p-3',
-            },
-            rounded: {
-                true: 'rounded-full',
-                false: 'rounded',
-            },
-        },
-        defaultVariants: {
-            variant: 'primary',
-            size: 'small',
-        },
-    },
-)
+type ButtonVariant =
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'gradient'
+    | 'neutral'
+type ButtonSize = 'sm' | 'md' | 'lg'
 
-export interface ButtonProps
-    extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-        VariantProps<typeof buttonVariants> {
-    icon?: React.ReactNode
-    iconPosition?: 'left' | 'right'
-    rounded?: boolean
-}
+export type ButtonProps = {
+    variant?: ButtonVariant
+    size?: ButtonSize
+    outline?: boolean
+} & ComponentPropsWithRef<'button'>
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     (
         {
+            variant = 'primary',
+            size = 'md',
+            outline = false,
             className,
-            variant,
-            size = 'small',
-            icon = null,
-            iconPosition = 'left',
             children,
-            rounded = false,
-            ...props
+            ...rest
         },
-        ref,
-    ) => (
-        <button
-            className={cn(
-                buttonVariants({
-                    variant,
-                    size,
-                    rounded,
-                    className,
-                }),
-            )}
-            ref={ref}
-            {...props}
-        >
-            {icon && iconPosition === 'left' && (
-                <span className="mr-2">{icon}</span>
-            )}
-            {children}
-            {icon && iconPosition === 'right' && (
-                <span className="ml-2">{icon}</span>
-            )}
-        </button>
-    ),
-)
-Button.displayName = 'Button'
+        ref
+    ) => {
+        const baseClass = 'nt-button'
+        const variantClass =
+            outline && variant !== 'gradient'
+                ? `nt-button-outline nt-button-${variant}`
+                : `nt-button-${variant}`
 
-export { Button, buttonVariants }
+        const sizeClass = size === 'md' ? '' : `nt-button-${size}`
+
+        return (
+            <button
+                ref={ref}
+                className={cn(
+                    baseClass,
+                    variantClass,
+                    sizeClass,
+                    className
+                )}
+                {...rest}
+            >
+                {children}
+            </button>
+        )
+    }
+)
+
+Button.displayName = 'Button'

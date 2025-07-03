@@ -1,33 +1,214 @@
-@use 'variables' as variables;
+@use '../variables' as vars;
 
-@mixin button(
-    $bg-color: var(--primary-color),
-    $text-color: var(--white),
-    $padding: 12px 20px,
-    $font-size: 16px,
-    $border-radius: 6px,
-    $border: none,
-    $hover-bg: color.adjust($bg-color, $lightness: -10%),
-    $hover-text: $text-color
-) {
-    display: inline-block;
-    padding: $padding;
-    font-size: $font-size;
-    color: $text-color;
-    background-color: $bg-color;
-    border: $border;
-    border-radius: $border-radius;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+$white: vars.$nt-color-white;
+$gradient: linear-gradient(
+    to right,
+    vars.$nt-color-secondary-100,
+    vars.$nt-color-primary-100
+);
+$gradient-hover: linear-gradient(
+    to right,
+    vars.$nt-color-pink,
+    vars.$nt-color-primary-100
+);
+
+$base-radius: 0.25rem;
+$base-transition: all 0.2s ease-in-out;
+
+@mixin button-state($color, $hover, $active, $disabled) {
+    background-color: $color;
+    color: $white;
 
     &:hover {
-        background-color: $hover-bg;
-        color: $hover-text;
+        background-color: $hover;
+    }
+
+    &:active,
+    &:focus {
+        background-color: $active;
     }
 
     &:disabled {
-        opacity: 0.6;
+        background-color: $disabled;
+    }
+}
+
+@mixin outline-state($color, $active-color, $disabled-bg) {
+    color: $color;
+    border-color: $color;
+
+    &:hover {
+        box-shadow: 0 0.25rem 0.375rem rgb(0 0 0 / 10%);
+        background-color: $white;
+    }
+
+    &:active,
+    &:focus {
+        background-color: $active-color;
+        box-shadow: inset 0 0.25rem 0.5rem rgb(0 0 0 / 10%);
+    }
+
+    &:disabled {
+        background-color: $disabled-bg;
+        color: $white;
+        border-color: $disabled-bg;
+    }
+}
+
+@mixin button-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+@mixin button-md {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+@mixin button-lg {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.125rem;
+}
+
+%button-base {
+    display: inline-block;
+    text-align: center;
+    border: none;
+    border-radius: $base-radius;
+    cursor: pointer;
+    transition: $base-transition;
+
+    &:disabled {
         cursor: not-allowed;
+    }
+
+    &:active,
+    &:focus {
+        outline: none !important;
+    }
+}
+
+%button-gradient {
+    background: $gradient;
+    color: $white;
+
+    &:hover {
+        background: $gradient-hover;
+        box-shadow: rgb(0 0 0 / 16%) 0 0.0625rem 0.25rem;
+    }
+
+    &:disabled {
+        background: vars.$nt-color-primary-20;
+    }
+}
+
+%button-primary {
+    @include button-state(
+        vars.$nt-color-primary-100,
+        vars.$nt-color-primary-80,
+        vars.$nt-color-primary-110,
+        vars.$nt-color-primary-20
+    );
+}
+
+%button-secondary {
+    @include button-state(
+        vars.$nt-color-secondary-100,
+        vars.$nt-color-secondary-80,
+        vars.$nt-color-secondary-110,
+        vars.$nt-color-secondary-20
+    );
+}
+
+%button-neutral {
+    @include button-state(
+        vars.$nt-color-gray-90,
+        vars.$nt-color-gray-80,
+        vars.$nt-color-gray-100,
+        vars.$nt-color-gray-20
+    );
+}
+
+%button-success {
+    @include button-state(
+        vars.$nt-color-success,
+        vars.$nt-color-success-bold,
+        vars.$nt-color-success-bold,
+        vars.$nt-border-bold
+    );
+}
+
+.nt-button {
+    @extend %button-base;
+    @include button-md;
+
+    &-gradient {
+        @extend %button-gradient;
+    }
+
+    &-primary {
+        @extend %button-primary;
+    }
+
+    &-secondary {
+        @extend %button-secondary;
+    }
+
+    &-neutral {
+        @extend %button-neutral;
+    }
+
+    &-success {
+        @extend %button-success;
+    }
+
+    &-outline {
+        @extend %button-base;
+        @include button-md;
+        background: transparent;
+        background-color: transparent;
+        border: 0.0625rem solid;
+
+        &.nt-button {
+            &-primary {
+                @include outline-state(
+                    vars.$nt-color-primary-100,
+                    vars.$nt-color-primary-10,
+                    vars.$nt-color-primary-20
+                );
+            }
+
+            &-secondary {
+                @include outline-state(
+                    vars.$nt-color-secondary-100,
+                    vars.$nt-color-secondary-10,
+                    vars.$nt-color-secondary-20
+                );
+            }
+
+            &-neutral {
+                @include outline-state(
+                    vars.$nt-color-gray-100,
+                    transparent,
+                    transparent
+                );
+            }
+
+            &-success {
+                @include outline-state(
+                    vars.$nt-color-success,
+                    transparent,
+                    transparent
+                );
+            }
+        }
+    }
+
+    &-sm {
+        @include button-sm;
+    }
+
+    &-lg {
+        @include button-lg;
     }
 }
