@@ -18,7 +18,7 @@ const reportNames = [
     'Miller',
     'Wilson',
     'Moore',
-    'Taylor',
+    'Taylor'
 ]
 
 export const userData = Array.from({ length: 50 }, (_, i) => ({
@@ -28,29 +28,29 @@ export const userData = Array.from({ length: 50 }, (_, i) => ({
     creationDate: new Date(
         2024,
         Math.floor(Math.random() * 12),
-        Math.floor(Math.random() * 28) + 1,
+        Math.floor(Math.random() * 28) + 1
     ).toLocaleDateString('en-GB'),
-    status: statuses[i % statuses.length],
+    status: statuses[i % statuses.length]
 }))
 
 export const columns = [
     columnHelper.accessor('id', {
         cell: (info) => info.getValue(),
         header: () => 'ID',
-        enableSorting: false,
+        enableSorting: false
     }),
     columnHelper.accessor('reportName', {
         header: () => 'Report name',
-        cell: (info) => <strong>{info.getValue()}</strong>,
+        cell: (info) => <strong>{info.getValue()}</strong>
     }),
     columnHelper.accessor('audience', {
         header: () => 'Audience',
-        cell: (info) => info.renderValue(),
+        cell: (info) => info.renderValue()
     }),
 
     columnHelper.accessor('creationDate', {
         header: () => 'Creation Date',
-        enableSorting: false,
+        enableSorting: false
     }),
     columnHelper.accessor('by', {
         header: 'By',
@@ -63,7 +63,7 @@ export const columns = [
                 />
             )
         },
-        enableSorting: false,
+        enableSorting: false
     }),
     columnHelper.accessor('status', {
         header: 'Status',
@@ -79,20 +79,20 @@ export const columns = [
                 {info.getValue()}
             </Badge>
         ),
-        enableSorting: false,
+        enableSorting: false
     }),
     columnHelper.accessor('actions', {
         header: '',
         cell: () => (
             <div className="flex items-center space-x-2">
-                <Button size="extraSmall" variant="ghost">
+                <Button size="sm" variant="neutral">
                     <Edit size={12} />
                 </Button>
-                <Button size="extraSmall" variant="ghost">
+                <Button size="sm" variant="neutral">
                     <Copy size={12} />
                 </Button>
             </div>
         ),
-        enableSorting: false,
-    }),
+        enableSorting: false
+    })
 ]

@@ -1,65 +1,64 @@
-# Button Component
+# Button Component Documentation
 
-The **Button** component in NT Stylesheet provides a set of styles and utilities for creating accessible, consistent, and customizable buttons.
+![button preview](./button.png)
 
-## Features
-
--   Multiple sizes (small, medium, large)
--   Variants: primary, secondary, danger, outline, ghost
--   Disabled and loading states
--   Full-width option
--   Icon support
+The `nt-button` component follows NT Stylesheet guidelines and supports a wide range of variants, sizes, and states.
 
 ## Usage
 
-Import the stylesheet in your project:
-
-```javascript
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
+```html
+<button class="nt-button nt-button-primary">Primary</button>
 ```
 
-## Button Variants
-
--   nt-btn-primary
--   nt-btn-secondary
--   nt-btn-danger
--   nt-btn-outline
--   nt-btn-ghost
+Ensure you’ve imported the NT Stylesheet in your project:
 
 ```html
-<button class="nt-btn nt-btn-primary">Primary Button</button>
-<button class="nt-btn nt-btn-secondary">Secondary Button</button>
-<button class="nt-btn nt-btn-danger" disabled>Disabled Button</button>
-<button class="nt-btn nt-btn-outline">Outline Button</button>
-<button class="nt-btn nt-btn-ghost">Ghost Button</button>
-<button class="nt-btn nt-btn-icon">
-    <span class="nt-icon nt-icon-add"></span>
+import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css';
+```
+
+## Variants
+
+| Class Name                              | Description       |
+| --------------------------------------- | ----------------- |
+| `nt-button-gradient`                    | Gradient button   |
+| `nt-button-primary`                     | Primary style     |
+| `nt-button-secondary`                   | Secondary style   |
+| `nt-button-neutral`                     | Neutral style     |
+| `nt-button-success`                     | Success style     |
+| `nt-button-outline nt-button-primary`   | Primary outline   |
+| `nt-button-outline nt-button-secondary` | Secondary outline |
+| `nt-button-outline nt-button-neutral`   | Neutral outline   |
+| `nt-button-outline nt-button-success`   | Success outline   |
+
+```html
+<button class="nt-button nt-button-primary">Primary</button>
+<button class="nt-button nt-button-outline nt-button-primary">
+    Outline Primary
 </button>
 ```
 
 ## Sizes
 
--   nt-btn-sm
--   nt-btn-md
--   nt-btn-lg
-
-## States
-
--   Disabled: disabled attribute
--   Loading: add nt-btn-loading and a spinner/icon
-
-## Accessibility
-
--   Use semantic <button> elements
--   Provide aria-label for icon-only buttons
-
-## Customization
-
--   Override styles using custom classes or utility classes as needed.
--   Example
+| Class Name            | Size   |
+| --------------------- | ------ |
+| `nt-button-sm`        | Small  |
+| `nt-button` (default) | Medium |
+| `nt-button-lg`        | Large  |
 
 ```html
-<button class="nt-btn nt-btn-primary nt-btn-lg">
-    Large Primary Button
+<button class="nt-button nt-button-primary nt-button-sm">
+    Small
 </button>
+<button class="nt-button nt-button-primary">Medium</button>
+<button class="nt-button nt-button-primary nt-button-lg">
+    Large
+</button>
+```
+
+## Disabled State
+
+Use the disabled attribute to visually and functionally disable a button.
+
+```html
+<button class="nt-button nt-button-primary" disabled>Disabled</button>
 ```

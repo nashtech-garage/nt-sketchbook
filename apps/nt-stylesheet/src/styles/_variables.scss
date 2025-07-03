@@ -30,6 +30,7 @@
     --nt-color-primary-80: #de3349;
     --nt-color-primary-90: #da1a33;
     --nt-color-primary-100: #d6001c;
+    --nt-color-primary-110: #c10019;
 
     /* --------- Secondary Color Scale --------- */
     --nt-color-secondary-10: #f0e9f2;
@@ -42,6 +43,7 @@
     --nt-color-secondary-80: #884c95;
     --nt-color-secondary-90: #793587;
     --nt-color-secondary-100: #6a1f7a;
+    --nt-color-secondary-110: #5f1c6e;
 
     /* --------- Signal Colors --------- */
     --nt-text-success: #359000;
@@ -83,6 +85,7 @@
 
     /* --------- Brand Colors --------- */
     --nt-color-line-regular: #c9ccd4;
+    --nt-color-pink: #e31c79;
 
     /* --------- Font Families --------- */
     --nt-font-default: 'Mulish', sans-serif;
@@ -167,6 +170,7 @@ $nt-color-primary-70: var(--nt-color-primary-70, #e24d60);
 $nt-color-primary-80: var(--nt-color-primary-80, #de3349);
 $nt-color-primary-90: var(--nt-color-primary-90, #da1a33);
 $nt-color-primary-100: var(--nt-color-primary-100, #d6001c);
+$nt-color-primary-110: var(--nt-color-primary-110, #c10019);
 
 /* Secondary 1st */
 $nt-color-secondary-10: var(--nt-color-secondary-10, #f0e9f2);
@@ -179,6 +183,7 @@ $nt-color-secondary-70: var(--nt-color-secondary-70, #9762a2);
 $nt-color-secondary-80: var(--nt-color-secondary-80, #884c95);
 $nt-color-secondary-90: var(--nt-color-secondary-90, #793587);
 $nt-color-secondary-100: var(--nt-color-secondary-100, #6a1f7a);
+$nt-color-secondary-110: var(--nt-color-secondary-110, #5f1c6e);
 
 /* --------- Info Colors --------- */
 $nt-color-info-bold: var(--nt-color-info-bold);
@@ -207,6 +212,7 @@ $nt-color-success-thin: var(--nt-color-success-thin);
 /* --------- Brand Colors --------- */
 $nt-color-line-regular: var(--nt-color-line-regular, #c9ccd4);
 $nt-color-line-bold: var(--nt-color-gray-30, #bfbfbf);
+$nt-color-pink: var(--nt-color-pink, #e31c79);
 
 /* === Text Colors === */
 $nt-text-primary: $nt-color-gray-100;
