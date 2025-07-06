@@ -105,6 +105,11 @@
             "name": "Combobox",
             "id": "combobox",
             "type": "Control"
+        },
+        {
+            "name": "Select",
+            "id": "select",
+            "type": "Control"
         }
     ]
 }
