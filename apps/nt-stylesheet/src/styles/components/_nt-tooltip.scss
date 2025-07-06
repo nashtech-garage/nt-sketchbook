@@ -1,0 +1,123 @@
+@use '../variables' as vars;
+@use 'sass:map';
+
+$arrow-offset-large: 0.5rem;
+
+$tooltip-variants: (
+    default: (
+        bg: vars.$nt-color-black,
+        text: vars.$nt-color-white
+    ),
+    danger: (
+        bg: vars.$nt-color-danger,
+        text: vars.$nt-color-white
+    ),
+    warning: (
+        bg: vars.$nt-color-warning,
+        text: vars.$nt-color-black
+    ),
+    success: (
+        bg: vars.$nt-color-success,
+        text: vars.$nt-color-white
+    ),
+    info: (
+        bg: vars.$nt-color-info,
+        text: vars.$nt-color-white
+    )
+);
+
+.nt-tooltip {
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    z-index: 1000;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    $default-bg: map.get(map.get($tooltip-variants, default), bg);
+    $default-text: map.get(map.get($tooltip-variants, default), text);
+    background: $default-bg;
+    color: $default-text;
+    border: 0.0625rem solid $default-bg;
+
+    &.show {
+        opacity: 1;
+    }
+
+    &-inner {
+        display: block;
+    }
+
+    .arrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+
+    &[data-nt-placement='top'] .arrow {
+        bottom: -$arrow-offset-large;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: $arrow-offset-large solid transparent;
+        border-right: $arrow-offset-large solid transparent;
+        border-top: $arrow-offset-large solid $default-bg;
+    }
+
+    &[data-nt-placement='bottom'] .arrow {
+        top: -$arrow-offset-large;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: $arrow-offset-large solid transparent;
+        border-right: $arrow-offset-large solid transparent;
+        border-bottom: $arrow-offset-large solid $default-bg;
+    }
+
+    &[data-nt-placement='left'] .arrow {
+        right: -$arrow-offset-large;
+        top: 50%;
+        transform: translateY(-50%);
+        border-top: $arrow-offset-large solid transparent;
+        border-bottom: $arrow-offset-large solid transparent;
+        border-left: $arrow-offset-large solid $default-bg;
+    }
+
+    &[data-nt-placement='right'] .arrow {
+        left: -$arrow-offset-large;
+        top: 50%;
+        transform: translateY(-50%);
+        border-top: $arrow-offset-large solid transparent;
+        border-bottom: $arrow-offset-large solid transparent;
+        border-right: $arrow-offset-large solid $default-bg;
+    }
+
+    @each $name, $colors in $tooltip-variants {
+        &-#{$name} {
+            $bg: map.get($colors, bg);
+            $text: map.get($colors, text);
+            background: $bg;
+            color: $text;
+            border: 0.0625rem solid $bg;
+
+            .arrow-svg {
+                fill: $bg;
+            }
+
+            &[data-nt-placement='top'] .arrow {
+                border-top-color: $bg;
+            }
+
+            &[data-nt-placement='bottom'] .arrow {
+                border-bottom-color: $bg;
+            }
+
+            &[data-nt-placement='left'] .arrow {
+                border-left-color: $bg;
+            }
+
+            &[data-nt-placement='right'] .arrow {
+                border-right-color: $bg;
+            }
+        }
+    }
+}

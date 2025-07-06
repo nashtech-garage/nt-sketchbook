@@ -55,6 +55,11 @@
             "name": "Switch",
             "id": "switch",
             "type": "Control"
+        },
+        {
+            "name": "Tooltip",
+            "id": "tooltip",
+            "type": "Control"
         }
     ]
 }

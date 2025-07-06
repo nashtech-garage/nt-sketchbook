@@ -13,10 +13,22 @@ export default {
         position: {
             control: {
                 type: 'select',
-                options: ['top', 'right', 'bottom', 'left'],
-            },
+                options: ['top', 'right', 'bottom', 'left']
+            }
         },
-    },
+        variant: {
+            control: {
+                type: 'select',
+                options: [
+                    'default',
+                    'danger',
+                    'warning',
+                    'success',
+                    'info'
+                ]
+            }
+        }
+    }
 } as Meta
 
 const Template: StoryFn<TooltipProps> = (args: TooltipProps) => (
