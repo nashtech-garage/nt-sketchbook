@@ -1,17 +1,7 @@
 import { cn } from '@/lib/utils'
 import clsx from 'clsx'
 import type { ReactNode } from 'react'
-import React from 'react'
-
-import {
-    RadixSelect,
-    RadixSelectContent,
-    RadixSelectGroup,
-    RadixSelectItem,
-    RadixSelectLabel,
-    RadixSelectTrigger,
-    RadixSelectValue,
-} from '../../radix/select'
+import React, { useState } from 'react'
 
 export type Options = { value: string; label: string }[]
 
@@ -20,6 +10,7 @@ export type SelectVariant =
     | 'danger'
     | 'success'
     | 'warning'
+    | 'bare'
 export type SelectSize = 'small' | 'medium' | 'large'
 
 export type SelectProps = {
@@ -37,31 +28,63 @@ export type SelectProps = {
     onChange?: (value: string) => void
     iconLeft?: ReactNode
     classIconLeft?: string
-} & React.ComponentPropsWithoutRef<typeof RadixSelect>
+    disabled?: boolean
+}
+
+const rootClassName = 'nt-select'
 
 const variantStyles = {
-    default:
-        'border-secondary-6 hover:border-shade-secondary-1-50 ' +
-        'focus:border-shade-secondary-1-50 ',
-    danger: 'border-danger hover:border-danger focus:border-danger ',
-    success:
-        'border-success hover:border-success focus:border-success',
-    warning:
-        'border-warning hover:border-warning focus:border-warning',
+    default: `${rootClassName}-default`,
+    danger: `${rootClassName}-danger`,
+    success: `${rootClassName}-success`,
+    warning: `${rootClassName}-warning`,
+    bare: `${rootClassName}-bare`
 }
 
 const variantIcon = {
-    default:
-        'group-hover:text-shade-secondary-1-50 group-focus:text-shade-secondary-1-50 ',
-    danger: 'group-hover:text-danger group-focus:text-danger',
-    success: 'group-hover:text-success group-focus:text-success',
-    warning: 'group-hover:text-warning group-focus:text-warning',
+    default: '',
+    danger: '',
+    success: '',
+    warning: '',
+    bare: ''
 }
 
 const sizeStyles = {
-    small: 'text-sm py-1 px-2',
-    medium: 'text-base py-2 px-3',
-    large: 'text-lg py-3 px-4',
+    small: `${rootClassName}-small`,
+    medium: `${rootClassName}-medium`,
+    large: `${rootClassName}-large`
+}
+
+type SelectOptionProps = {
+    option: Options[0]
+    className?: string
+    onChange?: (value: string) => void
+}
+
+const SelectOption = ({
+    option,
+    className,
+    onChange
+}: SelectOptionProps) => {
+    return (
+        <li
+            key={option.value}
+            className={clsx(
+                `${rootClassName}-options-item`,
+                className
+            )}
+            role="option"
+            tabIndex={-1}
+            aria-selected="false"
+            onClick={() => {
+                if (onChange) {
+                    onChange(option.value)
+                }
+            }}
+        >
+            {option.label}
+        </li>
+    )
 }
 
 const Select = (props: SelectProps) => {
@@ -70,85 +93,112 @@ const Select = (props: SelectProps) => {
         variant = 'default',
         size = 'small',
         options = [],
-        classOption = '',
-        placeholder = '',
         groups = [],
+        classOption = '',
+        placeholder = 'Select',
         value,
         onChange,
         iconLeft = null,
         classIconLeft = '',
+        disabled = false
     } = props
+    const [expanded, setExpanded] = useState(false)
+
+    const renderGroups = () => {
+        return (
+            <>
+                {groups.map((group) => (
+                    <>
+                        <li
+                            key={group.label}
+                            className={`${rootClassName}-group`}
+                        >
+                            <div
+                                className={`${rootClassName}-group-label`}
+                            >
+                                {group.label}
+                            </div>
+                        </li>
+                        {group.options.map((option) => (
+                            <SelectOption
+                                key={option.value}
+                                option={option}
+                                className={classOption}
+                                onChange={onChange}
+                            />
+                        ))}
+                    </>
+                ))}
+            </>
+        )
+    }
+
+    const shouldRenderGroup = groups && groups.length > 0
+
+    const getLabel = () => {
+        if (!value) return placeholder
+        if (shouldRenderGroup) {
+            for (const group of groups) {
+                for (const option of group.options) {
+                    if (option.value === value) {
+                        return option.label
+                    }
+                }
+            }
+        }
+        return options.find((option) => option.value === value)?.label
+    }
+
     return (
-        <RadixSelect
-            value={value}
-            onValueChange={onChange}
-            {...props}
+        <button
+            className={clsx(
+                rootClassName,
+                variantStyles[variant],
+                sizeStyles[size],
+                className
+            )}
+            role="combobox"
+            tabIndex={0}
+            aria-expanded={expanded}
+            aria-disabled={disabled}
+            onClick={() => setExpanded(!expanded)}
+            disabled={disabled}
         >
-            <RadixSelectTrigger
+            {iconLeft &&
+                React.cloneElement(iconLeft as React.ReactElement, {
+                    className: cn(
+                        'icon-left',
+                        variantIcon[variant],
+                        classIconLeft
+                    )
+                })}
+            <div
                 className={clsx(
-                    'group',
-                    variantStyles[variant],
-                    sizeStyles[size],
-                    className,
+                    `${rootClassName}-placeholder`,
+                    `${sizeStyles[size]}-placeholder`
                 )}
+                aria-live="polite"
+                data-testid="select-label"
             >
-                {iconLeft ? (
-                    <div className="flex items-center gap-2 w-full">
-                        <span className="flex items-center justify-center">
-                            {React.cloneElement(
-                                iconLeft as React.ReactElement,
-                                {
-                                    className: cn(
-                                        'w-[14px] h-[14px] icon-left',
-                                        variantIcon[variant],
-                                        classIconLeft,
-                                    ),
-                                },
-                            )}
-                        </span>
-                        <RadixSelectValue
-                            placeholder={placeholder}
-                            className="flex-1 text-left"
-                        />
-                    </div>
-                ) : (
-                    <RadixSelectValue
-                        placeholder={placeholder}
-                        className="text-left w-full"
-                    />
-                )}
-            </RadixSelectTrigger>
-            <RadixSelectContent>
-                {groups.length > 0
-                    ? groups.map((group) => (
-                          <RadixSelectGroup key={group.label}>
-                              {group.label && (
-                                  <RadixSelectLabel>
-                                      {group.label}
-                                  </RadixSelectLabel>
-                              )}
-                              {group.options.map((option) => (
-                                  <RadixSelectItem
-                                      key={option.value}
-                                      value={option.value}
-                                      className={classOption}
-                                  >
-                                      {option.label}
-                                  </RadixSelectItem>
-                              ))}
-                          </RadixSelectGroup>
-                      ))
+                {getLabel()}
+            </div>
+            <ul
+                className={`${rootClassName}-options`}
+                role="listbox"
+                aria-labelledby="selected"
+            >
+                {shouldRenderGroup
+                    ? renderGroups()
                     : options.map((option) => (
-                          <RadixSelectItem
-                              className={classOption}
+                          <SelectOption
                               key={option.value}
-                              value={option.value}
-                          >
-                              {option.label}
-                          </RadixSelectItem>
+                              option={option}
+                              className={classOption}
+                              onChange={onChange}
+                          />
                       ))}
-            </RadixSelectContent>
-        </RadixSelect>
+            </ul>
+        </button>
     )
 }
 
