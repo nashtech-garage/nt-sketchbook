@@ -35,16 +35,6 @@ export default defineConfig(() => {
                     input: './examples',
                     output: 'examples',
                     glob: '*.html'
-                },
-                {
-                    input: './',
-                    output: '.',
-                    glob: 'components-manifest.json'
-                },
-                {
-                    input: './src',
-                    output: '.',
-                    glob: 'index.html'
                 }
             ])
         ],
