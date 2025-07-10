@@ -8,28 +8,28 @@ $nt-card-variants: (
         'bg': vars.$nt-color-white,
         'border': vars.$nt-border-thin,
         'width': 21.875rem,
-        'height': 10.75rem,
+        'height': 10.75rem
     ),
     'default': (
         'bg': vars.$nt-color-white,
-        'border': vars.$nt-border-thin,
+        'border': vars.$nt-border-thin
     ),
     'success': (
         'bg': vars.$nt-background-success,
-        'border': vars.$nt-border-success,
+        'border': vars.$nt-border-success
     ),
     'primary': (
         'bg': vars.$nt-background-success,
-        'border': vars.$nt-border-success,
+        'border': vars.$nt-border-success
     ),
     'danger': (
         'bg': vars.$nt-background-danger,
-        'border': vars.$nt-border-danger,
-    ),
+        'border': vars.$nt-border-danger
+    )
 );
 
 @mixin nt-card(
-    $border-radius: vars.$nt-border-radius-sm,
+    $border-radius: vars.$nt-border-radius-md,
     $padding: vars.$nt-spacing-md,
     $gap: 0.5rem
 ) {
@@ -70,9 +70,9 @@ $nt-card-variants: (
     }
 
     .nt-card-header {
-        display: grid;
+        display: flex;
+        flex-direction: row;
         grid-template-columns: auto 1fr auto;
-        gap: $gap;
 
         .nt-card-description {
             font-weight: vars.$nt-font-weight-regular;
@@ -98,6 +98,7 @@ $nt-card-variants: (
             display: flex;
             align-items: center;
             gap: $gap;
+            margin-left: auto;
 
             .nt-card-action {
                 cursor: pointer;
