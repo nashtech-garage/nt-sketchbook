@@ -4,7 +4,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-    CardWrapper,
+    CardWrapper
 } from '@/components/radix/card'
 import { cn } from '@/lib/utils'
 
@@ -46,22 +46,25 @@ const Card: React.FC<CardProps> = ({
         <CardContent
             className={cn('nt-card-content', classNameContent)}
         >
-            {icon && <span className="nt-card-icon">{icon}</span>}
             <div className="nt-card-content-column">
                 <CardHeader
                     className={cn('nt-card-header', classNameHeader)}
                 >
+                    {icon && (
+                        <span className="nt-card-icon">{icon}</span>
+                    )}
+
                     <CardTitle
                         className={cn(
                             'nt-card-title',
-                            classNameHeader,
+                            classNameHeader
                         )}
                     >
                         {header}
+                        <CardDescription className="nt-card-description">
+                            {description}
+                        </CardDescription>
                     </CardTitle>
-                    <CardDescription className="nt-card-description">
-                        {description}
-                    </CardDescription>
                 </CardHeader>
                 {children}
                 <CardFooter

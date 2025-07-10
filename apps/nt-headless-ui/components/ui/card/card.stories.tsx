@@ -19,10 +19,13 @@ export default {
     }
 } as Meta
 
+const demoContent =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+
 export const Default: StoryObj<CardProps> = {
     args: {
         header: 'Card Title',
-        children: 'This is the main content of the card.',
+        children: demoContent,
         description: 'This is a description',
         footer: 'This is a footer'
     }
@@ -31,7 +34,7 @@ export const Default: StoryObj<CardProps> = {
 export const WithFooter: StoryObj<CardProps> = {
     args: {
         header: 'Card Title',
-        children: 'This is the main content of the card.',
+        children: demoContent,
         footer: 'This is a card footer.'
     }
 }
@@ -39,7 +42,7 @@ export const WithFooter: StoryObj<CardProps> = {
 export const WithIcon: StoryObj<CardProps> = {
     args: {
         header: 'Card Title',
-        children: 'This is the main content of the card.',
+        children: demoContent,
         icon: '📊'
     }
 }
@@ -47,7 +50,7 @@ export const WithIcon: StoryObj<CardProps> = {
 export const WithDescription: StoryObj<CardProps> = {
     args: {
         header: 'Card Title',
-        children: 'This is the main content of the card.',
+        children: demoContent,
         description: 'This is a card description'
     }
 }
@@ -55,7 +58,7 @@ export const WithDescription: StoryObj<CardProps> = {
 export const SuccessVariant: StoryObj<CardProps> = {
     args: {
         header: 'Success Card',
-        children: 'This is the main content of the card.',
+        children: demoContent,
         variant: 'success'
     }
 }
@@ -63,7 +66,7 @@ export const SuccessVariant: StoryObj<CardProps> = {
 export const PrimaryVariant: StoryObj<CardProps> = {
     args: {
         header: 'Primary Card',
-        children: 'This is the main content of the card.',
+        children: demoContent,
         variant: 'primary'
     }
 }
@@ -71,7 +74,7 @@ export const PrimaryVariant: StoryObj<CardProps> = {
 export const DangerVariant: StoryObj<CardProps> = {
     args: {
         header: 'Danger Card',
-        children: 'This is the main content of the card.',
+        children: demoContent,
         variant: 'danger'
     }
 }
