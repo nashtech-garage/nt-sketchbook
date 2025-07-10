@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import type { PluginOption } from 'vite'
+import { PluginOption } from 'vite'
 import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vitest/config'
 
@@ -10,23 +10,23 @@ export default defineConfig({
         alias: {
             '@': path.resolve(__dirname),
             react: path.resolve('./node_modules/react'),
-            'react-dom': path.resolve('./node_modules/react-dom'),
-        },
+            'react-dom': path.resolve('./node_modules/react-dom')
+        }
     },
     plugins: [
         react(),
         dts({
             outDir: path.resolve(__dirname, 'dist'),
             entryRoot: path.resolve(__dirname, './'),
-            cleanVueFileName: true,
-        }) as PluginOption,
+            cleanVueFileName: true
+        }) as PluginOption
     ],
     build: {
         lib: {
             entry: path.resolve(__dirname, './index.ts'),
             name: packageName,
             formats: ['es', 'umd'],
-            fileName: (format) => `${packageName}.${format}.js`,
+            fileName: (format) => `${packageName}.${format}.js`
         },
         outDir: path.resolve(__dirname, 'dist'),
         rollupOptions: {
@@ -34,7 +34,7 @@ export default defineConfig({
                 'react',
                 'react/jsx-runtime',
                 'react-dom',
-                'tailwindcss',
+                'tailwindcss'
             ],
             output: {
                 dir: path.resolve(__dirname, 'dist'),
@@ -42,15 +42,15 @@ export default defineConfig({
                     react: 'React',
                     'react/jsx-runtime': 'react/jsx-runtime',
                     'react-dom': 'ReactDOM',
-                    tailwindcss: 'tailwindcss',
-                },
-            },
-        },
+                    tailwindcss: 'tailwindcss'
+                }
+            }
+        }
     },
     test: {
         watch: false,
         deps: {
-            inline: ['vitest-canvas-mock'],
+            inline: ['vitest-canvas-mock']
         },
         globals: true,
         environment: 'jsdom',
@@ -58,9 +58,11 @@ export default defineConfig({
         coverage: {
             reporter: ['cobertura', 'lcov', 'json-summary', 'json'],
             reportOnFailure: true,
-            provider: 'v8',
+            provider: 'v8'
         },
-        include: ['components/**/*.spec.{ts,tsx}'],
+        include: [
+            path.resolve(__dirname, 'components/**/*.spec.{ts,tsx}')
+        ],
         exclude: [
             'tailwind.config.ts',
             'vite.config.ts',
@@ -69,7 +71,7 @@ export default defineConfig({
             '**/*.stories.tsx',
             'setup-test.ts',
             '**/radix/**',
-            'storybook-static/**',
-        ],
-    },
+            'storybook-static/**'
+        ]
+    }
 })
