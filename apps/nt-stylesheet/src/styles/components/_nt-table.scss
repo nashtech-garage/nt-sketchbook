@@ -1,0 +1,89 @@
+@use '../variables' as vars;
+@use '../utilities' as utils;
+
+.nt-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: vars.$nt-color-gray-100;
+    border-collapse: collapse;
+
+    &-center {
+        th,
+        td {
+            text-align: center;
+        }
+    }
+
+    &-left {
+        th,
+        td {
+            text-align: left;
+        }
+    }
+
+    &-right {
+        th,
+        td {
+            text-align: right;
+        }
+    }
+
+    &-bordered {
+        border: 0.0625rem solid vars.$nt-color-line-regular;
+
+        th,
+        td {
+            border: 0.0625rem solid vars.$nt-color-line-regular;
+        }
+    }
+
+    th,
+    td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 0.0625rem solid vars.$nt-color-line-regular;
+    }
+
+    &-no-bordered {
+        border: 0;
+
+        th,
+        td {
+            border: 0;
+            border-top: 0;
+        }
+
+        thead th {
+            border-bottom: 0;
+        }
+
+        tbody + tbody {
+            border-top: 0;
+        }
+    }
+
+    thead {
+        th {
+            text-transform: uppercase;
+            color: vars.$nt-color-gray-70;
+            vertical-align: bottom;
+            border-bottom: 0.125rem solid vars.$nt-color-line-regular;
+        }
+    }
+
+    tbody + tbody {
+        border-top: 0.125rem solid vars.$nt-color-line-regular;
+    }
+
+    &-striped {
+        tbody tr:nth-of-type(odd) {
+            background-color: vars.$nt-bg-regular;
+        }
+    }
+
+    &-hover {
+        tbody tr:hover {
+            background-color: vars.$nt-bg-regular;
+        }
+    }
+}

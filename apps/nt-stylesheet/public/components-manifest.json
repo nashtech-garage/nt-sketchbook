@@ -60,6 +60,11 @@
             "name": "Tooltip",
             "id": "tooltip",
             "type": "Control"
+        },
+        {
+            "name": "Table",
+            "id": "table",
+            "type": "Control"
         }
     ]
 }
