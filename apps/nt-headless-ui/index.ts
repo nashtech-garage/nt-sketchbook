@@ -1,3 +1,3 @@
-import './styles/globals.css'
+import './styles/globals.scss'
 
 export * from './components/ui'

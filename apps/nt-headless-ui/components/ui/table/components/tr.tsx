@@ -2,23 +2,20 @@ import type { Row } from '@tanstack/react-table'
 import { flexRender } from '@tanstack/react-table'
 
 type TrProps = {
-    classFontSizeBody?: string
     row: Row<unknown>
 }
 
 const Tr = (props: TrProps) => {
-    const { classFontSizeBody, row } = props
+    const { row } = props
     return (
-        <tr className="hover:bg-gray-100 !border-none p-2 h-[44px]">
+        <tr>
             {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} className="!p-0 !pl-2 !border-none">
-                    <div className="flex items-center">
-                        <div className={classFontSizeBody}>
-                            {flexRender(
-                                cell.column.columnDef.cell,
-                                cell.getContext(),
-                            )}
-                        </div>
+                <td key={cell.id}>
+                    <div>
+                        {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                        )}
                     </div>
                 </td>
             ))}

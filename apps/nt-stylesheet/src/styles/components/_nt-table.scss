@@ -1,5 +1,6 @@
 @use '../variables' as vars;
 @use '../utilities' as utils;
+@use '../animation' as effects;
 
 .nt-table {
     width: 100%;
@@ -7,10 +8,22 @@
     color: vars.$nt-color-gray-100;
     border-collapse: collapse;
 
+    &-thead {
+        display: flex;
+        gap: 0.625rem;
+        align-items: center;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
     &-center {
         th,
         td {
             text-align: center;
+        }
+
+        .nt-table-thead {
+            justify-content: center;
         }
     }
 
@@ -19,12 +32,20 @@
         td {
             text-align: left;
         }
+
+        .nt-table-thead {
+            justify-content: flex-start;
+        }
     }
 
     &-right {
         th,
         td {
             text-align: right;
+        }
+
+        .nt-table-thead {
+            justify-content: flex-end;
         }
     }
 
@@ -39,34 +60,16 @@
 
     th,
     td {
-        padding: 0.75rem;
-        vertical-align: top;
+        padding: 0.5rem;
+        vertical-align: middle;
         border-top: 0.0625rem solid vars.$nt-color-line-regular;
-    }
-
-    &-no-bordered {
-        border: 0;
-
-        th,
-        td {
-            border: 0;
-            border-top: 0;
-        }
-
-        thead th {
-            border-bottom: 0;
-        }
-
-        tbody + tbody {
-            border-top: 0;
-        }
     }
 
     thead {
         th {
             text-transform: uppercase;
             color: vars.$nt-color-gray-70;
-            vertical-align: bottom;
+            vertical-align: middle;
             border-bottom: 0.125rem solid vars.$nt-color-line-regular;
         }
     }
@@ -84,6 +87,37 @@
     &-hover {
         tbody tr:hover {
             background-color: vars.$nt-bg-regular;
+        }
+    }
+
+    &-loading {
+        width: 100%;
+        height: 100%;
+
+        &-bar {
+            @include effects.animate-pulse;
+            width: 100%;
+            height: 1.25rem;
+            background-color: vars.$nt-color-gray-20;
+            border-radius: 0.25rem;
+        }
+    }
+
+    &-no-bordered {
+        border: 0;
+
+        td {
+            border: 0;
+            border-top: 0;
+        }
+
+        thead th {
+            border-bottom: 0;
+            border-top: 0;
+        }
+
+        tbody + tbody {
+            border-top: 0;
         }
     }
 }

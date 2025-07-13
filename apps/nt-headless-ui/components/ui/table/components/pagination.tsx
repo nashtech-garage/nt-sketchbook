@@ -8,7 +8,6 @@ type PaginationProps = {
     startIndex: number
     endIndex: number
     classPagination?: string
-    classFontSize?: string
     textItemsPerPage?: string
     table: Table<Record<string, unknown>>
     handlePageClick: (page: number) => void
@@ -22,9 +21,8 @@ const Pagination = (props: PaginationProps) => {
         handleItemPerPageChange = null,
         table,
         classPagination = '',
-        classFontSize = '',
         textItemsPerPage = '',
-        itemPerPage,
+        itemPerPage
     } = props
 
     const currentPage = table.getState().pagination.pageIndex + 1
@@ -32,27 +30,26 @@ const Pagination = (props: PaginationProps) => {
 
     const possiblePageSizes = Array.from(
         { length: Math.ceil(datPagesSize.length / itemPerPage!) },
-        (_, i) => (i + 1) * 10,
+        (_, i) => (i + 1) * 10
     )
 
     return (
         <div
             className={cn(
                 'flex items-center justify-between ',
-                classPagination,
+                classPagination
             )}
         >
             <div className="flex items-center gap-3 w-[200px]">
                 <Select
                     options={possiblePageSizes.map((size) => ({
                         label: String(size),
-                        value: String(size),
+                        value: String(size)
                     }))}
                     value={String(
-                        table.getState().pagination.pageSize,
+                        table.getState().pagination.pageSize
                     )}
                     className="w-[55px] pagination-select"
-                    classOption={classFontSize}
                     onChange={(value) => {
                         if (handleItemPerPageChange) {
                             handleItemPerPageChange(Number(value))
@@ -61,9 +58,7 @@ const Pagination = (props: PaginationProps) => {
                         }
                     }}
                 />
-                <span className={classFontSize}>
-                    {textItemsPerPage}
-                </span>
+                <span>{textItemsPerPage}</span>
             </div>
             {(table.getCanPreviousPage() ||
                 table.getCanNextPage()) && (
@@ -81,7 +76,7 @@ const Pagination = (props: PaginationProps) => {
                     </button>
                     {Array.from(
                         { length: table.getPageCount() },
-                        (_, i) => i + 1,
+                        (_, i) => i + 1
                     ).map((page) => (
                         <button
                             key={page}

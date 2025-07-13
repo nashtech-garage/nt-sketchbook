@@ -7,69 +7,49 @@ import { describe, expect, it, vi } from 'vitest'
 import Tr from './tr'
 
 vi.mock('@tanstack/react-table', () => ({
-    flexRender: vi.fn(),
+    flexRender: vi.fn()
 }))
 
-const mockRow = {
-    getVisibleCells: vi.fn().mockReturnValue([
-        {
-            id: 'cell1',
-            column: { columnDef: { cell: 'Cell 1' } },
-            getContext: vi.fn(),
-        },
-        {
-            id: 'cell2',
-            column: { columnDef: { cell: 'Cell 2' } },
-            getContext: vi.fn(),
-        },
-    ]),
-} as unknown as Row<unknown>
+const createMockRow = (cellCount: number = 2): Row<unknown> => {
+    return {
+        getVisibleCells: vi.fn().mockReturnValue(
+            Array.from({ length: cellCount }).map((_, i) => ({
+                id: `cell${i + 1}`,
+                column: { columnDef: { cell: `Cell ${i + 1}` } },
+                getContext: vi.fn()
+            }))
+        )
+    } as unknown as Row<unknown>
+}
 
 const renderWithTableWrapper = (component: JSX.Element) =>
     render(
         <table>
             <tbody>{component}</tbody>
-        </table>,
+        </table>
     )
 
+const setup = ({
+    row = createMockRow()
+}: {
+    row?: Row<unknown>
+} = {}) => {
+    ;(flexRender as Mock).mockImplementation((cell) => cell)
+
+    return renderWithTableWrapper(<Tr row={row} />)
+}
 describe('Tr component', () => {
     it('renders correctly with given props', () => {
-        ;(flexRender as Mock).mockImplementation((cell) => cell)
-
-        const { container } = renderWithTableWrapper(
-            <Tr classFontSizeBody="text-sm" row={mockRow} />,
-        )
+        const { container } = setup()
 
         expect(container.querySelector('tr')).toBeInTheDocument()
         expect(container.querySelectorAll('td')).toHaveLength(2)
-        expect(
-            container.querySelector('.text-sm'),
-        ).toBeInTheDocument()
         expect(flexRender).toHaveBeenCalledTimes(2)
     })
 
-    it('renders correctly without classFontSizeBody prop', () => {
-        ;(flexRender as Mock).mockImplementation((cell) => cell)
-
-        const { container } = renderWithTableWrapper(
-            <Tr row={mockRow} />,
-        )
-
-        expect(container.querySelector('tr')).toBeInTheDocument()
-        expect(container.querySelectorAll('td')).toHaveLength(2)
-        expect(
-            container.querySelector('.text-sm'),
-        ).not.toBeInTheDocument()
-    })
-
     it('handles an empty row with no visible cells', () => {
-        const emptyRow = {
-            getVisibleCells: vi.fn().mockReturnValue([]),
-        } as unknown as Row<unknown>
-
-        const { container } = renderWithTableWrapper(
-            <Tr row={emptyRow} />,
-        )
+        const emptyRow = createMockRow(0)
+        const { container } = setup({ row: emptyRow })
 
         expect(container.querySelector('tr')).toBeInTheDocument()
         expect(container.querySelectorAll('td')).toHaveLength(0)
