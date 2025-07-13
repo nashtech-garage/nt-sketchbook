@@ -1,32 +1,31 @@
 import type { HeaderGroup, RowData } from '@tanstack/react-table'
-import { fireEvent, render } from '@testing-library/react'
+import type * as ReactTable from '@tanstack/react-table'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 
 import Th from './th'
 
+const toggleSortingMock = vi.fn()
+
 vi.mock('@tanstack/react-table', async (importOriginal) => {
-    const mod = await importOriginal<
-        // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-        typeof import('@tanstack/react-table')
-    >()
+    const mod = await importOriginal<typeof ReactTable>()
     return {
         ...mod,
-        flexRender: vi.fn((header) => header),
+        flexRender: vi.fn((header) => header)
     }
 })
 
 vi.mock('lucide-react', () => ({
     MoveDown: () => <svg data-testid="move-down-icon" />,
     MoveUp: () => <svg data-testid="move-up-icon" />,
-    ChevronsUpDown: () => <svg data-testid="chevrons-up-down-icon" />,
+    ChevronsUpDown: () => <svg data-testid="chevrons-up-down-icon" />
 }))
 
 const setup = (
     sortDirection: 'asc' | 'desc' | false,
-    isPlaceholder = false,
+    isPlaceholder = false
 ) => {
-    const toggleSortingMock = vi.fn()
-
     const headerGroup: HeaderGroup<{ header: string }> = {
         headers: [
             {
@@ -37,66 +36,64 @@ const setup = (
                     columnDef: { header: 'Sortable Column' },
                     getCanSort: () => !isPlaceholder,
                     getToggleSortingHandler: () => toggleSortingMock,
-                    getIsSorted: () => sortDirection,
+                    getIsSorted: () => sortDirection
                 },
-                getContext: () => ({}),
-            },
-        ],
+                getContext: () => ({})
+            }
+        ]
     } as unknown as HeaderGroup<{ header: string }>
 
-    const utils = render(
+    render(
         <table>
             <thead>
                 <Th
                     headerGroup={headerGroup as HeaderGroup<RowData>}
                 />
             </thead>
-        </table>,
+        </table>
     )
-
-    return { ...utils, toggleSortingMock }
 }
-
 describe('Th component', () => {
     it('renders correctly with headers', () => {
-        const { getByText } = setup(false)
-
-        expect(getByText('Sortable Column')).toBeInTheDocument()
+        setup(false)
+        expect(
+            screen.getByText('Sortable Column')
+        ).toBeInTheDocument()
     })
 
-    it('calls sorting handler when clicking a sortable column', () => {
-        const { getByText, toggleSortingMock } = setup('asc')
+    it('calls sorting handler when clicking a sortable column', async () => {
+        setup('asc')
+        await userEvent.click(screen.getByText('Sortable Column'))
 
-        fireEvent.click(getByText('Sortable Column'))
         expect(toggleSortingMock).toHaveBeenCalled()
     })
 
     it('does not render content for placeholder headers', () => {
-        const { container } = setup(false, true)
+        setup(false, true)
 
-        expect(container.querySelector('th')).toBeInTheDocument()
-        expect(
-            container.querySelector('button'),
-        ).not.toBeInTheDocument()
+        expect(screen.getByRole('columnheader')).toBeInTheDocument()
+        expect(screen.queryByRole('button')).not.toBeInTheDocument()
     })
 
     it('renders MoveDown icon when sorted in ascending order', () => {
-        const { getByTestId } = setup('asc')
+        setup('asc')
 
-        expect(getByTestId('move-down-icon')).toBeInTheDocument()
+        expect(
+            screen.getByTestId('move-down-icon')
+        ).toBeInTheDocument()
     })
 
     it('renders MoveUp icon when sorted in descending order', () => {
-        const { getByTestId } = setup('desc')
+        setup('desc')
 
-        expect(getByTestId('move-up-icon')).toBeInTheDocument()
+        expect(screen.getByTestId('move-up-icon')).toBeInTheDocument()
     })
 
     it('renders ChevronsUpDown icon when not sorted', () => {
-        const { getByTestId } = setup(false)
+        setup(false)
 
         expect(
-            getByTestId('chevrons-up-down-icon'),
+            screen.getByTestId('chevrons-up-down-icon')
         ).toBeInTheDocument()
     })
 })

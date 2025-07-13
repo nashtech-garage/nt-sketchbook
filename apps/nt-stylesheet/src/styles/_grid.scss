@@ -3,8 +3,8 @@
  */
 
 @use 'sass:math';
-@use "sass:map";
-@use "variables" as variables;
+@use 'sass:map';
+@use 'variables' as variables;
 
 /* Grid container */
 .nt-container {
@@ -39,11 +39,14 @@
 }
 
 /* Responsive Grid */
-@each $breakpoint, $size in variables.$nt-breakpoint-xs, variables.$nt-breakpoint-sm, variables.$nt-breakpoint-md, variables.$nt-breakpoint-lg, variables.$nt-breakpoint-xl {
+@each $breakpoint, $size in variables.$nt-breakpoint-xs,
+    variables.$nt-breakpoint-sm, variables.$nt-breakpoint-md,
+    variables.$nt-breakpoint-lg, variables.$nt-breakpoint-xl
+{
     @media (min-width: $size) {
         @for $i from 1 through 12 {
             .nt-col-#{$breakpoint}-#{$i} {
-                flex: 0 0 math.percentage(math.div($i,12));
+                flex: 0 0 math.percentage(math.div($i, 12));
                 max-width: math.percentage(math.div($i, 12));
             }
         }
@@ -93,4 +96,3 @@
         gap: $i * 0.25rem;
     }
 }
-

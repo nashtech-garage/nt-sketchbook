@@ -15,29 +15,25 @@ vi.mock('./components', () => ({
         </div>
     )),
     Th: vi.fn(({ headerGroup, classTh, classFontSize }) => (
-        <thead data-testid="mock-th">
-            <tr>
-                <th
-                    className={classTh}
-                    style={{ fontSize: classFontSize }}
-                >
-                    {headerGroup?.id || 'Mock Header'}
-                </th>
-            </tr>
-        </thead>
+        <tr data-testid="mock-th">
+            <th
+                className={classTh}
+                style={{ fontSize: classFontSize }}
+            >
+                {headerGroup?.id || 'Mock Header'}
+            </th>
+        </tr>
     )),
-    Tr: vi.fn(({ row, classFontSizeBody }) => (
+    Tr: vi.fn(({ row }) => (
         <tr data-testid="mock-tr">
-            <td className={classFontSizeBody}>
-                {row?.id || 'Mock Row'}
-            </td>
+            <td>{row?.id || 'Mock Row'}</td>
         </tr>
     )),
     TrLoading: vi.fn(() => (
         <tr data-testid="mock-tr-loading">
             <td>Loading...</td>
         </tr>
-    )),
+    ))
 }))
 
 vi.mock('./table.scss', () => ({}))
@@ -51,13 +47,13 @@ const columnHelper = createColumnHelper<Data>()
 const columns: ColumnDef<Data>[] = [
     columnHelper.accessor('id', { header: 'ID' }) as ColumnDef<Data>,
     columnHelper.accessor('name', {
-        header: 'Name',
-    }) as ColumnDef<Data>,
+        header: 'Name'
+    }) as ColumnDef<Data>
 ]
 
 const mockData = [
     { id: 1, name: 'Alice' },
-    { id: 2, name: 'Bob' },
+    { id: 2, name: 'Bob' }
 ]
 
 const defaultProps: TableProps = {
@@ -66,32 +62,35 @@ const defaultProps: TableProps = {
     itemPerPage: 2,
     isLoading: false,
     onPageClick: vi.fn(),
-    onItemPerPageChange: vi.fn(),
+    onItemPerPageChange: vi.fn()
 }
+
+const setup = (props?: Partial<TableProps>) =>
+    render(<Table {...defaultProps} {...props} />)
 
 describe('Table Component', () => {
     it('renders table with mocked components', () => {
-        render(<Table {...defaultProps} />)
+        setup()
 
         expect(screen.getByTestId('mock-th')).toBeInTheDocument()
         expect(
-            screen.queryAllByTestId('mock-tr').length,
+            screen.queryAllByTestId('mock-tr').length
         ).toBeGreaterThan(0)
         expect(
-            screen.getByTestId('mock-pagination'),
+            screen.getByTestId('mock-pagination')
         ).toBeInTheDocument()
     })
 
     it('shows loading state with mocked TrLoading', () => {
-        render(<Table {...defaultProps} isLoading={true} />)
+        setup({ isLoading: true })
 
         expect(screen.getAllByTestId('mock-tr-loading')).toHaveLength(
-            5,
+            5
         )
     })
 
     it('calls onPageClick when pagination is clicked', () => {
-        render(<Table {...defaultProps} />)
+        setup()
 
         const pagination = screen.getByTestId('mock-pagination')
         fireEvent.click(pagination.querySelector('button')!)

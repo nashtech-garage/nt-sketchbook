@@ -1,56 +1,56 @@
 import type { Table } from '@tanstack/react-table'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
 import TrLoading from './tr-loading'
 
 vi.mock('./td-skeleton', () => ({
-    default: () => <div data-testid="td-skeleton" />,
+    default: () => <div data-testid="td-skeleton" />
 }))
 
-const mockTable = {
-    getHeaderGroups: vi.fn().mockReturnValue([
-        {
-            headers: [
-                { id: 'col1', colSpan: 1 },
-                { id: 'col2', colSpan: 1 },
-            ],
-        },
-    ]),
-} as unknown as Table<unknown>
+const createMockTable = (withHeaders = true): Table<unknown> =>
+    ({
+        getHeaderGroups: vi.fn().mockReturnValue(
+            withHeaders
+                ? [
+                      {
+                          headers: [
+                              { id: 'col1', colSpan: 1 },
+                              { id: 'col2', colSpan: 1 }
+                          ]
+                      }
+                  ]
+                : []
+        )
+    }) as unknown as Table<unknown>
 
 const renderWithTableWrapper = (component: JSX.Element) =>
     render(
         <table>
             <tbody>{component}</tbody>
-        </table>,
+        </table>
     )
+
+const setup = (table: Table<unknown>) => {
+    return renderWithTableWrapper(<TrLoading table={table} />)
+}
+
 describe('TrLoading component', () => {
     it('renders correctly with given table headers', () => {
-        const { container } = renderWithTableWrapper(
-            <TrLoading table={mockTable} />,
-        )
+        const { container } = setup(createMockTable())
 
         expect(container.querySelector('tr')).toBeInTheDocument()
         expect(container.querySelectorAll('td')).toHaveLength(2)
     })
 
     it('renders TdSkeleton inside each td', () => {
-        const { getAllByTestId } = renderWithTableWrapper(
-            <TrLoading table={mockTable} />,
-        )
+        setup(createMockTable())
 
-        expect(getAllByTestId('td-skeleton')).toHaveLength(2)
+        expect(screen.getAllByTestId('td-skeleton')).toHaveLength(2)
     })
 
     it('handles empty header group correctly', () => {
-        const emptyTable = {
-            getHeaderGroups: vi.fn().mockReturnValue([]),
-        } as unknown as Table<unknown>
-
-        const { container } = renderWithTableWrapper(
-            <TrLoading table={emptyTable} />,
-        )
+        const { container } = setup(createMockTable(false))
 
         expect(container.querySelector('tr')).toBeInTheDocument()
         expect(container.querySelectorAll('td')).toHaveLength(0)

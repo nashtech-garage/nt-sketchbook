@@ -3,19 +3,18 @@ import { describe, expect, it } from 'vitest'
 
 import TdSkeleton from './td-skeleton'
 
+const setup = () => render(<TdSkeleton />)
+
 describe('TdSkeleton', () => {
-    it('renders without crashing', () => {
-        const { container } = render(<TdSkeleton />)
-        expect(container).toBeInTheDocument()
-    })
+    it('renders the skeleton with correct classes', () => {
+        const { container } = setup()
 
-    it('renders a skeleton div with correct styles', () => {
-        const { container } = render(<TdSkeleton />)
-        const skeletonDiv = container.querySelector('div > div > div')
-
-        expect(skeletonDiv).toBeInTheDocument()
-        expect(skeletonDiv).toHaveClass(
-            'w-full h-5 bg-gray-200 animate-pulse',
+        const wrapper = container.querySelector('.nt-table-loading')
+        const loadingBar = container.querySelector(
+            '.nt-table-loading-bar'
         )
+
+        expect(wrapper).toBeInTheDocument()
+        expect(loadingBar).toBeInTheDocument()
     })
 })

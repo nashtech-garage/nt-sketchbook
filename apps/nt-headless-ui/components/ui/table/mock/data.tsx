@@ -56,12 +56,7 @@ export const columns = [
         header: 'By',
         cell: () => {
             const URL_IMAGE = './assets/images/image.png'
-            return (
-                <Avatar
-                    src={URL_IMAGE}
-                    className="h-[25px] w-[25px]"
-                />
-            )
+            return <Avatar src={URL_IMAGE} size="xs" />
         },
         enableSorting: false
     }),
