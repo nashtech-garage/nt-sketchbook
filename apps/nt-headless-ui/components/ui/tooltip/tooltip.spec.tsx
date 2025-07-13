@@ -1,98 +1,70 @@
-import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import {
+    fireEvent,
+    render,
+    screen,
+    waitFor
+} from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import type { TooltipPosition, TooltipProps } from './tooltip'
+import type { TooltipPosition } from './tooltip'
 import { Tooltip } from './tooltip'
 
-const renderTooltip = (props: Partial<TooltipProps> = {}) =>
-    render(
-        <Tooltip trigger="Hover me" {...props}>
-            Tooltip content
-        </Tooltip>,
-    )
-const getToolTipContent = async () =>
-    waitFor(() => screen.getByText('Tooltip content'))
-
-const getTooltipTrigger = () => screen.getByText('Hover me')
-
 describe('Tooltip', () => {
-    it('renders the tooltip trigger', () => {
-        renderTooltip()
-        expect(getTooltipTrigger()).toBeInTheDocument()
-    })
-
-    it('shows the tooltip content on hover', async () => {
-        renderTooltip()
-        const trigger = getTooltipTrigger()
-        await userEvent.hover(trigger)
-        waitFor(() => expect(getToolTipContent()).toBeInTheDocument())
-    })
-
-    it('hides the tooltip content when not hovered', () => {
-        renderTooltip()
-        expect(
-            screen.queryByText('Tooltip content'),
-        ).not.toBeInTheDocument()
-    })
-
-    it.each([
-        ['danger', 'bg-danger text-white'],
-        ['success', 'bg-success text-black'],
-        ['warning', 'bg-warning text-black'],
-        ['info', 'bg-info text-white'],
-    ])(
-        'applies the correct variant classes: %s',
-        async (variant: string, expectedClasses: string) => {
-            renderTooltip({
-                variant: variant as TooltipProps['variant'],
-            })
-            const trigger = getTooltipTrigger()
-            await userEvent.hover(trigger)
-            const tooltipContent = getToolTipContent()
-            waitFor(() =>
-                expect(tooltipContent).toHaveClass(expectedClasses),
-            )
-        },
-    )
-
-    it.each([
-        ['top', 'top'],
-        ['right', 'right'],
-        ['bottom', 'bottom'],
-        ['left', 'left'],
-    ])(
-        'applies the correct position: %s',
-        async (position: string, expected) => {
-            renderTooltip({ position: position as TooltipPosition })
-            const trigger = getTooltipTrigger()
-            await userEvent.hover(trigger)
-            const tooltipContent = getToolTipContent()
-            waitFor(() =>
-                expect(tooltipContent).toHaveAttribute(
-                    'data-side',
-                    expected,
-                ),
-            )
-        },
-    )
-
-    it('renders custom class names', async () => {
-        renderTooltip({
-            className: 'custom-class',
-            classNameArrow: 'custom-arrow-class',
-        })
-        const trigger = getTooltipTrigger()
-        await userEvent.hover(trigger)
-        const tooltipContent = getToolTipContent()
-        waitFor(() =>
-            expect(tooltipContent).toHaveClass('custom-class'),
+    it('applies the correct position class', () => {
+        const positions: Array<TooltipPosition> = [
+            'top',
+            'right',
+            'bottom',
+            'left'
+        ]
+        const { rerender } = render(
+            <Tooltip position="top">Tooltip content</Tooltip>
         )
-        waitFor(() => {
-            const arrow = screen
-                .getByRole('tooltip')
-                .querySelector('svg')
-            expect(arrow).toHaveClass('custom-arrow-class')
+
+        positions.forEach((position) => {
+            rerender(
+                <Tooltip position={position}>Tooltip content</Tooltip>
+            )
+            expect(
+                screen
+                    .getByText('Tooltip content')
+                    .closest('.nt-tooltip')
+            ).toHaveClass(`nt-tooltip-${position}`)
+        })
+    })
+    it('renders custom children content', () => {
+        render(
+            <Tooltip>
+                <h1>Custom Children</h1>
+            </Tooltip>
+        )
+        expect(
+            screen.getByRole('heading', { name: 'Custom Children' })
+        ).toBeInTheDocument()
+    })
+    it('renders custom trigger content', () => {
+        render(
+            <Tooltip trigger={<button>Click Me</button>}>
+                Test Content
+            </Tooltip>
+        )
+        expect(
+            screen.getByRole('button', { name: 'Click Me' })
+        ).toBeInTheDocument()
+    })
+    it('applies additional className to the tooltip content', async () => {
+        render(
+            <Tooltip className="my-custom-class">
+                Test Content
+            </Tooltip>
+        )
+        const triggerElement = screen.getByText('Hover')
+        expect(triggerElement).toBeInTheDocument()
+        fireEvent.mouseEnter(triggerElement)
+        await waitFor(() => {
+            const contentElement = screen.getByText('Test Content')
+            expect(contentElement).toBeInTheDocument()
+            expect(contentElement).toHaveClass('my-custom-class')
         })
     })
 })

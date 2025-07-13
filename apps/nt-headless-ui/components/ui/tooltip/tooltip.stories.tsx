@@ -13,16 +13,49 @@ export default {
         position: {
             control: {
                 type: 'select',
-                options: ['top', 'right', 'bottom', 'left'],
-            },
-        },
-    },
+                options: ['top', 'right', 'bottom', 'left']
+            }
+        }
+    }
 } as Meta
 
 const Template: StoryFn<TooltipProps> = (args: TooltipProps) => (
-    <Tooltip {...args} trigger={<Button>Hover me</Button>}>
-        Hover me
-    </Tooltip>
+    <div
+        className="mx-36 mt-24"
+        style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}
+    >
+        <Tooltip {...args} trigger={<Button>Hover me</Button>}>
+            {args.children}
+        </Tooltip>
+    </div>
 )
 
-export const Default = Template.bind({})
+export const Top = Template.bind({})
+export const Right = Template.bind({})
+export const Bottom = Template.bind({})
+export const Left = Template.bind({})
+
+Top.args = {
+    className: '',
+    children: 'Top position',
+    position: 'top'
+}
+Right.args = {
+    className: '',
+    children: 'Right position',
+    position: 'right'
+}
+Bottom.args = {
+    className: '',
+    children: 'Bottom position',
+    position: 'bottom'
+}
+Left.args = {
+    className: '',
+    children: 'Left position',
+    position: 'left'
+}

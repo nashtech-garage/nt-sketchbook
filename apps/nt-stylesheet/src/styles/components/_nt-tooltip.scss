@@ -1,0 +1,123 @@
+/* stylelint-disable no-empty-source */
+@use 'sass:map';
+@use '../utilities' as utils;
+@use '../variables' as vars;
+
+// Mixin for base tooltip content styles
+@mixin tooltip-base-content {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease;
+    max-width: 15.714rem;
+    background-color: vars.$nt-color-black;
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+    border-radius: vars.$nt-border-radius-sm;
+    padding: 0.714rem 1.071rem;
+    font-size: 1.143rem;
+    line-height: 1;
+    box-shadow:
+        hsl(206deg 22% 7% / 35%) 0 0.714rem 2.714rem -0.714rem,
+        hsl(206deg 22% 7% / 20%) 0 0.714rem 1.429rem -1.071rem;
+    user-select: none;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+@mixin tooltip-arrow-base {
+    content: '';
+    position: absolute;
+    border-width: 0.357rem;
+    border-style: solid;
+}
+
+@mixin tooltip-position(
+    $position,
+    $content-top: auto,
+    $content-right: auto,
+    $content-bottom: auto,
+    $content-left: auto,
+    $content-transform: none,
+    $arrow-top: auto,
+    $arrow-right: auto,
+    $arrow-bottom: auto,
+    $arrow-left: auto,
+    $arrow-transform: none,
+    $arrow-border-color: transparent
+) {
+    &-#{$position} &-content {
+        inset: $content-top $content-right $content-bottom $content-left;
+        transform: $content-transform;
+
+        &::before {
+            inset: $arrow-top $arrow-right $arrow-bottom $arrow-left;
+            transform: $arrow-transform;
+            border-color: $arrow-border-color;
+        }
+    }
+}
+
+.nt-tooltip {
+    position: relative;
+    display: inline-block;
+
+    &-content {
+        @include tooltip-base-content;
+
+        &::before {
+            @include tooltip-arrow-base;
+            border-color: vars.$nt-color-black transparent transparent
+                transparent;
+        }
+    }
+
+    &:hover &-content {
+        opacity: 1;
+    }
+
+    @include tooltip-position(
+        'top',
+        $content-bottom: 120%,
+        $content-left: 50%,
+        $content-transform: translateX(-50%),
+        $arrow-top: 100%,
+        $arrow-left: 50%,
+        $arrow-transform: translateX(-50%),
+        $arrow-border-color: vars.$nt-color-black transparent
+            transparent transparent
+    );
+    @include tooltip-position(
+        'right',
+        $content-left: 115%,
+        $content-top: 50%,
+        $content-transform: translateY(-50%),
+        $arrow-right: 100%,
+        $arrow-top: 50%,
+        $arrow-transform: translateY(-50%),
+        $arrow-border-color: transparent vars.$nt-color-black
+            transparent transparent
+    );
+    @include tooltip-position(
+        'left',
+        $content-right: 115%,
+        $content-top: 30%,
+        $content-transform: translateY(-50%),
+        $arrow-left: 100%,
+        $arrow-top: 50%,
+        $arrow-transform: translateY(-50%),
+        $arrow-border-color: transparent transparent transparent
+            vars.$nt-color-black
+    );
+    @include tooltip-position(
+        'bottom',
+        $content-top: 75%,
+        $content-left: 50%,
+        $content-transform: translateX(-50%),
+        $arrow-bottom: 100%,
+        $arrow-left: 50%,
+        $arrow-transform: translateX(-50%),
+        $arrow-border-color: transparent transparent
+            vars.$nt-color-black transparent
+    );
+}
