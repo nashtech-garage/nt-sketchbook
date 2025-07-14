@@ -30,9 +30,17 @@ export default {
     }
 } as Meta
 
-const Template: StoryFn<SelectProps> = (args: SelectProps) => (
-    <Select {...args} />
-)
+const Template: StoryFn<SelectProps> = (args: SelectProps) => {
+    const [value, setValue] = React.useState<string>()
+
+    return (
+        <Select
+            {...args}
+            value={value}
+            onChange={(item) => setValue(item)}
+        />
+    )
+}
 
 export const Default = Template.bind({})
 Default.args = {
@@ -41,8 +49,7 @@ Default.args = {
         { value: '2', label: 'Option 2' },
         { value: '3', label: 'Option 3' }
     ],
-    placeholder: 'Select an option',
-    onChange: (value) => console.log(value)
+    placeholder: 'Select an option'
 }
 
 export const Group = Template.bind({})

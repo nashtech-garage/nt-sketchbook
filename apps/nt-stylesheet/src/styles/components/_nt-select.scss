@@ -1,0 +1,151 @@
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use 'sass:map';
+
+@mixin container-size($h, $p, $gap, $radius) {
+    height: $h;
+    padding-inline: $p;
+    gap: $gap;
+    border-radius: $radius;
+}
+
+@mixin icon-left($w, $h) {
+    .icon-left {
+        width: $w;
+        height: $h;
+    }
+}
+
+.nt-select {
+    position: relative;
+    cursor: pointer;
+    border: solid vars.$nt-border-width;
+    background-color: vars.$nt-bg-body;
+    display: flex;
+    align-items: center;
+    outline: none;
+    text-align: left;
+    width: 100%;
+
+    &::after {
+        content: url('../assets/svg/breadcrumb.svg');
+    }
+
+    &-placeholder {
+        flex-grow: 1;
+    }
+
+    &-options {
+        position: absolute;
+        top: 110%;
+        left: 0;
+        right: 0;
+        border: vars.$nt-border-width solid
+            vars.$nt-color-line-regular;
+        background: vars.$nt-bg-body;
+        display: none;
+        max-height: 14rem;
+        overflow-y: auto;
+        z-index: 10;
+        border-radius: vars.$nt-border-radius-sm;
+
+        &-item {
+            padding: vars.$nt-spacing-sm;
+            outline: none;
+
+            &:hover {
+                background-color: vars.$nt-color-gray-9;
+            }
+        }
+    }
+
+    &[aria-expanded='true'] {
+        .nt-select-options {
+            display: block;
+        }
+    }
+
+    &-selected {
+        width: 100%;
+        height: 100%;
+    }
+
+    &-small {
+        @include container-size(
+            32px,
+            vars.$nt-spacing-sm,
+            vars.$nt-spacing-sm,
+            vars.$nt-border-radius-sm
+        );
+        @include icon-left(14px, 14px);
+
+        &-placeholder {
+            font-size: map.get(utils.$nt-font-sizes, 'xs');
+        }
+    }
+
+    &-medium {
+        @include container-size(
+            40px,
+            vars.$nt-spacing-md,
+            vars.$nt-spacing-sm,
+            vars.$nt-border-radius-sm
+        );
+        @include icon-left(14px, 14px);
+
+        &-placeholder {
+            font-size: map.get(utils.$nt-font-sizes, 'sm');
+        }
+    }
+
+    &-large {
+        @include container-size(
+            48px,
+            vars.$nt-spacing-ml,
+            vars.$nt-spacing-ml,
+            vars.$nt-border-radius-md
+        );
+        @include icon-left(16px, 16px);
+
+        &-placeholder {
+            font-size: map.get(utils.$nt-font-sizes, 'md');
+        }
+    }
+
+    &-default {
+        border-color: vars.$nt-color-line-regular;
+
+        &:hover {
+            border-color: vars.$nt-color-secondary-50;
+        }
+
+        &:focus {
+            border-color: vars.$nt-color-secondary-100;
+        }
+    }
+
+    &-danger {
+        border-color: vars.$nt-color-danger;
+
+        &:hover {
+            border-color: vars.$nt-color-danger-bold;
+        }
+    }
+
+    &-success {
+        border-color: vars.$nt-color-success-bold;
+    }
+
+    &-warning {
+        border-color: vars.$nt-color-warning;
+    }
+
+    &-bare {
+        border-color: transparent;
+
+        &:focus {
+            border-width: vars.$nt-border-width;
+            border-color: vars.$nt-color-secondary-100;
+        }
+    }
+}
