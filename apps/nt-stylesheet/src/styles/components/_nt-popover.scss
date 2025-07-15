@@ -1,0 +1,149 @@
+@use '../variables' as vars;
+@use 'sass:map';
+
+$arrow-size: 0.5rem;
+
+$popover-variants: (
+    default: (
+        bg: vars.$nt-color-black,
+        text: vars.$nt-color-white
+    ),
+    danger: (
+        bg: vars.$nt-color-danger,
+        text: vars.$nt-color-white
+    ),
+    warning: (
+        bg: vars.$nt-color-warning,
+        text: vars.$nt-color-black
+    ),
+    success: (
+        bg: vars.$nt-color-success,
+        text: vars.$nt-color-white
+    ),
+    info: (
+        bg: vars.$nt-color-info,
+        text: vars.$nt-color-white
+    )
+);
+
+.nt-popover {
+    position: absolute;
+    z-index: 9999;
+    display: block;
+    max-width: 17.25rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+    transition: opacity 0.2s ease;
+    opacity: 0;
+
+    $default-bg: map.get(map.get($popover-variants, default), bg);
+    $default-text: map.get(map.get($popover-variants, default), text);
+    background-color: $default-bg;
+    color: $default-text;
+    border: 0.0625rem solid $default-bg;
+
+    &.show {
+        opacity: 1;
+    }
+
+    &-body {
+        position: relative;
+        padding: 0.75rem 1rem;
+        color: inherit;
+    }
+
+    &-close {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.5rem;
+        background: transparent;
+        border: none;
+        font-size: 1.25rem;
+        color: inherit;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.75;
+        }
+    }
+
+    &-arrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+
+    &-title {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+
+    &[data-nt-placement='top'] &-arrow {
+        bottom: -$arrow-size;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: $arrow-size solid transparent;
+        border-right: $arrow-size solid transparent;
+        border-top: $arrow-size solid $default-bg;
+    }
+
+    &[data-nt-placement='bottom'] &-arrow {
+        top: -$arrow-size;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: $arrow-size solid transparent;
+        border-right: $arrow-size solid transparent;
+        border-bottom: $arrow-size solid $default-bg;
+    }
+
+    &[data-nt-placement='left'] &-arrow {
+        top: 50%;
+        right: -$arrow-size;
+        transform: translateY(-50%);
+        border-top: $arrow-size solid transparent;
+        border-bottom: $arrow-size solid transparent;
+        border-left: $arrow-size solid $default-bg;
+    }
+
+    &[data-nt-placement='right'] &-arrow {
+        top: 50%;
+        left: -$arrow-size;
+        transform: translateY(-50%);
+        border-top: $arrow-size solid transparent;
+        border-bottom: $arrow-size solid transparent;
+        border-right: $arrow-size solid $default-bg;
+    }
+
+    @each $name, $colors in $popover-variants {
+        &-#{$name} {
+            $bg: map.get($colors, bg);
+            $text: map.get($colors, text);
+            background-color: $bg;
+            color: $text;
+            border-color: $bg;
+
+            .nt-popover-close {
+                color: $text;
+            }
+
+            &[data-nt-placement='top'] .nt-popover-arrow {
+                border-top-color: $bg;
+            }
+
+            &[data-nt-placement='bottom'] .nt-popover-arrow {
+                border-bottom-color: $bg;
+            }
+
+            &[data-nt-placement='left'] .nt-popover-arrow {
+                border-left-color: $bg;
+            }
+
+            &[data-nt-placement='right'] .nt-popover-arrow {
+                border-right-color: $bg;
+            }
+        }
+    }
+}
