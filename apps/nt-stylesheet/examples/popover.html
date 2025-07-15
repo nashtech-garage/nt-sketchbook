@@ -1,0 +1,145 @@
+<div class="nt-page">
+    <div class="nt-page-body">
+        <h1 class="text-3xl font-semibold my-4">
+            Top, right, bottom, and left (Popover).
+        </h1>
+        <div class="flex flex-row flex-wrap gap-2">
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="popover"
+                data-nt-placement="top"
+                data-nt-content="Popover on top"
+            >
+                Popover on top
+            </button>
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="popover"
+                data-nt-placement="right"
+                data-nt-content="Popover on right"
+            >
+                Popover on right
+            </button>
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="popover"
+                data-nt-placement="bottom"
+                data-nt-content="Popover on bottom"
+            >
+                Popover on bottom
+            </button>
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="popover"
+                data-nt-placement="left"
+                data-nt-content="Popover on left"
+            >
+                Popover on left
+            </button>
+        </div>
+    </div>
+
+    <div class="flex flex-col mt-6">
+        <h1 class="text-3xl font-semibold my-4">
+            With custom HTML content:
+        </h1>
+        <div class="flex flex-col">
+            <button
+                class="nt-button nt-button-primary w-[200px]"
+                data-nt-toggle="popover"
+                data-nt-html="true"
+                data-nt-placement="bottom"
+                data-nt-content="<em>Popover</em> <u>with</u> <b>HTML</b> content"
+            >
+                HTML popover
+            </button>
+        </div>
+    </div>
+
+    <div class="flex flex-col mt-6">
+        <h1 class="text-3xl font-semibold my-4">Popover variants:</h1>
+        <div class="flex flex-row flex-wrap gap-2">
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="popover"
+                data-nt-placement="top"
+                data-nt-content="Default popover"
+            >
+                Default
+            </button>
+
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="popover"
+                data-nt-placement="top"
+                data-nt-variant="success"
+                data-nt-content="Success popover"
+            >
+                Success
+            </button>
+
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="popover"
+                data-nt-placement="top"
+                data-nt-variant="warning"
+                data-nt-content="Warning popover"
+            >
+                Warning
+            </button>
+
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="popover"
+                data-nt-placement="top"
+                data-nt-variant="danger"
+                data-nt-content="Danger popover"
+            >
+                Danger
+            </button>
+
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="popover"
+                data-nt-placement="top"
+                data-nt-variant="info"
+                data-nt-content="Info popover"
+            >
+                Info
+            </button>
+        </div>
+    </div>
+
+    <div class="flex flex-col mt-6">
+        <h1 class="text-3xl font-semibold my-4">
+            Dismissible popover:
+        </h1>
+        <div class="flex flex-col">
+            <button
+                class="nt-button nt-button-primary w-[220px]"
+                data-nt-toggle="popover"
+                data-nt-placement="bottom"
+                data-nt-content="You can close this popover"
+                data-nt-dismissible="true"
+            >
+                Dismissible popover
+            </button>
+        </div>
+    </div>
+
+    <div class="flex flex-col mt-6">
+        <h1 class="text-3xl font-semibold my-4">Popover title:</h1>
+        <div class="flex flex-col">
+            <button
+                class="nt-button nt-button-primary w-[220px]"
+                data-nt-toggle="popover"
+                data-nt-placement="bottom"
+                data-nt-content="You can close this popover"
+                data-nt-title="Popover title"
+                data-nt-dismissible="true"
+            >
+                Popover title
+            </button>
+        </div>
+    </div>
+</div>

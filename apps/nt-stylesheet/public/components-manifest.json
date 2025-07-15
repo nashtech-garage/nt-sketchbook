@@ -65,6 +65,11 @@
             "name": "Table",
             "id": "table",
             "type": "Control"
+        },
+        {
+            "name": "Popover",
+            "id": "popover",
+            "type": "Control"
         }
     ]
 }
