@@ -1,73 +1,72 @@
 import {
     Popover as PopoverComponent,
-    PopoverContent,
     PopoverPrimitive,
-    PopoverTrigger,
+    PopoverTrigger
 } from '@/components/radix/popover'
 import { cn } from '@/lib/utils'
 import * as React from 'react'
 
 export type PopoverVariant =
     | 'default'
+    | 'success'
     | 'danger'
     | 'warning'
-    | 'success'
     | 'info'
 
-const variantArrowClasses: Record<PopoverVariant, string> = {
-    default: 'fill-gray-800',
-    danger: 'fill-danger',
-    warning: 'fill-warning',
-    success: 'fill-success',
-    info: 'fill-info',
-}
-const variantClasses: Record<PopoverVariant, string> = {
-    default: 'bg-gray-800 text-white',
-    danger: 'bg-danger text-white',
-    warning: 'bg-warning text-black',
-    success: 'bg-success text-white',
-    info: 'bg-info text-white',
-}
-
 export type Side = 'top' | 'right' | 'bottom' | 'left'
-export type Align = 'start' | 'center' | 'end'
 
 export type PopoverProps = {
-    classNameArrow?: string
     trigger: React.ReactNode
     side?: Side
     className?: string
     children: React.ReactNode
     variant?: PopoverVariant
-    align?: Align
 }
+
+const PopoverContent = React.forwardRef<
+    React.ElementRef<typeof PopoverPrimitive.Content>,
+    React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
+>(
+    (
+        { className, align = 'center', sideOffset = 4, ...props },
+        ref
+    ) => (
+        <PopoverPrimitive.Portal>
+            <PopoverPrimitive.Content
+                ref={ref}
+                align={align}
+                sideOffset={sideOffset}
+                className={cn(className)}
+                {...props}
+            />
+        </PopoverPrimitive.Portal>
+    )
+)
+PopoverContent.displayName = PopoverPrimitive.Content.displayName
 
 export const Popover = (props: PopoverProps) => {
     const {
         trigger,
         children,
-        align = 'center',
         className = '',
         side = 'right',
-        variant = 'default',
-        classNameArrow = '',
+        variant = 'default'
     } = props
 
     return (
         <PopoverComponent>
             <PopoverTrigger asChild>{trigger}</PopoverTrigger>
             <PopoverContent
-                align={align}
-                className={cn(variantClasses[variant], className)}
+                className={cn(
+                    `nt-popover show nt-popover-${variant}`,
+                    className
+                )}
                 side={side}
             >
                 {children}
                 <PopoverPrimitive.Arrow
                     role="presentation"
-                    className={cn(
-                        variantArrowClasses[variant],
-                        classNameArrow,
-                    )}
+                    className={cn('arrow-svg')}
                 />
             </PopoverContent>
         </PopoverComponent>
