@@ -14,7 +14,7 @@ const PopoverContent = React.forwardRef<
 >(
     (
         { className, align = 'center', sideOffset = 4, ...props },
-        ref,
+        ref
     ) => (
         <PopoverPrimitive.Portal>
             <PopoverPrimitive.Content
@@ -30,12 +30,12 @@ const PopoverContent = React.forwardRef<
                     'data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2',
                     'data-[side=top]:slide-in-from-bottom-2 dark:border-neutral-800',
                     'dark:bg-neutral-950 dark:text-neutral-50 w-full',
-                    className,
+                    className
                 )}
                 {...props}
             />
         </PopoverPrimitive.Portal>
-    ),
+    )
 )
 PopoverContent.displayName = PopoverPrimitive.Content.displayName
 
@@ -44,5 +44,5 @@ export {
     PopoverTrigger,
     PopoverContent,
     PopoverAnchor,
-    PopoverPrimitive,
+    PopoverPrimitive
 }

@@ -11,13 +11,23 @@ export default {
         trigger: { control: 'text' },
         children: { control: 'text' },
         align: {
-            control: 'select',
+            control: 'select'
         },
         side: {
             control: 'select',
-            options: ['top', 'right', 'bottom', 'left'],
+            options: ['top', 'right', 'bottom', 'left']
         },
-    },
+        variant: {
+            control: 'select',
+            options: [
+                'default',
+                'success',
+                'danger',
+                'warning',
+                'info'
+            ]
+        }
+    }
 } as Meta<typeof Popover>
 
 const Template: StoryFn<typeof Popover> = (args: PopoverProps) => (
@@ -31,7 +41,7 @@ const Template: StoryFn<typeof Popover> = (args: PopoverProps) => (
 
 export const Default = Template.bind({})
 Default.args = {
-    trigger: <button>Click me</button>,
+    trigger: <button>Click me</button>
 }
 
 export const CustomContent = Template.bind({})
@@ -42,5 +52,5 @@ CustomContent.args = {
             <h4>Custom Content</h4>
             <p>This is a custom popover content with more details.</p>
         </div>
-    ),
+    )
 }

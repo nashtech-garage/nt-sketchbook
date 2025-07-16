@@ -3,97 +3,86 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
 import { Popover } from './popover'
-import type {
-    Align,
-    PopoverProps,
-    PopoverVariant,
-    Side,
-} from './popover'
+import type { PopoverProps, PopoverVariant, Side } from './popover'
+
+const defaultProps: PopoverProps = {
+    trigger: <button>Open Popover</button>,
+    children: <div>Popover Content</div>
+}
+
+const setup = (overrideProps?: Partial<PopoverProps>) => {
+    render(<Popover {...defaultProps} {...overrideProps} />)
+}
 
 describe('Popover', () => {
-    const defaultProps: PopoverProps = {
-        trigger: <button>Open Popover</button>,
-        children: <div>Popover Content</div>,
-    }
-
     it('renders the trigger element', () => {
-        render(<Popover {...defaultProps} />)
+        setup()
         expect(screen.getByText('Open Popover')).toBeInTheDocument()
     })
 
     it('does not show the content initially', () => {
-        render(<Popover {...defaultProps} />)
+        setup()
         expect(
-            screen.queryByText('Popover Content'),
+            screen.queryByText('Popover Content')
         ).not.toBeInTheDocument()
     })
 
     it('shows the content when trigger is clicked', async () => {
-        render(<Popover {...defaultProps} />)
+        setup()
         await userEvent.click(screen.getByText('Open Popover'))
         expect(
-            screen.getByText('Popover Content'),
+            screen.getByText('Popover Content')
         ).toBeInTheDocument()
     })
 
     it.each([
-        ['default', 'bg-gray-800 text-white', 'fill-gray-800'],
-        ['danger', 'bg-danger text-white', 'fill-danger'],
-        ['warning', 'bg-warning text-black', 'fill-warning'],
-        ['success', 'bg-success text-white', 'fill-success'],
-        ['info', 'bg-info text-white', 'fill-info'],
+        ['default', 'nt-popover-default'],
+        ['danger', 'nt-popover-danger'],
+        ['warning', 'nt-popover-warning'],
+        ['success', 'nt-popover-success'],
+        ['info', 'nt-popover-info']
     ])(
         'applies correct classes for variant: %s',
-        async (variant, expectedContentClass, expectedArrowClass) => {
-            render(
-                <Popover
-                    {...defaultProps}
-                    variant={variant as PopoverVariant}
-                    className="custom-class"
-                    classNameArrow="custom-arrow-class"
-                />,
-            )
+        async (variant, expectedClass) => {
+            setup({
+                variant: variant as PopoverVariant,
+                className: 'custom-class'
+            })
 
             await userEvent.click(screen.getByText('Open Popover'))
 
-            const content = screen.getByText('Popover Content')
-            expect(content.parentElement).toHaveClass(
-                ...expectedContentClass.split(' '),
+            const content =
+                screen.getByText('Popover Content').parentElement
+            expect(content).toHaveClass(
+                'nt-popover',
+                'show',
+                expectedClass,
+                'custom-class'
             )
-            expect(content.parentElement).toHaveClass('custom-class')
 
             const arrow = screen.getByRole('presentation')
-            expect(arrow).toHaveClass(
-                ...expectedArrowClass.split(' '),
-            )
-            expect(arrow).toHaveClass('custom-arrow-class')
-        },
+            expect(arrow).toHaveClass('arrow-svg')
+        }
     )
 
     it.each([
-        ['top', 'start'],
+        ['top', 'center'],
         ['bottom', 'center'],
-        ['left', 'end'],
-        ['right', 'center'],
+        ['left', 'center'],
+        ['right', 'center']
     ])(
         'applies correct side (%s) and align (%s) attributes',
         async (side, align) => {
-            render(
-                <Popover
-                    {...defaultProps}
-                    side={side as Side}
-                    align={align as Align}
-                />,
-            )
+            setup({
+                side: side as Side
+            })
+
             await userEvent.click(screen.getByText('Open Popover'))
 
-            const content = screen.getByText('Popover Content')
-            expect(
-                content?.parentElement?.getAttribute('data-side'),
-            ).toBe(side)
-            expect(
-                content?.parentElement?.getAttribute('data-align'),
-            ).toBe(align)
-        },
+            const content =
+                screen.getByText('Popover Content').parentElement
+            expect(content?.getAttribute('data-side')).toBe(side)
+            expect(content?.getAttribute('data-align')).toBe(align)
+        }
     )
 })

@@ -27,7 +27,6 @@ $popover-variants: (
 );
 
 .nt-popover {
-    position: absolute;
     z-index: 9999;
     display: block;
     max-width: 17.25rem;
@@ -41,10 +40,13 @@ $popover-variants: (
     $default-text: map.get(map.get($popover-variants, default), text);
     background-color: $default-bg;
     color: $default-text;
-    border: 0.0625rem solid $default-bg;
 
     &.show {
         opacity: 1;
+    }
+
+    &:focus {
+        outline: none;
     }
 
     &-body {
@@ -124,6 +126,10 @@ $popover-variants: (
             background-color: $bg;
             color: $text;
             border-color: $bg;
+
+            .arrow-svg {
+                fill: $bg;
+            }
 
             .nt-popover-close {
                 color: $text;
