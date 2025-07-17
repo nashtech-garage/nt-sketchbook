@@ -1,21 +1,28 @@
-name: Publish and Release headless-ui
+name: Publish and Release reusable workflow
 
 on:
-    workflow_dispatch:
+    workflow_call:
         inputs:
             version:
-                description: 'Version bump type'
                 required: true
-                default: 'patch'
-                type: choice
-                options:
-                    - patch
-                    - minor
-                    - major
+                type: string
+            projectName:
+                required: true
+                type: string
+            workingDir:
+                required: true
+                type: string
+            releasePrefix:
+                required: true
+                type: string
+        secrets:
+            GITHUB_TOKEN:
+                required: true
 
 permissions:
     contents: write
     packages: write
+    pull-requests: write
 
 jobs:
     publish-and-release:
@@ -47,7 +54,7 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                  pnpm version ${{ github.event.inputs.version }} || true
+                  pnpm version ${{ inputs.version }} || true
                   version=$(jq -r '.version' ./package.json)
                   echo "Bumped version: $version"
                   echo "new_version=$version" >> $GITHUB_ENV
@@ -60,36 +67,36 @@ jobs:
                       else
                         git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/nashtech-garage/nt-sketchbook.git
 
-                        HUSKY=0 git commit -m "chore: bump headless-ui to v$version"
-                        git tag headless-ui@$version
+                        HUSKY=0 git commit -m "chore: bump ${{ inputs.projectName }} to v$version"
+                        git tag ${{ inputs.releasePrefix }}@$version
                         git push origin HEAD:main --tags
                       fi
                   else
                       echo "Skipping push due to unknown version"
                   fi
-              working-directory: apps/nt-headless-ui
+              working-directory: ${{ inputs.workingDir }}
               continue-on-error: true
 
             - name: Build lib
-              run: pnpm run build:lib
-              working-directory: apps/nt-headless-ui
+              run: pnpm run build
+              working-directory: ${{ inputs.workingDir }}
 
             - name: Publish to github
               run: pnpm publish
-              working-directory: apps/nt-headless-ui/dist
+              working-directory: ${{ inputs.workingDir }}/dist
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Get new version from package.json
               id: pkg
               run: |
-                  version=$(jq -r .version apps/nt-headless-ui/package.json)
+                  version=$(jq -r .version ${{ inputs.workingDir }}/package.json)
                   echo "version=$version" >> "$GITHUB_OUTPUT"
 
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
               with:
-                  tag_name: headless-ui@${{ steps.pkg.outputs.version }}
-                  name: headless-ui@${{ steps.pkg.outputs.version }}
+                  tag_name: ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
+                  name: ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

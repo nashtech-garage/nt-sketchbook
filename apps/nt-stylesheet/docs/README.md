@@ -59,20 +59,23 @@ NT Stylesheet includes a growing list of reusable and composable UI components.
 
 ### Component Guides
 
-- [Alert](alert.md)
-- [Avatar](avatar.md)
-- [Breadcrumb](breadcrumb.md)
-- [Button](button.md)
-- [Checkbox](checkbox.md)
-- [Input](input.md)
-- [Label](label.md)
-- [Modal](modal.md)
-- [Radio Group](radio-group.md)
-- [Switch](switch.md)
+-   [Alert](alert.md)
+-   [Avatar](avatar.md)
+-   [Breadcrumb](breadcrumb.md)
+-   [Button](button.md)
+-   [Checkbox](checkbox.md)
+-   [Input](input.md)
+-   [Label](label.md)
+-   [Modal](modal.md)
+-   [Radio Group](radio-group.md)
+-   [Switch](switch.md)
+-   [Tooltip](tooltip.md)
+-   [Table](table.md)
+-   [Popover](popover.md)
 
 ---
 
-## Customization
+# Customization
 
 You can customize NT Stylesheet in several ways:
 

@@ -59,7 +59,7 @@ import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css';
 
 -   Override styles using custom classes or utility classes as needed.
 -   Example
-Use the disabled attribute to visually and functionally disable a button.
+    Use the disabled attribute to visually and functionally disable a button.
 
 ```html
 <button class="nt-btn nt-btn-primary nt-btn-lg">
@@ -67,4 +67,3 @@ Use the disabled attribute to visually and functionally disable a button.
 </button>
 <button class="nt-button nt-button-primary" disabled>Disabled</button>
 ```
-

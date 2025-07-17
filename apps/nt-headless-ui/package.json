@@ -4,8 +4,7 @@
     "private": false,
     "type": "module",
     "scripts": {
-        "build:lib": "pnpm --filter ../nt-stylesheet build && tsc && vite build",
-        "build": "next build",
+        "build": "pnpm --filter ../nt-stylesheet build && tsc && vite build",
         "start": "next start",
         "lint": "next lint  && npx stylelint \"**/*.scss\"",
         "dev": "pnpm --filter ../nt-stylesheet build && storybook dev -p 6006",
