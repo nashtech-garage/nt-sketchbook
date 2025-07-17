@@ -1,0 +1,28 @@
+name: Publish and Release style sheet
+
+permissions:
+    contents: read
+
+on:
+    workflow_dispatch:
+        inputs:
+            version:
+                description: 'Version bump type'
+                required: true
+                default: 'patch'
+                type: choice
+                options:
+                    - patch
+                    - minor
+                    - major
+
+jobs:
+    call-reusable:
+        uses: ./.github/workflows/publish-and-release-reusable.yml
+        with:
+            version: ${{ inputs.version }}
+            projectName: 'stylesheet'
+            workingDir: 'apps/nt-stylesheet'
+            releasePrefix: 'stylesheet'
+        secrets:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
