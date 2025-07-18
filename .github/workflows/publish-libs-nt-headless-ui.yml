@@ -1,7 +1,9 @@
 name: Publish and Release headless-ui
 
 permissions:
-    contents: read
+    contents: write
+    packages: write
+    pull-requests: write
 
 on:
     workflow_dispatch:
@@ -18,11 +20,9 @@ on:
 
 jobs:
     call-reusable:
-        uses: ./.github/workflows/publish-and-release-reusable.yml
+        uses: nashtech-garage/nt-sketchbook/.github/workflows/publish-and-release-reusable.yml@main
         with:
             version: ${{ inputs.version }}
             projectName: 'headless-ui'
             workingDir: 'apps/nt-headless-ui'
             releasePrefix: 'headless-ui'
-        secrets:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
