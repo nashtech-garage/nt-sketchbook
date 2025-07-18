@@ -62,7 +62,7 @@ jobs:
                       if git diff --cached --quiet; then
                         echo "No changes to commit. Skipping."
                       else
-                        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/nashtech-garage/nt-sketchbook.git
+                        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/nashtech-garage/nt-sketchbook.git
 
                         HUSKY=0 git commit -m "chore: bump ${{ inputs.projectName }} to v$version"
                         git tag ${{ inputs.releasePrefix }}@$version
