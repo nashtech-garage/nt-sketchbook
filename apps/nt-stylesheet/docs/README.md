@@ -72,6 +72,7 @@ NT Stylesheet includes a growing list of reusable and composable UI components.
 -   [Tooltip](tooltip.md)
 -   [Table](table.md)
 -   [Popover](popover.md)
+-   [Progress](progress.md)
 
 ---
 
