@@ -1,0 +1,91 @@
+@use '../variables' as vars;
+@use 'sass:map';
+
+$default-track-color: vars.$nt-color-secondary-10;
+$default-bar-color: vars.$nt-color-secondary-100;
+
+$variants: (
+    success: (
+        bg: vars.$nt-color-success,
+        track: vars.$nt-color-success-light
+    ),
+    warning: (
+        bg: vars.$nt-color-warning,
+        track: vars.$nt-color-warning-light
+    ),
+    danger: (
+        bg: vars.$nt-color-danger,
+        track: vars.$nt-color-danger-light
+    ),
+    info: (
+        bg: vars.$nt-color-info,
+        track: vars.$nt-color-info-light
+    )
+);
+
+.nt-progress {
+    width: 95%;
+    border-radius: 0.5rem;
+    position: relative;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: $default-track-color;
+
+    &-md {
+        height: 2rem;
+    }
+
+    &-lg {
+        height: 2.5rem;
+    }
+
+    &-xl {
+        height: 3rem;
+    }
+
+    @each $name, $settings in $variants {
+        &-#{$name} {
+            background-color: map.get($settings, track);
+
+            .nt-progress-bar {
+                background-color: map.get($settings, bg);
+            }
+        }
+    }
+
+    &-bar {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        background-color: $default-bar-color;
+
+        .nt-progress-bar {
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+    }
+
+    &-label {
+        font-size: 1rem;
+        font-weight: bold;
+        white-space: nowrap;
+        color: vars.$nt-color-black;
+        z-index: 2;
+
+        &-outside {
+            position: absolute;
+            left: 100%;
+            margin-left: 0.5rem;
+        }
+    }
+}
