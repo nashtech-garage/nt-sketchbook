@@ -120,6 +120,7 @@
     --nt-spacing-xs: 0.5rem;
     --nt-spacing-sm: 0.75rem;
     --nt-spacing-md: 1rem;
+    --nt-spacing-ml: 1.25rem;
     --nt-spacing-lg: 1.5rem;
     --nt-spacing-xl: 2rem;
 
@@ -275,6 +276,7 @@ $nt-spacing-base: var(--nt-spacing-base, 0.25rem);
 $nt-spacing-xs: var(--nt-spacing-xs, 0.5rem);
 $nt-spacing-sm: var(--nt-spacing-sm, 0.75rem);
 $nt-spacing-md: var(--nt-spacing-md, 1rem);
+$nt-spacing-ml: var(--nt-spacing-ml, 1.25rem);
 $nt-spacing-lg: var(--nt-spacing-lg, 1.5rem);
 $nt-spacing-xl: var(--nt-spacing-xl, 2rem);
 

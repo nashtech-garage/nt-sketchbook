@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react'
-import { UserIcon } from 'lucide-react'
+import { AArrowUp } from 'lucide-react'
 import React from 'react'
 
 import type { SelectProps } from './select'
@@ -12,31 +12,44 @@ export default {
         variant: {
             control: {
                 type: 'select',
-                options: ['default', 'danger', 'success', 'warning'],
-            },
+                options: [
+                    'default',
+                    'danger',
+                    'success',
+                    'warning',
+                    'bare'
+                ]
+            }
         },
         size: {
             control: {
                 type: 'select',
-                options: ['small', 'medium', 'large'],
-            },
-        },
-    },
+                options: ['small', 'medium', 'large']
+            }
+        }
+    }
 } as Meta
 
-const Template: StoryFn<SelectProps> = (args: SelectProps) => (
-    <Select {...args} />
-)
+const Template: StoryFn<SelectProps> = (args: SelectProps) => {
+    const [value, setValue] = React.useState<string>()
+
+    return (
+        <Select
+            {...args}
+            value={value}
+            onChange={(item) => setValue(item)}
+        />
+    )
+}
 
 export const Default = Template.bind({})
 Default.args = {
     options: [
         { value: '1', label: 'Option 1' },
         { value: '2', label: 'Option 2' },
-        { value: '3', label: 'Option 3' },
+        { value: '3', label: 'Option 3' }
     ],
-    placeholder: 'Select an option',
-    onChange: (value) => console.log(value),
+    placeholder: 'Select an option'
 }
 
 export const Group = Template.bind({})
@@ -48,8 +61,8 @@ Group.args = {
                 { value: 'art', label: 'Argentina Time (ART)' },
                 { value: 'bot', label: 'Bolivia Time (BOT)' },
                 { value: 'brt', label: 'Brasilia Time (BRT)' },
-                { value: 'clt', label: 'Chile Standard Time (CLT)' },
-            ],
+                { value: 'clt', label: 'Chile Standard Time (CLT)' }
+            ]
         },
         {
             label: 'Europe & Africa',
@@ -57,23 +70,22 @@ Group.args = {
                 { value: 'gmt', label: 'Greenwich Mean Time (GMT)' },
                 {
                     value: 'cet',
-                    label: 'Central European Time (CET)',
+                    label: 'Central European Time (CET)'
                 },
                 {
                     value: 'eet',
-                    label: 'Eastern European Time (EET)',
+                    label: 'Eastern European Time (EET)'
                 },
                 {
                     value: 'west',
-                    label: 'Western European Summer Time (WEST)',
+                    label: 'Western European Summer Time (WEST)'
                 },
                 { value: 'cat', label: 'Central Africa Time (CAT)' },
-                { value: 'eat', label: 'East Africa Time (EAT)' },
-            ],
-        },
+                { value: 'eat', label: 'East Africa Time (EAT)' }
+            ]
+        }
     ],
-    placeholder: 'Select an option',
-    onChange: (value) => console.log(value),
+    placeholder: 'Select an option'
 }
 
 export const Disable = Template.bind({})
@@ -81,11 +93,10 @@ Disable.args = {
     options: [
         { value: '1', label: 'Option 1' },
         { value: '2', label: 'Option 2' },
-        { value: '3', label: 'Option 3' },
+        { value: '3', label: 'Option 3' }
     ],
     placeholder: 'Select an option',
-    onChange: (value) => console.log(value),
-    disabled: true,
+    disabled: true
 }
 
 export const Icon = Template.bind({})
@@ -93,9 +104,8 @@ Icon.args = {
     options: [
         { value: '1', label: 'Option 1' },
         { value: '2', label: 'Option 2' },
-        { value: '3', label: 'Option 3' },
+        { value: '3', label: 'Option 3' }
     ],
     placeholder: 'Select an option',
-    onChange: (value) => console.log(value),
-    iconLeft: <UserIcon />,
+    iconLeft: <AArrowUp />
 }
