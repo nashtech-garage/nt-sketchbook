@@ -25,15 +25,12 @@ jobs:
     publish-and-release:
         runs-on: ubuntu-latest
 
+        outputs:
+            new_version: ${{ steps.get_version.outputs.new_version }}
+
         steps:
             - name: Checkout repo
               uses: actions/checkout@v4
-
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4
-              with:
-                  version: 10.7.0
-                  run_install: false
 
             - name: Setup Node.js
               uses: actions/setup-node@v4
@@ -41,29 +38,42 @@ jobs:
                   node-version: 20.18.2
                   cache: 'pnpm'
 
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10.7.0
+                  run_install: false
+
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
             - name: Bump version
-              working-directory: apps/nt-stylesheet
+              id: bump_version
+              working-directory: ${{ inputs.workingDir }}
+              continue-on-error: true
               run: |
                   git config user.name 'khoilen'
                   git config user.email 'khoilen@nastechglobal.com'
 
                   pnpm version patch || true
-                  version=$(jq -r '.version' ./package.json) || version="unknown"
+
+            - name: Get new version from package.json
+              id: get_version
+              working-directory: ${{ inputs.workingDir }}
+              run: |
+                  version=$(jq -r '.version' package.json)
+                  echo "new_version=$version" >> "$GITHUB_OUTPUT"
                   echo "Bumped version: $version"
-                  echo "new_version=$version" >> $GITHUB_ENV || true
 
             - name: Create Pull Request for version bump
               uses: peter-evans/create-pull-request@v6
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  commit-message: 'chore: bump ${{ inputs.releasePrefix }} to v${{ env.new_version }}'
-                  branch: release/${{ inputs.releasePrefix }}-v${{ env.new_version }}
-                  title: 'chore: bump ${{ inputs.releasePrefix }} to v${{ env.new_version }}'
+                  commit-message: 'chore: bump ${{ inputs.releasePrefix }} to v${{ steps.get_version.outputs.new_version }}'
+                  branch: release/${{ inputs.releasePrefix }}-v${{ steps.get_version.outputs.new_version }}
+                  title: 'chore: bump ${{ inputs.releasePrefix }} to v${{ steps.get_version.outputs.new_version }}'
                   body: |
-                      This pull request bumps the version of `${{ inputs.projectName }}` to `v${{ env.new_version }}`.
+                      This pull request bumps the version of `${{ inputs.projectName }}` to `v${{ steps.get_version.outputs.new_version }}`.
                   path: ${{ inputs.workingDir }}
                   add-paths: |
                       ${{ inputs.workingDir }}/package.json
@@ -73,24 +83,18 @@ jobs:
               run: pnpm run build
               working-directory: ${{ inputs.workingDir }}
 
-            - name: Publish to github
+            - name: Publish to GitHub
               run: pnpm publish
               working-directory: ${{ inputs.workingDir }}/dist
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Get new version from package.json
-              id: pkg
-              run: |
-                  version=$(jq -r .version ${{ inputs.workingDir }}/package.json)
-                  echo "version=$version" >> "$GITHUB_OUTPUT"
-
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
               with:
-                  tag_name: ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
-                  name: ${{ inputs.releasePrefix }}v${{ steps.pkg.outputs.version }}
+                  tag_name: ${{ inputs.releasePrefix }}@${{ steps.get_version.outputs.new_version }}
+                  name: ${{ inputs.releasePrefix }}v${{ steps.get_version.outputs.new_version }}
                   body: |
-                      📦 Released ${{ inputs.projectName }}v${{ steps.pkg.outputs.version }}
+                      📦 Released ${{ inputs.projectName }}v${{ steps.get_version.outputs.new_version }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
