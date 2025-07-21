@@ -60,7 +60,7 @@ jobs:
                       if git diff --cached --quiet; then
                         echo "No changes to commit. Skipping."
                       else
-                        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/nashtech-garage/nt-sketchbook.git
+                        git remote set-url origin https://x-access-token:${secrets.GH_PAT_ADMIN}@github.com/nashtech-garage/nt-sketchbook.git
                         git fetch origin main
                         git rebase origin/main || true
 
@@ -72,7 +72,6 @@ jobs:
                       echo "Skipping push due to unknown version"
                   fi
               working-directory: ${{ inputs.workingDir }}
-              continue-on-error: true
 
             - name: Build lib
               run: pnpm run build
