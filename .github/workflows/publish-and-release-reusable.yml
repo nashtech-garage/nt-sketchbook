@@ -45,12 +45,15 @@ jobs:
               run: pnpm install --frozen-lockfile
 
             - name: Bump version
-              id: bump-version
+              working-directory: apps/nt-stylesheet
               run: |
+                  git config user.name 'khoilen'
+                  git config user.email 'khoilen@nastechglobal.com'
+
                   pnpm version patch || true
-                  version=$(jq -r '.version' ./package.json)
-                  echo "new_version=$version" >> $GITHUB_ENV
-                  working-directory: ${{ inputs.workingDir }}
+                  version=$(jq -r '.version' ./package.json) || version="unknown"
+                  echo "Bumped version: $version"
+                  echo "new_version=$version" >> $GITHUB_ENV || true
 
             - name: Create Pull Request for version bump
               uses: peter-evans/create-pull-request@v6
