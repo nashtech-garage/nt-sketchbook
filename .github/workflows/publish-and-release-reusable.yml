@@ -46,36 +46,25 @@ jobs:
 
             - name: Bump version
               id: bump-version
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   pnpm version patch || true
                   version=$(jq -r '.version' ./package.json)
-                  echo "Bumped version: $version"
                   echo "new_version=$version" >> $GITHUB_ENV
+                  working-directory: ${{ inputs.workingDir }}
 
-                  if [ "$version" != "unknown" ]; then
-                      git config user.name 'khoilen'
-                      git config user.email 'khoilen@nastechglobal.com'
-                      git add .
-
-                      if git diff --cached --quiet; then
-                          echo "No changes to commit. Skipping."
-                      else
-                          git remote set-url origin https://x-access-token:${GH_PAT_ADMIN}@github.com/nashtech-garage/nt-sketchbook.git
-
-                          git fetch origin main
-                          git rebase origin/main || true
-
-                          HUSKY=0 git commit -m "chore: bump ${{inputs.releasePrefix}} to v$version"
-                          git tag ${{inputs.releasePrefix}}@$version
-                          git push --force-with-lease origin HEAD:main --tags
-                      fi
-                  else
-                      echo "Skipping push due to unknown version"
-                  fi
-
-              working-directory: ${{ inputs.workingDir }}
+            - name: Create Pull Request for version bump
+              uses: peter-evans/create-pull-request@v6
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  commit-message: 'chore: bump ${{ inputs.releasePrefix }} to v${{ env.new_version }}'
+                  branch: release/${{ inputs.releasePrefix }}-v${{ env.new_version }}
+                  title: 'chore: bump ${{ inputs.releasePrefix }} to v${{ env.new_version }}'
+                  body: |
+                      This pull request bumps the version of `${{ inputs.projectName }}` to `v${{ env.new_version }}`.
+                  path: ${{ inputs.workingDir }}
+                  add-paths: |
+                      ${{ inputs.workingDir }}/package.json
+                  author: khoilen <khoilen@nastechglobal.com>
 
             - name: Build lib
               run: pnpm run build
