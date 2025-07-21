@@ -1,6 +1,6 @@
 {
     "name": "@nashtech/stylesheet",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Style sheet for the NT Design System",
     "scripts": {
         "build": "pnpm vite build",
