@@ -61,6 +61,8 @@ jobs:
                         echo "No changes to commit. Skipping."
                       else
                         git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/nashtech-garage/nt-sketchbook.git
+                        git fetch origin main
+                        git rebase origin/main || true
 
                         HUSKY=0 git commit -m "chore: bump ${{ inputs.releasePrefix }} to v$version"
                         git tag ${{ inputs.releasePrefix }}@$version
