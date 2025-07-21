@@ -69,7 +69,7 @@ jobs:
 
                           HUSKY=0 git commit -m "chore: bump ${{inputs.releasePrefix}} to v$version"
                           git tag ${{inputs.releasePrefix}}@$version
-                          git push origin HEAD:main --tags
+                          git push --force-with-lease origin HEAD:main --tags
                       fi
                   else
                       echo "Skipping push due to unknown version"
