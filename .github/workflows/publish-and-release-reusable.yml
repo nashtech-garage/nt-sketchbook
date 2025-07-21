@@ -25,6 +25,9 @@ jobs:
     publish-and-release:
         runs-on: ubuntu-latest
 
+        outputs:
+            new_version: ${{ steps.get_version.outputs.new_version }}
+
         steps:
             - name: Checkout repo
               uses: actions/checkout@v4
@@ -35,65 +38,60 @@ jobs:
                   version: 10.7.0
                   run_install: false
 
-            - name: Setup Node.js
+            - name: Install Node.js
               uses: actions/setup-node@v4
               with:
                   node-version: 20.18.2
                   cache: 'pnpm'
-                  registry-url: 'https://npm.pkg.github.com'
-                  scope: '@nashtech-garage'
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
             - name: Bump version
-              id: bump-version
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: |
-                  pnpm version ${{ inputs.version }} || true
-                  version=$(jq -r '.version' ./package.json)
-                  echo "Bumped version: $version"
-                  echo "new_version=$version" >> $GITHUB_ENV
-                  if [ "$version" != "unknown" ]; then
-                      git config user.name 'khoilen'
-                      git config user.email 'khoilen@nastechglobal.com'
-                      git add .
-                      if git diff --cached --quiet; then
-                        echo "No changes to commit. Skipping."
-                      else
-                        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/nashtech-garage/nt-sketchbook.git
-
-                        HUSKY=0 git commit -m "chore: bump ${{ inputs.projectName }} to v$version"
-                        git tag ${{ inputs.releasePrefix }}@$version
-                        git push origin HEAD:main --tags
-                      fi
-                  else
-                      echo "Skipping push due to unknown version"
-                  fi
+              id: bump_version
               working-directory: ${{ inputs.workingDir }}
               continue-on-error: true
+              run: |
+                  git config user.name 'khoilen'
+                  git config user.email 'khoilen@nastechglobal.com'
+
+                  pnpm version patch || true
+
+            - name: Get new version from package.json
+              id: get_version
+              working-directory: ${{ inputs.workingDir }}
+              run: |
+                  version=$(jq -r '.version' package.json)
+                  echo "new_version=$version" >> "$GITHUB_OUTPUT"
+                  echo "Bumped version: $version"
+
+            - name: Create Pull Request for version bump
+              uses: peter-evans/create-pull-request@v6
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  commit-message: 'chore: bump ${{ inputs.releasePrefix }} to v${{ steps.get_version.outputs.new_version }}'
+                  branch: release/${{ inputs.releasePrefix }}-v${{ steps.get_version.outputs.new_version }}
+                  title: 'chore: bump ${{ inputs.releasePrefix }} to v${{ steps.get_version.outputs.new_version }}'
+                  body: |
+                      This pull request bumps the version of `${{ inputs.projectName }}` to `v${{ steps.get_version.outputs.new_version }}`.
+                  author: khoilen <khoilen@nastechglobal.com>
 
             - name: Build lib
               run: pnpm run build
               working-directory: ${{ inputs.workingDir }}
 
-            - name: Publish to github
+            - name: Publish to GitHub
               run: pnpm publish
               working-directory: ${{ inputs.workingDir }}/dist
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Get new version from package.json
-              id: pkg
-              run: |
-                  version=$(jq -r .version ${{ inputs.workingDir }}/package.json)
-                  echo "version=$version" >> "$GITHUB_OUTPUT"
-
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
               with:
-                  tag_name: ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
-                  name: ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
+                  tag_name: ${{ inputs.releasePrefix }}@${{ steps.get_version.outputs.new_version }}
+                  name: ${{ inputs.releasePrefix }}v${{ steps.get_version.outputs.new_version }}
+                  body: |
+                      📦 Released ${{ inputs.projectName }}v${{ steps.get_version.outputs.new_version }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
