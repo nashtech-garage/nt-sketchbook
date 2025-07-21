@@ -12,21 +12,21 @@ export default {
             control: {
                 type: 'select',
                 options: [
-                    'default',
-                    'danger',
-                    'warning',
                     'success',
+                    'warning',
+                    'danger',
                     'info',
-                ],
-            },
+                    'default'
+                ]
+            }
         },
         size: {
             control: {
                 type: 'select',
-                options: ['small', 'medium', 'large'],
-            },
-        },
-    },
+                options: ['sm', 'md', 'lg', 'xl']
+            }
+        }
+    }
 } as Meta
 
 const Template: StoryFn<ProgressProps> = (args: ProgressProps) => (
@@ -36,30 +36,30 @@ const Template: StoryFn<ProgressProps> = (args: ProgressProps) => (
 export const Default: StoryFn<ProgressProps> = Template.bind({})
 Default.args = {
     value: 50,
-    max: 100,
+    max: 100
 }
 
 export const Halfway: StoryFn<ProgressProps> = Template.bind({})
 Halfway.args = {
     value: 50,
-    max: 100,
+    max: 100
 }
 
 export const Complete: StoryFn<ProgressProps> = Template.bind({})
 Complete.args = {
     value: 100,
-    max: 100,
+    max: 100
 }
 export const WithVariant: StoryFn<ProgressProps> = Template.bind({})
 WithVariant.args = {
     value: 75,
     max: 100,
-    variant: 'success',
+    variant: 'success'
 }
 
 export const WithSize: StoryFn<ProgressProps> = Template.bind({})
 WithSize.args = {
     value: 25,
     max: 100,
-    size: 'large',
+    size: 'lg'
 }
