@@ -56,16 +56,6 @@ jobs:
               working-directory: ${{ inputs.workingDir }}
               continue-on-error: true
 
-            - name: Build lib
-              run: pnpm run build
-              working-directory: ${{ inputs.workingDir }}
-
-            - name: Publish to github
-              run: pnpm publish
-              working-directory: ${{ inputs.workingDir }}/dist
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
             - name: Get new version from package.json
               id: pkg
               run: |
@@ -81,6 +71,16 @@ jobs:
                   git tag ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
                   git push origin HEAD:main --tags
               working-directory: ${{ inputs.workingDir }}
+
+            - name: Build lib
+              run: pnpm run build
+              working-directory: ${{ inputs.workingDir }}
+
+            - name: Publish to github
+              run: pnpm publish
+              working-directory: ${{ inputs.workingDir }}/dist
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
