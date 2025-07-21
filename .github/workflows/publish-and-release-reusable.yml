@@ -74,9 +74,6 @@ jobs:
                   title: 'chore: bump ${{ inputs.releasePrefix }} to v${{ steps.get_version.outputs.new_version }}'
                   body: |
                       This pull request bumps the version of `${{ inputs.projectName }}` to `v${{ steps.get_version.outputs.new_version }}`.
-                  path: ${{ inputs.workingDir }}
-                  add-paths: |
-                      ${{ inputs.workingDir }}/package.json
                   author: khoilen <khoilen@nastechglobal.com>
 
             - name: Build lib
