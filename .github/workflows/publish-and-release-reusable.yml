@@ -79,8 +79,7 @@ jobs:
                   git commit -m "chore: bump to v${{ steps.pkg.outputs.version }}"
                   git tag ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
 
-                  git push origin main
-                  git push origin ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
+                  git push origin HEAD:main --tags
               working-directory: ${{ inputs.workingDir }}
 
             - name: Build lib
