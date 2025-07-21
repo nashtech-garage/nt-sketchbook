@@ -74,7 +74,8 @@ jobs:
                   git add package.json
                   git commit -m "chore: bump to v${{ steps.pkg.outputs.version }}"
                   git tag ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
-                  git push origin HEAD:main --tags
+                  git push origin main
+                  git push origin ${{ inputs.releasePrefix }}@${{ steps.pkg.outputs.version }}
               working-directory: ${{ inputs.workingDir }}
 
             - name: Build lib
