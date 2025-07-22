@@ -80,7 +80,7 @@ jobs:
 
             - name: Publish to github
               run: pnpm publish
-              working-directory: ${{ inputs.workingDir }}/dist
+              working-directory: ${{ inputs.workingDir }}
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

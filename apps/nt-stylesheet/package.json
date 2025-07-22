@@ -1,6 +1,7 @@
 {
-    "name": "@nashtech/stylesheet",
+    "name": "@nashtech-garage/stylesheet",
     "version": "1.0.0",
+    "private": false,
     "description": "Style sheet for the NT Design System",
     "scripts": {
         "build": "pnpm vite build",
@@ -74,5 +75,8 @@
         "postcss-nesting": "13.0.1",
         "tailwindcss": "3.4.17",
         "dompurify": "3.2.6"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
     }
 }
