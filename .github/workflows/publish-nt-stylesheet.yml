@@ -20,7 +20,7 @@ on:
 
 jobs:
     call-reusable:
-        uses: nashtech-garage/nt-sketchbook/.github/workflows/publish-and-release-reusable.yml@main
+        uses: nashtech-garage/nt-sketchbook/.github/workflows/publish-and-release-reusable.yml@dev/khoi/fix-endauth-publish
         with:
             version: ${{ inputs.version }}
             projectName: 'stylesheet'
