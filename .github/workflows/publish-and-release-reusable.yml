@@ -43,6 +43,8 @@ jobs:
               with:
                   node-version: 20.18.2
                   cache: 'pnpm'
+                  registry-url: 'https://npm.pkg.github.com'
+                  scope: '@nashtech-garage'
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
@@ -81,7 +83,7 @@ jobs:
               working-directory: ${{ inputs.workingDir }}
 
             - name: Publish to GitHub
-              run: pnpm publish
+              run: pnpm publish --provenance --access public
               working-directory: ${{ inputs.workingDir }}
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
