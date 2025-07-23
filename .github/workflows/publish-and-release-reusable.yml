@@ -66,16 +66,6 @@ jobs:
                   echo "new_version=$version" >> "$GITHUB_OUTPUT"
                   echo "Bumped version: $version"
 
-            - name: Build lib
-              run: pnpm run build
-              working-directory: ${{ inputs.workingDir }}
-
-            - name: Publish to GitHub
-              run: pnpm publish
-              working-directory: ${{ inputs.workingDir }}
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
             - name: Create Pull Request for version bump
               uses: peter-evans/create-pull-request@v6
               with:
@@ -86,6 +76,16 @@ jobs:
                   body: |
                       This pull request bumps the version of `${{ inputs.projectName }}` to `v${{ steps.get_version.outputs.new_version }}`.
                   author: khoilen <khoilen@nastechglobal.com>
+
+            - name: Build lib
+              run: pnpm run build
+              working-directory: ${{ inputs.workingDir }}
+
+            - name: Publish to GitHub
+              run: pnpm publish
+              working-directory: ${{ inputs.workingDir }}
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
