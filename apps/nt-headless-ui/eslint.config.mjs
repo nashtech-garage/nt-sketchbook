@@ -8,9 +8,9 @@ const __dirname = dirname(__filename)
 
 const compat = new FlatCompat({
     baseDirectory: __dirname,
-    recommendedConfig: () => null,
 })
 
+/** @type {import('eslint').Linter.FlatConfig[]} */
 const eslintConfig = [
     ...compat.extends('plugin:@typescript-eslint/recommended'),
     ...customConfig,

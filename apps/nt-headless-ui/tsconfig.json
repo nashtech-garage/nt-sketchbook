@@ -23,14 +23,8 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "../nt-stylesheet/dist/integrations/tailwind/index.cjs",
         "../../vite.base.config.ts",
         "./eslint.config.mjs"
     ],
-    "exclude": [
-        "node_modules",
-        "**/*.stories.ts",
-        "**/*.stories.js",
-        "**/*.mjs"
-    ]
+    "exclude": ["node_modules", "**/*.stories.ts", "**/*.stories.js"]
 }

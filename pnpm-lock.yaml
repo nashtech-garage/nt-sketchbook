@@ -103,7 +103,7 @@ importers:
 
   apps/nt-headless-ui:
     dependencies:
-      '@nashtech/stylesheet':
+      '@nashtech-garage/stylesheet':
         specifier: workspace:*
         version: link:../nt-stylesheet
       '@radix-ui/react-avatar':
@@ -154,9 +154,6 @@ importers:
       lucide-react:
         specifier: 0.474.0
         version: 0.474.0(react@18.2.0)
-      next:
-        specifier: 15.2.4
-        version: 15.2.4(@babel/core@7.26.10)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.88.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -242,6 +239,9 @@ importers:
       jsdom:
         specifier: 26.0.0
         version: 26.0.0
+      next:
+        specifier: 15.2.4
+        version: 15.2.4(@babel/core@7.26.10)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.88.0)
       postcss-import:
         specifier: 16.1.0
         version: 16.1.0(postcss@8.5.3)
