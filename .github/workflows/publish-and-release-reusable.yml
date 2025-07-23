@@ -58,7 +58,7 @@ jobs:
                   git config user.name 'khoilen'
                   git config user.email 'khoilen@nastechglobal.com'
 
-                  pnpm version patch || true
+                  pnpm version ${{ inputs.version }} || true
 
             - name: Get new version from package.json
               id: get_version
