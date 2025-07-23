@@ -1,0 +1,83 @@
+name: Publish Headless UI or Stylesheet on Version Merge
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - 'apps/nt-headless-ui/package.json'
+            - 'apps/nt-stylesheet/package.json'
+
+permissions:
+    contents: write
+    packages: write
+    id-token: write
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                project:
+                    - name: headless-ui
+                      path: apps/nt-headless-ui
+                    - name: stylesheet
+                      path: apps/nt-stylesheet
+
+        defaults:
+            run:
+                working-directory: ${{ matrix.project.path }}
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.18.2
+                  cache: 'pnpm'
+                  registry-url: 'https://npm.pkg.github.com'
+                  scope: '@nashtech-garage'
+
+            - name: Set up pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10.7.0
+                  run_install: false
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Get version from package.json
+              id: get_version
+              run: |
+                  VERSION=$(jq -r '.version' package.json)
+                  echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+                  echo "new_version=$VERSION" >> "$GITHUB_OUTPUT"
+
+            - name: Check if version already exists on GitHub Packages
+              run: |
+                  PKG_NAME=$(jq -r '.name' package.json)
+                  if npm view "$PKG_NAME@$VERSION" --registry=https://npm.pkg.github.com > /dev/null 2>&1; then
+                    echo "⚠️ Version $VERSION already exists. Skipping publish."
+                    exit 0
+                  fi
+
+            - name: Build lib
+              run: pnpm run build
+
+            - name: Publish to GitHub
+              run: pnpm publish --provenance --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Create GitHub release
+              uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: ${{ matrix.project.name }}@${{ steps.get_version.outputs.new_version }}
+                  name: ${{ matrix.project.name }} v${{ steps.get_version.outputs.new_version }}
+                  body: |
+                      📦 Released @nashtech-garage/${{ matrix.project.name }} v${{ steps.get_version.outputs.new_version }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

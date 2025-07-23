@@ -9,6 +9,13 @@ permissions:
 on:
     workflow_dispatch:
         inputs:
+            project:
+                description: 'Select package to release'
+                required: true
+                type: choice
+                options:
+                    - headless-ui
+                    - stylesheet
             version:
                 description: 'Version bump type'
                 required: true
@@ -21,9 +28,8 @@ on:
 
 jobs:
     call-reusable:
-        uses: nashtech-garage/nt-sketchbook/.github/workflows/publish-and-release-reusable.yml@main
+        uses: nashtech-garage/nt-sketchbook/.github/workflows/auto-bump-version.yml@main
         with:
             version: ${{ inputs.version }}
-            projectName: 'headless-ui'
-            workingDir: 'apps/nt-headless-ui'
-            releasePrefix: 'headless-ui'
+            projectName: ${{ inputs.project }}
+            workingDir: ${{ fromJSON('{"headless-ui":"apps/nt-headless-ui","stylesheet":"apps/nt-stylesheet"}')[inputs.project] }}
