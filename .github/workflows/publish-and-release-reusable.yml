@@ -17,6 +17,7 @@ on:
                 type: string
 
 permissions:
+    id-token: write
     contents: write
     packages: write
     pull-requests: write
