@@ -1,10 +1,9 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { User } from 'lucide-react'
 
-import type { ButtonProps } from './button'
 import { Button } from './button'
 
-const meta: Meta<ButtonProps> = {
+const meta: Meta<typeof Button> = {
     title: 'Components/Button',
     component: Button,
     argTypes: {
@@ -23,61 +22,68 @@ const meta: Meta<ButtonProps> = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: StoryFn<ButtonProps> = (args) => <Button {...args} />
-
-export const Primary = Template.bind({})
-Primary.args = {
-    variant: 'primary',
-    children: 'Primary'
+export const Primary: Story = {
+    args: {
+        variant: 'primary',
+        children: 'Primary'
+    }
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-    variant: 'secondary',
-    children: 'Secondary'
+export const Secondary: Story = {
+    args: {
+        variant: 'secondary',
+        children: 'Secondary'
+    }
 }
 
-export const Outline = Template.bind({})
-Outline.args = {
-    variant: 'primary',
-    outline: true,
-    children: 'Outline'
+export const Outline: Story = {
+    args: {
+        variant: 'primary',
+        outline: true,
+        children: 'Outline'
+    }
 }
 
-export const OutlineSecondary = Template.bind({})
-OutlineSecondary.args = {
-    variant: 'secondary',
-    outline: true,
-    children: 'Outline Secondary'
+export const OutlineSecondary: Story = {
+    args: {
+        variant: 'secondary',
+        outline: true,
+        children: 'Outline Secondary'
+    }
 }
 
-export const Success = Template.bind({})
-Success.args = {
-    variant: 'success',
-    children: 'Success'
+export const Success: Story = {
+    args: {
+        variant: 'success',
+        children: 'Success'
+    }
 }
 
-export const Gradient = Template.bind({})
-Gradient.args = {
-    variant: 'gradient',
-    children: 'Gradient'
+export const Gradient: Story = {
+    args: {
+        variant: 'gradient',
+        children: 'Gradient'
+    }
 }
 
-export const WithIcon = Template.bind({})
-WithIcon.args = {
-    variant: 'primary',
-    children: (
-        <>
-            🚀 <span className="ml-1">With Icon</span>
-        </>
-    )
+export const WithIcon: Story = {
+    args: {
+        variant: 'primary',
+        children: (
+            <>
+                🚀 <span className="ml-1">With Icon</span>
+            </>
+        )
+    }
 }
 
-export const IconOnly = Template.bind({})
-IconOnly.args = {
-    variant: 'primary',
-    size: 'sm',
-    children: <User size={15} />,
-    'aria-label': 'User Icon'
+export const IconOnly: Story = {
+    args: {
+        variant: 'primary',
+        size: 'sm',
+        children: <User size={15} />,
+        'aria-label': 'User Icon'
+    }
 }

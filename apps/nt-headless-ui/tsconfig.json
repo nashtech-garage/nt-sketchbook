@@ -7,6 +7,8 @@
             "@/*": ["./*"],
             "@nashtech/stylesheet/*": ["../nt-stylesheet/dist/*"]
         },
+        "jsx": "preserve",
+        "jsxImportSource": "react",
         "plugins": [
             {
                 "name": "next"
