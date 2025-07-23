@@ -12,9 +12,6 @@ on:
             workingDir:
                 required: true
                 type: string
-            releasePrefix:
-                required: true
-                type: string
 
 permissions:
     id-token: write
@@ -72,29 +69,9 @@ jobs:
               uses: peter-evans/create-pull-request@v6
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  commit-message: 'chore: bump ${{ inputs.releasePrefix }} to v${{ steps.get_version.outputs.new_version }}'
-                  branch: release/${{ inputs.releasePrefix }}-v${{ steps.get_version.outputs.new_version }}
-                  title: 'chore: bump ${{ inputs.releasePrefix }} to v${{ steps.get_version.outputs.new_version }}'
+                  commit-message: 'chore: bump ${{ inputs.projectName }} to v${{ steps.get_version.outputs.new_version }}'
+                  branch: release/${{ inputs.projectName }}-v${{ steps.get_version.outputs.new_version }}
+                  title: 'chore: bump ${{ inputs.projectName }} to v${{ steps.get_version.outputs.new_version }}'
                   body: |
                       This pull request bumps the version of `${{ inputs.projectName }}` to `v${{ steps.get_version.outputs.new_version }}`.
                   author: khoilen <khoilen@nastechglobal.com>
-
-            - name: Build lib
-              run: pnpm run build
-              working-directory: ${{ inputs.workingDir }}
-
-            - name: Publish to GitHub
-              run: pnpm publish --provenance --access public
-              working-directory: ${{ inputs.workingDir }}
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Create GitHub release
-              uses: softprops/action-gh-release@v1
-              with:
-                  tag_name: ${{ inputs.releasePrefix }}@${{ steps.get_version.outputs.new_version }}
-                  name: ${{ inputs.releasePrefix }}v${{ steps.get_version.outputs.new_version }}
-                  body: |
-                      📦 Released ${{ inputs.projectName }}v${{ steps.get_version.outputs.new_version }}
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
