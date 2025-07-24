@@ -24,7 +24,7 @@
             "import": "./dist/headless-ui.es.js",
             "require": "./dist/headless-ui.umd.js"
         },
-        "./dist/style.css": "./dist/style.css"
+        "./headless-ui.css": "./dist/headless-ui.css"
     },
     "dependencies": {
         "@nashtech/stylesheet": "workspace:*",

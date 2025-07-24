@@ -25,6 +25,7 @@ You can import and use the components in your project as follows:
 
 ```tsx
 import { Button } from '@nashtech/headless-ui'
+import '@nashtech/headless-ui/headless-ui.css'
 
 export default function App() {
     return <Button>Click Me</Button>
@@ -36,7 +37,5 @@ export default function App() {
 ## If the components support customization (e.g., using Tailwind, custom styles, or props), you can modify their behavior accordingly
 
 ```tsx
-<Button className="bg-blue-500 text-white px-4 py-2 rounded">
-    Custom Button
-</Button>
+<Button>Custom Button</Button>
 ```
