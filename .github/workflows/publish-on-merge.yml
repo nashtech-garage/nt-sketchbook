@@ -15,15 +15,13 @@ permissions:
 
 jobs:
     publish:
-        timeout-minutes: 20
+        timeout-minutes: 100
         runs-on: ubuntu-latest
         strategy:
             matrix:
                 project:
                     - name: headless-ui
                       path: apps/nt-headless-ui
-                    - name: stylesheet
-                      path: apps/nt-stylesheet
 
         defaults:
             run:
