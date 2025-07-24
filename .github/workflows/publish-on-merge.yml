@@ -32,6 +32,12 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10.7.0
+                  run_install: false
+
             - name: Set up Node.js
               uses: actions/setup-node@v4
               with:
@@ -39,12 +45,6 @@ jobs:
                   cache: 'pnpm'
                   registry-url: 'https://npm.pkg.github.com'
                   scope: '@nashtech-garage'
-
-            - name: Set up pnpm
-              uses: pnpm/action-setup@v4
-              with:
-                  version: 10.7.0
-                  run_install: false
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile

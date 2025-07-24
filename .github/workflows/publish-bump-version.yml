@@ -1,4 +1,4 @@
-name: Publish and Release headless-ui
+name: Publish and Bump version
 
 permissions:
     id-token: write
