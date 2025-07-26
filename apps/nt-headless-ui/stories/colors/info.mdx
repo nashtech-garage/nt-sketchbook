@@ -4,10 +4,10 @@ import {
     ColorItem,
     ColorPalette,
     Meta,
-    Story,
+    Story
 } from '@storybook/blocks'
 
-import { colors } from '@nashtech/stylesheet/integrations/tailwind'
+import { colors } from '@nashtech-garage/stylesheet/integrations/tailwind'
 
 <Meta title="Foundation/Colors/Info" />
 
@@ -15,21 +15,21 @@ import { colors } from '@nashtech/stylesheet/integrations/tailwind'
     {[
         {
             name: 'info-bold',
-            value: colors.info.bold,
+            value: colors.info.bold
         },
         {
             name: 'info-regular',
             subtitle: '(default)',
-            value: colors.info.DEFAULT,
+            value: colors.info.DEFAULT
         },
         {
             name: 'info-light',
-            value: colors.info.light,
+            value: colors.info.light
         },
         {
             name: 'info-thin',
-            value: colors.info.thin,
-        },
+            value: colors.info.thin
+        }
     ].map((color) => (
         <ColorItem
             key={color.title}

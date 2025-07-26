@@ -43,7 +43,7 @@ jobs:
               run: pnpm install --frozen-lockfile
 
             - name: Build stylesheet package
-              run: pnpm --filter @nashtech/stylesheet  build
+              run: pnpm --filter @nashtech-garage/stylesheet  build
 
             - name: Run tests
               run: pnpm run test --coverage

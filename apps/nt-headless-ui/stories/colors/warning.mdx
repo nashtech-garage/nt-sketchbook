@@ -4,10 +4,10 @@ import {
     ColorItem,
     ColorPalette,
     Meta,
-    Story,
+    Story
 } from '@storybook/blocks'
 
-import { colors } from '@nashtech/stylesheet/integrations/tailwind'
+import { colors } from '@nashtech-garage/stylesheet/integrations/tailwind'
 
 <Meta title="Foundation/Colors/Warning" />
 
@@ -15,21 +15,21 @@ import { colors } from '@nashtech/stylesheet/integrations/tailwind'
     {[
         {
             name: 'warning-bold',
-            value: colors.warning.bold,
+            value: colors.warning.bold
         },
         {
             name: 'warning-regular',
             subtitle: '(default)',
-            value: colors.warning.DEFAULT,
+            value: colors.warning.DEFAULT
         },
         {
             name: 'warning-light',
-            value: colors.warning.light,
+            value: colors.warning.light
         },
         {
             name: 'warning-thin',
-            value: colors.warning.thin,
-        },
+            value: colors.warning.thin
+        }
     ].map((color) => (
         <ColorItem
             key={color.title}
