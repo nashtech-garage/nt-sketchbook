@@ -1,13 +1,10 @@
 @use 'reset';
-@use 'variables' as variables;
 @use 'typography';
 @use 'grid';
 @use 'components';
 @use 'layouts';
-@use 'icons';
 @use 'mixins' as fns;
 @use 'utilities';
 @use 'themes/nt-theme';
 @use 'branding/nashtech';
-@use 'materialdesignicons.min.css';
 @include fns.create-theme('nt-stylesheet');

@@ -15,7 +15,7 @@ The **Card** component is a versatile and customizable UI element that can be us
 Import the stylesheet in your project:
 
 ```javascript
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
 ```
 
 ## Usage

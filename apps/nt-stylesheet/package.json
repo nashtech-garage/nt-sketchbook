@@ -10,7 +10,7 @@
         "typecheck": "tsc --pretty --noEmit"
     },
     "bin": {
-        "@nashtech/stylesheet": "./src/bin/init-tailwind.js"
+        "@nashtech-garage/stylesheet": "./src/bin/init-tailwind.js"
     },
     "keywords": [],
     "author": "NashTech",
@@ -25,7 +25,8 @@
         "postcss.config.js",
         "LICENSE",
         "README.md",
-        "package.json"
+        "package.json",
+        "!**/*.scss"
     ],
     "exports": {
         ".": {
@@ -35,6 +36,9 @@
         },
         "./css/nt.css": {
             "default": "./dist/css/nt.css"
+        },
+        "./css/nt-icons.css": {
+            "default": "./dist/css/nt-icons.css"
         },
         "./integrations/tailwind": {
             "types": "./dist/integrations/tailwind/index.d.ts",
@@ -70,11 +74,12 @@
     "dependencies": {
         "@mdi/font": "7.4.47",
         "autoprefixer": "10.4.20",
+        "dompurify": "3.2.6",
         "postcss": "8.5.3",
         "postcss-import": "16.1.0",
         "postcss-nesting": "13.0.1",
-        "tailwindcss": "3.4.17",
-        "dompurify": "3.2.6"
+        "postcss-preset-env": "10.2.4",
+        "tailwindcss": "3.4.17"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

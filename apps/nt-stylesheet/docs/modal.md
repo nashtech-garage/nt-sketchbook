@@ -17,8 +17,8 @@ The Modal component in NT Stylesheet provides a flexible, customizable overlay d
 Import the stylesheet in your project:
 
 ```javascript
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
-import '@nashtech/nt-stylesheet/dist/scripts/nt.js'
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech-garage/nt-stylesheet/dist/scripts/nt.js'
 ```
 
 ## Usage

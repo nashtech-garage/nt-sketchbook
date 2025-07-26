@@ -16,7 +16,7 @@ The Alert component in NT Stylesheet is used to display contextual feedback mess
 -   Import the stylesheet in your project:
 
 ```javascript
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
 ```
 
 ## Usage

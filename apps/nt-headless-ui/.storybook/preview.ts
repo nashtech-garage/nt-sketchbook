@@ -1,5 +1,6 @@
-import '@nashtech/stylesheet/css/nt.css'
-import '@nashtech/stylesheet/integrations/tailwind/style.css'
+import '@nashtech-garage/stylesheet/css/nt-icons.css'
+import '@nashtech-garage/stylesheet/css/nt.css'
+import '@nashtech-garage/stylesheet/integrations/tailwind/style.css'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },

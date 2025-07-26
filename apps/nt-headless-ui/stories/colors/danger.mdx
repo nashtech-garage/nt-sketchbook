@@ -4,10 +4,10 @@ import {
     ColorItem,
     ColorPalette,
     Meta,
-    Story,
+    Story
 } from '@storybook/blocks'
 
-import { colors } from '@nashtech/stylesheet/integrations/tailwind'
+import { colors } from '@nashtech-garage/stylesheet/integrations/tailwind'
 
 <Meta title="Foundation/Colors/Danger" />
 
@@ -15,21 +15,21 @@ import { colors } from '@nashtech/stylesheet/integrations/tailwind'
     {[
         {
             name: 'danger-bold',
-            value: colors.danger.bold,
+            value: colors.danger.bold
         },
         {
             name: 'danger-regular',
             subtitle: '(default)',
-            value: colors.danger.DEFAULT,
+            value: colors.danger.DEFAULT
         },
         {
             name: 'danger-light',
-            value: colors.danger.light,
+            value: colors.danger.light
         },
         {
             name: 'danger-thin',
-            value: colors.danger.thin,
-        },
+            value: colors.danger.thin
+        }
     ].map((color) => (
         <ColorItem
             key={color.name}

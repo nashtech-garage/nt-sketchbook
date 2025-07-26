@@ -5,7 +5,9 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./*"],
-            "@nashtech/stylesheet/*": ["../nt-stylesheet/dist/*"]
+            "@nashtech-garage/stylesheet/*": [
+                "../nt-stylesheet/dist/*"
+            ]
         },
         "plugins": [
             {

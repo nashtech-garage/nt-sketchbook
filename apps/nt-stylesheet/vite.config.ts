@@ -1,7 +1,12 @@
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
 import * as path from 'path'
+import postcssImport from 'postcss-import'
+import postcssNesting from 'postcss-nesting'
+import postcssPresetEnv from 'postcss-preset-env'
+import postcssReporter from 'postcss-reporter'
 import dtsPlugin from 'vite-plugin-dts'
 import { defineConfig } from 'vitest/config'
 
@@ -21,11 +26,6 @@ export default defineConfig(() => {
             }),
             nxViteTsPaths(),
             nxCopyAssetsPlugin([
-                {
-                    input: './src/styles',
-                    output: 'scss',
-                    glob: '**/*.scss'
-                },
                 {
                     input: './docs',
                     output: 'docs',
@@ -49,9 +49,13 @@ export default defineConfig(() => {
             rollupOptions: {
                 preserveEntrySignatures: 'strict',
                 input: {
-                    css: path.resolve(
+                    'nt-icons': path.resolve(
                         __dirname,
-                        'src/styles/_site.scss'
+                        'src/styles/icon.ts'
+                    ),
+                    nt: path.resolve(
+                        __dirname,
+                        'src/styles/index.ts'
                     ),
                     'scripts/index': path.resolve(
                         __dirname,
@@ -91,9 +95,11 @@ export default defineConfig(() => {
                             return 'integrations/tailwind/style.css'
                         }
 
-                        if (assetInfo.name?.endsWith('.css')) {
-                            return 'css/nt.css'
-                        }
+                        if (assetInfo.name?.endsWith('nt-icons.css'))
+                            return 'css/nt-icons.css'
+
+                        if (assetInfo.name?.endsWith('.css'))
+                            return 'css/[name][extname]'
 
                         return 'assets/[name][extname]'
                     }
@@ -101,9 +107,29 @@ export default defineConfig(() => {
             }
         },
         css: {
-            preprocessorOptions: {},
+            preprocessorOptions: {
+                scss: {
+                    additionalData: `@use 'sass:math'; @use 'sass:map';`
+                }
+            },
             postcss: {
-                plugins: [autoprefixer()]
+                plugins: [
+                    postcssImport(),
+                    autoprefixer(),
+                    postcssNesting(),
+                    postcssPresetEnv({
+                        stage: 1,
+                        features: {
+                            'custom-properties': true,
+                            'nesting-rules': true
+                        }
+                    }),
+                    postcssReporter({
+                        clearReportedMessages: true,
+                        throwError: false
+                    }),
+                    cssnano({ preset: 'default' })
+                ]
             }
         },
         optimizeDeps: {

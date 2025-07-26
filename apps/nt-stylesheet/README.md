@@ -22,14 +22,14 @@ This directory contains documentation for the **NT Stylesheet** package, which p
 ### 1. Install via npm
 
 ```bash
-npm install @nashtech/nt-stylesheet
+npm install @nashtech-garage/nt-stylesheet
 ```
 
 ### 2. Import in your JavaScript or TypeScript entry file
 
 ```javascript
-import '@nashtech/nt-stylesheet/dist/nt.css'
-import '@nashtech/nt-stylesheet/dist/nt.js'
+import '@nashtech-garage/nt-stylesheet/dist/nt.css'
+import '@nashtech-garage/nt-stylesheet/dist/nt.js'
 ```
 
 ### 3. Or include via CDN in your HTML
@@ -37,10 +37,10 @@ import '@nashtech/nt-stylesheet/dist/nt.js'
 ```html
 <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@nashtech/nt-stylesheet/dist/nt-stylesheet.css"
+    href="https://cdn.jsdelivr.net/npm/@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css"
 />
 <script
-    src="https://cdn.jsdelivr.net/npm/@nashtech/nt-stylesheet/dist/nt-stylesheet.js"
+    src="https://cdn.jsdelivr.net/npm/@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.js"
     defer
 ></script>
 ```

@@ -1,11 +1,11 @@
-import { colors } from '@nashtech/stylesheet/integrations/tailwind'
+import { colors } from '@nashtech-garage/stylesheet/integrations/tailwind'
 import { Markdown } from '@storybook/blocks'
 import {
     Canvas,
     ColorItem,
     ColorPalette,
     Meta,
-    Story,
+    Story
 } from '@storybook/blocks'
 
 <Meta title="Foundation/Colors/Success" />
@@ -14,21 +14,21 @@ import {
     {[
         {
             name: 'success-bold',
-            value: colors.success.bold,
+            value: colors.success.bold
         },
         {
             name: 'success-regular',
             subtitle: '(default)',
-            value: colors.success.DEFAULT,
+            value: colors.success.DEFAULT
         },
         {
             name: 'success-light',
-            value: colors.success.light,
+            value: colors.success.light
         },
         {
             name: 'success-thin',
-            value: colors.success.thin,
-        },
+            value: colors.success.thin
+        }
     ].map((color) => (
         <ColorItem
             key={color.title}

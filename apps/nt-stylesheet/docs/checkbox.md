@@ -15,7 +15,7 @@ The **Checkbox** component in NT Stylesheet provides customizable checkbox compo
 Import the stylesheet in your project:
 
 ```javascript
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
 ```
 
 ## Usage

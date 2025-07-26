@@ -18,8 +18,8 @@ The Tooltip component in NT Stylesheet provides contextual hints that appear whe
 Import the stylesheet and script into your project:
 
 ```js
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
-import '@nashtech/nt-stylesheet/dist/scripts/nt.js'
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech-garage/nt-stylesheet/dist/scripts/nt.js'
 ```
 
 ## Usage
