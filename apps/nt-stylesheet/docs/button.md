@@ -13,7 +13,7 @@ The `nt-button` component follows NT Stylesheet guidelines and supports a wide r
 Ensure you’ve imported the NT Stylesheet in your project:
 
 ```html
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css';
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css';
 ```
 
 ## Variants

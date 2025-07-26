@@ -14,7 +14,7 @@ The **Avatar** component in NT Stylesheet is used to display user profile images
 Import the stylesheet in your project:
 
 ```javascript
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
 ```
 
 ## Usage

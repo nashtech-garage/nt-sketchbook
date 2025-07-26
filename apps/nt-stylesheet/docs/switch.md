@@ -17,7 +17,7 @@ The Switch component in NT Stylesheet provides a flexible and accessible switch 
 Import the stylesheet in your project:
 
 ```javascript
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
 ```
 
 ## Usage

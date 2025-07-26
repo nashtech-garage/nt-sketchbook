@@ -17,7 +17,7 @@ The Input component in NT Stylesheet is a customizable form element that support
 Import the stylesheet in your project:
 
 ```js
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
 ```
 
 ## Usage

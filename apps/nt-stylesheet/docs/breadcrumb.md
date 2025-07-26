@@ -7,7 +7,7 @@ The **Breadcrumb** component in NT Stylesheet displays the user's navigation pat
 Import the stylesheet in your project:
 
 ```javascript
-import '@nashtech/nt-stylesheet/dist/nt-stylesheet.css'
+import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
 ```
 
 ## Customization

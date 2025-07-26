@@ -14,18 +14,13 @@ permissions:
     id-token: write
 
 jobs:
-    publish:
+    publish-stylesheet:
+        name: Publish Stylesheet
         timeout-minutes: 100
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                project:
-                    - name: headless-ui
-                      path: apps/nt-headless-ui
-
         defaults:
             run:
-                working-directory: ${{ matrix.project.path }}
+                working-directory: apps/nt-stylesheet
 
         steps:
             - name: Checkout repository
@@ -63,10 +58,10 @@ jobs:
                     exit 0
                   fi
 
-            - name: Build lib
+            - name: Build Stylesheet
               run: pnpm run build
 
-            - name: Publish to GitHub
+            - name: Publish Stylesheet
               run: pnpm publish --provenance --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -74,9 +69,72 @@ jobs:
             - name: Create GitHub release
               uses: softprops/action-gh-release@v1
               with:
-                  tag_name: ${{ matrix.project.name }}@${{ steps.get_version.outputs.new_version }}
-                  name: ${{ matrix.project.name }} v${{ steps.get_version.outputs.new_version }}
+                  tag_name: stylesheet@${{ steps.get_version.outputs.new_version }}
+                  name: stylesheet v${{ steps.get_version.outputs.new_version }}
                   body: |
-                      📦 Released @nashtech-garage/${{ matrix.project.name }} v${{ steps.get_version.outputs.new_version }}
+                      📦 Released @nashtech-garage/stylesheet v${{ steps.get_version.outputs.new_version }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    publish-headless-ui:
+        name: Publish Headless UI
+        needs: publish-stylesheet
+        timeout-minutes: 100
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: apps/nt-headless-ui
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10.7.0
+                  run_install: false
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.18.2
+                  cache: 'pnpm'
+                  registry-url: 'https://npm.pkg.github.com'
+                  scope: '@nashtech-garage'
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Get version from package.json
+              id: get_version
+              run: |
+                  VERSION=$(jq -r '.version' package.json)
+                  echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+                  echo "new_version=$VERSION" >> "$GITHUB_OUTPUT"
+
+            - name: Check if version already exists on GitHub Packages
+              run: |
+                  PKG_NAME=$(jq -r '.name' package.json)
+                  if npm view "$PKG_NAME@$VERSION" --registry=https://npm.pkg.github.com > /dev/null 2>&1; then
+                    echo "⚠️ Version $VERSION already exists. Skipping publish."
+                    exit 0
+                  fi
+
+            - name: Build Headless UI
+              run: pnpm run build
+
+            - name: Publish Headless UI
+              run: pnpm publish --provenance --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Create GitHub release
+              uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: headless-ui@${{ steps.get_version.outputs.new_version }}
+                  name: headless-ui v${{ steps.get_version.outputs.new_version }}
+                  body: |
+                      📦 Released @nashtech-garage/headless-ui v${{ steps.get_version.outputs.new_version }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

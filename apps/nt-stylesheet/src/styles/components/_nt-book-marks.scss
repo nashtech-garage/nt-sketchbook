@@ -10,7 +10,7 @@
 
     &.active {
         color: vars.$nt-text-primary;
-        border-bottom: 0.125rem solid var(vars.$nt-color-primary-100);
+        border-bottom: 0.125rem solid vars.$nt-color-primary-100;
     }
 }
 

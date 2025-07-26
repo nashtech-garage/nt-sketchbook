@@ -1,6 +1,6 @@
 @use 'variables' as vars;
 @use 'utilities' as utils;
-@use 'sass:map';
+@use 'materialdesignicons.min.css';
 
 @mixin material-icon($color: white) {
     @include utils.font-size('lg');

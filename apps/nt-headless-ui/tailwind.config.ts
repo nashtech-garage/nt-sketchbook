@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 // @ts-ignore
-import { ntTheme } from '@nashtech/stylesheet/integrations/tailwind'
+import { ntTheme } from '@nashtech-garage/stylesheet/integrations/tailwind'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -9,12 +9,12 @@ const config: Config = {
         './pages/**/*.{js,ts,jsx,tsx,mdx}',
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
-        './stories/**/*.{js,ts,jsx,tsx,mdx}',
+        './stories/**/*.{js,ts,jsx,tsx,mdx}'
     ],
     theme: {
-        extend: ntTheme.extend,
+        extend: ntTheme.extend
     },
-    plugins: [require('tailwindcss-animate')],
+    plugins: [require('tailwindcss-animate')]
 }
 
 export default config

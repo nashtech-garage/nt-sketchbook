@@ -1,4 +1,4 @@
-# 📦 @nashtech/headless-ui
+# 📦 @nashtech-garage/headless-ui
 
 A headless UI component library for building accessible and customizable UI components.
 
@@ -8,13 +8,13 @@ To install the package, use one of the following commands:
 
 ```sh
 # Using npm
-npm install @nashtech/headless-ui
+npm install @nashtech-garage/headless-ui
 
 # Using pnpm
-pnpm add @nashtech/headless-ui
+pnpm add @nashtech-garage/headless-ui
 
 # Using yarn
-yarn add @nashtech/headless-ui
+yarn add @nashtech-garage/headless-ui
 ```
 
 # 🛠 Usage
@@ -24,8 +24,8 @@ yarn add @nashtech/headless-ui
 You can import and use the components in your project as follows:
 
 ```tsx
-import { Button } from '@nashtech/headless-ui'
-import '@nashtech/headless-ui/headless-ui.css'
+import { Button } from '@nashtech-garage/headless-ui'
+import '@nashtech-garage/stylesheet/css/nt.css'
 
 export default function App() {
     return <Button>Click Me</Button>
