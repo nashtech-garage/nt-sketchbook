@@ -100,6 +100,11 @@
             "name": "Dropdown",
             "id": "dropdown",
             "type": "Control"
+        },
+        {
+            "name": "Combobox",
+            "id": "combobox",
+            "type": "Control"
         }
     ]
 }
