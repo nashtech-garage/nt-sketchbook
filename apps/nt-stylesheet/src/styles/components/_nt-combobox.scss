@@ -1,0 +1,132 @@
+/* stylelint-disable no-empty-source */
+@use 'sass:map';
+@use '../utilities' as utils;
+@use '../variables' as vars;
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-0.714rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nt-combobox {
+    position: relative;
+    display: inline-block;
+
+    &-trigger {
+        background: vars.$nt-color-white;
+        color: vars.$nt-text-primary;
+        padding: 0.857rem;
+        font-size: 1rem;
+        border: 0.071rem solid vars.$nt-color-black;
+        box-sizing: border-box;
+        cursor: pointer;
+        border-radius: 0.571rem;
+        width: 100%;
+        text-align: left;
+        position: relative;
+        transition: all 0.3s ease;
+        font-weight: vars.$nt-font-weight-medium;
+
+        &::after {
+            content: '▼';
+            position: absolute;
+            right: 1.429rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        &.active::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+
+    &-popover {
+        display: none;
+        position: absolute;
+        background-color: vars.$nt-color-white;
+        min-width: 100%;
+        border-radius: 0.857rem;
+        box-shadow: 0 1.071rem 2.5rem rgb(0 0 0 / 10%);
+        z-index: 1;
+        margin-top: 0.571rem;
+        border: 0.071rem solid rgb(0 0 0 / 10%);
+        overflow: hidden;
+        animation: slide-down 0.3s ease;
+
+        &.show {
+            display: block;
+        }
+    }
+
+    &-input {
+        box-sizing: border-box;
+        background: vars.$nt-color-white;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23666" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: 1rem center;
+        font-size: 1rem;
+        padding: 1rem 1.429rem 1rem 3.214rem;
+        border: none;
+
+        // border-bottom: 0.071rem solid #eee;
+        width: 100%;
+        outline: none;
+        transition: background-color 0.2s ease;
+
+        &:focus {
+            background-color: vars.$nt-color-white;
+        }
+
+        &::placeholder {
+            color: vars.$nt-text-light;
+        }
+    }
+
+    &-list {
+        &-item {
+            font-size: 1rem;
+            color: vars.$nt-text-body;
+            padding: 0.857rem 1.429rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s ease;
+            border-left: 0.214rem solid transparent;
+
+            &:hover {
+                background-color: vars.$nt-bg-regular;
+                border-left-color: vars.$nt-text-info;
+                transform: translateX(0.357rem);
+                color: vars.$nt-text-info;
+            }
+
+            &:not(:last-child) {
+                border-bottom: 0.071rem solid vars.$nt-bg-regular;
+            }
+        }
+
+        .selected-item {
+            margin-top: 1.429rem;
+            padding: 1.071rem;
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 0.714rem;
+            border-left: 0.286rem solid vars.$nt-text-info;
+            font-weight: vars.$nt-font-weight-medium;
+            color: $nt-text-primary;
+        }
+
+        .no-results {
+            padding: 1.429rem;
+            text-align: center;
+            color: vars.$nt-text-body;
+            font-style: italic;
+        }
+    }
+}

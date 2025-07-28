@@ -1,0 +1,50 @@
+<div class="nt-page">
+    <div class="nt-page-header">
+        <h2 class="nt-title">Basic Checkbox</h2>
+    </div>
+    <div class="nt-page-body">
+        <!-- Default Combobox -->
+        <div class="nt-combobox">
+            <button
+                class="nt-combobox-trigger"
+                onclick="toggleDropdown()"
+            >
+                Select an option
+            </button>
+            <div class="nt-combobox-popover show">
+                <input
+                    class="nt-combobox-input"
+                    type="text"
+                    placeholder="Search options..."
+                    onkeyup="filterFunction()"
+                />
+                <div class="nt-combobox-list">
+                    <div
+                        class="nt-combobox-list-item"
+                        onclick="selectOption('About')"
+                    >
+                        About
+                    </div>
+                    <div
+                        class="nt-combobox-list-item"
+                        onclick="selectOption('Base')"
+                    >
+                        Base
+                    </div>
+                    <div
+                        class="nt-combobox-list-item"
+                        onclick="selectOption('Blog')"
+                    >
+                        Blog
+                    </div>
+                    <div
+                        class="nt-combobox-list-item"
+                        onclick="selectOption('Contact')"
+                    >
+                        Contact
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
