@@ -1,160 +1,116 @@
-import { Button } from '@/components/radix/button'
-import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-} from '@/components/radix/command'
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from '@/components/radix/popover'
 import { cn } from '@/lib/utils'
-import { Check, ChevronDown } from 'lucide-react'
 import * as React from 'react'
+import { useRef } from 'react'
 
-export type VariantCombobox =
-    | 'default'
-    | 'danger'
-    | 'success'
-    | 'warning'
-
-const variantStyles = {
-    default:
-        'border-secondary-6 hover:border-shade-secondary-1-50 ' +
-        'focus:border-shade-secondary-1-50 ',
-    danger: 'border-danger hover:border-danger focus:border-danger ',
-    success:
-        'border-success hover:border-success focus:border-success',
-    warning:
-        'border-warning hover:border-warning focus:border-warning',
+type ComboboxOption = {
+    value: string
+    label: string
 }
-
-const variantOption = {
-    default: 'hover:bg-shade-secondary-1-10  hover:text-text',
-    danger: 'hover:bg-danger  hover:text-white',
-    success: 'hover:bg-success hover:text-white',
-    warning: 'hover:bg-warning  hover:text-white',
-}
-
-const variantOptionSelected = {
-    default: 'bg-shade-secondary-1-10 text-text',
-    danger: 'bg-danger text-white',
-    success: 'bg-success text-white',
-    warning: 'bg-warning text-white',
-}
-
 export type ComboboxProps = {
-    options: {
-        icon?: React.ReactNode
-        value: string
-        label: string
-    }[]
+    options: ComboboxOption[]
     className?: string
     classOption?: string
     placeholder?: string
     searchText?: string
-    variant?: VariantCombobox
     noFoundText?: string
-    onChange?: (value: string) => void
+    onChange?: (option: ComboboxOption) => void
 }
 
 export const Combobox = (props: ComboboxProps) => {
     const {
         options,
-        variant = 'default',
         className = '',
         classOption = '',
         placeholder = 'Choose an option',
         searchText = 'Search',
         noFoundText = 'No option found.',
-        onChange = null,
+        onChange = null
     } = props
+    const [selectedOption, setSelectedOption] =
+        React.useState<ComboboxOption>({
+            value: '',
+            label: ''
+        })
+    const [filteredOption, setFilteredOptions] =
+        React.useState<ComboboxOption[]>(options)
+    const [open, setOpen] = React.useState<boolean>(false)
+    const inputRef = useRef<HTMLInputElement>(null)
 
-    const [open, setOpen] = React.useState(false)
-    const [value, setValue] = React.useState('')
-
-    const handleOnChange = (currentValue: string) => {
-        setValue(currentValue === value ? '' : currentValue)
-        setOpen(false)
-        if (onChange) {
-            onChange(currentValue)
+    const toggleDropdown = () => {
+        if (open) {
+            setOpen(!open)
+        } else {
+            setOpen(!open)
+            inputRef?.current?.focus()
         }
     }
 
+    const selectOption = (option: ComboboxOption) => {
+        if (option.value !== selectedOption.value) {
+            setSelectedOption(option)
+            filterFunction()
+            setOpen(false)
+            if (onChange) {
+                onChange(option)
+            }
+        }
+    }
+
+    const filterFunction = () => {
+        const filter = inputRef?.current?.value.toLowerCase() ?? ''
+        const newFilteredOptions = options.filter(
+            (option) =>
+                option.value.toLowerCase().indexOf(filter) > -1
+        )
+        setFilteredOptions(newFilteredOptions)
+    }
     return (
-        <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
-                <Button
-                    variant="outline"
-                    role="combobox"
-                    aria-expanded={open}
-                    className={cn(
-                        'justify-between w-full',
-                        'text-sm text-text font-regular hover:bg-white',
-                        variantStyles[variant],
-                        className,
-                    )}
-                >
-                    {value
-                        ? options.find(
-                              (option) => option.value === value,
-                          )?.label
-                        : placeholder}
-                    <ChevronDown className="opacity-50" />
-                </Button>
-            </PopoverTrigger>
-            <PopoverContent
+        <div className={cn('nt-combobox', className)}>
+            <button
                 className={cn(
-                    'p-0 w-[--radix-popover-trigger-width]',
+                    'nt-combobox-trigger',
+                    open ? 'active' : undefined
+                )}
+                onClick={toggleDropdown}
+            >
+                {selectedOption.label || placeholder}
+            </button>
+            <div
+                className={cn(
+                    'nt-combobox-popover',
                     classOption,
+                    open ? 'show' : undefined
                 )}
             >
-                <Command>
-                    <CommandInput
-                        placeholder={searchText}
-                        className="h-9 border-0"
-                    />
-                    <CommandList>
-                        <CommandEmpty>{noFoundText}</CommandEmpty>
-                        <CommandGroup role="dialog">
-                            {options.map((option) => (
-                                <CommandItem
-                                    key={option.value}
-                                    value={option.value}
-                                    onSelect={(currentValue) =>
-                                        handleOnChange(currentValue)
-                                    }
-                                    className={cn(
-                                        variantOption[variant],
-                                        value === option.value &&
-                                            variantOptionSelected[
-                                                variant
-                                            ],
-                                    )}
-                                >
-                                    {option.icon &&
-                                        React.cloneElement(
-                                            option.icon as React.ReactElement,
-                                        )}
-                                    {option.label}
-                                    <Check
-                                        className={cn(
-                                            'ml-auto',
-                                            value === option.value
-                                                ? 'opacity-100'
-                                                : 'opacity-0',
-                                        )}
-                                    />
-                                </CommandItem>
-                            ))}
-                        </CommandGroup>
-                    </CommandList>
-                </Command>
-            </PopoverContent>
-        </Popover>
+                <input
+                    ref={inputRef}
+                    className="nt-combobox-input"
+                    type="text"
+                    placeholder={searchText}
+                    onKeyUp={filterFunction}
+                />
+                <div className="nt-combobox-list">
+                    {filteredOption.length === 0 && (
+                        <div className="no-results">
+                            {noFoundText}
+                        </div>
+                    )}
+                    {filteredOption.map((option) => (
+                        <button
+                            key={option.value}
+                            className={cn(
+                                'nt-combobox-list-item',
+                                option.value === selectedOption.value
+                                    ? 'selected-item'
+                                    : ''
+                            )}
+                            onClick={() => selectOption(option)}
+                        >
+                            {option.label}
+                        </button>
+                    ))}
+                </div>
+            </div>
+        </div>
     )
 }
