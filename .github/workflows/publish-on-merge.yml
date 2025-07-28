@@ -1,6 +1,7 @@
 name: Publish Headless UI or Stylesheet on Version Merge
 
 on:
+    workflow_dispatch: {}
     push:
         branches:
             - main
