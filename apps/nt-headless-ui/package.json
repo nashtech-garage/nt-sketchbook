@@ -12,6 +12,7 @@
         "test": "pnpm vitest",
         "typecheck": "tsc --pretty --noEmit"
     },
+    "sideEffects": false,
     "files": [
         "dist"
     ],
@@ -24,7 +25,127 @@
             "import": "./dist/headless-ui.es.js",
             "require": "./dist/headless-ui.umd.js"
         },
-        "./headless-ui.css": "./dist/headless-ui.css"
+        "./headless-ui.css": "./dist/headless-ui.css",
+        "./alert": {
+            "types": "./dist/components/ui/alert/alert.d.ts",
+            "import": "./dist/components/ui/alert/alert.js",
+            "require": "./dist/components/ui/alert/alert.js"
+        },
+        "./avatar": {
+            "types": "./dist/components/ui/avatar/avatar.d.ts",
+            "import": "./dist/components/ui/avatar/avatar.js",
+            "require": "./dist/components/ui/avatar/avatar.js"
+        },
+        "./badge": {
+            "types": "./dist/components/ui/badge/badge.d.ts",
+            "import": "./dist/components/ui/badge/badge.js",
+            "require": "./dist/components/ui/badge/badge.js"
+        },
+        "./breadcrum": {
+            "types": "./dist/components/ui/breadcrum/breadcrumb.d.ts",
+            "import": "./dist/components/ui/breadcrum/breadcrumb.js",
+            "require": "./dist/components/ui/breadcrum/breadcrumb.js"
+        },
+        "./button": {
+            "types": "./dist/components/ui/button/button.d.ts",
+            "import": "./dist/components/ui/button/button.js",
+            "require": "./dist/components/ui/button/button.js"
+        },
+        "./card": {
+            "types": "./dist/components/ui/card/card.d.ts",
+            "import": "./dist/components/ui/card/card.js",
+            "require": "./dist/components/ui/card/card.js"
+        },
+        "./chart": {
+            "types": "./dist/components/ui/chart/chart.d.ts",
+            "import": "./dist/components/ui/chart/chart.js",
+            "require": "./dist/components/ui/chart/chart.js"
+        },
+        "./checkbox": {
+            "types": "./dist/components/ui/checkbox/checkbox.d.ts",
+            "import": "./dist/components/ui/checkbox/checkbox.js",
+            "require": "./dist/components/ui/checkbox/checkbox.js"
+        },
+        "./collapsible": {
+            "types": "./dist/components/ui/collapsible/collapsible.d.ts",
+            "import": "./dist/components/ui/collapsible/collapsible.js",
+            "require": "./dist/components/ui/collapsible/collapsible.js"
+        },
+        "./combobox": {
+            "types": "./dist/components/ui/combobox/combobox.d.ts",
+            "import": "./dist/components/ui/combobox/combobox.js",
+            "require": "./dist/components/ui/combobox/combobox.js"
+        },
+        "./icons": {
+            "types": "./dist/components/ui/icons/index.d.ts",
+            "import": "./dist/components/ui/icons/index.js",
+            "require": "./dist/components/ui/icons/index.js"
+        },
+        "./input": {
+            "types": "./dist/components/ui/input/input.d.ts",
+            "import": "./dist/components/ui/input/input.js",
+            "require": "./dist/components/ui/input/input.js"
+        },
+        "./label": {
+            "types": "./dist/components/ui/label/label.d.ts",
+            "import": "./dist/components/ui/label/label.js",
+            "require": "./dist/components/ui/label/label.js"
+        },
+        "./modal": {
+            "types": "./dist/components/ui/modal/modal.d.ts",
+            "import": "./dist/components/ui/modal/modal.js",
+            "require": "./dist/components/ui/modal/modal.js"
+        },
+        "./multi-select": {
+            "types": "./dist/components/ui/multi-select/multi-select.d.ts",
+            "import": "./dist/components/ui/multi-select/multi-select.js",
+            "require": "./dist/components/ui/multi-select/multi-select.js"
+        },
+        "./popover": {
+            "types": "./dist/components/ui/popover/popover.d.ts",
+            "import": "./dist/components/ui/popover/popover.js",
+            "require": "./dist/components/ui/popover/popover.js"
+        },
+        "./progress": {
+            "types": "./dist/components/ui/progress/progress.d.ts",
+            "import": "./dist/components/ui/progress/progress.js",
+            "require": "./dist/components/ui/progress/progress.js"
+        },
+        "./radio-group": {
+            "types": "./dist/components/ui/radio-group/radio-group.d.ts",
+            "import": "./dist/components/ui/radio-group/radio-group.js",
+            "require": "./dist/components/ui/radio-group/radio-group.js"
+        },
+        "./select": {
+            "types": "./dist/components/ui/select/select.d.ts",
+            "import": "./dist/components/ui/select/select.js",
+            "require": "./dist/components/ui/select/select.js"
+        },
+        "./sidebar": {
+            "types": "./dist/components/ui/sidebar/sidebar.d.ts",
+            "import": "./dist/components/ui/sidebar/sidebar.js",
+            "require": "./dist/components/ui/sidebar/sidebar.js"
+        },
+        "./switch": {
+            "types": "./dist/components/ui/switch/switch.d.ts",
+            "import": "./dist/components/ui/switch/switch.js",
+            "require": "./dist/components/ui/switch/switch.js"
+        },
+        "./table": {
+            "types": "./dist/components/ui/table/table.d.ts",
+            "import": "./dist/components/ui/table/table.js",
+            "require": "./dist/components/ui/table/table.js"
+        },
+        "./tooltip": {
+            "types": "./dist/components/ui/tooltip/tooltip.d.ts",
+            "import": "./dist/components/ui/tooltip/tooltip.js",
+            "require": "./dist/components/ui/tooltip/tooltip.js"
+        },
+        "./upload-file": {
+            "types": "./dist/components/ui/upload-file/upload-file.d.ts",
+            "import": "./dist/components/ui/upload-file/upload-file.js",
+            "require": "./dist/components/ui/upload-file/upload-file.js"
+        }
     },
     "dependencies": {
         "@nashtech-garage/stylesheet": "workspace:*",

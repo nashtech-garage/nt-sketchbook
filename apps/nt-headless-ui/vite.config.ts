@@ -25,8 +25,7 @@ export default defineConfig({
         lib: {
             entry: path.resolve(__dirname, './index.ts'),
             name: packageName,
-            formats: ['es', 'umd'],
-            fileName: (format) => `${packageName}.${format}.js`
+            formats: ['es']
         },
         outDir: path.resolve(__dirname, 'dist'),
         rollupOptions: {
@@ -34,15 +33,21 @@ export default defineConfig({
                 'react',
                 'react/jsx-runtime',
                 'react-dom',
-                'tailwindcss'
+                'tailwindcss',
+                '@nashtech-garage/stylesheet'
             ],
             output: {
+                format: 'es',
                 dir: path.resolve(__dirname, 'dist'),
-                globals: {
-                    react: 'React',
-                    'react/jsx-runtime': 'react/jsx-runtime',
-                    'react-dom': 'ReactDOM',
-                    tailwindcss: 'tailwindcss'
+                preserveModules: true,
+                preserveModulesRoot: path.resolve(__dirname, './'),
+                entryFileNames: (chunkInfo) => {
+                    // Convert path-based names to proper file structure
+                    const name = chunkInfo.name.replace(/\\/g, '/')
+                    if (name === 'index') {
+                        return 'headless-ui.es.js'
+                    }
+                    return `${name}.js`
                 }
             }
         }
