@@ -1,4 +1,4 @@
 export {
     MultipleSelect,
-    type MultipleSelectProps,
+    type MultipleSelectProps
 } from './multi-select'
