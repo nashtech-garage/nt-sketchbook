@@ -1,30 +1,31 @@
-name: Publish Headless UI or Stylesheet on Version Merge
+name: Publish and Bump version
 
 on:
-    workflow_dispatch: {}
-    push:
-        branches:
-            - main
-        paths:
-            - 'apps/nt-headless-ui/package.json'
-            - 'apps/nt-stylesheet/package.json'
+    workflow_dispatch:
+        inputs:
+            version:
+                description: 'Version bump type'
+                required: true
+                default: 'patch'
+                type: choice
+                options:
+                    - patch
+                    - minor
+                    - major
 
 permissions:
+    id-token: write
     contents: write
     packages: write
-    id-token: write
+    pull-requests: write
 
 jobs:
-    publish-stylesheet:
-        name: Publish Stylesheet
-        timeout-minutes: 100
+    bump-combined:
+        name: Bump both packages and create single PR
         runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: apps/nt-stylesheet
 
         steps:
-            - name: Checkout repository
+            - name: Checkout repo
               uses: actions/checkout@v4
 
             - name: Install pnpm
@@ -33,7 +34,7 @@ jobs:
                   version: 10.7.0
                   run_install: false
 
-            - name: Set up Node.js
+            - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
                   node-version: 20.18.2
@@ -44,98 +45,32 @@ jobs:
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
-            - name: Get version from package.json
-              id: get_version
+            - name: Configure Git
               run: |
-                  VERSION=$(jq -r '.version' package.json)
-                  echo "VERSION=$VERSION" >> "$GITHUB_ENV"
-                  echo "new_version=$VERSION" >> "$GITHUB_OUTPUT"
+                  git config user.name 'khoilen'
+                  git config user.email 'khoilen@nastechglobal.com'
 
-            - name: Check if version already exists on GitHub Packages
-              run: |
-                  PKG_NAME=$(jq -r '.name' package.json)
-                  if npm view "$PKG_NAME@$VERSION" --registry=https://npm.pkg.github.com > /dev/null 2>&1; then
-                    echo "⚠️ Version $VERSION already exists. Skipping publish."
-                    exit 0
-                  fi
+            - name: Bump stylesheet version
+              working-directory: apps/nt-stylesheet
+              continue-on-error: true
+              run: pnpm version ${{ inputs.version }}
 
-            - name: Build Stylesheet
-              run: pnpm run build
+            - name: Bump headless-ui version
+              working-directory: apps/nt-headless-ui
+              continue-on-error: true
+              run: pnpm version ${{ inputs.version }}
 
-            - name: Publish Stylesheet
-              run: pnpm publish --provenance --access public
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Create GitHub release
-              uses: softprops/action-gh-release@v1
+            - name: Create PR with both bumps
+              uses: peter-evans/create-pull-request@v6
               with:
-                  tag_name: stylesheet@${{ steps.get_version.outputs.new_version }}
-                  name: stylesheet v${{ steps.get_version.outputs.new_version }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  commit-message: 'chore: bump stylesheet and headless-ui to ${{ inputs.version }}'
+                  branch: release/bump-both-${{ inputs.version }}
+                  title: 'chore: bump stylesheet and headless-ui to ${{ inputs.version }}'
                   body: |
-                      📦 Released @nashtech-garage/stylesheet v${{ steps.get_version.outputs.new_version }}
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    publish-headless-ui:
-        name: Publish Headless UI
-        needs: publish-stylesheet
-        timeout-minutes: 100
-        runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: apps/nt-headless-ui
-
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4
-              with:
-                  version: 10.7.0
-                  run_install: false
-
-            - name: Set up Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20.18.2
-                  cache: 'pnpm'
-                  registry-url: 'https://npm.pkg.github.com'
-                  scope: '@nashtech-garage'
-
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
-
-            - name: Get version from package.json
-              id: get_version
-              run: |
-                  VERSION=$(jq -r '.version' package.json)
-                  echo "VERSION=$VERSION" >> "$GITHUB_ENV"
-                  echo "new_version=$VERSION" >> "$GITHUB_OUTPUT"
-
-            - name: Check if version already exists on GitHub Packages
-              run: |
-                  PKG_NAME=$(jq -r '.name' package.json)
-                  if npm view "$PKG_NAME@$VERSION" --registry=https://npm.pkg.github.com > /dev/null 2>&1; then
-                    echo "⚠️ Version $VERSION already exists. Skipping publish."
-                    exit 0
-                  fi
-
-            - name: Build Headless UI
-              run: pnpm run build
-
-            - name: Publish Headless UI
-              run: pnpm publish --provenance --access public
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Create GitHub release
-              uses: softprops/action-gh-release@v1
-              with:
-                  tag_name: headless-ui@${{ steps.get_version.outputs.new_version }}
-                  name: headless-ui v${{ steps.get_version.outputs.new_version }}
-                  body: |
-                      📦 Released @nashtech-garage/headless-ui v${{ steps.get_version.outputs.new_version }}
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                      This PR bumps both `@nashtech-garage/nt-stylesheet` and `@nashtech-garage/headless-ui` packages to `${{ inputs.version }}`.
+                  author: khoilen <khoilen@nastechglobal.com>
+                  add-paths: |
+                      apps/nt-stylesheet/package.json
+                      apps/nt-headless-ui/package.json
+                      pnpm-lock.yaml
