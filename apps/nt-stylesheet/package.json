@@ -1,6 +1,6 @@
 {
     "name": "@nashtech-garage/stylesheet",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "private": false,
     "description": "Style sheet for the NT Design System",
     "scripts": {
