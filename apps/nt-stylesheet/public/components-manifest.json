@@ -75,6 +75,11 @@
             "name": "Progress",
             "id": "progress",
             "type": "Control"
+        },
+        {
+            "name": "Multiselect",
+            "id": "multiselect",
+            "type": "Control"
         }
     ]
 }
