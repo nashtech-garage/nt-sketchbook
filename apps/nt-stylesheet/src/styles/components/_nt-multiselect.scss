@@ -12,6 +12,12 @@
         box-shadow: none;
     }
 
+    button {
+        &:focus {
+            outline: none;
+        }
+    }
+
     &-hidden {
         opacity: 0;
         pointer-events: none;
@@ -34,7 +40,7 @@
         gap: 0.25rem;
 
         &:focus-within {
-            border-color: #3182ce;
+            border-color: vars.$nt-color-secondary-50;
             box-shadow: 0 0 0 0.125rem rgb(49 130 206 / 20%);
         }
 
@@ -43,10 +49,9 @@
             position: absolute;
             right: 0.75rem;
             width: 0.5rem;
-            top: 1rem;
             height: 0.5rem;
-            border-right: 0.125rem solid #6b7280;
-            border-bottom: 0.125rem solid #6b7280;
+            border-right: 0.125rem solid vars.$nt-color-gray-100;
+            border-bottom: 0.125rem solid vars.$nt-color-gray-100;
             transform: translateY(-50%) rotate(45deg);
             transition: transform 0.2s ease;
             pointer-events: none;
@@ -60,25 +65,22 @@
     }
 
     &-tag {
-        background-color: #e5e7eb;
-        color: #111827;
-        padding: 0.125rem 0.375rem;
-        border-radius: 0.25rem;
+        background-color: vars.$nt-bg-regular;
+        color: vars.$nt-color-gray-100;
+        padding: 0.3125rem 0.9375rem;
+        border-radius: 6.25rem;
         display: flex;
         align-items: center;
+        font-size: 1rem;
 
         &-remove {
             background: none;
             border: none;
-            margin-left: 0.25rem;
             cursor: pointer;
-            color: #6b7280;
-            font-size: 0.875rem;
+            color: vars.$nt-color-gray-100;
             line-height: 1;
-
-            &:hover {
-                color: #111827;
-            }
+            margin-left: 0.625rem;
+            font-size: 1.25rem;
         }
     }
 
@@ -86,12 +88,12 @@
         flex: 1;
         border: none;
         outline: none;
-        font-size: 0.875rem;
+        font-size: 1rem;
         padding: 0.25rem 0;
         min-width: 3.75rem;
 
         &::placeholder {
-            color: #9ca3af;
+            color: vars.$nt-color-gray-70;
         }
 
         &:focus {
@@ -105,8 +107,8 @@
         left: 0;
         right: 0;
         z-index: 20;
-        background: #fff;
-        border: 0.0625rem solid #ccc;
+        background: vars.$nt-color-white;
+        border: 0.0625rem solid vars.$nt-color-line-regular;
         border-radius: 0.375rem;
         margin-top: 0.25rem;
         max-height: 12.5rem;
@@ -121,6 +123,7 @@
             padding: 0.5rem 0.75rem;
             cursor: pointer;
             transition: background 0.2s ease;
+            font-size: 1rem;
 
             &:hover {
                 background-color: #f3f4f6;
