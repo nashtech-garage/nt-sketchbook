@@ -75,6 +75,11 @@
             "name": "Progress",
             "id": "progress",
             "type": "Control"
+        },
+        {
+            "name": "Combobox",
+            "id": "combobox",
+            "type": "Control"
         }
     ]
 }

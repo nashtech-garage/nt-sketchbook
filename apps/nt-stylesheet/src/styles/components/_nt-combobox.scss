@@ -35,12 +35,17 @@
         font-weight: vars.$nt-font-weight-medium;
 
         &::after {
-            content: '▼';
+            content: '';
             position: absolute;
             right: 1.429rem;
             top: 50%;
             transform: translateY(-50%);
             transition: transform 0.3s ease;
+            width: 1rem;
+            height: 1rem;
+            background: url('/assets/svg/chevrons-up-down.svg')
+                no-repeat center center;
+            background-size: contain;
         }
 
         &.active::after {
@@ -69,14 +74,12 @@
     &-input {
         box-sizing: border-box;
         background: vars.$nt-color-white;
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23666" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+        background-image: url('/assets/svg/search.svg');
         background-repeat: no-repeat;
         background-position: 1rem center;
         font-size: 1rem;
         padding: 1rem 1.429rem 1rem 3.214rem;
         border: none;
-
-        // border-bottom: 0.071rem solid #eee;
         width: 100%;
         outline: none;
         transition: background-color 0.2s ease;
@@ -103,7 +106,6 @@
             &:hover {
                 background-color: vars.$nt-bg-regular;
                 border-left-color: vars.$nt-text-info;
-                transform: translateX(0.357rem);
                 color: vars.$nt-text-info;
             }
 
@@ -113,20 +115,16 @@
         }
 
         .selected-item {
-            margin-top: 1.429rem;
-            padding: 1.071rem;
-            background: linear-gradient(135deg, #667eea15, #764ba215);
-            border-radius: 0.714rem;
-            border-left: 0.286rem solid vars.$nt-text-info;
-            font-weight: vars.$nt-font-weight-medium;
-            color: $nt-text-primary;
+            background-color: vars.$nt-bg-regular;
+            border-left-color: vars.$nt-text-info;
+            color: vars.$nt-text-info;
         }
+    }
 
-        .no-results {
-            padding: 1.429rem;
-            text-align: center;
-            color: vars.$nt-text-body;
-            font-style: italic;
-        }
+    .no-results {
+        padding: 1.429rem;
+        text-align: center;
+        color: vars.$nt-text-body;
+        font-style: italic;
     }
 }

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Bus, Car, Truck } from 'lucide-react'
 
 import type { ComboboxProps } from './combobox'
 import { Combobox } from './combobox'
@@ -7,24 +6,19 @@ import { Combobox } from './combobox'
 const meta: Meta<ComboboxProps> = {
     title: 'Components/Combobox',
     component: Combobox,
-    argTypes: {
-        variant: {
-            control: {
-                type: 'select',
-                options: ['default', 'danger', 'success', 'warning'],
-            },
-        },
-    },
+    argTypes: {},
     args: {
         options: [
-            { value: 'react', label: 'React', icon: <Car /> },
-            { value: 'vue', label: 'Vue', icon: <Bus /> },
-            { value: 'angular', label: 'Angular', icon: <Truck /> },
-        ],
-    },
+            { value: 'react', label: 'React' },
+            { value: 'vue', label: 'Vue' },
+            { value: 'angular', label: 'Angular' }
+        ]
+    }
 }
 export default meta
 
 export const Default: StoryObj<ComboboxProps> = {
-    args: {},
+    args: {
+        className: 'w-[200px]'
+    }
 }
