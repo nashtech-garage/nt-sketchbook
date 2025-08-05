@@ -34,7 +34,8 @@
         "prettier": "3.0.1",
         "typescript": "5.7.2",
         "vite": "6.3.5",
-        "vitest": "3.0.9"
+        "vitest": "3.0.9",
+        "rollup": "4.46.2"
     },
     "pnpm": {
         "overrides": {

@@ -1,11 +1,4 @@
 # NT Stylesheet Documentation
-
-This package contains the styling library used across NT Sketchbook. See the [project README](../../README.md) for repository setup instructions.
-
-This directory contains documentation for the **NT Stylesheet** package, which provides the core CSS framework and design tokens for the NT Sketchbook ecosystem.
-
----
-
 ## Overview
 
 **NT Stylesheet** delivers a lightweight, customizable set of CSS utilities and components built for consistency across NT products. It includes:
@@ -32,20 +25,7 @@ import '@nashtech-garage/nt-stylesheet/dist/nt.css'
 import '@nashtech-garage/nt-stylesheet/dist/nt.js'
 ```
 
-### 3. Or include via CDN in your HTML
-
-```html
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css"
-/>
-<script
-    src="https://cdn.jsdelivr.net/npm/@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.js"
-    defer
-></script>
-```
-
-### 4. Use the CSS classes and design tokens in your components
+### 3. Use the CSS classes and design tokens in your components
 
 Example:
 

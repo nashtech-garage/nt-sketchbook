@@ -1,6 +1,5 @@
-@use '../variables' as variables;
-@use '../utilities' as utils;
-@use 'sass:map';
+@use '../../styles/variables' as variables;
+@use '../../styles/utilities' as utils;
 
 .nt-copyright {
     @include utils.font-size('xs');
