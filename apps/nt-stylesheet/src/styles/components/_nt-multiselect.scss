@@ -52,6 +52,11 @@ $input-colors: (
         min-height: 2.375rem;
         gap: 0.25rem;
 
+        svg {
+            width: 1.3rem;
+            height: 1.3rem;
+        }
+
         &:focus-within {
             border-color: vars.$nt-color-secondary-100;
             box-shadow: 0 0 0 0.125rem rgb(49 130 206 / 20%);
