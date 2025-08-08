@@ -7,16 +7,6 @@
             "type": "Control"
         },
         {
-            "name": "Icon",
-            "id": "icon",
-            "type": "Control"
-        },
-        {
-            "name": "Input Group",
-            "id": "input-group",
-            "type": "Control"
-        },
-        {
             "name": "Avatar",
             "id": "avatar",
             "type": "Control"
@@ -94,6 +84,11 @@
         {
             "name": "Collapse",
             "id": "collapse",
+            "type": "Control"
+        },
+        {
+            "name": "Button",
+            "id": "button",
             "type": "Control"
         }
     ]

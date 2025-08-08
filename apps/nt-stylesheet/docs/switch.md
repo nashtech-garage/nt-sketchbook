@@ -34,13 +34,13 @@ Wrap a native checkbox input inside <label class="nt-switch"> to apply the base 
 
 ```html
 <main>
-    <h2 class="text-3xl font-semibold mb-4">Default</h2>
+    <h2 class=" nt-mb-4">Default</h2>
     <label class="nt-switch">
         <input type="checkbox" class="nt-switch-input" />
         <span class="nt-switch-slider"></span>
     </label>
 
-    <h2 class="text-3xl font-semibold mt-10 mb-4">Color Variants</h2>
+    <h2 class=" mt-10 nt-mb-4">Color Variants</h2>
 
     <label class="nt-switch nt-switch-danger">
         <input type="checkbox" class="nt-switch-input" />
