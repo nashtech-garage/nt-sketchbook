@@ -1,0 +1,124 @@
+<div class="nt-page">
+    <div class="nt-page-header">
+        <h2 class="nt-title text-3xl font-semibold mb-4">Collapse</h2>
+    </div>
+    <div class="nt-page-body">
+        <p class="flex flex-col gap-5">
+            <a
+                class="nt-button nt-button-primary w-[200px]"
+                href="#collapseExample"
+                role="button"
+                aria-expanded="false"
+                data-nt-collapse="#collapseExample"
+            >
+                Link with href
+            </a>
+            <button
+                class="nt-button nt-button-primary w-[200px]"
+                type="button"
+                aria-expanded="false"
+                data-nt-collapse="#collapseExample"
+            >
+                Button with nt-collapse
+            </button>
+        </p>
+
+        <div class="nt-collapse" id="collapseExample">
+            <div class="nt-card-default">
+                <div class="nt-card-content">
+                    This is the collapsible content.
+                </div>
+            </div>
+        </div>
+        <section class="mt-10">
+            <h2 class="text-2xl font-bold mb-6">
+                Frequently Asked Questions
+            </h2>
+
+            <div class="mb-2">
+                <button
+                    id="faq-button-1"
+                    data-nt-collapse="#faq1"
+                    aria-expanded="false"
+                    class="w-full text-left px-4 py-2 bg-gray-100 rounded hover:bg-gray-200 transition"
+                >
+                    What is your return policy?
+                </button>
+                <div
+                    id="faq1"
+                    class="nt-collapse"
+                    role="region"
+                    aria-labelledby="faq-button-1"
+                >
+                    <div class="nt-card-default">
+                        <div class="nt-card-content">
+                            <p>
+                                You can return any item within 30 days
+                                of purchase for a full refund. Items
+                                must be in original condition with
+                                tags attached.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <button
+                    id="faq-button-2"
+                    data-nt-collapse="#faq2"
+                    aria-expanded="false"
+                    class="w-full text-left px-4 py-2 bg-gray-100 rounded hover:bg-gray-200 transition"
+                >
+                    Do you ship internationally?
+                </button>
+                <div
+                    id="faq2"
+                    class="nt-collapse"
+                    role="region"
+                    aria-labelledby="faq-button-2"
+                >
+                    <div class="nt-card-default">
+                        <div class="nt-card-content">
+                            <p>
+                                You can return any item within 30 days
+                                of purchase for a full refund. Items
+                                must be in original condition with
+                                Yes, we ship internationally to most countries. Shipping fees and delivery times vary depending on the destination. You can view available shipping options and costs during checkout.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <button
+                    id="faq-button-3"
+                    data-nt-collapse="#faq3"
+                    aria-expanded="false"
+                    class="w-full text-left px-4 py-2 bg-gray-100 rounded hover:bg-gray-200 transition"
+                >
+                    How can I track my order?
+                </button>
+                <div
+                    id="faq3"
+                    class="nt-collapse"
+                    role="region"
+                    aria-labelledby="faq-button-3"
+                >
+                    <div class="nt-card-default">
+                        <div class="nt-card-content">
+                            <p>
+                                You can return any item within 30 days
+                                of purchase for a full refund. Items
+                                must be in original condition with
+                                After your order ships, you will receive a confirmation email with a tracking number and link. 
+                                You can also track your order status anytime by logging into your account and visiting the "My Orders" section.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
