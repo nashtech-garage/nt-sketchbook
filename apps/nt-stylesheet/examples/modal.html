@@ -1,129 +1,129 @@
 <div class="nt-page">
     <div class="nt-page-body">
-        <div class="flex flex-col gap-5">
-        <button
-            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 w-[200px]"
-            data-nt-toggle="modal"
-            data-nt-target="#modal"
-        >
-            Open modal small
-        </button>
-        <button
-            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 w-[200px]"
-            data-nt-toggle="modal"
-            data-nt-target="#modal-md"
-        >
-            Open modal md
-        </button>
-        <button
-            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 w-[200px]"
-            data-nt-toggle="modal"
-            data-nt-target="#modal-lg"
-        >
-            Open modal large
-        </button>
-    </div>
-    <div id="modal" class="nt-modal hidden" tabindex="-1">
-        <div class="nt-modal-box nt-modal-box-sm">
-            <div class="nt-modal-header">
-                <div>
-                    <h2 class="nt-modal-title">Modal Title</h2>
-                    <p class="nt-modal-description">
-                        This is the modal description providing
-                        context.
+        <div class="nt-d-flex nt-flex-col nt-gap-2">
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="modal"
+                data-nt-target="#modal"
+                style="width: 200px"
+            >
+                Open modal small
+            </button>
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="modal"
+                data-nt-target="#modal-md"
+                style="width: 200px"
+            >
+                Open modal md
+            </button>
+            <button
+                class="nt-button nt-button-primary"
+                data-nt-toggle="modal"
+                data-nt-target="#modal-lg"
+                style="width: 200px"
+            >
+                Open modal large
+            </button>
+        </div>
+        <div id="modal" class="nt-modal hidden" tabindex="-1">
+            <div class="nt-modal-box nt-modal-box-sm">
+                <div class="nt-modal-header">
+                    <div>
+                        <h2 class="nt-modal-title">Modal Title</h2>
+                        <p class="nt-modal-description">
+                            This is the modal description providing
+                            context.
+                        </p>
+                    </div>
+                    <span
+                        class="nt-modal-close"
+                        data-nt-dismiss="modal"
+                        >&times;
+                    </span>
+                </div>
+                <div class="nt-modal-content">
+                    <p>
+                        This is the main content of the modal. You can
+                        place forms, text, or other HTML elements
+                        here.
                     </p>
                 </div>
-                <span class="nt-modal-close" data-nt-dismiss="modal"
-                    >&times;
-                </span>
-            </div>
-            <div class="nt-modal-content">
-                <p>
-                    This is the main content of the modal. You can
-                    place forms, text, or other HTML elements here.
-                </p>
-            </div>
-            <div class="nt-modal-footer">
-                <a
-                    href="#"
-                    class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                    >Cancel
-                </a>
-                <a
-                    href="#"
-                    class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
-                    >Confirm
-                </a>
+                <div class="nt-modal-footer">
+                    <a href="#" class="nt-button nt-button-primary"
+                        >Cancel
+                    </a>
+                    <a href="#" class="nt-button nt-button-secondary"
+                        >Confirm
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="modal-md" class="nt-modal hidden" tabindex="-1">
-        <div class="nt-modal-box nt-modal-box-md">
-            <div class="nt-modal-header">
-                <div>
-                    <h2 class="nt-modal-title">Modal Title</h2>
-                    <p class="nt-modal-description">
-                        This is the modal description providing
-                        context.
+        <div id="modal-md" class="nt-modal hidden" tabindex="-1">
+            <div class="nt-modal-box nt-modal-box-md">
+                <div class="nt-modal-header">
+                    <div>
+                        <h2 class="nt-modal-title">Modal Title</h2>
+                        <p class="nt-modal-description">
+                            This is the modal description providing
+                            context.
+                        </p>
+                    </div>
+                    <span
+                        class="nt-modal-close"
+                        data-nt-dismiss="modal"
+                        >&times;
+                    </span>
+                </div>
+                <div class="nt-modal-content">
+                    <p>
+                        This is the main content of the modal. You can
+                        place forms, text, or other HTML elements
+                        here.
                     </p>
                 </div>
-                <span class="nt-modal-close" data-nt-dismiss="modal"
-                    >&times;
-                </span>
-            </div>
-            <div class="nt-modal-content">
-                <p>
-                    This is the main content of the modal. You can
-                    place forms, text, or other HTML elements here.
-                </p>
-            </div>
-            <div class="nt-modal-footer">
-                <a
-                    href="#"
-                    class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                    >Cancel
-                </a>
-                <a
-                    href="#"
-                    class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
-                    >Confirm
-                </a>
+                <div class="nt-modal-footer">
+                    <a href="#" class="nt-button nt-button-primary"
+                        >Cancel
+                    </a>
+                    <a href="#" class="nt-button nt-button-secondary"
+                        >Confirm
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="modal-lg" class="nt-modal hidden" tabindex="-1">
-        <div class="nt-modal-box nt-modal-box-lg">
-            <div class="nt-modal-header">
-                <div>
-                    <h2 class="nt-modal-title">Modal Title</h2>
-                    <p class="nt-modal-description">
-                        This is the modal description providing
-                        context.
+        <div id="modal-lg" class="nt-modal hidden" tabindex="-1">
+            <div class="nt-modal-box nt-modal-box-lg">
+                <div class="nt-modal-header">
+                    <div>
+                        <h2 class="nt-modal-title">Modal Title</h2>
+                        <p class="nt-modal-description">
+                            This is the modal description providing
+                            context.
+                        </p>
+                    </div>
+                    <span
+                        class="nt-modal-close"
+                        data-nt-dismiss="modal"
+                        >&times;
+                    </span>
+                </div>
+                <div class="nt-modal-content">
+                    <p>
+                        This is the main content of the modal. You can
+                        place forms, text, or other HTML elements
+                        here.
                     </p>
                 </div>
-                <span class="nt-modal-close" data-nt-dismiss="modal"
-                    >&times;
-                </span>
-            </div>
-            <div class="nt-modal-content">
-                <p>
-                    This is the main content of the modal. You can
-                    place forms, text, or other HTML elements here.
-                </p>
-            </div>
-            <div class="nt-modal-footer">
-                <a
-                    href="#"
-                    class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                    >Cancel
-                </a>
-                <a
-                    href="#"
-                    class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
-                    >Confirm
-                </a>
+                <div class="nt-modal-footer">
+                    <a href="#" class="nt-button nt-button-primary"
+                        >Cancel
+                    </a>
+                    <a href="#" class="nt-button nt-button-secondary"
+                        >Confirm
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </div>

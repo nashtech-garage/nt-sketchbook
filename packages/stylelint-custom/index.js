@@ -9,7 +9,18 @@ export default {
     ],
     plugins: ['stylelint-scss'],
     rules: {
-        'unit-allowed-list': ['em', 'rem', '%', 's', 'fr', 'deg'],
+        'unit-allowed-list': [
+            'em',
+            'rem',
+            '%',
+            's',
+            'fr',
+            'deg',
+            'px',
+            'vw',
+            'vh'
+        ], // Warn when px is used
+        'unit-disallowed-list': [['px'], { severity: 'warning' }],
         'at-rule-no-unknown': null,
         'scss/at-rule-no-unknown': [
             true,

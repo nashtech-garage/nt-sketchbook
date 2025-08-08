@@ -1,0 +1,134 @@
+@use 'variables' as variables;
+
+// Border widths
+$border-width: 1px !default;
+$border-widths: (
+    1: 1px,
+    2: 2px,
+    3: 3px,
+    4: 4px,
+    5: 5px
+) !default;
+
+// Theme colors
+$theme-colors: (
+    primary: variables.$nt-color-primary-10,
+    secondary: variables.$nt-color-secondary-100,
+    success: variables.$nt-color-success,
+    danger: variables.$nt-color-danger,
+    warning: variables.$nt-color-warning,
+    info: variables.$nt-color-info
+) !default;
+
+// Border radius
+$border-radius: 0.25rem !default;
+$border-radius-sm: 0.2rem !default;
+$border-radius-lg: 0.3rem !default;
+$border-radius-pill: 50rem !default;
+
+// Rounded size variants
+$rounded-sizes: (
+    0: 0,
+    1: 0.2rem,
+    2: 0.25rem,
+    3: 0.3rem
+) !default;
+
+// Side mapping
+$sides: (
+    '': '',
+    // all sides
+    top: '-top',
+    end: '-right',
+    bottom: '-bottom',
+    start: '-left'
+) !default;
+
+// =======================
+// BORDER UTILITIES
+// =======================
+
+// Base border
+.nt-border {
+    border: $border-width solid variables.$nt-color-gray-10;
+}
+
+// Per-side borders
+@each $side-name, $side-suffix in $sides {
+    @if $side-name != '' {
+        .nt-border-#{$side-name} {
+            border#{$side-suffix}: $border-width
+                solid
+                variables.$nt-color-gray-10;
+        }
+    }
+}
+
+// Remove borders
+.nt-border-0 {
+    border: 0;
+}
+
+@each $side-name, $side-suffix in $sides {
+    @if $side-name != '' {
+        .nt-border-#{$side-name}-0 {
+            border#{$side-suffix}: 0;
+        }
+    }
+}
+
+// Border colors
+@each $name, $color in $theme-colors {
+    .nt-border-#{$name} {
+        border-color: $color;
+    }
+}
+
+// Border widths
+@each $num, $width in $border-widths {
+    .nt-border-#{$num} {
+        border-width: $width;
+    }
+}
+
+// =======================
+// BORDER RADIUS UTILITIES
+// =======================
+.nt-rounded {
+    border-radius: $border-radius;
+
+    &-top {
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+    }
+
+    &-end {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+
+    &-bottom {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+
+    &-start {
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+    }
+
+    &-circle {
+        border-radius: 50%;
+    }
+
+    &-pill {
+        border-radius: $border-radius-pill;
+    }
+}
+
+// Rounded size variants
+@each $size, $radius in $rounded-sizes {
+    .nt-rounded-#{$size} {
+        border-radius: $radius;
+    }
+}
