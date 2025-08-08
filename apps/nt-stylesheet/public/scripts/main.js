@@ -13,8 +13,15 @@ const updateVersion = () => {
 const renderComponentsList = (data) => {
     const title = document.getElementById('nt-widget-title')
     const list = document.getElementById('nt-widget-list')
+    list.innerHTML = ''
 
-    data.components.forEach((item) => {
+    const sortedComponents = data.components.sort((a, b) =>
+        a.name.localeCompare(b.name, undefined, {
+            sensitivity: 'base'
+        })
+    )
+
+    sortedComponents.forEach((item) => {
         const li = document.createElement('li')
         const a = document.createElement('a')
 

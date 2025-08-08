@@ -80,6 +80,11 @@
             "name": "Multiselect",
             "id": "multiselect",
             "type": "Control"
+        },
+        {
+            "name": "Button",
+            "id": "button",
+            "type": "Control"
         }
     ]
 }
