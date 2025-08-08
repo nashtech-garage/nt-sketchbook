@@ -1,0 +1,11 @@
+.nt-collapse {
+    overflow: hidden;
+    transition: height 0.3s ease;
+    height: 0;
+    visibility: hidden;
+
+    &.show {
+        margin: 1rem 0;
+        visibility: visible;
+    }
+}
