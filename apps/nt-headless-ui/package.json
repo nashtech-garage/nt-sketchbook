@@ -26,6 +26,10 @@
         },
         "./headless-ui.css": "./dist/headless-ui.css"
     },
+    "peerDependencies": {
+        "react": "18.x || 19.x",
+        "react-dom": "18.x || 19.x"
+    },
     "dependencies": {
         "@nashtech-garage/stylesheet": "workspace:*",
         "@radix-ui/react-avatar": "1.1.2",
