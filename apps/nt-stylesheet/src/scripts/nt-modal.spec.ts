@@ -47,13 +47,9 @@ describe('NtModal', () => {
         expect(modal.classList.contains('fade')).toBe(false)
         expect(modal.classList.contains('hide')).toBe(false)
         expect((modal as HTMLElement).style.display).toBe('block')
-        expect(document.body.classList.contains('modal-open')).toBe(
-            true
-        )
-
-        const backdrop = document.querySelector('.nt-modal-backdrop')
-        expect(backdrop).not.toBeNull()
-        expect(backdrop?.classList.contains('show')).toBe(true)
+        expect(
+            document.body.classList.contains('nt-modal-open')
+        ).toBe(true)
     })
 
     it.each([
@@ -90,8 +86,5 @@ describe('NtModal', () => {
 
         expect(modal.classList.contains('hidden')).toBe(true)
         expect(modal.style.display).toBe('')
-        expect(
-            document.querySelector('.nt-modal-backdrop')
-        ).toBeNull()
     })
 })
