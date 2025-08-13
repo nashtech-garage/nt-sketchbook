@@ -46,11 +46,8 @@ export class NtModal {
         modal.classList.remove('fade')
         modal.classList.remove('hidden')
         ;(modal as HTMLElement).style.display = 'block'
-        document.body.classList.add('modal-open')
+        document.body.classList.add('nt-modal-open')
 
-        const backdrop = document.createElement('div')
-        backdrop.className = 'nt-modal-backdrop fade show'
-        document.body.appendChild(backdrop)
         return
     }
 
@@ -59,12 +56,9 @@ export class NtModal {
 
         modal.classList.remove('show')
         modal.classList.add('fade')
-        document.body.classList.remove('modal-open')
+        document.body.classList.remove('nt-modal-open')
         modal.classList.add('hidden')
         ;(modal as HTMLElement).style.removeProperty('display')
-
-        const backdrop = document.querySelector('.nt-modal-backdrop')
-        if (backdrop) backdrop.remove()
         return
     }
 }
