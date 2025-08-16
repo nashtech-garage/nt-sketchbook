@@ -14,10 +14,136 @@
     $secondary: variables.$nt-color-secondary-100
 ) {
     [data-theme='#{$theme-name}'] {
-        --background-color: #{$bg-color};
-        --text-color: #{$text-color};
-        --primary-color: #{$primary};
-        --secondary-color: #{$secondary};
+        /* --------- Gray (Neutral) --------- */
+        --nt-color-gray-9: #f6f6f6;
+        --nt-color-gray-10: #eaeaea;
+        --nt-color-gray-20: #d4d4d5;
+        --nt-color-gray-30: #bfbfbf;
+        --nt-color-gray-40: #a9a9aa;
+        --nt-color-gray-50: #949495;
+        --nt-color-gray-60: #7e7f80;
+        --nt-color-gray-70: #69696b;
+        --nt-color-gray-80: #535455;
+        --nt-color-gray-90: #3e3e40;
+        --nt-color-gray-100: #28292b;
+
+        /* --------- White & Black --------- */
+        --nt-color-white: #fff;
+        --nt-color-black: #000;
+
+        /* --------- Primary Color Scale --------- */
+        --nt-color-primary-10: #fbe6e8;
+        --nt-color-primary-20: #f7ccd2;
+        --nt-color-primary-30: #f3b3bb;
+        --nt-color-primary-40: #ef99a4;
+        --nt-color-primary-50: #eb808e;
+        --nt-color-primary-60: #e66677;
+        --nt-color-primary-70: #e24d60;
+        --nt-color-primary-80: #de3349;
+        --nt-color-primary-90: #da1a33;
+        --nt-color-primary-100: #d6001c;
+        --nt-color-primary-110: #c10019;
+
+        /* --------- Secondary Color Scale --------- */
+        --nt-color-secondary-10: #f0e9f2;
+        --nt-color-secondary-20: #e1d2e4;
+        --nt-color-secondary-30: #d2bcd7;
+        --nt-color-secondary-40: #c3a5ca;
+        --nt-color-secondary-50: #b58fbd;
+        --nt-color-secondary-60: #a679af;
+        --nt-color-secondary-70: #9762a2;
+        --nt-color-secondary-80: #884c95;
+        --nt-color-secondary-90: #793587;
+        --nt-color-secondary-100: #6a1f7a;
+        --nt-color-secondary-110: #5f1c6e;
+
+        /* --------- Signal Colors --------- */
+        --nt-text-success: #359000;
+        --nt-text-warning: #df7700;
+        --nt-text-danger: #e51010;
+        --nt-text-info: #0094d5;
+        --nt-border-danger: #f9bbbb;
+        --nt-border-warning: #fed496;
+        --nt-border-success: #abe38b;
+        --nt-border-info: #b3dff2;
+        --nt-background-danger: #ffe9e9;
+        --nt-background-warning: #fff0da;
+        --nt-background-success: #e4ffd5;
+        --nt-background-info: #e6f4fb;
+
+        /* --------- Info Colors --------- */
+        --nt-color-info-bold: #0094d5;
+        --nt-color-info: #33a9dd;
+        --nt-color-info-light: #b3dff2;
+        --nt-color-info-thin: #e6f4fb;
+
+        /* --------- Danger Colors --------- */
+        --nt-color-danger-bold: #e51010;
+        --nt-color-danger: #fa5151;
+        --nt-color-danger-light: #f9bbbb;
+        --nt-color-danger-thin: #ffe9e9;
+
+        /* --------- Warning Colors --------- */
+        --nt-color-warning-bold: #df7700;
+        --nt-color-warning: #ffb92e;
+        --nt-color-warning-light: #fed496;
+        --nt-color-warning-thin: #fff0da;
+
+        /* --------- Success Colors --------- */
+        --nt-color-success-bold: #359000;
+        --nt-color-success: #6cd430;
+        --nt-color-success-light: #abe38b;
+        --nt-color-success-thin: #e4ffd5;
+
+        /* --------- Brand Colors --------- */
+        --nt-color-line-regular: #c9ccd4;
+        --nt-color-pink: #e31c79;
+
+        /* --------- Font Families --------- */
+        --nt-font-default: 'Mulish', sans-serif;
+
+        /* --------- Font Sizes --------- */
+        --nt-font-size-base: 0.875rem;
+
+        /* --------- Font Weights --------- */
+        --nt-font-weight-thin: 100;
+        --nt-font-weight-extra-light: 200;
+        --nt-font-weight-light: 300;
+        --nt-font-weight-regular: 400;
+        --nt-font-weight-medium: 500;
+        --nt-font-weight-semi-bold: 600;
+        --nt-font-weight-bold: 700;
+        --nt-font-weight-extra-bold: 800;
+        --nt-font-weight-black: 900;
+
+        /* --------- Letter Spacing --------- */
+        --nt-letter-spacing-tight: -0.02em;
+        --nt-letter-spacing-normal: 0em;
+        --nt-letter-spacing-wide: 0.02em;
+
+        /* --------- Background Colors --------- */
+        --nt-bg-bold: #eaeaea;
+        --nt-bg-regular: #f0f5fe;
+        --nt-bg-light: #f6f6f6;
+        --nt-bg-body: #fff;
+
+        /* --------- Spacing (Converted to px) --------- */
+        --nt-spacing-base: 0.25rem;
+        --nt-spacing-xs: 0.5rem;
+        --nt-spacing-sm: 0.75rem;
+        --nt-spacing-md: 1rem;
+        --nt-spacing-lg: 1.5rem;
+        --nt-spacing-xl: 2rem;
+
+        /* --------- Border Radius --------- */
+        --nt-border-radius-sm: 0.25rem;
+        --nt-border-radius-md: 0.375rem;
+        --nt-border-radius-lg: 0.5rem;
+
+        /* --------- Transitions --------- */
+        --nt-transition-fast: 0.2s ease-in-out;
+        --nt-transition-medium: 0.3s ease-in-out;
+        --nt-transition-slow: 0.5s ease-in-out;
     }
 }
 

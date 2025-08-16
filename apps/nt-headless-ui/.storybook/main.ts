@@ -2,23 +2,29 @@ module.exports = {
     stories: [
         '../components/**/*.stories.@(js|jsx|ts|tsx)',
         '../stories/**/*.@(mdx|tsx)',
-        '../components/**/*.@(mdx)',
+        '../components/**/*.@(mdx)'
     ],
     addons: [
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
-        '@chromatic-com/storybook',
+        '@chromatic-com/storybook'
     ],
     framework: {
         name: '@storybook/nextjs',
-        options: {},
+        options: {}
     },
-    staticDirs: ['../public'],
+    staticDirs: [
+        '../public',
+        {
+            from: '../node_modules/@nashtech-garage/stylesheet/dist/assets/fonts',
+            to: '/assets/fonts'
+        }
+    ],
     docs: {
-        autodocs: true,
+        autodocs: true
     },
     typescript: {
-        reactDocgen: 'react-docgen-typescript',
-    },
+        reactDocgen: 'react-docgen-typescript'
+    }
 }

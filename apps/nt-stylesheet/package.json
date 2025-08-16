@@ -9,9 +9,6 @@
         "lint": "pnpm eslint && npx stylelint \"**/*.scss\"",
         "typecheck": "tsc --pretty --noEmit"
     },
-    "bin": {
-        "@nashtech-garage/stylesheet": "./src/bin/init-tailwind.js"
-    },
     "keywords": [],
     "author": "NashTech",
     "license": "MIT",

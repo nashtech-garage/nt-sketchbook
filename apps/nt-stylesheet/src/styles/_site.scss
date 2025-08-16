@@ -3,13 +3,9 @@
 @use 'grid';
 @use 'components';
 @use 'layouts';
-@use 'mixins' as fns;
 @use 'utilities';
-@use 'themes/nt-theme';
-@use 'branding/nashtech';
 @use 'spacing';
 @use 'border';
 @use 'size';
 @use 'text';
 @use 'flex';
-@include fns.create-theme('nt-stylesheet');

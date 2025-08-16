@@ -1,42 +1,33 @@
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
-import autoprefixer from 'autoprefixer'
-import cssnano from 'cssnano'
 import * as path from 'path'
-import postcssImport from 'postcss-import'
-import postcssNesting from 'postcss-nesting'
-import postcssPresetEnv from 'postcss-preset-env'
-import postcssReporter from 'postcss-reporter'
+import { defineConfig } from 'vite'
 import dtsPlugin from 'vite-plugin-dts'
-import { defineConfig } from 'vitest/config'
+
+import {
+    assetCopies,
+    assetFileNames,
+    makeInputs,
+    OUT_DIR,
+    ROOT
+} from './vite.common'
 
 export default defineConfig(() => {
-    const outputPath = path.resolve(__dirname, 'dist')
+    const inputs = makeInputs()
 
     return {
-        root: __dirname,
+        root: ROOT,
         publicDir: 'public',
         plugins: [
             dtsPlugin({
                 include: ['src'],
                 exclude: ['**/*.test.ts', '**/__tests__/**'],
-                outDir: `${outputPath}/types`,
+                outDir: `${OUT_DIR}/types`,
                 entryRoot: 'src',
                 copyDtsFiles: true
             }),
             nxViteTsPaths(),
-            nxCopyAssetsPlugin([
-                {
-                    input: './docs',
-                    output: 'docs',
-                    glob: '*.md'
-                },
-                {
-                    input: './examples',
-                    output: 'examples',
-                    glob: '*.html'
-                }
-            ])
+            nxCopyAssetsPlugin(assetCopies())
         ],
         build: {
             sourcemap: true,
@@ -48,61 +39,19 @@ export default defineConfig(() => {
             },
             rollupOptions: {
                 preserveEntrySignatures: 'strict',
-                input: {
-                    'nt-icons': path.resolve(
-                        __dirname,
-                        'src/styles/icon.ts'
-                    ),
-                    nt: path.resolve(
-                        __dirname,
-                        'src/styles/index.ts'
-                    ),
-                    'scripts/index': path.resolve(
-                        __dirname,
-                        'src/scripts/index.ts'
-                    ),
-                    'scripts/nt-menu-toggle': path.resolve(
-                        __dirname,
-                        'src/scripts/nt-menu-toggle.ts'
-                    ),
-                    tailwindIntegrations: path.resolve(
-                        __dirname,
-                        'src/integrations/tailwind/index.ts'
-                    )
-                },
+                input: inputs,
                 output: {
-                    dir: outputPath,
+                    dir: OUT_DIR,
                     format: 'es',
                     preserveModules: false,
                     entryFileNames: ({ name }) => {
-                        if (name === 'tailwindIntegrations') {
+                        if (name === 'tailwindIntegrations')
                             return 'integrations/tailwind/index.js'
-                        }
-
-                        if (name === 'scripts/index') {
+                        if (name === 'scripts/index')
                             return 'scripts/nt.js'
-                        }
-
                         return '[name].js'
                     },
-                    assetFileNames: (assetInfo) => {
-                        if (
-                            assetInfo.name?.endsWith('.css') &&
-                            assetInfo.originalFileNames?.includes(
-                                'src/integrations/tailwind/index.ts'
-                            )
-                        ) {
-                            return 'integrations/tailwind/style.css'
-                        }
-
-                        if (assetInfo.name?.endsWith('nt-icons.css'))
-                            return 'css/nt-icons.css'
-
-                        if (assetInfo.name?.endsWith('.css'))
-                            return 'css/[name][extname]'
-
-                        return 'assets/[name][extname]'
-                    }
+                    assetFileNames: assetFileNames
                 }
             }
         },
@@ -111,26 +60,8 @@ export default defineConfig(() => {
                 scss: {
                     additionalData: `@use 'sass:math'; @use 'sass:map';`
                 }
-            },
-            postcss: {
-                plugins: [
-                    postcssImport(),
-                    autoprefixer(),
-                    postcssNesting(),
-                    postcssPresetEnv({
-                        stage: 1,
-                        features: {
-                            'custom-properties': true,
-                            'nesting-rules': true
-                        }
-                    }),
-                    postcssReporter({
-                        clearReportedMessages: true,
-                        throwError: false
-                    }),
-                    cssnano({ preset: 'default' })
-                ]
             }
+            // PostCSS is auto-loaded from postcss.config.cjs
         },
         optimizeDeps: {
             exclude: ['materialdesignicons.min.css']
@@ -138,36 +69,10 @@ export default defineConfig(() => {
         resolve: {
             alias: {
                 'materialdesignicons.min.css': path.resolve(
-                    __dirname,
+                    ROOT,
                     'node_modules/@mdi/font/css/materialdesignicons.min.css'
                 )
             }
-        },
-        test: {
-            watch: false,
-            environment: 'jsdom',
-            globals: true,
-            include: [
-                '**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
-            ],
-            reporters: ['default'],
-            coverage: {
-                provider: 'v8',
-                reporter: [
-                    'json',
-                    'cobertura',
-                    'json-summary',
-                    'lcov'
-                ],
-                reportOnFailure: true
-            },
-            exclude: [
-                '**/vite.config.{ts,mts}',
-                '**/vitest.config.{ts,mts}',
-                'tailwind.config.ts',
-                '**/node_modules/**',
-                '**/dist/**'
-            ]
         }
     }
 })

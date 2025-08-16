@@ -1,0 +1,2 @@
+@use '../../styles/mixins' as func;
+@include func.create-theme('nt-theme-dark');
