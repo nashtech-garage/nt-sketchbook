@@ -1,3 +1,4 @@
+import '@/styles/globals.scss'
 import '@nashtech-garage/stylesheet/css/nt-icons.css'
 import '@nashtech-garage/stylesheet/css/nt.css'
 
