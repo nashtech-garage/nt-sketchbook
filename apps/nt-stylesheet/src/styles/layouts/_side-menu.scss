@@ -3,6 +3,9 @@
 @use '../animation' as animations;
 @use 'sass:map';
 
+$sm-screen: map.get(vars.$nt-container-max-widths, sm);
+$md-screen: map.get(vars.$nt-container-max-widths, md);
+
 @mixin current-focus-item {
     color: vars.$nt-color-white;
     background-color: vars.$nt-color-secondary-100;
@@ -13,7 +16,6 @@
 }
 
 @mixin create-side-menu() {
-    padding: 0 0.75rem;
     top: 0;
     left: 0;
     height: 100%;
@@ -22,7 +24,6 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0.125rem 0 0.3125rem rgba(0 0 0 / 20%);
-    overflow-y: auto;
     transition: transform 0.3s ease-in-out;
     animation: slide-out 0.3s ease-in-out;
 
@@ -32,12 +33,7 @@
     }
 
     &-header {
-        display: grid;
-        grid-template-areas: 'nt-navbar-header-logo nt-navbar-header-buttons';
-        grid-template-columns: auto auto;
         background: vars.$nt-color-white;
-        height: 4.25rem;
-        min-height: 4.25rem;
         align-items: center;
 
         &-logo {
@@ -45,14 +41,13 @@
             grid-area: nt-navbar-header-logo;
 
             > img {
-                height: 2.25rem;
+                max-height: 2.25rem;
             }
         }
 
         &-buttons {
             display: grid;
             grid-area: nt-navbar-header-buttons;
-            grid-template-columns: auto auto auto;
             cursor: pointer;
         }
     }
@@ -72,6 +67,10 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
+
+        @media (min-width: $md-screen) {
+            margin-top: 0;
+        }
     }
 
     &-group {
@@ -121,6 +120,7 @@
         display: flex;
         align-items: center;
         gap: 0.75rem;
+        justify-content: center;
 
         &:hover,
         &.active {
@@ -169,6 +169,7 @@
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
+                gap: 0.625rem;
             }
         }
     }

@@ -115,6 +115,16 @@ const setMainMenuItemActive = (el) => {
     }
 
     el.className = activeClassName
+
+    const hasSecondary =
+        el.querySelector('.nt-navbar-secondary') !== null
+
+    if (hasSecondary) {
+        const navbar = document.querySelector('.nt-navbar')
+        if (navbar && !navbar.classList.contains('open')) {
+            navbar.classList.add('open')
+        }
+    }
 }
 
 const renderContent = async (url) => {
@@ -138,5 +148,30 @@ const renderContent = async (url) => {
     }
 }
 
-updateVersion()
-initWidgetsList().then(initMenu)
+document.addEventListener('DOMContentLoaded', () => {
+    updateVersion()
+    initWidgetsList().then(() => {
+        initMenu()
+
+        const menuIcon = document.querySelector('.nti-menu')
+        const navbar = document.querySelector('.nt-navbar')
+
+        if (navbar) {
+            if (window.innerWidth >= 1024) {
+                navbar.classList.add('open')
+            }
+        }
+
+        if (menuIcon && navbar) {
+            menuIcon.addEventListener('click', () => {
+                navbar.classList.toggle('open')
+                const activeItem = document.querySelector(
+                    '.nt-navbar-item.active'
+                )
+                if (activeItem && navbar.classList.contains('open')) {
+                    activeItem.classList.remove('open')
+                }
+            })
+        }
+    })
+})
