@@ -310,13 +310,9 @@ $nt-breakpoint-xxl: 87.5rem; // 1400px
 /*  Containers */
 $nt-container-max-widths: (
     xs: 100%,
-    sm: 33.75rem,
-    // 540px
-    md: 45rem,
-    // 720px
-    lg: 60rem,
-    // 960px
-    xl: 71.25rem,
-    // 1140px
-    xxl: 82.5rem // 1320px
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
 );
