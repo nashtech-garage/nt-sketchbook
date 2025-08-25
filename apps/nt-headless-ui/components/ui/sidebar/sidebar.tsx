@@ -1,77 +1,194 @@
-import {
-    SidebarContent,
-    SidebarFooter,
-    SidebarHeader,
-    SidebarProvider,
-    Sidebar as SidebarRadix,
-    SidebarTrigger,
-} from '@/components/radix/sidebar'
-import React from 'react'
+import { cn } from '@/lib/utils'
+import React, {
+    type KeyboardEvent,
+    type MouseEvent,
+    type ReactNode,
+    useState
+} from 'react'
 
-import { SidebarGroup } from './components/sidebar-group'
-
-export type SidebarSubItem = {
-    title: string
-    icon?: React.ComponentType
-    active?: boolean
+export type SlideBarItem = {
+    id: string
+    label: string
+    icon?: string
+    onClick?: () => void
+    children?: SlideBarItem[]
 }
 
-export type SidebarItem = {
-    title: string
-    url?: string
-    icon?: React.ComponentType
-    active?: boolean
-    trailingBadge?: React.ReactNode
-    subItems?: SidebarSubItem[]
+export type SlideBarProps = {
+    logoSrc?: string
+    version?: string
+    brandingText?: string
+    items: SlideBarItem[]
+    defaultOpen?: string[]
+    footer?: ReactNode
+    onSearch?: (event: KeyboardEvent<HTMLInputElement>) => void
 }
 
-export type Group = {
-    title: string
-    active?: boolean
-    icon?: React.ReactNode
-    url?: string
-    items?: SidebarItem[]
+type SlideBarListProps = {
+    toggleMenu: (id: string) => void
+    items: SlideBarItem[]
+    openMenus?: string[]
+    isSecondary?: boolean
+    toggle?: boolean
+    toggleMenuVisibility?: (toggle: boolean) => void
 }
 
-export type SidebarProps = {
-    groups?: Group[]
-    isSubmenuActive?: boolean
-    isToggleSideBar?: boolean
-    side?: 'left' | 'right'
-    header?: React.ReactNode
-    footer?: React.ReactNode
+const NavbarItemList = ({
+    items,
+    openMenus = [],
+    toggleMenu,
+    isSecondary = false,
+    toggle,
+    toggleMenuVisibility
+}: SlideBarListProps) => {
+    return (
+        <ul
+            className={
+                isSecondary ? 'nt-navbar-secondary' : 'nt-navbar-list'
+            }
+        >
+            {items.map(({ id, label, icon, onClick, children }) => {
+                const isOpen = openMenus.includes(id)
+                const hasChildren = Boolean(children?.length)
+
+                const liClassName = cn(
+                    { 'nt-navbar-primary': hasChildren },
+                    isSecondary
+                        ? 'nt-navbar-secondary-item'
+                        : 'nt-navbar-item',
+                    { 'active open': isOpen && toggle }
+                )
+
+                const handleItemClick = (
+                    event: MouseEvent<HTMLLIElement>
+                ) => {
+                    if (!toggle && hasChildren)
+                        toggleMenuVisibility?.(true)
+
+                    if (hasChildren) toggleMenu(id)
+                    else {
+                        event.stopPropagation()
+                        onClick?.()
+                    }
+                }
+
+                return (
+                    <li
+                        key={id}
+                        className={liClassName}
+                        onClick={handleItemClick}
+                    >
+                        {hasChildren ? (
+                            <div className="nt-navbar-link">
+                                {icon && (
+                                    <span
+                                        className={cn('nti', icon)}
+                                    />
+                                )}
+                                <a>{label}</a>
+                                <span className="nt-navbar-item-icon nti nti-chevron-right" />
+                            </div>
+                        ) : (
+                            <>
+                                {icon && (
+                                    <span
+                                        className={cn('nti', icon)}
+                                    />
+                                )}
+                                <a>{label}</a>
+                            </>
+                        )}
+
+                        {hasChildren && isOpen && (
+                            <NavbarItemList
+                                items={children ?? []}
+                                openMenus={openMenus}
+                                toggleMenu={toggleMenu}
+                                isSecondary
+                            />
+                        )}
+                    </li>
+                )
+            })}
+        </ul>
+    )
 }
 
-export const Sidebar = (props: SidebarProps) => {
-    const {
-        groups = [],
-        isToggleSideBar = true,
-        side = 'left',
-        header = null,
-        footer = null,
-    } = props
+export const Sidebar = ({
+    logoSrc = '',
+    items,
+    defaultOpen = [],
+    footer = null,
+    onSearch
+}: SlideBarProps) => {
+    const [toggle, setToggle] = useState(true)
+    const [openMenus, setOpenMenus] = useState<string[]>(defaultOpen)
+
+    const toggleMenu = (id: string) => {
+        setOpenMenus((prev) =>
+            prev.includes(id)
+                ? prev.filter((menuId) => menuId !== id)
+                : [...prev, id]
+        )
+    }
+
+    const toggleMenuVisibility = () => {
+        setToggle((prev) => !prev)
+    }
 
     return (
-        <SidebarProvider>
-            <SidebarRadix side={side}>
-                {header && <SidebarHeader>{header}</SidebarHeader>}
+        <nav
+            className={`nt-navbar ${toggle ? 'open' : ''}`}
+            aria-label="Sidebar"
+        >
+            <div className="nt-navbar-header">
+                <div className="nt-navbar-header-logo">
+                    <img alt="logo" src={logoSrc} />
+                </div>
+                <div className="nt-navbar-header-buttons">
+                    <i
+                        className="nti nti-menu"
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Toggle menu"
+                        onClick={toggleMenuVisibility}
+                    />
+                    <i className="nti nti-bell" />
+                </div>
+            </div>
 
-                <SidebarContent>
-                    {groups.map((group: Group, key: number) => (
-                        <SidebarGroup
-                            key={group.title}
-                            className={
-                                key === groups.length - 1
-                                    ? 'border-b-0'
-                                    : ''
-                            }
-                            group={group}
+            {onSearch && (
+                <input
+                    type="text"
+                    className="nt-input nt-input-default nt-navbar-search"
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter') {
+                            onSearch(event)
+                        }
+                    }}
+                    placeholder="Search..."
+                />
+            )}
+
+            <div className="nt-navbar-groups">
+                {items.map((group) => (
+                    <div key={group.id} className="nt-navbar-group">
+                        <p className="nt-navbar-title">
+                            {group.label}
+                        </p>
+                        <NavbarItemList
+                            items={group.children ?? []}
+                            openMenus={openMenus}
+                            toggleMenu={toggleMenu}
+                            toggle={toggle}
+                            toggleMenuVisibility={setToggle}
                         />
-                    ))}
-                </SidebarContent>
-                {footer && <SidebarFooter>{footer}</SidebarFooter>}
-            </SidebarRadix>
-            <main>{isToggleSideBar && <SidebarTrigger />}</main>
-        </SidebarProvider>
+                    </div>
+                ))}
+            </div>
+            {footer && (
+                <div className="nt-navbar-footer">{footer}</div>
+            )}
+        </nav>
     )
 }

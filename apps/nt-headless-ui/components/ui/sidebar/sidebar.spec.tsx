@@ -1,78 +1,135 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
-import type { SidebarProps } from './sidebar'
-import { Sidebar } from './sidebar'
+import {
+    Sidebar,
+    type SlideBarItem,
+    type SlideBarProps
+} from './sidebar'
 
-const mockGroups: SidebarProps['groups'] = [
+const items: SlideBarItem[] = [
     {
-        title: 'Group 1',
-        items: [
-            { title: 'Item 1', url: '/item1' },
-            { title: 'Item 2', url: '/item2' },
-        ],
-    },
-    {
-        title: 'Group 2',
-        items: [{ title: 'Item 3', url: '/item3' }],
-    },
+        id: 'group1',
+        label: 'Group 1',
+        children: [
+            {
+                id: 'item1',
+                label: 'Item 1',
+                icon: 'icon-1',
+                onClick: vi.fn()
+            },
+            {
+                id: 'item2',
+                label: 'Item 2',
+                children: [
+                    {
+                        id: 'subitem1',
+                        label: 'Subitem 1',
+                        onClick: vi.fn()
+                    }
+                ]
+            }
+        ]
+    }
 ]
 
+const setup = (props?: Partial<SlideBarProps>) => {
+    const defaultProps: SlideBarProps = {
+        logoSrc: 'logo.png',
+        items,
+        ...props
+    }
+    return render(<Sidebar {...defaultProps} />)
+}
+
 describe('Sidebar', () => {
-    it('renders without crashing', () => {
-        render(<Sidebar />)
-        waitFor(() => {
-            expect(screen.getByText('Group 1')).toBeInTheDocument()
-            expect(screen.getByText('Group 2')).toBeInTheDocument()
-        })
+    it('renders logo', () => {
+        setup()
+
+        expect(screen.getByAltText('logo')).toHaveAttribute(
+            'src',
+            'logo.png'
+        )
     })
 
-    it('renders header and footer when provided', () => {
-        render(
-            <Sidebar
-                header={<div>Header</div>}
-                footer={<div>Footer</div>}
-            />,
-        )
-        expect(screen.getByText('Header')).toBeInTheDocument()
+    it('renders group and items', () => {
+        setup()
+
+        expect(screen.getByText('Group 1')).toBeInTheDocument()
+        expect(screen.getByText('Item 1')).toBeInTheDocument()
+        expect(screen.getByText('Item 2')).toBeInTheDocument()
+    })
+
+    it('calls onClick for leaf item', async () => {
+        setup()
+        await userEvent.click(screen.getByText('Item 1'))
+        expect(items[0].children?.[0].onClick).toHaveBeenCalled()
+    })
+
+    it('toggles submenu on parent click', async () => {
+        setup()
+        const parent = screen.getByText('Item 2')
+        await userEvent.click(parent)
+
+        expect(screen.getByText('Subitem 1')).toBeInTheDocument()
+
+        await userEvent.click(parent)
+
+        expect(
+            screen.queryByText('Subitem 1')
+        ).not.toBeInTheDocument()
+    })
+
+    it('renders footer', () => {
+        setup({ footer: <div>Footer</div> })
+
         expect(screen.getByText('Footer')).toBeInTheDocument()
     })
 
-    it('renders groups correctly', () => {
-        render(<Sidebar groups={mockGroups} />)
-        expect(screen.getByText('Group 1')).toBeInTheDocument()
-        expect(screen.getByText('Group 2')).toBeInTheDocument()
-        expect(screen.getByText('Item 1')).toBeInTheDocument()
-        expect(screen.getByText('Item 2')).toBeInTheDocument()
-        expect(screen.getByText('Item 3')).toBeInTheDocument()
+    it('handles search input', async () => {
+        const onSearch = vi.fn()
+        setup({ onSearch })
+        const input = screen.getByPlaceholderText('Search...')
+        await userEvent.type(input, '{enter}')
+
+        expect(onSearch).toHaveBeenCalled()
     })
 
-    it('renders sidebar toggle button if isToggleSideBar is true', async () => {
-        render(<Sidebar isToggleSideBar={true} />)
-        const toggleButton = screen.getByRole('button')
-        expect(toggleButton).toBeInTheDocument()
-        await userEvent.click(toggleButton)
+    it('toggles sidebar visibility', async () => {
+        setup()
+        const nav = screen.getByLabelText('Sidebar')
+        expect(nav.className).toContain('open')
+
+        const menuIcon = nav.querySelector('.nti-menu') as HTMLElement
+        await userEvent.click(menuIcon)
+
+        expect(nav.className).not.toContain('open')
     })
 
-    it('renders header and footer content correctly', () => {
-        render(
-            <Sidebar
-                header={<h1>My Header</h1>}
-                footer={<h2>My Footer</h2>}
-            />,
-        )
+    it('toggles submenu open and close when clicking parent', async () => {
+        setup()
+        const parent = screen.getByText('Item 2')
+
+        await userEvent.click(parent)
+        expect(screen.getByText('Subitem 1')).toBeInTheDocument()
+
+        await userEvent.click(parent)
         expect(
-            screen.getByRole('heading', {
-                level: 1,
-                name: 'My Header',
-            }),
-        ).toBeInTheDocument()
-        expect(
-            screen.getByRole('heading', {
-                level: 2,
-                name: 'My Footer',
-            }),
-        ).toBeInTheDocument()
+            screen.queryByText('Subitem 1')
+        ).not.toBeInTheDocument()
+    })
+
+    it('forces sidebar to open when clicking submenu while closed', async () => {
+        setup()
+        const nav = screen.getByLabelText('Sidebar')
+        const menuIcon = nav.querySelector('.nti-menu') as HTMLElement
+
+        await userEvent.click(menuIcon)
+        expect(nav.className).not.toContain('open')
+
+        const parent = screen.getByText('Item 2')
+        await userEvent.click(parent)
+        expect(nav.className).toContain('open')
     })
 })

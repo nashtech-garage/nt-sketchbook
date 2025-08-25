@@ -17,8 +17,8 @@ module.exports = {
     staticDirs: [
         '../public',
         {
-            from: '../node_modules/@nashtech-garage/stylesheet/dist/assets/fonts',
-            to: '/assets/fonts'
+            from: '../node_modules/@nashtech-garage/stylesheet/dist/assets',
+            to: '/assets'
         }
     ],
     docs: {
