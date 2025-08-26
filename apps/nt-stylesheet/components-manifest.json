@@ -90,6 +90,11 @@
             "name": "Button",
             "id": "button",
             "type": "Control"
+        },
+        {
+            "name": "Pagination",
+            "id": "pagination",
+            "type": "Control"
         }
     ]
 }

@@ -1,0 +1,75 @@
+@use '../variables' as vars;
+
+.nt-pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+
+    &-item {
+        border-radius: 0.375rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        background: transparent;
+        color: vars.$nt-color-black;
+        font-size: 1rem;
+        cursor: pointer;
+        transition:
+            background 0.2s,
+            color 0.2s;
+
+        &:hover {
+            background: vars.$nt-shade-secondary-2-10;
+        }
+
+        &.active {
+            background: vars.$nt-shade-secondary-2-20;
+            color: vars.$nt-color-black;
+            font-weight: 500;
+        }
+
+        &.disabled {
+            color: vars.$nt-color-gray-20;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+
+    &-prev,
+    &-next {
+        font-size: 1rem;
+        width: auto;
+        padding: 0 0.5rem;
+        background: transparent;
+    }
+
+    &-sm {
+        .nt-pagination-item {
+            width: 1.75rem;
+            height: 1.75rem;
+            font-size: 0.75rem;
+        }
+    }
+
+    &-md {
+        .nt-pagination-item {
+            width: 2.25rem;
+            height: 2.25rem;
+            font-size: 1rem;
+        }
+    }
+
+    &-lg {
+        .nt-pagination-item {
+            width: 2.75rem;
+            height: 2.75rem;
+            font-size: 1.125rem;
+        }
+    }
+}
