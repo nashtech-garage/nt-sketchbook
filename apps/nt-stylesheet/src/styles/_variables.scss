@@ -45,6 +45,19 @@
     --nt-color-secondary-100: #6a1f7a;
     --nt-color-secondary-110: #5f1c6e;
 
+    /* --------- Shade Secondary 2 --------- */
+    --nt-shade-secondary-2: #0094d5;
+    --nt-shade-secondary-2-90: #1a9fd9;
+    --nt-shade-secondary-2-80: #33a9dd;
+    --nt-shade-secondary-2-70: #4db4e2;
+    --nt-shade-secondary-2-60: #66bfe6;
+    --nt-shade-secondary-2-50: #80caea;
+    --nt-shade-secondary-2-40: #99d4ee;
+    --nt-shade-secondary-2-30: #b3dff2;
+    --nt-shade-secondary-2-20: #cceaf7;
+    --nt-shade-secondary-2-10: #e6f4fb;
+    --nt-shade-secondary-2-9: #f0f5fe;
+
     /* --------- Signal Colors --------- */
     --nt-text-success: #359000;
     --nt-text-warning: #df7700;
@@ -184,6 +197,19 @@ $nt-color-secondary-80: var(--nt-color-secondary-80, #884c95);
 $nt-color-secondary-90: var(--nt-color-secondary-90, #793587);
 $nt-color-secondary-100: var(--nt-color-secondary-100, #6a1f7a);
 $nt-color-secondary-110: var(--nt-color-secondary-110, #5f1c6e);
+
+/* Secondary 2nd */
+$nt-shade-secondary-2: var(--nt-shade-secondary-2, #0094d5);
+$nt-shade-secondary-2-90: var(--nt-shade-secondary-2-90, #1a9fd9);
+$nt-shade-secondary-2-80: var(--nt-shade-secondary-2-80, #33a9dd);
+$nt-shade-secondary-2-70: var(--nt-shade-secondary-2-70, #4db4e2);
+$nt-shade-secondary-2-60: var(--nt-shade-secondary-2-60, #66bfe6);
+$nt-shade-secondary-2-50: var(--nt-shade-secondary-2-50, #80caea);
+$nt-shade-secondary-2-40: var(--nt-shade-secondary-2-40, #99d4ee);
+$nt-shade-secondary-2-30: var(--nt-shade-secondary-2-30, #b3dff2);
+$nt-shade-secondary-2-20: var(--nt-shade-secondary-2-20, #cceaf7);
+$nt-shade-secondary-2-10: var(--nt-shade-secondary-2-10, #e6f4fb);
+$nt-shade-secondary-2-9: var(--nt-shade-secondary-2-9, #f0f5fe);
 
 /* --------- Info Colors --------- */
 $nt-color-info-bold: var(--nt-color-info-bold);
