@@ -7,13 +7,17 @@ import type { TableProps } from './table'
 import { Table } from './table'
 
 vi.mock('./components', () => ({
-    Pagination: vi.fn(({ startIndex, endIndex, handlePageClick }) => (
-        <div data-testid="mock-pagination">
-            <span>Start: {startIndex}</span>
-            <span>End: {endIndex}</span>
-            <button onClick={() => handlePageClick(1)}>Page 1</button>
-        </div>
-    )),
+    PaginationTable: vi.fn(
+        ({ startIndex, endIndex, handlePageClick }) => (
+            <div data-testid="mock-pagination">
+                <span>Start: {startIndex}</span>
+                <span>End: {endIndex}</span>
+                <button onClick={() => handlePageClick(1)}>
+                    Page 1
+                </button>
+            </div>
+        )
+    ),
     Th: vi.fn(({ headerGroup, classTh, classFontSize }) => (
         <tr data-testid="mock-th">
             <th
