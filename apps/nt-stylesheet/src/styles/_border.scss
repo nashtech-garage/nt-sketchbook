@@ -3,6 +3,7 @@
 // Border widths
 $border-width: 1px !default;
 $border-widths: (
+    0: 0,
     1: 1px,
     2: 2px,
     3: 3px,
@@ -37,7 +38,6 @@ $rounded-sizes: (
 // Side mapping
 $sides: (
     '': '',
-    // all sides
     top: '-top',
     end: '-right',
     bottom: '-bottom',
@@ -53,7 +53,7 @@ $sides: (
     border: $border-width solid variables.$nt-color-gray-10;
 }
 
-// Per-side borders
+// Per-side borders (default width)
 @each $side-name, $side-suffix in $sides {
     @if $side-name != '' {
         .nt-border-#{$side-name} {
@@ -64,15 +64,17 @@ $sides: (
     }
 }
 
-// Remove borders
-.nt-border-0 {
-    border: 0;
-}
+// Border widths (all sides + per-side)
+@each $num, $width in $border-widths {
+    .nt-border-#{$num} {
+        border-width: $width;
+    }
 
-@each $side-name, $side-suffix in $sides {
-    @if $side-name != '' {
-        .nt-border-#{$side-name}-0 {
-            border#{$side-suffix}: 0;
+    @each $side-name, $side-suffix in $sides {
+        @if $side-name != '' {
+            .nt-border-#{$side-name}-#{$num} {
+                border#{$side-suffix}-width: $width;
+            }
         }
     }
 }
@@ -81,13 +83,6 @@ $sides: (
 @each $name, $color in $theme-colors {
     .nt-border-#{$name} {
         border-color: $color;
-    }
-}
-
-// Border widths
-@each $num, $width in $border-widths {
-    .nt-border-#{$num} {
-        border-width: $width;
     }
 }
 
@@ -126,9 +121,31 @@ $sides: (
     }
 }
 
-// Rounded size variants
+// Rounded size variants (all + per side)
 @each $size, $radius in $rounded-sizes {
+    // All sides
     .nt-rounded-#{$size} {
         border-radius: $radius;
+    }
+
+    // Per side
+    .nt-rounded-top-#{$size} {
+        border-top-left-radius: $radius;
+        border-top-right-radius: $radius;
+    }
+
+    .nt-rounded-end-#{$size} {
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
+    }
+
+    .nt-rounded-bottom-#{$size} {
+        border-bottom-left-radius: $radius;
+        border-bottom-right-radius: $radius;
+    }
+
+    .nt-rounded-start-#{$size} {
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
     }
 }
