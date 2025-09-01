@@ -95,6 +95,11 @@
             "name": "Pagination",
             "id": "pagination",
             "type": "Control"
+        },
+        {
+            "name": "Dropdown",
+            "id": "dropdown",
+            "type": "Control"
         }
     ]
 }
