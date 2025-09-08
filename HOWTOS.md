@@ -7,6 +7,7 @@ Refer back to the [project README](README.md) for an overview and to the compone
 
 -   [Start](#Start)
 -   [How to Add A New Component](#how-to-add-a-new-component)
+
 ---
 
 ## 1. Start
@@ -23,9 +24,11 @@ Refer back to the [project README](README.md) for an overview and to the compone
 ### Step 2: Starting applications
 
 The repository is a monorepo build with Nx, each project has its own documentations for starting, check for detailed at
+
 #### [Stylesheet](apps/nt-stylesheet/README.md)
 
 Quick starting
+
 ```bash
 nx run nt-stylesheet:dev
 nx run nt-stylesheet:serve-static
