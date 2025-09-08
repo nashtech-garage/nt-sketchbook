@@ -1,0 +1,45 @@
+$nt-space-scale: (
+    '1': 0.25rem,
+    '2': 0.5rem,
+    '3': 0.75rem,
+    '4': 1rem,
+    '5': 1.25rem,
+    '6': 1.5rem,
+    '7': 1.75rem,
+    '8': 2rem
+);
+
+// Mixin to generate spacing classes
+@mixin generate-spacing-utilities($property, $prefix) {
+    @each $key, $value in $nt-space-scale {
+        .#{$prefix}-#{$key} {
+            #{$property}: $value;
+        }
+        .#{$prefix}t-#{$key} {
+            #{$property}-top: $value;
+        }
+        .#{$prefix}r-#{$key} {
+            #{$property}-right: $value;
+        }
+        .#{$prefix}b-#{$key} {
+            #{$property}-bottom: $value;
+        }
+        .#{$prefix}l-#{$key} {
+            #{$property}-left: $value;
+        }
+        .#{$prefix}x-#{$key} {
+            #{$property}-left: $value;
+            #{$property}-right: $value;
+        }
+        .#{$prefix}y-#{$key} {
+            #{$property}-top: $value;
+            #{$property}-bottom: $value;
+        }
+    }
+}
+
+// Generate margin classes (e.g., nt-m-1, nt-mt-2, nt-mx-4, etc.)
+@include generate-spacing-utilities(margin, 'nt-m');
+
+// Generate padding classes (e.g., nt-p-1, nt-pt-2, nt-px-4, etc.)
+@include generate-spacing-utilities(padding, 'nt-p');

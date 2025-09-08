@@ -42,20 +42,20 @@ Use the `.nt-progress` class to apply base styles. Apply modifiers such as `-suc
 
 ```html
 <main>
-    <h2 class="text-3xl font-semibold mb-4">Progress Bar</h2>
-    <div class="nt-progress mb-4">
+    <h2 class=" nt-mb-4">Progress Bar</h2>
+    <div class="nt-progress nt-mb-4">
         <div class="nt-progress-bar" style="width: 70%;">70%</div>
     </div>
-    <div class="nt-progress nt-progress-success mb-4">
+    <div class="nt-progress nt-progress-success nt-mb-4">
         <div class="nt-progress-bar" style="width: 70%;">70%</div>
     </div>
-    <div class="nt-progress nt-progress-warning mb-4">
+    <div class="nt-progress nt-progress-warning nt-mb-4">
         <div class="nt-progress-bar" style="width: 50%;">50%</div>
     </div>
-    <div class="nt-progress nt-progress-danger mb-4">
+    <div class="nt-progress nt-progress-danger nt-mb-4">
         <div class="nt-progress-bar" style="width: 30%;">30%</div>
     </div>
-    <div class="nt-progress nt-progress-info mb-4">
+    <div class="nt-progress nt-progress-info nt-mb-4">
         <div class="nt-progress-bar" style="width: 90%;">90%</div>
     </div>
 </main>

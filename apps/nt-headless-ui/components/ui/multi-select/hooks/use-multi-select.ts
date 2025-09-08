@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import type { Option } from '../multi-select'
 
@@ -14,11 +14,11 @@ export const useMultiSelect = (props: UseMultiSelect) => {
     const inputRef = React.useRef<HTMLInputElement>(null)
     const [open, setOpen] = React.useState(false)
     const [selected, setSelected] = React.useState<Option[]>(
-        initialOption ?? [],
+        initialOption ?? []
     )
     const [inputValue, setInputValue] = React.useState('')
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (onChange) {
             onChange(selected)
         }
@@ -26,7 +26,7 @@ export const useMultiSelect = (props: UseMultiSelect) => {
 
     const handleUnselect = React.useCallback((framework: Option) => {
         setSelected((prev) =>
-            prev.filter((s) => s.value !== framework.value),
+            prev.filter((s) => s.value !== framework.value)
         )
     }, [])
 
@@ -49,24 +49,27 @@ export const useMultiSelect = (props: UseMultiSelect) => {
                 }
             }
         },
-        [],
+        []
     )
 
     const selectTables = options.filter(
         (option) =>
-            !selected.some((sel) => sel.value === option.value),
+            !selected.some((sel) => sel.value === option.value) &&
+            option.label
+                .toLowerCase()
+                .includes(inputValue.toLowerCase())
     )
 
     return {
         inputRef,
         open,
-        setOpen,
-        selected,
-        setSelected,
         inputValue,
+        selectTables,
+        selected,
+        setOpen,
+        setSelected,
         setInputValue,
         handleUnselect,
-        handleKeyDown,
-        selectTables,
+        handleKeyDown
     }
 }

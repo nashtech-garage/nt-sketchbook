@@ -1,19 +1,109 @@
+@use 'sass:map';
 @use 'side-menu' as side-menu;
 @use '../variables' as vars;
 @use '../utilities' as utils;
 @use './page' as page;
 
+$sm-screen: map.get(vars.$nt-container-max-widths, sm);
+$md-screen: map.get(vars.$nt-container-max-widths, md);
+$width-sidebar: 75px;
+$width-sidebar-open: 18.75rem;
+
 .nt-layout {
-    display: grid;
-    grid-template: 100% / 18.75rem 1fr;
-    grid-template-areas: 'nt-navbar nt-main';
     height: 100%;
+    width: 100%;
+    display: flex;
+
+    @media (min-width: $md-screen) {
+        display: grid;
+        grid-template: 100% / auto 1fr;
+        grid-template-areas: 'nt-navbar nt-main';
+    }
 }
 
 .nt-navbar {
-    grid-area: nt-navbar;
-
     @include side-menu.create-side-menu;
+    grid-area: nt-navbar;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: $width-sidebar;
+    padding: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    .nt-navbar-groups {
+        margin-top: 1rem;
+    }
+
+    &-header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        &-buttons {
+            display: grid;
+            grid-template-columns: none;
+            gap: 0.5rem;
+        }
+    }
+
+    &-secondary-item,
+    &-link,
+    &-item {
+        a {
+            display: none;
+        }
+    }
+
+    &-title {
+        display: none;
+    }
+
+    &.closed {
+        width: $width-sidebar;
+
+        &-header {
+            flex-direction: column;
+
+            &-buttons {
+                grid-template-columns: none;
+            }
+        }
+    }
+
+    &.open {
+        width: $width-sidebar-open;
+        overflow-y: auto;
+
+        .nt-navbar-title {
+            display: inline-flex;
+        }
+
+        .nt-navbar-header {
+            display: grid;
+            grid-template-areas: 'nt-navbar-header-logo nt-navbar-header-buttons';
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+
+            &-buttons {
+                grid-template-columns: auto auto auto;
+            }
+        }
+
+        .nt-navbar-secondary-item,
+        .nt-navbar-link,
+        .nt-navbar-item {
+            a {
+                display: inline-flex;
+            }
+        }
+
+        .nti-bell {
+            display: inline-flex;
+        }
+    }
 }
 
 .nt-main {
@@ -23,7 +113,26 @@
         'nt-main-header'
         'nt-main-container';
     grid-template-rows: auto 1fr;
-    height: 100%;
+    width: calc(100% - $width-sidebar);
+    position: relative;
+    left: $width-sidebar;
+    right: 0;
+    transition: all 0.3s ease;
+
+    .nt-navbar.open ~ & {
+        width: calc(100% - $width-sidebar-open);
+        left: $width-sidebar-open;
+    }
+
+    @media (min-width: $md-screen) {
+        width: calc(100% - $width-sidebar);
+        left: $width-sidebar;
+
+        .nt-navbar.open ~ & {
+            width: calc(100% - $width-sidebar-open);
+            left: $width-sidebar-open;
+        }
+    }
 
     &-header {
         grid-area: nt-main-header;
@@ -57,7 +166,7 @@
         padding-bottom: vars.$nt-spacing-lg;
         padding-right: vars.$nt-spacing-lg;
 
-        @include page.nt-page; // Assuming this mixin includes padding, background, etc.
+        @include page.nt-page;
     }
 }
 

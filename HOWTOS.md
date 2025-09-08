@@ -10,11 +10,11 @@ Refer back to the [project README](README.md) for an overview and to the compone
 
 ---
 
-## Start
+## 1. Start
 
 -   Prerequisites:
     -   Node.js >= 20
-    -   PNPM: 10.10.7.0
+    -   PNPM: 10.7.0
 
 ### Step 1: Install
 
@@ -25,10 +25,22 @@ Refer back to the [project README](README.md) for an overview and to the compone
 
 The repository is a monorepo build with Nx, each project has its own documentations for starting, check for detailed at
 
--   [Stylesheet](apps/nt-stylesheet/README.md)
--   [UI Library](apps/nt-headless-ui/README.md)
+#### [Stylesheet](apps/nt-stylesheet/README.md)
 
-## How to Add A New Component
+Quick starting
+
+```bash
+nx run nt-stylesheet:dev
+nx run nt-stylesheet:serve-static
+```
+
+Check the examples at http://localhost:4200/
+
+#### [UI Library](apps/nt-headless-ui/README.md)
+
+---
+
+## 2. How to Add A New Component
 
 ### Step 1: Extract the Component CSS from Figma
 

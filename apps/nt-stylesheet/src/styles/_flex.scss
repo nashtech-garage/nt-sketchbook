@@ -1,0 +1,199 @@
+@use 'sass:list';
+
+// Breakpoints
+$breakpoints: (
+    xs: 0,
+    sm: 36rem,
+    md: 48rem,
+    lg: 62rem,
+    xl: 75rem,
+    xxl: 87.5rem
+);
+
+// Value maps (class-name: css-value)
+$flex-directions: (
+    row: row,
+    row-reverse: row-reverse,
+    col: column,
+    col-reverse: column-reverse
+);
+
+$justify-content: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    between: space-between,
+    around: space-around,
+    evenly: space-evenly
+);
+
+$align-items: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    baseline: baseline,
+    stretch: stretch
+);
+
+$align-self: $align-items; // same values
+
+$flex-wrap: (
+    nowrap: nowrap,
+    wrap: wrap,
+    wrap-reverse: wrap-reverse
+);
+
+$align-content: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    between: space-between,
+    around: space-around,
+    stretch: stretch
+);
+
+$order-vals: (0, 1, 2, 3, 4, 5);
+
+// Mixin to generate responsive utilities
+@mixin generate-flex-utilities($vals, $css-prop, $prefix) {
+    @each $bp, $bp-val in $breakpoints {
+        @media (min-width: $bp-val) {
+            @each $class-name, $css-value in $vals {
+                .nt-#{$prefix}#{if($bp == 'xs', '', '-#{$bp}')}-#{$class-name} {
+                    #{$css-prop}: #{$css-value};
+                }
+            }
+        }
+    }
+}
+
+// Display
+@include generate-flex-utilities(
+    (
+        flex: flex,
+        inline-flex: inline-flex
+    ),
+    display,
+    d
+);
+
+// Flex direction
+@include generate-flex-utilities(
+    $flex-directions,
+    flex-direction,
+    flex
+);
+
+// Justify content
+@include generate-flex-utilities(
+    $justify-content,
+    justify-content,
+    justify
+);
+
+// Align items
+@include generate-flex-utilities($align-items, align-items, items);
+
+// Align self
+@include generate-flex-utilities($align-self, align-self, self);
+
+// Flex wrap
+@include generate-flex-utilities($flex-wrap, flex-wrap, flex);
+
+// Align content
+@include generate-flex-utilities(
+    $align-content,
+    align-content,
+    content
+);
+
+// Flex fill
+@each $bp, $bp-val in $breakpoints {
+    @media (min-width: $bp-val) {
+        .nt-flex#{if($bp == 'xs', '', '-#{$bp}')}-fill {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+// Flex grow
+@include generate-flex-utilities(
+    (
+        0: 0,
+        1: 1
+    ),
+    flex-grow,
+    grow
+);
+
+// Flex shrink
+@include generate-flex-utilities(
+    (
+        0: 0,
+        1: 1
+    ),
+    flex-shrink,
+    shrink
+);
+
+// Auto margins
+@mixin auto-margins {
+    @each $bp, $bp-val in $breakpoints {
+        @media (min-width: $bp-val) {
+            .nt-ms#{if($bp == 'xs', '', '-#{$bp}')}-auto {
+                margin-left: auto;
+            }
+            .nt-me#{if($bp == 'xs', '', '-#{$bp}')}-auto {
+                margin-right: auto;
+            }
+            .nt-mt#{if($bp == 'xs', '', '-#{$bp}')}-auto {
+                margin-top: auto;
+            }
+            .nt-mb#{if($bp == 'xs', '', '-#{$bp}')}-auto {
+                margin-bottom: auto;
+            }
+        }
+    }
+}
+
+@include auto-margins;
+
+// Order utilities
+@each $bp, $bp-val in $breakpoints {
+    @media (min-width: $bp-val) {
+        @each $o in $order-vals {
+            .nt-order#{if($bp == 'xs', '', '-#{$bp}')}-#{$o} {
+                order: #{$o};
+            }
+        }
+        .nt-order#{if($bp == 'xs', '', '-#{$bp}')}-first {
+            order: -1;
+        }
+        .nt-order#{if($bp == 'xs', '', '-#{$bp}')}-last {
+            order: 6;
+        }
+    }
+}
+
+// Gap values
+$gap-values: (
+    0,
+    0.25rem,
+    0.5rem,
+    1rem,
+    1.5rem,
+    2rem,
+    3rem
+); // adjust as needed
+
+// Gap utilities
+@each $bp, $bp-val in $breakpoints {
+    @media (min-width: $bp-val) {
+        @for $i from 1 through list.length($gap-values) {
+            $gap-size: list.nth($gap-values, $i);
+            .nt-gap#{if($bp == 'xs', '', '-#{$bp}')}-#{$i - 1} {
+                gap: $gap-size;
+            }
+        }
+    }
+}

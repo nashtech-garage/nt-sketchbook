@@ -5,46 +5,52 @@ import { describe, expect, it, vi } from 'vitest'
 import type { UseMultiSelect } from './use-multi-select'
 import { useMultiSelect } from './use-multi-select'
 
-describe('useMultiSelect Hook', () => {
-    const options = [
-        { value: '1', label: 'Option 1' },
-        { value: '2', label: 'Option 2' },
-        { value: '3', label: 'Option 3' },
-    ]
+const options = [
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' }
+]
 
-    const renderUseMultiSelect = (props?: Partial<UseMultiSelect>) =>
-        renderHook(() =>
-            useMultiSelect({
-                options,
-                initialOption: props?.initialOption ?? [],
-                onChange: props?.onChange ?? vi.fn(),
-                placeholder: props?.placeholder,
-            }),
-        )
+const mockOnChange = vi.fn()
+const mockPlaceholder = 'Select options'
 
-    it('sets initial state correctly', () => {
-        const { result } = renderUseMultiSelect({
-            initialOption: [options[0]],
+const defaultProps: UseMultiSelect = {
+    options,
+    initialOption: [options[0]],
+    onChange: mockOnChange,
+    placeholder: mockPlaceholder
+}
+
+const setup = (props?: Partial<UseMultiSelect>) =>
+    renderHook(() =>
+        useMultiSelect({
+            ...defaultProps,
+            ...props
         })
+    )
+
+describe('useMultiSelect Hook', () => {
+    it('sets initial state correctly', () => {
+        const { result } = setup({
+            initialOption: [options[0]]
+        })
+
         expect(result.current.selected).toEqual([options[0]])
     })
 
     it('calls onChange when selection changes', () => {
-        const onChangeMock = vi.fn()
-        const { result } = renderUseMultiSelect({
-            onChange: onChangeMock,
-        })
+        const { result } = setup()
 
         act(() => {
             result.current.setSelected([options[1]])
         })
 
-        expect(onChangeMock).toHaveBeenCalledWith([options[1]])
+        expect(mockOnChange).toHaveBeenCalledWith([options[1]])
     })
 
     it('removes option when unselecting', () => {
-        const { result } = renderUseMultiSelect({
-            initialOption: [options[0]],
+        const { result } = setup({
+            initialOption: [options[0]]
         })
 
         act(() => {
@@ -58,16 +64,16 @@ describe('useMultiSelect Hook', () => {
         const mockInputElement = { value: '' } as HTMLInputElement
 
         vi.spyOn(React, 'useRef').mockReturnValue({
-            current: mockInputElement,
+            current: mockInputElement
         })
 
-        const { result } = renderUseMultiSelect({
-            initialOption: [options[0], options[1]],
+        const { result } = setup({
+            initialOption: [options[0], options[1]]
         })
 
         const mockEvent = {
             key: 'Backspace',
-            currentTarget: { value: '' },
+            currentTarget: { value: '' }
         } as unknown as React.KeyboardEvent<HTMLDivElement>
 
         act(() => {
@@ -81,19 +87,19 @@ describe('useMultiSelect Hook', () => {
         const mockBlur = vi.fn()
         const mockInputElement = {
             value: '',
-            blur: mockBlur,
+            blur: mockBlur
         } as unknown as HTMLInputElement
 
         vi.spyOn(React, 'useRef').mockReturnValue({
-            current: mockInputElement,
+            current: mockInputElement
         })
 
-        const { result } = renderUseMultiSelect()
+        const { result } = setup()
 
         act(() => {
             result.current.handleKeyDown({
                 key: 'Escape',
-                currentTarget: {},
+                currentTarget: {}
             } as React.KeyboardEvent<HTMLDivElement>)
         })
 
@@ -101,12 +107,22 @@ describe('useMultiSelect Hook', () => {
     })
 
     it('filters available options correctly', () => {
-        const { result } = renderUseMultiSelect({
-            initialOption: [options[0]],
+        const { result } = setup({
+            initialOption: [options[0]]
         })
         expect(result.current.selectTables).toEqual([
             options[1],
-            options[2],
+            options[2]
         ])
+    })
+
+    it('filters available options by excluding selected and matching inputValue', () => {
+        const { result } = setup()
+
+        act(() => {
+            result.current.setInputValue('2')
+        })
+
+        expect(result.current.selectTables).toEqual([options[1]])
     })
 })

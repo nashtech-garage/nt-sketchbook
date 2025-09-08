@@ -4,7 +4,7 @@ import type {
     Table as ReactTable
 } from '@tanstack/react-table'
 
-import { Pagination, Th, Tr, TrLoading } from './components'
+import { PaginationTable, Th, Tr, TrLoading } from './components'
 import { useTable } from './hooks/use-table'
 
 export type TableProps = {
@@ -76,7 +76,7 @@ export const Table = (props: TableProps) => {
             </table>
 
             {!isLoading && table.getPageCount() > 0 && (
-                <Pagination
+                <PaginationTable
                     table={
                         table as ReactTable<Record<string, unknown>>
                     }

@@ -5,12 +5,12 @@ import { useState } from 'react'
 
 export type CollapsibleProps = {
     children: React.ReactNode
-    classChildren?: string
     trigger: React.ReactNode
     classNameTrigger?: string
     classNameTriggerWrapper?: string
     open?: boolean
     onOpenChange?: (open: boolean) => void
+    shouldDisplayArrow?: boolean
 }
 
 export const Collapsible = (props: CollapsibleProps) => {
@@ -19,9 +19,8 @@ export const Collapsible = (props: CollapsibleProps) => {
         open: controlledOpen,
         onOpenChange,
         trigger,
-        classNameTrigger = '',
         classNameTriggerWrapper = '',
-        classChildren = '',
+        shouldDisplayArrow = true
     } = props
 
     const [isOpen, setIsOpen] = useState(controlledOpen ?? false)
@@ -38,18 +37,22 @@ export const Collapsible = (props: CollapsibleProps) => {
         >
             <CollapsiblePrimitive.Trigger
                 className={cn(
-                    'flex items-center justify-between w-full px-4 py-2',
-                    classNameTriggerWrapper,
+                    'nt-collapse show',
+                    classNameTriggerWrapper
                 )}
             >
-                <div className={classNameTrigger}>{trigger}</div>
-                <ChevronDown
-                    className={`transition-transform text-text ${
-                        isOpen ? 'rotate-180' : ''
-                    }`}
-                />
+                {trigger}
+                {shouldDisplayArrow && (
+                    <ChevronDown
+                        className={cn(
+                            'nt-collapse-arrow',
+                            isOpen && 'down',
+                            !isOpen && 'up'
+                        )}
+                    />
+                )}
             </CollapsiblePrimitive.Trigger>
-            <CollapsiblePrimitive.Content className={classChildren}>
+            <CollapsiblePrimitive.Content>
                 {children}
             </CollapsiblePrimitive.Content>
         </CollapsiblePrimitive.Root>

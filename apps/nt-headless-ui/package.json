@@ -1,6 +1,6 @@
 {
     "name": "@nashtech-garage/headless-ui",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "private": false,
     "type": "module",
     "scripts": {
@@ -26,6 +26,10 @@
         },
         "./headless-ui.css": "./dist/headless-ui.css"
     },
+    "peerDependencies": {
+        "react": "18.x || 19.x",
+        "react-dom": "18.x || 19.x"
+    },
     "dependencies": {
         "@nashtech-garage/stylesheet": "workspace:*",
         "@radix-ui/react-avatar": "1.1.2",
@@ -44,7 +48,7 @@
         "clsx": "2.1.1",
         "cmdk": "1.0.4",
         "lucide-react": "0.474.0",
-        "next": "15.2.4",
+        "next": "15.5.2",
         "react": "18.2.0",
         "react-chartjs-2": "5.3.0",
         "react-dom": "18.2.0",

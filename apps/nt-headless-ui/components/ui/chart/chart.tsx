@@ -9,12 +9,12 @@ import {
     Pie,
     PolarArea,
     Radar,
-    Scatter,
+    Scatter
 } from 'react-chartjs-2'
 
 ChartJS.register(...registerables)
 
-type Type =
+export type Type =
     | 'bar'
     | 'line'
     | 'scatter'
@@ -35,7 +35,7 @@ export const Chart = <T extends ChartType>({
     type,
     data,
     options,
-    className,
+    className
 }: ChartProps<T>) => {
     const ChartMap = {
         bar: Bar,
@@ -45,7 +45,7 @@ export const Chart = <T extends ChartType>({
         radar: Radar,
         polarArea: PolarArea,
         scatter: Scatter,
-        bubble: Bubble,
+        bubble: Bubble
     }
 
     const SelectedChart = ChartMap[type] as React.ElementType

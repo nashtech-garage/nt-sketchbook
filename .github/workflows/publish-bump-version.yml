@@ -1,11 +1,5 @@
 name: Publish and Bump version
 
-permissions:
-    id-token: write
-    contents: write
-    packages: write
-    pull-requests: write
-
 on:
     workflow_dispatch:
         inputs:
@@ -19,19 +13,64 @@ on:
                     - minor
                     - major
 
-jobs:
-    bump-stylesheet:
-        name: Bump stylesheet
-        uses: nashtech-garage/nt-sketchbook/.github/workflows/auto-bump-version.yml@main
-        with:
-            version: ${{ inputs.version }}
-            projectName: stylesheet
-            workingDir: apps/nt-stylesheet
+permissions:
+    id-token: write
+    contents: write
+    packages: write
+    pull-requests: write
 
-    bump-headless-ui:
-        name: Bump headless-ui
-        uses: nashtech-garage/nt-sketchbook/.github/workflows/auto-bump-version.yml@main
-        with:
-            version: ${{ inputs.version }}
-            projectName: headless-ui
-            workingDir: apps/nt-headless-ui
+jobs:
+    bump-combined:
+        name: Bump both packages and create single PR
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10.7.0
+                  run_install: false
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.18.2
+                  cache: 'pnpm'
+                  registry-url: 'https://npm.pkg.github.com'
+                  scope: '@nashtech-garage'
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Configure Git
+              run: |
+                  git config user.name 'khoilen'
+                  git config user.email 'khoilen@nastechglobal.com'
+
+            - name: Bump stylesheet version
+              working-directory: apps/nt-stylesheet
+              continue-on-error: true
+              run: pnpm version ${{ inputs.version }}
+
+            - name: Bump headless-ui version
+              working-directory: apps/nt-headless-ui
+              continue-on-error: true
+              run: pnpm version ${{ inputs.version }}
+
+            - name: Create PR with both bumps
+              uses: peter-evans/create-pull-request@v6
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  commit-message: 'chore: bump stylesheet and headless-ui to ${{ inputs.version }}'
+                  branch: release/bump-both-${{ inputs.version }}
+                  title: 'chore: bump stylesheet and headless-ui to ${{ inputs.version }}'
+                  body: |
+                      This PR bumps both @nashtech-garage/nt-stylesheet and @nashtech-garage/headless-ui packages to ${{ inputs.version }}.
+                  author: khoilen <khoilen@nastechglobal.com>
+                  add-paths: |
+                      apps/nt-stylesheet/package.json
+                      apps/nt-headless-ui/package.json
+                      pnpm-lock.yaml

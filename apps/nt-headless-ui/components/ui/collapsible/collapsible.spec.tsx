@@ -1,37 +1,27 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 
 import { Collapsible } from './collapsible'
 
-vi.mock('lucide-react', async () => {
-    const actual = await vi.importActual<
-        // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-        typeof import('lucide-react')
-    >('lucide-react')
-    return {
-        ...actual,
-        ChevronDown: (props: React.SVGProps<SVGSVGElement>) => (
-            <svg data-testid="chevron-icon" {...props} />
-        ),
-    }
-})
+vi.mock('lucide-react', () => ({
+    ChevronDown: (props: React.SVGProps<SVGSVGElement>) => (
+        <svg data-testid="chevron-icon" {...props} />
+    )
+}))
+
+const onOpenChange = vi.fn()
+
+const defaultProps: React.ComponentProps<typeof Collapsible> = {
+    trigger: 'Click me',
+    onOpenChange,
+    children: 'Content',
+    shouldDisplayArrow: true
+}
 
 const setup = (
-    props: Partial<React.ComponentProps<typeof Collapsible>> = {},
-) => {
-    const onOpenChange = vi.fn()
-    const utils = render(
-        <Collapsible
-            trigger="Click me"
-            onOpenChange={onOpenChange}
-            {...props}
-        >
-            Content
-        </Collapsible>,
-    )
-    const trigger = screen.getByText('Click me')
-    return { ...utils, trigger, onOpenChange }
-}
+    props: Partial<React.ComponentProps<typeof Collapsible>> = {}
+) => render(<Collapsible {...defaultProps} {...props} />)
 
 describe('Collapsible Component', () => {
     it('renders the trigger correctly', () => {
@@ -44,25 +34,27 @@ describe('Collapsible Component', () => {
         expect(screen.queryByText('Content')).not.toBeInTheDocument()
     })
 
-    it('toggles the content when clicking the trigger', () => {
-        const { trigger } = setup()
+    it('toggles the content when clicking the trigger', async () => {
+        setup()
+        const trigger = screen.getByText('Click me')
 
         expect(screen.queryByText('Content')).not.toBeInTheDocument()
 
-        fireEvent.click(trigger)
+        await userEvent.click(trigger)
         expect(screen.getByText('Content')).toBeInTheDocument()
 
-        fireEvent.click(trigger)
+        await userEvent.click(trigger)
         expect(screen.queryByText('Content')).not.toBeInTheDocument()
     })
 
-    it('calls onOpenChange when toggling', () => {
-        const { trigger, onOpenChange } = setup()
+    it('calls onOpenChange when toggling', async () => {
+        setup({ onOpenChange })
+        const trigger = screen.getByText('Click me')
 
-        fireEvent.click(trigger)
+        await userEvent.click(trigger)
         expect(onOpenChange).toHaveBeenCalledWith(true)
 
-        fireEvent.click(trigger)
+        await userEvent.click(trigger)
         expect(onOpenChange).toHaveBeenCalledWith(false)
     })
 
@@ -72,35 +64,29 @@ describe('Collapsible Component', () => {
     })
 
     it('applies custom class names', () => {
-        const { container } = setup({
-            classNameTrigger: 'trigger-class',
-            classNameTriggerWrapper: 'wrapper-class',
-            classChildren: 'content-class',
-        })
-
+        setup({ classNameTriggerWrapper: 'wrapper-class' })
         expect(
-            container.querySelector('.trigger-class'),
-        ).toBeInTheDocument()
-        expect(
-            container.querySelector('.wrapper-class'),
-        ).toBeInTheDocument()
-        expect(
-            container.querySelector('.content-class'),
+            document.querySelector('.wrapper-class')
         ).toBeInTheDocument()
     })
 
-    it('rotates the Chevron icon when open', () => {
+    it('rotates the Chevron icon when open', async () => {
         setup()
         const chevron = screen.getByTestId('chevron-icon')
-
         const trigger = screen.getByText('Click me')
 
-        expect(chevron).not.toHaveClass('rotate-180')
+        await userEvent.click(trigger)
+        expect(chevron).toHaveClass('down')
 
-        fireEvent.click(trigger)
-        expect(chevron).toHaveClass('rotate-180')
+        await userEvent.click(trigger)
+        expect(chevron).toHaveClass('up')
+    })
 
-        fireEvent.click(trigger)
-        expect(chevron).not.toHaveClass('rotate-180')
+    it('does not render Chevron icon when shouldDisplayArrow is false', () => {
+        setup({ shouldDisplayArrow: false })
+
+        expect(
+            screen.queryByTestId('chevron-icon')
+        ).not.toBeInTheDocument()
     })
 })

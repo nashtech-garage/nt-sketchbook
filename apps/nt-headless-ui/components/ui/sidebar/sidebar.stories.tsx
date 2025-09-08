@@ -1,26 +1,62 @@
 import type { Meta, StoryFn } from '@storybook/react'
-import {
-    Blocks,
-    Check,
-    LayoutDashboard,
-    Search,
-    SettingsIcon,
-    User2,
-    UsersRound,
-} from 'lucide-react'
-import React from 'react'
+import React, { type KeyboardEvent } from 'react'
 
-import { Avatar } from '../avatar/avatar'
-import { Badge } from '../badge/badge'
-import { Input } from '../input/input'
-import type { SidebarProps } from './sidebar'
-import { Sidebar } from './sidebar'
+import { Sidebar, type SlideBarProps } from './sidebar'
+
+const sampleItems: SlideBarProps['items'] = [
+    {
+        id: 'dashboard',
+        label: 'Dashboard',
+        children: [
+            {
+                id: 'stepone',
+                label: 'StepOne',
+                icon: 'nti-dashboard'
+            },
+            { id: 'iot', label: 'IoT', icon: 'nti-iot' },
+            {
+                id: 'commerce',
+                label: 'e-Commerce',
+                icon: 'nti-cart'
+            }
+        ]
+    },
+    {
+        id: 'features',
+        label: 'Features',
+        children: [
+            {
+                id: 'auth',
+                label: 'Auth',
+                icon: 'nti-shapes',
+                children: [
+                    { id: 'login', label: 'Login' },
+                    { id: 'register', label: 'Register' }
+                ]
+            },
+            {
+                id: 'widgets',
+                label: 'Widgets - v1.0.0',
+                icon: 'nti-widgets',
+                children: [
+                    { id: 'alert', label: 'Alert' },
+                    { id: 'avatar', label: 'Avatar' },
+                    { id: 'badge', label: 'Badge' }
+                ]
+            }
+        ]
+    }
+]
 
 export default {
-    title: 'Components/Menu sidebar',
+    title: 'Components/SlideBar',
     component: Sidebar,
     argTypes: {},
     args: {
+        onSearch: (event: KeyboardEvent<HTMLInputElement>) =>
+            alert(event.currentTarget.value),
+        logoSrc: '/assets/images/nashtech-logo.svg',
+        items: sampleItems,
         footer: (
             <div className="flex">
                 <div className="flex items-center gap-3">
@@ -34,90 +70,11 @@ export default {
                     </div>
                 </div>
             </div>
-        ),
-        header: (
-            <div className="flex-col flex gap-4 mt-5">
-                <div className="w-full justify-between flex items-center">
-                    <img
-                        src="/assets/images/stepone.png"
-                        alt="logo"
-                    />
-                    <Avatar
-                        src="/assets/images/image.png"
-                        size="sm"
-                        hasBadge
-                        badgeClass="bg-success"
-                    />
-                </div>
-                <Input
-                    placeholder="Search app"
-                    rightIcon={<Search size={17} />}
-                />
-            </div>
-        ),
-        groups: [
-            {
-                title: 'Dashboard',
-                url: '/dashboard',
-                icon: LayoutDashboard,
-                trailingBadge: <Badge variant="danger">4</Badge>,
-            },
-            {
-                title: 'Productivity',
-                items: [
-                    {
-                        title: 'Settings',
-                        url: '/settings',
-                        icon: SettingsIcon,
-                        trailingBadge: <Badge>2</Badge>,
-                    },
-                ],
-            },
-            {
-                title: 'User & Account',
-                items: [
-                    {
-                        title: 'User management',
-                        icon: User2,
-                        subItems: [
-                            {
-                                title: 'Users',
-                                url: '/users',
-                                active: true,
-                            },
-                            {
-                                title: 'Roles',
-                                url: '/roles',
-                            },
-                        ],
-                    },
-                    {
-                        title: 'Role & Permissions',
-                        url: '/permission',
-                        icon: Check,
-                    },
-                ],
-            },
-            {
-                title: 'App Features',
-                items: [
-                    {
-                        title: 'Features',
-                        url: '/features',
-                        icon: UsersRound,
-                    },
-                    {
-                        title: 'Widgets',
-                        url: '/widgets',
-                        icon: Blocks,
-                    },
-                ],
-            },
-        ],
-    },
+        )
+    }
 } as Meta
 
-const Template: StoryFn<SidebarProps> = (args: SidebarProps) => (
+const Template: StoryFn<SlideBarProps> = (args: SlideBarProps) => (
     <Sidebar {...args} />
 )
 

@@ -33,8 +33,8 @@ Wrap your radio inputs inside `<label class="nt-radio">` to get the styled radio
 
 ```html
 <main>
-    <h2 class="text-3xl font-semibold mb-4">Radio grid</h2>
-    <div class="nt-radio-column mb-10">
+    <h2 class=" nt-mb-4">Radio grid</h2>
+    <div class="nt-radio-column nt-mb-10">
         <label class="nt-radio">
             <input type="radio" name="choice" value="1" />
             Option A
@@ -48,7 +48,7 @@ Wrap your radio inputs inside `<label class="nt-radio">` to get the styled radio
             Option C
         </label>
     </div>
-    <h2 class="text-3xl font-semibold mb-4">Radio row</h2>
+    <h2 class=" nt-mb-4">Radio row</h2>
     <div class="nt-radio-row">
         <label class="nt-radio">
             <input type="radio" name="layout" value="row1" />

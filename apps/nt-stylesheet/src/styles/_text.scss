@@ -1,0 +1,162 @@
+// Text alignment
+$text-alignments: (
+    start: left,
+    center: center,
+    end: right
+);
+
+$breakpoints: (
+    null: null,
+    sm: 36rem,
+    md: 48rem,
+    lg: 62rem,
+    xl: 75rem
+);
+
+@each $name, $value in $text-alignments {
+    // Base class (no breakpoint)
+    .nt-text-#{$name} {
+        text-align: #{$value};
+    }
+
+    // Responsive classes
+    @each $bp, $bp-width in $breakpoints {
+        @if $bp {
+            @media (min-width: #{$bp-width}) {
+                .nt-text-#{$bp}-#{$name} {
+                    text-align: #{$value};
+                }
+            }
+        }
+    }
+}
+
+// Text wrapping and overflow && text decoration
+.nt-text {
+    &-wrap {
+        white-space: normal;
+    }
+
+    &-nowrap {
+        white-space: nowrap;
+    }
+
+    &-truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &-break {
+        word-wrap: break-word;
+        word-break: break-word; // newer syntax
+    }
+
+    &-lowercase {
+        text-transform: lowercase;
+    }
+
+    &-uppercase {
+        text-transform: uppercase;
+    }
+
+    &-capitalize {
+        text-transform: capitalize;
+    }
+
+    &-decoration-underline {
+        text-decoration: underline;
+    }
+
+    &-decoration-line-through {
+        text-decoration: line-through;
+    }
+
+    &-decoration-none {
+        text-decoration: none;
+    }
+}
+
+// Font weight and italics
+.nt-fw {
+    &-bold {
+        font-weight: bold;
+    }
+
+    &-bolder {
+        font-weight: bolder;
+    }
+
+    &-normal {
+        font-weight: normal;
+    }
+
+    &-light {
+        font-weight: 300;
+    }
+
+    &-lighter {
+        font-weight: lighter;
+    }
+}
+
+// Text wrapping and overflow
+.nt-fst {
+    &-italic {
+        font-style: italic;
+    }
+
+    &-oblique {
+        font-style: oblique;
+    }
+
+    &-normal {
+        font-style: normal;
+    }
+}
+
+// Font size
+.nt-fs {
+    &-1 {
+        font-size: 2.5rem; // h1
+    }
+
+    &-2 {
+        font-size: 2rem; // h2
+    }
+
+    &-3 {
+        font-size: 1.75rem; // h3
+    }
+
+    &-4 {
+        font-size: 1.5rem; // h4
+    }
+
+    &-5 {
+        font-size: 1.25rem; // h5
+    }
+
+    &-6 {
+        font-size: 1rem; // h6
+    }
+}
+
+// Line height
+.nt-lh {
+    &-1 {
+        line-height: 1;
+    }
+
+    &-sm {
+        line-height: 1.25;
+    }
+
+    &-base {
+        line-height: 1.5;
+    }
+
+    &-lg {
+        line-height: 2;
+    }
+}
