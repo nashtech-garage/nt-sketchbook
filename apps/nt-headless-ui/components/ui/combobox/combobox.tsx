@@ -65,12 +65,10 @@ export const Combobox = (props: ComboboxProps) => {
         setFilteredOptions(newFilteredOptions)
     }
     return (
-        <div className="nt-combobox">
+        <div className={cn('nt-combobox', className)}>
             <button
                 className={cn(
                     'nt-combobox-trigger',
-                    'text-center',
-                    className,
                     open ? 'active' : undefined
                 )}
                 onClick={toggleDropdown}
@@ -98,7 +96,7 @@ export const Combobox = (props: ComboboxProps) => {
                         </div>
                     )}
                     {filteredOption.map((option) => (
-                        <div
+                        <button
                             key={option.value}
                             className={cn(
                                 'nt-combobox-list-item',
@@ -109,7 +107,7 @@ export const Combobox = (props: ComboboxProps) => {
                             onClick={() => selectOption(option)}
                         >
                             {option.label}
-                        </div>
+                        </button>
                     ))}
                 </div>
             </div>

@@ -16,6 +16,7 @@
 }
 
 .nt-combobox {
+    width: 100%;
     position: relative;
     display: inline-block;
 
@@ -69,6 +70,13 @@
         &.show {
             display: block;
         }
+
+        .no-results {
+            padding: 1.429rem;
+            text-align: center;
+            color: vars.$nt-text-body;
+            font-style: italic;
+        }
     }
 
     &-input {
@@ -95,6 +103,8 @@
 
     &-list {
         &-item {
+            width: 100%;
+            text-align: left;
             font-size: 1rem;
             color: vars.$nt-text-body;
             padding: 0.857rem 1.429rem;
@@ -119,12 +129,5 @@
             border-left-color: vars.$nt-text-info;
             color: vars.$nt-text-info;
         }
-    }
-
-    .no-results {
-        padding: 1.429rem;
-        text-align: center;
-        color: vars.$nt-text-body;
-        font-style: italic;
     }
 }

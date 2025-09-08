@@ -22,48 +22,8 @@ import '@nashtech-garage/nt-stylesheet/dist/nt-stylesheet.css'
 
 Wrap your trigger component - in this case is <button> inside `<div class="nt-combobox">` to get popover content and combobox styling.
 
-        <div class="nt-combobox">
-            <button
-                style="width: 180px"
-                class="nt-combobox-trigger"
-                onclick="toggleDropdown()"
-            >
-                Select an option
-            </button>
-            <div class="nt-combobox-popover">
-                <input
-                    class="nt-combobox-input"
-                    type="text"
-                    placeholder="Search options..."
-                    onkeyup="filterFunction()"
-                />
-                <div class="nt-combobox-list">
-                    <div
-                        class="nt-combobox-list-item"
-                        onclick="selectOption('About')"
-                    >
-                        About
-                    </div>
-                    <div
-                        class="nt-combobox-list-item"
-                        onclick="selectOption('Base')"
-                    >
-                        Base
-                    </div>
-                    <div
-                        class="nt-combobox-list-item"
-                        onclick="selectOption('Blog')"
-                    >
-                        Blog
-                    </div>
-                    <div
-                        class="nt-combobox-list-item"
-                        onclick="selectOption('Contact')"
-                    >
-                        Contact
-                    </div>
-                </div>
-            </div>
+        <div class="nt-combobox" data-combobox data-options="About,Base,Blog,Contact">
+            <button class="nt-combobox-trigger">Select an option</button>
         </div>
 
 ## Layouts
@@ -74,47 +34,15 @@ Wrap your trigger component - in this case is <button> inside `<div class="nt-co
 
 ```html
 <main>
-    <div class="nt-combobox">
-        <button
-            style="width: 180px"
-            class="nt-combobox-trigger"
-            onclick="toggleDropdown()"
+    <div class="wrapper" style="width: 235px">
+        <div
+            class="nt-combobox"
+            data-combobox
+            data-options="About,Base,Blog,Contact"
         >
-            Select an option
-        </button>
-        <div class="nt-combobox-popover">
-            <input
-                class="nt-combobox-input"
-                type="text"
-                placeholder="Search options..."
-                onkeyup="filterFunction()"
-            />
-            <div class="nt-combobox-list">
-                <div
-                    class="nt-combobox-list-item"
-                    onclick="selectOption('About')"
-                >
-                    About
-                </div>
-                <div
-                    class="nt-combobox-list-item"
-                    onclick="selectOption('Base')"
-                >
-                    Base
-                </div>
-                <div
-                    class="nt-combobox-list-item"
-                    onclick="selectOption('Blog')"
-                >
-                    Blog
-                </div>
-                <div
-                    class="nt-combobox-list-item"
-                    onclick="selectOption('Contact')"
-                >
-                    Contact
-                </div>
-            </div>
+            <button class="nt-combobox-trigger">
+                Select an option
+            </button>
         </div>
     </div>
 </main>

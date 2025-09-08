@@ -14,7 +14,7 @@ describe('Combobox Component', () => {
     it('renders correctly with default props', () => {
         render(<Combobox options={options} />)
 
-        expect(screen.getByRole('button')).toBeInTheDocument()
+        expect(screen.getAllByRole('button')[0]).toBeInTheDocument()
         expect(
             screen.getByText('Choose an option')
         ).toBeInTheDocument()
@@ -22,7 +22,7 @@ describe('Combobox Component', () => {
 
     it('opens dropdown when clicked', async () => {
         const wrapper = render(<Combobox options={options} />)
-        const button = screen.getByRole('button')
+        const button = screen.getAllByRole('button')[0]
         await userEvent.click(button)
         await waitFor(() => {
             expect(
@@ -35,7 +35,7 @@ describe('Combobox Component', () => {
 
     it('closes dropdown when an option is selected', async () => {
         const wrapper = render(<Combobox options={options} />)
-        const button = screen.getByRole('button')
+        const button = screen.getAllByRole('button')[0]
         await userEvent.click(button)
         await waitFor(() => {
             const popover = wrapper.container.querySelector(
@@ -56,7 +56,7 @@ describe('Combobox Component', () => {
         const wrapper = render(
             <Combobox options={options} onChange={handleChange} />
         )
-        const button = screen.getByRole('button')
+        const button = screen.getAllByRole('button')[0]
         await userEvent.click(button)
         await waitFor(() => {
             const popover = wrapper.container.querySelector(
@@ -82,7 +82,7 @@ describe('Combobox Component', () => {
         const wrapper = render(
             <Combobox options={options} onChange={handleChange} />
         )
-        const button = screen.getByRole('button')
+        const button = screen.getAllByRole('button')[0]
         await userEvent.click(button)
         await waitFor(() => {
             const popover = wrapper.container.querySelector(
@@ -107,7 +107,7 @@ describe('Combobox Component', () => {
 
     it('shows no options found message if search does not match', async () => {
         const wrapper = render(<Combobox options={options} />)
-        const button = screen.getByRole('button')
+        const button = screen.getAllByRole('button')[0]
         await userEvent.click(button)
         await waitFor(() => {
             const popover = wrapper.container.querySelector(
