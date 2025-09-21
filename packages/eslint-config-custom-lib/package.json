@@ -5,19 +5,19 @@
     "type": "module",
     "license": "MIT",
     "devDependencies": {
-        "eslint": "9.17.0",
+        "eslint": "catalog:",
         "eslint-config-next": "15.2.4",
-        "eslint-config-prettier": "10.1.1",
-        "eslint-formatter-pretty": "6.0.1",
-        "eslint-plugin-jsonc": "2.20.0",
-        "eslint-plugin-jsx-a11y": "6.10.2",
-        "eslint-plugin-prettier": "5.2.6",
-        "eslint-plugin-react": "7.37.5",
-        "eslint-plugin-testing-library": "7.1.1",
-        "eslint-plugin-unused-imports": "4.1.4",
-        "typescript": "5.7.2",
-        "@typescript-eslint/eslint-plugin": "8.33.0",
-        "@typescript-eslint/parser": "8.33.0"
+        "eslint-config-prettier": "catalog:",
+        "eslint-formatter-pretty": "catalog:",
+        "eslint-plugin-jsonc": "catalog:",
+        "eslint-plugin-jsx-a11y": "catalog:",
+        "eslint-plugin-prettier": "catalog:",
+        "eslint-plugin-react": "catalog:",
+        "eslint-plugin-testing-library": "catalog:",
+        "eslint-plugin-unused-imports": "catalog:",
+        "typescript": "catalog:",
+        "@typescript-eslint/eslint-plugin": "catalog:",
+        "@typescript-eslint/parser": "catalog:"
     },
     "publishConfig": {
         "access": "public"
