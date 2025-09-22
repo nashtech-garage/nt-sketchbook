@@ -8,10 +8,10 @@
         "access": "public"
     },
     "devDependencies": {
-        "stylelint": "16.19.1",
-        "stylelint-config-standard-scss": "14.0.0",
-        "stylelint-prettier": "5.0.3",
-        "stylelint-config-tailwindcss": "1.0.0",
-        "stylelint-scss": "6.11.1"
+        "stylelint": "catalog:",
+        "stylelint-config-standard-scss": "catalog:",
+        "stylelint-prettier": "catalog:",
+        "stylelint-config-tailwindcss": "catalog:",
+        "stylelint-scss": "catalog:"
     }
 }
