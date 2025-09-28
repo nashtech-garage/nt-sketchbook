@@ -1,0 +1,122 @@
+/* stylelint-disable no-empty-source */
+@use 'sass:map';
+@use '../utilities' as utils;
+@use '../variables' as vars;
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-0.714rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nt-combobox {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    &-trigger {
+        display: block;
+        width: 100%;
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+        font-weight: vars.$nt-font-weight-medium;
+        text-align: left;
+        color: vars.$nt-text-primary;
+        background: vars.$nt-color-white;
+        border: 0.071rem solid vars.$nt-color-line-regular;
+        border-radius: 0.571rem;
+        box-sizing: border-box;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 1.429rem;
+            width: 1rem;
+            height: 1rem;
+            background: url('/assets/svg/arrow-down.svg') no-repeat
+                center/contain;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        &.active::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+
+    &-popover {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        min-width: 100%;
+        margin-top: 0.571rem;
+        padding: 0;
+        background: vars.$nt-color-white;
+        border: 0.071rem solid vars.$nt-color-line-regular;
+        border-radius: 0.857rem;
+        overflow: hidden;
+        animation: slide-down 0.3s ease;
+
+        &.show {
+            display: block;
+        }
+
+        .no-results {
+            padding: 1.429rem;
+            text-align: center;
+            font-style: italic;
+            color: vars.$nt-text-body;
+        }
+    }
+
+    &-input {
+        width: calc(100% - 2rem);
+        margin: 1rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid vars.$nt-color-line-regular;
+        border-radius: 5px;
+        outline: none;
+
+        &:focus {
+            background: vars.$nt-color-white;
+        }
+
+        &::placeholder {
+            color: vars.$nt-text-light;
+        }
+    }
+
+    &-list {
+        padding: 0 1.2rem 1rem;
+
+        &-item {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            text-align: left;
+            color: vars.$nt-text-body;
+            transition: background-color 0.2s ease;
+            border-radius: 0.625rem;
+
+            &:hover {
+                background: vars.$nt-color-secondary-10;
+            }
+        }
+    }
+
+    .selected-item {
+        background: vars.$nt-color-secondary-10;
+    }
+}
