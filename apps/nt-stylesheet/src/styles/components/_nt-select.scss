@@ -1,0 +1,154 @@
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use 'sass:map';
+
+.nt-select {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+
+    border: 1px solid vars.$nt-color-line-regular;
+    border-radius: vars.$nt-border-radius-md;
+    background-color: vars.$nt-bg-body;
+    color: vars.$nt-color-black;
+    font-size: map.get(utils.$nt-font-sizes, 'sm');
+    line-height: 1.4;
+
+    padding: 0 vars.$nt-spacing-lg;
+    height: 40px;
+
+    // Remove native styling
+    appearance: none;
+
+    // Custom arrow
+    background-image: url('/assets/svg/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right vars.$nt-spacing-md center;
+    background-size: 16px;
+
+    &-icon {
+        position: absolute;
+        left: 10px;
+        right: var(--nt-spacing-md, 1rem);
+        z-index: 1;
+        top: 8px;
+    }
+
+    &:hover {
+        border-color: vars.$nt-color-secondary-50;
+    }
+
+    &:focus {
+        border-color: vars.$nt-color-secondary-100;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(vars.$nt-color-secondary-100, 0.2);
+    }
+
+    &:disabled {
+        color: vars.$nt-color-gray-40;
+        background-color: vars.$nt-bg-light;
+        border-color: vars.$nt-color-gray-10;
+        cursor: not-allowed;
+        opacity: 0.8;
+    }
+
+    /* Dropdown options */
+    option {
+        padding: vars.$nt-spacing-md vars.$nt-spacing-lg;
+        font-size: map.get(utils.$nt-font-sizes, 'sm');
+        line-height: 1.5;
+        cursor: pointer;
+
+        &:hover,
+        &:checked {
+            background-color: vars.$nt-color-gray-9;
+        }
+
+        &:disabled {
+            color: vars.$nt-color-gray-30;
+            background-color: vars.$nt-bg-light;
+        }
+    }
+
+    /* =========================
+     Sizes
+     ========================= */
+    &-small {
+        height: 32px;
+        font-size: map.get(utils.$nt-font-sizes, 'xs');
+        padding-inline: vars.$nt-spacing-sm;
+    }
+
+    &-medium {
+        height: 40px;
+        font-size: map.get(utils.$nt-font-sizes, 'sm');
+        padding-inline: vars.$nt-spacing-md;
+    }
+
+    &-large {
+        height: 48px;
+        font-size: map.get(utils.$nt-font-sizes, 'md');
+        padding-inline: vars.$nt-spacing-lg;
+    }
+
+    /* =========================
+     Variants
+     ========================= */
+    &-danger {
+        border-color: vars.$nt-color-danger;
+        color: vars.$nt-color-danger;
+
+        &:focus,
+        &:hover {
+            border-color: vars.$nt-color-danger-bold;
+            box-shadow: 0 0 0 3px
+                rgba(vars.$nt-color-danger-bold, 0.2);
+        }
+    }
+
+    &-success {
+        border-color: vars.$nt-color-success;
+        color: vars.$nt-color-success;
+
+        &:focus,
+        &:hover {
+            border-color: vars.$nt-color-success-bold;
+            box-shadow: 0 0 0 3px
+                rgba(vars.$nt-color-success-bold, 0.2);
+        }
+    }
+
+    &-warning {
+        border-color: vars.$nt-color-warning;
+        color: vars.$nt-color-warning;
+
+        &:focus,
+        &:hover {
+            border-color: vars.$nt-color-warning-bold;
+            box-shadow: 0 0 0 3px
+                rgba(vars.$nt-color-warning-bold, 0.2);
+        }
+    }
+
+    &-bare {
+        border: none;
+        background: transparent;
+        color: vars.$nt-color-black;
+
+        &:focus,
+        &:hover {
+            box-shadow: none;
+            border: none;
+        }
+    }
+
+    &-wrapper {
+        position: relative;
+
+        .nt-select {
+            padding-left: 3rem;
+        }
+    }
+}
