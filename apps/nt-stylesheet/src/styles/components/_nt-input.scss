@@ -116,15 +116,15 @@ $transition-duration: 0.3s;
         position: relative;
 
         &-danger {
-            @include input-with-icon('../assets/svg/danger.svg');
+            @include input-with-icon('/assets/svg/danger.svg');
         }
 
         &-success {
-            @include input-with-icon('../assets/svg/success.svg');
+            @include input-with-icon('/assets/svg/success.svg');
         }
 
         &-warning {
-            @include input-with-icon('../assets/svg/warning.svg');
+            @include input-with-icon('/assets/svg/warning.svg');
         }
 
         .nt-input-icon:first-child + .nt-input {
