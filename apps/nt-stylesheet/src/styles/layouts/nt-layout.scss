@@ -13,8 +13,10 @@ $width-sidebar-open: 18.75rem;
     height: 100%;
     width: 100%;
     display: flex;
+}
 
-    @media (min-width: $md-screen) {
+@media (min-width: $md-screen) {
+    .nt-layout {
         display: grid;
         grid-template: 100% / auto 1fr;
         grid-template-areas: 'nt-navbar nt-main';

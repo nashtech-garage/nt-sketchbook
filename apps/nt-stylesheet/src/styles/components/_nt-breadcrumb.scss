@@ -34,7 +34,7 @@
             &:first-child {
                 .nt-breadcrumb-list-item-link {
                     &::before {
-                        content: url('../assets/svg/breadcrumb.svg');
+                        content: url('/assets/svg/breadcrumb.svg');
                         margin-right: vars.$nt-spacing-xs;
                     }
                 }
