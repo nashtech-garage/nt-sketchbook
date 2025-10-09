@@ -1,1 +1,1 @@
-export { type SlideBarItem, Sidebar } from './sidebar'
+export { type SlideBarItem, default as Sidebar } from './sidebar'

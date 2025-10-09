@@ -73,3 +73,5 @@ export const Modal = (props: ModalProps) => {
         document.body
     )
 }
+
+export default Modal

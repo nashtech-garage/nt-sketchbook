@@ -58,3 +58,5 @@ export const Collapsible = (props: CollapsibleProps) => {
         </CollapsiblePrimitive.Root>
     )
 }
+
+export default Collapsible

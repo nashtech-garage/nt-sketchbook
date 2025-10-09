@@ -1,6 +1,6 @@
 import React, {
     type InputHTMLAttributes,
-    type ReactNode,
+    type ReactNode
 } from 'react'
 
 import { Label } from '../label/label'
@@ -36,7 +36,7 @@ export const RadioGroup = ({
     items,
     className = '',
     direction = 'column',
-    ariaLabel = 'Radio group',
+    ariaLabel = 'Radio group'
 }: RadioGroupProps) => {
     return (
         <div
@@ -50,3 +50,5 @@ export const RadioGroup = ({
         </div>
     )
 }
+
+export default RadioGroup

@@ -1,1 +1,1 @@
-export { Modal, type ModalProps } from './modal'
+export { default as Modal, type ModalProps } from './modal'

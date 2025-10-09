@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
 import type { BadgeProps } from './badge'
-import { Badge } from './badge'
+import Badge from './badge'
 
 export default {
     title: 'Components/Badge',
@@ -11,22 +11,22 @@ export default {
         variant: {
             control: {
                 type: 'select',
-                options: ['success', 'danger', 'warning', 'info'],
-            },
+                options: ['success', 'danger', 'warning', 'info']
+            }
         },
         iconPosition: {
             control: {
                 type: 'select',
-                options: ['left', 'right'],
-            },
+                options: ['left', 'right']
+            }
         },
         size: {
             control: {
                 type: 'select',
-                options: ['small', 'large'],
-            },
-        },
-    },
+                options: ['small', 'large']
+            }
+        }
+    }
 } as Meta
 
 const Template: StoryFn<BadgeProps> = (args: BadgeProps) => (
@@ -35,25 +35,25 @@ const Template: StoryFn<BadgeProps> = (args: BadgeProps) => (
 
 export const Primary: StoryFn<BadgeProps> = Template.bind({})
 Primary.args = {
-    onClick: () => alert('Button clicked!'),
+    onClick: () => alert('Button clicked!')
 }
 
 export const Danger: StoryFn<BadgeProps> = Template.bind({})
 Danger.args = {
     onClick: () => alert('Button clicked!'),
-    variant: 'danger',
+    variant: 'danger'
 }
 
 export const Warning: StoryFn<BadgeProps> = Template.bind({})
 Warning.args = {
     onClick: () => alert('Button clicked!'),
-    variant: 'warning',
+    variant: 'warning'
 }
 
 export const Info: StoryFn<BadgeProps> = Template.bind({})
 Info.args = {
     onClick: () => alert('Button clicked!'),
-    variant: 'info',
+    variant: 'info'
 }
 
 export const WithIconLeft: StoryFn<BadgeProps> = Template.bind({})
@@ -63,7 +63,7 @@ WithIconLeft.args = {
         <span role="img" aria-label="icon">
             🚀
         </span>
-    ),
+    )
 }
 
 export const WithIconRight: StoryFn<BadgeProps> = Template.bind({})
@@ -74,5 +74,5 @@ WithIconRight.args = {
         <span role="img" aria-label="icon">
             🚀
         </span>
-    ),
+    )
 }

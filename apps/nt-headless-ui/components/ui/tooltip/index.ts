@@ -1,6 +1,6 @@
 export {
     type TooltipVariant,
     type TooltipPosition,
-    type TooltipProps,
+    type TooltipProps
 } from './tooltip'
-export { Tooltip } from './tooltip'
+export { default as Tooltip } from './tooltip'

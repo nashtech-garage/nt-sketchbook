@@ -14,6 +14,7 @@ export type CardVariant =
     | 'success'
     | 'danger'
     | 'primary'
+
 export type CardProps = {
     children: React.ReactNode
     footer?: React.ReactNode
@@ -26,7 +27,8 @@ export type CardProps = {
     variant?: CardVariant
     icon?: string
 } & React.HTMLAttributes<HTMLDivElement>
-const Card: React.FC<CardProps> = ({
+
+export const Card: React.FC<CardProps> = ({
     footer,
     header,
     children,
@@ -77,4 +79,5 @@ const Card: React.FC<CardProps> = ({
     </CardWrapper>
 )
 Card.displayName = 'Card'
-export { Card }
+
+export default Card

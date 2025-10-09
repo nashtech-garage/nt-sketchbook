@@ -133,3 +133,5 @@ export const MultipleSelect = (props: MultipleSelectProps) => {
         </div>
     )
 }
+
+export default MultipleSelect

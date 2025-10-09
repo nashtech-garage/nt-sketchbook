@@ -17,7 +17,7 @@ export type ProgressProps = React.ComponentPropsWithoutRef<
     displayPercent?: boolean
 }
 
-const Progress = React.forwardRef<
+export const Progress = React.forwardRef<
     React.ElementRef<typeof ProgressPrimitive.Root>,
     ProgressProps
 >(
@@ -61,4 +61,4 @@ const Progress = React.forwardRef<
 )
 Progress.displayName = ProgressPrimitive.Root.displayName
 
-export { Progress }
+export default Progress

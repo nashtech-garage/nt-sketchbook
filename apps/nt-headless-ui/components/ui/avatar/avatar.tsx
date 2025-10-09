@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 import {
     AvatarFallback,
     AvatarImage,
-    AvatarPrimitiveRoot,
+    AvatarPrimitiveRoot
 } from '../../radix/avatar'
 
 export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg'
@@ -20,7 +20,7 @@ export type AvatarProps = {
     status?: AvatarStatus
 } & React.ComponentPropsWithoutRef<typeof AvatarPrimitiveRoot>
 
-const Avatar = ({
+export const Avatar = ({
     src,
     fallBack,
     hasBadge = false,
@@ -45,11 +45,11 @@ const Avatar = ({
                 className={cn(
                     'nt-avatar-status',
                     'nt-avatar-status--' + status,
-                    badgeClass,
+                    badgeClass
                 )}
             />
         )}
     </AvatarPrimitiveRoot>
 )
 
-export { Avatar }
+export default Avatar

@@ -20,7 +20,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     hasIcon?: boolean
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
     (props, ref) => {
         const {
             className = '',
@@ -72,4 +72,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
 Input.displayName = 'Input'
 
-export { Input }
+export default Input

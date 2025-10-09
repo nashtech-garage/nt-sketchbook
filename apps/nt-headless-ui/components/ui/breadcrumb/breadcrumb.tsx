@@ -10,49 +10,50 @@ export type BreadCrumbProps = React.HTMLAttributes<HTMLElement> & {
     items: BreadcrumbItem[]
 }
 
-const Breadcrumb = React.forwardRef<HTMLElement, BreadCrumbProps>(
-    ({ items, className, ...props }, ref) => (
-        <nav
-            ref={ref}
-            className={cn('nt-breadcrumb', className)}
-            {...props}
-        >
-            <ol className="nt-breadcrumb-list">
-                {items.map(({ className, ...item }, idx) => {
-                    const isLast = idx === items.length - 1
-                    return (
-                        <>
-                            <li
-                                className="nt-breadcrumb-list-item"
-                                key={item.id + '-list-item'}
-                            >
-                                {item.href && !isLast ? (
-                                    <Link
-                                        className={cn(
-                                            className,
-                                            'nt-breadcrumb-list-item-link'
-                                        )}
-                                        {...item}
-                                    >
-                                        {item.label}
-                                    </Link>
-                                ) : (
-                                    <span
-                                        className={cn(
-                                            className,
-                                            'nt-breadcrumb-list-item-current'
-                                        )}
-                                    >
-                                        {item.label}
-                                    </span>
-                                )}
-                            </li>
-                        </>
-                    )
-                })}
-            </ol>
-        </nav>
-    )
-)
+export const Breadcrumb = React.forwardRef<
+    HTMLElement,
+    BreadCrumbProps
+>(({ items, className, ...props }, ref) => (
+    <nav
+        ref={ref}
+        className={cn('nt-breadcrumb', className)}
+        {...props}
+    >
+        <ol className="nt-breadcrumb-list">
+            {items.map(({ className, ...item }, idx) => {
+                const isLast = idx === items.length - 1
+                return (
+                    <>
+                        <li
+                            className="nt-breadcrumb-list-item"
+                            key={item.id + '-list-item'}
+                        >
+                            {item.href && !isLast ? (
+                                <Link
+                                    className={cn(
+                                        className,
+                                        'nt-breadcrumb-list-item-link'
+                                    )}
+                                    {...item}
+                                >
+                                    {item.label}
+                                </Link>
+                            ) : (
+                                <span
+                                    className={cn(
+                                        className,
+                                        'nt-breadcrumb-list-item-current'
+                                    )}
+                                >
+                                    {item.label}
+                                </span>
+                            )}
+                        </li>
+                    </>
+                )
+            })}
+        </ol>
+    </nav>
+))
 
-export { Breadcrumb }
+export default Breadcrumb

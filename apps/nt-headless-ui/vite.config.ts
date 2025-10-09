@@ -1,10 +1,33 @@
 import react from '@vitejs/plugin-react'
+import fs from 'fs'
 import path from 'path'
 import { PluginOption } from 'vite'
 import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vitest/config'
 
-const packageName = 'headless-ui'
+const dirname = path.dirname(new URL(import.meta.url).pathname)
+const srcDir = path.resolve(dirname, 'components/ui')
+
+const entries = Object.fromEntries(
+    fs
+        .readdirSync(srcDir)
+        .filter((dir) => {
+            const dirPath = path.join(srcDir, dir)
+            return fs.statSync(dirPath).isDirectory()
+        })
+        .map((dir) => [dir, path.join(srcDir, dir, 'index.ts')])
+)
+entries.index = path.join(srcDir, 'index.ts')
+
+function resolveAlias(relativePath: string) {
+    return path.resolve(dirname, relativePath)
+}
+
+const defaultAlias = {
+    '@headless-ui': resolveAlias('./components/ui'),
+    '@': resolveAlias('.')
+}
+
 export default defineConfig({
     define: {
         'process.env.NODE_ENV': JSON.stringify(
@@ -14,7 +37,7 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname),
+            ...defaultAlias,
             react: path.resolve('./node_modules/react'),
             'react-dom': path.resolve('./node_modules/react-dom')
         }
@@ -23,16 +46,28 @@ export default defineConfig({
         react(),
         dts({
             outDir: path.resolve(__dirname, 'dist'),
-            entryRoot: path.resolve(__dirname, './'),
-            cleanVueFileName: true
+            entryRoot: path.resolve(__dirname, 'components/ui'),
+            cleanVueFileName: true,
+            exclude: [
+                '**/*.stories.ts',
+                '**/*.stories.tsx',
+                '**/*.spec.ts',
+                '**/*.spec.tsx',
+                '**/__tests__/**',
+                '**/apps/**',
+                '**/storybook-static/**',
+                '**/.next/**'
+            ]
         }) as PluginOption
     ],
     build: {
         lib: {
-            entry: path.resolve(__dirname, './index.ts'),
-            name: packageName,
-            formats: ['es', 'umd'],
-            fileName: (format) => `${packageName}.${format}.js`
+            entry: entries,
+            formats: ['es', 'cjs'],
+            fileName: (format, entryName) => {
+                const ext = format === 'es' ? 'js' : 'cjs'
+                return `${entryName}.${ext}`
+            }
         },
         outDir: path.resolve(__dirname, 'dist'),
         rollupOptions: {
