@@ -6,7 +6,7 @@ import {
     Badge,
     type BadgeIconPosition,
     type BadgeSize,
-    type BadgeVariant,
+    type BadgeVariant
 } from './badge'
 
 describe('Badge component', () => {
@@ -19,34 +19,32 @@ describe('Badge component', () => {
         'applies variant class for variant=%s',
         (variant) => {
             const { container } = render(
-                <Badge variant={variant as BadgeVariant}>
-                    Badge
-                </Badge>,
+                <Badge variant={variant as BadgeVariant}>Badge</Badge>
             )
             const badge = container.firstChild as HTMLElement
             expect(badge.className).toContain(`nt-badge-${variant}`)
-        },
+        }
     )
 
     it.each([['small'], ['large']])(
         'applies size class for size=%s',
         (size) => {
             const { container } = render(
-                <Badge size={size as BadgeSize}>Badge</Badge>,
+                <Badge size={size as BadgeSize}>Badge</Badge>
             )
             const badge = container.firstChild as HTMLElement
             expect(badge.className).toContain(`nt-badge-${size}`)
-        },
+        }
     )
 
     it.each([
         [true, 'nt-badge-rounded'],
-        [false, undefined],
+        [false, undefined]
     ])(
         'conditionally applies rounded class when rounded=%s',
         (rounded, expectedClass) => {
             const { container } = render(
-                <Badge rounded={rounded}>Badge</Badge>,
+                <Badge rounded={rounded}>Badge</Badge>
             )
             const badge = container.firstChild as HTMLElement
 
@@ -54,15 +52,15 @@ describe('Badge component', () => {
                 expect(badge.className).toContain(expectedClass)
             } else {
                 expect(badge.className).not.toContain(
-                    'nt-badge-rounded',
+                    'nt-badge-rounded'
                 )
             }
-        },
+        }
     )
 
     it.each([
-        ['left', 'mr-2'],
-        ['right', 'ml-2'],
+        ['left', 'nt-mr-2'],
+        ['right', 'nt-ml-2']
     ])(
         'renders icon on the %s with correct margin class',
         (position, expectedClass) => {
@@ -72,10 +70,10 @@ describe('Badge component', () => {
                     iconPosition={position as BadgeIconPosition}
                 >
                     Badge
-                </Badge>,
+                </Badge>
             )
             const icon = screen.getByTestId('icon')
             expect(icon.parentElement).toHaveClass(expectedClass)
-        },
+        }
     )
 })

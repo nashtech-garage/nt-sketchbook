@@ -92,3 +92,5 @@ export const Table = (props: TableProps) => {
         </>
     )
 }
+
+export default Table

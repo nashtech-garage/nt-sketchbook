@@ -7,19 +7,20 @@ export type CheckboxProps =
         disabled?: boolean
     }
 
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-    ({ className, label, ...props }, ref) => (
-        <label
-            className={cn(
-                'nt-checkbox',
-                className,
-                props.disabled ? 'disabled' : ''
-            )}
-        >
-            <input ref={ref} type="checkbox" {...props} />
-            {label}
-        </label>
-    )
-)
+export const Checkbox = React.forwardRef<
+    HTMLInputElement,
+    CheckboxProps
+>(({ className, label, ...props }, ref) => (
+    <label
+        className={cn(
+            'nt-checkbox',
+            className,
+            props.disabled ? 'disabled' : ''
+        )}
+    >
+        <input ref={ref} type="checkbox" {...props} />
+        {label}
+    </label>
+))
 
-export { Checkbox }
+export default Checkbox

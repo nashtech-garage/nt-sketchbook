@@ -46,7 +46,7 @@ const sizeStyles: Record<SelectSize, string> = {
     large: `${rootClassName}-large`
 }
 
-const Select = ({
+export const Select = ({
     className,
     variant = 'default',
     size = 'medium',
@@ -118,4 +118,4 @@ const Select = ({
     return selectEl
 }
 
-export { Select }
+export default Select

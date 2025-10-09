@@ -49,3 +49,5 @@ export const Alert = (props: AlertProps) => {
         </div>
     )
 }
+
+export default Alert

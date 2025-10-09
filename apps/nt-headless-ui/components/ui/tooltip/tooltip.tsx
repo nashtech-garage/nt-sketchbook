@@ -68,3 +68,5 @@ export const Tooltip = ({
         </TooltipProvider>
     )
 }
+
+export default Tooltip

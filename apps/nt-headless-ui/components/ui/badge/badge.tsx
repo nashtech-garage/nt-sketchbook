@@ -12,7 +12,7 @@ export type BadgeProps = {
     size?: BadgeSize
 } & React.HTMLAttributes<HTMLDivElement>
 
-const Badge: React.FC<BadgeProps> = ({
+export const Badge: React.FC<BadgeProps> = ({
     children,
     variant = 'success',
     rounded = false,
@@ -28,20 +28,20 @@ const Badge: React.FC<BadgeProps> = ({
             `nt-badge-${variant}`,
             `nt-badge-${size}`,
             { 'nt-badge-rounded': rounded },
-            className,
+            className
         )}
         {...props}
     >
         {icon && iconPosition === 'left' && (
-            <span className="mr-2">{icon}</span>
+            <span className="nt-mr-2">{icon}</span>
         )}
         {children}
         {icon && iconPosition === 'right' && (
-            <span className="ml-2">{icon}</span>
+            <span className="nt-ml-2">{icon}</span>
         )}
     </div>
 )
 
 Badge.displayName = 'Badge'
 
-export { Badge }
+export default Badge

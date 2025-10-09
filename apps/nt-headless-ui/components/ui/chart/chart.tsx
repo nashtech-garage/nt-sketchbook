@@ -56,3 +56,5 @@ export const Chart = <T extends ChartType>({
         </div>
     )
 }
+
+export default Chart

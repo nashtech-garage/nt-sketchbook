@@ -77,3 +77,5 @@ export const Pagination: React.FC<PaginationProps> = ({
         </ul>
     )
 }
+
+export default Pagination

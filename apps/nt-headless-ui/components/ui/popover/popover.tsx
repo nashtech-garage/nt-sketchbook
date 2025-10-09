@@ -72,3 +72,5 @@ export const Popover = (props: PopoverProps) => {
         </PopoverComponent>
     )
 }
+
+export default Popover
