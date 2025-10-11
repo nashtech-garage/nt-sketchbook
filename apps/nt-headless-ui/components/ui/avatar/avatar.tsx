@@ -7,8 +7,8 @@ import {
 } from '../../radix/avatar'
 
 export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg'
-
 export type AvatarStatus = 'online' | 'offline' | 'busy' | 'away'
+export type AvatarRadius = 'none' | 'sm' | 'md' | 'lg' | 'full'
 
 export type AvatarProps = {
     className?: string
@@ -18,6 +18,7 @@ export type AvatarProps = {
     size?: AvatarSize
     badgeClass?: string
     status?: AvatarStatus
+    radius?: AvatarRadius
 } & React.ComponentPropsWithoutRef<typeof AvatarPrimitiveRoot>
 
 export const Avatar = ({
@@ -28,6 +29,7 @@ export const Avatar = ({
     size = 'xs',
     badgeClass = '',
     status = 'online',
+    radius = 'full',
     ...args
 }: AvatarProps) => (
     <AvatarPrimitiveRoot
@@ -35,7 +37,11 @@ export const Avatar = ({
         {...args}
     >
         <AvatarImage
-            className={cn('nt-avatar', 'nt-avatar-' + size)}
+            className={cn(
+                'nt-avatar',
+                'nt-avatar-' + size,
+                'nt-avatar-radius-' + radius
+            )}
             src={src}
         />
         <AvatarFallback>{fallBack || null}</AvatarFallback>
@@ -44,7 +50,7 @@ export const Avatar = ({
                 role="presentation"
                 className={cn(
                     'nt-avatar-status',
-                    'nt-avatar-status--' + status,
+                    'nt-avatar-status-' + status,
                     badgeClass
                 )}
             />

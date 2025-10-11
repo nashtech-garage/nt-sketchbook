@@ -28,8 +28,26 @@ $status-offset-right: (
     lg: 0.7rem
 );
 
+$avatar-radius: (
+    full: 50%,
+    md: 0.75rem,
+    sm: 0.375rem,
+    none: 0
+);
+
+@mixin avatar-shape($shape) {
+    $radius: map.get($avatar-radius, $shape);
+
+    @if $radius {
+        border-radius: $radius;
+    } @else {
+        @warn "Shape '#{$shape}' not found in $avatar-radius map.";
+        border-radius: 50%;
+    }
+}
+
 .nt-avatar {
-    border-radius: 50%;
+    @include avatar-shape(full);
     object-fit: cover;
     display: unset;
     vertical-align: unset;
@@ -55,22 +73,81 @@ $status-offset-right: (
         width: 1rem;
         height: 1rem;
         border-radius: 50%;
+        z-index: 20;
         border: 0.125rem solid vars.$nt-color-white;
 
-        &--online {
+        &-online {
             background-color: vars.$nt-color-success;
         }
 
-        &--offline {
+        &-offline {
             background-color: vars.$nt-color-gray-50;
         }
 
-        &--away {
+        &-away {
             background-color: vars.$nt-color-warning;
         }
 
-        &--busy {
+        &-busy {
             background-color: vars.$nt-color-danger;
+        }
+    }
+
+    &-radius {
+        &-full {
+            @include avatar-shape(full);
+        }
+
+        &-md {
+            @include avatar-shape(md);
+        }
+
+        &-sm {
+            @include avatar-shape(sm);
+        }
+
+        &-none {
+            @include avatar-shape(none);
+        }
+    }
+
+    &-group {
+        display: flex;
+        align-items: center;
+
+        .nt-avatar {
+            border: 2px solid vars.$nt-color-white;
+        }
+
+        .nt-avatar-wrapper {
+            &:not(:first-child) {
+                &:has(.nt-avatar-xs) {
+                    margin-left: -1rem;
+                }
+
+                &:has(.nt-avatar-sm) {
+                    margin-left: -1.5rem;
+                }
+
+                &:has(.nt-avatar-md) {
+                    margin-left: -2rem;
+                }
+
+                &:has(.nt-avatar-lg) {
+                    margin-left: -2.5rem;
+                }
+            }
+        }
+
+        .nt-avatar-count {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: vars.$nt-bg-regular;
+            z-index: 10;
+            position: static;
+            color: vars.$nt-color-gray-70;
+            font-weight: bold;
         }
     }
 }
