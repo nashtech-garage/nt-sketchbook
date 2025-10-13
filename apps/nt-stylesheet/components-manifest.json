@@ -110,6 +110,11 @@
             "name": "Select",
             "id": "select",
             "type": "Control"
+        },
+        {
+            "name": "InputGroup",
+            "id": "input-group",
+            "type": "Control"
         }
     ]
 }
