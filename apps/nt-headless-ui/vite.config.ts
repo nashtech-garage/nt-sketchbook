@@ -25,7 +25,7 @@ function resolveAlias(relativePath: string) {
 
 const defaultAlias = {
     '@headless-ui': resolveAlias('./components/ui'),
-    '@': resolveAlias('.')
+    '@': resolveAlias(__dirname)
 }
 
 export default defineConfig({
