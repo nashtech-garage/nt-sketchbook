@@ -27,8 +27,7 @@
         ".next/types/**/*.ts",
         "../nt-stylesheet/dist/integrations/tailwind/index.cjs",
         "../../vite.base.config.ts",
-        "./eslint.config.mjs",
-        "scripts/generate-exports.js"
+        "./eslint.config.mjs"
     ],
     "exclude": [
         "node_modules",

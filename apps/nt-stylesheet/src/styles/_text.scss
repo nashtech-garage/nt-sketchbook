@@ -75,28 +75,104 @@ $breakpoints: (
     &-decoration-none {
         text-decoration: none;
     }
+
+    &-group {
+        font-size: 1.75rem; // ~28px
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    &-category {
+        font-size: 1.25rem; // ~20px
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    // Paragraph sizes
+    &-para-lg {
+        font-size: 1.125rem; // ~18px
+        line-height: 1.7;
+        font-weight: 400;
+    }
+
+    &-para-md {
+        font-size: 1rem; // 16px
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    &-para-sm {
+        font-size: 0.875rem; // 14px
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    &-para-xs {
+        font-size: 0.75rem; // 12px
+        line-height: 1.5;
+        font-weight: 400;
+    }
+
+    // Inline text sizes
+    &-inline-xs {
+        font-size: 0.75rem; // 12px
+        line-height: 1.4;
+    }
+
+    &-inline-sm {
+        font-size: 0.875rem; // 14px
+        line-height: 1.4;
+    }
+
+    &-inline-md,
+    &.nt-text-inline-md {
+        font-size: 1rem; // 16px
+        line-height: 1.5;
+    }
+
+    &-inline-lg {
+        font-size: 1.125rem; // 18px
+        line-height: 1.5;
+    }
 }
 
 // Font weight and italics
 .nt-fw {
-    &-bold {
-        font-weight: bold;
+    &-thin {
+        font-weight: 100;
     }
 
-    &-bolder {
-        font-weight: bolder;
-    }
-
-    &-normal {
-        font-weight: normal;
+    &-extralight {
+        font-weight: 200;
     }
 
     &-light {
         font-weight: 300;
     }
 
-    &-lighter {
-        font-weight: lighter;
+    &-regular {
+        font-weight: 400;
+    }
+
+    &-medium {
+        font-weight: 500;
+    }
+
+    &-semibold {
+        font-weight: 600;
+    }
+
+    &-bold {
+        font-weight: 700;
+    }
+
+    &-extrabold {
+        font-weight: 800;
+    }
+
+    &-black {
+        font-weight: 900;
     }
 }
 
