@@ -1,0 +1,107 @@
+@use '../variables' as vars;
+@use '../utilities' as utils;
+@use './nt-input' as input;
+@use 'sass:map';
+@use 'sass:color';
+
+$input-padding-y: 0.75rem;
+$input-padding-x: 1rem;
+$font-size: map.get(utils.$nt-font-sizes, 'md');
+$border-radius: 0.5rem;
+
+.nt-input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    margin-bottom: 1rem;
+
+    .nt-input-label {
+        font-size: $font-size;
+        font-weight: 700;
+        transition: all 0.2s ease;
+    }
+
+    &.nt-input-static {
+        .nt-input-label {
+            margin-bottom: 0.25rem;
+        }
+
+        .nt-input {
+            height: 2.75rem;
+            line-height: 1.25rem;
+        }
+    }
+
+    &.nt-input-float {
+        position: relative;
+
+        .nt-input {
+            height: 3rem;
+
+            &::placeholder {
+                color: transparent;
+            }
+        }
+
+        .nt-input-label {
+            position: absolute;
+            top: calc(100% / 3);
+            left: $input-padding-x;
+            transform: translateY(-50%);
+            z-index: 10;
+            padding: 0 0.25rem;
+            color: vars.$nt-color-gray-50;
+            font-size: $font-size;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            background: vars.$nt-color-white;
+        }
+
+        .nt-input:focus ~ .nt-input-label,
+        .nt-input:not(:placeholder-shown) ~ .nt-input-label,
+        .nt-input:focus-visible ~ .nt-input-label {
+            top: 0;
+            left: calc($input-padding-x - 0.25rem);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: map.get(
+                map.get(input.$input-colors, default),
+                focus
+            );
+        }
+
+        &:has(.nt-input:focus),
+        &:has(.nt-input:not(:placeholder-shown)) {
+            .nt-input-label {
+                top: 0;
+                left: calc($input-padding-x - 0.25rem);
+                font-size: 0.85rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .nt-input-highlight,
+    .nt-input-error {
+        margin-top: 0.35rem;
+        font-size: map.get(utils.$nt-font-sizes, 'sm');
+        line-height: 1.25;
+        transition: all 0.2s ease;
+    }
+
+    .nt-input-highlight {
+        color: vars.$nt-color-gray-60;
+    }
+
+    .nt-input-error {
+        color: vars.$nt-color-danger;
+        font-weight: 500;
+    }
+
+    &:has(.nt-input-error),
+    &:has(.nt-input-highlight) {
+        margin-bottom: 1.25rem;
+    }
+}
