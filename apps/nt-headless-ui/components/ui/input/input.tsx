@@ -2,7 +2,8 @@ import { cn } from '@/lib/utils'
 import {
     forwardRef,
     type InputHTMLAttributes,
-    type ReactNode
+    type ReactNode,
+    useMemo
 } from 'react'
 
 export type InputVariant =
@@ -18,6 +19,10 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     className?: string
     wrapperClassName?: string
     hasIcon?: boolean
+    label?: string
+    layout?: 'static' | 'float'
+    hasError?: boolean
+    message?: string
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -29,41 +34,85 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             leftIcon,
             rightIcon,
             hasIcon = false,
+            label,
+            layout = 'static',
+            hasError = false,
+            message = '',
             ...restProps
         } = props
+
+        const inputClassNameWrapper = useMemo(() => {
+            if (hasError) {
+                return 'nt-input-error'
+            }
+            return (
+                variant !== 'default' &&
+                !rightIcon &&
+                `nt-input-container-${variant}`
+            )
+        }, [variant, hasError])
+
+        const inputClassName = useMemo(() => {
+            if (hasError) {
+                return 'nt-input-danger'
+            }
+            return (
+                variant !== 'default' &&
+                !rightIcon &&
+                `nt-input-${variant}`
+            )
+        }, [variant, hasError])
+
+        const inputMessageClassName = useMemo(() => {
+            if (hasError) {
+                return 'nt-input-error'
+            }
+            return 'nt-input-highlight'
+        }, [hasError, message])
 
         const inputElement = (
             <input
                 ref={ref}
-                className={cn(
-                    'nt-input',
-                    `nt-input-${variant}`,
-                    className
-                )}
+                className={cn('nt-input', inputClassName, className)}
                 {...restProps}
             />
         )
 
-        if (!hasIcon && !leftIcon && !rightIcon) return inputElement
-
         return (
-            <div
-                className={cn(
-                    'nt-input-container',
-                    variant !== 'default' &&
-                        !rightIcon &&
-                        `nt-input-container-${variant}`,
-                    wrapperClassName
+            <div className={`nt-input-group nt-input-${layout}`}>
+                {label && (
+                    <label className="nt-input-label">{label}</label>
                 )}
-            >
-                {leftIcon && (
-                    <span className="nt-input-icon">{leftIcon}</span>
+                {hasIcon || rightIcon || leftIcon ? (
+                    <div
+                        className={cn(
+                            'nt-input-container',
+                            inputClassNameWrapper,
+                            wrapperClassName
+                        )}
+                    >
+                        {leftIcon && (
+                            <span className="nt-input-icon">
+                                {leftIcon}
+                            </span>
+                        )}
+
+                        {inputElement}
+
+                        {rightIcon && (
+                            <span className="nt-input-icon">
+                                {rightIcon}
+                            </span>
+                        )}
+                    </div>
+                ) : (
+                    inputElement
                 )}
 
-                {inputElement}
-
-                {rightIcon && (
-                    <span className="nt-input-icon">{rightIcon}</span>
+                {(message || hasError) && (
+                    <span className={inputMessageClassName}>
+                        {message}
+                    </span>
                 )}
             </div>
         )
