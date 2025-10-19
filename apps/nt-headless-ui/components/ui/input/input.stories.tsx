@@ -22,7 +22,10 @@ export default {
         },
         disabled: { control: 'boolean' },
         placeholder: { control: 'text' },
-        className: { control: 'text' }
+        className: { control: 'text' },
+        layout: {
+            control: { type: 'select', options: ['static', 'float'] }
+        }
     }
 } as Meta
 
@@ -45,7 +48,6 @@ export const IconCustomLeft = Template.bind({})
 IconCustomLeft.args = {
     type: 'text',
     placeholder: 'Input with icon left...',
-    className: 'icon-left',
     leftIcon: <span className="icon-left">🔍</span>
 }
 
@@ -53,15 +55,13 @@ export const IconCustomRight = Template.bind({})
 IconCustomRight.args = {
     type: 'text',
     placeholder: 'Input with icon right...',
-    className: 'icon-right',
     rightIcon: <span className="icon-right">🔍</span>
 }
 
 export const IconRightAndLeft = Template.bind({})
 IconRightAndLeft.args = {
     type: 'text',
-    placeholder: 'Input with icon right...',
-    className: 'icon-right',
+    placeholder: 'Input with both icons...',
     rightIcon: <span className="icon-right">🔍</span>,
     leftIcon: <span className="icon-left">🔍</span>
 }
@@ -69,7 +69,7 @@ IconRightAndLeft.args = {
 export const SuccessWithDefaultIcon = Template.bind({})
 SuccessWithDefaultIcon.args = {
     type: 'text',
-    placeholder: 'Success input with icon default',
+    placeholder: 'Success input with default icon',
     variant: 'success',
     hasIcon: true
 }
@@ -77,7 +77,7 @@ SuccessWithDefaultIcon.args = {
 export const DangerWithDefaultIcon = Template.bind({})
 DangerWithDefaultIcon.args = {
     type: 'text',
-    placeholder: 'Danger input with icon default',
+    placeholder: 'Danger input with default icon',
     variant: 'danger',
     hasIcon: true
 }
@@ -85,7 +85,7 @@ DangerWithDefaultIcon.args = {
 export const WarningWithDefaultIcon = Template.bind({})
 WarningWithDefaultIcon.args = {
     type: 'text',
-    placeholder: 'Warning input with icon default',
+    placeholder: 'Warning input with default icon',
     variant: 'warning',
     hasIcon: true
 }
@@ -93,8 +93,59 @@ WarningWithDefaultIcon.args = {
 export const SuccessWithCustomIcon = Template.bind({})
 SuccessWithCustomIcon.args = {
     type: 'text',
-    placeholder: 'Success input with icon custom',
+    placeholder: 'Success input with custom icons',
     variant: 'success',
-    leftIcon: <span className="icon-left">🔍</span>,
+    leftIcon: <span className="icon-left">✅</span>,
     rightIcon: <span className="icon-right">🔍</span>
+}
+
+export const LabeledStatic = Template.bind({})
+LabeledStatic.args = {
+    type: 'text',
+    label: 'Fruit',
+    placeholder: 'Apple',
+    layout: 'static',
+    message: ''
+}
+
+export const LabeledFloat = Template.bind({})
+LabeledFloat.args = {
+    type: 'email',
+    label: 'Email',
+    layout: 'float',
+    placeholder: 'apple@example.com',
+    message: ''
+}
+
+export const ErrorWithMessage = Template.bind({})
+ErrorWithMessage.args = {
+    type: 'email',
+    label: 'Email',
+    layout: 'float',
+    placeholder: 'apple@example.com',
+    hasError: true,
+    message: 'Invalid email address',
+    variant: 'danger'
+}
+
+export const SuccessWithMessage = Template.bind({})
+SuccessWithMessage.args = {
+    type: 'text',
+    label: 'Weapons',
+    layout: 'static',
+    placeholder: 'Sword',
+    variant: 'success',
+    message: 'Looks good!'
+}
+
+export const FloatWithIconsError = Template.bind({})
+FloatWithIconsError.args = {
+    type: 'text',
+    label: 'Username',
+    layout: 'float',
+    leftIcon: <span className="icon-left">👤</span>,
+    rightIcon: <span className="icon-right">❌</span>,
+    hasError: true,
+    message: 'Username already taken',
+    variant: 'danger'
 }
