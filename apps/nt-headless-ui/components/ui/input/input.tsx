@@ -68,7 +68,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 return 'nt-input-error'
             }
             return 'nt-input-highlight'
-        }, [hasError, message])
+        }, [hasError])
 
         const inputElement = (
             <input
