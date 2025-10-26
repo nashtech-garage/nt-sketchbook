@@ -1,6 +1,7 @@
 import type { Row } from '@tanstack/react-table'
 import { flexRender } from '@tanstack/react-table'
 import { render } from '@testing-library/react'
+import { type ReactNode } from 'react'
 import type { Mock } from 'vitest'
 import { describe, expect, it, vi } from 'vitest'
 
@@ -22,7 +23,7 @@ const createMockRow = (cellCount: number = 2): Row<unknown> => {
     } as unknown as Row<unknown>
 }
 
-const renderWithTableWrapper = (component: JSX.Element) =>
+const renderWithTableWrapper = (component: ReactNode) =>
     render(
         <table>
             <tbody>{component}</tbody>

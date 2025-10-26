@@ -1,5 +1,6 @@
 import type { Table } from '@tanstack/react-table'
 import { render, screen } from '@testing-library/react'
+import { type ReactNode } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 
 import TrLoading from './tr-loading'
@@ -24,7 +25,7 @@ const createMockTable = (withHeaders = true): Table<unknown> =>
         )
     }) as unknown as Table<unknown>
 
-const renderWithTableWrapper = (component: JSX.Element) =>
+const renderWithTableWrapper = (component: ReactNode) =>
     render(
         <table>
             <tbody>{component}</tbody>

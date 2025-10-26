@@ -37,6 +37,7 @@ const PopoverContent = React.forwardRef<
                 align={align}
                 sideOffset={sideOffset}
                 className={cn(className)}
+                avoidCollisions={false}
                 {...props}
             />
         </PopoverPrimitive.Portal>

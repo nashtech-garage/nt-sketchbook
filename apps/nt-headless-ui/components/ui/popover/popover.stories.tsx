@@ -32,8 +32,10 @@ export default {
 
 const Template: StoryFn<typeof Popover> = (args: PopoverProps) => (
     <Popover {...args}>
-        <div className="p-2">
-            <h2 className="text-sm font-bold">Popover Example</h2>
+        <div className="nt-p-2">
+            <h2 className="nt-text-sm nt-font-bold">
+                Popover Example
+            </h2>
             <p>This is an example of a popover component.</p>
         </div>
     </Popover>

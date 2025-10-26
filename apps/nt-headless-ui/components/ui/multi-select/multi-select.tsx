@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import * as React from 'react'
+import { cloneElement, isValidElement, type ReactNode } from 'react'
 
 import { useMultiSelect } from './hooks/use-multi-select'
 
@@ -14,7 +14,7 @@ export type MultipleSelectSize = 'small' | 'medium' | 'large'
 
 export type MultipleSelectProps = {
     options: Option[]
-    iconLeft?: React.ReactNode
+    iconLeft?: ReactNode
     classIconLeft?: string
     variant?: MultipleSelectVariant
     initialOption?: Option[]
@@ -61,15 +61,16 @@ export const MultipleSelect = (props: MultipleSelectProps) => {
             onKeyDown={handleKeyDown}
         >
             <div className="nt-multi-select-control">
-                {iconLeft &&
-                    React.cloneElement(
-                        iconLeft as React.ReactElement,
-                        {
-                            className: cn(classIconLeft, {
+                {isValidElement<{ className?: string }>(iconLeft) &&
+                    cloneElement(iconLeft, {
+                        className: cn(
+                            iconLeft.props.className,
+                            classIconLeft,
+                            {
                                 disabled
-                            })
-                        }
-                    )}
+                            }
+                        )
+                    })}
 
                 <div className="nt-multi-select-tags">
                     {selected.map((option) => (

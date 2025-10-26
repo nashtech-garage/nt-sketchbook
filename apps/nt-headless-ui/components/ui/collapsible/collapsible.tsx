@@ -1,11 +1,11 @@
 import { cn } from '@/lib/utils'
 import * as CollapsiblePrimitive from '@radix-ui/react-collapsible'
 import { ChevronDown } from 'lucide-react'
-import { useState } from 'react'
+import { type ReactNode, useState } from 'react'
 
 export type CollapsibleProps = {
-    children: React.ReactNode
-    trigger: React.ReactNode
+    children: ReactNode
+    trigger: ReactNode
     classNameTrigger?: string
     classNameTriggerWrapper?: string
     open?: boolean

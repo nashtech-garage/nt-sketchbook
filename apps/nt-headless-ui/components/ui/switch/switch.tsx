@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { cn } from '@/lib/utils'
 import { forwardRef, type InputHTMLAttributes } from 'react'
 
 export type SwitchVariant = 'default' | 'danger' | 'warning'
@@ -14,7 +14,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
 
         return (
             <label
-                className={clsx(
+                className={cn(
                     'nt-switch',
                     variant !== 'default' && `nt-switch-${variant}`,
                     className
@@ -34,5 +34,3 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
 )
 
 Switch.displayName = 'Switch'
-
-export default Switch

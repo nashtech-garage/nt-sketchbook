@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Checkbox } from './checkbox'
 
@@ -11,7 +11,7 @@ export default {
 const Template: StoryFn = (args) => {
     const checkboxRef = React.useRef<HTMLInputElement>(null)
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (checkboxRef.current) {
             checkboxRef.current.indeterminate = !!args.indeterminate
         }
@@ -23,14 +23,12 @@ const Template: StoryFn = (args) => {
 export const Default = Template.bind({})
 Default.args = {
     className: '',
-    checked: false,
     label: 'Paragraph label'
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
     className: '',
-    checked: false,
     disabled: true,
     label: 'Paragraph label'
 }
@@ -38,14 +36,13 @@ Disabled.args = {
 export const Checked = Template.bind({})
 Checked.args = {
     className: '',
-    checked: true,
+    defaultChecked: true,
     label: 'Paragraph label'
 }
 
 export const CheckedDisabled = Template.bind({})
 CheckedDisabled.args = {
     className: '',
-    checked: true,
     disabled: true,
     label: 'Paragraph label'
 }

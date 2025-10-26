@@ -1,9 +1,8 @@
 import react from '@vitejs/plugin-react'
 import fs from 'fs'
 import path from 'path'
-import { PluginOption } from 'vite'
+import { defineConfig, PluginOption } from 'vite'
 import dts from 'vite-plugin-dts'
-import { defineConfig } from 'vitest/config'
 
 const dirname = path.dirname(new URL(import.meta.url).pathname)
 const srcDir = path.resolve(dirname, 'components/ui')
@@ -43,7 +42,7 @@ export default defineConfig({
         }
     },
     plugins: [
-        react(),
+        react() as PluginOption,
         dts({
             outDir: path.resolve(__dirname, 'dist'),
             entryRoot: path.resolve(__dirname, 'components/ui'),

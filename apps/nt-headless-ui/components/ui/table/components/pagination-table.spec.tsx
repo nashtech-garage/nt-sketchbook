@@ -44,11 +44,10 @@ const setup = (props?: Partial<PaginationProps>) => {
         handlePageClick: mockHandlePageClick,
         handleItemPerPageChange: mockHandleItemPerPageChange,
         itemPerPage: 10,
-        textItemsPerPage: 'Items per page',
-        ...props
+        textItemsPerPage: 'Items per page'
     }
 
-    return render(<Pagination {...defaultProps} />)
+    return render(<Pagination {...defaultProps} {...props} />)
 }
 
 const getArrow = (position: string) =>

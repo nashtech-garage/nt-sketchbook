@@ -18,13 +18,13 @@ export const Default: Story = {
         <Collapsible
             classNameTriggerWrapper="border-b pb-5"
             trigger={
-                <div className="flex items-center justify-between w-full px-4 py-2">
-                    <div className="flex items-center gap-4">
+                <div className="nt-d-flex nt-items-center nt-justify-between nt-w-full nt-px-4 nt-py-2">
+                    <div className="nt-d-flex nt-items-center nt-gap-4">
                         <User
                             size={40}
                             className="text-shade-neutral-60"
                         />
-                        <div className="flex flex-col items-start text-sm gap-2">
+                        <div className="nt-d-flex nt-flex-col nt-items-start nt-text-sm nt-gap-2">
                             <strong>Account settings</strong>
                             <span>
                                 General copilot for most of employees
