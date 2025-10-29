@@ -1,50 +1,38 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { Switch, type SwitchProps } from './switch'
 
-const meta: Meta<SwitchProps> = {
+export default {
     title: 'Components/Switch',
     component: Switch,
     argTypes: {
         variant: {
             options: ['default', 'danger', 'warning'],
-            control: { type: 'radio' }
+            control: { type: 'select' }
         }
-    },
-    args: {
-        variant: 'default',
-        disabled: false
     }
-}
+} as Meta
 
-export default meta
+const Template: StoryFn<SwitchProps> = (args: SwitchProps) => (
+    <Switch {...args} />
+)
 
-type Story = StoryObj<SwitchProps>
+export const Default: StoryFn<SwitchProps> = Template.bind({})
 
-export const Basic: Story = {
+export const Danger: StoryObj<SwitchProps> = {
     args: {
-        name: 'basic-switch'
-    }
-}
-
-export const Danger: Story = {
-    args: {
-        name: 'danger-switch',
         variant: 'danger'
     }
 }
 
-export const Warning: Story = {
+export const Warning: StoryObj<SwitchProps> = {
     args: {
-        name: 'warning-switch',
         variant: 'warning'
     }
 }
 
-export const Disabled: Story = {
+export const Disabled: StoryObj<SwitchProps> = {
     args: {
-        name: 'disabled-switch',
-        disabled: true,
-        checked: true
+        disabled: true
     }
 }

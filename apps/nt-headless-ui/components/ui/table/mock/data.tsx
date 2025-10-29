@@ -79,7 +79,7 @@ export const columns = [
     columnHelper.accessor('actions', {
         header: '',
         cell: () => (
-            <div className="flex items-center space-x-2">
+            <div className="nt-d-flex nt-items-center nt-gap-2">
                 <Button size="sm" variant="neutral">
                     <Edit size={12} />
                 </Button>

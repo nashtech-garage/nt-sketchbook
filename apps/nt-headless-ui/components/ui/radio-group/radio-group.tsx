@@ -1,4 +1,5 @@
 import React, {
+    forwardRef,
     type InputHTMLAttributes,
     type ReactNode
 } from 'react'
@@ -10,19 +11,27 @@ export type RadioProps = InputHTMLAttributes<HTMLInputElement> & {
     className?: string
 }
 
-export const Radio = ({
-    id,
-    label,
-    className = '',
-    ...inputProps
-}: RadioProps) => {
-    return (
-        <Label htmlFor={id!} className={`nt-radio ${className}`}>
-            <input id={id} type="radio" {...inputProps} />
-            {label}
-        </Label>
-    )
-}
+export const Radio = forwardRef<HTMLInputElement, RadioProps>(
+    (
+        { id, label, className = '', ...inputProps }: RadioProps,
+        ref
+    ) => {
+        return (
+            <Label htmlFor={id!} className={`nt-radio ${className}`}>
+                <input
+                    id={id}
+                    type="radio"
+                    {...inputProps}
+                    ref={ref}
+                />
+                {label}
+            </Label>
+        )
+    }
+)
+
+Radio.displayName = 'Radio'
+
 export type RadioDirection = 'column' | 'row'
 
 export type RadioGroupProps = {

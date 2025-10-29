@@ -7,11 +7,12 @@ import type { PopoverProps, PopoverVariant, Side } from './popover'
 
 const defaultProps: PopoverProps = {
     trigger: <button>Open Popover</button>,
-    children: <div>Popover Content</div>
+    children: <div>Popover Content</div>,
+    side: 'right'
 }
 
-const setup = (overrideProps?: Partial<PopoverProps>) => {
-    render(<Popover {...defaultProps} {...overrideProps} />)
+const setup = (props?: Partial<PopoverProps>) => {
+    render(<Popover {...defaultProps} {...props} />)
 }
 
 describe('Popover', () => {
@@ -79,8 +80,8 @@ describe('Popover', () => {
 
             await userEvent.click(screen.getByText('Open Popover'))
 
-            const content =
-                screen.getByText('Popover Content').parentElement
+            const content = await screen.getByText('Popover Content')
+                .parentElement
             expect(content?.getAttribute('data-side')).toBe(side)
             expect(content?.getAttribute('data-align')).toBe(align)
         }

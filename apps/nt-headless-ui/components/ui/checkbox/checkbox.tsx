@@ -23,4 +23,6 @@ export const Checkbox = React.forwardRef<
     </label>
 ))
 
+Checkbox.displayName = 'Checkbox'
+
 export default Checkbox

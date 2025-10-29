@@ -7,9 +7,9 @@ import {
     getFilteredRowModel,
     getPaginationRowModel,
     getSortedRowModel,
-    useReactTable,
+    useReactTable
 } from '@tanstack/react-table'
-import React from 'react'
+import { useMemo } from 'react'
 
 type UseTableProps = {
     data: unknown[]
@@ -30,21 +30,21 @@ export const useTable = (props: UseTableProps) => {
         getPaginationRowModel: getPaginationRowModel(),
         getFacetedRowModel: getFacetedRowModel(),
         getFacetedUniqueValues: getFacetedUniqueValues(),
-        getFacetedMinMaxValues: getFacetedMinMaxValues(),
+        getFacetedMinMaxValues: getFacetedMinMaxValues()
     })
 
     const { pageIndex } = table.getState().pagination
     const { pageSize } = table.getState().pagination
     const rowsPerPage = table.getRowModel().rows.length
 
-    const startIndex = React.useMemo(
+    const startIndex = useMemo(
         () => pageIndex * pageSize,
-        [pageIndex, pageSize],
+        [pageIndex, pageSize]
     )
 
-    const endIndex = React.useMemo(
+    const endIndex = useMemo(
         () => startIndex + (rowsPerPage ?? 0),
-        [startIndex, rowsPerPage],
+        [startIndex, rowsPerPage]
     )
 
     const handlePageClick = (page: number) => {
@@ -60,6 +60,6 @@ export const useTable = (props: UseTableProps) => {
         table,
         startIndex,
         endIndex,
-        handlePageClick,
+        handlePageClick
     }
 }
