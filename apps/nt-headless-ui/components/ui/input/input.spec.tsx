@@ -9,8 +9,8 @@ const defaultProps: InputProps = {
     variant: 'default'
 }
 
-const setup = (overrideProps?: Partial<InputProps>) => {
-    render(<Input {...defaultProps} {...overrideProps} />)
+const setup = (props?: Partial<InputProps>) => {
+    render(<Input {...defaultProps} {...props} />)
 }
 
 describe('Input component', () => {
