@@ -6,6 +6,9 @@ import {
     useMemo
 } from 'react'
 
+import { BaseInput } from './base-input/base-input'
+import { InputMessage } from './input-message/input-message'
+
 export type InputVariant =
     | 'default'
     | 'danger'
@@ -56,27 +59,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             if (hasError) {
                 return 'nt-input-danger'
             }
-            return (
-                variant !== 'default' &&
-                !rightIcon &&
-                `nt-input-${variant}`
-            )
+            return `nt-input-${variant}`
         }, [variant, hasError])
-
-        const inputMessageClassName = useMemo(() => {
-            if (hasError) {
-                return 'nt-input-error'
-            }
-            return 'nt-input-highlight'
-        }, [hasError])
-
-        const inputElement = (
-            <input
-                ref={ref}
-                className={cn('nt-input', inputClassName, className)}
-                {...restProps}
-            />
-        )
 
         return (
             <div className={`nt-input-group nt-input-${layout}`}>
@@ -97,7 +81,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                             </span>
                         )}
 
-                        {inputElement}
+                        <BaseInput
+                            ref={ref}
+                            className={cn(inputClassName, className)}
+                            {...restProps}
+                        />
 
                         {rightIcon && (
                             <span className="nt-input-icon">
@@ -106,14 +94,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                         )}
                     </div>
                 ) : (
-                    inputElement
+                    <BaseInput
+                        ref={ref}
+                        className={cn(inputClassName, className)}
+                        {...restProps}
+                    />
                 )}
 
-                {(message || hasError) && (
-                    <span className={inputMessageClassName}>
-                        {message}
-                    </span>
-                )}
+                <InputMessage message={message} hasError={hasError} />
             </div>
         )
     }
