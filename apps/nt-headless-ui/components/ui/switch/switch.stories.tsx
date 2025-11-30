@@ -1,4 +1,4 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/nextjs-vite'
 
 import { Switch, type SwitchProps } from './switch'
 

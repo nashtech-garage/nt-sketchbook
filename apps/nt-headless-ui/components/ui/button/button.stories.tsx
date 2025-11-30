@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
 import { User } from 'lucide-react'
 
 import type { ButtonProps } from './button'
@@ -26,45 +26,47 @@ export default meta
 
 const Template: StoryFn<ButtonProps> = (args) => <Button {...args} />
 
-export const Primary = Template.bind({})
+export const Primary: StoryFn<ButtonProps> = Template.bind({})
 Primary.args = {
     variant: 'primary',
     children: 'Primary'
 }
 
-export const Secondary = Template.bind({})
+export const Secondary: StoryFn<ButtonProps> = Template.bind({})
 Secondary.args = {
     variant: 'secondary',
     children: 'Secondary'
 }
 
-export const Outline = Template.bind({})
+export const Outline: StoryFn<ButtonProps> = Template.bind({})
 Outline.args = {
     variant: 'primary',
     outline: true,
     children: 'Outline'
 }
 
-export const OutlineSecondary = Template.bind({})
+export const OutlineSecondary: StoryFn<ButtonProps> = Template.bind(
+    {}
+)
 OutlineSecondary.args = {
     variant: 'secondary',
     outline: true,
     children: 'Outline Secondary'
 }
 
-export const Success = Template.bind({})
+export const Success: StoryFn<ButtonProps> = Template.bind({})
 Success.args = {
     variant: 'success',
     children: 'Success'
 }
 
-export const Gradient = Template.bind({})
+export const Gradient: StoryFn<ButtonProps> = Template.bind({})
 Gradient.args = {
     variant: 'gradient',
     children: 'Gradient'
 }
 
-export const WithIcon = Template.bind({})
+export const WithIcon: StoryFn<ButtonProps> = Template.bind({})
 WithIcon.args = {
     variant: 'primary',
     children: (
@@ -74,7 +76,7 @@ WithIcon.args = {
     )
 }
 
-export const IconOnly = Template.bind({})
+export const IconOnly: StoryFn<ButtonProps> = Template.bind({})
 IconOnly.args = {
     variant: 'primary',
     size: 'sm',

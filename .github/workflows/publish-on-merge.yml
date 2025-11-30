@@ -36,7 +36,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: 20.18.2
+                  node-version: 22.21.0
                   cache: 'pnpm'
                   registry-url: 'https://npm.pkg.github.com'
                   scope: '@nashtech-garage'
@@ -99,7 +99,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: 20.18.2
+                  node-version: 22.21.0
                   cache: 'pnpm'
                   registry-url: 'https://npm.pkg.github.com'
                   scope: '@nashtech-garage'

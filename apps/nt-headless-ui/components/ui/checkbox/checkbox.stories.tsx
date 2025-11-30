@@ -1,14 +1,21 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import React, { useEffect } from 'react'
 
 import { Checkbox } from './checkbox'
 
-export default {
+const meta = {
     title: 'Components/Checkbox',
     component: Checkbox
-} as Meta
+} satisfies Meta<typeof Checkbox>
 
-const Template: StoryFn = (args) => {
+export default meta
+type Story = StoryObj<typeof Checkbox>
+
+type WithIndeterminateArgs = React.ComponentProps<typeof Checkbox> & {
+    indeterminate?: boolean
+}
+
+const WithIndeterminate = (args: WithIndeterminateArgs) => {
     const checkboxRef = React.useRef<HTMLInputElement>(null)
 
     useEffect(() => {
@@ -20,44 +27,50 @@ const Template: StoryFn = (args) => {
     return <Checkbox {...args} ref={checkboxRef} />
 }
 
-export const Default = Template.bind({})
-Default.args = {
-    className: '',
-    label: 'Paragraph label'
+export const Default: Story = {
+    args: {
+        className: '',
+        label: 'Paragraph label'
+    }
 }
 
-export const Disabled = Template.bind({})
-Disabled.args = {
-    className: '',
-    disabled: true,
-    label: 'Paragraph label'
+export const Disabled: Story = {
+    args: {
+        className: '',
+        disabled: true,
+        label: 'Paragraph label'
+    }
 }
 
-export const Checked = Template.bind({})
-Checked.args = {
-    className: '',
-    defaultChecked: true,
-    label: 'Paragraph label'
+export const Checked: Story = {
+    args: {
+        className: '',
+        defaultChecked: true,
+        label: 'Paragraph label'
+    }
 }
 
-export const CheckedDisabled = Template.bind({})
-CheckedDisabled.args = {
-    className: '',
-    disabled: true,
-    label: 'Paragraph label'
+export const CheckedDisabled: Story = {
+    args: {
+        className: '',
+        disabled: true,
+        label: 'Paragraph label'
+    }
 }
 
-export const Indeterminate = Template.bind({})
-Indeterminate.args = {
-    className: '',
-    indeterminate: true,
-    label: 'Paragraph label'
+export const Indeterminate: Story = {
+    render: (args) => <WithIndeterminate {...args} />,
+    args: {
+        className: '',
+        label: 'Paragraph label'
+    }
 }
 
-export const IndeterminateDisabled = Template.bind({})
-IndeterminateDisabled.args = {
-    className: '',
-    indeterminate: true,
-    disabled: true,
-    label: 'Paragraph label'
+export const IndeterminateDisabled: Story = {
+    render: (args) => <WithIndeterminate {...args} />,
+    args: {
+        className: '',
+        disabled: true,
+        label: 'Paragraph label'
+    }
 }

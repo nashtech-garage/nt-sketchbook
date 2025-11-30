@@ -1,5 +1,5 @@
-import type { Meta, StoryFn } from '@storybook/react'
-import React, { type KeyboardEvent } from 'react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
+import { type KeyboardEvent } from 'react'
 
 import { Sidebar, type SlideBarProps } from './sidebar'
 
@@ -78,6 +78,6 @@ const Template: StoryFn<SlideBarProps> = (args: SlideBarProps) => (
     <Sidebar {...args} />
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn<SlideBarProps> = Template.bind({})
 
 Default.args = {}

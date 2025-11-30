@@ -1,5 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
 
 import type { PopoverProps } from './popover'
 import { Popover } from './popover'
@@ -41,12 +40,14 @@ const Template: StoryFn<typeof Popover> = (args: PopoverProps) => (
     </Popover>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn<typeof Popover> = Template.bind({})
 Default.args = {
     trigger: <button>Click me</button>
 }
 
-export const CustomContent = Template.bind({})
+export const CustomContent: StoryFn<typeof Popover> = Template.bind(
+    {}
+)
 CustomContent.args = {
     trigger: <span>Hover over me</span>,
     children: (

@@ -1,5 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
 
 import type { BadgeProps } from './badge'
 import Badge from './badge'

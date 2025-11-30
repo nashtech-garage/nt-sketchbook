@@ -1,5 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
 
 import { columns, userData } from './mock/data'
 import type { TableProps } from './table'
@@ -37,7 +36,9 @@ const Template: StoryFn<TableProps> = (args: TableProps) => (
     <Table {...args} />
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn<TableProps> = Template.bind(
+    {}
+) as StoryFn<TableProps>
 Default.args = {
     columns: columns as Array<{
         header: string
@@ -46,7 +47,9 @@ Default.args = {
     data: userData
 }
 
-export const Empty = Template.bind({})
+export const Empty: StoryFn<TableProps> = Template.bind(
+    {}
+) as StoryFn<TableProps>
 Empty.args = {
     columns: [
         { header: 'Name', accessorKey: 'name' },

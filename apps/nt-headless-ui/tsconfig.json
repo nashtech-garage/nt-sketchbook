@@ -2,6 +2,7 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "tsconfig/base.json",
     "compilerOptions": {
+        "moduleResolution": "bundler",
         "baseUrl": ".",
         "paths": {
             "@/*": ["./*"],
@@ -13,7 +14,8 @@
             {
                 "name": "next"
             }
-        ]
+        ],
+        "types": ["vitest/importMeta"]
     },
     "references": [
         {

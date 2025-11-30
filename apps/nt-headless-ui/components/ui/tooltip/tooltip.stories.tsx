@@ -1,5 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
 
 import { Button } from '../button'
 import type { TooltipProps } from './tooltip'
@@ -37,4 +36,4 @@ const Template: StoryFn<TooltipProps> = (args: TooltipProps) => (
     </Tooltip>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn<TooltipProps> = Template.bind({})

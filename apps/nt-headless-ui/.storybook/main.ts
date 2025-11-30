@@ -1,19 +1,31 @@
-module.exports = {
+// This file has been automatically migrated to valid ESM format by Storybook.
+import { createRequire } from 'node:module'
+import { dirname, join } from 'node:path'
+
+const require = createRequire(import.meta.url)
+
+function getAbsolutePath(value: string): string {
+    return dirname(require.resolve(join(value, 'package.json')))
+}
+
+const config = {
     stories: [
         '../components/**/*.stories.@(js|jsx|ts|tsx)',
         '../stories/**/*.@(mdx|tsx)',
         '../components/**/*.@(mdx)'
     ],
+
     addons: [
-        '@storybook/addon-links',
-        '@storybook/addon-essentials',
-        '@storybook/addon-interactions',
-        '@chromatic-com/storybook'
+        getAbsolutePath('@storybook/addon-links'),
+        getAbsolutePath('@chromatic-com/storybook'),
+        getAbsolutePath('@storybook/addon-docs')
     ],
+
     framework: {
-        name: '@storybook/nextjs',
+        name: getAbsolutePath('@storybook/nextjs-vite'),
         options: {}
     },
+
     staticDirs: [
         '../public',
         {
@@ -21,10 +33,10 @@ module.exports = {
             to: '/assets'
         }
     ],
-    docs: {
-        autodocs: true
-    },
+
     typescript: {
         reactDocgen: 'react-docgen-typescript'
     }
 }
+
+export default config

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { UserIcon } from 'lucide-react'
 
 import type { MultipleSelectProps } from './multi-select'
@@ -10,27 +10,27 @@ const meta = {
     argTypes: {
         variant: {
             options: ['default', 'danger', 'success', 'warning'],
-            control: { type: 'select' },
-        },
+            control: { type: 'select' }
+        }
     },
     args: {
         options: [
             {
                 value: '1',
-                label: 'Option 1',
+                label: 'Option 1'
             },
             {
                 value: '2',
-                label: 'Option 2',
+                label: 'Option 2'
             },
             {
                 value: '3',
-                label: 'Option 3',
+                label: 'Option 3'
             },
             {
                 value: '4',
-                label: 'Option 4',
-            },
+                label: 'Option 4'
+            }
         ],
         placeholder: 'Select an option',
         onChange: (selected: unknown) => {
@@ -39,40 +39,40 @@ const meta = {
         initialOption: [
             {
                 value: '3',
-                label: 'Option 3',
-            },
-        ],
-    },
+                label: 'Option 3'
+            }
+        ]
+    }
 } as Meta
 
 export default meta
 
 export const Default: StoryObj<MultipleSelectProps> = {
-    args: {},
+    args: {}
 }
 
 export const Danger: StoryObj<MultipleSelectProps> = {
     args: {
-        variant: 'danger',
-    },
+        variant: 'danger'
+    }
 }
 
 export const Success: StoryObj<MultipleSelectProps> = {
     args: {
-        variant: 'success',
-    },
+        variant: 'success'
+    }
 }
 
 export const Warning: StoryObj<MultipleSelectProps> = {
     args: {
-        variant: 'warning',
-    },
+        variant: 'warning'
+    }
 }
 export const WithIcon: StoryObj<MultipleSelectProps> = {
     args: {
         iconLeft: <UserIcon />,
-        initialOption: [],
-    },
+        initialOption: []
+    }
 }
 
 export const Disable: StoryObj<MultipleSelectProps> = {
@@ -82,8 +82,8 @@ export const Disable: StoryObj<MultipleSelectProps> = {
         initialOption: [
             {
                 value: '3',
-                label: 'Option 3',
-            },
-        ],
-    },
+                label: 'Option 3'
+            }
+        ]
+    }
 }
