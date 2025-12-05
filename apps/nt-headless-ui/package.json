@@ -59,7 +59,7 @@
         "react-chartjs-2": "catalog:",
         "react-dom": "catalog:",
         "sass": "catalog:",
-        "storybook": "catalog:",
+        "storybook": "10.1.4",
         "tailwind-merge": "catalog:",
         "tailwindcss": "catalog:",
         "tailwindcss-animate": "catalog:",
@@ -67,16 +67,7 @@
         "vite-plugin-dts": "catalog:"
     },
     "devDependencies": {
-        "@chromatic-com/storybook": "catalog:",
         "@eslint/eslintrc": "catalog:",
-        "@storybook/addon-actions": "catalog:",
-        "@storybook/addon-essentials": "catalog:",
-        "@storybook/addon-interactions": "catalog:",
-        "@storybook/addon-links": "catalog:",
-        "@storybook/manager-api": "catalog:",
-        "@storybook/nextjs": "catalog:",
-        "@storybook/react": "catalog:",
-        "@storybook/theming": "catalog:",
         "@testing-library/react": "catalog:",
         "@types/react": "catalog:",
         "@types/react-dom": "catalog:",
@@ -91,7 +82,12 @@
         "tsconfig": "workspace:*",
         "typescript": "catalog:",
         "vitest-canvas-mock": "catalog:",
-        "@typescript-eslint/parser": "catalog:"
+        "@typescript-eslint/parser": "catalog:",
+        "eslint-plugin-storybook": "catalog:",
+        "@storybook/addon-docs": "catalog:",
+        "@storybook/nextjs-vite": "catalog:",
+        "@chromatic-com/storybook": "catalog:",
+        "@storybook/addon-links": "catalog:"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

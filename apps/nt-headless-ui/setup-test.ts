@@ -2,13 +2,22 @@ import '@testing-library/jest-dom'
 import { vi } from 'vitest'
 import 'vitest-canvas-mock'
 
-window.ResizeObserver =
-    window.ResizeObserver ||
-    vi.fn().mockImplementation(() => ({
-        disconnect: vi.fn(),
-        observe: vi.fn(),
-        unobserve: vi.fn(),
-    }))
+class ResizeObserverMock {
+    observe = vi.fn()
+    unobserve = vi.fn()
+    disconnect = vi.fn()
+}
+
+vi.stubGlobal('ResizeObserver', ResizeObserverMock)
+
+class IntersectionObserverMock {
+    constructor() {}
+    observe = vi.fn()
+    unobserve = vi.fn()
+    disconnect = vi.fn()
+}
+
+vi.stubGlobal('IntersectionObserver', IntersectionObserverMock)
 
 global.window.matchMedia =
     global.window.matchMedia ||
@@ -18,7 +27,7 @@ global.window.matchMedia =
         removeListener: vi.fn(),
         addEventListener: vi.fn(),
         removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
+        dispatchEvent: vi.fn()
     }))
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn()

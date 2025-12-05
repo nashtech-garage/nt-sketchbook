@@ -1,5 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
 
 import type { InputProps } from './input'
 import { Input } from './input'
@@ -31,34 +30,34 @@ export default {
 
 const Template: StoryFn = (args: InputProps) => <Input {...args} />
 
-export const Text = Template.bind({})
+export const Text: StoryFn<InputProps> = Template.bind({})
 Text.args = {
     type: 'text',
     placeholder: 'Enter text...'
 }
 
-export const Disabled = Template.bind({})
+export const Disabled: StoryFn<InputProps> = Template.bind({})
 Disabled.args = {
     type: 'text',
     placeholder: 'Disabled input...',
     disabled: true
 }
 
-export const IconCustomLeft = Template.bind({})
+export const IconCustomLeft: StoryFn<InputProps> = Template.bind({})
 IconCustomLeft.args = {
     type: 'text',
     placeholder: 'Input with icon left...',
     leftIcon: <span className="icon-left">🔍</span>
 }
 
-export const IconCustomRight = Template.bind({})
+export const IconCustomRight: StoryFn<InputProps> = Template.bind({})
 IconCustomRight.args = {
     type: 'text',
     placeholder: 'Input with icon right...',
     rightIcon: <span className="icon-right">🔍</span>
 }
 
-export const IconRightAndLeft = Template.bind({})
+export const IconRightAndLeft: StoryFn<InputProps> = Template.bind({})
 IconRightAndLeft.args = {
     type: 'text',
     placeholder: 'Input with both icons...',
@@ -66,7 +65,8 @@ IconRightAndLeft.args = {
     leftIcon: <span className="icon-left">🔍</span>
 }
 
-export const SuccessWithDefaultIcon = Template.bind({})
+export const SuccessWithDefaultIcon: StoryFn<InputProps> =
+    Template.bind({})
 SuccessWithDefaultIcon.args = {
     type: 'text',
     placeholder: 'Success input with default icon',
@@ -74,7 +74,8 @@ SuccessWithDefaultIcon.args = {
     hasIcon: true
 }
 
-export const DangerWithDefaultIcon = Template.bind({})
+export const DangerWithDefaultIcon: StoryFn<InputProps> =
+    Template.bind({})
 DangerWithDefaultIcon.args = {
     type: 'text',
     placeholder: 'Danger input with default icon',
@@ -82,7 +83,8 @@ DangerWithDefaultIcon.args = {
     hasIcon: true
 }
 
-export const WarningWithDefaultIcon = Template.bind({})
+export const WarningWithDefaultIcon: StoryFn<InputProps> =
+    Template.bind({})
 WarningWithDefaultIcon.args = {
     type: 'text',
     placeholder: 'Warning input with default icon',
@@ -90,7 +92,8 @@ WarningWithDefaultIcon.args = {
     hasIcon: true
 }
 
-export const SuccessWithCustomIcon = Template.bind({})
+export const SuccessWithCustomIcon: StoryFn<InputProps> =
+    Template.bind({})
 SuccessWithCustomIcon.args = {
     type: 'text',
     placeholder: 'Success input with custom icons',
@@ -99,7 +102,7 @@ SuccessWithCustomIcon.args = {
     rightIcon: <span className="icon-right">🔍</span>
 }
 
-export const LabeledStatic = Template.bind({})
+export const LabeledStatic: StoryFn<InputProps> = Template.bind({})
 LabeledStatic.args = {
     type: 'text',
     label: 'Fruit',
@@ -108,7 +111,7 @@ LabeledStatic.args = {
     message: ''
 }
 
-export const LabeledFloat = Template.bind({})
+export const LabeledFloat: StoryFn<InputProps> = Template.bind({})
 LabeledFloat.args = {
     type: 'email',
     label: 'Email',
@@ -117,7 +120,7 @@ LabeledFloat.args = {
     message: ''
 }
 
-export const ErrorWithMessage = Template.bind({})
+export const ErrorWithMessage: StoryFn<InputProps> = Template.bind({})
 ErrorWithMessage.args = {
     type: 'email',
     label: 'Email',
@@ -128,7 +131,9 @@ ErrorWithMessage.args = {
     variant: 'danger'
 }
 
-export const SuccessWithMessage = Template.bind({})
+export const SuccessWithMessage: StoryFn<InputProps> = Template.bind(
+    {}
+)
 SuccessWithMessage.args = {
     type: 'text',
     label: 'Weapons',
@@ -138,7 +143,9 @@ SuccessWithMessage.args = {
     message: 'Looks good!'
 }
 
-export const FloatWithIconsError = Template.bind({})
+export const FloatWithIconsError: StoryFn<InputProps> = Template.bind(
+    {}
+)
 FloatWithIconsError.args = {
     type: 'text',
     label: 'Username',

@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
 import { AArrowUp } from 'lucide-react'
 import React from 'react'
 
@@ -42,7 +42,7 @@ const Template: StoryFn<SelectProps> = (args: SelectProps) => {
     )
 }
 
-export const Default = Template.bind({})
+export const Default: StoryFn<SelectProps> = Template.bind({})
 Default.args = {
     options: [
         { value: '1', label: 'Option 1' },
@@ -52,52 +52,50 @@ Default.args = {
     placeholder: 'Select an option'
 }
 
-// 🔹 Variants
-export const Danger = Template.bind({})
+export const Danger: StoryFn<SelectProps> = Template.bind({})
 Danger.args = {
     ...Default.args,
     variant: 'danger'
 }
 
-export const Success = Template.bind({})
+export const Success: StoryFn<SelectProps> = Template.bind({})
 Success.args = {
     ...Default.args,
     variant: 'success'
 }
 
-export const Warning = Template.bind({})
+export const Warning: StoryFn<SelectProps> = Template.bind({})
 Warning.args = {
     ...Default.args,
     variant: 'warning'
 }
 
-export const Bare = Template.bind({})
+export const Bare: StoryFn<SelectProps> = Template.bind({})
 Bare.args = {
     ...Default.args,
     variant: 'bare'
 }
 
-// 🔹 Sizes
-export const Small = Template.bind({})
+export const Small: StoryFn<SelectProps> = Template.bind({})
 Small.args = {
     ...Default.args,
     size: 'small'
 }
 
-export const Medium = Template.bind({})
+export const Medium: StoryFn<SelectProps> = Template.bind({})
 Medium.args = {
     ...Default.args,
     size: 'medium'
 }
 
-export const Large = Template.bind({})
+export const Large: StoryFn<SelectProps> = Template.bind({})
 Large.args = {
     ...Default.args,
     size: 'large'
 }
 
 // 🔹 Groups
-export const Group = Template.bind({})
+export const Group: StoryFn<SelectProps> = Template.bind({})
 Group.args = {
     groups: [
         {
@@ -133,15 +131,13 @@ Group.args = {
     placeholder: 'Select an option'
 }
 
-// 🔹 Disabled
-export const Disable = Template.bind({})
+export const Disable: StoryFn<SelectProps> = Template.bind({})
 Disable.args = {
     ...Default.args,
     disabled: true
 }
 
-// 🔹 With icon
-export const Icon = Template.bind({})
+export const Icon: StoryFn<SelectProps> = Template.bind({})
 Icon.args = {
     ...Default.args,
     iconLeft: <AArrowUp />

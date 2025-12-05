@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import React, { type ReactNode } from 'react'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { type ReactNode } from 'react'
 
 type DocsCanvasProps = {
     children?: ReactNode

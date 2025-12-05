@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
 
 import { Breadcrumb, type BreadCrumbProps } from './breadcrumb'
 
@@ -12,7 +12,7 @@ const Template: StoryFn<BreadCrumbProps> = (
     args: BreadCrumbProps
 ) => <Breadcrumb {...args} />
 
-export const Primary = Template.bind({})
+export const Primary: StoryFn<BreadCrumbProps> = Template.bind({})
 Primary.args = {
     items: [
         { id: 'home', label: 'Home', href: '/' },

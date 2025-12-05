@@ -86,32 +86,5 @@ export default defineConfig({
                 }
             }
         }
-    },
-    test: {
-        watch: false,
-        deps: {
-            inline: ['vitest-canvas-mock']
-        },
-        globals: true,
-        environment: 'jsdom',
-        setupFiles: path.resolve(__dirname, './setup-test.ts'),
-        coverage: {
-            reporter: ['cobertura', 'lcov', 'json-summary', 'json'],
-            reportOnFailure: true,
-            provider: 'v8'
-        },
-        include: [
-            path.resolve(__dirname, 'components/**/*.spec.{ts,tsx}')
-        ],
-        exclude: [
-            'tailwind.config.ts',
-            'vite.config.ts',
-            '**/node_modules/**',
-            '**/*.stories.ts',
-            '**/*.stories.tsx',
-            'setup-test.ts',
-            '**/radix/**',
-            'storybook-static/**'
-        ]
     }
 })

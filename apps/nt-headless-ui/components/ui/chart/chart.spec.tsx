@@ -10,9 +10,9 @@ const mockBarChartData: ChartData<'bar'> = {
         {
             label: 'Sales',
             data: [500, 1000, 1500, 2000, 2500],
-            backgroundColor: '#D2BCD7',
-        },
-    ],
+            backgroundColor: '#D2BCD7'
+        }
+    ]
 }
 
 const mockLineChartData: ChartData<'line'> = {
@@ -23,9 +23,9 @@ const mockLineChartData: ChartData<'line'> = {
             data: [300, 500, 800, 1200, 1600],
             borderColor: '#6A1F7A',
             backgroundColor: 'rgba(106, 31, 122, 0.2)',
-            tension: 0.4,
-        },
-    ],
+            tension: 0.4
+        }
+    ]
 }
 
 const mockBubbleChartData: ChartData<'bubble'> = {
@@ -35,11 +35,11 @@ const mockBubbleChartData: ChartData<'bubble'> = {
             data: [
                 { x: 10, y: 20, r: 15 },
                 { x: 15, y: 10, r: 10 },
-                { x: 20, y: 30, r: 20 },
+                { x: 20, y: 30, r: 20 }
             ],
-            backgroundColor: 'rgba(75, 192, 192, 0.5)',
-        },
-    ],
+            backgroundColor: 'rgba(75, 192, 192, 0.5)'
+        }
+    ]
 }
 
 export const mockPieChartData: ChartData<'pie'> = {
@@ -47,9 +47,9 @@ export const mockPieChartData: ChartData<'pie'> = {
     datasets: [
         {
             data: [30, 50, 20],
-            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        },
-    ],
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+        }
+    ]
 }
 
 const mockDoughnutChartData: ChartData<'doughnut'> = {
@@ -57,9 +57,9 @@ const mockDoughnutChartData: ChartData<'doughnut'> = {
     datasets: [
         {
             data: [40, 35, 25],
-            backgroundColor: ['#FF9999', '#FFCC99', '#99CCFF'],
-        },
-    ],
+            backgroundColor: ['#FF9999', '#FFCC99', '#99CCFF']
+        }
+    ]
 }
 
 const mockRadarChartData: ChartData<'radar'> = {
@@ -69,9 +69,9 @@ const mockRadarChartData: ChartData<'radar'> = {
             label: 'Athlete Performance',
             data: [65, 75, 90],
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-        },
-    ],
+            borderColor: 'rgba(255, 99, 132, 1)'
+        }
+    ]
 }
 
 const mockPolarAreaChartData: ChartData<'polarArea'> = {
@@ -79,9 +79,9 @@ const mockPolarAreaChartData: ChartData<'polarArea'> = {
     datasets: [
         {
             data: [10, 20, 30],
-            backgroundColor: ['#FF0000', '#00FF00', '#0000FF'],
-        },
-    ],
+            backgroundColor: ['#FF0000', '#00FF00', '#0000FF']
+        }
+    ]
 }
 
 const mockScatterChartData: ChartData<'scatter'> = {
@@ -91,11 +91,11 @@ const mockScatterChartData: ChartData<'scatter'> = {
             data: [
                 { x: -10, y: 0 },
                 { x: 0, y: 10 },
-                { x: 10, y: 5 },
+                { x: 10, y: 5 }
             ],
-            backgroundColor: '#4B1F60',
-        },
-    ],
+            backgroundColor: '#4B1F60'
+        }
+    ]
 }
 
 describe('Chart Component', () => {
@@ -105,7 +105,7 @@ describe('Chart Component', () => {
                 type="bar"
                 data={mockBarChartData}
                 className="test-class"
-            />,
+            />
         )
         expect(container).toBeInTheDocument()
     })
@@ -116,7 +116,7 @@ describe('Chart Component', () => {
                 type="line"
                 data={mockLineChartData}
                 className="test-class"
-            />,
+            />
         )
         expect(container).toBeInTheDocument()
     })
@@ -127,7 +127,7 @@ describe('Chart Component', () => {
                 type="bubble"
                 data={mockBubbleChartData}
                 className="test-class"
-            />,
+            />
         )
         expect(container).toBeInTheDocument()
     })
@@ -138,7 +138,7 @@ describe('Chart Component', () => {
                 type="pie"
                 data={mockPieChartData}
                 className="test-class"
-            />,
+            />
         )
         expect(container).toBeInTheDocument()
     })
@@ -149,7 +149,7 @@ describe('Chart Component', () => {
                 type="doughnut"
                 data={mockDoughnutChartData}
                 className="test-class"
-            />,
+            />
         )
         expect(container).toBeInTheDocument()
     })
@@ -160,7 +160,7 @@ describe('Chart Component', () => {
                 type="radar"
                 data={mockRadarChartData}
                 className="test-class"
-            />,
+            />
         )
         expect(container).toBeInTheDocument()
     })
@@ -171,7 +171,7 @@ describe('Chart Component', () => {
                 type="polarArea"
                 data={mockPolarAreaChartData}
                 className="test-class"
-            />,
+            />
         )
         expect(container).toBeInTheDocument()
     })
@@ -182,7 +182,7 @@ describe('Chart Component', () => {
                 type="scatter"
                 data={mockScatterChartData}
                 className="test-class"
-            />,
+            />
         )
         expect(container).toBeInTheDocument()
     })
@@ -193,7 +193,7 @@ describe('Chart Component', () => {
                 type="bar"
                 data={mockBarChartData}
                 className="custom-class"
-            />,
+            />
         )
         expect(container.firstChild).toHaveClass('custom-class')
     })

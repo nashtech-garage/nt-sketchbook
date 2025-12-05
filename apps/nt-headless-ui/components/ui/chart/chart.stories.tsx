@@ -1,6 +1,5 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/nextjs-vite'
 import type { ChartType } from 'chart.js'
-import React from 'react'
 
 import { Chart, type ChartProps } from './chart'
 import { mockBarChartData, mockLineChartData } from './mock'
@@ -8,11 +7,11 @@ import { mockBarChartData, mockLineChartData } from './mock'
 export default {
     title: 'Components/Chart',
 
-    component: Chart,
+    component: Chart
 } as Meta
 
 const Template: StoryFn<ChartProps<ChartType>> = (
-    args: ChartProps<ChartType>,
+    args: ChartProps<ChartType>
 ) => <Chart {...args} />
 
 export const Bar: StoryFn<ChartProps<ChartType>> = Template.bind({})
@@ -23,7 +22,7 @@ Bar.args = {
         responsive: true,
         plugins: {
             legend: {
-                display: false,
+                display: false
             },
             tooltip: {
                 xAlign: 'center',
@@ -34,28 +33,26 @@ Bar.args = {
                 backgroundColor: '#4B1F60',
                 callbacks: {
                     title: () => '',
-                    label: (tooltipItem) => `${tooltipItem.raw}`,
-                },
-            },
+                    label: (tooltipItem) => `${tooltipItem.raw}`
+                }
+            }
         },
         maintainAspectRatio: true,
         scales: {
             x: {
                 grid: {
-                    display: false,
-                },
+                    display: false
+                }
             },
             y: {
                 beginAtZero: true,
                 ticks: {
                     stepSize: 1000,
                     callback: (value) =>
-                        value === 0
-                            ? '0'
-                            : `${Number(value) / 1000}k`,
-                },
-            },
-        },
+                        value === 0 ? '0' : `${Number(value) / 1000}k`
+                }
+            }
+        }
     },
     data: {
         labels: mockBarChartData.labels,
@@ -67,10 +64,10 @@ Bar.args = {
                 borderRadius: 25,
                 hoverBackgroundColor: '#6A1F7A',
                 barPercentage: 0.8,
-                categoryPercentage: 1.0,
-            },
-        ],
-    },
+                categoryPercentage: 1.0
+            }
+        ]
+    }
 }
 export const Line: StoryFn<ChartProps<ChartType>> = Template.bind({})
 Line.args = {
@@ -81,7 +78,7 @@ Line.args = {
         plugins: {
             legend: {
                 display: true,
-                position: 'top',
+                position: 'top'
             },
             tooltip: {
                 enabled: true,
@@ -90,28 +87,26 @@ Line.args = {
                 callbacks: {
                     title: (tooltipItems) =>
                         tooltipItems[0]?.label || '',
-                    label: (tooltipItem) => `${tooltipItem.raw}`,
-                },
-            },
+                    label: (tooltipItem) => `${tooltipItem.raw}`
+                }
+            }
         },
         maintainAspectRatio: true,
         scales: {
             x: {
                 grid: {
-                    display: false,
-                },
+                    display: false
+                }
             },
             y: {
                 beginAtZero: true,
                 ticks: {
                     stepSize: 500,
                     callback: (value) =>
-                        value === 0
-                            ? '0'
-                            : `${Number(value) / 1000}k`,
-                },
-            },
-        },
+                        value === 0 ? '0' : `${Number(value) / 1000}k`
+                }
+            }
+        }
     },
     data: {
         labels: mockLineChartData.labels,
@@ -122,10 +117,10 @@ Line.args = {
                 borderColor: '#6A1F7A',
                 backgroundColor: 'rgba(106, 31, 122, 0.2)',
                 tension: 0.4,
-                fill: true,
-            },
-        ],
-    },
+                fill: true
+            }
+        ]
+    }
 }
 
 export const Pie: StoryFn<ChartProps<ChartType>> = Template.bind({})
@@ -137,7 +132,7 @@ Pie.args = {
         plugins: {
             legend: {
                 display: true,
-                position: 'top',
+                position: 'top'
             },
             tooltip: {
                 enabled: true,
@@ -146,11 +141,11 @@ Pie.args = {
                 callbacks: {
                     title: (tooltipItems) =>
                         tooltipItems[0]?.label || '',
-                    label: (tooltipItem) => `${tooltipItem.raw}`,
-                },
-            },
+                    label: (tooltipItem) => `${tooltipItem.raw}`
+                }
+            }
         },
-        maintainAspectRatio: true,
+        maintainAspectRatio: true
     },
     data: {
         labels: [
@@ -159,7 +154,7 @@ Pie.args = {
             'Yellow',
             'Green',
             'Purple',
-            'Orange',
+            'Orange'
         ],
         datasets: [
             {
@@ -171,7 +166,7 @@ Pie.args = {
                     '#FFCE56',
                     '#4BC0C0',
                     '#9966FF',
-                    '#FF9F40',
+                    '#FF9F40'
                 ],
                 hoverBackgroundColor: [
                     '#FF6384',
@@ -179,9 +174,9 @@ Pie.args = {
                     '#FFCE56',
                     '#4BC0C0',
                     '#9966FF',
-                    '#FF9F40',
-                ],
-            },
-        ],
-    },
+                    '#FF9F40'
+                ]
+            }
+        ]
+    }
 }

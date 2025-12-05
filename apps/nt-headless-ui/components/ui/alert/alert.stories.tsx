@@ -1,10 +1,9 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { CircleCheck } from 'lucide-react'
-import React from 'react'
 
-import { Alert, type AlertProps } from './alert'
+import { Alert } from './alert'
 
-export default {
+const meta: Meta<typeof Alert> = {
     title: 'Components/Alert',
     component: Alert,
     argTypes: {
@@ -15,55 +14,62 @@ export default {
             }
         }
     }
-} as Meta
+}
+export default meta
 
-const Template: StoryFn<AlertProps> = (args) => <Alert {...args} />
+type Story = StoryObj<typeof Alert>
 
-export const Info = Template.bind({})
-Info.args = {
-    type: 'info',
-    message: 'This is an info alert',
-    showIcon: true,
-    onClose: () => console.log('info closed')
+export const Info: Story = {
+    args: {
+        type: 'info',
+        message: 'This is an info alert',
+        showIcon: true,
+        onClose: () => console.log('info closed')
+    }
 }
 
-export const Danger = Template.bind({})
-Danger.args = {
-    type: 'danger',
-    message: 'This is a danger alert',
-    showIcon: true,
-    onClose: () => console.log('danger closed')
+export const Danger: Story = {
+    args: {
+        type: 'danger',
+        message: 'This is a danger alert',
+        showIcon: true,
+        onClose: () => console.log('danger closed')
+    }
 }
 
-export const Warning = Template.bind({})
-Warning.args = {
-    type: 'warning',
-    message: 'This is a warning alert',
-    showIcon: true,
-    onClose: () => console.log('warning closed')
+export const Warning: Story = {
+    args: {
+        type: 'warning',
+        message: 'This is a warning alert',
+        showIcon: true,
+        onClose: () => console.log('warning closed')
+    }
 }
 
-export const Success = Template.bind({})
-Success.args = {
-    type: 'success',
-    message: 'This is a success alert',
-    showIcon: true,
-    onClose: () => console.log('success closed')
+export const Success: Story = {
+    args: {
+        type: 'success',
+        message: 'This is a success alert',
+        showIcon: true,
+        onClose: () => console.log('success closed')
+    }
 }
 
-export const NoIcon = Template.bind({})
-NoIcon.args = {
-    type: 'info',
-    message: 'This is an info alert without icon',
-    showIcon: false,
-    onClose: () => console.log('no icon alert closed')
+export const NoIcon: Story = {
+    args: {
+        type: 'info',
+        message: 'This is an info alert without icon',
+        showIcon: false,
+        onClose: () => console.log('no icon alert closed')
+    }
 }
 
-export const CustomIcon = Template.bind({})
-CustomIcon.args = {
-    type: 'info',
-    message: 'This is an info alert with a custom icon',
-    showIcon: false,
-    icon: <CircleCheck className="w-5 h-5 text-blue-600" />,
-    onClose: () => console.log('custom icon alert closed')
+export const CustomIcon: Story = {
+    args: {
+        type: 'info',
+        message: 'This is an info alert with a custom icon',
+        showIcon: false,
+        icon: <CircleCheck className="w-5 h-5 text-blue-600" />,
+        onClose: () => console.log('custom icon alert closed')
+    }
 }

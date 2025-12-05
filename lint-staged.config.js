@@ -7,8 +7,8 @@ module.exports = {
             'pnpm run lint:pkg',
             'pnpm run typecheck',
             'nx lint nt-stylesheet --fix',
-            'nx lint nt-headless-ui --fix',
+            'nx lint nt-headless-ui --fix'
         ]
     },
-    'package.json': (files) => `npmPkgJsonLint ${files.join(' ')}`,
+    'package.json': (files) => `npmPkgJsonLint ${files.join(' ')}`
 }
