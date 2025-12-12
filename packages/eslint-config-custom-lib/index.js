@@ -9,7 +9,7 @@ export default [
         files: ['**/*.ts', '**/*.tsx'],
         plugins: {
             'testing-library': pluginTestingLibrary,
-            'unused-imports': pluginUnusedImports,
+            'unused-imports': pluginUnusedImports
         },
         rules: {
             '@typescript-eslint/consistent-type-exports': 'error',
@@ -20,15 +20,15 @@ export default [
             'unused-imports/no-unused-imports': 'error',
             'unused-imports/no-unused-vars': 'error',
             'react/react-in-jsx-scope': 'off',
-            'arrow-body-style': ['warn', 'as-needed'],
-        },
+            'arrow-body-style': ['warn', 'as-needed']
+        }
     },
 
     {
         files: ['**/*.spec.tsx', '**/*.spec.ts'],
         rules: {
-            'no-useless-escape': 'off',
-        },
+            'no-useless-escape': 'off'
+        }
     },
 
     {
@@ -41,9 +41,14 @@ export default [
             '**/.nx/**',
             '**/coverage/**',
             'postcss.config.mjs',
-            'tailwind.config.js',
-            'stylelint.config.js',
+            'tailwind.config.**',
+            'stylelint.config.**',
             'eslint.config.mjs',
-        ],
-    },
+            '**/storybook-static/**',
+            'vite.config.**',
+            '**/next-env.d.ts',
+            '**/.storybook/**',
+            '**/.next/**'
+        ]
+    }
 ]
