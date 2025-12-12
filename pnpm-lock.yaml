@@ -181,8 +181,8 @@ catalogs:
       specifier: 8.0.0
       version: 8.0.0
     next:
-      specifier: 16.0.9
-      version: 16.0.9
+      specifier: 16.0.10
+      version: 16.0.10
     npm-package-json-lint:
       specifier: 8.0.0
       version: 8.0.0
@@ -428,7 +428,7 @@ importers:
         version: 0.474.0(react@19.0.0)
       next:
         specifier: 'catalog:'
-        version: 16.0.9(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0)
+        version: 16.0.10(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0)
       react:
         specifier: 'catalog:'
         version: 19.0.0
@@ -474,7 +474,7 @@ importers:
         version: 10.1.4(react@19.0.0)(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@storybook/nextjs-vite':
         specifier: 'catalog:'
-        version: 10.1.4(@babel/core@7.28.5)(esbuild@0.25.11)(next@16.0.9(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.52.5)(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1))(webpack@5.102.1(esbuild@0.25.11))
+        version: 10.1.4(@babel/core@7.28.5)(esbuild@0.25.11)(next@16.0.10(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.52.5)(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1))(webpack@5.102.1(esbuild@0.25.11))
       '@testing-library/react':
         specifier: 'catalog:'
         version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -2024,56 +2024,56 @@ packages:
   '@next/env@16.0.0':
     resolution: {integrity: sha512-s5j2iFGp38QsG1LWRQaE2iUY3h1jc014/melHFfLdrsMJPqxqDQwWNwyQTcNoUSGZlCVZuM7t7JDMmSyRilsnA==}
 
-  '@next/env@16.0.9':
-    resolution: {integrity: sha512-6284pl8c8n9PQidN63qjPVEu1uXXKjnmbmaLebOzIfTrSXdGiAPsIMRi4pk/+v/ezqweE1/B8bFqiAAfC6lMXg==}
+  '@next/env@16.0.10':
+    resolution: {integrity: sha512-8tuaQkyDVgeONQ1MeT9Mkk8pQmZapMKFh5B+OrFUlG3rVmYTXcXlBetBgTurKXGaIZvkoqRT9JL5K3phXcgang==}
 
   '@next/eslint-plugin-next@15.2.4':
     resolution: {integrity: sha512-O8ScvKtnxkp8kL9TpJTTKnMqlkZnS+QxwoQnJwPGBxjBbzd6OVVPEJ5/pMNrktSyXQD/chEfzfFzYLM6JANOOQ==}
 
-  '@next/swc-darwin-arm64@16.0.9':
-    resolution: {integrity: sha512-j06fWg/gPqiWjK+sEpCDsh5gX+Bdy9gnPYjFqMBvBEOIcCFy1/ecF6pY6XAce7WyCJAbBPVb+6GvpmUZKNq0oQ==}
+  '@next/swc-darwin-arm64@16.0.10':
+    resolution: {integrity: sha512-4XgdKtdVsaflErz+B5XeG0T5PeXKDdruDf3CRpnhN+8UebNa5N2H58+3GDgpn/9GBurrQ1uWW768FfscwYkJRg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@16.0.9':
-    resolution: {integrity: sha512-FRYYz5GSKUkfvDSjd5hgHME2LgYjfOLBmhRVltbs3oRNQQf9n5UTQMmIu/u5vpkjJFV4L2tqo8duGqDxdQOFwg==}
+  '@next/swc-darwin-x64@16.0.10':
+    resolution: {integrity: sha512-spbEObMvRKkQ3CkYVOME+ocPDFo5UqHb8EMTS78/0mQ+O1nqE8toHJVioZo4TvebATxgA8XMTHHrScPrn68OGw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@16.0.9':
-    resolution: {integrity: sha512-EI2klFVL8tOyEIX5J1gXXpm1YuChmDy4R+tHoNjkCHUmBJqXioYErX/O2go4pEhjxkAxHp2i8y5aJcRz2m5NqQ==}
+  '@next/swc-linux-arm64-gnu@16.0.10':
+    resolution: {integrity: sha512-uQtWE3X0iGB8apTIskOMi2w/MKONrPOUCi5yLO+v3O8Mb5c7K4Q5KD1jvTpTF5gJKa3VH/ijKjKUq9O9UhwOYw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-arm64-musl@16.0.9':
-    resolution: {integrity: sha512-vq/5HeGvowhDPMrpp/KP4GjPVhIXnwNeDPF5D6XK6ta96UIt+C0HwJwuHYlwmn0SWyNANqx1Mp6qSVDXwbFKsw==}
+  '@next/swc-linux-arm64-musl@16.0.10':
+    resolution: {integrity: sha512-llA+hiDTrYvyWI21Z0L1GiXwjQaanPVQQwru5peOgtooeJ8qx3tlqRV2P7uH2pKQaUfHxI/WVarvI5oYgGxaTw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-x64-gnu@16.0.9':
-    resolution: {integrity: sha512-GlUdJwy2leA/HnyRYxJ1ZJLCJH+BxZfqV4E0iYLrJipDKxWejWpPtZUdccPmCfIEY9gNBO7bPfbG6IIgkt0qXg==}
+  '@next/swc-linux-x64-gnu@16.0.10':
+    resolution: {integrity: sha512-AK2q5H0+a9nsXbeZ3FZdMtbtu9jxW4R/NgzZ6+lrTm3d6Zb7jYrWcgjcpM1k8uuqlSy4xIyPR2YiuUr+wXsavA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-linux-x64-musl@16.0.9':
-    resolution: {integrity: sha512-UCtOVx4N8AHF434VPwg4L0KkFLAd7pgJShzlX/hhv9+FDrT7/xCuVdlBsCXH7l9yCA/wHl3OqhMbIkgUluriWA==}
+  '@next/swc-linux-x64-musl@16.0.10':
+    resolution: {integrity: sha512-1TDG9PDKivNw5550S111gsO4RGennLVl9cipPhtkXIFVwo31YZ73nEbLjNC8qG3SgTz/QZyYyaFYMeY4BKZR/g==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-win32-arm64-msvc@16.0.9':
-    resolution: {integrity: sha512-tQjtDGtv63mV3n/cZ4TH8BgUvKTSFlrF06yT5DyRmgQuj5WEjBUDy0W3myIW5kTRYMPrLn42H3VfCNwBH6YYiA==}
+  '@next/swc-win32-arm64-msvc@16.0.10':
+    resolution: {integrity: sha512-aEZIS4Hh32xdJQbHz121pyuVZniSNoqDVx1yIr2hy+ZwJGipeqnMZBJHyMxv2tiuAXGx6/xpTcQJ6btIiBjgmg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@16.0.9':
-    resolution: {integrity: sha512-y9AGACHTBwnWFLq5B5Fiv3FEbXBusdPb60pgoerB04CV/pwjY1xQNdoTNxAv7eUhU2k1CKnkN4XWVuiK07uOqA==}
+  '@next/swc-win32-x64-msvc@16.0.10':
+    resolution: {integrity: sha512-E+njfCoFLb01RAFEnGZn6ERoOqhK1Gl3Lfz1Kjnj0Ulfu7oJbuMyvBKNj/bw8XZnenHDASlygTjZICQW+rYW1Q==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -5818,10 +5818,9 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  next@16.0.9:
-    resolution: {integrity: sha512-Xk5x/wEk6ADIAtQECLo1uyE5OagbQCiZ+gW4XEv24FjQ3O2PdSkvgsn22aaseSXC7xg84oONvQjFbSTX5YsMhQ==}
+  next@16.0.10:
+    resolution: {integrity: sha512-RtWh5PUgI+vxlV3HdR+IfWA1UUHu0+Ram/JBO4vWB54cVPentCD0e+lxyAYEsDTqGGMg7qpjhKh6dc6aW7W/sA==}
     engines: {node: '>=20.9.0'}
-    deprecated: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/security-update-2025-12-11 for more details.
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
@@ -9413,34 +9412,34 @@ snapshots:
 
   '@next/env@16.0.0': {}
 
-  '@next/env@16.0.9': {}
+  '@next/env@16.0.10': {}
 
   '@next/eslint-plugin-next@15.2.4':
     dependencies:
       fast-glob: 3.3.1
 
-  '@next/swc-darwin-arm64@16.0.9':
+  '@next/swc-darwin-arm64@16.0.10':
     optional: true
 
-  '@next/swc-darwin-x64@16.0.9':
+  '@next/swc-darwin-x64@16.0.10':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@16.0.9':
+  '@next/swc-linux-arm64-gnu@16.0.10':
     optional: true
 
-  '@next/swc-linux-arm64-musl@16.0.9':
+  '@next/swc-linux-arm64-musl@16.0.10':
     optional: true
 
-  '@next/swc-linux-x64-gnu@16.0.9':
+  '@next/swc-linux-x64-gnu@16.0.10':
     optional: true
 
-  '@next/swc-linux-x64-musl@16.0.9':
+  '@next/swc-linux-x64-musl@16.0.10':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@16.0.9':
+  '@next/swc-win32-arm64-msvc@16.0.10':
     optional: true
 
-  '@next/swc-win32-x64-msvc@16.0.9':
+  '@next/swc-win32-x64-msvc@16.0.10':
     optional: true
 
   '@nodelib/fs.scandir@2.1.5':
@@ -10377,18 +10376,18 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@storybook/nextjs-vite@10.1.4(@babel/core@7.28.5)(esbuild@0.25.11)(next@16.0.9(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.52.5)(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1))(webpack@5.102.1(esbuild@0.25.11))':
+  '@storybook/nextjs-vite@10.1.4(@babel/core@7.28.5)(esbuild@0.25.11)(next@16.0.10(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.52.5)(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1))(webpack@5.102.1(esbuild@0.25.11))':
     dependencies:
       '@storybook/builder-vite': 10.1.4(esbuild@0.25.11)(rollup@4.52.5)(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1))(webpack@5.102.1(esbuild@0.25.11))
       '@storybook/react': 10.1.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)
       '@storybook/react-vite': 10.1.4(esbuild@0.25.11)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.52.5)(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1))(webpack@5.102.1(esbuild@0.25.11))
-      next: 16.0.9(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0)
+      next: 16.0.10(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       storybook: 10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       styled-jsx: 5.1.6(@babel/core@7.28.5)(react@19.0.0)
       vite: 6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1)
-      vite-plugin-storybook-nextjs: 3.1.2(next@16.0.9(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0))(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1))
+      vite-plugin-storybook-nextjs: 3.1.2(next@16.0.10(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0))(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1))
     optionalDependencies:
       typescript: 5.7.2
     transitivePeerDependencies:
@@ -12212,7 +12211,7 @@ snapshots:
       eslint: 9.17.0(jiti@2.6.1)
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint@9.17.0(jiti@2.6.1)))(eslint@9.17.0(jiti@2.6.1))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint@9.17.0(jiti@2.6.1)))(eslint@9.17.0(jiti@2.6.1)))(eslint@9.17.0(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint-import-resolver-typescript@3.10.1)(eslint@9.17.0(jiti@2.6.1))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.17.0(jiti@2.6.1))
       eslint-plugin-react: 7.37.5(eslint@9.17.0(jiti@2.6.1))
       eslint-plugin-react-hooks: 5.2.0(eslint@9.17.0(jiti@2.6.1))
@@ -12257,7 +12256,7 @@ snapshots:
       tinyglobby: 0.2.15
       unrs-resolver: 1.11.1
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint@9.17.0(jiti@2.6.1)))(eslint@9.17.0(jiti@2.6.1)))(eslint@9.17.0(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint-import-resolver-typescript@3.10.1)(eslint@9.17.0(jiti@2.6.1))
     transitivePeerDependencies:
       - supports-color
 
@@ -12278,7 +12277,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint@9.17.0(jiti@2.6.1)))(eslint@9.17.0(jiti@2.6.1)))(eslint@9.17.0(jiti@2.6.1)):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.48.1(eslint@9.17.0(jiti@2.6.1))(typescript@5.7.2))(eslint-import-resolver-typescript@3.10.1)(eslint@9.17.0(jiti@2.6.1)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -13535,9 +13534,9 @@ snapshots:
   neo-async@2.6.2:
     optional: true
 
-  next@16.0.9(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0):
+  next@16.0.10(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0):
     dependencies:
-      '@next/env': 16.0.9
+      '@next/env': 16.0.10
       '@swc/helpers': 0.5.15
       caniuse-lite: 1.0.30001751
       postcss: 8.4.31
@@ -13545,14 +13544,14 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       styled-jsx: 5.1.6(@babel/core@7.28.5)(react@19.0.0)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 16.0.9
-      '@next/swc-darwin-x64': 16.0.9
-      '@next/swc-linux-arm64-gnu': 16.0.9
-      '@next/swc-linux-arm64-musl': 16.0.9
-      '@next/swc-linux-x64-gnu': 16.0.9
-      '@next/swc-linux-x64-musl': 16.0.9
-      '@next/swc-win32-arm64-msvc': 16.0.9
-      '@next/swc-win32-x64-msvc': 16.0.9
+      '@next/swc-darwin-arm64': 16.0.10
+      '@next/swc-darwin-x64': 16.0.10
+      '@next/swc-linux-arm64-gnu': 16.0.10
+      '@next/swc-linux-arm64-musl': 16.0.10
+      '@next/swc-linux-x64-gnu': 16.0.10
+      '@next/swc-linux-x64-musl': 16.0.10
+      '@next/swc-win32-arm64-msvc': 16.0.10
+      '@next/swc-win32-x64-msvc': 16.0.10
       sass: 1.88.0
       sharp: 0.34.4
     transitivePeerDependencies:
@@ -15759,13 +15758,13 @@ snapshots:
       sass-embedded: 1.83.4
       vite: 6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1)
 
-  vite-plugin-storybook-nextjs@3.1.2(next@16.0.9(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0))(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1)):
+  vite-plugin-storybook-nextjs@3.1.2(next@16.0.10(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0))(storybook@10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)(vite@6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1)):
     dependencies:
       '@next/env': 16.0.0
       image-size: 2.0.2
       magic-string: 0.30.21
       module-alias: 2.2.3
-      next: 16.0.9(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0)
+      next: 16.0.10(@babel/core@7.28.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0)
       storybook: 10.1.4(@testing-library/dom@10.4.0)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       ts-dedent: 2.2.0
       vite: 6.4.1(@types/node@22.18.12)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(terser@5.44.0)(yaml@2.8.1)
