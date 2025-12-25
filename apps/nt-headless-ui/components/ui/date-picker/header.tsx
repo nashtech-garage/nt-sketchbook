@@ -1,0 +1,74 @@
+import dayjs from 'dayjs'
+import { type ReactDatePickerCustomHeaderProps } from 'react-datepicker'
+
+import { Select } from '../select'
+
+const getMonth = (date: Date) => dayjs(date).month()
+const getYear = (date: Date) => dayjs(date).year()
+const startYear = 1900
+const endYear = dayjs().year() + 1
+const years = Array.from(
+    { length: endYear - startYear + 1 },
+    (_, i) => startYear + i
+)
+
+const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+] as const
+
+export const DatePickerHeader = ({
+    date,
+    changeYear,
+    changeMonth,
+    decreaseMonth,
+    increaseMonth,
+    prevMonthButtonDisabled,
+    nextMonthButtonDisabled
+}: ReactDatePickerCustomHeaderProps) => (
+    <div className="nt-datepicker-header">
+        <button
+            onClick={decreaseMonth}
+            disabled={prevMonthButtonDisabled}
+        >
+            <span className="nti-chevron-left"></span>
+        </button>
+        <Select
+            value={getYear(date)}
+            onChange={({ target: { value } }) => changeYear(+value)}
+            options={years.map((year) => ({
+                value: year,
+                label: year
+            }))}
+        />
+
+        <Select
+            value={months[getMonth(date)]}
+            onChange={({ target: { value } }) =>
+                changeMonth(
+                    months.indexOf(value as (typeof months)[number])
+                )
+            }
+            options={months.map((month) => ({
+                value: month,
+                label: month
+            }))}
+        />
+        <button
+            onClick={increaseMonth}
+            disabled={nextMonthButtonDisabled}
+        >
+            <span className="nti-chevron-right"></span>
+        </button>
+    </div>
+)
