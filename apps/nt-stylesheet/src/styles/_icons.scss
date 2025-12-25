@@ -118,4 +118,10 @@
             content: '\F009C';
         }
     }
+
+    &-chevron-left {
+        &::before {
+            content: '\F0141';
+        }
+    }
 }

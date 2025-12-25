@@ -53,10 +53,12 @@
         "class-variance-authority": "catalog:",
         "clsx": "catalog:",
         "cmdk": "catalog:",
+        "dayjs": "catalog:",
         "lucide-react": "catalog:",
         "next": "catalog:",
         "react": "catalog:",
         "react-chartjs-2": "catalog:",
+        "react-datepicker": "catalog:",
         "react-dom": "catalog:",
         "sass": "catalog:",
         "storybook": "catalog:",
@@ -67,12 +69,18 @@
         "vite-plugin-dts": "catalog:"
     },
     "devDependencies": {
+        "@chromatic-com/storybook": "catalog:",
         "@eslint/eslintrc": "catalog:",
+        "@storybook/addon-docs": "catalog:",
+        "@storybook/addon-links": "catalog:",
+        "@storybook/nextjs-vite": "catalog:",
         "@testing-library/react": "catalog:",
         "@types/react": "catalog:",
         "@types/react-dom": "catalog:",
+        "@typescript-eslint/parser": "catalog:",
         "eslint": "catalog:",
         "eslint-config-custom-lib": "workspace:*",
+        "eslint-plugin-storybook": "catalog:",
         "jsdom": "catalog:",
         "postcss-import": "catalog:",
         "postcss-nesting": "catalog:",
@@ -80,13 +88,7 @@
         "stylelint-custom-lib": "workspace:*",
         "tsconfig": "workspace:*",
         "typescript": "catalog:",
-        "vitest-canvas-mock": "catalog:",
-        "@typescript-eslint/parser": "catalog:",
-        "eslint-plugin-storybook": "catalog:",
-        "@storybook/addon-docs": "catalog:",
-        "@storybook/nextjs-vite": "catalog:",
-        "@chromatic-com/storybook": "catalog:",
-        "@storybook/addon-links": "catalog:"
+        "vitest-canvas-mock": "catalog:"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

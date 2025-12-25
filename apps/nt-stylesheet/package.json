@@ -76,7 +76,8 @@
         "postcss-import": "catalog:",
         "postcss-nesting": "catalog:",
         "postcss-preset-env": "catalog:",
-        "tailwindcss": "catalog:"
+        "tailwindcss": "catalog:",
+        "react-datepicker": "catalog:"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

@@ -6,12 +6,15 @@ import { Select, type SelectProps } from './select'
 
 const onChangeMock = vi.fn()
 
+const placeholderText = 'Pick fruit'
+const mockValue = 'apple'
+
 const defaultProps: SelectProps = {
     options: [
-        { value: 'apple', label: 'Apple' },
+        { value: mockValue, label: 'Apple' },
         { value: 'banana', label: 'Banana' }
     ],
-    placeholder: 'Pick fruit',
+    placeholder: placeholderText,
     onChange: onChangeMock
 }
 
@@ -27,8 +30,9 @@ describe('Select', () => {
 
     it('renders with placeholder', () => {
         setup()
+
         const select = screen.getByRole('combobox')
-        expect(select).toHaveDisplayValue('Pick fruit')
+        expect(select).toHaveDisplayValue(placeholderText)
     })
 
     it('renders options when provided', () => {
@@ -57,9 +61,14 @@ describe('Select', () => {
         setup()
         const select = screen.getByRole('combobox')
 
-        await userEvent.selectOptions(select, 'apple')
+        await userEvent.selectOptions(select, mockValue)
 
-        expect(onChangeMock).toHaveBeenCalledWith('apple')
+        expect(onChangeMock).toHaveBeenNthCalledWith(
+            1,
+            expect.objectContaining({
+                target: expect.objectContaining({ value: mockValue })
+            })
+        )
     })
 
     it('applies correct variant and size classes', () => {
@@ -74,7 +83,7 @@ describe('Select', () => {
         const select = screen.getByRole('combobox')
         expect(select).toBeDisabled()
 
-        await userEvent.selectOptions(select, 'apple')
+        await userEvent.selectOptions(select, mockValue)
         expect(onChangeMock).not.toHaveBeenCalled()
     })
 
