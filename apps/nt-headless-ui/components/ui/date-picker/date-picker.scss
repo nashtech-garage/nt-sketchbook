@@ -6,22 +6,70 @@
     margin-top: 0.5rem;
 
     .react-datepicker {
+        width: 20rem;
+        box-shadow: rgb(0 0 0 / 16%) 0 0.0625rem 0.25rem;
+        border: 0;
+
         &__header {
             background-color: var(--nt-color-white);
             border: 0;
+            max-width: 310px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        &__month-container {
+            width: 100%;
+        }
+
+        &__day-name,
+        &__day,
+        &__time-name {
+            width: 2.2rem;
+            font-family: var(--nt-font-default);
+        }
+
+        &__day {
+            color: var(--nt-color-gray-100);
+            font-weight: var(--nt-font-weight-semi-bold);
+            font-size: 12px;
+        }
+
+        &__day-name {
+            color: var(--nt-color-gray-60);
+            font-size: 12px;
         }
     }
 }
 
 .nt-datepicker-header {
-    justify-content: space-between;
     background-color: var(--nt-color-white);
     border: 0;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    justify-content: center;
 
     select {
-        max-width: 7rem;
+        height: 32px;
+        font-family: var(--nt-font-default);
+    }
+
+    select:nth-of-type(1) {
+        max-width: 70px;
+        margin-right: 0.3rem;
+    }
+
+    select:nth-of-type(2) {
+        max-width: 76px;
+    }
+
+    button:nth-of-type(1) {
+        margin-right: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    button:nth-of-type(2) {
+        margin-left: 0.5rem;
+        font-size: 1.5rem;
     }
 }

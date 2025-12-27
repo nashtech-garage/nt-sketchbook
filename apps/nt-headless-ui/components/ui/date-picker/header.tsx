@@ -13,18 +13,18 @@ const years = Array.from(
 )
 
 const months = [
-    'January',
-    'February',
-    'March',
-    'April',
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
     'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
 ] as const
 
 export const DatePickerHeader = ({
@@ -41,17 +41,8 @@ export const DatePickerHeader = ({
             onClick={decreaseMonth}
             disabled={prevMonthButtonDisabled}
         >
-            <span className="nti-chevron-left"></span>
+            <span className="nti nti-chevron-left"></span>
         </button>
-        <Select
-            value={getYear(date)}
-            onChange={({ target: { value } }) => changeYear(+value)}
-            options={years.map((year) => ({
-                value: year,
-                label: year
-            }))}
-        />
-
         <Select
             value={months[getMonth(date)]}
             onChange={({ target: { value } }) =>
@@ -64,11 +55,19 @@ export const DatePickerHeader = ({
                 label: month
             }))}
         />
+        <Select
+            value={getYear(date)}
+            onChange={({ target: { value } }) => changeYear(+value)}
+            options={years.map((year) => ({
+                value: year,
+                label: year
+            }))}
+        />
         <button
             onClick={increaseMonth}
             disabled={nextMonthButtonDisabled}
         >
-            <span className="nti-chevron-right"></span>
+            <span className="nti nti-chevron-right"></span>
         </button>
     </div>
 )

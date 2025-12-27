@@ -19,6 +19,8 @@ export const DatePicker = (props: DatePickerProps) => {
             renderCustomHeader={DatePickerHeader}
             customInput={<Input />}
             showPopperArrow={false}
+            locale="en-GB"
+            formatWeekDay={(nameOfDay) => nameOfDay.substring(0, 3)}
             {...props}
         />
     )
