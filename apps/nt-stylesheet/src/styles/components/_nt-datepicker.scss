@@ -1,0 +1,101 @@
+@use 'react-datepicker/dist/react-datepicker.css';
+
+.nt-datepicker-wrapper {
+    display: initial;
+}
+
+.nt-datepicker-popper {
+    margin-top: 0.5rem;
+
+    .react-datepicker {
+        width: 20rem;
+        box-shadow:
+            rgb(9 30 66 / 25%) 0 0.25rem 0.5rem -0.125rem,
+            rgb(9 30 66 / 8%) 0 0 0 1px;
+        border: 0;
+
+        &__header {
+            background-color: var(--nt-color-white);
+            border: 0;
+            max-width: 19.375rem;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        &__month-container {
+            width: 100%;
+        }
+
+        &__day-name,
+        &__day,
+        &__time-name {
+            width: 2.2rem;
+            font-family: var(--nt-font-default);
+        }
+
+        &__day {
+            color: var(--nt-color-gray-100);
+            font-weight: var(--nt-font-weight-semi-bold);
+            font-size: 0.875rem;
+
+            &--selected {
+                background-color: var(--nt-color-secondary-100);
+                color: var(--nt-color-white);
+            }
+        }
+
+        &__day--outside-month {
+            font-weight: var(--nt-font-weight-semi-bold);
+            font-size: 0.875rem;
+            color: var(--nt-color-gray-30);
+            outline: none;
+        }
+
+        &__day-name {
+            color: var(--nt-color-gray-60);
+            font-size: 0.875rem;
+        }
+
+        &__day,
+        &__month-text,
+        &__quarter-text,
+        &__year-text {
+            &--keyboard-selected {
+                background-color: var(--nt-color-secondary-100);
+                color: var(--nt-color-white);
+            }
+        }
+    }
+}
+
+.nt-datepicker-header {
+    background-color: var(--nt-color-white);
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    select {
+        height: 2.5rem;
+        font-family: var(--nt-font-default);
+    }
+
+    select:nth-of-type(1) {
+        max-width: 5rem;
+        margin-right: 0.3rem;
+    }
+
+    select:nth-of-type(2) {
+        max-width: 5.5rem;
+    }
+
+    button:nth-of-type(1) {
+        margin-right: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    button:nth-of-type(2) {
+        margin-left: 0.5rem;
+        font-size: 1.5rem;
+    }
+}

@@ -37,7 +37,7 @@ const Template: StoryFn<SelectProps> = (args: SelectProps) => {
         <Select
             {...args}
             value={value}
-            onChange={(item) => setValue(item)}
+            onChange={(e) => setValue(e.target.value)}
         />
     )
 }

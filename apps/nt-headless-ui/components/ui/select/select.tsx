@@ -1,13 +1,12 @@
 import { cn } from '@/lib/utils'
 import clsx from 'clsx'
-import type { ChangeEvent, ReactNode, Ref } from 'react'
-import React, {
-    cloneElement,
-    forwardRef,
-    isValidElement
-} from 'react'
+import type { ReactNode, Ref, SelectHTMLAttributes } from 'react'
+import { cloneElement, forwardRef, isValidElement } from 'react'
 
-export type Options = { value: string; label: string }[]
+export type Options = {
+    value: string | number
+    label: string | number
+}[]
 
 export type SelectVariant =
     | 'default'
@@ -18,7 +17,10 @@ export type SelectVariant =
 
 export type SelectSize = 'small' | 'medium' | 'large'
 
-export type SelectProps = {
+export type SelectProps = Omit<
+    SelectHTMLAttributes<HTMLSelectElement>,
+    'size'
+> & {
     className?: string
     variant?: SelectVariant
     size?: SelectSize
@@ -27,12 +29,9 @@ export type SelectProps = {
         label: string
         options: Options
     }[]
-    placeholder?: string
-    value?: string
-    onChange?: (value: string) => void
     iconLeft?: ReactNode
     classIconLeft?: string
-    disabled?: boolean
+    placeholder?: string
 }
 
 const rootClassName = 'nt-select'
@@ -60,30 +59,25 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             options = [],
             groups = [],
             placeholder = 'Select an option',
-            value,
-            onChange,
             iconLeft,
             classIconLeft = '',
-            disabled = false
+            disabled = false,
+            ...restProps
         },
         ref: Ref<HTMLSelectElement>
     ) => {
-        const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-            onChange?.(e.target.value)
-        }
-
         const selectEl = (
             <select
+                defaultValue=""
                 className={clsx(
                     rootClassName,
                     variantStyles[variant],
                     sizeStyles[size],
                     className
                 )}
-                value={value ?? ''}
-                onChange={handleChange}
                 disabled={disabled}
                 ref={ref}
+                {...restProps}
             >
                 {placeholder && (
                     <option value="" disabled hidden>
