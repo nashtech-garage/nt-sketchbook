@@ -1,6 +1,13 @@
 import DOMPurify from 'dompurify'
 
-export type Placement = 'top' | 'bottom' | 'left' | 'right'
+import {
+    applyPosition,
+    type Placement,
+    positionElement
+} from '../utils/positioning'
+import { Singleton } from '../utils/singleton'
+
+export type { Placement }
 
 export type Variant =
     | 'default'
@@ -9,21 +16,11 @@ export type Variant =
     | 'warning'
     | 'info'
 
-export class NtTooltip {
-    private static instance: NtTooltip | undefined
-    static getInstance(): NtTooltip {
-        if (!this.instance) {
-            this.instance = new NtTooltip()
-        }
-        return this.instance
-    }
-    static init() {
-        this.getInstance()
-    }
-
+export class NtTooltip extends Singleton {
     private tooltipEl: HTMLDivElement | null = null
 
     constructor() {
+        super()
         document.addEventListener(
             'mouseover',
             this.handleHover.bind(this)
@@ -114,50 +111,7 @@ export class NtTooltip {
         tooltip: HTMLElement,
         placement: Placement
     ) {
-        const elRect = trigger.getBoundingClientRect()
-        const ttRect = tooltip.getBoundingClientRect()
-        const scrollTop = window.scrollY
-        const scrollLeft = window.scrollX
-
-        let top = 0,
-            left = 0
-
-        switch (placement) {
-            case 'top':
-                top = elRect.top + scrollTop - ttRect.height - 8
-                left =
-                    elRect.left +
-                    scrollLeft +
-                    elRect.width / 2 -
-                    ttRect.width / 2
-                break
-            case 'bottom':
-                top = elRect.bottom + scrollTop + 8
-                left =
-                    elRect.left +
-                    scrollLeft +
-                    elRect.width / 2 -
-                    ttRect.width / 2
-                break
-            case 'left':
-                top =
-                    elRect.top +
-                    scrollTop +
-                    elRect.height / 2 -
-                    ttRect.height / 2
-                left = elRect.left + scrollLeft - ttRect.width - 8
-                break
-            case 'right':
-                top =
-                    elRect.top +
-                    scrollTop +
-                    elRect.height / 2 -
-                    ttRect.height / 2
-                left = elRect.right + scrollLeft + 8
-                break
-        }
-
-        tooltip.style.top = `${top}px`
-        tooltip.style.left = `${left}px`
+        const position = positionElement(trigger, tooltip, placement)
+        applyPosition(tooltip, position)
     }
 }

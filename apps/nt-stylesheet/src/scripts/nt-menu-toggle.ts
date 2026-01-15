@@ -1,11 +1,14 @@
-export class NtToggleMenu {
+import { Singleton } from '../utils/singleton'
+
+export class NtToggleMenu extends Singleton {
     private readonly menuSelector: string
     private readonly overlaySelector: string
 
     constructor(
         menuSelector = '.nt-side-menu',
-        overlaySelector = '.nt-main-page-overlay',
+        overlaySelector = '.nt-main-page-overlay'
     ) {
+        super()
         this.menuSelector = menuSelector
         this.overlaySelector = overlaySelector
     }
@@ -17,7 +20,7 @@ export class NtToggleMenu {
         const target =
             document.querySelector<HTMLElement>(targetSelector)
         const menu = document.querySelector<HTMLElement>(
-            this.menuSelector,
+            this.menuSelector
         )
 
         if (!target) {
@@ -31,10 +34,10 @@ export class NtToggleMenu {
 
     public close(): void {
         const menu = document.querySelector<HTMLElement>(
-            this.menuSelector,
+            this.menuSelector
         )
         const overlay = document.querySelector<HTMLElement>(
-            this.overlaySelector,
+            this.overlaySelector
         )
         menu?.classList.remove('active')
         overlay?.classList.remove('active')
@@ -42,35 +45,35 @@ export class NtToggleMenu {
 
     public bind(): void {
         const togglers = document.querySelector<HTMLElement>(
-            '[data-toggle-menu]',
+            '[data-toggle-menu]'
         )
 
         if (togglers) {
             togglers?.addEventListener('click', () =>
-                this.toggle(togglers),
+                this.toggle(togglers)
             )
 
             const targetSelector = togglers.getAttribute(
-                'data-toggle-menu',
+                'data-toggle-menu'
             )
 
             if (targetSelector) {
                 const target =
                     document.querySelector<HTMLElement>(
-                        targetSelector,
+                        targetSelector
                     )
                 const sideMenuToggle =
                     document.querySelector<HTMLElement>(
-                        `${this.menuSelector}-toggle`,
+                        `${this.menuSelector}-toggle`
                     )
 
                 sideMenuToggle?.addEventListener('click', () => {
                     const menu = document.querySelector<HTMLElement>(
-                        this.menuSelector,
+                        this.menuSelector
                     )
                     const overlay =
                         document.querySelector<HTMLElement>(
-                            this.overlaySelector,
+                            this.overlaySelector
                         )
 
                     target?.classList?.toggle('active')
@@ -79,7 +82,7 @@ export class NtToggleMenu {
                 })
 
                 const overlay = document.querySelector<HTMLElement>(
-                    this.overlaySelector,
+                    this.overlaySelector
                 )
                 overlay?.addEventListener('click', () => this.close())
             }
@@ -88,7 +91,7 @@ export class NtToggleMenu {
 
     private toggleOverlay(): void {
         const overlay = document.querySelector<HTMLElement>(
-            this.overlaySelector,
+            this.overlaySelector
         )
         overlay?.classList.toggle('active')
     }

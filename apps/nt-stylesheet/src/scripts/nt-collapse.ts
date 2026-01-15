@@ -1,19 +1,10 @@
-export class NtCollapse {
+import { Singleton } from '../utils/singleton'
+
+export class NtCollapse extends Singleton {
     private static readonly showClass = 'show'
-    private static instance: NtCollapse | undefined
 
-    static getInstance(): NtCollapse {
-        if (!this.instance) {
-            this.instance = new NtCollapse()
-        }
-        return this.instance
-    }
-
-    static init(): void {
-        this.getInstance()
-    }
-
-    private constructor() {
+    constructor() {
+        super()
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () =>
                 NtCollapse.bind()

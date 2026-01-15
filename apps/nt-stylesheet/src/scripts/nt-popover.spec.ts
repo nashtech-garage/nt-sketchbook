@@ -63,13 +63,13 @@ const setup = (props: SetupProps = {}) => {
 
 describe('NtPopover', () => {
     beforeEach(() => {
-        NtPopover['instance'] = undefined
+        NtPopover.clearInstance()
         NtPopover.init()
     })
 
     afterEach(() => {
         document.body.innerHTML = ''
-        NtPopover['instance'] = undefined
+        NtPopover.clearInstance()
         vi.clearAllMocks()
     })
     it('adds dismiss button if data-nt-dismissible is true', async () => {

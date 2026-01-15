@@ -1,6 +1,13 @@
 import DOMPurify from 'dompurify'
 
-export type Placement = 'top' | 'bottom' | 'left' | 'right'
+import {
+    applyPosition,
+    type Placement,
+    positionElement
+} from '../utils/positioning'
+import { Singleton } from '../utils/singleton'
+
+export type { Placement }
 export type Variant =
     | 'default'
     | 'success'
@@ -8,21 +15,11 @@ export type Variant =
     | 'warning'
     | 'info'
 
-export class NtPopover {
-    private static instance: NtPopover | undefined
-
-    static getInstance(): NtPopover {
-        if (!this.instance) this.instance = new NtPopover()
-        return this.instance
-    }
-
-    static init() {
-        this.getInstance()
-    }
-
+export class NtPopover extends Singleton {
     private popoverEl: HTMLDivElement | null = null
 
     constructor() {
+        super()
         document.addEventListener(
             'click',
             this.handleClick.bind(this)
@@ -157,50 +154,7 @@ export class NtPopover {
         popover: HTMLElement,
         placement: Placement
     ) {
-        const elRect = trigger.getBoundingClientRect()
-        const popRect = popover.getBoundingClientRect()
-        const scrollTop = window.scrollY
-        const scrollLeft = window.scrollX
-
-        let top = 0
-        let left = 0
-
-        switch (placement) {
-            case 'top':
-                top = elRect.top + scrollTop - popRect.height - 8
-                left =
-                    elRect.left +
-                    scrollLeft +
-                    elRect.width / 2 -
-                    popRect.width / 2
-                break
-            case 'bottom':
-                top = elRect.bottom + scrollTop + 8
-                left =
-                    elRect.left +
-                    scrollLeft +
-                    elRect.width / 2 -
-                    popRect.width / 2
-                break
-            case 'left':
-                top =
-                    elRect.top +
-                    scrollTop +
-                    elRect.height / 2 -
-                    popRect.height / 2
-                left = elRect.left + scrollLeft - popRect.width - 8
-                break
-            case 'right':
-                top =
-                    elRect.top +
-                    scrollTop +
-                    elRect.height / 2 -
-                    popRect.height / 2
-                left = elRect.right + scrollLeft + 8
-                break
-        }
-
-        popover.style.top = `${top}px`
-        popover.style.left = `${left}px`
+        const position = positionElement(trigger, popover, placement)
+        applyPosition(popover, position)
     }
 }

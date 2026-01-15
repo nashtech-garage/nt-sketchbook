@@ -1,4 +1,6 @@
-export class NtModal {
+import { Singleton } from '../utils/singleton'
+
+export class NtModal extends Singleton {
     static init() {
         document.addEventListener('click', (event) => {
             const target = event.target
