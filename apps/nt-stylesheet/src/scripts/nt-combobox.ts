@@ -1,18 +1,11 @@
-export class NtCombobox {
-    private static instance: NtCombobox | undefined
+import { Singleton } from '../utils/singleton'
+
+export class NtCombobox extends Singleton {
     private popoverEl: HTMLDivElement | null = null
     private selectedValue: string | null = null
 
-    static getInstance(): NtCombobox {
-        this.instance ??= new NtCombobox()
-        return this.instance
-    }
-
-    static init() {
-        this.getInstance()
-    }
-
     constructor() {
+        super()
         document.addEventListener(
             'click',
             this.handleClick.bind(this)

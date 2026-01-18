@@ -55,7 +55,7 @@ const setup = (props: SetupProps = {}) => {
 const user = userEvent.setup()
 describe('NtTooltip ', () => {
     beforeEach(() => {
-        NtTooltip['instance'] = undefined
+        NtTooltip.clearInstance()
         NtTooltip.init()
     })
 

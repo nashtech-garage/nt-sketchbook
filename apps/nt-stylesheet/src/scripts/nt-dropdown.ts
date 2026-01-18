@@ -1,19 +1,10 @@
-export class NtDropdown {
+import { Singleton } from '../utils/singleton'
+
+export class NtDropdown extends Singleton {
     private static readonly openClass = 'is-open'
-    private static instance: NtDropdown | undefined
 
-    static getInstance(): NtDropdown {
-        if (!this.instance) {
-            this.instance = new NtDropdown()
-        }
-        return this.instance
-    }
-
-    static init(): void {
-        this.getInstance()
-    }
-
-    private constructor() {
+    constructor() {
+        super()
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () =>
                 NtDropdown.bind()

@@ -1,35 +1,9 @@
+import { Singleton } from '../utils/singleton'
+
 export type Variant = 'danger' | 'success' | 'warning'
 
-export class NtMultiSelect {
+export class NtMultiSelect extends Singleton {
     private static initialized = new WeakSet<HTMLSelectElement>()
-
-    static init() {
-        NtMultiSelect.enhanceAll()
-
-        const observer = new MutationObserver(() =>
-            NtMultiSelect.enhanceAll()
-        )
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        })
-    }
-
-    private static enhanceAll() {
-        const elements = document.querySelectorAll(
-            'select[data-nt-multi-select][multiple]'
-        )
-        elements.forEach((el) => {
-            if (
-                !NtMultiSelect.initialized.has(
-                    el as HTMLSelectElement
-                )
-            ) {
-                new NtMultiSelect(el as HTMLSelectElement)
-                NtMultiSelect.initialized.add(el as HTMLSelectElement)
-            }
-        })
-    }
 
     private select: HTMLSelectElement
     private wrapper: HTMLDivElement
@@ -39,6 +13,7 @@ export class NtMultiSelect {
     private options: HTMLOptionElement[]
 
     constructor(select: HTMLSelectElement) {
+        super()
         this.select = select
         this.options = Array.from(select.options)
 
@@ -77,6 +52,33 @@ export class NtMultiSelect {
 
         this.bindEvents()
         this.renderTags()
+    }
+    static init() {
+        NtMultiSelect.enhanceAll()
+
+        const observer = new MutationObserver(() =>
+            NtMultiSelect.enhanceAll()
+        )
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        })
+    }
+
+    private static enhanceAll() {
+        const elements = document.querySelectorAll(
+            'select[data-nt-multi-select][multiple]'
+        )
+        elements.forEach((el) => {
+            if (
+                !NtMultiSelect.initialized.has(
+                    el as HTMLSelectElement
+                )
+            ) {
+                new NtMultiSelect(el as HTMLSelectElement)
+                NtMultiSelect.initialized.add(el as HTMLSelectElement)
+            }
+        })
     }
 
     private bindEvents() {

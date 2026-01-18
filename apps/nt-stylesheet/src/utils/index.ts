@@ -1,9 +1,7 @@
-export class Utils {
-    static string2Html() {
-
-    }
-
-    static toggleClass() {
-
-    }
-}
+export {
+    applyPosition,
+    positionElement,
+    type Placement,
+    type PositionResult
+} from './positioning'
+export { Singleton } from './singleton'
