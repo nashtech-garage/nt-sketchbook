@@ -4,6 +4,9 @@ export type Variant = 'danger' | 'success' | 'warning'
 
 export class NtMultiSelect extends Singleton {
     private static initialized = new WeakSet<HTMLSelectElement>()
+    private static debounceTimer: ReturnType<
+        typeof setTimeout
+    > | null = null
 
     private select: HTMLSelectElement
     private wrapper: HTMLDivElement
@@ -56,9 +59,15 @@ export class NtMultiSelect extends Singleton {
     static init() {
         NtMultiSelect.enhanceAll()
 
-        const observer = new MutationObserver(() =>
-            NtMultiSelect.enhanceAll()
-        )
+        // Debounce enhanceAll with 100ms delay to reduce CPU usage on rapid DOM changes
+        const observer = new MutationObserver(() => {
+            if (NtMultiSelect.debounceTimer) {
+                clearTimeout(NtMultiSelect.debounceTimer)
+            }
+            NtMultiSelect.debounceTimer = setTimeout(() => {
+                NtMultiSelect.enhanceAll()
+            }, 100)
+        })
         observer.observe(document.body, {
             childList: true,
             subtree: true
@@ -97,7 +106,8 @@ export class NtMultiSelect extends Singleton {
     }
 
     private renderTags() {
-        this.tagsContainer.innerHTML = ''
+        // Use DocumentFragment to batch DOM updates and reduce reflows/repaints
+        const fragment = document.createDocumentFragment()
 
         const selectedOptions = this.options.filter(
             (opt) => opt.selected
@@ -119,8 +129,12 @@ export class NtMultiSelect extends Singleton {
             })
 
             tag.appendChild(removeBtn)
-            this.tagsContainer.appendChild(tag)
+            fragment.appendChild(tag)
         })
+
+        // Clear existing content and append all at once to reduce reflows
+        this.tagsContainer.textContent = ''
+        this.tagsContainer.appendChild(fragment)
 
         if (selectedOptions.length === 0) {
             this.input.placeholder =
@@ -132,7 +146,8 @@ export class NtMultiSelect extends Singleton {
     }
 
     private renderDropdown() {
-        this.dropdown.innerHTML = ''
+        // Use DocumentFragment to batch DOM updates and reduce reflows/repaints
+        const fragment = document.createDocumentFragment()
         const search = this.input.value.toLowerCase()
 
         this.options.forEach((option) => {
@@ -154,8 +169,12 @@ export class NtMultiSelect extends Singleton {
                 this.renderDropdown()
             })
 
-            this.dropdown.appendChild(li)
+            fragment.appendChild(li)
         })
+
+        // Clear existing content and append all at once to reduce reflows
+        this.dropdown.textContent = ''
+        this.dropdown.appendChild(fragment)
 
         this.dropdown.classList.toggle(
             'hidden',
