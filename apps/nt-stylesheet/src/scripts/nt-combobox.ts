@@ -3,17 +3,27 @@ import { Singleton } from '../utils/singleton'
 export class NtCombobox extends Singleton {
     private popoverEl: HTMLDivElement | null = null
     private selectedValue: string | null = null
+    private boundHandleClick: (e: MouseEvent) => void
+    private boundHandleEscape: (e: KeyboardEvent) => void
 
     constructor() {
         super()
-        document.addEventListener(
-            'click',
-            this.handleClick.bind(this)
-        )
-        document.addEventListener(
+        // Cache bound handlers for proper cleanup
+        this.boundHandleClick = this.handleClick.bind(this)
+        this.boundHandleEscape = this.handleEscape.bind(this)
+
+        document.addEventListener('click', this.boundHandleClick)
+        document.addEventListener('keydown', this.boundHandleEscape)
+    }
+
+    public destroy(): void {
+        // Clean up event listeners to prevent memory leaks
+        document.removeEventListener('click', this.boundHandleClick)
+        document.removeEventListener(
             'keydown',
-            this.handleEscape.bind(this)
+            this.boundHandleEscape
         )
+        this.removePopover()
     }
 
     private handleClick(e: MouseEvent) {

@@ -56,9 +56,14 @@ export class NtMultiSelect extends Singleton {
     static init() {
         NtMultiSelect.enhanceAll()
 
-        const observer = new MutationObserver(() =>
-            NtMultiSelect.enhanceAll()
-        )
+        // Debounce enhanceAll to reduce CPU usage on rapid DOM changes
+        let debounceTimer: ReturnType<typeof setTimeout>
+        const observer = new MutationObserver(() => {
+            clearTimeout(debounceTimer)
+            debounceTimer = setTimeout(() => {
+                NtMultiSelect.enhanceAll()
+            }, 100)
+        })
         observer.observe(document.body, {
             childList: true,
             subtree: true
@@ -97,7 +102,8 @@ export class NtMultiSelect extends Singleton {
     }
 
     private renderTags() {
-        this.tagsContainer.innerHTML = ''
+        // Use DocumentFragment for efficient batch DOM updates
+        const fragment = document.createDocumentFragment()
 
         const selectedOptions = this.options.filter(
             (opt) => opt.selected
@@ -119,8 +125,12 @@ export class NtMultiSelect extends Singleton {
             })
 
             tag.appendChild(removeBtn)
-            this.tagsContainer.appendChild(tag)
+            fragment.appendChild(tag)
         })
+
+        // Clear and update in a single operation
+        this.tagsContainer.textContent = ''
+        this.tagsContainer.appendChild(fragment)
 
         if (selectedOptions.length === 0) {
             this.input.placeholder =
@@ -132,7 +142,8 @@ export class NtMultiSelect extends Singleton {
     }
 
     private renderDropdown() {
-        this.dropdown.innerHTML = ''
+        // Use DocumentFragment for efficient batch DOM updates
+        const fragment = document.createDocumentFragment()
         const search = this.input.value.toLowerCase()
 
         this.options.forEach((option) => {
@@ -154,8 +165,12 @@ export class NtMultiSelect extends Singleton {
                 this.renderDropdown()
             })
 
-            this.dropdown.appendChild(li)
+            fragment.appendChild(li)
         })
+
+        // Clear and update in a single operation
+        this.dropdown.textContent = ''
+        this.dropdown.appendChild(fragment)
 
         this.dropdown.classList.toggle(
             'hidden',

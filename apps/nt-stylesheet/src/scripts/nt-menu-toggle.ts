@@ -3,6 +3,9 @@ import { Singleton } from '../utils/singleton'
 export class NtToggleMenu extends Singleton {
     private readonly menuSelector: string
     private readonly overlaySelector: string
+    private menuElement: HTMLElement | null = null
+    private overlayElement: HTMLElement | null = null
+    private sideMenuToggleElement: HTMLElement | null = null
 
     constructor(
         menuSelector = '.nt-side-menu',
@@ -11,6 +14,17 @@ export class NtToggleMenu extends Singleton {
         super()
         this.menuSelector = menuSelector
         this.overlaySelector = overlaySelector
+        // Cache DOM elements
+        this.menuElement = document.querySelector<HTMLElement>(
+            this.menuSelector
+        )
+        this.overlayElement = document.querySelector<HTMLElement>(
+            this.overlaySelector
+        )
+        this.sideMenuToggleElement =
+            document.querySelector<HTMLElement>(
+                `${this.menuSelector}-toggle`
+            )
     }
 
     public toggle(el: HTMLElement): void {
@@ -19,28 +33,19 @@ export class NtToggleMenu extends Singleton {
 
         const target =
             document.querySelector<HTMLElement>(targetSelector)
-        const menu = document.querySelector<HTMLElement>(
-            this.menuSelector
-        )
 
         if (!target) {
             return
         }
 
-        menu?.classList.toggle('active')
+        this.menuElement?.classList.toggle('active')
         target.classList.toggle('menu-active')
         this.toggleOverlay()
     }
 
     public close(): void {
-        const menu = document.querySelector<HTMLElement>(
-            this.menuSelector
-        )
-        const overlay = document.querySelector<HTMLElement>(
-            this.overlaySelector
-        )
-        menu?.classList.remove('active')
-        overlay?.classList.remove('active')
+        this.menuElement?.classList.remove('active')
+        this.overlayElement?.classList.remove('active')
     }
 
     public bind(): void {
@@ -62,38 +67,27 @@ export class NtToggleMenu extends Singleton {
                     document.querySelector<HTMLElement>(
                         targetSelector
                     )
-                const sideMenuToggle =
-                    document.querySelector<HTMLElement>(
-                        `${this.menuSelector}-toggle`
-                    )
 
-                sideMenuToggle?.addEventListener('click', () => {
-                    const menu = document.querySelector<HTMLElement>(
-                        this.menuSelector
-                    )
-                    const overlay =
-                        document.querySelector<HTMLElement>(
-                            this.overlaySelector
+                this.sideMenuToggleElement?.addEventListener(
+                    'click',
+                    () => {
+                        target?.classList?.toggle('active')
+                        this.menuElement?.classList.toggle('active')
+                        this.overlayElement?.classList.toggle(
+                            'active'
                         )
-
-                    target?.classList?.toggle('active')
-                    menu?.classList.toggle('active')
-                    overlay?.classList.toggle('active')
-                })
-
-                const overlay = document.querySelector<HTMLElement>(
-                    this.overlaySelector
+                    }
                 )
-                overlay?.addEventListener('click', () => this.close())
+
+                this.overlayElement?.addEventListener('click', () =>
+                    this.close()
+                )
             }
         }
     }
 
     private toggleOverlay(): void {
-        const overlay = document.querySelector<HTMLElement>(
-            this.overlaySelector
-        )
-        overlay?.classList.toggle('active')
+        this.overlayElement?.classList.toggle('active')
     }
 }
 

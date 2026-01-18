@@ -17,27 +17,49 @@ export type Variant =
 
 export class NtPopover extends Singleton {
     private popoverEl: HTMLDivElement | null = null
+    private boundHandleClick: (e: MouseEvent) => void
+    private boundRemovePopover: () => void
+    private boundHandleEscape: (e: KeyboardEvent) => void
 
     constructor() {
         super()
-        document.addEventListener(
-            'click',
-            this.handleClick.bind(this)
-        )
+        // Cache bound handlers for proper cleanup
+        this.boundHandleClick = this.handleClick.bind(this)
+        this.boundRemovePopover = this.removePopover.bind(this)
+        this.boundHandleEscape = this.handleEscape.bind(this)
+
+        document.addEventListener('click', this.boundHandleClick)
         window.addEventListener(
             'scroll',
-            this.removePopover.bind(this),
+            this.boundRemovePopover,
             true
         )
         window.addEventListener(
             'resize',
-            this.removePopover.bind(this),
+            this.boundRemovePopover,
             true
         )
-        document.addEventListener(
-            'keydown',
-            this.handleEscape.bind(this)
+        document.addEventListener('keydown', this.boundHandleEscape)
+    }
+
+    public destroy(): void {
+        // Clean up event listeners to prevent memory leaks
+        document.removeEventListener('click', this.boundHandleClick)
+        window.removeEventListener(
+            'scroll',
+            this.boundRemovePopover,
+            true
         )
+        window.removeEventListener(
+            'resize',
+            this.boundRemovePopover,
+            true
+        )
+        document.removeEventListener(
+            'keydown',
+            this.boundHandleEscape
+        )
+        this.removePopover()
     }
 
     private handleClick(e: MouseEvent) {
@@ -125,7 +147,7 @@ export class NtPopover extends Singleton {
             closeBtn.innerHTML = '&times;'
             closeBtn.addEventListener(
                 'click',
-                this.removePopover.bind(this)
+                this.boundRemovePopover
             )
             body.appendChild(closeBtn)
         }

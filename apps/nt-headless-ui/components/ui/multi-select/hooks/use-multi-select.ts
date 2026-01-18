@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 
 import type { Option } from '../multi-select'
 
@@ -52,13 +52,20 @@ export const useMultiSelect = (props: UseMultiSelect) => {
         []
     )
 
-    const selectTables = options.filter(
-        (option) =>
-            !selected.some((sel) => sel.value === option.value) &&
-            option.label
-                .toLowerCase()
-                .includes(inputValue.toLowerCase())
-    )
+    // Memoize filtering to avoid O(n²) computation on every render
+    const selectTables = useMemo(() => {
+        // Create a Set for O(1) lookup of selected values
+        const selectedValues = new Set(
+            selected.map((sel) => sel.value)
+        )
+        const lowerInputValue = inputValue.toLowerCase()
+
+        return options.filter(
+            (option) =>
+                !selectedValues.has(option.value) &&
+                option.label.toLowerCase().includes(lowerInputValue)
+        )
+    }, [options, selected, inputValue])
 
     return {
         inputRef,
