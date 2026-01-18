@@ -4,6 +4,9 @@ export type Variant = 'danger' | 'success' | 'warning'
 
 export class NtMultiSelect extends Singleton {
     private static initialized = new WeakSet<HTMLSelectElement>()
+    private static debounceTimer: ReturnType<
+        typeof setTimeout
+    > | null = null
 
     private select: HTMLSelectElement
     private wrapper: HTMLDivElement
@@ -57,10 +60,11 @@ export class NtMultiSelect extends Singleton {
         NtMultiSelect.enhanceAll()
 
         // Debounce enhanceAll to reduce CPU usage on rapid DOM changes
-        let debounceTimer: ReturnType<typeof setTimeout>
         const observer = new MutationObserver(() => {
-            clearTimeout(debounceTimer)
-            debounceTimer = setTimeout(() => {
+            if (NtMultiSelect.debounceTimer) {
+                clearTimeout(NtMultiSelect.debounceTimer)
+            }
+            NtMultiSelect.debounceTimer = setTimeout(() => {
                 NtMultiSelect.enhanceAll()
             }, 100)
         })
@@ -128,7 +132,7 @@ export class NtMultiSelect extends Singleton {
             fragment.appendChild(tag)
         })
 
-        // Clear and update in a single operation
+        // Clear existing content and append all at once to reduce reflows
         this.tagsContainer.textContent = ''
         this.tagsContainer.appendChild(fragment)
 
@@ -168,7 +172,7 @@ export class NtMultiSelect extends Singleton {
             fragment.appendChild(li)
         })
 
-        // Clear and update in a single operation
+        // Clear existing content and append all at once to reduce reflows
         this.dropdown.textContent = ''
         this.dropdown.appendChild(fragment)
 
