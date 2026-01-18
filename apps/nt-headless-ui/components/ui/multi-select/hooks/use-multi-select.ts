@@ -52,7 +52,8 @@ export const useMultiSelect = (props: UseMultiSelect) => {
         []
     )
 
-    // Memoize filtering to avoid O(n²) computation on every render
+    // Memoize filtering to avoid O(n*m) computation on every render
+    // where n is options count and m is selected count
     const selectTables = useMemo(() => {
         // Create a Set for O(1) lookup of selected values
         const selectedValues = new Set(

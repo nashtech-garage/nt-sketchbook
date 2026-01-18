@@ -59,7 +59,7 @@ export class NtMultiSelect extends Singleton {
     static init() {
         NtMultiSelect.enhanceAll()
 
-        // Debounce enhanceAll to reduce CPU usage on rapid DOM changes
+        // Debounce enhanceAll with 100ms delay to reduce CPU usage on rapid DOM changes
         const observer = new MutationObserver(() => {
             if (NtMultiSelect.debounceTimer) {
                 clearTimeout(NtMultiSelect.debounceTimer)
@@ -106,7 +106,7 @@ export class NtMultiSelect extends Singleton {
     }
 
     private renderTags() {
-        // Use DocumentFragment for efficient batch DOM updates
+        // Use DocumentFragment to batch DOM updates and reduce reflows/repaints
         const fragment = document.createDocumentFragment()
 
         const selectedOptions = this.options.filter(
@@ -146,7 +146,7 @@ export class NtMultiSelect extends Singleton {
     }
 
     private renderDropdown() {
-        // Use DocumentFragment for efficient batch DOM updates
+        // Use DocumentFragment to batch DOM updates and reduce reflows/repaints
         const fragment = document.createDocumentFragment()
         const search = this.input.value.toLowerCase()
 

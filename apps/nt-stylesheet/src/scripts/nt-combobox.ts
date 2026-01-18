@@ -8,7 +8,7 @@ export class NtCombobox extends Singleton {
 
     constructor() {
         super()
-        // Cache bound handlers for proper cleanup
+        // Cache bound handlers to enable proper event listener removal and prevent memory leaks
         this.boundHandleClick = this.handleClick.bind(this)
         this.boundHandleEscape = this.handleEscape.bind(this)
 
