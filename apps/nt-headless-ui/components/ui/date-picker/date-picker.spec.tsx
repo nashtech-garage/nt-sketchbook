@@ -48,9 +48,8 @@ describe('DatePicker', () => {
         const input = screen.getByRole('textbox')
         await input.click()
 
-        const day = screen.getByRole('gridcell', {
-            name: 'Choose Saturday, January 31st, 2026'
-        })
+        const day = screen.getAllByRole('gridcell')[0]
+
         await day.click()
 
         expect(mockOnChange).toHaveBeenCalled()
