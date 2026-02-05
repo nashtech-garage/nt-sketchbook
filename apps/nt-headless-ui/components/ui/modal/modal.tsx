@@ -1,19 +1,19 @@
 import { cn } from '@/lib/utils'
-import React, { type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import ReactDOM from 'react-dom'
 
 export type ModalSize = 'sm' | 'md' | 'lg'
 
 export type ModalProps = {
     isOpen: boolean
-    title: string
     onClose: () => void
-    description?: string
+    title: string
     children?: ReactNode
-    footer?: ReactNode
-    size?: ModalSize
     className?: string
     classNameHeader?: string
+    description?: string
+    footer?: ReactNode
+    size?: ModalSize
 }
 
 export const Modal = (props: ModalProps) => {
@@ -40,11 +40,12 @@ export const Modal = (props: ModalProps) => {
                     'nt-modal-box',
                     'nt-modal-box-' + size,
                     className
-                )}
-            >
+                )}>
                 <div
-                    className={cn('nt-modal-header', classNameHeader)}
-                >
+                    className={cn(
+                        'nt-modal-header',
+                        classNameHeader
+                    )}>
                     <div>
                         <h2 className="nt-modal-title">{title}</h2>
                         {description && (
@@ -57,8 +58,7 @@ export const Modal = (props: ModalProps) => {
                         className="nt-modal-close"
                         onClick={onClose}
                         aria-label="Close modal"
-                        type="button"
-                    >
+                        type="button">
                         &times;
                     </button>
                 </div>

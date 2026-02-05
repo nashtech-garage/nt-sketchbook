@@ -1,5 +1,5 @@
 export const fontFamily = {
-    sans: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+    sans: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif']
 }
 
 export const fontWeight = {
@@ -11,5 +11,5 @@ export const fontWeight = {
     regular: '400',
     light: '300',
     extralight: '200',
-    thin: '100',
+    thin: '100'
 }

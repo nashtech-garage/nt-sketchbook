@@ -7,8 +7,8 @@ export type Placement = 'top' | 'bottom' | 'left' | 'right'
  * Result of positioning calculation
  */
 export interface PositionResult {
-    top: number
     left: number
+    top: number
 }
 
 /**
@@ -35,7 +35,11 @@ export function positionElement(
 
     switch (placement) {
         case 'top':
-            top = triggerRect.top + scrollTop - elementRect.height - offset
+            top =
+                triggerRect.top +
+                scrollTop -
+                elementRect.height -
+                offset
             left =
                 triggerRect.left +
                 scrollLeft +
@@ -56,7 +60,11 @@ export function positionElement(
                 scrollTop +
                 triggerRect.height / 2 -
                 elementRect.height / 2
-            left = triggerRect.left + scrollLeft - elementRect.width - offset
+            left =
+                triggerRect.left +
+                scrollLeft -
+                elementRect.width -
+                offset
             break
         case 'right':
             top =

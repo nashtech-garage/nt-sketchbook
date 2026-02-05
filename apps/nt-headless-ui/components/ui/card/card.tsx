@@ -17,15 +17,15 @@ export type CardVariant =
 
 export type CardProps = {
     children: React.ReactNode
+    className?: string
+    classNameContent?: string
+    classNameFooter?: string
+    classNameHeader?: string
+    description?: string
     footer?: React.ReactNode
     header?: React.ReactNode
-    className?: string
-    classNameHeader?: string
-    classNameFooter?: string
-    classNameContent?: string
-    description?: string
-    variant?: CardVariant
     icon?: string
+    variant?: CardVariant
 } & React.HTMLAttributes<HTMLDivElement>
 
 export const Card: React.FC<CardProps> = ({
@@ -43,15 +43,12 @@ export const Card: React.FC<CardProps> = ({
 }) => (
     <CardWrapper
         className={cn('nt-card', `nt-card-${variant}`, className)}
-        {...props}
-    >
+        {...props}>
         <CardContent
-            className={cn('nt-card-content', classNameContent)}
-        >
+            className={cn('nt-card-content', classNameContent)}>
             <div className="nt-card-content-column">
                 <CardHeader
-                    className={cn('nt-card-header', classNameHeader)}
-                >
+                    className={cn('nt-card-header', classNameHeader)}>
                     {icon && (
                         <span className="nt-card-icon">{icon}</span>
                     )}
@@ -60,8 +57,7 @@ export const Card: React.FC<CardProps> = ({
                         className={cn(
                             'nt-card-title',
                             classNameHeader
-                        )}
-                    >
+                        )}>
                         {header}
                         <CardDescription className="nt-card-description">
                             {description}
@@ -70,8 +66,7 @@ export const Card: React.FC<CardProps> = ({
                 </CardHeader>
                 {children}
                 <CardFooter
-                    className={cn('nt-card-footer', classNameFooter)}
-                >
+                    className={cn('nt-card-footer', classNameFooter)}>
                     {footer}
                 </CardFooter>
             </div>

@@ -25,10 +25,10 @@ export type Type =
     | 'radar'
 
 export type ChartProps<T extends ChartType> = {
-    type: Type
     data: ChartData<T>
-    options?: ChartOptions<T>
+    type: Type
     className?: string
+    options?: ChartOptions<T>
 }
 
 export const Chart = <T extends ChartType>({

@@ -1,27 +1,22 @@
 import { cn } from '@/lib/utils'
-import React, {
-    type ReactNode,
-    useEffect,
-    useRef,
-    useState
-} from 'react'
+import { type ReactNode, useEffect, useRef, useState } from 'react'
 
 type Placement = 'up' | 'down' | 'left' | 'right'
 
 type DropdownItem = {
-    label?: ReactNode
-    danger?: boolean
     active?: boolean
+    danger?: boolean
     divider?: boolean
+    label?: ReactNode
     onClick?: () => void
 }
 
 export type DropdownProps = {
+    items: DropdownItem[]
+    children?: ReactNode
+    className?: string
     label?: ReactNode
     placement?: Placement
-    className?: string
-    children?: ReactNode
-    items: DropdownItem[]
 }
 export const Dropdown = ({
     label = 'Dropdown',
@@ -62,8 +57,7 @@ export const Dropdown = ({
                 `is-${placement}`,
                 children && 'nt-split-button',
                 className
-            )}
-        >
+            )}>
             {children}
 
             <button
@@ -75,8 +69,7 @@ export const Dropdown = ({
                 aria-haspopup="menu"
                 aria-expanded={isOpen}
                 aria-controls={menuId.current}
-                onClick={() => setIsOpen((prev) => !prev)}
-            >
+                onClick={() => setIsOpen((prev) => !prev)}>
                 {label}
             </button>
 
@@ -85,13 +78,13 @@ export const Dropdown = ({
                 className="nt-dropdown-menu"
                 role="menu"
                 aria-labelledby={buttonId.current}
-                hidden={!isOpen}
-            >
+                hidden={!isOpen}>
                 {items.map((item, index) => (
                     <li
                         key={index}
-                        role={item.divider ? 'separator' : 'menuitem'}
-                    >
+                        role={
+                            item.divider ? 'separator' : 'menuitem'
+                        }>
                         {item.divider ? (
                             <hr className="nt-dropdown-menu-divider" />
                         ) : (
@@ -106,8 +99,7 @@ export const Dropdown = ({
                                 onClick={() => {
                                     item.onClick?.()
                                     setIsOpen(false)
-                                }}
-                            >
+                                }}>
                                 {item.label}
                             </a>
                         )}

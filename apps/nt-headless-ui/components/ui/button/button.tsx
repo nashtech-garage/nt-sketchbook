@@ -10,9 +10,9 @@ type ButtonVariant =
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 export type ButtonProps = {
-    variant?: ButtonVariant
-    size?: ButtonSize
     outline?: boolean
+    size?: ButtonSize
+    variant?: ButtonVariant
 } & ComponentPropsWithRef<'button'>
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -44,8 +44,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                     sizeClass,
                     className
                 )}
-                {...rest}
-            >
+                {...rest}>
                 {children}
             </button>
         )

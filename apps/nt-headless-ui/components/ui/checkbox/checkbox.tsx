@@ -3,8 +3,8 @@ import * as React from 'react'
 
 export type CheckboxProps =
     React.InputHTMLAttributes<HTMLInputElement> & {
-        label?: string
         disabled?: boolean
+        label?: string
     }
 
 export const Checkbox = React.forwardRef<
@@ -16,8 +16,7 @@ export const Checkbox = React.forwardRef<
             'nt-checkbox',
             className,
             props.disabled ? 'disabled' : ''
-        )}
-    >
+        )}>
         <input ref={ref} type="checkbox" {...props} />
         {label}
     </label>

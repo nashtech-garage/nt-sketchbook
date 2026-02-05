@@ -1,20 +1,19 @@
 import { cn } from '@/lib/utils'
 import clsx from 'clsx'
-import React from 'react'
 
 export type PaginationProps = {
-    totalPages: number
     currentPage: number
     onPageChange: (page: number) => void
+    totalPages: number
     showArrows?: boolean
 }
 
-export const Pagination: React.FC<PaginationProps> = ({
+export const Pagination = ({
     totalPages,
     currentPage,
     onPageChange,
     showArrows = true
-}) => {
+}: PaginationProps) => {
     if (totalPages <= 1) return null
 
     const handleClick = (page: number) => {
@@ -36,8 +35,7 @@ export const Pagination: React.FC<PaginationProps> = ({
                     onClick={() =>
                         !(currentPage === 1) &&
                         handleClick(currentPage - 1)
-                    }
-                >
+                    }>
                     <span className="mdi mdi-arrow-left"></span>
                 </li>
             )}
@@ -49,8 +47,7 @@ export const Pagination: React.FC<PaginationProps> = ({
                         key={page}
                         className={clsx('nt-pagination-item', {
                             active: currentPage === page
-                        })}
-                    >
+                        })}>
                         <button onClick={() => handleClick(page)}>
                             {page}
                         </button>
@@ -69,8 +66,7 @@ export const Pagination: React.FC<PaginationProps> = ({
                     onClick={() =>
                         !(currentPage === totalPages) &&
                         handleClick(currentPage + 1)
-                    }
-                >
+                    }>
                     <span className="mdi mdi-arrow-right"></span>
                 </li>
             )}

@@ -143,7 +143,7 @@ export function assetCopies() {
         { input: './examples', output: 'examples', glob: '**/*' },
         { input: '.', output: '', glob: 'components-manifest.json' },
         { input: '.', output: '', glob: 'index.html' }
-    ] as { input: string; output: string; glob: string }[]
+    ] as { glob: string; input: string; output: string }[]
 
     if (COPY_404) {
         copies.push({ input: '.', output: '', glob: '404.html' })

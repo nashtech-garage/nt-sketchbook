@@ -8,8 +8,7 @@ vi.mock('../../select/select', () => ({
     Select: ({ onChange }: { onChange: (value: string) => void }) => (
         <select
             data-testid="mock-select"
-            onChange={(e) => onChange(e.target.value)}
-        >
+            onChange={(e) => onChange(e.target.value)}>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>

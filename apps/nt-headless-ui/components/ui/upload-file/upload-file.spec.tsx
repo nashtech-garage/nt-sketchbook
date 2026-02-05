@@ -7,7 +7,7 @@ describe('UploadFile component', () => {
     it('renders the upload button with the correct placeholder', () => {
         render(<UploadFile placeholder="Upload your file" />)
         expect(
-            screen.getByText('Upload your file'),
+            screen.getByText('Upload your file')
         ).toBeInTheDocument()
     })
 
@@ -16,10 +16,10 @@ describe('UploadFile component', () => {
         render(<UploadFile onChange={handleChange} />)
 
         const input = screen.getByLabelText(
-            'Upload file',
+            'Upload file'
         ) as HTMLInputElement
         const file = new File(['content'], 'test-file.txt', {
-            type: 'text/plain',
+            type: 'text/plain'
         })
 
         fireEvent.change(input, { target: { files: [file] } })
@@ -31,13 +31,13 @@ describe('UploadFile component', () => {
         render(<UploadFile onChange={handleChange} multiple />)
 
         const input = screen.getByLabelText(
-            'Upload file',
+            'Upload file'
         ) as HTMLInputElement
         const file1 = new File(['content1'], 'file1.txt', {
-            type: 'text/plain',
+            type: 'text/plain'
         })
         const file2 = new File(['content2'], 'file2.txt', {
-            type: 'text/plain',
+            type: 'text/plain'
         })
 
         fireEvent.change(input, { target: { files: [file1, file2] } })
@@ -52,10 +52,10 @@ describe('UploadFile component', () => {
         render(<UploadFile onChange={handleChange} />)
 
         const input = screen.getByLabelText(
-            'Upload file',
+            'Upload file'
         ) as HTMLInputElement
         const file = new File(['content'], 'test-file.txt', {
-            type: 'text/plain',
+            type: 'text/plain'
         })
 
         fireEvent.change(input, { target: { files: [file] } })
@@ -71,11 +71,11 @@ describe('UploadFile component', () => {
 
         const dropzone = screen.getByText('Upload file')
         const file = new File(['content'], 'dropped-file.txt', {
-            type: 'text/plain',
+            type: 'text/plain'
         })
 
         fireEvent.drop(dropzone, {
-            dataTransfer: { files: [file] },
+            dataTransfer: { files: [file] }
         })
 
         expect(handleChange).toHaveBeenCalledWith([file])

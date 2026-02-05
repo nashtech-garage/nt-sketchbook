@@ -1,19 +1,18 @@
 import { cn } from '@/lib/utils'
-import * as React from 'react'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 type ComboboxOption = {
-    value: string
     label: string
+    value: string
 }
 export type ComboboxProps = {
     options: ComboboxOption[]
     className?: string
     classOption?: string
-    placeholder?: string
-    searchText?: string
     noFoundText?: string
     onChange?: (option: ComboboxOption) => void
+    placeholder?: string
+    searchText?: string
 }
 
 export const Combobox = (props: ComboboxProps) => {
@@ -27,13 +26,13 @@ export const Combobox = (props: ComboboxProps) => {
         onChange = null
     } = props
     const [selectedOption, setSelectedOption] =
-        React.useState<ComboboxOption>({
+        useState<ComboboxOption>({
             value: '',
             label: ''
         })
     const [filteredOption, setFilteredOptions] =
-        React.useState<ComboboxOption[]>(options)
-    const [open, setOpen] = React.useState<boolean>(false)
+        useState<ComboboxOption[]>(options)
+    const [open, setOpen] = useState<boolean>(false)
     const inputRef = useRef<HTMLInputElement>(null)
 
     const toggleDropdown = () => {
@@ -71,8 +70,7 @@ export const Combobox = (props: ComboboxProps) => {
                     'nt-combobox-trigger',
                     open ? 'active' : undefined
                 )}
-                onClick={toggleDropdown}
-            >
+                onClick={toggleDropdown}>
                 {selectedOption.label || placeholder}
             </button>
             <div
@@ -80,8 +78,7 @@ export const Combobox = (props: ComboboxProps) => {
                     'nt-combobox-popover',
                     classOption,
                     open ? 'show' : undefined
-                )}
-            >
+                )}>
                 <input
                     ref={inputRef}
                     className="nt-combobox-input"
@@ -104,8 +101,7 @@ export const Combobox = (props: ComboboxProps) => {
                                     ? 'selected-item'
                                     : ''
                             )}
-                            onClick={() => selectOption(option)}
-                        >
+                            onClick={() => selectOption(option)}>
                             {option.label}
                         </button>
                     ))}

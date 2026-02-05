@@ -8,19 +8,19 @@ import { PaginationTable, Th, Tr, TrLoading } from './components'
 import { useTable } from './hooks/use-table'
 
 export type TableProps = {
-    data: unknown[]
     columns: ColumnDef<unknown>[]
-    classPagination?: string
-    searchable?: boolean
-    isLoading?: boolean
-    textItemsPerPage?: string
-    itemPerPage?: number
-    onPageClick?: (page: number) => void
-    onItemPerPageChange?: (itemPerPage: number) => void
-    bordered?: boolean
-    striped?: boolean
-    hover?: boolean
+    data: unknown[]
     align?: 'left' | 'center' | 'right'
+    bordered?: boolean
+    classPagination?: string
+    hover?: boolean
+    isLoading?: boolean
+    itemPerPage?: number
+    onItemPerPageChange?: (itemPerPage: number) => void
+    onPageClick?: (page: number) => void
+    searchable?: boolean
+    striped?: boolean
+    textItemsPerPage?: string
 }
 
 export const Table = (props: TableProps) => {
@@ -51,8 +51,7 @@ export const Table = (props: TableProps) => {
                     striped && 'nt-table-striped',
                     hover && 'nt-table-hover',
                     align && `nt-table-${align}`
-                )}
-            >
+                )}>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (
                         <Th

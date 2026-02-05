@@ -13,12 +13,12 @@ import { NtTooltip, type Placement } from './nt-tooltip'
 let trigger: HTMLElement
 
 type SetupProps = {
+    attributes?: Record<string, string>
+    html?: boolean
     id?: string
+    placement?: Placement
     text?: string
     title?: string
-    placement?: Placement
-    html?: boolean
-    attributes?: Record<string, string>
 }
 
 const setup = (props: SetupProps = {}) => {

@@ -17,8 +17,7 @@ export const Breadcrumb = React.forwardRef<
     <nav
         ref={ref}
         className={cn('nt-breadcrumb', className)}
-        {...props}
-    >
+        {...props}>
         <ol className="nt-breadcrumb-list">
             {items.map(({ className, ...item }, idx) => {
                 const isLast = idx === items.length - 1
@@ -26,16 +25,14 @@ export const Breadcrumb = React.forwardRef<
                     <>
                         <li
                             className="nt-breadcrumb-list-item"
-                            key={item.id + '-list-item'}
-                        >
+                            key={item.id + '-list-item'}>
                             {item.href && !isLast ? (
                                 <Link
                                     className={cn(
                                         className,
                                         'nt-breadcrumb-list-item-link'
                                     )}
-                                    {...item}
-                                >
+                                    {...item}>
                                     {item.label}
                                 </Link>
                             ) : (
@@ -43,8 +40,7 @@ export const Breadcrumb = React.forwardRef<
                                     className={cn(
                                         className,
                                         'nt-breadcrumb-list-item-current'
-                                    )}
-                                >
+                                    )}>
                                     {item.label}
                                 </span>
                             )}

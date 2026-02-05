@@ -15,7 +15,6 @@
         "@nx/web": "catalog:",
         "@testing-library/jest-dom": "catalog:",
         "@testing-library/user-event": "catalog:",
-        "@trivago/prettier-plugin-sort-imports": "catalog:",
         "@types/node": "catalog:",
         "@typescript-eslint/eslint-plugin": "catalog:",
         "@vitejs/plugin-react": "catalog:",

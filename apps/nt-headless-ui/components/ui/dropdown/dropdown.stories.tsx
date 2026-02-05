@@ -64,8 +64,7 @@ export const SplitButton: Story = {
                 { label: 'Save & Publish' },
                 { divider: true },
                 { label: 'Cancel' }
-            ]}
-        >
+            ]}>
             <button className="nt-button nt-button-primary nt-rounded-end-0">
                 Save Options
             </button>

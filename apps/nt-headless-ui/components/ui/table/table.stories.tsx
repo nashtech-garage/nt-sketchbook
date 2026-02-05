@@ -41,8 +41,8 @@ export const Default: StoryFn<TableProps> = Template.bind(
 ) as StoryFn<TableProps>
 Default.args = {
     columns: columns as Array<{
-        header: string
         accessorKey: string
+        header: string
     }>,
     data: userData
 }

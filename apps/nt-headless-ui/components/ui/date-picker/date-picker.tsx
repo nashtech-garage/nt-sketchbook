@@ -9,8 +9,8 @@ type ReactDPProps = ComponentProps<typeof ReactDatePicker>
 type SingleMode = Extract<
     ReactDPProps,
     {
-        selectsRange?: false
         selectsMultiple?: false
+        selectsRange?: false
     }
 >
 

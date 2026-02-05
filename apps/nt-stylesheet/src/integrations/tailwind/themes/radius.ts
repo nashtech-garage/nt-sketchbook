@@ -5,5 +5,5 @@ export const borderRadius = {
     'group-sm': '0.5rem',
     DEFAULT: '0.25rem',
     badge: '0.125rem',
-    avatar: '6.25rem',
+    avatar: '6.25rem'
 }

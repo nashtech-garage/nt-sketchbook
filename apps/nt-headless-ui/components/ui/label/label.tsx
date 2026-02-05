@@ -4,9 +4,9 @@ import { type ReactNode } from 'react'
 export type LabelVariant = 'hint' | 'form-field'
 
 export type LabelProps = {
-    htmlFor?: string
     children: ReactNode
     className?: string
+    htmlFor?: string
     variant?: LabelVariant
 }
 
@@ -25,8 +25,7 @@ export const Label = ({
                     ? 'nt-label-hint'
                     : 'nt-label-form-field',
                 className
-            )}
-        >
+            )}>
             {children}
         </label>
     )

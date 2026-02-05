@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
 import {
     AvatarFallback,
@@ -11,15 +12,15 @@ export type AvatarStatus = 'online' | 'offline' | 'busy' | 'away'
 export type AvatarRadius = 'none' | 'sm' | 'md' | 'lg' | 'full'
 
 export type AvatarProps = {
-    className?: string
-    src?: string
-    fallBack?: React.ReactNode
-    hasBadge?: boolean
-    size?: AvatarSize
     badgeClass?: string
-    status?: AvatarStatus
+    className?: string
+    fallBack?: ReactNode
+    hasBadge?: boolean
     radius?: AvatarRadius
-} & React.ComponentPropsWithoutRef<typeof AvatarPrimitiveRoot>
+    size?: AvatarSize
+    src?: string
+    status?: AvatarStatus
+} & ComponentPropsWithoutRef<typeof AvatarPrimitiveRoot>
 
 export const Avatar = ({
     src,
@@ -34,8 +35,7 @@ export const Avatar = ({
 }: AvatarProps) => (
     <AvatarPrimitiveRoot
         className={cn('nt-avatar-wrapper-' + size, className)}
-        {...args}
-    >
+        {...args}>
         <AvatarImage
             className={cn(
                 'nt-avatar',

@@ -1,16 +1,16 @@
 import { cn } from '@/lib/utils'
 import { X } from 'lucide-react'
-import React, { type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 export type AlertType = 'info' | 'danger' | 'warning' | 'success'
 
 export type AlertProps = {
-    type?: AlertType
     message: string
-    showIcon?: boolean
+    className?: string
     icon?: ReactNode
     onClose?: () => void
-    className?: string
+    showIcon?: boolean
+    type?: AlertType
 }
 
 export const Alert = (props: AlertProps) => {
@@ -33,8 +33,7 @@ export const Alert = (props: AlertProps) => {
                 },
                 className
             )}
-            role="alert"
-        >
+            role="alert">
             {icon && <span className="nt-alert-icon">{icon}</span>}
             <span className="nt-alert-message">{message}</span>
             {onClose && (

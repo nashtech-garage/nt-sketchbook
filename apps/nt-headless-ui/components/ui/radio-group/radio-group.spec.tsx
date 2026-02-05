@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import React from 'react'
 import { describe, expect, it, vitest } from 'vitest'
 
 import {
@@ -8,14 +7,14 @@ import {
     type RadioDirection,
     RadioGroup,
     type RadioGroupProps,
-    type RadioProps,
+    type RadioProps
 } from './radio-group'
 
 const defaultRadioProps: RadioProps = {
     id: 'radio1',
     label: 'Default Option',
     name: 'choice',
-    value: '1',
+    value: '1'
 }
 
 const defaultRadioGroupItems: RadioProps[] = [
@@ -25,9 +24,9 @@ const defaultRadioGroupItems: RadioProps[] = [
         label: 'Option 2',
         name: 'choice',
         value: '2',
-        disabled: true,
+        disabled: true
     },
-    { id: 'r3', label: 'Option 3', name: 'choice', value: '3' },
+    { id: 'r3', label: 'Option 3', name: 'choice', value: '3' }
 ]
 
 const setupRadio = (overrideProps: Partial<RadioProps> = {}) => {
@@ -35,12 +34,12 @@ const setupRadio = (overrideProps: Partial<RadioProps> = {}) => {
 }
 
 const setupRadioGroup = (
-    overrideProps: Partial<RadioGroupProps> = {},
+    overrideProps: Partial<RadioGroupProps> = {}
 ) => {
     const props: RadioGroupProps = {
         items: defaultRadioGroupItems,
         direction: 'column',
-        ...overrideProps,
+        ...overrideProps
     }
     render(<RadioGroup {...props} />)
 }
@@ -49,7 +48,7 @@ describe('Radio', () => {
     it('renders with label and associates input with id', () => {
         setupRadio()
         const input = screen.getByRole('radio', {
-            name: 'Default Option',
+            name: 'Default Option'
         })
         expect(input).toBeInTheDocument()
         expect(input).toHaveAttribute('id', 'radio1')
@@ -60,11 +59,11 @@ describe('Radio', () => {
         setupRadio({ disabled: true, className: 'custom-class' })
         expect(
             screen.getByRole('radio', {
-                name: 'Default Option',
-            }),
+                name: 'Default Option'
+            })
         ).toBeDisabled()
         expect(
-            screen.getByText('Default Option').closest('label'),
+            screen.getByText('Default Option').closest('label')
         ).toHaveClass('nt-radio custom-class')
     })
 
@@ -73,8 +72,8 @@ describe('Radio', () => {
         setupRadio({ onChange })
         await userEvent.click(
             screen.getByRole('radio', {
-                name: 'Default Option',
-            }),
+                name: 'Default Option'
+            })
         )
         expect(onChange).toHaveBeenCalledTimes(1)
     })
@@ -85,14 +84,14 @@ describe('RadioGroup', () => {
         setupRadioGroup()
         defaultRadioGroupItems.forEach(({ label }) => {
             expect(
-                screen.getByText(label as string),
+                screen.getByText(label as string)
             ).toBeInTheDocument()
         })
     })
 
     it.each([
         ['column', 'nt-radio-column'],
-        ['row', 'nt-radio-row'],
+        ['row', 'nt-radio-row']
     ])(
         'applies direction class for direction=%s',
         (direction, expectedClass) => {
@@ -100,10 +99,10 @@ describe('RadioGroup', () => {
                 <RadioGroup
                     items={defaultRadioGroupItems}
                     direction={direction as RadioDirection}
-                />,
+                />
             )
             expect(container.firstChild).toHaveClass(expectedClass)
-        },
+        }
     )
 
     it('passes className to container div', () => {

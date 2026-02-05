@@ -1,5 +1,5 @@
-import type { HeaderGroup, RowData } from '@tanstack/react-table'
 import type * as ReactTable from '@tanstack/react-table'
+import type { HeaderGroup, RowData } from '@tanstack/react-table'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
