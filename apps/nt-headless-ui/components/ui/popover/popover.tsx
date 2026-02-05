@@ -16,10 +16,10 @@ export type PopoverVariant =
 export type Side = 'top' | 'right' | 'bottom' | 'left'
 
 export type PopoverProps = {
-    trigger: React.ReactNode
-    side?: Side
-    className?: string
     children: React.ReactNode
+    trigger: React.ReactNode
+    className?: string
+    side?: Side
     variant?: PopoverVariant
 }
 
@@ -62,8 +62,7 @@ export const Popover = (props: PopoverProps) => {
                     `nt-popover show nt-popover-${variant}`,
                     className
                 )}
-                side={side}
-            >
+                side={side}>
                 {children}
                 <PopoverPrimitive.Arrow
                     role="presentation"

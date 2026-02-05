@@ -4,8 +4,8 @@ import type { ReactNode, Ref, SelectHTMLAttributes } from 'react'
 import { cloneElement, forwardRef, isValidElement } from 'react'
 
 export type Options = {
-    value: string | number
     label: string | number
+    value: string | number
 }[]
 
 export type SelectVariant =
@@ -21,17 +21,17 @@ export type SelectProps = Omit<
     SelectHTMLAttributes<HTMLSelectElement>,
     'size'
 > & {
+    classIconLeft?: string
     className?: string
-    variant?: SelectVariant
-    size?: SelectSize
-    options?: Options
     groups?: {
         label: string
         options: Options
     }[]
     iconLeft?: ReactNode
-    classIconLeft?: string
+    options?: Options
     placeholder?: string
+    size?: SelectSize
+    variant?: SelectVariant
 }
 
 const rootClassName = 'nt-select'
@@ -77,8 +77,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 )}
                 disabled={disabled}
                 ref={ref}
-                {...restProps}
-            >
+                {...restProps}>
                 {placeholder && (
                     <option value="" disabled hidden>
                         {placeholder}
@@ -89,13 +88,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     ? groups.map((group) => (
                           <optgroup
                               key={group.label}
-                              label={group.label}
-                          >
+                              label={group.label}>
                               {group.options.map((opt) => (
                                   <option
                                       key={opt.value}
-                                      value={opt.value}
-                                  >
+                                      value={opt.value}>
                                       {opt.label}
                                   </option>
                               ))}

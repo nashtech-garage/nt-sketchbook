@@ -4,9 +4,9 @@ import type { Option } from '../multi-select'
 
 export type UseMultiSelect = {
     options: Option[]
-    placeholder?: string
     initialOption?: Option[]
     onChange?: (selected: Option[]) => void
+    placeholder?: string
 }
 
 export const useMultiSelect = (props: UseMultiSelect) => {

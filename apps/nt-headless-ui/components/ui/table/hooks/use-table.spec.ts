@@ -6,13 +6,13 @@ import { useTable } from './use-table'
 
 const columns: ColumnDef<unknown>[] = [
     { accessorKey: 'id', header: 'ID' },
-    { accessorKey: 'name', header: 'Name' },
+    { accessorKey: 'name', header: 'Name' }
 ]
 
 const mockData = [
     { id: 1, name: 'Alice' },
     { id: 2, name: 'Bob' },
-    { id: 3, name: 'Charlie' },
+    { id: 3, name: 'Charlie' }
 ]
 
 describe('useTable Hook', () => {
@@ -22,20 +22,20 @@ describe('useTable Hook', () => {
 
     it('initializes the table correctly', () => {
         const { result } = renderHook(() =>
-            useTable({ data: mockData, columns }),
+            useTable({ data: mockData, columns })
         )
 
         expect(
-            result.current.table.getState().pagination.pageIndex,
+            result.current.table.getState().pagination.pageIndex
         ).toBe(0)
         expect(result.current.table.getRowCount()).toBe(
-            mockData.length,
+            mockData.length
         )
     })
 
     it('calculates correct startIndex and endIndex', () => {
         const { result } = renderHook(() =>
-            useTable({ data: mockData, columns }),
+            useTable({ data: mockData, columns })
         )
 
         expect(result.current.startIndex).toBe(0)
@@ -48,8 +48,8 @@ describe('useTable Hook', () => {
             useTable({
                 data: mockData,
                 columns,
-                onPageClick: mockOnPageClick,
-            }),
+                onPageClick: mockOnPageClick
+            })
         )
 
         act(() => {
@@ -61,7 +61,7 @@ describe('useTable Hook', () => {
 
     it('updates page index when onPageClick is not provided', () => {
         const { result } = renderHook(() =>
-            useTable({ data: mockData, columns }),
+            useTable({ data: mockData, columns })
         )
 
         act(() => {
@@ -69,7 +69,7 @@ describe('useTable Hook', () => {
         })
 
         expect(
-            result.current.table.getState().pagination.pageIndex,
+            result.current.table.getState().pagination.pageIndex
         ).toBe(1)
     })
 })

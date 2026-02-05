@@ -34,8 +34,7 @@ export const Default: Story = {
                         </div>
                     </div>
                 </div>
-            }
-        >
+            }>
             <p>This is the collapsible content.</p>
         </Collapsible>
     )

@@ -1,6 +1,6 @@
 export type InputMessageProps = {
-    message?: string
     hasError?: boolean
+    message?: string
 }
 
 export const InputMessage = ({

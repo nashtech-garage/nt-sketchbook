@@ -1,18 +1,19 @@
 import { cn } from '@/lib/utils'
+import type { HTMLAttributes, ReactNode } from 'react'
 
 export type BadgeVariant = 'danger' | 'info' | 'success' | 'warning'
 export type BadgeSize = 'large' | 'small'
 export type BadgeIconPosition = 'left' | 'right'
 
 export type BadgeProps = {
-    rounded?: boolean
-    icon?: React.ReactNode
+    icon?: ReactNode
     iconPosition?: BadgeIconPosition
-    variant?: BadgeVariant
+    rounded?: boolean
     size?: BadgeSize
-} & React.HTMLAttributes<HTMLDivElement>
+    variant?: BadgeVariant
+} & HTMLAttributes<HTMLDivElement>
 
-export const Badge: React.FC<BadgeProps> = ({
+export const Badge = ({
     children,
     variant = 'success',
     rounded = false,
@@ -21,7 +22,7 @@ export const Badge: React.FC<BadgeProps> = ({
     iconPosition = 'left',
     size = 'small',
     ...props
-}) => (
+}: BadgeProps) => (
     <div
         className={cn(
             'nt-badge',
@@ -30,8 +31,7 @@ export const Badge: React.FC<BadgeProps> = ({
             { 'nt-badge-rounded': rounded },
             className
         )}
-        {...props}
-    >
+        {...props}>
         {icon && iconPosition === 'left' && (
             <span className="nt-mr-2">{icon}</span>
         )}

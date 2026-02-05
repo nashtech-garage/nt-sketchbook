@@ -9,7 +9,7 @@ const CardWrapper = React.forwardRef<
         ref={ref}
         className={cn(
             'rounded-xl border bg-card text-card-foreground shadow',
-            className,
+            className
         )}
         {...props}
     />
@@ -36,7 +36,7 @@ const CardTitle = React.forwardRef<
         ref={ref}
         className={cn(
             'font-semibold leading-none tracking-tight',
-            className,
+            className
         )}
         {...props}
     />
@@ -76,10 +76,10 @@ const CardFooter = React.forwardRef<
 CardFooter.displayName = 'CardFooter'
 
 export {
-    CardWrapper,
-    CardHeader,
-    CardFooter,
-    CardTitle,
-    CardDescription,
     CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+    CardWrapper
 }

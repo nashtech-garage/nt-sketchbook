@@ -5,14 +5,14 @@ import { Pagination } from '../../pagination/pagination'
 import { Select } from '../../select/select'
 
 export type PaginationProps = {
-    startIndex: number
     endIndex: number
-    classPagination?: string
-    textItemsPerPage?: string
-    table: Table<Record<string, unknown>>
     handlePageClick: (page: number) => void
-    itemPerPage?: number
+    startIndex: number
+    table: Table<Record<string, unknown>>
+    classPagination?: string
     handleItemPerPageChange?: (itemPerPage: number) => void
+    itemPerPage?: number
+    textItemsPerPage?: string
 }
 
 const PaginationTable = (props: PaginationProps) => {
@@ -38,8 +38,7 @@ const PaginationTable = (props: PaginationProps) => {
             className={cn(
                 'nt-d-flex nt-items-center nt-justify-between',
                 classPagination
-            )}
-        >
+            )}>
             <div className="nt-d-flex nt-items-center nt-gap-3 ">
                 <Select
                     options={possiblePageSizes.map((size) => ({

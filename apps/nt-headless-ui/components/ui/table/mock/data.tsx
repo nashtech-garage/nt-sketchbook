@@ -69,8 +69,7 @@ export const columns = [
                     'active'
                         ? 'bg-success text-white'
                         : 'bg-danger text-white'
-                }`}
-            >
+                }`}>
                 {info.getValue()}
             </Badge>
         ),

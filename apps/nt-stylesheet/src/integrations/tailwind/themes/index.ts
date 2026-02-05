@@ -9,7 +9,7 @@ const theme = {
         spacing: {
             ...spacing,
             ...gap,
-            gutter: '1.5rem',
+            gutter: '1.5rem'
         },
         borderRadius,
         colors,
@@ -17,14 +17,14 @@ const theme = {
         fontWeight,
         screens: {
             'viewport-min': '80rem',
-            'viewport-max': '120rem',
+            'viewport-max': '120rem'
         },
         backgroundColor,
         boxShadow,
         gridTemplateColumns: {
-            DEFAULT: 'repeat(12, minmax(0, 1fr))',
-        },
-    },
+            DEFAULT: 'repeat(12, minmax(0, 1fr))'
+        }
+    }
 }
 
-export { theme, colors }
+export { colors, theme }

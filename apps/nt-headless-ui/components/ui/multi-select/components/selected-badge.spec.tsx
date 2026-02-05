@@ -14,7 +14,7 @@ describe('SelectedBadge', () => {
                 option={option}
                 handleUnselect={mockHandleUnselect}
                 disable={props?.disable ?? false}
-            />,
+            />
         )
 
     afterEach(() => {
@@ -29,7 +29,7 @@ describe('SelectedBadge', () => {
     it('calls handleUnselect when remove button is clicked', () => {
         setup()
         const removeButton = screen.getByTestId(
-            `remove-${option.value}`,
+            `remove-${option.value}`
         )
         fireEvent.click(removeButton)
         expect(mockHandleUnselect).toHaveBeenCalledWith(option)
@@ -38,7 +38,7 @@ describe('SelectedBadge', () => {
     it('does not call handleUnselect when disabled', () => {
         setup({ disable: true })
         const removeButton = screen.getByTestId(
-            `remove-${option.value}`,
+            `remove-${option.value}`
         )
         fireEvent.click(removeButton)
         expect(mockHandleUnselect).not.toHaveBeenCalled()
@@ -48,7 +48,7 @@ describe('SelectedBadge', () => {
         setup({ disable: true })
         const badge = screen.getByText(option.label).closest('div')
         expect(badge).toHaveClass(
-            'bg-shade-neutral-9 border !border-shade-neutral-10 !cursor-not-allowed text-shade-neutral-70',
+            'bg-shade-neutral-9 border !border-shade-neutral-10 !cursor-not-allowed text-shade-neutral-70'
         )
     })
 })

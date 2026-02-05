@@ -41,8 +41,7 @@ export const DatePickerHeader = ({
             onClick={decreaseMonth}
             disabled={prevMonthButtonDisabled}
             type="button"
-            aria-label="Previous Month"
-        >
+            aria-label="Previous Month">
             <span className="nti nti-chevron-left"></span>
         </button>
         <Select
@@ -69,8 +68,7 @@ export const DatePickerHeader = ({
             onClick={increaseMonth}
             disabled={nextMonthButtonDisabled}
             type="button"
-            aria-label="Next Month"
-        >
+            aria-label="Next Month">
             <span className="nti nti-chevron-right"></span>
         </button>
     </div>

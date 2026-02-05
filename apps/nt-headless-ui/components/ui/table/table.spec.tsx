@@ -22,8 +22,7 @@ vi.mock('./components', () => ({
         <tr data-testid="mock-th">
             <th
                 className={classTh}
-                style={{ fontSize: classFontSize }}
-            >
+                style={{ fontSize: classFontSize }}>
                 {headerGroup?.id || 'Mock Header'}
             </th>
         </tr>

@@ -4,8 +4,8 @@ import { forwardRef, type InputHTMLAttributes } from 'react'
 export type SwitchVariant = 'default' | 'danger' | 'warning'
 
 export type SwitchProps = {
-    variant?: SwitchVariant
     className?: string
+    variant?: SwitchVariant
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
@@ -18,8 +18,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
                     'nt-switch',
                     variant !== 'default' && `nt-switch-${variant}`,
                     className
-                )}
-            >
+                )}>
                 <input
                     ref={ref}
                     type="checkbox"

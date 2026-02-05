@@ -18,13 +18,11 @@ const Th = (props: ThProps) => {
                 <th
                     key={header.id}
                     colSpan={header.colSpan}
-                    scope="col"
-                >
+                    scope="col">
                     {header.isPlaceholder ? null : (
                         <div
                             className="nt-table-thead"
-                            onClick={header.column.getToggleSortingHandler()}
-                        >
+                            onClick={header.column.getToggleSortingHandler()}>
                             {flexRender(
                                 header.column.columnDef.header,
                                 header.getContext()

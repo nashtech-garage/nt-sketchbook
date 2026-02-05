@@ -7,9 +7,9 @@ import Avatar, {
 
 export type AvatarGroupProps = {
     avatars: AvatarProps[]
-    size?: AvatarSize
-    count?: number
     className?: string
+    count?: number
+    size?: AvatarSize
 }
 
 export const AvatarGroup = ({
@@ -21,8 +21,7 @@ export const AvatarGroup = ({
     return (
         <div
             className={cn('nt-avatar-group', className)}
-            role="group"
-        >
+            role="group">
             {avatars.map((avatar, index) => (
                 <Avatar
                     key={index}
@@ -37,15 +36,13 @@ export const AvatarGroup = ({
                     className={cn(
                         'nt-avatar-wrapper',
                         'nt-avatar-wrapper-' + size
-                    )}
-                >
+                    )}>
                     <span
                         className={cn(
                             'nt-avatar',
                             `nt-avatar-${size}`,
                             'nt-avatar-count'
-                        )}
-                    >
+                        )}>
                         {count}+
                     </span>
                 </span>

@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import React, {
+import {
     type KeyboardEvent,
     type MouseEvent,
     type ReactNode,
@@ -9,26 +9,26 @@ import React, {
 export type SlideBarItem = {
     id: string
     label: string
+    children?: SlideBarItem[]
     icon?: string
     onClick?: () => void
-    children?: SlideBarItem[]
 }
 
 export type SlideBarProps = {
-    logoSrc?: string
-    version?: string
-    brandingText?: string
     items: SlideBarItem[]
+    brandingText?: string
     defaultOpen?: string[]
     footer?: ReactNode
+    logoSrc?: string
     onSearch?: (event: KeyboardEvent<HTMLInputElement>) => void
+    version?: string
 }
 
 type SlideBarListProps = {
-    toggleMenu: (id: string) => void
     items: SlideBarItem[]
-    openMenus?: string[]
+    toggleMenu: (id: string) => void
     isSecondary?: boolean
+    openMenus?: string[]
     toggle?: boolean
     toggleMenuVisibility?: (toggle: boolean) => void
 }
@@ -45,8 +45,7 @@ const NavbarItemList = ({
         <ul
             className={
                 isSecondary ? 'nt-navbar-secondary' : 'nt-navbar-list'
-            }
-        >
+            }>
             {items.map(({ id, label, icon, onClick, children }) => {
                 const isOpen = openMenus.includes(id)
                 const hasChildren = Boolean(children?.length)
@@ -76,8 +75,7 @@ const NavbarItemList = ({
                     <li
                         key={id}
                         className={liClassName}
-                        onClick={handleItemClick}
-                    >
+                        onClick={handleItemClick}>
                         {hasChildren ? (
                             <div className="nt-navbar-link">
                                 {icon && (
@@ -139,8 +137,7 @@ export const Sidebar = ({
     return (
         <nav
             className={`nt-navbar ${toggle ? 'open' : ''}`}
-            aria-label="Sidebar"
-        >
+            aria-label="Sidebar">
             <div className="nt-navbar-header">
                 <div className="nt-navbar-header-logo">
                     <img alt="logo" src={logoSrc} />

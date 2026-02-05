@@ -14,13 +14,13 @@ export type MultipleSelectSize = 'small' | 'medium' | 'large'
 
 export type MultipleSelectProps = {
     options: Option[]
-    iconLeft?: ReactNode
     classIconLeft?: string
-    variant?: MultipleSelectVariant
-    initialOption?: Option[]
-    placeholder?: string
-    onChange?: (selected: Option[]) => void
     disabled?: boolean
+    iconLeft?: ReactNode
+    initialOption?: Option[]
+    onChange?: (selected: Option[]) => void
+    placeholder?: string
+    variant?: MultipleSelectVariant
 }
 
 export const MultipleSelect = (props: MultipleSelectProps) => {
@@ -58,8 +58,7 @@ export const MultipleSelect = (props: MultipleSelectProps) => {
             tabIndex={0}
             onFocus={() => !disabled && setOpen(true)}
             onBlur={() => !disabled && setOpen(false)}
-            onKeyDown={handleKeyDown}
-        >
+            onKeyDown={handleKeyDown}>
             <div className="nt-multi-select-control">
                 {isValidElement<{ className?: string }>(iconLeft) &&
                     cloneElement(iconLeft, {
@@ -76,8 +75,7 @@ export const MultipleSelect = (props: MultipleSelectProps) => {
                     {selected.map((option) => (
                         <span
                             className="nt-multi-select-tag"
-                            key={option.value}
-                        >
+                            key={option.value}>
                             {option.label}
                             {!disabled && (
                                 <button
@@ -85,8 +83,7 @@ export const MultipleSelect = (props: MultipleSelectProps) => {
                                     type="button"
                                     onClick={() =>
                                         handleUnselect(option)
-                                    }
-                                >
+                                    }>
                                     &times;
                                 </button>
                             )}
@@ -124,8 +121,7 @@ export const MultipleSelect = (props: MultipleSelectProps) => {
                                         option
                                     ])
                                 }
-                            }}
-                        >
+                            }}>
                             {option.label}
                         </li>
                     ))}

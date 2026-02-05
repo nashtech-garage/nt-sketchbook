@@ -12,8 +12,8 @@ import {
 import { useMemo } from 'react'
 
 type UseTableProps = {
-    data: unknown[]
     columns: ColumnDef<unknown>[]
+    data: unknown[]
     onPageClick?: (page: number) => void
 }
 

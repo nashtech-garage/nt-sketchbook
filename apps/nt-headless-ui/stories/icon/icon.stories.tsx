@@ -27,8 +27,7 @@ export const AllIcons: StoryObj<typeof IconCanvas> = {
                     .map(([name, Icon]) => (
                         <div
                             key={name}
-                            className="flex flex-col items-center text-xs text-gray-600"
-                        >
+                            className="flex flex-col items-center text-xs text-gray-600">
                             {React.createElement(
                                 Icon as React.ElementType,
                                 { size: 24 }

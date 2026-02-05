@@ -8,8 +8,8 @@ export type CollapsibleProps = {
     trigger: ReactNode
     classNameTrigger?: string
     classNameTriggerWrapper?: string
-    open?: boolean
     onOpenChange?: (open: boolean) => void
+    open?: boolean
     shouldDisplayArrow?: boolean
 }
 
@@ -33,14 +33,12 @@ export const Collapsible = (props: CollapsibleProps) => {
     return (
         <CollapsiblePrimitive.Root
             open={isOpen}
-            onOpenChange={handleOpenChange}
-        >
+            onOpenChange={handleOpenChange}>
             <CollapsiblePrimitive.Trigger
                 className={cn(
                     'nt-collapse show',
                     classNameTriggerWrapper
-                )}
-            >
+                )}>
                 {trigger}
                 {shouldDisplayArrow && (
                     <ChevronDown

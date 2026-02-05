@@ -7,7 +7,7 @@ export const colors = {
     orange: '#FF8800',
     purple: '#6A1F7A',
     blue: {
-        DEFAULT: '#0094D5',
+        DEFAULT: '#0094D5'
     },
     primary: '#D6001C',
     pink: '#E31C79',
@@ -36,7 +36,7 @@ export const colors = {
         40: '#C3A5CA',
         30: '#D2BCD7',
         20: '#E1D2E4',
-        10: '#F0E9F2',
+        10: '#F0E9F2'
     },
     'shade-secondary-2': {
         DEFAULT: '#0094D5',
@@ -49,7 +49,7 @@ export const colors = {
         30: '#B3DFF2',
         20: '#CCEAF7',
         10: '#E6F4FB',
-        9: '#F0F5FE',
+        9: '#F0F5FE'
     },
     'shade-secondary-3': {
         DEFAULT: '#E31C79',
@@ -61,7 +61,7 @@ export const colors = {
         40: '#F4A4C9',
         30: '#F7BBD7',
         20: '#F9D2E4',
-        10: '#FCE8F2',
+        10: '#FCE8F2'
     },
     'shade-secondary-4': {
         DEFAULT: '#F4AD33',
@@ -73,7 +73,7 @@ export const colors = {
         40: '#FBDEAD',
         30: '#FCE6C2',
         20: '#FDEFD6',
-        10: '#FEF7EB',
+        10: '#FEF7EB'
     },
     'shade-neutral': {
         DEFAULT: '#28292B',
@@ -86,7 +86,7 @@ export const colors = {
         30: '#BFBFBF',
         20: '#D4D4D5',
         10: '#EAEAEA',
-        9: '#F6F6F6',
+        9: '#F6F6F6'
     },
     yellow: {
         DEFAULT: '#F4AD33',
@@ -98,7 +98,7 @@ export const colors = {
         40: '#FBDEAD',
         30: '#FCE6C2',
         20: '#FDEFD6',
-        10: '#FEF7EB',
+        10: '#FEF7EB'
     },
     'shade-primary': {
         '190': '#150003',
@@ -119,39 +119,39 @@ export const colors = {
         40: '#EF99A4',
         30: '#F3B3BB',
         20: '#F7CCD2',
-        10: '#FBE6E8',
+        10: '#FBE6E8'
     },
     success: {
         bold: '#359000',
         DEFAULT: '#6CD430',
         light: '#ABE38B',
-        thin: '#E4FFD5',
+        thin: '#E4FFD5'
     },
     warning: {
         bold: '#DF7700',
         DEFAULT: '#FFB92E',
         light: '#FED496',
-        thin: '#FFF0DA',
+        thin: '#FFF0DA'
     },
     danger: {
         bold: '#E51010',
         DEFAULT: '#FA5151',
         light: '#F9BBBB',
-        thin: '#FFE9E9',
+        thin: '#FFE9E9'
     },
     info: {
         bold: '#0094D5',
         DEFAULT: '#33A9DD',
         light: '#B3DFF2',
-        thin: '#E6F4FB',
+        thin: '#E6F4FB'
     },
     line: {
         dark: '#E6E6E6',
         DEFAULT: '#F0F5FE',
         light: '#F6F6F6',
         white: '#FFFFFF',
-        diabled: '#C9CCD4',
-    },
+        diabled: '#C9CCD4'
+    }
 }
 
 export const boxShadow = {
@@ -164,7 +164,7 @@ export const boxShadow = {
     success: '0 0.25rem 0.375rem rgba(53, 144, 0, 0.15)',
     warning: '0 0.25rem 0.375rem rgba(223, 119, 0, 0.15)',
     danger: '0 0.25rem 0.375rem rgba(229, 16, 16, 0.15)',
-    info: '0 0.25rem 0.375rem rgba(0, 148, 213, 0.15);',
+    info: '0 0.25rem 0.375rem rgba(0, 148, 213, 0.15);'
 }
 
 export const backgroundColor = {
@@ -172,5 +172,5 @@ export const backgroundColor = {
     DEFAULT: '#F0F5FE',
     light: '#F6F6F6',
     white: '#FFFFFF',
-    disabled: '#C9CCD4',
+    disabled: '#C9CCD4'
 }

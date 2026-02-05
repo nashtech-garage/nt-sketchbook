@@ -1,4 +1,4 @@
-import React, {
+import {
     forwardRef,
     type InputHTMLAttributes,
     type ReactNode
@@ -36,9 +36,9 @@ export type RadioDirection = 'column' | 'row'
 
 export type RadioGroupProps = {
     items: RadioProps[]
+    ariaLabel?: string
     className?: string
     direction?: RadioDirection
-    ariaLabel?: string
 }
 
 export const RadioGroup = ({
@@ -51,8 +51,7 @@ export const RadioGroup = ({
         <div
             role="group"
             className={`nt-radio-${direction} ${className}`}
-            aria-label={ariaLabel}
-        >
+            aria-label={ariaLabel}>
             {items.map((item) => (
                 <Radio key={item.id} {...item} />
             ))}

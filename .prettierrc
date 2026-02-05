@@ -9,7 +9,6 @@
     "importOrderSortSpecifiers": true,
     "importOrderSideEffects": true,
     "importOrderCaseInsensitive": true,
-    "plugins": ["@trivago/prettier-plugin-sort-imports"],
     "semi": false,
     "trailingComma": "none",
     "arrowParens": "always",

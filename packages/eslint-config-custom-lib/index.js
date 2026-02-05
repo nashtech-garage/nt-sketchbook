@@ -1,4 +1,6 @@
+import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import pluginTestingLibrary from 'eslint-plugin-testing-library'
+import sortKeysPlugin from 'eslint-plugin-typescript-sort-keys'
 import pluginUnusedImports from 'eslint-plugin-unused-imports'
 
 import baseConfig from '../../eslint.config.mjs'
@@ -6,10 +8,11 @@ import baseConfig from '../../eslint.config.mjs'
 export default [
     ...baseConfig,
     {
-        files: ['**/*.ts', '**/*.tsx'],
+        files: ['**/*.{js,cjs,mjs,ts,tsx,jsx}'],
         plugins: {
             'testing-library': pluginTestingLibrary,
-            'unused-imports': pluginUnusedImports
+            'unused-imports': pluginUnusedImports,
+            'typescript-sort-keys': sortKeysPlugin
         },
         rules: {
             '@typescript-eslint/consistent-type-exports': 'error',
@@ -20,17 +23,27 @@ export default [
             'unused-imports/no-unused-imports': 'error',
             'unused-imports/no-unused-vars': 'error',
             'react/react-in-jsx-scope': 'off',
-            'arrow-body-style': ['warn', 'as-needed']
+            'arrow-body-style': ['warn', 'as-needed'],
+            'object-shorthand': 'error',
+            'prettier/prettier': 'error',
+            'typescript-sort-keys/interface': [
+                'error',
+                'asc',
+                {
+                    caseSensitive: false,
+                    natural: true,
+                    requiredFirst: true
+                }
+            ]
         }
     },
-
     {
         files: ['**/*.spec.tsx', '**/*.spec.ts'],
         rules: {
             'no-useless-escape': 'off'
         }
     },
-
+    prettierRecommended,
     {
         ignores: [
             'reports',
@@ -46,6 +59,7 @@ export default [
             'eslint.config.mjs',
             '**/storybook-static/**',
             'vite.config.**',
+            'vitest.config.**',
             '**/next-env.d.ts',
             '**/.storybook/**',
             '**/.next/**'

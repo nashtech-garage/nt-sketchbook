@@ -5,6 +5,8 @@
     "type": "module",
     "license": "MIT",
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "catalog:",
+        "@typescript-eslint/parser": "catalog:",
         "eslint": "catalog:",
         "eslint-config-next": "15.2.4",
         "eslint-config-prettier": "catalog:",
@@ -15,11 +17,11 @@
         "eslint-plugin-react": "catalog:",
         "eslint-plugin-testing-library": "catalog:",
         "eslint-plugin-unused-imports": "catalog:",
-        "typescript": "catalog:",
-        "@typescript-eslint/eslint-plugin": "catalog:",
-        "@typescript-eslint/parser": "catalog:"
+        "eslint-plugin-typescript-sort-keys": "catalog:",
+        "typescript": "catalog:"
     },
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "dependencies": {}
 }

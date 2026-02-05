@@ -4,8 +4,8 @@ import { X } from 'lucide-react'
 import { Badge } from '../../badge/badge'
 
 export type SelectedBadgeProps = {
-    option: { value: string; label: string }
-    handleUnselect: (option: { value: string; label: string }) => void
+    handleUnselect: (option: { label: string; value: string }) => void
+    option: { label: string; value: string }
     disable?: boolean
 }
 
@@ -20,8 +20,7 @@ export const SelectedBadge: React.FC<SelectedBadgeProps> = ({
         className={cn('mr-2 py-1', {
             'bg-shade-neutral-9 border !border-shade-neutral-10 !cursor-not-allowed text-shade-neutral-70':
                 disable
-        })}
-    >
+        })}>
         {option.label}
         <button
             disabled={disable}
@@ -31,8 +30,7 @@ export const SelectedBadge: React.FC<SelectedBadgeProps> = ({
                 e.preventDefault()
                 e.stopPropagation()
             }}
-            onClick={() => handleUnselect(option)}
-        >
+            onClick={() => handleUnselect(option)}>
             <X className="h-3 w-3 text-muted-foreground hover:text-foreground" />
         </button>
     </Badge>

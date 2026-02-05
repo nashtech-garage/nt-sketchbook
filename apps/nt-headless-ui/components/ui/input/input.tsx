@@ -16,16 +16,16 @@ export type InputVariant =
     | 'success'
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-    variant?: InputVariant
-    leftIcon?: ReactNode
-    rightIcon?: ReactNode
     className?: string
-    wrapperClassName?: string
+    hasError?: boolean
     hasIcon?: boolean
     label?: string
     layout?: 'static' | 'float'
-    hasError?: boolean
+    leftIcon?: ReactNode
     message?: string
+    rightIcon?: ReactNode
+    variant?: InputVariant
+    wrapperClassName?: string
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -73,8 +73,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                             'nt-input-container',
                             inputClassNameWrapper,
                             wrapperClassName
-                        )}
-                    >
+                        )}>
                         {leftIcon && (
                             <span className="nt-input-icon">
                                 {leftIcon}

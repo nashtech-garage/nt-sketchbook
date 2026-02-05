@@ -15,13 +15,13 @@ let trigger: HTMLElement
 const user = userEvent.setup()
 
 type SetupProps = {
-    id?: string
-    text?: string
     content?: string
-    title?: string
-    placement?: Placement
-    html?: boolean
     dismissible?: boolean
+    html?: boolean
+    id?: string
+    placement?: Placement
+    text?: string
+    title?: string
     variant?: string
 }
 
