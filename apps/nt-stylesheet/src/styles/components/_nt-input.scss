@@ -38,12 +38,13 @@ $transition-duration: 0.3s;
 }
 
 @mixin input-base {
+    @include utils.font-size('2xs');
+
     $default-color: map.get(map.get($input-colors, default), base);
     width: 100%;
     padding: $input-padding-x;
-    font-size: map.get(utils.$nt-font-sizes, 'sm');
     border-radius: $input-border-radius;
-    border: 0.0625rem solid $default-color;
+    border: 1px solid $default-color;
     background-color: white;
     transition:
         border-color $transition-duration,

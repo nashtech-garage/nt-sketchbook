@@ -1,4 +1,5 @@
 @use '../variables' as vars;
+@use '../utilities' as utils;
 
 $white: vars.$nt-color-white;
 $gradient: linear-gradient(
@@ -57,17 +58,20 @@ $base-transition: all 0.2s ease-in-out;
 
 @mixin button-sm {
     padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
+
+    @include utils.font-size('sm');
 }
 
 @mixin button-md {
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+
+    @include utils.font-size('sm');
 }
 
 @mixin button-lg {
     padding: 0.75rem 1.25rem;
-    font-size: 1.125rem;
+
+    @include utils.font-size('lg');
 }
 
 %button-base {

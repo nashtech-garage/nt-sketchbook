@@ -1,4 +1,5 @@
 @use '../variables' as vars;
+@use '../utilities' as utils;
 @use 'sass:map';
 
 $input-colors: (
@@ -16,8 +17,8 @@ $input-colors: (
 .nt-multi-select {
     position: relative;
     width: 100%;
-    font-family: inherit;
-    font-size: 0.875rem;
+
+    @include utils.font-size('sm');
 
     &:focus {
         outline: none;
@@ -93,7 +94,8 @@ $input-colors: (
         border-radius: 6.25rem;
         display: flex;
         align-items: center;
-        font-size: 1rem;
+
+        @include utils.font-size('sm');
 
         &-remove {
             background: none;
@@ -107,10 +109,10 @@ $input-colors: (
     }
 
     &-input {
+        @include utils.font-size('sm');
         flex: 1;
         border: none;
         outline: none;
-        font-size: 1rem;
         padding: 0.25rem 0;
         min-width: 3.75rem;
 
@@ -146,7 +148,8 @@ $input-colors: (
             padding: 0.5rem 1rem;
             cursor: pointer;
             transition: background 0.2s ease;
-            font-size: 1rem;
+
+            @include utils.font-size('sm');
 
             &:hover {
                 background-color: vars.$nt-color-gray-10;

@@ -3,11 +3,11 @@
 @use 'sass:map';
 
 .nt-radio {
+    @include utils.font-size('sm');
     position: relative;
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1rem;
     padding-left: 2rem;
 
     &-column {

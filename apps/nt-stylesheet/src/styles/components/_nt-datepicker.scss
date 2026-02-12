@@ -5,10 +5,10 @@
 }
 
 .nt-datepicker-popper {
-    margin-top: 0.5rem;
+    margin-top: 0.375rem;
 
     .react-datepicker {
-        width: 20rem;
+        width: 17.5rem;
         box-shadow:
             rgb(9 30 66 / 25%) 0 0.25rem 0.5rem -0.125rem,
             rgb(9 30 66 / 8%) 0 0 0 1px;
@@ -17,9 +17,13 @@
         &__header {
             background-color: var(--nt-color-white);
             border: 0;
-            max-width: 19.375rem;
+            max-width: 17rem;
             margin: 0 auto;
-            padding: 1rem 0;
+            padding: 0.875rem 0;
+
+            .nt-select {
+                background-position: right 0.5rem center;
+            }
         }
 
         &__month-container {
@@ -29,14 +33,14 @@
         &__day-name,
         &__day,
         &__time-name {
-            width: 2.2rem;
+            width: 1.875rem;
             font-family: var(--nt-font-default);
         }
 
         &__day {
             color: var(--nt-color-gray-100);
             font-weight: var(--nt-font-weight-semi-bold);
-            font-size: 0.875rem;
+            font-size: 13px;
 
             &--selected {
                 background-color: var(--nt-color-secondary-100);
@@ -46,14 +50,14 @@
 
         &__day--outside-month {
             font-weight: var(--nt-font-weight-semi-bold);
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             color: var(--nt-color-gray-30);
             outline: none;
         }
 
         &__day-name {
             color: var(--nt-color-gray-60);
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
         }
 
         &__day,
@@ -76,26 +80,26 @@
     justify-content: center;
 
     select {
-        height: 2.5rem;
+        height: 2.1875rem;
         font-family: var(--nt-font-default);
     }
 
     select:nth-of-type(1) {
-        max-width: 5rem;
+        max-width: 4.375rem;
         margin-right: 0.3rem;
     }
 
     select:nth-of-type(2) {
-        max-width: 5.5rem;
+        max-width: 4.8125rem;
     }
 
     button:nth-of-type(1) {
-        margin-right: 0.5rem;
-        font-size: 1.5rem;
+        margin-right: 0.4375rem;
+        font-size: 1.375rem;
     }
 
     button:nth-of-type(2) {
-        margin-left: 0.5rem;
-        font-size: 1.5rem;
+        margin-left: 0.4375rem;
+        font-size: 1.3125rem;
     }
 }

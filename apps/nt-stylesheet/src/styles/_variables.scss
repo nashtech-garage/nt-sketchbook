@@ -104,7 +104,9 @@
     --nt-font-default: 'Mulish', sans-serif;
 
     /* --------- Font Sizes --------- */
-    --nt-font-size-base: 0.875rem;
+    --nt-font-size-sm: 0.875rem;
+    --nt-font-size-base: 1rem;
+    --nt-font-size-lg: 1.25rem;
 
     /* --------- Font Weights --------- */
     --nt-font-weight-thin: 100;
@@ -131,7 +133,7 @@
     /* --------- Spacing (Converted to px) --------- */
     --nt-spacing-base: 0.25rem;
     --nt-spacing-xs: 0.5rem;
-    --nt-spacing-sm: 0.75rem;
+    --nt-spacing-sm: 0.625rem;
     --nt-spacing-md: 1rem;
     --nt-spacing-ml: 1.25rem;
     --nt-spacing-lg: 1.5rem;
@@ -276,7 +278,9 @@ $nt-bg-light: var(--nt-bg-light, #f6f6f6);
 $nt-bg-side-menu: $nt-bg-body;
 
 /* === Base font size === */
+$nt-font-size-sm: var(--nt-font-size-sm, 0.875rem);
 $nt-font-size-base: var(--nt-font-size-base, 1rem);
+$nt-font-size-lg: var(--nt-font-size-lg, 1.25rem);
 
 /* === Font Families === */
 $nt-font-family-base: var(--nt-font-default, 'Mulish', sans-serif);
@@ -300,7 +304,7 @@ $nt-letter-spacing-wide: var(--nt-letter-spacing-wide, 0.02em);
 /* === Spacing === */
 $nt-spacing-base: var(--nt-spacing-base, 0.25rem);
 $nt-spacing-xs: var(--nt-spacing-xs, 0.5rem);
-$nt-spacing-sm: var(--nt-spacing-sm, 0.75rem);
+$nt-spacing-sm: var(--nt-spacing-sm, 0.625rem);
 $nt-spacing-md: var(--nt-spacing-md, 1rem);
 $nt-spacing-ml: var(--nt-spacing-ml, 1.25rem);
 $nt-spacing-lg: var(--nt-spacing-lg, 1.5rem);

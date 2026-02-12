@@ -2,7 +2,7 @@
 @use '../../styles/utilities' as utils;
 
 .nt-copyright {
-    @include utils.font-size('xs');
+    @include utils.font-size('4xs');
     display: flex;
     justify-content: space-between;
     padding: variables.$nt-spacing-md 0;
@@ -25,7 +25,7 @@
     }
 
     p.nt-slogan {
-        @include utils.font-size('xs');
+        @include utils.font-size('4xs');
         color: variables.$nt-color-gray-80;
         white-space: pre-line;
         align-self: end;

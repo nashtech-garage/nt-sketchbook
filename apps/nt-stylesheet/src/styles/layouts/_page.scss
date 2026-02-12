@@ -21,7 +21,7 @@
                 'nt-sub-title nt-header-actions';
 
             .nt-title {
-                @include utils.font-size('2xl');
+                @include utils.font-size('4xl');
                 grid-area: nt-title;
                 font-weight: bold;
                 color: vars.$nt-text-body;
@@ -30,7 +30,7 @@
             .nt-sub-title {
                 grid-area: nt-sub-title;
 
-                @include utils.font-size('md');
+                @include utils.font-size('lg');
                 font-weight: vars.$nt-font-weight-light;
                 color: vars.$nt-color-gray-50;
             }
