@@ -1,13 +1,4 @@
-:root {
-    /* Typography */
-    --nt-font-size-base: 0.875rem; /* 14px */
-    --nt-line-height-base: 1.5;
-    --nt-font-family-base: 'Mulish', sans-serif;
-
-    /* Colors */
-    --nt-text-color: #333;
-    --nt-bg-color: #fff;
-}
+@use './variables';
 
 /* Reset default styles */
 *,
@@ -21,13 +12,9 @@
 /* Improve text rendering */
 html {
     box-sizing: border-box;
-    font-size: var(--nt-font-size-base, 0.875rem);
-    font-weight: var(--nt-font-weight-medium, 500);
     font-family: var(--nt-font-family-base, sans-serif);
-    line-height: var(--nt-line-height-base, 1.5);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 100%;
 }
 
 /* Body reset */
