@@ -64,7 +64,7 @@ catalog:
     jsdom: 26.0.0
     lint-staged: 13.2.3
     lucide-react: 0.474.0
-    minimatch: 8.0.0
+    minimatch: 10.2.1
     next: 16.1.5
     npm-package-json-lint: 8.0.0
     nx: 22.1.3
