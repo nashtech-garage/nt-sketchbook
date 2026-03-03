@@ -3,6 +3,8 @@
 @use '../utilities' as utils;
 @use '../variables' as vars;
 
+$height-icon: 0.625rem;
+
 @mixin nt-checkbox-label(
     $font-weight,
     $font-size,
@@ -31,15 +33,14 @@
     $position,
     $top,
     $left,
-    $width,
-    $height
+    $width
 ) {
     content: $content;
     position: $position;
     top: $top;
     left: $left;
     width: $width;
-    height: $height;
+    height: $height-icon;
 }
 
 @mixin nt-checkbox-state-checked(
@@ -64,8 +65,7 @@
             $position,
             $top,
             $left,
-            $width,
-            $height
+            $width
         );
         border: solid $indicator-color;
         border-width: 0 0.1429rem 0.1429rem 0;
@@ -95,8 +95,7 @@
             $position,
             $top,
             $left,
-            $width,
-            $height
+            $width
         );
         background-color: $indicator-background;
     }
@@ -112,7 +111,7 @@
 
     @include nt-checkbox-label(
         vars.$nt-font-weight-regular,
-        1rem,
+        vars.$nt-font-size-sm,
         150%,
         0%,
         vars.$nt-text-primary
@@ -121,7 +120,7 @@
     &:has(input:disabled) {
         @include nt-checkbox-label(
             vars.$nt-font-weight-regular,
-            1rem,
+            vars.$nt-font-size-sm,
             150%,
             0%,
             vars.$nt-text-secondary
@@ -132,9 +131,9 @@
         position: relative;
         cursor: pointer;
         appearance: none;
-        width: 1.143rem; // 16px
-        height: 1.143rem;
-        border: 0.1429rem solid vars.$nt-color-white;
+        width: 1rem;
+        height: 1rem;
+        border: 0.125rem solid vars.$nt-color-white;
         border-radius: vars.$nt-border-radius-sm;
         background-color: vars.$nt-color-white;
         transition: vars.$nt-transition-medium;
@@ -144,7 +143,6 @@
             border-color: vars.$nt-text-info;
         }
 
-        // 🔘 Default (unchecked)
         &:not(:checked, :indeterminate, :disabled) {
             @include nt-checkbox-color(
                 vars.$nt-color-gray-70,
@@ -152,43 +150,34 @@
             );
         }
 
-        // ✅ Checked
         &:checked:not(:disabled) {
             @include nt-checkbox-state-checked(
                 vars.$nt-text-info,
                 vars.$nt-text-info,
                 '',
                 absolute,
-                0.0714rem,
-                // 1px
-                0.2857rem,
-                // 4px
-                0.357rem,
-                // 5px
-                0.5714rem,
-                // 8px
+                1px,
+                0.25rem,
+                0.25rem,
+                0.375rem,
                 vars.$nt-color-white
             );
         }
 
-        // ➖ Indeterminate
         &:indeterminate:not(:disabled) {
             @include nt-checkbox-state-indeterminate(
                 vars.$nt-text-info,
                 vars.$nt-color-white,
                 '',
                 absolute,
-                0.357rem,
-                // 5px
-                0.1429rem,
-                0.5714rem,
-                // 8px
-                0.1429rem,
+                0.25rem,
+                0.125rem,
+                0.375rem,
+                0.125rem,
                 vars.$nt-color-info
             );
         }
 
-        // 🚫 Disabled (applies to all)
         &:disabled {
             cursor: not-allowed;
 
@@ -197,39 +186,30 @@
                 vars.$nt-color-white
             );
 
-            // Disabled + Checked
             &:checked {
                 @include nt-checkbox-state-checked(
                     vars.$nt-border-bold,
                     vars.$nt-border-bold,
                     '',
                     absolute,
-                    0.0714rem,
-                    // 1px
-                    0.2857rem,
-                    // 4px
-                    0.357rem,
-                    // 5px
-                    0.5714rem,
-                    // 8px
+                    0.0625rem,
+                    0.25rem,
+                    0.25rem,
+                    0.375rem,
                     vars.$nt-color-white
                 );
             }
 
-            // Disabled + Indeterminate
             &:indeterminate {
                 @include nt-checkbox-state-indeterminate(
                     vars.$nt-border-bold,
                     vars.$nt-border-bold,
                     '',
                     absolute,
-                    0.357rem,
-                    // 5px
-                    0.1429rem,
-                    // 2px
-                    0.5714rem,
-                    // 8px
-                    0.1429rem,
+                    0.25rem,
+                    0.125rem,
+                    0.375rem,
+                    0.125rem,
                     vars.$nt-color-white
                 );
             }

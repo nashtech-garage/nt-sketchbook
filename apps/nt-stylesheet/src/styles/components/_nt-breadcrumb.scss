@@ -1,4 +1,5 @@
 @use '../variables' as vars;
+@use '../utilities' as utils;
 
 .nt-breadcrumb {
     &-list {
@@ -11,6 +12,7 @@
 
         &-item {
             &-link {
+                @include utils.font-size('sm');
                 text-decoration: none;
                 padding: vars.$nt-spacing-xs vars.$nt-spacing-md;
                 border-radius: vars.$nt-border-radius-sm;

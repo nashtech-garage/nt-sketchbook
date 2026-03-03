@@ -6,8 +6,6 @@
 
 $input-padding-y: 0.75rem;
 $input-padding-x: 1rem;
-$font-size: map.get(utils.$nt-font-sizes, 'md');
-$border-radius: 0.5rem;
 
 .nt-input-group {
     position: relative;
@@ -18,8 +16,8 @@ $border-radius: 0.5rem;
 
     .nt-input {
         &-label {
-            font-size: $font-size;
-            font-weight: 700;
+            @include utils.font-size('sm');
+            font-weight: vars.$nt-font-weight-bold;
             transition: all 0.2s ease;
         }
     }
@@ -39,16 +37,16 @@ $border-radius: 0.5rem;
         position: relative;
 
         .nt-input-label {
+            @include utils.font-size('2xs');
             position: absolute;
             left: $input-padding-x;
             transform: translateY(-50%);
             z-index: 10;
             padding: 0 0.25rem;
             color: vars.$nt-color-gray-50;
-            font-size: $font-size;
             pointer-events: none;
             transition: all 0.2s ease;
-            font-weight: 500;
+            font-weight: vars.$nt-font-weight-medium;
             background: vars.$nt-color-white;
         }
 
@@ -67,7 +65,7 @@ $border-radius: 0.5rem;
         }
 
         .nt-input {
-            height: 3rem;
+            height: 2.625rem;
 
             &::placeholder {
                 color: transparent;
@@ -80,7 +78,7 @@ $border-radius: 0.5rem;
             top: 0;
             left: calc($input-padding-x - 0.25rem);
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: vars.$nt-font-weight-medium;
             color: map.get(
                 map.get(input.$input-colors, default),
                 focus

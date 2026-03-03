@@ -6,8 +6,8 @@
 
 $sm-screen: map.get(vars.$nt-container-max-widths, sm);
 $md-screen: map.get(vars.$nt-container-max-widths, md);
-$width-sidebar: 75px;
-$width-sidebar-open: 18.75rem;
+$width-sidebar: 4.75rem;
+$width-sidebar-open: 16.25rem;
 
 .nt-layout {
     height: 100%;
@@ -31,7 +31,7 @@ $width-sidebar-open: 18.75rem;
     left: 0;
     height: 100%;
     width: $width-sidebar;
-    padding: 10px;
+    padding: 0.625rem;
     overflow: hidden;
     transition: all 0.3s ease;
 
@@ -81,6 +81,8 @@ $width-sidebar-open: 18.75rem;
 
         .nt-navbar-title {
             display: inline-flex;
+
+            @include utils.font-size('4xs');
         }
 
         .nt-navbar-header {
@@ -99,6 +101,8 @@ $width-sidebar-open: 18.75rem;
         .nt-navbar-item {
             a {
                 display: inline-flex;
+
+                @include utils.font-size('sm');
             }
         }
 
@@ -145,9 +149,9 @@ $width-sidebar-open: 18.75rem;
         align-items: center;
 
         &-greeting {
+            @include utils.font-size('xl');
             display: grid;
             grid-area: nt-main-header-greeting;
-            font-size: 1.25rem;
             font-weight: vars.$nt-font-weight-bold;
             color: vars.$nt-color-primary-100;
             align-items: center;

@@ -64,7 +64,8 @@
 
     &-title {
         margin: 0;
-        font-size: 1.25rem;
+
+        @include utils.font-size('xl');
     }
 
     &-close {
@@ -77,13 +78,13 @@
     }
 
     &-description {
-        font-size: 0.95rem;
+        @include utils.font-size('xs');
         color: vars.$nt-color-gray-60;
     }
 
     &-content {
-        padding: 1rem;
-        font-size: 1rem;
+        @include utils.font-size('sm');
+        padding: 0.875rem;
         color: vars.$nt-color-black;
     }
 
@@ -91,7 +92,7 @@
         display: flex;
         justify-content: flex-end;
         gap: 0.5rem;
-        padding: 1rem;
+        padding: 0.875rem;
     }
 
     &-open {

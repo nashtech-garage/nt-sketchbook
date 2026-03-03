@@ -1,39 +1,47 @@
+@use 'variables' as vars;
+@use 'functions/px-to-rem' as *;
 @use 'sass:map';
 @use 'sass:math';
-@use 'variables' as vars;
 
-//  Function to calculate line height based on font size
-@function calculate-line-height($font-size) {
-    @return round($font-size * 1.5, 3);
-}
-
-//  Scale factor for font sizes (1.2x increase per step)
 @function scale-font-size($step) {
-    @return calc(#{vars.$nt-font-size-base} * pow(1.2, $step));
+    $value: 14 * math.pow(1.1, $step);
+
+    @return math.round($value) * 1px;
 }
 
-//  Generate font sizes dynamically
+@function calculate-line-height($font-size, $multiplier: 1.5) {
+    $number: math.div($font-size, 1px);
+    $line-height: math.round($number * $multiplier);
+
+    @return $line-height * 1px;
+}
+
 $nt-font-sizes: (
+    '4xs': scale-font-size(-4),
+    // 10px
+    '3xs': scale-font-size(-3),
+    // 11px
+    '2xs': scale-font-size(-2),
+    // 12px
     'xs': scale-font-size(-1),
-    // ~0.7125rem (11.664px)
-    'sm': vars.$nt-font-size-base,
-    // 0.875rem (14px)
+    // 13px
+    'sm': scale-font-size(0),
+    // 14px
     'md': scale-font-size(1),
-    // ~1.05rem (16.8px)
+    // 15px
     'lg': scale-font-size(2),
-    // ~1.2625rem (20.16px)
+    // 16px
     'xl': scale-font-size(3),
-    // ~1.5125rem (24.16px)
+    // 17px
     '2xl': scale-font-size(4),
-    // ~1.8125rem (28.96px)
+    // 19px
     '3xl': scale-font-size(5),
-    // ~2.1875rem (34.88px)
+    // 21px
     '4xl': scale-font-size(6),
-    // ~2.625rem (41.92px)
-    '5xl': scale-font-size(7) // ~3.125rem (50.24px)
+    // 23px
+    '5xl': scale-font-size(7) // 25px
 );
 
-// Generate line heights dynamically based on font sizes
 $nt-line-heights: ();
 
 @each $size, $font-size in $nt-font-sizes {
@@ -45,29 +53,32 @@ $nt-line-heights: ();
     );
 }
 
-// Mixin to apply font size
-@mixin font-size($size) {
+@mixin font-size($size, $with-line-height: true) {
     @if map.has-key($nt-font-sizes, $size) {
-        font-size: map.get($nt-font-sizes, $size);
+        font-size: px-to-rem(map.get($nt-font-sizes, $size));
+
+        @if $with-line-height and map.has-key($nt-line-heights, $size)
+        {
+            line-height: px-to-rem(map.get($nt-line-heights, $size));
+        }
     } @else {
-        @warn "Font size #{$size} not found in the map!";
+        @warn "Font size '#{$size}' not found in the map!";
     }
 }
 
-// Mixin to generate font size utilities
 @mixin generate-font-size-utilities() {
-    @each $size, $value in $nt-font-sizes {
+    @each $size, $font-size in $nt-font-sizes {
         .nt-text-#{$size} {
-            font-size: $value;
+            font-size: $font-size;
+            line-height: map.get($nt-line-heights, $size);
         }
     }
 }
 
-// Mixin to generate line height utilities
 @mixin generate-line-height-utilities() {
-    @each $size, $value in $nt-line-heights {
+    @each $size, $line-height in $nt-line-heights {
         .nt-line-height-#{$size} {
-            line-height: $value;
+            line-height: $line-height;
         }
     }
 }

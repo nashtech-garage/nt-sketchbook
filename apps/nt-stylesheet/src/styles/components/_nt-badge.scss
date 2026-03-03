@@ -3,12 +3,12 @@
 @use 'sass:map';
 
 .nt-badge {
-    @include utils.font-size('sm');
+    @include utils.font-size('2xs');
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-weight: vars.$nt-font-weight-bold;
-    padding: vars.$nt-spacing-xs vars.$nt-spacing-sm;
+    padding: 0.5rem;
     border-radius: 1.5rem;
     line-height: 1;
     white-space: nowrap;
@@ -37,13 +37,13 @@
     }
 
     &-small {
-        @include utils.font-size('xs');
-        padding: vars.$nt-spacing-xs;
+        @include utils.font-size('4xs');
+        padding: 0.375rem;
     }
 
     &-large {
-        @include utils.font-size('lg');
-        padding: vars.$nt-spacing-sm vars.$nt-spacing-md;
+        @include utils.font-size('xl');
+        padding: 0.625rem 0.875rem;
     }
 
     &-rounded {
