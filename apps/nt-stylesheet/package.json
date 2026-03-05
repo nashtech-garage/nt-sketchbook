@@ -70,8 +70,10 @@
     },
     "dependencies": {
         "@mdi/font": "catalog:",
+        "@testing-library/dom": "catalog:",
         "@types/sanitize-html": "catalog:",
         "autoprefixer": "catalog:",
+        "date-fns": "catalog:",
         "postcss": "catalog:",
         "postcss-import": "catalog:",
         "postcss-nesting": "catalog:",

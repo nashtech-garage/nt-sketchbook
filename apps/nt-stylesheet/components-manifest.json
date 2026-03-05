@@ -115,6 +115,11 @@
             "name": "InputGroup",
             "id": "input-group",
             "type": "Control"
+        },
+        {
+            "name": "Date picker",
+            "id": "date-picker",
+            "type": "Control"
         }
     ]
 }
