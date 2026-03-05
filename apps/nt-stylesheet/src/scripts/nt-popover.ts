@@ -1,4 +1,4 @@
-import DOMPurify from 'dompurify'
+import sanitizeHtml from 'sanitize-html'
 
 import {
     applyPosition,
@@ -139,7 +139,7 @@ export class NtPopover extends Singleton {
 
         const contentEl = document.createElement('div')
         if (isHtml) {
-            contentEl.innerHTML = DOMPurify.sanitize(content)
+            contentEl.innerHTML = sanitizeHtml(content)
         } else {
             contentEl.textContent = content
         }
