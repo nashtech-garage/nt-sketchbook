@@ -70,14 +70,15 @@
     },
     "dependencies": {
         "@mdi/font": "catalog:",
+        "@types/sanitize-html": "catalog:",
         "autoprefixer": "catalog:",
-        "dompurify": "catalog:",
         "postcss": "catalog:",
         "postcss-import": "catalog:",
         "postcss-nesting": "catalog:",
         "postcss-preset-env": "catalog:",
-        "tailwindcss": "catalog:",
-        "react-datepicker": "catalog:"
+        "react-datepicker": "catalog:",
+        "sanitize-html": "catalog:",
+        "tailwindcss": "catalog:"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

@@ -1,4 +1,4 @@
-import DOMPurify from 'dompurify'
+import sanitizeHtml from 'sanitize-html'
 
 import {
     applyPosition,
@@ -97,7 +97,7 @@ export class NtTooltip extends Singleton {
         const inner = document.createElement('div')
         inner.className = 'nt-tooltip-inner'
         if (isHtml) {
-            inner.innerHTML = DOMPurify.sanitize(content)
+            inner.innerHTML = sanitizeHtml(content)
         } else {
             inner.textContent = content
         }

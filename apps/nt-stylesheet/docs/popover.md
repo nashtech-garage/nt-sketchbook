@@ -81,7 +81,7 @@ Control popover position with data-nt-placement:
 
 ## Popover with HTML
 
-Enable data-nt-html="true" to safely render HTML using DOMPurify:
+Enable data-nt-html="true" to safely render HTML using sanitizeHtml:
 
 ```html
 <button
@@ -149,7 +149,7 @@ Available variants:
 | --------------------- | ----------------------------------------------------------- | ----------- | -------------------------------------------------- |
 | `data-nt-toggle`      | `"popover"`                                                 | –           | Enables popover behavior on the element            |
 | `data-nt-content`     | `string` or HTML                                            | –           | The popover body content                           |
-| `data-nt-html`        | `true` \| `false`                                           | `false`     | Renders content as HTML (sanitized with DOMPurify) |
+| `data-nt-html`        | `true` \| `false`                                           | `false`     | Renders content as HTML (sanitized with sanitizeHtml) |
 | `data-nt-title`       | `string`                                                    | –           | Optional header shown at the top of the popover    |
 | `data-nt-placement`   | `'top'`, `'right'`, `'bottom'`, `'left'`                    | `'top'`     | Position of the popover relative to the element    |
 | `data-nt-variant`     | `'default'`, `'success'`, `'warning'`, `'danger'`, `'info'` | `'default'` | Controls popover background and text color         |
