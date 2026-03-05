@@ -37,7 +37,10 @@ export class NtTooltip extends Singleton {
         ) as HTMLElement | null
         if (!target) return
 
-        if (this.tooltipEl) return
+        if (this.tooltipEl) {
+            this.tooltipEl.remove()
+            this.tooltipEl = null
+        }
 
         const title =
             target.getAttribute('data-original-title') ||
@@ -72,7 +75,10 @@ export class NtTooltip extends Singleton {
         const target = (e.target as HTMLElement).closest(
             '[data-nt-toggle="tooltip"]'
         )
-        if (target && this.tooltipEl) {
+        const tooltipTarget = (e.target as HTMLElement).closest(
+            '.nt-tooltip'
+        )
+        if ((target || tooltipTarget) && this.tooltipEl) {
             this.tooltipEl.remove()
             this.tooltipEl = null
         }
