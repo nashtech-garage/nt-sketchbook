@@ -177,7 +177,7 @@ $width-sidebar-open: 16.25rem;
 }
 
 .nt-footer {
-    font-size: 0.8rem;
+    @include utils.font-size('xs');
     text-align: center;
     margin-top: 2rem;
     color: vars.$nt-text-secondary;
