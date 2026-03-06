@@ -12,7 +12,8 @@ export class NtDatePicker extends Singleton {
         super()
 
         this.panel = document.createElement('div')
-        this.panel.className = 'nt-datepicker-panel'
+        this.panel.className =
+            'react-datepicker-popper react-datepicker-popper-offset nt-datepicker-popper'
         this.panel.style.position = 'absolute'
         this.panel.style.display = 'none'
 
@@ -28,8 +29,6 @@ export class NtDatePicker extends Singleton {
                 '[data-nt-datepicker]'
             )
         )
-
-        console.log('Datepicker inputs:', this.inputs)
 
         document.addEventListener('focusin', (event) => {
             const input = (event.target as HTMLElement).closest(
@@ -82,34 +81,126 @@ export class NtDatePicker extends Singleton {
             0
         ).getDate()
 
-        let days = ''
+        const cells: string[] = []
+        const today = new Date()
 
         for (let i = 0; i < firstDay; i++) {
-            days += `<div class="nt-day empty"></div>`
+            cells.push(
+                `<div class="react-datepicker__day react-datepicker__day--outside-month"></div>`
+            )
         }
 
         for (let d = 1; d <= daysInMonth; d++) {
-            days += `<div class="nt-day" data-day="${d}">${d}</div>`
+            const date = new Date(
+                this.currentYear,
+                this.currentMonth,
+                d
+            )
+            const dayOfWeek = date.getDay()
+
+            const dayIndex = String(d).padStart(3, '0')
+
+            const isWeekend = dayOfWeek === 0 || dayOfWeek === 6
+            const isToday =
+                date.toDateString() === today.toDateString()
+
+            const classes = [
+                'react-datepicker__day',
+                `react-datepicker__day--${dayIndex}`
+            ]
+
+            if (isWeekend)
+                classes.push('react-datepicker__day--weekend')
+            if (isToday) classes.push('react-datepicker__day--today')
+
+            const ariaLabel = `Choose ${date.toLocaleDateString(
+                'en-US',
+                {
+                    weekday: 'long',
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric'
+                }
+            )}`
+
+            cells.push(`
+                <div
+                    class="${classes.join(' ')}"
+                    tabindex="${isToday ? 0 : -1}"
+                    aria-label="${ariaLabel}"
+                    role="gridcell"
+                    aria-disabled="false"
+                    aria-selected="${isToday}"
+                    data-day="${d}"
+                >
+                    ${d}
+                </div>
+            `)
+        }
+
+        let weeks = ''
+        for (let i = 0; i < cells.length; i += 7) {
+            weeks += `
+                <div class="react-datepicker__week" role="row">
+                    ${cells.slice(i, i + 7).join('')}
+                </div>
+            `
         }
 
         this.panel.innerHTML = `
-            <div class="nt-datepicker-header">
-                <button data-prev>&lt;</button>
-                <span>${this.currentMonth + 1}/${
-                    this.currentYear
-                }</span>
-                <button data-next>&gt;</button>
-            </div>
-
-            <div class="nt-datepicker-grid">
-                <div>Su</div>
-                <div>Mo</div>
-                <div>Tu</div>
-                <div>We</div>
-                <div>Th</div>
-                <div>Fr</div>
-                <div>Sa</div>
-                ${days}
+            <div class="react-datepicker">
+                <div class="react-datepicker__month-container">
+                    <div class="react-datepicker__header react-datepicker__header--custom">
+                        <div class="nt-datepicker-header">
+                            <button data-prev>
+                                <span class="nti nti-chevron-left"></span>
+                            </button>
+                            <span>${this.currentMonth + 1}/${
+                                this.currentYear
+                            }</span>
+                            <button data-next>
+                                <span class="nti nti-chevron-right"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table">
+                        <div class="rowgroup">
+                            <div class="react-datepicker__day-names">
+                                <div role="columnheader" class="react-datepicker__day-name">
+                                    <span class="react-datepicker__sr-only">Sunday</span>
+                                    <span aria-hidden="true">Sun</span>
+                                </div>
+                                <div role="columnheader" class="react-datepicker__day-name">
+                                    <span class="react-datepicker__sr-only">Monday</span>
+                                    <span aria-hidden="true">Mon</span>
+                                </div>
+                                <div role="columnheader" class="react-datepicker__day-name">
+                                    <span class="react-datepicker__sr-only">Tuesday</span>
+                                    <span aria-hidden="true">Tue</span>
+                                </div>
+                                <div role="columnheader" class="react-datepicker__day-name">
+                                    <span class="react-datepicker__sr-only">Wednesday</span>
+                                    <span aria-hidden="true">Wed</span>
+                                </div>
+                                <div role="columnheader" class="react-datepicker__day-name">
+                                    <span class="react-datepicker__sr-only">Thursday</span>
+                                    <span aria-hidden="true">Thu</span>
+                                </div>
+                                <div role="columnheader" class="react-datepicker__day-name">
+                                    <span class="react-datepicker__sr-only">Friday</span>
+                                    <span aria-hidden="true">Fri</span>
+                                </div>
+                                <div role="columnheader" class="react-datepicker__day-name">
+                                    <span class="react-datepicker__sr-only">Saturday</span>
+                                    <span aria-hidden="true">Sat</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="react-datepicker__month">
+                            ${weeks}
+                        </div>
+                    </div>
+                </div>
             </div>
         `
 
