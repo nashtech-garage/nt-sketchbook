@@ -5,7 +5,14 @@ type DayClassOptions = {
     isSelectedDate: boolean
     isToday: boolean
     isWeekend: boolean
-    outsideMonth?: string | null
+    isOutsideMonth?: boolean
+}
+
+type CellOptions = {
+    date: Date
+    day: number
+    outsideMonth: -1 | 0 | 1
+    isToday?: boolean
 }
 
 export class NtDatePicker extends Singleton {
@@ -65,8 +72,10 @@ export class NtDatePicker extends Singleton {
     private open(input: HTMLInputElement) {
         const rect = input.getBoundingClientRect()
 
-        this.panel.style.left = rect.left + window.scrollX + 'px'
+        this.panel.style.left =
+            rect.left + rect.width / 2 + window.scrollX + 'px'
         this.panel.style.top = rect.bottom + window.scrollY + 'px'
+        this.panel.style.transform = 'translateX(-50%)'
         this.panel.style.display = 'block'
 
         this.render()
@@ -115,7 +124,13 @@ export class NtDatePicker extends Singleton {
                 this.currentMonth - 1,
                 day
             )
-            cells.push(this.createDayCell(day, date, 'outside-month'))
+            cells.push(
+                this.createDayCell({
+                    day,
+                    date,
+                    outsideMonth: -1
+                })
+            )
         }
 
         return cells
@@ -133,7 +148,14 @@ export class NtDatePicker extends Singleton {
                 d
             )
             const isToday = this.isToday(date, today)
-            cells.push(this.createDayCell(d, date, null, isToday))
+            cells.push(
+                this.createDayCell({
+                    day: d,
+                    date,
+                    outsideMonth: 0,
+                    isToday
+                })
+            )
         }
 
         return cells
@@ -153,18 +175,24 @@ export class NtDatePicker extends Singleton {
                 this.currentMonth + 1,
                 i
             )
-            cells.push(this.createDayCell(i, date, 'outside-month'))
+            cells.push(
+                this.createDayCell({
+                    day: i,
+                    date,
+                    outsideMonth: 1
+                })
+            )
         }
 
         return cells
     }
 
-    private createDayCell(
-        day: number,
-        date: Date,
-        outsideMonth?: string | null,
-        isToday: boolean = false
-    ): string {
+    private createDayCell({
+        day,
+        date,
+        outsideMonth,
+        isToday
+    }: CellOptions): string {
         const dayOfWeek = date.getDay()
         const dayIndex = String(day).padStart(3, '0')
         const isWeekend = dayOfWeek === 0 || dayOfWeek === 6
@@ -177,13 +205,14 @@ export class NtDatePicker extends Singleton {
         const classes = this.buildDayClasses({
             dayIndex,
             isWeekend,
-            isToday,
-            outsideMonth,
+            isToday: Boolean(isToday),
+            isOutsideMonth: outsideMonth !== 0,
             isSelectedDate: isSelected
         })
         const ariaLabel = this.buildAriaLabel(date)
         const tabindex = isToday ? 0 : -1
-        const dataDay = outsideMonth ? '' : `data-day="${day}"`
+        const dataDay = `data-day="${day}"`
+        const dataOutside = `data-outside="${outsideMonth}"`
 
         return `
             <div
@@ -194,6 +223,7 @@ export class NtDatePicker extends Singleton {
                 aria-disabled="false"
                 aria-selected="${isToday}"
                 ${dataDay}
+                ${dataOutside}
             >
                 ${day}
             </div>
@@ -204,7 +234,7 @@ export class NtDatePicker extends Singleton {
         dayIndex,
         isWeekend,
         isToday,
-        outsideMonth,
+        isOutsideMonth,
         isSelectedDate
     }: DayClassOptions): string[] {
         const classes = [
@@ -214,8 +244,8 @@ export class NtDatePicker extends Singleton {
 
         if (isWeekend) classes.push('react-datepicker__day--weekend')
         if (isToday) classes.push('react-datepicker__day--today')
-        if (outsideMonth)
-            classes.push(`react-datepicker__day--${outsideMonth}`)
+        if (isOutsideMonth)
+            classes.push(`react-datepicker__day--outside-month`)
 
         if (isSelectedDate)
             classes.push('react-datepicker__day--selected')
@@ -278,6 +308,34 @@ export class NtDatePicker extends Singleton {
         }).join('')
     }
 
+    private generateMonthOptions(): string {
+        const formatter = new Intl.DateTimeFormat('en-US', {
+            month: 'short'
+        })
+
+        return Array.from({ length: 12 }, (_, i) => {
+            const label = formatter.format(new Date(0, i))
+            const selected = i === this.currentMonth ? 'selected' : ''
+
+            return `<option value="${i}" ${selected}>${label}</option>`
+        }).join('')
+    }
+
+    private generateYearOptions(): string {
+        const start = 1900
+        const end = 2100
+
+        let options = ''
+
+        for (let y = start; y <= end; y++) {
+            const selected = y === this.currentYear ? 'selected' : ''
+
+            options += `<option value="${y}" ${selected}>${y}</option>`
+        }
+
+        return options
+    }
+
     private renderTemplate(weeks: string, dayHeaders: string): void {
         this.panel.innerHTML = `
             <div class="react-datepicker">
@@ -287,9 +345,12 @@ export class NtDatePicker extends Singleton {
                             <button data-prev>
                                 <span class="nti nti-chevron-left"></span>
                             </button>
-                            <span>${this.currentMonth + 1}/${
-                                this.currentYear
-                            }</span>
+                            <select data-month class="nt-select nt-select-default nt-select-medium">
+                                ${this.generateMonthOptions()}
+                            </select>
+                            <select data-year class="nt-select nt-select-default nt-select-medium">
+                                ${this.generateYearOptions()}
+                            </select>
                             <button data-next>
                                 <span class="nti nti-chevron-right"></span>
                             </button>
@@ -347,12 +408,25 @@ export class NtDatePicker extends Singleton {
                     if (!this.activeInput) return
 
                     const day = Number(el.dataset.day)
+                    const outside = Number(el.dataset.outside || 0)
 
-                    const date = new Date(
-                        this.currentYear,
-                        this.currentMonth,
-                        day
-                    )
+                    let year = this.currentYear
+                    let month = this.currentMonth + outside
+
+                    if (month < 0) {
+                        month = 11
+                        year--
+                    }
+
+                    if (month > 11) {
+                        month = 0
+                        year++
+                    }
+
+                    const date = new Date(year, month, day)
+                    this.currentMonth = month
+                    this.currentYear = year
+                    this.selectedDate = date
 
                     const format =
                         this.activeInput.dataset.format ||
@@ -362,10 +436,31 @@ export class NtDatePicker extends Singleton {
                         date,
                         format
                     )
-                    this.selectedDate = date
 
                     this.close()
                 })
+            })
+
+        this.panel
+            .querySelector<HTMLSelectElement>('[data-month]')
+            ?.addEventListener('change', (e) => {
+                const value = Number(
+                    (e.target as HTMLSelectElement).value
+                )
+
+                this.currentMonth = value
+                this.render()
+            })
+
+        this.panel
+            .querySelector<HTMLSelectElement>('[data-year]')
+            ?.addEventListener('change', (e) => {
+                const value = Number(
+                    (e.target as HTMLSelectElement).value
+                )
+
+                this.currentYear = value
+                this.render()
             })
     }
 
