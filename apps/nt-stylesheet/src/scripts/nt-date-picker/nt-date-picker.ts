@@ -23,16 +23,24 @@ export class NtDatePicker extends Singleton {
     constructor() {
         super()
 
-        this.panel = document.createElement('div')
-        this.panel.className =
-            'react-datepicker-popper react-datepicker-popper-offset nt-datepicker-popper'
-        this.panel.style.position = 'absolute'
-        this.panel.style.display = 'none'
+        this.panel = this.createPanel()
 
         document.body.appendChild(this.panel)
 
         this.initInputs()
         this.bindGlobalEvents()
+    }
+
+    private createPanel() {
+        const panel = document.createElement('div')
+
+        panel.className =
+            'react-datepicker-popper react-datepicker-popper-offset nt-datepicker-popper'
+
+        panel.style.position = 'absolute'
+        panel.style.display = 'none'
+
+        return panel
     }
 
     private initInputs() {
