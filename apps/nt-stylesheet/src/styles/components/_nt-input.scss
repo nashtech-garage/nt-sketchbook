@@ -38,7 +38,7 @@ $transition-duration: 0.3s;
 }
 
 @mixin input-base {
-    @include utils.font-size('2xs');
+    @include utils.font-size('sm');
 
     $default-color: map.get(map.get($input-colors, default), base);
     width: 100%;
