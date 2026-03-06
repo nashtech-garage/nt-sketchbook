@@ -129,6 +129,9 @@ catalogs:
     cssnano:
       specifier: 7.0.6
       version: 7.0.6
+    date-fns:
+      specifier: 4.1.0
+      version: 4.1.0
     dayjs:
       specifier: 1.11.19
       version: 1.11.19
@@ -540,6 +543,9 @@ importers:
       autoprefixer:
         specifier: 'catalog:'
         version: 10.4.20(postcss@8.5.3)
+      date-fns:
+        specifier: 'catalog:'
+        version: 4.1.0
       postcss:
         specifier: 'catalog:'
         version: 8.5.3
