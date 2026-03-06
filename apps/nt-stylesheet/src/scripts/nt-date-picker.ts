@@ -1,9 +1,18 @@
 import { Singleton } from '../utils/singleton'
 
+type DayClassOptions = {
+    dayIndex: string
+    isSelectedDate: boolean
+    isToday: boolean
+    isWeekend: boolean
+    outsideMonth?: string | null
+}
+
 export class NtDatePicker extends Singleton {
     private inputs: HTMLInputElement[] = []
     private panel: HTMLDivElement
     private activeInput: HTMLInputElement | null = null
+    private selectedDate: Date | null = null
 
     private currentMonth = new Date().getMonth()
     private currentYear = new Date().getFullYear()
@@ -68,27 +77,54 @@ export class NtDatePicker extends Singleton {
         this.activeInput = null
     }
 
-    private render() {
-        const firstDay = new Date(
-            this.currentYear,
-            this.currentMonth,
-            1
-        ).getDay()
+    private render(): void {
+        const cells = this.generateCalendarCells()
+        const weeks = this.generateWeeks(cells)
+        const dayHeaders = this.generateDayHeaders()
 
-        const daysInMonth = new Date(
-            this.currentYear,
-            this.currentMonth + 1,
-            0
-        ).getDate()
+        this.renderTemplate(weeks, dayHeaders)
+        this.attachEvents()
+    }
 
+    private generateCalendarCells(): string[] {
         const cells: string[] = []
-        const today = new Date()
 
-        for (let i = 0; i < firstDay; i++) {
-            cells.push(
-                `<div class="react-datepicker__day react-datepicker__day--outside-month"></div>`
+        // Previous month days
+        cells.push(...this.generatePreviousMonthDays())
+
+        // Current month days
+        cells.push(...this.generateCurrentMonthDays())
+
+        // Next month days
+        cells.push(...this.generateNextMonthDays(cells.length))
+
+        return cells
+    }
+
+    private generatePreviousMonthDays(): string[] {
+        const cells: string[] = []
+        const firstDay = this.getFirstDayOfMonth()
+        const prevMonthDays = this.getDaysInMonth(
+            this.currentMonth - 1
+        )
+
+        for (let i = firstDay - 1; i >= 0; i--) {
+            const day = prevMonthDays - i
+            const date = new Date(
+                this.currentYear,
+                this.currentMonth - 1,
+                day
             )
+            cells.push(this.createDayCell(day, date, 'outside-month'))
         }
+
+        return cells
+    }
+
+    private generateCurrentMonthDays(): string[] {
+        const cells: string[] = []
+        const daysInMonth = this.getDaysInMonth(this.currentMonth)
+        const today = new Date()
 
         for (let d = 1; d <= daysInMonth; d++) {
             const date = new Date(
@@ -96,48 +132,123 @@ export class NtDatePicker extends Singleton {
                 this.currentMonth,
                 d
             )
-            const dayOfWeek = date.getDay()
-
-            const dayIndex = String(d).padStart(3, '0')
-
-            const isWeekend = dayOfWeek === 0 || dayOfWeek === 6
-            const isToday =
-                date.toDateString() === today.toDateString()
-
-            const classes = [
-                'react-datepicker__day',
-                `react-datepicker__day--${dayIndex}`
-            ]
-
-            if (isWeekend)
-                classes.push('react-datepicker__day--weekend')
-            if (isToday) classes.push('react-datepicker__day--today')
-
-            const ariaLabel = `Choose ${date.toLocaleDateString(
-                'en-US',
-                {
-                    weekday: 'long',
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric'
-                }
-            )}`
-
-            cells.push(`
-                <div
-                    class="${classes.join(' ')}"
-                    tabindex="${isToday ? 0 : -1}"
-                    aria-label="${ariaLabel}"
-                    role="gridcell"
-                    aria-disabled="false"
-                    aria-selected="${isToday}"
-                    data-day="${d}"
-                >
-                    ${d}
-                </div>
-            `)
+            const isToday = this.isToday(date, today)
+            cells.push(this.createDayCell(d, date, null, isToday))
         }
 
+        return cells
+    }
+
+    private generateNextMonthDays(currentLength: number): string[] {
+        const cells: string[] = []
+        const remainder = currentLength % 7
+
+        if (remainder === 0) return cells
+
+        const nextDays = 7 - remainder
+
+        for (let i = 1; i <= nextDays; i++) {
+            const date = new Date(
+                this.currentYear,
+                this.currentMonth + 1,
+                i
+            )
+            cells.push(this.createDayCell(i, date, 'outside-month'))
+        }
+
+        return cells
+    }
+
+    private createDayCell(
+        day: number,
+        date: Date,
+        outsideMonth?: string | null,
+        isToday: boolean = false
+    ): string {
+        const dayOfWeek = date.getDay()
+        const dayIndex = String(day).padStart(3, '0')
+        const isWeekend = dayOfWeek === 0 || dayOfWeek === 6
+        const isSelected = Boolean(
+            this.selectedDate &&
+                date.toDateString() ===
+                    this.selectedDate.toDateString()
+        )
+
+        const classes = this.buildDayClasses({
+            dayIndex,
+            isWeekend,
+            isToday,
+            outsideMonth,
+            isSelectedDate: isSelected
+        })
+        const ariaLabel = this.buildAriaLabel(date)
+        const tabindex = isToday ? 0 : -1
+        const dataDay = outsideMonth ? '' : `data-day="${day}"`
+
+        return `
+            <div
+                class="${classes.join(' ')}"
+                tabindex="${tabindex}"
+                aria-label="${ariaLabel}"
+                role="gridcell"
+                aria-disabled="false"
+                aria-selected="${isToday}"
+                ${dataDay}
+            >
+                ${day}
+            </div>
+        `
+    }
+
+    private buildDayClasses({
+        dayIndex,
+        isWeekend,
+        isToday,
+        outsideMonth,
+        isSelectedDate
+    }: DayClassOptions): string[] {
+        const classes = [
+            'react-datepicker__day',
+            `react-datepicker__day--${dayIndex}`
+        ]
+
+        if (isWeekend) classes.push('react-datepicker__day--weekend')
+        if (isToday) classes.push('react-datepicker__day--today')
+        if (outsideMonth)
+            classes.push(`react-datepicker__day--${outsideMonth}`)
+
+        if (isSelectedDate)
+            classes.push('react-datepicker__day--selected')
+
+        return classes
+    }
+
+    private buildAriaLabel(date: Date): string {
+        return `Choose ${date.toLocaleDateString('en-US', {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric'
+        })}`
+    }
+
+    private isToday(date: Date, today: Date): boolean {
+        return date.toDateString() === today.toDateString()
+    }
+
+    private getFirstDayOfMonth(): number {
+        return new Date(
+            this.currentYear,
+            this.currentMonth,
+            1
+        ).getDay()
+    }
+
+    private getDaysInMonth(month: number): number {
+        return new Date(this.currentYear, month + 1, 0).getDate()
+    }
+
+    private generateWeeks(cells: string[]): string {
         let weeks = ''
         for (let i = 0; i < cells.length; i += 7) {
             weeks += `
@@ -146,7 +257,28 @@ export class NtDatePicker extends Singleton {
                 </div>
             `
         }
+        return weeks
+    }
 
+    private generateDayHeaders(): string {
+        const formatter = new Intl.DateTimeFormat('en-US', {
+            weekday: 'short'
+        })
+
+        return Array.from({ length: 7 }, (_, i) => {
+            const date = new Date(2024, 0, 7 + i)
+            const label = formatter.format(date)
+
+            return `
+                <div role="columnheader" class="react-datepicker__day-name">
+                    <span class="react-datepicker__sr-only">${label}</span>
+                    <span aria-hidden="true">${label}</span>
+                </div>
+            `
+        }).join('')
+    }
+
+    private renderTemplate(weeks: string, dayHeaders: string): void {
         this.panel.innerHTML = `
             <div class="react-datepicker">
                 <div class="react-datepicker__month-container">
@@ -166,34 +298,7 @@ export class NtDatePicker extends Singleton {
                     <div class="table">
                         <div class="rowgroup">
                             <div class="react-datepicker__day-names">
-                                <div role="columnheader" class="react-datepicker__day-name">
-                                    <span class="react-datepicker__sr-only">Sunday</span>
-                                    <span aria-hidden="true">Sun</span>
-                                </div>
-                                <div role="columnheader" class="react-datepicker__day-name">
-                                    <span class="react-datepicker__sr-only">Monday</span>
-                                    <span aria-hidden="true">Mon</span>
-                                </div>
-                                <div role="columnheader" class="react-datepicker__day-name">
-                                    <span class="react-datepicker__sr-only">Tuesday</span>
-                                    <span aria-hidden="true">Tue</span>
-                                </div>
-                                <div role="columnheader" class="react-datepicker__day-name">
-                                    <span class="react-datepicker__sr-only">Wednesday</span>
-                                    <span aria-hidden="true">Wed</span>
-                                </div>
-                                <div role="columnheader" class="react-datepicker__day-name">
-                                    <span class="react-datepicker__sr-only">Thursday</span>
-                                    <span aria-hidden="true">Thu</span>
-                                </div>
-                                <div role="columnheader" class="react-datepicker__day-name">
-                                    <span class="react-datepicker__sr-only">Friday</span>
-                                    <span aria-hidden="true">Fri</span>
-                                </div>
-                                <div role="columnheader" class="react-datepicker__day-name">
-                                    <span class="react-datepicker__sr-only">Saturday</span>
-                                    <span aria-hidden="true">Sat</span>
-                                </div>
+                                ${dayHeaders}
                             </div>
                         </div>
                         <div class="react-datepicker__month">
@@ -203,14 +308,13 @@ export class NtDatePicker extends Singleton {
                 </div>
             </div>
         `
-
-        this.attachEvents()
     }
 
     private attachEvents() {
         this.panel
             .querySelector('[data-prev]')
-            ?.addEventListener('click', () => {
+            ?.addEventListener('click', (e) => {
+                e.stopPropagation()
                 this.currentMonth--
 
                 if (this.currentMonth < 0) {
@@ -223,7 +327,8 @@ export class NtDatePicker extends Singleton {
 
         this.panel
             .querySelector('[data-next]')
-            ?.addEventListener('click', () => {
+            ?.addEventListener('click', (e) => {
+                e.stopPropagation()
                 this.currentMonth++
 
                 if (this.currentMonth > 11) {
@@ -237,7 +342,8 @@ export class NtDatePicker extends Singleton {
         this.panel
             .querySelectorAll<HTMLDivElement>('[data-day]')
             .forEach((el) => {
-                el.addEventListener('click', () => {
+                el.addEventListener('click', (e) => {
+                    e.stopPropagation()
                     if (!this.activeInput) return
 
                     const day = Number(el.dataset.day)
@@ -256,6 +362,7 @@ export class NtDatePicker extends Singleton {
                         date,
                         format
                     )
+                    this.selectedDate = date
 
                     this.close()
                 })
