@@ -1,19 +1,15 @@
-import { Singleton } from '../utils/singleton'
+import {
+    addMonths,
+    format as formatFn,
+    isToday as isTodayFn,
+    subMonths
+} from 'date-fns'
+import { Singleton } from '../../utils/singleton'
+import type { CellOptions, DayClassOptions } from './type'
+import { getDaysInMonth } from './utils/get-day-in-month'
+import { getFirstDayOfMonth } from './utils/get-first-day-of-month'
 
-type DayClassOptions = {
-    dayIndex: string
-    isSelectedDate: boolean
-    isToday: boolean
-    isWeekend: boolean
-    isOutsideMonth?: boolean
-}
-
-type CellOptions = {
-    date: Date
-    day: number
-    outsideMonth: -1 | 0 | 1
-    isToday?: boolean
-}
+const FORMAT = 'dd/MM/yyyy'
 
 export class NtDatePicker extends Singleton {
     private inputs: HTMLInputElement[] = []
@@ -69,14 +65,19 @@ export class NtDatePicker extends Singleton {
         })
     }
 
-    private open(input: HTMLInputElement) {
+    private positionPanel(input: HTMLInputElement) {
         const rect = input.getBoundingClientRect()
 
-        this.panel.style.left =
-            rect.left + rect.width / 2 + window.scrollX + 'px'
-        this.panel.style.top = rect.bottom + window.scrollY + 'px'
-        this.panel.style.transform = 'translateX(-50%)'
-        this.panel.style.display = 'block'
+        Object.assign(this.panel.style, {
+            left: rect.left + rect.width / 2 + window.scrollX + 'px',
+            top: rect.bottom + window.scrollY + 'px',
+            transform: 'translateX(-50%)',
+            display: 'block'
+        })
+    }
+
+    private open(input: HTMLInputElement) {
+        this.positionPanel(input)
 
         this.render()
     }
@@ -98,13 +99,10 @@ export class NtDatePicker extends Singleton {
     private generateCalendarCells(): string[] {
         const cells: string[] = []
 
-        // Previous month days
         cells.push(...this.generatePreviousMonthDays())
 
-        // Current month days
         cells.push(...this.generateCurrentMonthDays())
 
-        // Next month days
         cells.push(...this.generateNextMonthDays(cells.length))
 
         return cells
@@ -112,8 +110,12 @@ export class NtDatePicker extends Singleton {
 
     private generatePreviousMonthDays(): string[] {
         const cells: string[] = []
-        const firstDay = this.getFirstDayOfMonth()
-        const prevMonthDays = this.getDaysInMonth(
+        const firstDay = getFirstDayOfMonth(
+            this.currentYear,
+            this.currentMonth
+        )
+        const prevMonthDays = getDaysInMonth(
+            this.currentYear,
             this.currentMonth - 1
         )
 
@@ -138,8 +140,10 @@ export class NtDatePicker extends Singleton {
 
     private generateCurrentMonthDays(): string[] {
         const cells: string[] = []
-        const daysInMonth = this.getDaysInMonth(this.currentMonth)
-        const today = new Date()
+        const daysInMonth = getDaysInMonth(
+            this.currentYear,
+            this.currentMonth
+        )
 
         for (let d = 1; d <= daysInMonth; d++) {
             const date = new Date(
@@ -147,13 +151,12 @@ export class NtDatePicker extends Singleton {
                 this.currentMonth,
                 d
             )
-            const isToday = this.isToday(date, today)
             cells.push(
                 this.createDayCell({
                     day: d,
                     date,
                     outsideMonth: 0,
-                    isToday
+                    isToday: isTodayFn(date)
                 })
             )
         }
@@ -244,6 +247,10 @@ export class NtDatePicker extends Singleton {
 
         if (isWeekend) classes.push('react-datepicker__day--weekend')
         if (isToday) classes.push('react-datepicker__day--today')
+
+        if (isToday && !this.selectedDate)
+            classes.push('react-datepicker__day--selected')
+
         if (isOutsideMonth)
             classes.push(`react-datepicker__day--outside-month`)
 
@@ -260,22 +267,6 @@ export class NtDatePicker extends Singleton {
             day: 'numeric',
             year: 'numeric'
         })}`
-    }
-
-    private isToday(date: Date, today: Date): boolean {
-        return date.toDateString() === today.toDateString()
-    }
-
-    private getFirstDayOfMonth(): number {
-        return new Date(
-            this.currentYear,
-            this.currentMonth,
-            1
-        ).getDay()
-    }
-
-    private getDaysInMonth(month: number): number {
-        return new Date(this.currentYear, month + 1, 0).getDate()
     }
 
     private generateWeeks(cells: string[]): string {
@@ -372,75 +363,14 @@ export class NtDatePicker extends Singleton {
     }
 
     private attachEvents() {
-        this.panel
-            .querySelector('[data-prev]')
-            ?.addEventListener('click', (e) => {
-                e.stopPropagation()
-                this.currentMonth--
+        this.attachPrevEvent()
+        this.attachNextEvent()
+        this.attachDayEvents()
+        this.attachMonthSelectEvent()
+        this.attachYearSelectEvent()
+    }
 
-                if (this.currentMonth < 0) {
-                    this.currentMonth = 11
-                    this.currentYear--
-                }
-
-                this.render()
-            })
-
-        this.panel
-            .querySelector('[data-next]')
-            ?.addEventListener('click', (e) => {
-                e.stopPropagation()
-                this.currentMonth++
-
-                if (this.currentMonth > 11) {
-                    this.currentMonth = 0
-                    this.currentYear++
-                }
-
-                this.render()
-            })
-
-        this.panel
-            .querySelectorAll<HTMLDivElement>('[data-day]')
-            .forEach((el) => {
-                el.addEventListener('click', (e) => {
-                    e.stopPropagation()
-                    if (!this.activeInput) return
-
-                    const day = Number(el.dataset.day)
-                    const outside = Number(el.dataset.outside || 0)
-
-                    let year = this.currentYear
-                    let month = this.currentMonth + outside
-
-                    if (month < 0) {
-                        month = 11
-                        year--
-                    }
-
-                    if (month > 11) {
-                        month = 0
-                        year++
-                    }
-
-                    const date = new Date(year, month, day)
-                    this.currentMonth = month
-                    this.currentYear = year
-                    this.selectedDate = date
-
-                    const format =
-                        this.activeInput.dataset.format ||
-                        'dd/mm/yyyy'
-
-                    this.activeInput.value = this.formatDate(
-                        date,
-                        format
-                    )
-
-                    this.close()
-                })
-            })
-
+    private attachMonthSelectEvent() {
         this.panel
             .querySelector<HTMLSelectElement>('[data-month]')
             ?.addEventListener('change', (e) => {
@@ -451,7 +381,9 @@ export class NtDatePicker extends Singleton {
                 this.currentMonth = value
                 this.render()
             })
+    }
 
+    private attachYearSelectEvent() {
         this.panel
             .querySelector<HTMLSelectElement>('[data-year]')
             ?.addEventListener('change', (e) => {
@@ -464,14 +396,71 @@ export class NtDatePicker extends Singleton {
             })
     }
 
-    private formatDate(date: Date, format: string) {
-        const dd = String(date.getDate()).padStart(2, '0')
-        const mm = String(date.getMonth() + 1).padStart(2, '0')
-        const yyyy = date.getFullYear()
+    private attachPrevEvent() {
+        this.panel
+            .querySelector('[data-prev]')
+            ?.addEventListener('click', (e) => {
+                e.stopPropagation()
 
-        return format
-            .replace('dd', dd)
-            .replace('mm', mm)
-            .replace('yyyy', String(yyyy))
+                const newDate = subMonths(
+                    new Date(this.currentYear, this.currentMonth),
+                    1
+                )
+
+                this.currentMonth = newDate.getMonth()
+                this.currentYear = newDate.getFullYear()
+
+                this.render()
+            })
+    }
+
+    private attachNextEvent() {
+        this.panel
+            .querySelector('[data-next]')
+            ?.addEventListener('click', (e) => {
+                e.stopPropagation()
+
+                const newDate = addMonths(
+                    new Date(this.currentYear, this.currentMonth),
+                    1
+                )
+
+                this.currentMonth = newDate.getMonth()
+                this.currentYear = newDate.getFullYear()
+
+                this.render()
+            })
+    }
+
+    private attachDayEvents() {
+        this.panel
+            .querySelectorAll<HTMLDivElement>('[data-day]')
+            .forEach((el) => {
+                el.addEventListener('click', (e) => {
+                    e.stopPropagation()
+                    this.handleDayClick(el)
+                })
+            })
+    }
+
+    private handleDayClick(el: HTMLDivElement) {
+        if (!this.activeInput) return
+
+        const day = Number(el.dataset.day)
+        const outside = Number(el.dataset.outside || 0)
+
+        const date = addMonths(
+            new Date(this.currentYear, this.currentMonth, day),
+            outside
+        )
+
+        this.currentMonth = date.getMonth()
+        this.currentYear = date.getFullYear()
+        this.selectedDate = date
+
+        const format = this.activeInput.dataset.format || FORMAT
+        this.activeInput.value = formatFn(date, format)
+
+        this.close()
     }
 }

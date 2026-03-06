@@ -1,7 +1,7 @@
 import pkg from '../../package.json'
+import { NtDatePicker } from './nt-date-picker/nt-date-picker'
 import { NtCollapse } from './nt-collapse'
 import { NtCombobox } from './nt-combobox'
-import { NtDatePicker } from './nt-date-picker'
 import { NtDropdown } from './nt-dropdown'
 import { NtModal } from './nt-modal'
 import { NtMultiSelect } from './nt-multi-select'
