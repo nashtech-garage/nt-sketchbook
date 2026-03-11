@@ -72,6 +72,9 @@ catalogs:
     '@tanstack/react-table':
       specifier: 8.21.2
       version: 8.21.2
+    '@testing-library/dom':
+      specifier: 10.4.1
+      version: 10.4.1
     '@testing-library/jest-dom':
       specifier: 6.6.3
       version: 6.6.3
@@ -129,6 +132,9 @@ catalogs:
     cssnano:
       specifier: 7.0.6
       version: 7.0.6
+    date-fns:
+      specifier: 4.1.0
+      version: 4.1.0
     dayjs:
       specifier: 1.11.19
       version: 1.11.19
@@ -534,12 +540,18 @@ importers:
       '@mdi/font':
         specifier: 'catalog:'
         version: 7.4.47
+      '@testing-library/dom':
+        specifier: 'catalog:'
+        version: 10.4.1
       '@types/sanitize-html':
         specifier: 'catalog:'
         version: 2.16.0
       autoprefixer:
         specifier: 'catalog:'
         version: 10.4.20(postcss@8.5.3)
+      date-fns:
+        specifier: 'catalog:'
+        version: 4.1.0
       postcss:
         specifier: 'catalog:'
         version: 8.5.3
