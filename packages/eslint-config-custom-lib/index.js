@@ -38,9 +38,18 @@ export default [
         }
     },
     {
-        files: ['**/*.spec.tsx', '**/*.spec.ts'],
+        files: ['**/*.spec.{ts,tsx}'],
         rules: {
-            'no-useless-escape': 'off'
+            'no-useless-escape': 'off',
+            'no-restricted-syntax': [
+                'warn',
+                {
+                    selector:
+                        'Program:not(:has(FunctionDeclaration[id.name="setup"], VariableDeclarator[id.name="setup"][init.type=/FunctionExpression$/]))',
+                    message:
+                        "Test files must include a 'setup' function."
+                }
+            ]
         }
     },
     prettierRecommended,
