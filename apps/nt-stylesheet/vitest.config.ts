@@ -11,7 +11,12 @@ export default defineConfig({
         coverage: {
             provider: 'v8',
             reporter: ['json', 'cobertura', 'json-summary', 'lcov'],
-            reportOnFailure: true
+            reportOnFailure: true,
+            thresholds: {
+                statements: 80,
+                branches: 80,
+                functions: 80
+            }
         },
         exclude: [
             '**/vite.config.{ts,mts}',

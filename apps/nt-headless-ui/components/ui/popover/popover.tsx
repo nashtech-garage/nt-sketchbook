@@ -4,7 +4,12 @@ import {
     PopoverTrigger
 } from '@/components/radix/popover'
 import { cn } from '@/lib/utils'
-import * as React from 'react'
+import type {
+    ComponentPropsWithoutRef,
+    ElementRef,
+    ReactNode
+} from 'react'
+import { forwardRef } from 'react'
 
 export type PopoverVariant =
     | 'default'
@@ -17,15 +22,15 @@ export type Side = 'top' | 'right' | 'bottom' | 'left'
 
 export type PopoverProps = {
     children: React.ReactNode
-    trigger: React.ReactNode
+    trigger: ReactNode
     className?: string
     side?: Side
     variant?: PopoverVariant
 }
 
-const PopoverContent = React.forwardRef<
-    React.ElementRef<typeof PopoverPrimitive.Content>,
-    React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
+const PopoverContent = forwardRef<
+    ElementRef<typeof PopoverPrimitive.Content>,
+    ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
 >(
     (
         { className, align = 'center', sideOffset = 4, ...props },

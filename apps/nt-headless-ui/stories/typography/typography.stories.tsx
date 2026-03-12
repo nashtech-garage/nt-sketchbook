@@ -23,6 +23,9 @@ const DemoWrapper = ({
     <div className="demo-wrapper">{children}</div>
 )
 
+const mockParagraph =
+    'You can apply segmentation to the Path Exploration report, such as viewing the paths for only new users, returning users, or users from a specific country, which helps you tailor optimization strategies for different groups.'
+
 export const Mulish: StoryObj<typeof DocsCanvas> = {
     args: {
         children: (
@@ -134,37 +137,19 @@ export const Headings: StoryObj<typeof DocsCanvas> = {
                     <p className="nt-text-category">Category</p>
                     <p className="nt-text-para-lg">
                         Paragraph large <br />
-                        You can apply segmentation to the Path
-                        Exploration report, such as viewing the paths
-                        for only new users, returning users, or users
-                        from a specific country, which helps you
-                        tailor optimization strategies for different
-                        groups.
+                        {mockParagraph}
                     </p>
                     <p className="nt-text-para-md">
                         Paragraph medium <br />
-                        You can apply segmentation to the Path
-                        Exploration report, such as viewing the paths
-                        for only new users, returning users, or users
-                        from a specific country, which helps you
-                        tailor optimization strategies for different
-                        groups.
+                        {mockParagraph}
                     </p>
                     <p className="nt-text-para-sm">
-                        Paragraph small <br /> You can apply
-                        segmentation to the Path Exploration report,
-                        such as viewing the paths for only new users,
-                        returning users, or users from a specific
-                        country, which helps you tailor optimization
-                        strategies for different groups.
+                        Paragraph small <br />
+                        {mockParagraph}
                     </p>
                     <p className="nt-text-para-xs">
-                        Paragraph xs <br /> You can apply segmentation
-                        to the Path Exploration report, such as
-                        viewing the paths for only new users,
-                        returning users, or users from a specific
-                        country, which helps you tailor optimization
-                        strategies for different groups.
+                        Paragraph xs <br />
+                        {mockParagraph}
                     </p>
                     <div>
                         <p className="nt-text-inline-xs">

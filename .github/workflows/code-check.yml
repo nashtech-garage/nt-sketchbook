@@ -44,6 +44,9 @@ jobs:
             - name: Run tests
               run: pnpm test
 
+            - name: Check duplication
+              run: pnpm dup:all
+
             - name: Run build storybook
               run: pnpm run build:headlessui-storybook
 

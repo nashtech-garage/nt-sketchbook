@@ -1,2 +1,5 @@
-@use '../../styles/mixins' as func;
-@include func.create-theme('nt-theme-light');
+@use '../../styles/tokens/tokens' as tokens;
+
+[data-theme='nt-theme-light'] {
+    @include tokens.nt-root-tokens;
+}

@@ -1,30 +1,8 @@
 @use '../variables' as vars;
+@use '../tokens/variants' as variants;
 @use 'sass:map';
 
 $arrow-size: 0.5rem;
-
-$popover-variants: (
-    default: (
-        bg: vars.$nt-color-black,
-        text: vars.$nt-color-white
-    ),
-    danger: (
-        bg: vars.$nt-color-danger,
-        text: vars.$nt-color-white
-    ),
-    warning: (
-        bg: vars.$nt-color-warning,
-        text: vars.$nt-color-black
-    ),
-    success: (
-        bg: vars.$nt-color-success,
-        text: vars.$nt-color-white
-    ),
-    info: (
-        bg: vars.$nt-color-info,
-        text: vars.$nt-color-white
-    )
-);
 
 .nt-popover {
     z-index: 9999;
@@ -36,8 +14,11 @@ $popover-variants: (
     transition: opacity 0.2s ease;
     opacity: 0;
 
-    $default-bg: map.get(map.get($popover-variants, default), bg);
-    $default-text: map.get(map.get($popover-variants, default), text);
+    $default-bg: map.get(map.get(variants.$ui-variants, default), bg);
+    $default-text: map.get(
+        map.get(variants.$ui-variants, default),
+        text
+    );
     background-color: $default-bg;
     color: $default-text;
 
@@ -119,7 +100,7 @@ $popover-variants: (
         border-right: $arrow-size solid $default-bg;
     }
 
-    @each $name, $colors in $popover-variants {
+    @each $name, $colors in variants.$ui-variants {
         &-#{$name} {
             $bg: map.get($colors, bg);
             $text: map.get($colors, text);

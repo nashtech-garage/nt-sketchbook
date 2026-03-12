@@ -1,14 +1,13 @@
 # NT Stylesheet Documentation
+
 ## Overview
 
 **NT Stylesheet** delivers a lightweight, customizable set of CSS utilities and components built for consistency across NT products. It includes:
 
--   **Design Tokens**: Standardized values for colors, spacing, typography, and more.
--   **Utility Classes**: Ready-to-use classes for layout, spacing, alignment, and responsiveness.
--   **UI Components**: Pre-styled, accessible, and responsive interface elements.
--   **JavaScript Enhancements**: Optional utilities for interactivity (modals, dropdowns, etc.).
-
----
+- **Design Tokens**: Standardized values for colors, spacing, typography, and more.
+- **Utility Classes**: Ready-to-use classes for layout, spacing, alignment, and responsiveness.
+- **UI Components**: Pre-styled, accessible, and responsive interface elements.
+- **JavaScript Enhancements**: Optional utilities for interactivity (modals, dropdowns, etc.).
 
 ## Installation
 
@@ -33,8 +32,6 @@ Example:
 <button class="nt-btn nt-btn-primary">Submit</button>
 ```
 
----
-
 ## Components
 
 NT Stylesheet includes a growing list of reusable and composable UI components.
@@ -51,8 +48,6 @@ NT Stylesheet includes a growing list of reusable and composable UI components.
 | Tabs          | Navigational tabbed interface     | `nt-tabs`, `nt-tab-active`           |
 
 _More components will be documented soon._
-
----
 
 ## Design Tokens
 
@@ -76,14 +71,12 @@ Tokens are available as CSS variables and Sass variables for design consistency.
 </div>
 ```
 
----
-
 ## Customization
 
 You can customize NT Stylesheet in several ways:
 
--   Override CSS variables using `:root` or component scopes
--   Extend component styles using custom classes
--   Import SCSS files and modify tokens before compilation (Sass users)
+- Override CSS variables using `:root` or component scopes
+- Extend component styles using custom classes
+- Import SCSS files and modify tokens before compilation (Sass users)
 
 For detailed component guides, visit the [documentation folder](docs/README.md).

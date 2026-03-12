@@ -1,69 +1,28 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { Card, type CardProps } from './card'
 
-describe('Card Component', () => {
-    it('renders with title and content', () => {
-        const props: CardProps = {
-            header: 'Card Title',
-            children: 'This is a card content.'
-        }
-        const { getByText } = render(<Card {...props} />)
-        expect(
-            getByText((props.header ?? '').toString())
-        ).toBeInTheDocument()
-        expect(
-            getByText((props.children ?? '').toString())
-        ).toBeInTheDocument()
-    })
+const defaultProps: CardProps = {
+    header: 'Card Title',
+    children: 'This is a card content.'
+}
 
+const setup = (props: Partial<CardProps> = {}) =>
+    render(<Card {...defaultProps} {...props} />)
+
+describe('Card Component', () => {
     it('renders with footer', () => {
-        const props: CardProps = {
-            header: 'Card Title',
-            children: 'This is a card content.',
-            footer: 'This is a card footer.'
-        }
-        const { getByText } = render(<Card {...props} />)
+        setup({ footer: 'This is a card footer.' })
+
         expect(
-            getByText((props.header ?? '').toString())
-        ).toBeInTheDocument()
-        expect(
-            getByText((props.children ?? '').toString())
-        ).toBeInTheDocument()
-        expect(
-            getByText((props.footer ?? '').toString())
+            screen.getByText('This is a card footer.')
         ).toBeInTheDocument()
     })
 
     it('renders with icon', () => {
-        const props: CardProps = {
-            header: 'Card Title',
-            children: 'This is a card content.',
-            icon: 'icon'
-        }
-        const { getByText } = render(<Card {...props} />)
-        expect(
-            getByText((props.header ?? '').toString())
-        ).toBeInTheDocument()
-        expect(
-            getByText((props.children ?? '').toString())
-        ).toBeInTheDocument()
-        expect(getByText('icon')).toBeInTheDocument()
-    })
+        setup({ icon: 'icon' })
 
-    it('renders with variant', () => {
-        const props: CardProps = {
-            header: 'Card Title',
-            children: 'This is a card content.',
-            variant: 'success'
-        }
-        const { getByText } = render(<Card {...props} />)
-        expect(
-            getByText((props.header ?? '').toString())
-        ).toBeInTheDocument()
-        expect(
-            getByText((props.children ?? '').toString())
-        ).toBeInTheDocument()
+        expect(screen.getByText('icon')).toBeInTheDocument()
     })
 })

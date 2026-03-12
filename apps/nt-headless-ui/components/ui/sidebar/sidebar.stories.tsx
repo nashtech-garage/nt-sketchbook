@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/nextjs-vite'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { type KeyboardEvent } from 'react'
 
 import { Sidebar, type SlideBarProps } from './sidebar'
@@ -14,11 +14,7 @@ const sampleItems: SlideBarProps['items'] = [
                 icon: 'nti-dashboard'
             },
             { id: 'iot', label: 'IoT', icon: 'nti-iot' },
-            {
-                id: 'commerce',
-                label: 'e-Commerce',
-                icon: 'nti-cart'
-            }
+            { id: 'commerce', label: 'e-Commerce', icon: 'nti-cart' }
         ]
     },
     {
@@ -48,10 +44,9 @@ const sampleItems: SlideBarProps['items'] = [
     }
 ]
 
-export default {
+const meta: Meta<typeof Sidebar> = {
     title: 'Components/SlideBar',
     component: Sidebar,
-    argTypes: {},
     args: {
         onSearch: (event: KeyboardEvent<HTMLInputElement>) =>
             alert(event.currentTarget.value),
@@ -72,12 +67,10 @@ export default {
             </div>
         )
     }
-} as Meta
+}
 
-const Template: StoryFn<SlideBarProps> = (args: SlideBarProps) => (
-    <Sidebar {...args} />
-)
+export default meta
 
-export const Default: StoryFn<SlideBarProps> = Template.bind({})
+type Story = StoryObj<typeof Sidebar>
 
-Default.args = {}
+export const Default: Story = {}

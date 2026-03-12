@@ -2,6 +2,10 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { Dropdown } from './dropdown'
 
+const mockOption2 = 'Option 2'
+const mockOption1 = 'Option 1'
+const options = [{ label: mockOption1 }, { label: mockOption2 }]
+
 const meta: Meta<typeof Dropdown> = {
     title: 'Components/Dropdown',
     component: Dropdown,
@@ -29,25 +33,13 @@ export const Default: Story = {
 export const Placements: Story = {
     render: () => (
         <div className="nt-d-flex nt-gap-5">
-            <Dropdown
-                label="Down"
-                placement="down"
-                items={[{ label: 'Option 1' }, { label: 'Option 2' }]}
-            />
-            <Dropdown
-                label="Up"
-                placement="up"
-                items={[{ label: 'Option 1' }, { label: 'Option 2' }]}
-            />
-            <Dropdown
-                label="Left"
-                placement="left"
-                items={[{ label: 'Option 1' }, { label: 'Option 2' }]}
-            />
+            <Dropdown label="Down" placement="down" items={options} />
+            <Dropdown label="Up" placement="up" items={options} />
+            <Dropdown label="Left" placement="left" items={options} />
             <Dropdown
                 label="Right"
                 placement="right"
-                items={[{ label: 'Option 1' }, { label: 'Option 2' }]}
+                items={options}
             />
         </div>
     )

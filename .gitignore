@@ -83,3 +83,5 @@ doctor-storybook.log
 # bundle analyzer
 stats.html
 reports/
+report/
+duplication/
