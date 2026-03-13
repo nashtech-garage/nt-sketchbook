@@ -2,19 +2,6 @@
 
 This directory contains documentation for the **NT Stylesheet** package, which provides the core CSS framework and design tokens for the NT Sketchbook ecosystem. For repository setup instructions see the [root README](../../README.md).
 
----
-
-## Overview
-
-**NT Stylesheet** delivers a lightweight, customizable set of CSS utilities and components built for consistency across NT products. It includes:
-
--   **Design Tokens**: Standardized values for colors, spacing, typography, and more.
--   **Utility Classes**: Ready-to-use classes for layout, spacing, alignment, and responsiveness.
--   **UI Components**: Pre-styled, accessible, and responsive interface elements.
--   **JavaScript Enhancements**: Optional utilities for interactivity (modals, dropdowns, etc.).
-
----
-
 ## Installation
 
 ### 1. Install via npm
@@ -26,8 +13,7 @@ npm install @nashtech-garage/nt-stylesheet
 ### 2. Import in your JavaScript or TypeScript entry file
 
 ```javascript
-import '@nashtech-garage/nt-stylesheet/dist/nt.css'
-import '@nashtech-garage/nt-stylesheet/dist/nt.js'
+import '@nashtech-garage/nt-stylesheet/scripts/nt.js'
 ```
 
 ### 3. Or include via CDN in your HTML
@@ -51,40 +37,34 @@ Example:
 <button class="nt-btn nt-btn-primary">Submit</button>
 ```
 
----
-
 ## Components
 
 NT Stylesheet includes a growing list of reusable and composable UI components.
 
 ### Component Guides
 
--   [Alert](alert.md)
--   [Avatar](avatar.md)
--   [Breadcrumb](breadcrumb.md)
--   [Button](button.md)
--   [Checkbox](checkbox.md)
--   [Input](input.md)
--   [Label](label.md)
--   [Modal](modal.md)
--   [Radio Group](radio-group.md)
--   [Switch](switch.md)
--   [Tooltip](tooltip.md)
--   [Table](table.md)
--   [Popover](popover.md)
--   [Progress](progress.md)
+- [Alert](alert.md)
+- [Avatar](avatar.md)
+- [Breadcrumb](breadcrumb.md)
+- [Button](button.md)
+- [Checkbox](checkbox.md)
+- [Input](input.md)
+- [Label](label.md)
+- [Modal](modal.md)
+- [Radio Group](radio-group.md)
+- [Switch](switch.md)
+- [Tooltip](tooltip.md)
+- [Table](table.md)
+- [Popover](popover.md)
+- [Progress](progress.md)
 
----
-
-# Customization
+### Customization
 
 You can customize NT Stylesheet in several ways:
 
--   Override CSS variables using `:root` or component scopes
--   Extend component styles using custom classes
--   Import SCSS files and modify tokens before compilation (Sass users)
-
----
+- Override CSS variables using `:root` or component scopes
+- Extend component styles using custom classes
+- Import SCSS files and modify tokens before compilation (Sass users)
 
 ## Contributions
 

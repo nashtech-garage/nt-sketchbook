@@ -4,10 +4,14 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { Combobox, type ComboboxProps } from './combobox'
 
+const mockOption1 = 'Option 1'
+const mockOption2 = 'Option 2'
+const mockOption3 = 'Option 3'
+
 const options = [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' }
+    { value: 'option1', label: mockOption1 },
+    { value: 'option2', label: mockOption2 },
+    { value: 'option3', label: mockOption3 }
 ]
 
 const defaultProps: ComboboxProps = {
@@ -21,6 +25,13 @@ const defaultProps: ComboboxProps = {
 const setup = (props: Partial<ComboboxProps> = {}) =>
     render(<Combobox {...defaultProps} {...props} />)
 
+const getTrigger = (name: RegExp = /choose an option/i) =>
+    screen.getByRole('button', { name })
+
+const openCombobox = async (name: RegExp = /choose an option/i) => {
+    await userEvent.click(getTrigger(name))
+}
+
 describe('Combobox', () => {
     beforeEach(() => {
         vi.clearAllMocks()
@@ -28,24 +39,22 @@ describe('Combobox', () => {
 
     it('renders with placeholder by default', () => {
         setup()
-        expect(
-            screen.getByRole('button', { name: /choose an option/i })
-        ).toBeInTheDocument()
+
+        expect(getTrigger()).toBeInTheDocument()
     })
 
     it('opens and closes dropdown on trigger click', async () => {
         setup()
-        const user = userEvent.setup()
 
-        const trigger = screen.getByRole('button', {
-            name: /choose an option/i
-        })
-        await user.click(trigger)
+        const trigger = getTrigger()
+
+        await openCombobox()
 
         expect(screen.getByPlaceholderText('Search')).toHaveFocus()
-        expect(screen.getByText('Option 1')).toBeInTheDocument()
+        expect(screen.getByText(mockOption1)).toBeInTheDocument()
 
-        await user.click(trigger)
+        await userEvent.click(trigger)
+
         expect(
             screen
                 .getByPlaceholderText('Search')
@@ -56,73 +65,67 @@ describe('Combobox', () => {
     it('selects an option and calls onChange', async () => {
         const handleChange = vi.fn()
         setup({ onChange: handleChange })
-        const user = userEvent.setup()
 
-        const trigger = screen.getByRole('button', {
-            name: /choose an option/i
-        })
-        await user.click(trigger)
+        const trigger = getTrigger()
 
-        const option2 = screen.getByRole('button', {
-            name: 'Option 2'
-        })
-        await user.click(option2)
+        await openCombobox()
 
-        expect(trigger).toHaveTextContent('Option 2')
+        await userEvent.click(
+            screen.getByRole('button', { name: mockOption2 })
+        )
+
+        expect(trigger).toHaveTextContent(mockOption2)
+
         expect(handleChange).toHaveBeenCalledWith({
             value: 'option2',
-            label: 'Option 2'
+            label: mockOption2
         })
     })
 
     it('does not call onChange if the same option is reselected', async () => {
         const handleChange = vi.fn()
         setup({ onChange: handleChange })
-        const user = userEvent.setup()
 
-        const trigger = screen.getByRole('button', {
-            name: /choose an option/i
-        })
-        await user.click(trigger)
+        const trigger = getTrigger()
+
+        await openCombobox()
 
         const option1 = screen.getByRole('button', {
-            name: 'Option 1'
+            name: mockOption1
         })
-        await user.click(option1)
+
+        await userEvent.click(option1)
         expect(handleChange).toHaveBeenCalledTimes(1)
 
-        await user.click(trigger)
-        await user.click(option1)
+        await userEvent.click(trigger)
+        await userEvent.click(option1)
+
         expect(handleChange).toHaveBeenCalledTimes(1)
     })
 
     it('filters options based on input text', async () => {
         setup()
-        const user = userEvent.setup()
 
-        const trigger = screen.getByRole('button', {
-            name: /choose an option/i
-        })
-        await user.click(trigger)
+        await openCombobox()
 
         const input = screen.getByPlaceholderText('Search')
-        await user.type(input, '3')
 
-        expect(screen.getByText('Option 3')).toBeInTheDocument()
-        expect(screen.queryByText('Option 1')).not.toBeInTheDocument()
+        await userEvent.type(input, '3')
+
+        expect(screen.getByText(mockOption3)).toBeInTheDocument()
+        expect(
+            screen.queryByText(mockOption1)
+        ).not.toBeInTheDocument()
     })
 
     it('shows no results message when no matches', async () => {
         setup({ noFoundText: 'Nothing found' })
-        const user = userEvent.setup()
 
-        const trigger = screen.getByRole('button', {
-            name: /choose an option/i
-        })
-        await user.click(trigger)
+        await openCombobox()
 
         const input = screen.getByPlaceholderText('Search')
-        await user.type(input, 'zzz')
+
+        await userEvent.type(input, 'zzz')
 
         expect(screen.getByText('Nothing found')).toBeInTheDocument()
     })
@@ -136,6 +139,7 @@ describe('Combobox', () => {
         expect(
             container.querySelector('.custom-wrapper')
         ).toBeInTheDocument()
+
         expect(
             container.querySelector('.custom-popover')
         ).toBeInTheDocument()
@@ -146,16 +150,10 @@ describe('Combobox', () => {
             placeholder: 'Pick something',
             searchText: 'Type here...'
         })
-        const user = userEvent.setup()
 
-        expect(
-            screen.getByRole('button', { name: /pick something/i })
-        ).toBeInTheDocument()
+        expect(getTrigger(/pick something/i)).toBeInTheDocument()
 
-        const trigger = screen.getByRole('button', {
-            name: /pick something/i
-        })
-        await user.click(trigger)
+        await openCombobox(/pick something/i)
 
         expect(
             screen.getByPlaceholderText('Type here...')

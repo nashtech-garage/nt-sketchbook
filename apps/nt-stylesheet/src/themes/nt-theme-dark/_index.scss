@@ -1,2 +1,8 @@
-@use '../../styles/mixins' as func;
-@include func.create-theme('nt-theme-dark');
+@use '../../styles/tokens/tokens' as tokens;
+
+[data-theme='nt-theme-dark'] {
+    @include tokens.nt-root-tokens;
+
+    --nt-bg-body: #111;
+    --nt-text-primary: #fff;
+}

@@ -17,7 +17,12 @@ export default defineConfig({
         coverage: {
             reporter: ['cobertura', 'lcov', 'json-summary', 'json'],
             reportOnFailure: true,
-            provider: 'v8'
+            provider: 'v8',
+            thresholds: {
+                statements: 80,
+                branches: 80,
+                functions: 80
+            }
         },
         includeSource: [
             path.resolve(__dirname, 'components/**/*.spec.{ts,tsx}')

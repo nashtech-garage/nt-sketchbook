@@ -1,15 +1,16 @@
 {
+    "formats": ["typescript", "javascript", "tsx"],
     "threshold": 0,
-    "reporters": ["html", "markdown"],
+    "reporters": ["html", "console", "badge"],
     "ignore": [
+        "docs/**",
+        "**/dist/**",
+        "**/coverage/**",
+        "**/storybook-static/**",
+        "**/.next/**",
         "**/node_modules/**",
-        "**/.git/**",
-        "**/.rbenv/**",
-        "**/.venv/**",
-        "**/*cache*/**",
-        "**/.github/**",
-        "**/.idea/**",
-        "**/report/**",
-        "**/*.svg"
-    ]
+        "**/.nx/**",
+        "**/examples/**.html"
+    ],
+    "absolute": true
 }

@@ -84,7 +84,11 @@
         "build:stylesheet-preview": "npx nx run nt-stylesheet:build",
         "lint": "npx nx run-many --target=lint --all --skip-nx-cache",
         "typecheck": "npx nx run-many --target=typecheck --all --skip-nx-cache --verbose",
-        "lint:pkg": "npmPkgJsonLint \"**/package.json\""
+        "lint:pkg": "npmPkgJsonLint \"**/package.json\"",
+        "dup:headless": "npx jscpd apps/nt-headless-ui --output duplication/nt-headless-ui",
+        "dup:stylesheet": "npx jscpd apps/nt-stylesheet --output duplication/nt-stylesheet",
+        "dup:packages": "npx jscpd packages --output duplication/packages",
+        "dup:all": "pnpm dup:headless && pnpm dup:stylesheet && pnpm dup:packages"
     },
     "repository": {
         "type": "git",

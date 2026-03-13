@@ -1,0 +1,24 @@
+@use '../variables' as vars;
+
+$ui-variants: (
+    default: (
+        bg: vars.$nt-color-black,
+        text: vars.$nt-color-white
+    ),
+    danger: (
+        bg: vars.$nt-color-danger,
+        text: vars.$nt-color-white
+    ),
+    warning: (
+        bg: vars.$nt-color-warning,
+        text: vars.$nt-color-black
+    ),
+    success: (
+        bg: vars.$nt-color-success,
+        text: vars.$nt-color-white
+    ),
+    info: (
+        bg: vars.$nt-color-info,
+        text: vars.$nt-color-white
+    )
+);

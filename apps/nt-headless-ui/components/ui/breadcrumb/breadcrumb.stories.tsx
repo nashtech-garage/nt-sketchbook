@@ -1,32 +1,32 @@
-import type { Meta, StoryFn } from '@storybook/nextjs-vite'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
-import { Breadcrumb, type BreadCrumbProps } from './breadcrumb'
+import { Breadcrumb } from './breadcrumb'
 
-export default {
+const meta: Meta<typeof Breadcrumb> = {
     title: 'Components/Breadcrumb',
-    component: Breadcrumb,
-    argTypes: {} as Meta
+    component: Breadcrumb
 }
 
-const Template: StoryFn<BreadCrumbProps> = (
-    args: BreadCrumbProps
-) => <Breadcrumb {...args} />
+export default meta
 
-export const Primary: StoryFn<BreadCrumbProps> = Template.bind({})
-Primary.args = {
-    items: [
-        { id: 'home', label: 'Home', href: '/' },
-        { id: 'products', label: 'Products', href: '/products' },
-        {
-            id: 'electronics',
-            label: 'Electronics',
-            href: '/electronics'
-        },
-        {
-            id: 'smartphones',
-            label: 'Smartphones',
-            href: '/smartphones'
-        },
-        { id: 'latest', label: 'Latest', href: '/latest' }
-    ]
+type Story = StoryObj<typeof Breadcrumb>
+
+export const Default: Story = {
+    args: {
+        items: [
+            { id: 'home', label: 'Home', href: '#' },
+            { id: 'products', label: 'Products', href: '#' },
+            {
+                id: 'electronics',
+                label: 'Electronics',
+                href: '#'
+            },
+            {
+                id: 'smartphones',
+                label: 'Smartphones',
+                href: '#'
+            },
+            { id: 'latest', label: 'Latest', href: '/latest' }
+        ]
+    }
 }

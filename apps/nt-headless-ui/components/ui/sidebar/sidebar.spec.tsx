@@ -8,6 +8,8 @@ import {
     type SlideBarProps
 } from './sidebar'
 
+const mockSubItem = 'Subitem 1'
+
 const items: SlideBarItem[] = [
     {
         id: 'group1',
@@ -25,7 +27,7 @@ const items: SlideBarItem[] = [
                 children: [
                     {
                         id: 'subitem1',
-                        label: 'Subitem 1',
+                        label: mockSubItem,
                         onClick: vi.fn()
                     }
                 ]
@@ -40,7 +42,22 @@ const setup = (props?: Partial<SlideBarProps>) => {
         items,
         ...props
     }
+
     return render(<Sidebar {...defaultProps} />)
+}
+
+const getParentItem = () => screen.getByText('Item 2')
+
+const toggleParent = async () => {
+    await userEvent.click(getParentItem())
+}
+
+const getNav = () => screen.getByLabelText('Sidebar')
+
+const toggleSidebar = async () => {
+    const nav = getNav()
+    const menuIcon = nav.querySelector('.nti-menu') as HTMLElement
+    await userEvent.click(menuIcon)
 }
 
 describe('Sidebar', () => {
@@ -58,26 +75,26 @@ describe('Sidebar', () => {
 
         expect(screen.getByText('Group 1')).toBeInTheDocument()
         expect(screen.getByText('Item 1')).toBeInTheDocument()
-        expect(screen.getByText('Item 2')).toBeInTheDocument()
+        expect(getParentItem()).toBeInTheDocument()
     })
 
     it('calls onClick for leaf item', async () => {
         setup()
+
         await userEvent.click(screen.getByText('Item 1'))
+
         expect(items[0].children?.[0].onClick).toHaveBeenCalled()
     })
 
     it('toggles submenu on parent click', async () => {
         setup()
-        const parent = screen.getByText('Item 2')
-        await userEvent.click(parent)
 
-        expect(screen.getByText('Subitem 1')).toBeInTheDocument()
+        await toggleParent()
+        expect(screen.getByText(mockSubItem)).toBeInTheDocument()
 
-        await userEvent.click(parent)
-
+        await toggleParent()
         expect(
-            screen.queryByText('Subitem 1')
+            screen.queryByText(mockSubItem)
         ).not.toBeInTheDocument()
     })
 
@@ -89,7 +106,9 @@ describe('Sidebar', () => {
 
     it('handles search input', async () => {
         const onSearch = vi.fn()
+
         setup({ onSearch })
+
         const input = screen.getByPlaceholderText('Search...')
         await userEvent.type(input, '{enter}')
 
@@ -98,38 +117,25 @@ describe('Sidebar', () => {
 
     it('toggles sidebar visibility', async () => {
         setup()
-        const nav = screen.getByLabelText('Sidebar')
+
+        const nav = getNav()
         expect(nav.className).toContain('open')
 
-        const menuIcon = nav.querySelector('.nti-menu') as HTMLElement
-        await userEvent.click(menuIcon)
+        await toggleSidebar()
 
         expect(nav.className).not.toContain('open')
-    })
-
-    it('toggles submenu open and close when clicking parent', async () => {
-        setup()
-        const parent = screen.getByText('Item 2')
-
-        await userEvent.click(parent)
-        expect(screen.getByText('Subitem 1')).toBeInTheDocument()
-
-        await userEvent.click(parent)
-        expect(
-            screen.queryByText('Subitem 1')
-        ).not.toBeInTheDocument()
     })
 
     it('forces sidebar to open when clicking submenu while closed', async () => {
         setup()
-        const nav = screen.getByLabelText('Sidebar')
-        const menuIcon = nav.querySelector('.nti-menu') as HTMLElement
 
-        await userEvent.click(menuIcon)
+        const nav = getNav()
+
+        await toggleSidebar()
         expect(nav.className).not.toContain('open')
 
-        const parent = screen.getByText('Item 2')
-        await userEvent.click(parent)
+        await toggleParent()
+
         expect(nav.className).toContain('open')
     })
 })
