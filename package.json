@@ -30,7 +30,8 @@
         "rollup": "catalog:",
         "typescript": "catalog:",
         "vite": "catalog:",
-        "vitest": "catalog:"
+        "vitest": "catalog:",
+        "vitest-canvas-mock": "catalog:"
     },
     "pnpm": {
         "overrides": {
@@ -76,7 +77,7 @@
     "scripts": {
         "bootstrap": "pnpm recursive install",
         "clean": "rm -rfv ./node_modules/",
-        "test": "npx nx run-many --target=test --all --skip-nx-cache",
+        "test": "npx nx run-many --target=test --all --parallel=1 --skip-nx-cache",
         "postinstall": "husky install",
         "commitlint": "commitlint --edit",
         "build:headlessui-storybook": "npx nx run nt-stylesheet:build && npx nx run nt-headless-ui:build-storybook",

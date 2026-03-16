@@ -381,6 +381,9 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 4.0.15(@types/node@22.14.0)(jiti@2.6.1)(jsdom@26.0.0)(sass-embedded@1.83.4)(sass@1.88.0)(yaml@2.8.2)
+      vitest-canvas-mock:
+        specifier: 'catalog:'
+        version: 0.3.3(vitest@4.0.15(@types/node@22.14.0)(jiti@2.6.1)(jsdom@26.0.0)(sass-embedded@1.83.4)(sass@1.88.0)(yaml@2.8.2))
 
   apps/nt-headless-ui:
     dependencies:
@@ -532,9 +535,6 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.7.2
-      vitest-canvas-mock:
-        specifier: 'catalog:'
-        version: 0.3.3(vitest@4.0.15(@types/node@22.14.0)(jiti@2.6.1)(jsdom@26.0.0)(sass-embedded@1.83.4)(sass@1.88.0)(yaml@2.8.2))
 
   apps/nt-stylesheet:
     dependencies:
