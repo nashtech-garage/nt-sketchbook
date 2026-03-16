@@ -1,41 +1,16 @@
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import { defineConfig } from 'vitest/config'
+import { mergeConfig } from 'vitest/config'
+import baseVitestConfig from '../../vitest.config.base'
 
-export default defineConfig({
+export default mergeConfig(baseVitestConfig, {
+    plugins: [react()],
     resolve: {
         alias: {
             '@': path.resolve(__dirname)
         }
     },
-    plugins: [react()],
     test: {
-        watch: false,
-        globals: true,
-        environment: 'jsdom',
-        setupFiles: path.resolve(__dirname, './setup-test.ts'),
-        coverage: {
-            reporter: ['cobertura', 'lcov', 'json-summary', 'json'],
-            reportOnFailure: true,
-            provider: 'v8',
-            thresholds: {
-                statements: 80,
-                branches: 80,
-                functions: 80
-            }
-        },
-        includeSource: [
-            path.resolve(__dirname, 'components/**/*.spec.{ts,tsx}')
-        ],
-        exclude: [
-            'tailwind.config.ts',
-            'vite.config.ts',
-            '**/node_modules/**',
-            '**/*.stories.ts',
-            '**/*.stories.tsx',
-            'setup-test.ts',
-            '**/radix/**',
-            'storybook-static/**'
-        ]
+        include: ['**/*.spec.ts']
     }
 })

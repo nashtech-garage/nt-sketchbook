@@ -87,8 +87,7 @@
         "stylelint": "catalog:",
         "stylelint-custom-lib": "workspace:*",
         "tsconfig": "workspace:*",
-        "typescript": "catalog:",
-        "vitest-canvas-mock": "catalog:"
+        "typescript": "catalog:"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

@@ -1,29 +1,8 @@
-import { defineConfig } from 'vitest/config'
+import { mergeConfig } from 'vitest/config'
+import baseVitestConfig from '../../vitest.config.base'
 
-export default defineConfig({
+export default mergeConfig(baseVitestConfig, {
     test: {
-        setupFiles: ['./setup-test.ts'],
-        watch: false,
-        environment: 'jsdom',
-        globals: true,
-        include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-        reporters: ['default'],
-        coverage: {
-            provider: 'v8',
-            reporter: ['json', 'cobertura', 'json-summary', 'lcov'],
-            reportOnFailure: true,
-            thresholds: {
-                statements: 80,
-                branches: 80,
-                functions: 80
-            }
-        },
-        exclude: [
-            '**/vite.config.{ts,mts}',
-            '**/vitest.config.{ts,mts}',
-            'tailwind.config.ts',
-            '**/node_modules/**',
-            '**/dist/**'
-        ]
+        include: ['**/*.spec.ts']
     }
 })
