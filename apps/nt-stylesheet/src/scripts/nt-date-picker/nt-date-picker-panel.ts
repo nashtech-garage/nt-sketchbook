@@ -24,16 +24,17 @@ export class NtDatePickerPanel implements DatePickerPanel {
     open(input: HTMLInputElement) {
         const rect = input.getBoundingClientRect()
 
+        this.render()
+        this.panel.style.display = 'block'
+
         const panelWidth = this.panel.offsetWidth
         const left = rect.left + rect.width / 2 - panelWidth / 2
 
         Object.assign(this.panel.style, {
             left: `${left}px`,
-            top: `${rect.bottom}px`,
-            display: 'block'
+            top: `${rect.bottom}px`
         })
 
-        this.render()
         this.bindEvents()
     }
 
