@@ -21,7 +21,7 @@ export default defineConfig(() => {
         plugins: [
             dtsPlugin({
                 include: ['src'],
-                exclude: ['**/*.test.ts', '**/__tests__/**'],
+                exclude: ['**/*.spec.ts'],
                 outDir: `${OUT_DIR}/types`,
                 entryRoot: 'src',
                 copyDtsFiles: true
