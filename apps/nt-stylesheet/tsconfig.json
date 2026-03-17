@@ -7,7 +7,9 @@
         "esModuleInterop": false,
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
-        "outDir": "dist"
+        "outDir": "dist",
+        "moduleResolution": "bundler",
+        "module": "ESNext"
     },
     "include": ["**/*.ts", "**/*.js"],
     "exclude": ["node_modules", "vite.config.ts"]

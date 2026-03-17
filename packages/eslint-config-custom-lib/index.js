@@ -17,6 +17,7 @@ export default [
             'typescript-sort-keys': fixupPluginRules(sortKeysPlugin)
         },
         rules: {
+            '@typescript-eslint/no-explicit-any': 'warn',
             '@typescript-eslint/no-non-null-assertion': 'off',
             '@typescript-eslint/no-require-imports': 'off',
             'import/order': 'off',
@@ -51,16 +52,29 @@ export default [
         }
     },
     {
-        files: ['**/*.spec.{ts,tsx}'],
+        files: ['**/*.spec.{tsx}'],
         rules: {
-            'no-useless-escape': 'off',
             'no-restricted-syntax': [
                 'warn',
                 {
                     selector:
-                        'Program:not(:has(FunctionDeclaration[id.name="setup"], VariableDeclarator[id.name="setup"][init.type=/FunctionExpression$/]))',
+                        "Program:not(:has(VariableDeclarator[id.name='setup']))",
                     message:
-                        "Test files must include a 'setup' function."
+                        "Component tests must include a 'setup' function."
+                }
+            ]
+        }
+    },
+    {
+        files: ['**/use*.spec.ts'],
+        rules: {
+            'no-restricted-syntax': [
+                'warn',
+                {
+                    selector:
+                        "Program:not(:has(VariableDeclarator[id.name='setup']))",
+                    message:
+                        "Hook tests must include a 'setup' function."
                 }
             ]
         }

@@ -1,9 +1,11 @@
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
-import * as path from 'path'
 import { defineConfig, UserConfig } from 'vite'
-
 import dtsPlugin from 'vite-plugin-dts'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { generateIconCss } from './plugins/vite-plugin-lucide-icons/vite-plugin-lucide-icons'
+
+import path from 'path'
 import {
     assetCopies,
     assetFileNames,
@@ -14,7 +16,6 @@ import {
 
 export default defineConfig(() => {
     const inputs = makeInputs()
-
     return {
         root: ROOT,
         publicDir: 'public',
@@ -27,7 +28,23 @@ export default defineConfig(() => {
                 copyDtsFiles: true
             }),
             nxViteTsPaths(),
-            nxCopyAssetsPlugin(assetCopies())
+            nxCopyAssetsPlugin(assetCopies()),
+            generateIconCss({
+                output: `css/nt-icons.css`,
+                iconSize: 14
+            }),
+            viteStaticCopy({
+                targets: [
+                    {
+                        src: path.resolve(
+                            ROOT,
+                            './node_modules/lucide-static/tags.json'
+                        ),
+                        dest: 'assets/icons',
+                        rename: '../../icon-categories.json'
+                    }
+                ]
+            })
         ],
         build: {
             sourcemap: true,

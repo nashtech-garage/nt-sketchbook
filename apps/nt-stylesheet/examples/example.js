@@ -59,6 +59,21 @@ const initMenu = () => {
             initSubMenu(el)
         })
     }
+    const iconsLink = document.getElementById('nt-icons-link')
+
+    if (iconsLink) {
+        iconsLink.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            const parentItem = iconsLink.closest('.nt-navbar-item')
+            if (parentItem) {
+                setMainMenuItemActive(parentItem)
+            }
+
+            renderContent('examples/icons/icons.html')
+        })
+    }
+
     return true
 }
 
@@ -136,6 +151,30 @@ const renderContent = async (url) => {
 
         if (newPage) {
             mainContainer.innerHTML = newPage.innerHTML
+            const scripts = doc.querySelectorAll('script')
+
+            scripts.forEach((script) => {
+                const newScript = document.createElement('script')
+                const originalSrc = script.getAttribute('src')
+
+                if (originalSrc) {
+                    const baseUrl = url.substring(
+                        0,
+                        url.lastIndexOf('/') + 1
+                    )
+
+                    const cleanSrc = originalSrc.replace(/^\.\//, '')
+                    newScript.src =
+                        window.location.origin +
+                        '/' +
+                        baseUrl +
+                        cleanSrc
+                } else {
+                    newScript.textContent = script.textContent
+                }
+
+                document.body.appendChild(newScript)
+            })
         } else {
             mainContainer.innerHTML = `<p class="text-red-500">Could not load content from ${url}</p>`
         }

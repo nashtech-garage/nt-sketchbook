@@ -25,7 +25,6 @@ const stripDirs = (nameOrPath: string) =>
 /** Build inputs programmatically */
 export function makeInputs(): EntryMap {
     const entries: EntryMap = {
-        'nt-icons': path.resolve(ROOT, 'src/styles/_icons.scss'),
         nt: path.resolve(ROOT, 'src/styles/_site.scss'),
         'scripts/index': path.resolve(ROOT, 'src/scripts/index.ts'),
         tailwindIntegrations: path.resolve(
