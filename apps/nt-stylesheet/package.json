@@ -90,7 +90,9 @@
         "react-datepicker": "catalog:",
         "sanitize-html": "catalog:",
         "tailwindcss": "catalog:",
-        "typescript-eslint": "catalog:"
+        "typescript-eslint": "catalog:",
+        "lucide-static": "catalog:",
+        "vite-plugin-static-copy": "catalog:"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
