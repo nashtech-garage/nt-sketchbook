@@ -1,30 +1,33 @@
-import { FlatCompat } from '@eslint/eslintrc'
 import customConfig from 'eslint-config-custom-lib'
-import path, { dirname } from 'path'
+import { dirname } from 'path'
+import tseslint from 'typescript-eslint'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: () => null,
-})
-
-const eslintConfig = [
-    ...compat.extends('plugin:@typescript-eslint/recommended'),
+export default tseslint.config(
+    ...tseslint.configs.recommended,
     ...customConfig,
     {
+        files: ['**/*.{ts,tsx}'],
         languageOptions: {
             parserOptions: {
                 project: [
-                    path.join(__dirname, './tsconfig.json'),
-                    path.join(__dirname, './tsconfig.eslint.json'),
+                    './tsconfig.json',
+                    './tsconfig.eslint.json'
                 ],
-                tsconfigRootDir: __dirname,
-            },
-        },
+                tsconfigRootDir: __dirname
+            }
+        }
     },
-]
 
-export default eslintConfig
+    {
+        ignores: [
+            '**/dist/**',
+            '**/node_modules/**',
+            '**/build/**',
+            '**/.nx/**'
+        ]
+    }
+)

@@ -87,7 +87,8 @@
         "stylelint": "catalog:",
         "stylelint-custom-lib": "workspace:*",
         "tsconfig": "workspace:*",
-        "typescript": "catalog:"
+        "typescript": "catalog:",
+        "typescript-eslint": "catalog:"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
