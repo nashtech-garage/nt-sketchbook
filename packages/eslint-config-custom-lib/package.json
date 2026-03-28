@@ -19,7 +19,7 @@
         "eslint-plugin-typescript-sort-keys": "catalog:",
         "eslint-plugin-unused-imports": "catalog:",
         "typescript": "catalog:",
-        "typescript-eslint": "8.57.2"
+        "typescript-eslint": "catalog:"
     },
     "publishConfig": {
         "access": "public"

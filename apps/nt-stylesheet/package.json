@@ -80,7 +80,8 @@
         "postcss-preset-env": "catalog:",
         "react-datepicker": "catalog:",
         "sanitize-html": "catalog:",
-        "tailwindcss": "catalog:"
+        "tailwindcss": "catalog:",
+        "typescript-eslint": "catalog:"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
