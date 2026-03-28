@@ -15,6 +15,9 @@ catalogs:
     '@commitlint/config-conventional':
       specifier: 20.0.0
       version: 20.0.0
+    '@eslint/compat':
+      specifier: 2.0.3
+      version: 2.0.3
     '@eslint/eslintrc':
       specifier: 3.3.5
       version: 3.3.5
@@ -619,7 +622,7 @@ importers:
   packages/eslint-config-custom-lib:
     devDependencies:
       '@eslint/compat':
-        specifier: 2.0.3
+        specifier: 'catalog:'
         version: 2.0.3(eslint@10.1.0(jiti@2.6.1))
       '@typescript-eslint/eslint-plugin':
         specifier: 'catalog:'
