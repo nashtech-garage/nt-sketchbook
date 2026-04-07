@@ -59,7 +59,16 @@ export default defineConfig({
             ]
         }) as PluginOption
     ],
+    css: {
+        lightningcss: {
+            errorRecovery: true
+        }
+    },
     build: {
+        cssMinify: 'esbuild',
+        commonjsOptions: {
+            transformMixedEsModules: true
+        },
         lib: {
             entry: entries,
             formats: ['es', 'cjs'],

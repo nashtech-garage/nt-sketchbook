@@ -1,9 +1,9 @@
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import * as path from 'path'
-import { defineConfig } from 'vite'
-import dtsPlugin from 'vite-plugin-dts'
+import { defineConfig, UserConfig } from 'vite'
 
+import dtsPlugin from 'vite-plugin-dts'
 import {
     assetCopies,
     assetFileNames,
@@ -34,6 +34,7 @@ export default defineConfig(() => {
             emptyOutDir: true,
             reportCompressedSize: true,
             cssCodeSplit: true,
+            cssMinify: 'esbuild',
             commonjsOptions: {
                 transformMixedEsModules: true
             },
@@ -51,7 +52,7 @@ export default defineConfig(() => {
                             return 'scripts/nt.js'
                         return '[name].js'
                     },
-                    assetFileNames: assetFileNames
+                    assetFileNames
                 }
             }
         },
@@ -61,7 +62,6 @@ export default defineConfig(() => {
                     additionalData: `@use 'sass:math'; @use 'sass:map';`
                 }
             }
-            // PostCSS is auto-loaded from postcss.config.cjs
         },
         optimizeDeps: {
             exclude: ['materialdesignicons.min.css']
@@ -74,5 +74,5 @@ export default defineConfig(() => {
                 )
             }
         }
-    }
+    } as UserConfig
 })
