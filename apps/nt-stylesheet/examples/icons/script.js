@@ -29,24 +29,6 @@ const createIconCard = (iconName) => {
         <i class="nti nti-sl nti-${iconName}"></i>
     `
 
-    card.onclick = () => {
-        const text = `<i class="nti nti-${iconName}"></i>`
-
-        navigator.clipboard.writeText(text).then(() => {
-            console.log(`Copied: ${iconName}`)
-
-            if (window.ntPopover) {
-                const popInstance =
-                    ntPopover.getIstance(card) || new ntPopover(card)
-                popInstance.show()
-
-                setTimeout(() => {
-                    popInstance.hide()
-                }, 1500)
-            }
-        })
-    }
-
     return card
 }
 
