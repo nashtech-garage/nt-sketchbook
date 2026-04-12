@@ -3,13 +3,15 @@ import lucideData from 'lucide-static/tags.json'
 import type { Plugin } from 'vite'
 
 const SCALE_UTILITIES = `
-.nti-xs { --nti-size: 0.625rem; } /* 10px */
-.nti-sm { --nti-size: 0.75rem; }  /* 12px */
-.nti-md { --nti-size: 0.875rem; } /* 14px */
-.nti-lg { --nti-size: 1.25rem; }  /* 20px */
-.nti-xl { --nti-size: 1.5rem; }   /* 24px */
-.nti-2x { --nti-size: 1.75rem; }  /* 28px */
-.nti-3x { --nti-size: 2.625rem; } /* 42px */
+.nti-xs { --nti-size: 0.625rem; }  /* 10px */
+.nti-sm { --nti-size: 0.75rem; }   /* 12px */
+.nti-md { --nti-size: 0.875rem; }  /* 14px */
+.nti-base { --nti-size: 1rem; }    /* 16px */
+.nti-sl { --nti-size: 1.125rem; }  /* 18px */
+.nti-lg { --nti-size: 1.25rem; }   /* 20px */
+.nti-xl { --nti-size: 1.5rem; }    /* 24px */
+.nti-2x { --nti-size: 1.75rem; }   /* 28px */
+.nti-3x { --nti-size: 2.625rem; }  /* 42px */
 `.trim()
 
 const iconMap: Record<string, string> = Object.keys(
