@@ -19,17 +19,34 @@ const transformData = (data) =>
 const createIconCard = (iconName) => {
     const card = document.createElement('div')
     card.className = 'icon-card'
+
+    card.setAttribute('data-nt-toggle', 'tooltip')
+    card.setAttribute('data-nt-placement', 'top')
+    card.setAttribute('data-nt-variant', 'danger')
+    card.setAttribute('title', iconName)
+
     card.innerHTML = `
-        <i class="nti nti-lg nti-${iconName}"></i>
-        <span class="icon-name">${iconName}</span>
+        <i class="nti nti-sl nti-${iconName}"></i>
     `
 
     card.onclick = () => {
         const text = `<i class="nti nti-${iconName}"></i>`
+
         navigator.clipboard.writeText(text).then(() => {
             console.log(`Copied: ${iconName}`)
+
+            if (window.ntPopover) {
+                const popInstance =
+                    ntPopover.getIstance(card) || new ntPopover(card)
+                popInstance.show()
+
+                setTimeout(() => {
+                    popInstance.hide()
+                }, 1500)
+            }
         })
     }
+
     return card
 }
 

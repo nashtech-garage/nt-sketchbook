@@ -4,20 +4,25 @@
             margin-bottom: 40px;
         }
         .icon-grid {
-            display: grid;
             grid-template-columns: repeat(
                 auto-fill,
                 minmax(120px, 1fr)
             );
-            gap: 15px;
+            gap: 5px;
+            display: inline-flex;
+            flex-wrap: wrap;
         }
         .icon-card {
             border: 1px solid #ddd;
-            padding: 15px;
             border-radius: 8px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
             transition: 0.2s;
+            aspect-ratio: 1 / 1;
+            width: 56px;
+            height: 56px;
         }
         .icon-card:hover {
             background: #f9f9f9;
