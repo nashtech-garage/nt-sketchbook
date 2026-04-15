@@ -3,9 +3,14 @@
 @use '../animation' as effects;
 
 .nt-table {
+    --nt-table-color: var(--nt-color-text-primary);
+    --nt-table-muted-color: var(--nt-color-text-secondary);
+    --nt-table-border-color: var(--nt-color-border-default);
+    --nt-table-row-bg-accent: var(--nt-bg-regular);
+    --nt-table-loading-bg: var(--nt-color-gray-20);
     width: 100%;
     margin-bottom: 1rem;
-    color: vars.$nt-color-gray-100;
+    color: var(--nt-table-color);
     border-collapse: collapse;
 
     &-thead {
@@ -50,11 +55,11 @@
     }
 
     &-bordered {
-        border: 0.0625rem solid vars.$nt-color-line-regular;
+        border: 0.0625rem solid var(--nt-table-border-color);
 
         th,
         td {
-            border: 0.0625rem solid vars.$nt-color-line-regular;
+            border: 0.0625rem solid var(--nt-table-border-color);
         }
     }
 
@@ -62,31 +67,31 @@
     td {
         padding: 0.5rem;
         vertical-align: middle;
-        border-top: 0.0625rem solid vars.$nt-color-line-regular;
+        border-top: 0.0625rem solid var(--nt-table-border-color);
     }
 
     thead {
         th {
             text-transform: uppercase;
-            color: vars.$nt-color-gray-70;
+            color: var(--nt-table-muted-color);
             vertical-align: middle;
-            border-bottom: 0.125rem solid vars.$nt-color-line-regular;
+            border-bottom: 0.125rem solid var(--nt-table-border-color);
         }
     }
 
     tbody + tbody {
-        border-top: 0.125rem solid vars.$nt-color-line-regular;
+        border-top: 0.125rem solid var(--nt-table-border-color);
     }
 
     &-striped {
         tbody tr:nth-of-type(odd) {
-            background-color: vars.$nt-bg-regular;
+            background-color: var(--nt-table-row-bg-accent);
         }
     }
 
     &-hover {
         tbody tr:hover {
-            background-color: vars.$nt-bg-regular;
+            background-color: var(--nt-table-row-bg-accent);
         }
     }
 
@@ -98,7 +103,7 @@
             @include effects.animate-pulse;
             width: 100%;
             height: 1.25rem;
-            background-color: vars.$nt-color-gray-20;
+            background-color: var(--nt-table-loading-bg);
             border-radius: 0.25rem;
         }
     }

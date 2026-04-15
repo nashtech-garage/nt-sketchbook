@@ -1,6 +1,16 @@
 @use 'react-datepicker/dist/react-datepicker.css';
 
 .nt-datepicker-wrapper {
+    --nt-datepicker-bg: var(--nt-surface-bg);
+    --nt-datepicker-color: var(--nt-color-text-primary);
+    --nt-datepicker-muted-color: var(--nt-color-text-secondary);
+    --nt-datepicker-outside-color: var(--nt-color-gray-30);
+    --nt-datepicker-selected-bg: var(--nt-color-action-secondary);
+    --nt-datepicker-selected-color: var(--nt-color-white);
+    --nt-datepicker-font-family: var(--nt-font-default);
+    --nt-datepicker-shadow:
+        rgb(9 30 66 / 25%) 0 0.25rem 0.5rem -0.125rem,
+        rgb(9 30 66 / 8%) 0 0 0 1px;
     display: initial;
 }
 
@@ -9,13 +19,11 @@
 
     .react-datepicker {
         width: 17.5rem;
-        box-shadow:
-            rgb(9 30 66 / 25%) 0 0.25rem 0.5rem -0.125rem,
-            rgb(9 30 66 / 8%) 0 0 0 1px;
+        box-shadow: var(--nt-datepicker-shadow);
         border: 0;
 
         &__header {
-            background-color: var(--nt-color-white);
+            background-color: var(--nt-datepicker-bg);
             border: 0;
             max-width: 17rem;
             margin: 0 auto;
@@ -34,29 +42,29 @@
         &__day,
         &__time-name {
             width: 1.875rem;
-            font-family: var(--nt-font-default);
+            font-family: var(--nt-datepicker-font-family);
         }
 
         &__day {
-            color: var(--nt-color-gray-100);
+            color: var(--nt-datepicker-color);
             font-weight: var(--nt-font-weight-semi-bold);
             font-size: 13px;
 
             &--selected {
-                background-color: var(--nt-color-secondary-100);
-                color: var(--nt-color-white);
+                background-color: var(--nt-datepicker-selected-bg);
+                color: var(--nt-datepicker-selected-color);
             }
         }
 
         &__day--outside-month {
             font-weight: var(--nt-font-weight-semi-bold);
             font-size: 0.8125rem;
-            color: var(--nt-color-gray-30);
+            color: var(--nt-datepicker-outside-color);
             outline: none;
         }
 
         &__day-name {
-            color: var(--nt-color-gray-60);
+            color: var(--nt-datepicker-muted-color);
             font-size: 0.8125rem;
         }
 
@@ -65,15 +73,15 @@
         &__quarter-text,
         &__year-text {
             &--keyboard-selected {
-                background-color: var(--nt-color-secondary-100);
-                color: var(--nt-color-white);
+                background-color: var(--nt-datepicker-selected-bg);
+                color: var(--nt-datepicker-selected-color);
             }
         }
     }
 }
 
 .nt-datepicker-header {
-    background-color: var(--nt-color-white);
+    background-color: var(--nt-datepicker-bg);
     border: 0;
     display: flex;
     align-items: center;
@@ -81,7 +89,7 @@
 
     select {
         height: 2.1875rem;
-        font-family: var(--nt-font-default);
+        font-family: var(--nt-datepicker-font-family);
     }
 
     select:nth-of-type(1) {

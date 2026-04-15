@@ -3,16 +3,24 @@
 @use 'sass:map';
 
 .nt-select {
+    --nt-select-bg: var(--nt-control-bg);
+    --nt-select-color: var(--nt-control-color);
+    --nt-select-border-color: var(--nt-control-border-color);
+    --nt-select-border-color-hover: var(--nt-color-secondary-50);
+    --nt-select-border-color-focus: var(--nt-color-action-secondary);
+    --nt-select-radius: var(--nt-control-radius);
+    --nt-select-disabled-bg: var(--nt-color-bg-muted);
+    --nt-select-disabled-color: var(--nt-color-text-muted);
     position: relative;
     display: inline-flex;
     align-items: center;
     width: 100%;
     cursor: pointer;
 
-    border: 1px solid vars.$nt-color-line-regular;
-    border-radius: vars.$nt-border-radius-md;
-    background-color: vars.$nt-bg-body;
-    color: vars.$nt-color-black;
+    border: 1px solid var(--nt-select-border-color);
+    border-radius: var(--nt-select-radius);
+    background-color: var(--nt-select-bg);
+    color: var(--nt-select-color);
     font-size: map.get(utils.$nt-font-sizes, 'sm');
     line-height: 1.4;
 
@@ -37,19 +45,19 @@
     }
 
     &:hover {
-        border-color: vars.$nt-color-secondary-50;
+        border-color: var(--nt-select-border-color-hover);
     }
 
     &:focus {
-        border-color: vars.$nt-color-secondary-100;
+        border-color: var(--nt-select-border-color-focus);
         outline: none;
         box-shadow: 0 0 0 0.25rem rgba(vars.$nt-color-secondary-100, 0.2);
     }
 
     &:disabled {
-        color: vars.$nt-color-gray-40;
-        background-color: vars.$nt-bg-light;
-        border-color: vars.$nt-color-gray-10;
+        color: var(--nt-select-disabled-color);
+        background-color: var(--nt-select-disabled-bg);
+        border-color: var(--nt-select-border-color-disabled, var(--nt-color-gray-10));
         cursor: not-allowed;
         opacity: 0.8;
     }
@@ -63,12 +71,12 @@
 
         &:hover,
         &:checked {
-            background-color: vars.$nt-color-gray-9;
+            background-color: var(--nt-select-option-bg-hover, var(--nt-color-gray-9));
         }
 
         &:disabled {
-            color: vars.$nt-color-gray-30;
-            background-color: vars.$nt-bg-light;
+            color: var(--nt-select-disabled-color);
+            background-color: var(--nt-select-disabled-bg);
         }
     }
 

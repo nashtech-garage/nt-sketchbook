@@ -15,6 +15,13 @@
 }
 
 .nt-combobox {
+    --nt-combobox-bg: var(--nt-control-bg);
+    --nt-combobox-color: var(--nt-control-color);
+    --nt-combobox-border-color: var(--nt-control-border-color);
+    --nt-combobox-radius: var(--nt-control-radius);
+    --nt-combobox-item-bg-hover: var(--nt-color-secondary-10);
+    --nt-combobox-placeholder-color: var(--nt-color-text-muted);
+    --nt-combobox-transition: var(--nt-transition-medium);
     position: relative;
     display: inline-block;
     width: 100%;
@@ -26,14 +33,14 @@
         padding: 0.7rem 1rem;
         font-weight: vars.$nt-font-weight-medium;
         text-align: left;
-        color: vars.$nt-text-primary;
-        background: vars.$nt-color-white;
-        border: 0.071rem solid vars.$nt-color-line-regular;
-        border-radius: 0.571rem;
+        color: var(--nt-combobox-color);
+        background: var(--nt-combobox-bg);
+        border: 0.071rem solid var(--nt-combobox-border-color);
+        border-radius: var(--nt-combobox-radius);
         box-sizing: border-box;
         cursor: pointer;
         position: relative;
-        transition: all 0.3s ease;
+        transition: all var(--nt-combobox-transition);
 
         &::after {
             content: '';
@@ -60,9 +67,9 @@
         min-width: 100%;
         margin-top: 0.571rem;
         padding: 0;
-        background: vars.$nt-color-white;
-        border: 0.071rem solid vars.$nt-color-line-regular;
-        border-radius: 0.857rem;
+            background: var(--nt-combobox-bg);
+            border: 0.071rem solid var(--nt-combobox-border-color);
+            border-radius: var(--nt-combobox-radius);
         overflow: hidden;
         animation: slide-down 0.3s ease;
 
@@ -74,7 +81,7 @@
             padding: 1.429rem;
             text-align: center;
             font-style: italic;
-            color: vars.$nt-text-body;
+            color: var(--nt-combobox-color);
         }
     }
 
@@ -83,16 +90,16 @@
         width: calc(100% - 2rem);
         margin: 1rem;
         padding: 0.5rem;
-        border: 1px solid vars.$nt-color-line-regular;
-        border-radius: 0.3125rem;
+        border: 1px solid var(--nt-combobox-border-color);
+        border-radius: var(--nt-combobox-radius);
         outline: none;
 
         &:focus {
-            background: vars.$nt-color-white;
+            background: var(--nt-combobox-bg);
         }
 
         &::placeholder {
-            color: vars.$nt-text-light;
+            color: var(--nt-combobox-placeholder-color);
         }
     }
 
@@ -105,17 +112,17 @@
             width: 100%;
             padding: 0.625rem;
             text-align: left;
-            color: vars.$nt-text-body;
+            color: var(--nt-combobox-color);
             transition: background-color 0.2s ease;
             border-radius: 0.625rem;
 
             &:hover {
-                background: vars.$nt-color-secondary-10;
+                background: var(--nt-combobox-item-bg-hover);
             }
         }
     }
 
     .selected-item {
-        background: vars.$nt-color-secondary-10;
+        background: var(--nt-combobox-item-bg-hover);
     }
 }

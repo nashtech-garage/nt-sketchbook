@@ -1,5 +1,1 @@
-@use '../../styles/tokens/tokens' as tokens;
-
-[data-theme='nt-theme-light'] {
-    @include tokens.nt-root-tokens;
-}
+@use '../../styles/themes/nt-theme-light';

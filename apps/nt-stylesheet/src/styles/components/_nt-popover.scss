@@ -5,13 +5,20 @@
 $arrow-size: 0.5rem;
 
 .nt-popover {
+    --nt-popover-bg: var(--nt-color-black);
+    --nt-popover-color: var(--nt-color-white);
+    --nt-popover-border-color: var(--nt-popover-bg);
+    --nt-popover-radius: var(--nt-border-radius-md);
+    --nt-popover-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+    --nt-popover-padding: 0.75rem 1rem;
+    --nt-popover-transition: var(--nt-transition-fast);
     z-index: 9999;
     display: block;
     max-width: 17.25rem;
     font-size: 0.875rem;
-    border-radius: 0.375rem;
-    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-    transition: opacity 0.2s ease;
+    border-radius: var(--nt-popover-radius);
+    box-shadow: var(--nt-popover-shadow);
+    transition: opacity var(--nt-popover-transition);
     opacity: 0;
 
     $default-bg: map.get(map.get(variants.$ui-variants, default), bg);
@@ -19,8 +26,8 @@ $arrow-size: 0.5rem;
         map.get(variants.$ui-variants, default),
         text
     );
-    background-color: $default-bg;
-    color: $default-text;
+    background-color: var(--nt-popover-bg, #{$default-bg});
+    color: var(--nt-popover-color, #{$default-text});
 
     &.show {
         opacity: 1;
@@ -32,7 +39,7 @@ $arrow-size: 0.5rem;
 
     &-body {
         position: relative;
-        padding: 0.75rem 1rem;
+        padding: var(--nt-popover-padding);
         color: inherit;
     }
 
@@ -104,9 +111,13 @@ $arrow-size: 0.5rem;
         &-#{$name} {
             $bg: map.get($colors, bg);
             $text: map.get($colors, text);
-            background-color: $bg;
-            color: $text;
-            border-color: $bg;
+
+            --nt-popover-bg: #{$bg};
+            --nt-popover-color: #{$text};
+            --nt-popover-border-color: #{$bg};
+            background-color: var(--nt-popover-bg);
+            color: var(--nt-popover-color);
+            border-color: var(--nt-popover-border-color);
 
             .arrow-svg {
                 fill: $bg;

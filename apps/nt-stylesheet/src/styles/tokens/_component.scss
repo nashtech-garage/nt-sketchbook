@@ -1,0 +1,21 @@
+@mixin nt-component-tokens {
+    /* Button contract */
+    --nt-button-bg: var(--nt-color-action-primary);
+    --nt-button-color: var(--nt-color-white);
+    --nt-button-border-color: var(--nt-color-action-primary);
+    --nt-button-radius: var(--nt-radius-control);
+    --nt-button-padding-x: var(--nt-space-control-x);
+    --nt-button-padding-y: var(--nt-space-control-y);
+
+    /* Form control contract */
+    --nt-control-bg: var(--nt-color-bg-surface);
+    --nt-control-color: var(--nt-color-text-primary);
+    --nt-control-border-color: var(--nt-color-border-default);
+    --nt-control-radius: var(--nt-radius-control);
+
+    /* Surface contract */
+    --nt-surface-bg: var(--nt-color-bg-surface);
+    --nt-surface-color: var(--nt-color-text-primary);
+    --nt-surface-border-color: var(--nt-color-border-default);
+    --nt-surface-radius: var(--nt-radius-surface);
+}

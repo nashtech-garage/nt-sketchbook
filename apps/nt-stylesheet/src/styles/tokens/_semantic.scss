@@ -1,0 +1,21 @@
+@mixin nt-semantic-tokens {
+    /* Semantic color roles */
+    --nt-color-brand-primary: var(--nt-color-primary-100);
+    --nt-color-brand-secondary: var(--nt-color-secondary-100);
+    --nt-color-action-primary: var(--nt-color-brand-primary);
+    --nt-color-action-secondary: var(--nt-color-brand-secondary);
+    --nt-color-bg-body: var(--nt-bg-body);
+    --nt-color-bg-surface: var(--nt-color-white);
+    --nt-color-bg-muted: var(--nt-bg-light);
+    --nt-color-text-primary: var(--nt-color-gray-100);
+    --nt-color-text-secondary: var(--nt-color-gray-70);
+    --nt-color-text-muted: var(--nt-color-gray-50);
+    --nt-color-border-default: var(--nt-color-gray-20);
+    --nt-color-border-strong: var(--nt-color-gray-30);
+
+    /* Semantic spacing and shape roles */
+    --nt-space-control-x: var(--nt-spacing-md);
+    --nt-space-control-y: var(--nt-spacing-xs);
+    --nt-radius-control: var(--nt-border-radius-md);
+    --nt-radius-surface: var(--nt-border-radius-lg);
+}

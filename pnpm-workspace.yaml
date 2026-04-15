@@ -86,7 +86,7 @@ catalog:
     tailwind-merge: 2.6.0
     tailwindcss: 3.4.17
     tailwindcss-animate: 1.0.7
-    typescript: 5.7.2
+    typescript: 5.8.2
     vite: 8.0.5
     vite-bundle-visualizer: 1.2.1
     vite-plugin-dts: 4.5.4

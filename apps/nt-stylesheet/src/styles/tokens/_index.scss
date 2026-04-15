@@ -1,0 +1,12 @@
+@use 'component' as component;
+@use 'primitives' as primitives;
+@use 'semantic' as semantic;
+@forward 'component';
+@forward 'primitives';
+@forward 'semantic';
+
+@mixin nt-design-tokens {
+    @include primitives.nt-root-tokens;
+    @include semantic.nt-semantic-tokens;
+    @include component.nt-component-tokens;
+}

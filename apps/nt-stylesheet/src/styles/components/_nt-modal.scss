@@ -4,6 +4,13 @@
 @use 'sass:map';
 
 .nt-modal {
+    --nt-modal-backdrop-bg: rgb(0 0 0 / 60%);
+    --nt-modal-surface-bg: var(--nt-surface-bg);
+    --nt-modal-color: var(--nt-surface-color);
+    --nt-modal-muted-color: var(--nt-color-text-muted);
+    --nt-modal-radius: var(--nt-surface-radius);
+    --nt-modal-padding: 0.875rem;
+    --nt-modal-shadow: 0 0.625rem 1.5625rem rgb(0 0 0 / 20%);
     position: fixed;
     inset: 0;
     z-index: 1050;
@@ -11,7 +18,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(0 0 0 / 60%);
+    background-color: var(--nt-modal-backdrop-bg);
     opacity: 0;
     pointer-events: none;
     transition:
@@ -35,12 +42,13 @@
 
     &-box {
         @include effects.fade-in;
-        background: vars.$nt-color-white;
+        background: var(--nt-modal-surface-bg);
+        color: var(--nt-modal-color);
         width: 100%;
         margin: 10% auto;
-        border-radius: 0.5rem;
+        border-radius: var(--nt-modal-radius);
         overflow: hidden;
-        box-shadow: 0 0.625rem 1.5625rem rgb(0 0 0 / 20%);
+        box-shadow: var(--nt-modal-shadow);
 
         &-sm {
             max-width: 20rem;
@@ -71,7 +79,7 @@
     &-close {
         font-size: 1.5rem;
         text-decoration: none;
-        color: vars.$nt-color-black;
+        color: var(--nt-modal-color);
         background: none;
         border: none;
         cursor: pointer;
@@ -79,20 +87,20 @@
 
     &-description {
         @include utils.font-size('xs');
-        color: vars.$nt-color-gray-60;
+        color: var(--nt-modal-muted-color);
     }
 
     &-content {
         @include utils.font-size('sm');
-        padding: 0.875rem;
-        color: vars.$nt-color-black;
+        padding: var(--nt-modal-padding);
+        color: var(--nt-modal-color);
     }
 
     &-footer {
         display: flex;
         justify-content: flex-end;
         gap: 0.5rem;
-        padding: 0.875rem;
+        padding: var(--nt-modal-padding);
     }
 
     &-open {

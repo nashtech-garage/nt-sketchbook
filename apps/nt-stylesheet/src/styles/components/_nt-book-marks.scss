@@ -9,16 +9,21 @@
     border-bottom: 0.125rem solid transparent;
 
     &.active {
-        color: vars.$nt-text-primary;
-        border-bottom: 0.125rem solid vars.$nt-color-primary-100;
+        color: var(--nt-page-bookmarks-color-active);
+        border-bottom: 0.125rem solid
+            var(--nt-page-bookmarks-border-color-active);
     }
 }
 
 .nt-page-bookmarks {
+    --nt-page-bookmarks-color-active: var(--nt-color-text-primary);
+    --nt-page-bookmarks-border-color: var(--nt-color-border-default);
+    --nt-page-bookmarks-border-color-active: var(--nt-color-action-primary);
+    --nt-page-bookmarks-gap: 1rem;
     display: flex;
-    gap: 1rem;
+    gap: var(--nt-page-bookmarks-gap);
     padding: 0.75rem;
-    border-bottom: 0.0625rem solid vars.$nt-border-bold;
+    border-bottom: 0.0625rem solid var(--nt-page-bookmarks-border-color);
 
     @include nt-book-marks;
 }

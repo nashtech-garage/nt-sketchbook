@@ -5,22 +5,29 @@
 $arrow-offset-large: 0.5rem;
 
 .nt-tooltip {
-    padding: 0.375rem 0.625rem;
-    border-radius: 0.25rem;
+    --nt-tooltip-bg: var(--nt-color-black);
+    --nt-tooltip-color: var(--nt-color-white);
+    --nt-tooltip-border-color: var(--nt-tooltip-bg);
+    --nt-tooltip-radius: var(--nt-border-radius-sm);
+    --nt-tooltip-padding: 0.375rem 0.625rem;
+    --nt-tooltip-transition: var(--nt-transition-fast);
+    padding: var(--nt-tooltip-padding);
+    border-radius: var(--nt-tooltip-radius);
     font-size: 0.875rem;
     z-index: 1000;
     white-space: nowrap;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--nt-tooltip-transition);
     $default-bg: map.get(map.get(variants.$ui-variants, default), bg);
     $default-text: map.get(
         map.get(variants.$ui-variants, default),
         text
     );
-    background: $default-bg;
-    color: $default-text;
-    border: 0.0625rem solid $default-bg;
+    background: var(--nt-tooltip-bg, #{$default-bg});
+    color: var(--nt-tooltip-color, #{$default-text});
+    border: 0.0625rem solid
+        var(--nt-tooltip-border-color, #{$default-bg});
 
     &.show {
         opacity: 1;
@@ -76,9 +83,10 @@ $arrow-offset-large: 0.5rem;
         &-#{$name} {
             $bg: map.get($colors, bg);
             $text: map.get($colors, text);
-            background: $bg;
-            color: $text;
-            border: 0.0625rem solid $bg;
+
+            --nt-tooltip-bg: #{$bg};
+            --nt-tooltip-color: #{$text};
+            --nt-tooltip-border-color: #{$bg};
 
             .arrow-svg {
                 fill: $bg;

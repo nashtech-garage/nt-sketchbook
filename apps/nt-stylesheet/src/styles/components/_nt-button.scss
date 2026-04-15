@@ -17,42 +17,51 @@ $base-radius: 0.25rem;
 $base-transition: all 0.2s ease-in-out;
 
 @mixin button-state($color, $hover, $active, $disabled) {
-    background-color: $color;
-    color: $white;
+    background-color: var(--nt-button-bg, #{$color});
+    color: var(--nt-button-color, #{$white});
 
     &:hover {
-        background-color: $hover;
+        background-color: var(--nt-button-bg-hover, #{$hover});
     }
 
     &:active,
     &:focus {
-        background-color: $active;
+        background-color: var(--nt-button-bg-active, #{$active});
     }
 
     &:disabled {
-        background-color: $disabled;
+        background-color: var(--nt-button-bg-disabled, #{$disabled});
     }
 }
 
 @mixin outline-state($color, $active-color, $disabled-bg) {
-    color: $color;
-    border-color: $color;
+    color: var(--nt-button-outline-color, #{$color});
+    border-color: var(--nt-button-outline-border-color, #{$color});
 
     &:hover {
         box-shadow: 0 0.25rem 0.375rem rgb(0 0 0 / 10%);
-        background-color: $white;
+        background-color: var(--nt-button-outline-bg-hover, #{$white});
     }
 
     &:active,
     &:focus {
-        background-color: $active-color;
+        background-color: var(
+            --nt-button-outline-bg-active,
+            #{$active-color}
+        );
         box-shadow: inset 0 0.25rem 0.5rem rgb(0 0 0 / 10%);
     }
 
     &:disabled {
-        background-color: $disabled-bg;
-        color: $white;
-        border-color: $disabled-bg;
+        background-color: var(
+            --nt-button-outline-bg-disabled,
+            #{$disabled-bg}
+        );
+        color: var(--nt-button-outline-color-disabled, #{$white});
+        border-color: var(
+            --nt-button-outline-border-color-disabled,
+            #{$disabled-bg}
+        );
     }
 }
 
@@ -78,9 +87,9 @@ $base-transition: all 0.2s ease-in-out;
     display: inline-block;
     text-align: center;
     border: none;
-    border-radius: $base-radius;
+    border-radius: var(--nt-button-radius, #{$base-radius});
     cursor: pointer;
-    transition: $base-transition;
+    transition: var(--nt-button-transition, #{$base-transition});
 
     &:disabled {
         cursor: not-allowed;
@@ -93,16 +102,19 @@ $base-transition: all 0.2s ease-in-out;
 }
 
 %button-gradient {
-    background: $gradient;
-    color: $white;
+    background: var(--nt-button-gradient-bg, #{$gradient});
+    color: var(--nt-button-color, #{$white});
 
     &:hover {
-        background: $gradient-hover;
+        background: var(--nt-button-gradient-bg-hover, #{$gradient-hover});
         box-shadow: rgb(0 0 0 / 16%) 0 0.0625rem 0.25rem;
     }
 
     &:disabled {
-        background: vars.$nt-color-primary-20;
+        background: var(
+            --nt-button-gradient-bg-disabled,
+            #{vars.$nt-color-primary-20}
+        );
     }
 }
 
@@ -143,6 +155,15 @@ $base-transition: all 0.2s ease-in-out;
 }
 
 .nt-button {
+    --nt-button-bg: var(--nt-color-action-primary);
+    --nt-button-bg-hover: var(--nt-color-primary-80);
+    --nt-button-bg-active: var(--nt-color-primary-110);
+    --nt-button-bg-disabled: var(--nt-color-primary-20);
+    --nt-button-color: var(--nt-color-white);
+    --nt-button-radius: var(--nt-radius-control);
+    --nt-button-transition: var(--nt-transition-fast);
+    --nt-button-outline-bg-hover: var(--nt-color-white);
+
     @extend %button-base;
     @include button-md;
 
@@ -155,14 +176,29 @@ $base-transition: all 0.2s ease-in-out;
     }
 
     &-secondary {
+        --nt-button-bg: var(--nt-color-action-secondary);
+        --nt-button-bg-hover: var(--nt-color-secondary-80);
+        --nt-button-bg-active: var(--nt-color-secondary-110);
+        --nt-button-bg-disabled: var(--nt-color-secondary-20);
+
         @extend %button-secondary;
     }
 
     &-neutral {
+        --nt-button-bg: var(--nt-color-gray-90);
+        --nt-button-bg-hover: var(--nt-color-gray-80);
+        --nt-button-bg-active: var(--nt-color-gray-100);
+        --nt-button-bg-disabled: var(--nt-color-gray-20);
+
         @extend %button-neutral;
     }
 
     &-success {
+        --nt-button-bg: var(--nt-color-success);
+        --nt-button-bg-hover: var(--nt-color-success-bold);
+        --nt-button-bg-active: var(--nt-color-success-bold);
+        --nt-button-bg-disabled: var(--nt-border-regular);
+
         @extend %button-success;
     }
 

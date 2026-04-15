@@ -37,6 +37,15 @@
         "./css/nt-icons.css": {
             "default": "./dist/css/nt-icons.css"
         },
+        "./themes/nt-theme-light.css": {
+            "default": "./dist/themes/nt-theme-light.css"
+        },
+        "./themes/nt-theme-dark.css": {
+            "default": "./dist/themes/nt-theme-dark.css"
+        },
+        "./brands/nashtech.css": {
+            "default": "./dist/brands/nashtech.css"
+        },
         "./integrations/tailwind": {
             "types": "./dist/integrations/tailwind/index.d.ts",
             "import": "./dist/integrations/tailwind/index.js",

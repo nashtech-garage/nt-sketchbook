@@ -1,0 +1,14 @@
+@use '../tokens' as tokens;
+
+[data-theme='nt-theme-dark'] {
+    @include tokens.nt-design-tokens;
+
+    --nt-bg-body: #111;
+    --nt-color-bg-body: #111;
+    --nt-color-bg-surface: #1d1d1f;
+    --nt-color-bg-muted: #28292b;
+    --nt-color-text-primary: #fff;
+    --nt-color-text-secondary: var(--nt-color-gray-20);
+    --nt-color-text-muted: var(--nt-color-gray-40);
+    --nt-color-border-default: var(--nt-color-gray-80);
+}

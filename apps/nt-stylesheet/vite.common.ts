@@ -34,47 +34,42 @@ export function makeInputs(): EntryMap {
         )
     }
 
-    // Register themes by directory
-    const themesDir = path.resolve(ROOT, 'src/themes')
+    // Register themes by canonical style entry file
+    const themesDir = path.resolve(ROOT, 'src/styles/themes')
     if (fileExists(themesDir)) {
-        const themeFolders = fs.readdirSync(themesDir).filter((d) => {
+        const themeFiles = fs.readdirSync(themesDir).filter((d) => {
             const full = path.join(themesDir, d)
             return (
                 d.startsWith('nt-theme-') &&
-                fs.statSync(full).isDirectory()
+                d.endsWith('.scss') &&
+                fs.statSync(full).isFile()
             )
         })
 
-        for (const folder of themeFolders) {
-            const entry = path.resolve(
-                themesDir,
-                folder,
-                '_index.scss'
-            )
+        for (const file of themeFiles) {
+            const entry = path.resolve(themesDir, file)
             if (fileExists(entry)) {
-                entries[folder] = entry
+                entries[stripDirs(file)] = entry
             }
         }
     }
 
-    // Register brands by directory
-    const brandingDir = path.resolve(ROOT, 'src/branding')
-    if (fileExists(brandingDir)) {
-        const brandFolders = fs
-            .readdirSync(brandingDir)
-            .filter((d) => {
-                const full = path.join(brandingDir, d)
-                return fs.statSync(full).isDirectory()
-            })
-
-        for (const folder of brandFolders) {
-            const entry = path.resolve(
-                brandingDir,
-                folder,
-                '_index.scss'
+    // Register brands by canonical style entry file
+    const brandsDir = path.resolve(ROOT, 'src/styles/brands')
+    if (fileExists(brandsDir)) {
+        const brandFiles = fs.readdirSync(brandsDir).filter((d) => {
+            const full = path.join(brandsDir, d)
+            return (
+                !d.startsWith('_') &&
+                d.endsWith('.scss') &&
+                fs.statSync(full).isFile()
             )
+        })
+
+        for (const file of brandFiles) {
+            const entry = path.resolve(brandsDir, file)
             if (fileExists(entry)) {
-                entries[`branding/${folder}`] = entry
+                entries[`brands/${stripDirs(file)}`] = entry
             }
         }
     }
@@ -112,9 +107,15 @@ export function assetFileNames(assetInfo: PreRenderedAsset): string {
         return `themes/${basename}${ext}`
     }
 
-    // Branding: branding/X/_index.scss -> branding/X.css
-    if (name.includes('branding') && ext === '.css') {
-        return `branding/${basename}${ext}`
+    // Brands: brands/X.scss -> brands/X.css
+    if (
+        ext === '.css' &&
+        (name.includes('brands') ||
+            originalFiles.some((of) =>
+                of.includes('src/styles/brands')
+            ))
+    ) {
+        return `brands/${basename}${ext}`
     }
 
     // Icons

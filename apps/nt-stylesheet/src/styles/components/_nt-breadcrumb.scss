@@ -2,6 +2,14 @@
 @use '../utilities' as utils;
 
 .nt-breadcrumb {
+    --nt-breadcrumb-color: var(--nt-color-text-primary);
+    --nt-breadcrumb-current-color: var(--nt-color-text-muted);
+    --nt-breadcrumb-bg-hover: var(--nt-bg-light);
+    --nt-breadcrumb-radius: var(--nt-border-radius-sm);
+    --nt-breadcrumb-padding-y: var(--nt-spacing-xs);
+    --nt-breadcrumb-padding-x: var(--nt-spacing-md);
+    --nt-breadcrumb-icon-gap: var(--nt-spacing-xs);
+
     &-list {
         display: flex;
         align-items: center;
@@ -14,22 +22,25 @@
             &-link {
                 @include utils.font-size('sm');
                 text-decoration: none;
-                padding: vars.$nt-spacing-xs vars.$nt-spacing-md;
-                border-radius: vars.$nt-border-radius-sm;
+                padding: var(--nt-breadcrumb-padding-y)
+                    var(--nt-breadcrumb-padding-x);
+                border-radius: var(--nt-breadcrumb-radius);
+                color: var(--nt-breadcrumb-color);
 
                 &:hover {
-                    background-color: vars.$nt-bg-light;
+                    background-color: var(--nt-breadcrumb-bg-hover);
                 }
             }
 
             &-current {
-                padding: vars.$nt-spacing-xs vars.$nt-spacing-md;
-                border-radius: vars.$nt-border-radius-sm;
-                color: vars.$nt-color-gray-50;
+                padding: var(--nt-breadcrumb-padding-y)
+                    var(--nt-breadcrumb-padding-x);
+                border-radius: var(--nt-breadcrumb-radius);
+                color: var(--nt-breadcrumb-current-color);
 
                 &:hover {
-                    background-color: vars.$nt-bg-light;
-                    color: vars.$nt-color-gray-100;
+                    background-color: var(--nt-breadcrumb-bg-hover);
+                    color: var(--nt-breadcrumb-color);
                 }
             }
 
@@ -37,7 +48,7 @@
                 .nt-breadcrumb-list-item-link {
                     &::before {
                         content: url('/assets/svg/breadcrumb.svg');
-                        margin-right: vars.$nt-spacing-xs;
+                        margin-right: var(--nt-breadcrumb-icon-gap);
                     }
                 }
             }

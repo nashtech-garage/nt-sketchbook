@@ -22,16 +22,23 @@ $alert-types: (
 );
 
 .nt-alert {
+    --nt-alert-bg: var(--nt-color-bg-muted);
+    --nt-alert-color: var(--nt-color-text-primary);
+    --nt-alert-radius: var(--nt-radius-surface);
+    --nt-alert-padding: 1.25rem;
+    --nt-alert-icon-gap: 1.5rem;
+
     @include utils.font-size('sm');
     position: relative;
     display: flex;
     align-items: center;
-    padding: 1.25rem;
-    border-radius: 0.5rem;
-    color: vars.$nt-color-gray-100;
+    padding: var(--nt-alert-padding);
+    border-radius: var(--nt-alert-radius);
+    color: var(--nt-alert-color);
+    background-color: var(--nt-alert-bg);
 
     &-icon {
-        margin-right: 1.5rem;
+        margin-right: var(--nt-alert-icon-gap);
         font-size: 1.25rem;
         line-height: 1.25rem;
         flex-shrink: 0;
@@ -80,7 +87,7 @@ $alert-types: (
 
     @each $type, $config in $alert-types {
         &-#{$type} {
-            background-color: map.get($config, color);
+            --nt-alert-bg: #{map.get($config, color)};
 
             &.nt-alert-has-icon::before {
                 background-image: url('#{map.get($config, icon)}');

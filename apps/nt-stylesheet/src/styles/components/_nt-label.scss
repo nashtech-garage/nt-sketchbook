@@ -3,14 +3,20 @@
 @use 'sass:map';
 
 .nt-label {
+    --nt-label-color: var(--nt-color-text-primary);
+    --nt-label-hint-color: var(--nt-color-text-secondary);
+    --nt-label-font-weight: var(--nt-font-weight-regular);
+    --nt-label-form-field-font-weight: var(--nt-font-weight-bold);
     font-size: map.get(utils.$nt-font-sizes, 'md');
+    color: var(--nt-label-color);
+    font-weight: var(--nt-label-font-weight);
 
     &-hint {
-        color: vars.$nt-text-description;
+        color: var(--nt-label-hint-color);
     }
 
     &-form-field {
-        color: vars.$nt-text-body;
-        font-weight: vars.$nt-font-weight-bold;
+        color: var(--nt-label-color);
+        font-weight: var(--nt-label-form-field-font-weight);
     }
 }
