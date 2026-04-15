@@ -183,6 +183,9 @@ catalogs:
     lucide-react:
       specifier: 0.474.0
       version: 0.474.0
+    lucide-static:
+      specifier: 1.8.0
+      version: 1.8.0
     next:
       specifier: 16.2.3
       version: 16.2.3
@@ -279,6 +282,9 @@ catalogs:
     vite-plugin-sass-dts:
       specifier: 1.3.29
       version: 1.3.29
+    vite-plugin-static-copy:
+      specifier: 4.0.1
+      version: 4.0.1
     vitest:
       specifier: 4.1.2
       version: 4.1.2
@@ -565,6 +571,9 @@ importers:
       date-fns:
         specifier: 'catalog:'
         version: 4.1.0
+      lucide-static:
+        specifier: 'catalog:'
+        version: 1.8.0
       postcss:
         specifier: 'catalog:'
         version: 8.5.3
@@ -589,6 +598,9 @@ importers:
       typescript-eslint:
         specifier: 'catalog:'
         version: 8.57.2(eslint@10.1.0(jiti@2.6.1))(typescript@5.9.3)
+      vite-plugin-static-copy:
+        specifier: 'catalog:'
+        version: 4.0.1(vite@8.0.5(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@22.14.0)(esbuild@0.28.0)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(yaml@2.8.3))
     devDependencies:
       '@eslint/eslintrc':
         specifier: 'catalog:'
@@ -5569,6 +5581,9 @@ packages:
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  lucide-static@1.8.0:
+    resolution: {integrity: sha512-eQJCJuDg3tyQrjP0PwD5eIA4ePd5CMdxkrfyqk3iUQA4VOtsJ0v5T6IBJ5UyR3SYHzUn8HOAEL+I+SLVnOJNIA==}
+
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
@@ -5884,6 +5899,10 @@ packages:
   p-map@4.0.0:
     resolution: {integrity: sha512-/bjOqmgETBYB5BoEeGVea8dmvHb2m9GLy1E9W43yeyfP6QQCZGFNa+XRceJEuDB6zqr+gKpIAmlLebMpykw/MQ==}
     engines: {node: '>=10'}
+
+  p-map@7.0.4:
+    resolution: {integrity: sha512-tkAQEw8ysMzmkhgw8k+1U/iPhWNhykKnSk4Rd5zLoPJCuJaGRPo6YposrZgaxHKzDHdDWWZvE/Sk7hsL2X/CpQ==}
+    engines: {node: '>=18'}
 
   p-try@2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
@@ -7466,6 +7485,12 @@ packages:
       prettier: ^2.7 || ^3
       sass-embedded: ^1.78.0
       vite: '>=3'
+
+  vite-plugin-static-copy@4.0.1:
+    resolution: {integrity: sha512-r3kQUrrimduikhyRm58ayemoxsgB8lZdn/JULLL4wpXHAZlYejtyZx7E/id7dwRtIOSYWu/tWvFjdEOTzso2MA==}
+    engines: {node: ^22.0.0 || >=24.0.0}
+    peerDependencies:
+      vite: ^6.0.0 || ^7.0.0 || ^8.0.0
 
   vite-plugin-storybook-nextjs@3.2.4:
     resolution: {integrity: sha512-shFOJpGQsWDS1FLm8BR8b6FIQC65pFZ5a0IUFGLiBHAX1eRz0N8TOhUJN4p708zfPBLDXqWzj++ocECe8gSoMg==}
@@ -13022,6 +13047,8 @@ snapshots:
     dependencies:
       react: 19.0.0
 
+  lucide-static@1.8.0: {}
+
   lz-string@1.5.0: {}
 
   magic-string@0.30.21:
@@ -13453,6 +13480,8 @@ snapshots:
   p-map@4.0.0:
     dependencies:
       aggregate-error: 3.1.0
+
+  p-map@7.0.4: {}
 
   p-try@2.2.0: {}
 
@@ -15309,6 +15338,14 @@ snapshots:
       postcss-js: 4.1.0(postcss@8.5.3)
       prettier: 3.0.1
       sass-embedded: 1.83.4
+      vite: 8.0.5(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@22.14.0)(esbuild@0.28.0)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(yaml@2.8.3)
+
+  vite-plugin-static-copy@4.0.1(vite@8.0.5(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@22.14.0)(esbuild@0.28.0)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(yaml@2.8.3)):
+    dependencies:
+      chokidar: 3.6.0
+      p-map: 7.0.4
+      picocolors: 1.1.1
+      tinyglobby: 0.2.15
       vite: 8.0.5(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@22.14.0)(esbuild@0.28.0)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(yaml@2.8.3)
 
   vite-plugin-storybook-nextjs@3.2.4(next@16.2.3(@babel/core@7.29.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.88.0))(storybook@10.3.4(@testing-library/dom@10.4.1)(prettier@3.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.8.2)(vite@8.0.5(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@22.14.0)(esbuild@0.28.0)(jiti@2.6.1)(sass-embedded@1.83.4)(sass@1.88.0)(yaml@2.8.3)):
