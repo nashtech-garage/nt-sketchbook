@@ -33,7 +33,7 @@ $transition-duration: 0.3s;
 
 @mixin placeholder {
     &::placeholder {
-        color: vars.$nt-color-gray-40;
+        color: var(--nt-input-placeholder-color, #{vars.$nt-color-gray-40});
     }
 }
 
@@ -43,9 +43,10 @@ $transition-duration: 0.3s;
     $default-color: map.get(map.get($input-colors, default), base);
     width: 100%;
     padding: $input-padding-x;
-    border-radius: $input-border-radius;
-    border: 1px solid $default-color;
-    background-color: white;
+    border-radius: var(--nt-input-radius, #{$input-border-radius});
+    border: 1px solid var(--nt-input-border-color, #{$default-color});
+    background-color: var(--nt-input-bg, var(--nt-control-bg));
+    color: var(--nt-input-color, var(--nt-control-color));
     transition:
         border-color $transition-duration,
         box-shadow $transition-duration;
@@ -59,22 +60,29 @@ $transition-duration: 0.3s;
     $base-color: map.get($color-map, base);
     $hover-color: map.get($color-map, hover);
     $focus-color: map.get($color-map, focus);
-    border-color: $base-color;
+
+    --nt-input-border-color: #{$base-color};
+    --nt-input-border-color-hover: #{$hover-color};
+    --nt-input-border-color-focus: #{$focus-color};
+    border-color: var(--nt-input-border-color);
 
     &:focus {
-        border-color: $focus-color;
+        border-color: var(--nt-input-border-color-focus);
         box-shadow: rgb(0 0 0 / 16%) 0 0.0625rem 0.25rem;
     }
 
     &:hover {
-        border-color: $hover-color;
+        border-color: var(--nt-input-border-color-hover);
     }
 
     &:disabled {
-        background-color: vars.$nt-color-gray-9;
-        color: vars.$nt-color-gray-40;
+        background-color: var(--nt-input-bg-disabled, #{vars.$nt-color-gray-9});
+        color: var(--nt-input-color-disabled, #{vars.$nt-color-gray-40});
         cursor: not-allowed;
-        border-color: vars.$nt-color-line-regular;
+        border-color: var(
+            --nt-input-border-color-disabled,
+            #{vars.$nt-color-line-regular}
+        );
         box-shadow: none;
     }
 }
@@ -111,6 +119,14 @@ $transition-duration: 0.3s;
 }
 
 .nt-input {
+    --nt-input-bg: var(--nt-control-bg);
+    --nt-input-color: var(--nt-control-color);
+    --nt-input-border-color: var(--nt-control-border-color);
+    --nt-input-border-color-hover: var(--nt-color-secondary-50);
+    --nt-input-border-color-focus: var(--nt-color-action-secondary);
+    --nt-input-placeholder-color: var(--nt-color-text-muted);
+    --nt-input-radius: var(--nt-control-radius);
+
     @include input-base;
 
     &-container {

@@ -47,6 +47,12 @@ $avatar-radius: (
 }
 
 .nt-avatar {
+    --nt-avatar-border-color: var(--nt-color-white);
+    --nt-avatar-status-online-bg: var(--nt-color-success);
+    --nt-avatar-status-offline-bg: var(--nt-color-gray-50);
+    --nt-avatar-status-away-bg: var(--nt-color-warning);
+    --nt-avatar-status-busy-bg: var(--nt-color-danger);
+
     @include avatar-shape(full);
     object-fit: cover;
     display: unset;
@@ -74,22 +80,22 @@ $avatar-radius: (
         height: 1rem;
         border-radius: 50%;
         z-index: 20;
-        border: 0.125rem solid vars.$nt-color-white;
+        border: 0.125rem solid var(--nt-avatar-border-color);
 
         &-online {
-            background-color: vars.$nt-color-success;
+            background-color: var(--nt-avatar-status-online-bg);
         }
 
         &-offline {
-            background-color: vars.$nt-color-gray-50;
+            background-color: var(--nt-avatar-status-offline-bg);
         }
 
         &-away {
-            background-color: vars.$nt-color-warning;
+            background-color: var(--nt-avatar-status-away-bg);
         }
 
         &-busy {
-            background-color: vars.$nt-color-danger;
+            background-color: var(--nt-avatar-status-busy-bg);
         }
     }
 
@@ -116,7 +122,7 @@ $avatar-radius: (
         align-items: center;
 
         .nt-avatar {
-            border: 2px solid vars.$nt-color-white;
+            border: 2px solid var(--nt-avatar-border-color);
         }
 
         .nt-avatar-wrapper {

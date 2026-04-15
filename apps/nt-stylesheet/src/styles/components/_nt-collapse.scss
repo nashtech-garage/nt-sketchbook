@@ -1,11 +1,14 @@
 .nt-collapse {
+    --nt-collapse-transition: var(--nt-transition-medium);
+    --nt-collapse-margin: 1rem 0;
+    --nt-collapse-arrow-right: 1rem;
     overflow: hidden;
-    transition: height 0.3s ease;
+    transition: height var(--nt-collapse-transition);
     height: 0;
     visibility: hidden;
 
     &.show {
-        margin: 1rem 0;
+        margin: var(--nt-collapse-margin);
         visibility: visible;
         width: 100%;
         height: 100%;
@@ -15,9 +18,9 @@
     &-arrow {
         position: absolute;
         top: 50%;
-        right: 1rem;
+        right: var(--nt-collapse-arrow-right);
         transform: translateY(-50%);
-        transition: transform 0.3s ease;
+        transition: transform var(--nt-collapse-transition);
 
         &.up {
             transform: translateY(-50%) rotate(180deg);

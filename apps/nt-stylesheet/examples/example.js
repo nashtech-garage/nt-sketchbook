@@ -1,5 +1,5 @@
-const updateVersion = () => {
-    return fetch('package.json')
+const updateVersion = () =>
+    fetch('package.json')
         .then((res) => res.json())
         .then((data) => {
             const skdVersionEl =
@@ -8,7 +8,6 @@ const updateVersion = () => {
                 skdVersionEl.innerText = data.version
             }
         })
-}
 
 const renderComponentsList = (data) => {
     const title = document.getElementById('nt-widget-title')
@@ -44,11 +43,10 @@ const renderComponentsList = (data) => {
     title.innerText = `${title.innerText} - v${data.version}`
 }
 
-const initWidgetsList = () => {
-    return fetch('../components-manifest.json')
+const initWidgetsList = () =>
+    fetch('../components-manifest.json')
         .then((res) => res.json())
         .then((data) => renderComponentsList(data))
-}
 
 const initMenu = () => {
     const items = document.getElementsByClassName('nt-navbar-item')

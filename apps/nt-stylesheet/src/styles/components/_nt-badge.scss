@@ -3,47 +3,56 @@
 @use 'sass:map';
 
 .nt-badge {
+    --nt-badge-bg: var(--nt-color-primary-50);
+    --nt-badge-color: var(--nt-color-white);
+    --nt-badge-border-color: currentcolor;
+    --nt-badge-radius: 1.5rem;
+    --nt-badge-padding: 0.5rem;
+
     @include utils.font-size('2xs');
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-weight: vars.$nt-font-weight-bold;
-    padding: 0.5rem;
-    border-radius: 1.5rem;
+    padding: var(--nt-badge-padding);
+    border-radius: var(--nt-badge-radius);
     line-height: 1;
     white-space: nowrap;
-    background-color: vars.$nt-color-primary-50;
-    color: vars.$nt-color-white;
+    background-color: var(--nt-badge-bg);
+    color: var(--nt-badge-color);
     border: 0.0625rem solid;
+    border-color: var(--nt-badge-border-color);
 
     &-info {
-        background-color: vars.$nt-color-info;
-        border-color: vars.$nt-border-info;
+        --nt-badge-bg: var(--nt-color-info);
+        --nt-badge-border-color: var(--nt-border-info);
     }
 
     &-success {
-        background-color: vars.$nt-color-success;
-        border-color: vars.$nt-border-success;
+        --nt-badge-bg: var(--nt-color-success);
+        --nt-badge-border-color: var(--nt-border-success);
     }
 
     &-warning {
-        background-color: vars.$nt-color-warning;
-        border-color: vars.$nt-border-warning;
+        --nt-badge-bg: var(--nt-color-warning);
+        --nt-badge-border-color: var(--nt-border-warning);
     }
 
     &-danger {
-        background-color: vars.$nt-color-danger;
-        border-color: vars.$nt-border-danger;
+        --nt-badge-bg: var(--nt-color-danger);
+        --nt-badge-border-color: var(--nt-border-danger);
     }
 
     &-small {
         @include utils.font-size('4xs');
-        padding: 0.375rem;
+
+        --nt-badge-padding: 0.375rem;
     }
 
     &-large {
         @include utils.font-size('xl');
-        padding: 0.625rem 0.875rem;
+
+        --nt-badge-padding: 0.625rem 0.875rem;
     }
 
     &-rounded {

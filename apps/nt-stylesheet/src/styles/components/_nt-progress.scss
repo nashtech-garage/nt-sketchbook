@@ -25,20 +25,25 @@ $variants: (
 );
 
 .nt-progress {
+    --nt-progress-track-bg: #{$default-track-color};
+    --nt-progress-bar-bg: #{$default-bar-color};
+    --nt-progress-label-color: var(--nt-color-text-primary);
+    --nt-progress-radius: var(--nt-border-radius-lg);
+    --nt-progress-gap: 0.5rem;
     width: 95%;
-    border-radius: 0.5rem;
+    border-radius: var(--nt-progress-radius);
     position: relative;
     height: 0.7rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    background-color: $default-track-color;
+    gap: var(--nt-progress-gap);
+    background-color: var(--nt-progress-track-bg);
 
     &-label {
         font-size: 1rem;
         font-weight: bold;
         white-space: nowrap;
-        color: vars.$nt-color-black;
+        color: var(--nt-progress-label-color);
         z-index: 2;
 
         &-outside {
@@ -74,10 +79,11 @@ $variants: (
 
     @each $name, $settings in $variants {
         &-#{$name} {
-            background-color: map.get($settings, track);
+            --nt-progress-track-bg: #{map.get($settings, track)};
+            --nt-progress-bar-bg: #{map.get($settings, bg)};
 
             .nt-progress-bar {
-                background-color: map.get($settings, bg);
+                background-color: var(--nt-progress-bar-bg);
             }
         }
     }
@@ -89,9 +95,9 @@ $variants: (
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        border-radius: 0.5rem;
+        border-radius: var(--nt-progress-radius);
         overflow: hidden;
-        background-color: $default-bar-color;
+        background-color: var(--nt-progress-bar-bg);
 
         .nt-progress-bar {
             height: 100%;

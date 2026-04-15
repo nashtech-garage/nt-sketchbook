@@ -20,11 +20,11 @@ $height-icon: 0.625rem;
 }
 
 @mixin nt-checkbox-color($border, $background) {
-    border-color: $border;
-    background-color: $background;
+    border-color: var(--nt-checkbox-border-color, #{$border});
+    background-color: var(--nt-checkbox-bg, #{$background});
 
     &:hover:not(:disabled) {
-        border-color: vars.$nt-text-info;
+        border-color: var(--nt-checkbox-border-color-hover);
     }
 }
 
@@ -102,10 +102,22 @@ $height-icon: 0.625rem;
 }
 
 .nt-checkbox {
+    --nt-checkbox-color: var(--nt-color-text-primary);
+    --nt-checkbox-color-disabled: var(--nt-color-text-secondary);
+    --nt-checkbox-bg: var(--nt-color-white);
+    --nt-checkbox-border-color: var(--nt-color-gray-70);
+    --nt-checkbox-border-color-hover: var(--nt-color-info-bold);
+    --nt-checkbox-checked-bg: var(--nt-color-info-bold);
+    --nt-checkbox-checked-border-color: var(--nt-color-info-bold);
+    --nt-checkbox-indicator-color: var(--nt-color-white);
+    --nt-checkbox-disabled-border-color: var(--nt-border-regular);
+    --nt-checkbox-radius: var(--nt-border-radius-sm);
+    --nt-checkbox-transition: var(--nt-transition-medium);
+    --nt-checkbox-gap: var(--nt-spacing-xs);
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: vars.$nt-spacing-xs;
+    gap: var(--nt-checkbox-gap);
     cursor: pointer;
     user-select: none;
 
@@ -114,7 +126,7 @@ $height-icon: 0.625rem;
         vars.$nt-font-size-sm,
         150%,
         0%,
-        vars.$nt-text-primary
+        var(--nt-checkbox-color)
     );
 
     &:has(input:disabled) {
@@ -123,7 +135,7 @@ $height-icon: 0.625rem;
             vars.$nt-font-size-sm,
             150%,
             0%,
-            vars.$nt-text-secondary
+            var(--nt-checkbox-color-disabled)
         );
     }
 
@@ -134,13 +146,13 @@ $height-icon: 0.625rem;
         width: 1rem;
         height: 1rem;
         border: 0.125rem solid vars.$nt-color-white;
-        border-radius: vars.$nt-border-radius-sm;
-        background-color: vars.$nt-color-white;
-        transition: vars.$nt-transition-medium;
+        border-radius: var(--nt-checkbox-radius);
+        background-color: var(--nt-checkbox-bg);
+        transition: var(--nt-checkbox-transition);
 
         &:focus {
             outline: none;
-            border-color: vars.$nt-text-info;
+            border-color: var(--nt-checkbox-border-color-hover);
         }
 
         &:not(:checked, :indeterminate, :disabled) {
@@ -152,29 +164,29 @@ $height-icon: 0.625rem;
 
         &:checked:not(:disabled) {
             @include nt-checkbox-state-checked(
-                vars.$nt-text-info,
-                vars.$nt-text-info,
+                var(--nt-checkbox-checked-border-color),
+                var(--nt-checkbox-checked-bg),
                 '',
                 absolute,
                 1px,
                 0.25rem,
                 0.25rem,
                 0.375rem,
-                vars.$nt-color-white
+                var(--nt-checkbox-indicator-color)
             );
         }
 
         &:indeterminate:not(:disabled) {
             @include nt-checkbox-state-indeterminate(
-                vars.$nt-text-info,
-                vars.$nt-color-white,
+                var(--nt-checkbox-checked-border-color),
+                var(--nt-checkbox-bg),
                 '',
                 absolute,
                 0.25rem,
                 0.125rem,
                 0.375rem,
                 0.125rem,
-                vars.$nt-color-info
+                var(--nt-checkbox-checked-bg)
             );
         }
 
@@ -182,35 +194,35 @@ $height-icon: 0.625rem;
             cursor: not-allowed;
 
             @include nt-checkbox-color(
-                vars.$nt-border-bold,
-                vars.$nt-color-white
+                var(--nt-checkbox-disabled-border-color),
+                var(--nt-checkbox-bg)
             );
 
             &:checked {
                 @include nt-checkbox-state-checked(
-                    vars.$nt-border-bold,
-                    vars.$nt-border-bold,
+                    var(--nt-checkbox-disabled-border-color),
+                    var(--nt-checkbox-disabled-border-color),
                     '',
                     absolute,
                     0.0625rem,
                     0.25rem,
                     0.25rem,
                     0.375rem,
-                    vars.$nt-color-white
+                    var(--nt-checkbox-indicator-color)
                 );
             }
 
             &:indeterminate {
                 @include nt-checkbox-state-indeterminate(
-                    vars.$nt-border-bold,
-                    vars.$nt-border-bold,
+                    var(--nt-checkbox-disabled-border-color),
+                    var(--nt-checkbox-disabled-border-color),
                     '',
                     absolute,
                     0.25rem,
                     0.125rem,
                     0.375rem,
                     0.125rem,
-                    vars.$nt-color-white
+                    var(--nt-checkbox-indicator-color)
                 );
             }
         }

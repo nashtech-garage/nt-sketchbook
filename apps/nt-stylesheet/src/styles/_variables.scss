@@ -1,9 +1,9 @@
-@use './tokens/tokens' as tokens;
+@use './tokens' as tokens;
 @use 'sass:math';
 @use 'sass:map';
 
 :root {
-    @include tokens.nt-root-tokens;
+    @include tokens.nt-design-tokens;
 }
 
 /*          SCSS variables               */

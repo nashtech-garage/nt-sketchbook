@@ -39,11 +39,16 @@ $nt-card-variants: (
             flex-direction: column;
 
             // grid-template-rows: auto 1fr auto;
-            background-color: map.get($styles, 'bg');
-            border: 0.0625rem solid map.get($styles, 'border');
-            border-radius: $border-radius;
-            padding: $padding;
-            gap: $gap;
+            --nt-card-bg: #{map.get($styles, 'bg')};
+            --nt-card-border-color: #{map.get($styles, 'border')};
+            --nt-card-radius: #{$border-radius};
+            --nt-card-padding: #{$padding};
+            --nt-card-gap: #{$gap};
+            background-color: var(--nt-card-bg);
+            border: 0.0625rem solid var(--nt-card-border-color);
+            border-radius: var(--nt-card-radius);
+            padding: var(--nt-card-padding);
+            gap: var(--nt-card-gap);
 
             @if map.has-key($styles, 'width') {
                 max-width: map.get($styles, 'width');
@@ -76,7 +81,7 @@ $nt-card-variants: (
 
         .nt-card-description {
             font-weight: vars.$nt-font-weight-regular;
-            color: vars.$nt-color-gray-70;
+            color: var(--nt-card-description-color, #{vars.$nt-color-gray-70});
 
             @include utils.font-size('xs');
             white-space: nowrap;
@@ -86,7 +91,7 @@ $nt-card-variants: (
 
         .nt-card-title {
             font-weight: vars.$nt-font-weight-bold;
-            color: vars.$nt-color-gray-100;
+            color: var(--nt-card-title-color, #{vars.$nt-color-gray-100});
 
             @include utils.font-size('sm');
             white-space: nowrap;
@@ -97,14 +102,14 @@ $nt-card-variants: (
         .nt-card-actions {
             display: flex;
             align-items: center;
-            gap: $gap;
+            gap: var(--nt-card-gap, #{$gap});
             margin-left: auto;
 
             .nt-card-action {
                 cursor: pointer;
                 width: 1.25rem;
                 height: 1.25rem;
-                color: vars.$nt-color-gray-100;
+                color: var(--nt-card-action-color, #{vars.$nt-color-gray-100});
 
                 @include utils.font-size('sm');
             }

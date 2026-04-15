@@ -8,6 +8,13 @@ $input-padding-y: 0.75rem;
 $input-padding-x: 1rem;
 
 .nt-input-group {
+    --nt-input-group-label-color: var(--nt-color-text-primary);
+    --nt-input-group-label-muted-color: var(--nt-color-text-muted);
+    --nt-input-group-label-focus-color: var(--nt-color-action-secondary);
+    --nt-input-group-helper-color: var(--nt-color-text-secondary);
+    --nt-input-group-error-color: var(--nt-color-danger);
+    --nt-input-group-label-bg: var(--nt-color-bg-surface);
+    --nt-input-group-transition: var(--nt-transition-fast);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -18,7 +25,8 @@ $input-padding-x: 1rem;
         &-label {
             @include utils.font-size('sm');
             font-weight: vars.$nt-font-weight-bold;
-            transition: all 0.2s ease;
+            color: var(--nt-input-group-label-color);
+            transition: all var(--nt-input-group-transition);
         }
     }
 
@@ -43,11 +51,11 @@ $input-padding-x: 1rem;
             transform: translateY(-50%);
             z-index: 10;
             padding: 0 0.25rem;
-            color: vars.$nt-color-gray-50;
+            color: var(--nt-input-group-label-muted-color);
             pointer-events: none;
-            transition: all 0.2s ease;
+            transition: all var(--nt-input-group-transition);
             font-weight: vars.$nt-font-weight-medium;
-            background: vars.$nt-color-white;
+            background: var(--nt-input-group-label-bg);
         }
 
         &:not(:has(.nt-input-error)),
@@ -79,10 +87,7 @@ $input-padding-x: 1rem;
             left: calc($input-padding-x - 0.25rem);
             font-size: 0.85rem;
             font-weight: vars.$nt-font-weight-medium;
-            color: map.get(
-                map.get(input.$input-colors, default),
-                focus
-            );
+            color: var(--nt-input-group-label-focus-color);
         }
 
         &:has(.nt-input:focus),
@@ -101,15 +106,15 @@ $input-padding-x: 1rem;
         margin-top: 0.35rem;
         font-size: map.get(utils.$nt-font-sizes, 'sm');
         line-height: 1.25;
-        transition: all 0.2s ease;
+        transition: all var(--nt-input-group-transition);
     }
 
     .nt-input-highlight {
-        color: vars.$nt-color-gray-60;
+        color: var(--nt-input-group-helper-color);
     }
 
     .nt-input-error {
-        color: vars.$nt-color-danger;
+        color: var(--nt-input-group-error-color);
         font-weight: 500;
     }
 
