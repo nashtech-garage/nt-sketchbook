@@ -1,13 +1,17 @@
-name: 'Package Audit'
+name: Package Audit
+
 permissions:
     contents: read
+
 on:
     pull_request:
-        branches: ['main']
+        branches:
+            - main
 
 jobs:
     audit:
         runs-on: ubuntu-latest
+
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
@@ -22,20 +26,24 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: 22.21.0
-                  cache: 'pnpm'
+                  cache: pnpm
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
             - name: Run pnpm audit
               id: audit
+              shell: bash
               run: |
-                  result=$(pnpm audit --json)
-                  echo "Audit result: $result"
-                  echo "$result" > audit-result.json
-                  if echo "$result" | grep -q '"advisory"'; then
-                    echo "Vulnerabilities found"
+                  pnpm audit --audit-level=high --json > audit-result.json
+                  status=$?
+
+                  echo "Audit result:"
+                  cat audit-result.json
+
+                  if [ $status -ne 0 ]; then
+                    echo "High or critical vulnerabilities found"
                     exit 1
                   else
-                    echo "No vulnerabilities found."
+                    echo "No high/critical vulnerabilities found."
                   fi
