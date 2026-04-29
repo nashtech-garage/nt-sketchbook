@@ -1,0 +1,60 @@
+<section class="docs-section" id="grid">
+    <h2>Grid system</h2>
+    <p>
+        From <code>_grid.scss</code>. Use <code>nt-container</code>,
+        <code>nt-row</code>, and 12-column classes to build responsive
+        layouts.
+    </p>
+    <table class="docs-table">
+        <thead>
+            <tr>
+                <th>Class pattern</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>nt-container</code></td>
+                <td>
+                    Centers content and applies responsive max widths.
+                </td>
+            </tr>
+            <tr>
+                <td><code>nt-row</code></td>
+                <td>
+                    Creates a wrapping flex row with column gutters.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>nt-col-1</code> to
+                    <code>nt-col-12</code>
+                </td>
+                <td>Sets fixed column spans on all screen sizes.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>nt-col-sm-6</code>,
+                    <code>nt-col-lg-4</code>
+                </td>
+                <td>Sets responsive column spans at breakpoints.</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="docs-example">
+        <div class="nt-row">
+            <div class="nt-col-12 nt-col-md-6">
+                <div class="docs-demo-box">Column 6</div>
+            </div>
+            <div class="nt-col-12 nt-col-md-6">
+                <div class="docs-demo-box">Column 6</div>
+            </div>
+        </div>
+    </div>
+    <pre class="docs-code"><code>&lt;div class="nt-container"&gt;
+    &lt;div class="nt-row"&gt;
+        &lt;div class="nt-col-12 nt-col-md-6"&gt;...&lt;/div&gt;
+        &lt;div class="nt-col-12 nt-col-md-6"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>

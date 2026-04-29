@@ -1,6 +1,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import type { PreRenderedAsset } from 'rollup'
+import type { Plugin } from 'vite'
 
 export const ROOT = __dirname
 export const OUT_DIR = path.resolve(ROOT, 'dist')
@@ -140,7 +141,6 @@ export function assetCopies() {
             output: 'assets/fonts',
             glob: '**/*'
         },
-        { input: './preview', output: '', glob: '**/*' },
         { input: '.', output: '', glob: 'components-manifest.json' }
     ] as { glob: string; input: string; output: string }[]
 
@@ -149,4 +149,99 @@ export function assetCopies() {
     }
 
     return copies
+}
+
+const PREVIEW_DIR = path.resolve(ROOT, 'preview')
+const HTML_PLACEHOLDERS: Record<string, string> = {
+    __NT_CSS__: 'css/nt.css',
+    __NT_THEME_LIGHT_CSS__: 'themes/nt-theme-light.css',
+    __NT_BRAND_CSS__: 'brands/nashtech.css',
+    __NT_ICONS_CSS__: 'css/nt-icons.css',
+    __NT_SCRIPT__: 'scripts/nt.js'
+}
+
+function walkFiles(dir: string): string[] {
+    if (!fileExists(dir)) return []
+
+    return fs
+
+        .readdirSync(dir, { withFileTypes: true })
+        .flatMap((entry) => {
+            const fullPath = path.join(dir, entry.name)
+            if (entry.isDirectory()) return walkFiles(fullPath)
+            if (entry.isFile()) return [fullPath]
+            return []
+        })
+}
+
+function toRelativeAsset(fromFile: string, assetPath: string) {
+    const fromDir = path.dirname(fromFile)
+
+    const target = path.resolve(OUT_DIR, assetPath)
+    const relative = path
+        .relative(fromDir, target)
+        .replaceAll(path.sep, '/')
+
+    return relative
+}
+
+function resolvePreviewHtml(content: string, outputFile: string) {
+    let nextContent = content
+
+    for (const [token, assetPath] of Object.entries(
+        HTML_PLACEHOLDERS
+    )) {
+        nextContent = nextContent.replaceAll(
+            token,
+            toRelativeAsset(outputFile, assetPath)
+        )
+    }
+
+    nextContent = nextContent.replace(
+        /__PREVIEW_ASSET:([A-Za-z0-9._/-]+?)__/g,
+        (_match, assetPath: string) =>
+            toRelativeAsset(outputFile, `assets/${assetPath}`)
+    )
+
+    if (/__(?:NT_[A-Z_]+|PREVIEW_ASSET:[^_]+)__/.test(nextContent)) {
+        throw new Error(
+            `Unresolved preview asset placeholder in ${outputFile}`
+        )
+    }
+
+    return nextContent
+}
+
+export function previewSitePlugin(): Plugin {
+    return {
+        name: 'nt-preview-site',
+        apply: 'build',
+
+        closeBundle() {
+            for (const sourceFile of walkFiles(PREVIEW_DIR)) {
+                const relativeFile = path.relative(
+                    PREVIEW_DIR,
+                    sourceFile
+                )
+                const outputFile = path.resolve(OUT_DIR, relativeFile)
+
+                fs.mkdirSync(path.dirname(outputFile), {
+                    recursive: true
+                })
+
+                if (path.extname(sourceFile) === '.html') {
+                    fs.writeFileSync(
+                        outputFile,
+                        resolvePreviewHtml(
+                            fs.readFileSync(sourceFile, 'utf8'),
+                            outputFile
+                        )
+                    )
+                    continue
+                }
+
+                fs.copyFileSync(sourceFile, outputFile)
+            }
+        }
+    }
 }

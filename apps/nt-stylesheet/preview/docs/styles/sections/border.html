@@ -1,0 +1,79 @@
+<section class="docs-section" id="border">
+    <h2>Border utilities</h2>
+    <p>
+        From <code>_border.scss</code>. Use these classes to add
+        borders, set border widths, choose semantic border colors, and
+        control border radius.
+    </p>
+    <table class="docs-table">
+        <thead>
+            <tr>
+                <th>Class pattern</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>nt-border</code></td>
+                <td>Adds a 1px neutral border.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>nt-border-top</code>,
+                    <code>nt-border-end</code>,
+                    <code>nt-border-bottom</code>,
+                    <code>nt-border-start</code>
+                </td>
+                <td>Adds a border to one side.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>nt-border-0</code> to
+                    <code>nt-border-5</code>
+                </td>
+                <td>Sets border width from 0 to 5px.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>nt-border-primary</code>,
+                    <code>nt-border-success</code>,
+                    <code>nt-border-danger</code>
+                </td>
+                <td>Applies semantic border colors.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>nt-rounded</code>,
+                    <code>nt-rounded-0</code> to
+                    <code>nt-rounded-3</code>
+                </td>
+                <td>Applies base or sized radius.</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>nt-rounded-circle</code>,
+                    <code>nt-rounded-pill</code>
+                </td>
+                <td>Creates circular or pill shapes.</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="docs-example">
+        <div
+            class="docs-demo-box nt-border nt-border-primary nt-rounded-3"
+        >
+            <strong>Primary bordered panel</strong>
+            <p class="nt-mb-0">
+                This panel uses
+                <code>nt-border</code>,
+                <code>nt-border-primary</code>, and
+                <code>nt-rounded-3</code>.
+            </p>
+        </div>
+    </div>
+    <pre
+        class="docs-code"
+    ><code>&lt;div class="nt-border nt-border-primary nt-rounded-3 nt-p-4"&gt;
+    Primary bordered panel
+&lt;/div&gt;</code></pre>
+</section>
