@@ -134,15 +134,14 @@ export function assetFileNames(assetInfo: PreRenderedAsset): string {
 /** Controlled asset copy list */
 export function assetCopies() {
     const copies = [
-        { input: './docs', output: 'docs', glob: '*.md' },
+        { input: './docs', output: 'docs', glob: '**/*' },
         {
             input: './src/fonts',
             output: 'assets/fonts',
             glob: '**/*'
         },
-        { input: './examples', output: 'examples', glob: '**/*' },
-        { input: '.', output: '', glob: 'components-manifest.json' },
-        { input: '.', output: '', glob: 'index.html' }
+        { input: './preview', output: '', glob: '**/*' },
+        { input: '.', output: '', glob: 'components-manifest.json' }
     ] as { glob: string; input: string; output: string }[]
 
     if (COPY_404) {

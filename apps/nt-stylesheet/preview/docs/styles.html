@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Styles Utilities - NT Stylesheet</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+            name="description"
+            content="Documentation for NT Stylesheet utility classes and Sass style modules."
+        />
+        <link rel="stylesheet" href="../css/nt.css" />
+        <link
+            id="nt-theme-style"
+            rel="stylesheet"
+            href="../themes/nt-theme-light.css"
+        />
+        <link rel="stylesheet" href="../brands/nashtech.css" />
+        <link rel="stylesheet" href="../css/nt-icons.css" />
+        <style>
+            :root {
+                --docs-max-width: 1180px;
+                --docs-header-height: 72px;
+                --docs-sidebar-width: 270px;
+                --docs-shadow: 0 16px 48px rgb(40 41 43 / 9%);
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                color: var(--nt-color-text-primary, #28292b);
+                background: var(--nt-color-bg-body, #fff);
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            code {
+                font-family:
+                    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+                    'Liberation Mono', monospace;
+            }
+
+            .docs-header {
+                position: sticky;
+                top: 0;
+                z-index: 30;
+                border-bottom: 1px solid
+                    var(--nt-color-border-default, #eaeaea);
+                background: color-mix(
+                    in srgb,
+                    var(--nt-color-bg-body, #fff) 94%,
+                    transparent
+                );
+                backdrop-filter: blur(16px);
+            }
+
+            .docs-header-inner {
+                width: min(100% - 32px, var(--docs-max-width));
+                min-height: var(--docs-header-height);
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+            }
+
+            .docs-brand {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                font-weight: 800;
+            }
+
+            .docs-brand img {
+                width: 132px;
+                max-height: 34px;
+                object-fit: contain;
+            }
+
+            .docs-nav {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                color: var(--nt-color-text-secondary, #535455);
+                font-size: 0.925rem;
+            }
+
+            .docs-nav a,
+            .docs-icon-button {
+                border-radius: 6px;
+                padding: 10px 12px;
+            }
+
+            .docs-nav a:hover,
+            .docs-icon-button:hover {
+                background: var(--nt-color-bg-muted, #f6f6f6);
+            }
+
+            .docs-icon-button {
+                width: 40px;
+                height: 40px;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                color: var(--nt-color-text-primary, #28292b);
+                background: var(--nt-color-bg-surface, #fff);
+                cursor: pointer;
+            }
+
+            .docs-layout {
+                width: min(100% - 32px, var(--docs-max-width));
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: var(--docs-sidebar-width) minmax(0, 1fr);
+                gap: 42px;
+                align-items: start;
+                padding: 42px 0 72px;
+            }
+
+            .docs-sidebar {
+                position: sticky;
+                top: calc(var(--docs-header-height) + 24px);
+                max-height: calc(100vh - var(--docs-header-height) - 48px);
+                overflow: auto;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 18px;
+                background: var(--nt-color-bg-surface, #fff);
+            }
+
+            .docs-sidebar-title {
+                margin: 0 0 12px;
+                color: var(--nt-color-text-muted, #69696b);
+                font-size: 0.8rem;
+                font-weight: 800;
+                text-transform: uppercase;
+            }
+
+            .docs-sidebar a {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                border-radius: 6px;
+                padding: 9px 10px;
+                color: var(--nt-color-text-secondary, #535455);
+                font-size: 0.94rem;
+            }
+
+            .docs-sidebar a:hover {
+                color: var(--nt-color-primary-100, #d6001c);
+                background: var(--nt-color-bg-muted, #f6f6f6);
+            }
+
+            .docs-content {
+                min-width: 0;
+            }
+
+            .docs-hero {
+                margin-bottom: 34px;
+                border-bottom: 1px solid
+                    var(--nt-color-border-default, #eaeaea);
+                padding-bottom: 34px;
+            }
+
+            .docs-kicker {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 18px;
+                color: var(--nt-color-primary-100, #d6001c);
+                font-size: 0.85rem;
+                font-weight: 800;
+                text-transform: uppercase;
+            }
+
+            .docs-hero h1 {
+                max-width: 780px;
+                margin: 0;
+                font-size: clamp(2.3rem, 6vw, 4.8rem);
+                line-height: 1;
+                letter-spacing: 0;
+            }
+
+            .docs-lead {
+                max-width: 820px;
+                margin: 22px 0 0;
+                color: var(--nt-color-text-secondary, #535455);
+                font-size: 1.12rem;
+                line-height: 1.7;
+            }
+
+            .docs-section {
+                scroll-margin-top: calc(var(--docs-header-height) + 24px);
+                padding: 34px 0;
+                border-bottom: 1px solid
+                    var(--nt-color-border-default, #eaeaea);
+            }
+
+            .docs-section h2 {
+                margin: 0 0 12px;
+                font-size: clamp(1.6rem, 3vw, 2.4rem);
+                letter-spacing: 0;
+            }
+
+            .docs-section h3 {
+                margin: 28px 0 10px;
+                font-size: 1.08rem;
+            }
+
+            .docs-section p {
+                color: var(--nt-color-text-secondary, #535455);
+                line-height: 1.7;
+            }
+
+            .docs-note {
+                border-left: 4px solid var(--nt-color-primary-100, #d6001c);
+                border-radius: 0 8px 8px 0;
+                padding: 14px 18px;
+                background: var(--nt-color-primary-10, #fbe6e8);
+            }
+
+            .docs-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+                margin-top: 18px;
+            }
+
+            .docs-card {
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 20px;
+                background: var(--nt-color-bg-surface, #fff);
+            }
+
+            .docs-card h3 {
+                margin-top: 0;
+            }
+
+            .docs-table {
+                width: 100%;
+                border-collapse: collapse;
+                overflow: hidden;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                background: var(--nt-color-bg-surface, #fff);
+            }
+
+            .docs-table th,
+            .docs-table td {
+                border-bottom: 1px solid
+                    var(--nt-color-border-default, #eaeaea);
+                padding: 13px 14px;
+                text-align: left;
+                vertical-align: top;
+            }
+
+            .docs-table th {
+                color: var(--nt-color-text-primary, #28292b);
+                background: var(--nt-color-bg-muted, #f6f6f6);
+                font-size: 0.86rem;
+                text-transform: uppercase;
+            }
+
+            .docs-table tr:last-child td {
+                border-bottom: 0;
+            }
+
+            .docs-table code,
+            .docs-code code,
+            .docs-inline-code {
+                border-radius: 5px;
+                padding: 0.12rem 0.35rem;
+                color: var(--nt-color-primary-100, #d6001c);
+                background: var(--nt-color-primary-10, #fbe6e8);
+            }
+
+            .docs-code {
+                overflow-x: auto;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 18px;
+                background: var(--nt-color-bg-muted, #f6f6f6);
+            }
+
+            .docs-code code {
+                display: block;
+                padding: 0;
+                color: var(--nt-color-text-primary, #28292b);
+                background: transparent;
+                white-space: pre;
+                line-height: 1.7;
+            }
+
+            .docs-example {
+                display: grid;
+                gap: 12px;
+                margin: 16px 0;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 18px;
+                background: var(--nt-color-bg-surface, #fff);
+                box-shadow: var(--docs-shadow);
+            }
+
+            .docs-demo-box {
+                min-height: 56px;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 14px;
+                background: var(--nt-color-bg-muted, #f6f6f6);
+            }
+
+            .docs-footer {
+                padding-top: 30px;
+                color: var(--nt-color-text-muted, #69696b);
+                font-size: 0.92rem;
+            }
+
+            @media (max-width: 960px) {
+                .docs-header-inner {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    padding: 16px 0;
+                }
+
+                .docs-nav {
+                    width: 100%;
+                    flex-wrap: wrap;
+                }
+
+                .docs-header-actions {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                }
+
+                .docs-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .docs-sidebar {
+                    position: static;
+                    max-height: none;
+                }
+            }
+
+            @media (max-width: 680px) {
+                .docs-header-inner,
+                .docs-layout {
+                    width: min(100% - 24px, var(--docs-max-width));
+                }
+
+                .docs-brand img {
+                    width: 112px;
+                }
+
+                .docs-nav {
+                    padding-right: 52px;
+                    gap: 2px;
+                }
+
+                .docs-nav a {
+                    padding: 8px 10px;
+                    font-size: 0.88rem;
+                }
+
+                .docs-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .docs-table {
+                    display: block;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                }
+            }
+        </style>
+    </head>
+    <body data-theme="nt-theme-light">
+        <header class="docs-header">
+            <div class="docs-header-inner">
+                <a class="docs-brand" href="../index.html">
+                    <img alt="NashTech" src="../assets/name.png" />
+                    <span>Styles docs</span>
+                </a>
+                <nav class="docs-nav" aria-label="Primary navigation">
+                    <a href="../index.html">Home</a>
+                    <a href="icons.html">Icons</a>
+                    <a href="#usage">Usage</a>
+                    <a href="#spacing">Spacing</a>
+                    <a href="#grid">Grid</a>
+                    <a href="#sass">Sass</a>
+                </nav>
+                <div class="docs-header-actions">
+                    <button
+                        class="docs-icon-button"
+                        id="theme-toggle"
+                        type="button"
+                        aria-label="Toggle dark theme"
+                        title="Toggle theme"
+                    >
+                        <i class="nti nti-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="docs-layout">
+            <aside class="docs-sidebar" aria-label="Styles navigation">
+                <p class="docs-sidebar-title">Style modules</p>
+                <a href="#usage"><i class="nti nti-book-open"></i> Usage</a>
+                <a href="#border"><i class="nti nti-square"></i> Border</a>
+                <a href="#animation"><i class="nti nti-sparkles"></i> Animation</a>
+                <a href="#flex"><i class="nti nti-align-justify"></i> Flex</a>
+                <a href="#grid"><i class="nti nti-layout-grid"></i> Grid</a>
+                <a href="#size"><i class="nti nti-maximize"></i> Size</a>
+                <a href="#spacing"><i class="nti nti-between-horizontal-start"></i> Spacing</a>
+                <a href="#text"><i class="nti nti-align-left"></i> Text</a>
+                <a href="#typography"><i class="nti nti-type"></i> Typography</a>
+                <a href="#utilities"><i class="nti nti-wrench"></i> Utilities</a>
+                <a href="#sass"><i class="nti nti-file-code-2"></i> Sass custom</a>
+            </aside>
+
+            <div class="docs-content">
+                <section class="docs-hero">
+                    <div class="docs-kicker">
+                        <i class="nti nti-layers"></i>
+                        Utility documentation
+                    </div>
+                    <h1>Use and customize NT style utilities</h1>
+                    <p class="docs-lead">
+                        These docs explain the compiled utility classes and the
+                        Sass modules behind them: border, animation, flex, grid,
+                        size, spacing, text, typography, and shared utilities.
+                    </p>
+                </section>
+
+                <section class="docs-section" id="usage">
+                    <h2>Usage</h2>
+                    <p>
+                        In plain HTML, load the compiled stylesheet, theme,
+                        brand layer, and optional JavaScript bundle. The utility
+                        classes are available after <code>css/nt.css</code> is
+                        loaded.
+                    </p>
+                    <pre class="docs-code"><code>&lt;link rel="stylesheet" href="css/nt.css" /&gt;
+&lt;link rel="stylesheet" href="themes/nt-theme-light.css" /&gt;
+&lt;link rel="stylesheet" href="brands/nashtech.css" /&gt;
+&lt;link rel="stylesheet" href="css/nt-icons.css" /&gt;
+&lt;script src="scripts/nt.js"&gt;&lt;/script&gt;</code></pre>
+                    <div class="docs-note">
+                        Use utility classes for layout and small style
+                        adjustments. Use component classes like
+                        <code>nt-button</code>, <code>nt-card-default</code>,
+                        and <code>nt-alert</code> when the UI element already
+                        exists in the design system.
+                    </div>
+                </section>
+
+                <section class="docs-section" id="border">
+                    <h2>Border utilities</h2>
+                    <p>
+                        From <code>_border.scss</code>. Use these classes to add
+                        borders, set border widths, choose semantic border
+                        colors, and control border radius.
+                    </p>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Class pattern</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>nt-border</code></td>
+                                <td>Adds a 1px neutral border.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-border-top</code>, <code>nt-border-end</code>, <code>nt-border-bottom</code>, <code>nt-border-start</code></td>
+                                <td>Adds a border to one side.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-border-0</code> to <code>nt-border-5</code></td>
+                                <td>Sets border width from 0 to 5px.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-border-primary</code>, <code>nt-border-success</code>, <code>nt-border-danger</code></td>
+                                <td>Applies semantic border colors.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-rounded</code>, <code>nt-rounded-0</code> to <code>nt-rounded-3</code></td>
+                                <td>Applies base or sized radius.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-rounded-circle</code>, <code>nt-rounded-pill</code></td>
+                                <td>Creates circular or pill shapes.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="docs-example">
+                        <div class="docs-demo-box nt-border nt-border-primary nt-rounded-3">
+                            <strong>Primary bordered panel</strong>
+                            <p class="nt-mb-0">
+                                This panel uses <code>nt-border</code>,
+                                <code>nt-border-primary</code>, and
+                                <code>nt-rounded-3</code>.
+                            </p>
+                        </div>
+                    </div>
+                    <pre class="docs-code"><code>&lt;div class="nt-border nt-border-primary nt-rounded-3 nt-p-4"&gt;
+    Primary bordered panel
+&lt;/div&gt;</code></pre>
+                </section>
+
+                <section class="docs-section" id="animation">
+                    <h2>Animation helpers</h2>
+                    <p>
+                        From <code>_animation.scss</code>. This module currently
+                        exposes Sass mixins and keyframes used by components.
+                        The mixins are intended for SCSS authors rather than
+                        direct HTML utility classes.
+                    </p>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Mixin or keyframe</th>
+                                <th>Use case</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>nt-expand-collapse($duration, $timing)</code></td>
+                                <td>Creates hidden and <code>nt-expanded</code> states for collapsible content.</td>
+                            </tr>
+                            <tr>
+                                <td><code>fade-in</code> and <code>fade-in</code> mixin</td>
+                                <td>Fades an element in while moving it upward into place.</td>
+                            </tr>
+                            <tr>
+                                <td><code>pulse</code> and <code>animate-pulse</code> mixin</td>
+                                <td>Creates repeated opacity pulse behavior.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pre class="docs-code"><code>@use '@nashtech-garage/stylesheet/src/styles/animation' as animation;
+
+.product-panel {
+    @include animation.nt-expand-collapse;
+}</code></pre>
+                </section>
+
+                <section class="docs-section" id="flex">
+                    <h2>Flex utilities</h2>
+                    <p>
+                        From <code>_flex.scss</code>. Flex utilities are
+                        responsive. Add breakpoint names like <code>sm</code>,
+                        <code>md</code>, <code>lg</code>, <code>xl</code>, or
+                        <code>xxl</code> between the utility name and value.
+                    </p>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Class pattern</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>nt-d-flex</code>, <code>nt-d-md-flex</code></td>
+                                <td><code>flex</code>, <code>inline-flex</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-flex-row</code>, <code>nt-flex-md-col</code></td>
+                                <td><code>row</code>, <code>row-reverse</code>, <code>col</code>, <code>col-reverse</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-justify-between</code>, <code>nt-justify-center</code></td>
+                                <td><code>start</code>, <code>end</code>, <code>center</code>, <code>between</code>, <code>around</code>, <code>evenly</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-items-center</code>, <code>nt-self-end</code></td>
+                                <td><code>start</code>, <code>end</code>, <code>center</code>, <code>baseline</code>, <code>stretch</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-flex-wrap</code>, <code>nt-gap-3</code></td>
+                                <td>Wrap controls and gap scale from 0 to 6.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-order-first</code>, <code>nt-order-md-2</code></td>
+                                <td>Order values 0 to 5 plus first and last.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="docs-example">
+                        <div class="nt-d-flex nt-flex-wrap nt-items-center nt-justify-between nt-gap-3">
+                            <button class="nt-button nt-button-primary">Save</button>
+                            <button class="nt-button nt-button-outline-primary">Cancel</button>
+                        </div>
+                    </div>
+                    <pre class="docs-code"><code>&lt;div class="nt-d-flex nt-flex-wrap nt-items-center nt-justify-between nt-gap-3"&gt;
+    &lt;button class="nt-button nt-button-primary"&gt;Save&lt;/button&gt;
+    &lt;button class="nt-button nt-button-outline-primary"&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </section>
+
+                <section class="docs-section" id="grid">
+                    <h2>Grid system</h2>
+                    <p>
+                        From <code>_grid.scss</code>. Use
+                        <code>nt-container</code>, <code>nt-row</code>, and
+                        12-column classes to build responsive layouts.
+                    </p>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Class pattern</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>nt-container</code></td>
+                                <td>Centers content and applies responsive max widths.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-row</code></td>
+                                <td>Creates a wrapping flex row with column gutters.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-col-1</code> to <code>nt-col-12</code></td>
+                                <td>Sets fixed column spans on all screen sizes.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-col-sm-6</code>, <code>nt-col-lg-4</code></td>
+                                <td>Sets responsive column spans at breakpoints.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="docs-example">
+                        <div class="nt-row">
+                            <div class="nt-col-12 nt-col-md-6">
+                                <div class="docs-demo-box">Column 6</div>
+                            </div>
+                            <div class="nt-col-12 nt-col-md-6">
+                                <div class="docs-demo-box">Column 6</div>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class="docs-code"><code>&lt;div class="nt-container"&gt;
+    &lt;div class="nt-row"&gt;
+        &lt;div class="nt-col-12 nt-col-md-6"&gt;...&lt;/div&gt;
+        &lt;div class="nt-col-12 nt-col-md-6"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </section>
+
+                <section class="docs-section" id="size">
+                    <h2>Size utilities</h2>
+                    <p>
+                        From <code>_size.scss</code>. Width and height helpers
+                        cover common percentages, auto sizing, max sizing, and
+                        viewport sizing.
+                    </p>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Class pattern</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>nt-w-25</code>, <code>nt-w-50</code>, <code>nt-w-75</code>, <code>nt-w-100</code>, <code>nt-w-auto</code></td>
+                                <td>Sets width to percentage or auto.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-h-25</code>, <code>nt-h-50</code>, <code>nt-h-75</code>, <code>nt-h-100</code>, <code>nt-h-auto</code></td>
+                                <td>Sets height to percentage or auto.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-mw-100</code>, <code>nt-mh-100</code></td>
+                                <td>Constrains max width or height to 100%.</td>
+                            </tr>
+                            <tr>
+                                <td><code>min-vw-100</code>, <code>min-vh-100</code>, <code>vw-100</code>, <code>vh-100</code></td>
+                                <td>Uses viewport width and height units.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="docs-section" id="spacing">
+                    <h2>Spacing utilities</h2>
+                    <p>
+                        From <code>_spacing.scss</code>. The spacing scale runs
+                        from <code>1</code> to <code>8</code>, starting at
+                        0.25rem and increasing by 0.25rem.
+                    </p>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Class pattern</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>nt-m-4</code>, <code>nt-p-4</code></td>
+                                <td>Margin or padding on all sides.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-mt-2</code>, <code>nt-pr-3</code>, <code>nt-mb-6</code>, <code>nt-pl-5</code></td>
+                                <td>Top, right, bottom, and left spacing.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-mx-4</code>, <code>nt-px-4</code></td>
+                                <td>Horizontal left and right spacing.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-my-4</code>, <code>nt-py-4</code></td>
+                                <td>Vertical top and bottom spacing.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pre class="docs-code"><code>&lt;section class="nt-mt-6 nt-px-4 nt-py-5"&gt;
+    Use spacing utilities to keep layout rhythm consistent.
+&lt;/section&gt;</code></pre>
+                </section>
+
+                <section class="docs-section" id="text">
+                    <h2>Text utilities</h2>
+                    <p>
+                        From <code>_text.scss</code>. These classes cover text
+                        alignment, wrapping, transformation, decoration,
+                        semantic text presets, font weight, style, size, and
+                        line height.
+                    </p>
+                    <div class="docs-grid">
+                        <article class="docs-card">
+                            <h3>Alignment</h3>
+                            <p>
+                                <code>nt-text-start</code>,
+                                <code>nt-text-center</code>,
+                                <code>nt-text-end</code>, plus responsive
+                                variants such as <code>nt-text-md-center</code>.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <h3>Wrapping</h3>
+                            <p>
+                                <code>nt-text-wrap</code>,
+                                <code>nt-text-nowrap</code>,
+                                <code>nt-text-truncate</code>, and
+                                <code>nt-text-break</code>.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <h3>Transform and decoration</h3>
+                            <p>
+                                <code>nt-text-uppercase</code>,
+                                <code>nt-text-capitalize</code>,
+                                <code>nt-text-decoration-underline</code>, and
+                                <code>nt-text-decoration-none</code>.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <h3>Weight and style</h3>
+                            <p>
+                                <code>nt-fw-regular</code>,
+                                <code>nt-fw-semibold</code>,
+                                <code>nt-fw-bold</code>,
+                                <code>nt-fst-italic</code>.
+                            </p>
+                        </article>
+                    </div>
+                    <pre class="docs-code"><code>&lt;p class="nt-text-md-center nt-text-para-md nt-fw-semibold"&gt;
+    Responsive centered paragraph text.
+&lt;/p&gt;</code></pre>
+                </section>
+
+                <section class="docs-section" id="typography">
+                    <h2>Typography utilities</h2>
+                    <p>
+                        From <code>_typography.scss</code> and
+                        <code>_utilities.scss</code>. Mulish font faces are
+                        registered, <code>nt-font</code> applies the default
+                        font family, and generated text-size utilities follow
+                        the NT type scale.
+                    </p>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Class pattern</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>nt-font</code></td>
+                                <td>Applies the default NT font family.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-text-4xs</code> to <code>nt-text-5xl</code></td>
+                                <td>Generated font-size and line-height utilities.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-line-height-4xs</code> to <code>nt-line-height-5xl</code></td>
+                                <td>Generated line-height utilities.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nt-fs-1</code> to <code>nt-fs-6</code></td>
+                                <td>Heading-like font sizes from 2.5rem to 1rem.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pre class="docs-code"><code>&lt;h2 class="nt-font nt-text-5xl nt-line-height-5xl"&gt;
+    Product analytics
+&lt;/h2&gt;</code></pre>
+                </section>
+
+                <section class="docs-section" id="utilities">
+                    <h2>Shared Sass utilities</h2>
+                    <p>
+                        From <code>_utilities.scss</code>. This module defines
+                        the type scale and reusable mixins used by typography
+                        and components.
+                    </p>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Utility</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>font-size($size, $with-line-height)</code></td>
+                                <td>Applies a generated font size, optionally with line height.</td>
+                            </tr>
+                            <tr>
+                                <td><code>generate-font-size-utilities</code></td>
+                                <td>Creates <code>nt-text-*</code> utility classes.</td>
+                            </tr>
+                            <tr>
+                                <td><code>generate-line-height-utilities</code></td>
+                                <td>Creates <code>nt-line-height-*</code> utility classes.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="docs-section" id="sass">
+                    <h2>Customize with Sass</h2>
+                    <p>
+                        The compiled package gives consumers the ready-to-use
+                        utility classes. When working inside this app, customize
+                        the Sass maps and mixins before running the build.
+                    </p>
+                    <div class="docs-grid">
+                        <article class="docs-card">
+                            <h3>Change spacing scale</h3>
+                            <p>
+                                Edit <code>$nt-space-scale</code> in
+                                <code>src/styles/_spacing.scss</code> to add,
+                                remove, or resize spacing steps.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <h3>Change flex breakpoints</h3>
+                            <p>
+                                Edit <code>$breakpoints</code> in
+                                <code>src/styles/_flex.scss</code> when utility
+                                generation needs a different responsive scale.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <h3>Change grid containers</h3>
+                            <p>
+                                Edit <code>$nt-container-max-widths</code> in
+                                <code>src/styles/_variables.scss</code> to tune
+                                container widths.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <h3>Change type scale</h3>
+                            <p>
+                                Edit <code>$nt-font-sizes</code> or
+                                <code>scale-font-size()</code> in
+                                <code>src/styles/_utilities.scss</code>.
+                            </p>
+                        </article>
+                    </div>
+                    <pre class="docs-code"><code>// Example inside this app
+$nt-space-scale: (
+    '1': 0.25rem,
+    '2': 0.5rem,
+    '3': 0.75rem,
+    '4': 1rem,
+    '5': 1.25rem,
+    '6': 1.5rem,
+    '7': 1.75rem,
+    '8': 2rem
+);
+
+// Then rebuild
+// pnpm build:stylesheet-lib</code></pre>
+                </section>
+
+                <footer class="docs-footer">
+                    <p>
+                        Generated as static HTML and styled with NT Stylesheet
+                        itself.
+                    </p>
+                </footer>
+            </div>
+        </main>
+
+        <script src="../scripts/nt.js"></script>
+        <script>
+            const themeButton = document.getElementById('theme-toggle')
+            const themeIcon = themeButton.querySelector('.nti')
+            const themeStyle = document.getElementById('nt-theme-style')
+
+            themeButton.addEventListener('click', () => {
+                const isDark =
+                    document.body.dataset.theme === 'nt-theme-dark'
+                const nextTheme = isDark
+                    ? 'nt-theme-light'
+                    : 'nt-theme-dark'
+
+                document.body.dataset.theme = nextTheme
+                themeStyle.href = `../themes/${nextTheme}.css`
+                themeIcon.className = isDark ? 'nti nti-moon' : 'nti nti-sun'
+                themeButton.setAttribute(
+                    'aria-label',
+                    isDark ? 'Toggle dark theme' : 'Toggle light theme'
+                )
+            })
+        </script>
+    </body>
+</html>

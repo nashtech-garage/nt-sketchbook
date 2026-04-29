@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    color: var(--nt-color-text-primary, #28292b);
+    background: var(--nt-color-bg-body, #fff);
+}
+
+.example-direct-shell {
+    width: min(100% - 32px, 1180px);
+    margin: 0 auto;
+    padding: 40px 0 72px;
+}
+
+.example-direct-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--nt-color-border-default, #eaeaea);
+    padding-bottom: 18px;
+}
+
+.example-direct-nav a {
+    color: var(--nt-color-text-secondary, #535455);
+    text-decoration: none;
+}
+
+.example-direct-nav a:hover {
+    color: var(--nt-color-primary-100, #d6001c);
+}
+
+.example-code-section {
+    margin-top: 28px;
+}
+
+.example-code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.example-code-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.example-code-block {
+    overflow: auto;
+    max-height: 560px;
+    border: 1px solid var(--nt-color-border-default, #eaeaea);
+    border-radius: 8px;
+    padding: 18px;
+    background: var(--nt-color-bg-muted, #f6f6f6);
+}
+
+.example-code-block code {
+    display: block;
+    color: var(--nt-color-text-primary, #28292b);
+    font-family:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        'Liberation Mono', monospace;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    white-space: pre;
+}

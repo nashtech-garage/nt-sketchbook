@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Icons - NT Stylesheet</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+            name="description"
+            content="Search and copy NT Stylesheet icon classes."
+        />
+        <link rel="stylesheet" href="../css/nt.css" />
+        <link
+            id="nt-theme-style"
+            rel="stylesheet"
+            href="../themes/nt-theme-light.css"
+        />
+        <link rel="stylesheet" href="../brands/nashtech.css" />
+        <link rel="stylesheet" href="../css/nt-icons.css" />
+        <link rel="stylesheet" href="../assets/icons-page/icons.css" />
+    </head>
+    <body data-theme="nt-theme-light">
+        <header class="icons-header">
+            <div class="icons-header-inner">
+                <a class="icons-brand" href="../index.html">
+                    <img alt="NashTech" src="../assets/name.png" />
+                    <span>Icons</span>
+                </a>
+                <nav class="icons-nav" aria-label="Primary navigation">
+                    <a href="../index.html">Home</a>
+                    <a href="styles.html">Styles docs</a>
+                    <a href="../examples/view.html?component=button">Examples</a>
+                </nav>
+                <div class="icons-header-actions">
+                    <button
+                        class="icons-icon-button"
+                        id="theme-toggle"
+                        type="button"
+                        aria-label="Toggle dark theme"
+                        title="Toggle theme"
+                    >
+                        <i class="nti nti-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="icons-main">
+            <section class="icons-hero">
+                <div class="icons-kicker">
+                    <i class="nti nti-sparkles"></i>
+                    Icon library
+                </div>
+                <h1>Find and copy NT icon classes</h1>
+                <p>
+                    Search the local icon manifest, preview every
+                    <code>nti</code> glyph, and copy the class name directly
+                    into your HTML.
+                </p>
+            </section>
+
+            <section class="icons-controls" aria-label="Icon filters">
+                <input
+                    class="nt-input nt-input-default"
+                    id="icon-search"
+                    type="search"
+                    placeholder="Search icons..."
+                    autocomplete="off"
+                />
+                <select
+                    class="nt-select"
+                    id="size-filter"
+                    aria-label="Preview size"
+                >
+                    <option value="nti-xl">24px preview</option>
+                    <option value="nti-sl">18px preview</option>
+                    <option value="nti-lg">20px preview</option>
+                    <option value="nti-2x">28px preview</option>
+                    <option value="nti-3x">42px preview</option>
+                </select>
+            </section>
+
+            <div class="icons-summary">
+                <span id="icon-count">Loading icons...</span>
+                <span class="nt-badge nt-badge-info" id="copy-status">
+                    Click an icon to copy
+                </span>
+            </div>
+
+            <section
+                class="icons-grid"
+                id="icons-grid"
+                aria-live="polite"
+            ></section>
+        </main>
+
+        <script src="../scripts/nt.js"></script>
+        <script src="../assets/icons-page/icons.js"></script>
+    </body>
+</html>

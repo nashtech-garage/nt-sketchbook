@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>NT Stylesheet</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+            name="description"
+            content="NT Stylesheet is NashTech's HTML, CSS, and JavaScript design system package."
+        />
+        <link rel="stylesheet" href="css/nt.css" />
+        <link
+            id="nt-theme-style"
+            rel="stylesheet"
+            href="themes/nt-theme-light.css"
+        />
+        <link rel="stylesheet" href="brands/nashtech.css" />
+        <link rel="stylesheet" href="css/nt-icons.css" />
+        <style>
+            :root {
+                --docs-max-width: 1180px;
+                --docs-header-height: 72px;
+                --docs-shadow: 0 16px 48px rgb(40 41 43 / 10%);
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                color: var(--nt-color-text-primary, #28292b);
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgb(214 0 28 / 7%) 0,
+                        transparent 420px
+                    ),
+                    var(--nt-color-bg-body, #fff);
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .docs-shell {
+                min-height: 100vh;
+            }
+
+            .docs-header {
+                position: sticky;
+                top: 0;
+                z-index: 20;
+                min-height: var(--docs-header-height);
+                border-bottom: 1px solid
+                    var(--nt-color-border-default, #eaeaea);
+                background: color-mix(
+                    in srgb,
+                    var(--nt-color-bg-body, #fff) 92%,
+                    transparent
+                );
+                backdrop-filter: blur(16px);
+            }
+
+            .docs-header-inner,
+            .docs-section,
+            .docs-footer-inner {
+                width: min(100% - 32px, var(--docs-max-width));
+                margin: 0 auto;
+            }
+
+            .docs-header-inner {
+                min-height: var(--docs-header-height);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+            }
+
+            .docs-brand {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                min-width: max-content;
+                font-weight: 800;
+            }
+
+            .docs-brand img {
+                width: 132px;
+                max-height: 34px;
+                object-fit: contain;
+            }
+
+            .docs-nav {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                color: var(--nt-color-text-secondary, #535455);
+                font-size: 0.925rem;
+            }
+
+            .docs-nav a,
+            .docs-icon-button {
+                border-radius: 6px;
+                padding: 10px 12px;
+            }
+
+            .docs-nav a:hover,
+            .docs-icon-button:hover {
+                background: var(--nt-color-bg-muted, #f6f6f6);
+            }
+
+            .docs-header-actions {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .docs-icon-button {
+                width: 40px;
+                height: 40px;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                color: var(--nt-color-text-primary, #28292b);
+                background: var(--nt-color-bg-surface, #fff);
+                cursor: pointer;
+            }
+
+            .docs-hero {
+                display: grid;
+                grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+                gap: 44px;
+                align-items: center;
+                padding: 72px 0 56px;
+            }
+
+            .docs-kicker {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 20px;
+                color: var(--nt-color-primary-100, #d6001c);
+                font-weight: 800;
+                font-size: 0.875rem;
+                text-transform: uppercase;
+            }
+
+            .docs-hero h1 {
+                max-width: 760px;
+                margin: 0;
+                font-size: clamp(2.6rem, 8vw, 5.6rem);
+                line-height: 0.98;
+                letter-spacing: 0;
+            }
+
+            .docs-lead {
+                max-width: 720px;
+                margin: 24px 0 0;
+                color: var(--nt-color-text-secondary, #535455);
+                font-size: 1.2rem;
+                line-height: 1.65;
+            }
+
+            .docs-hero-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-top: 32px;
+            }
+
+            .docs-command {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                align-items: center;
+                gap: 12px;
+                margin-top: 28px;
+                max-width: 640px;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 10px 10px 10px 18px;
+                background: var(--nt-color-bg-surface, #fff);
+                box-shadow: var(--docs-shadow);
+            }
+
+            .docs-command code {
+                overflow-x: auto;
+                color: var(--nt-color-text-primary, #28292b);
+                font-size: 0.95rem;
+                white-space: nowrap;
+            }
+
+            .docs-meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-top: 18px;
+                color: var(--nt-color-text-muted, #69696b);
+                font-size: 0.92rem;
+            }
+
+            .docs-preview {
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 18px;
+                background: var(--nt-color-bg-surface, #fff);
+                box-shadow: var(--docs-shadow);
+            }
+
+            .docs-preview-toolbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                margin-bottom: 18px;
+            }
+
+            .docs-window-actions {
+                display: flex;
+                gap: 6px;
+            }
+
+            .docs-window-actions span {
+                width: 10px;
+                height: 10px;
+                border-radius: 999px;
+                background: var(--nt-color-gray-30, #bfbfbf);
+            }
+
+            .docs-preview-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .docs-preview-main {
+                grid-column: 1 / -1;
+            }
+
+            .docs-section {
+                padding: 54px 0;
+            }
+
+            .docs-section-header {
+                max-width: 720px;
+                margin-bottom: 28px;
+            }
+
+            .docs-section h2 {
+                margin: 0;
+                font-size: clamp(2rem, 4vw, 3rem);
+                letter-spacing: 0;
+            }
+
+            .docs-section p {
+                color: var(--nt-color-text-secondary, #535455);
+                line-height: 1.7;
+            }
+
+            .docs-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .docs-card {
+                min-height: 100%;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 22px;
+                background: var(--nt-color-bg-surface, #fff);
+            }
+
+            .docs-card h3 {
+                margin: 14px 0 8px;
+                font-size: 1.1rem;
+            }
+
+            .docs-card p {
+                margin: 0;
+                font-size: 0.96rem;
+            }
+
+            .docs-card-icon {
+                display: inline-flex;
+                width: 40px;
+                height: 40px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                color: var(--nt-color-primary-100, #d6001c);
+                background: var(--nt-color-primary-10, #fbe6e8);
+            }
+
+            .docs-code-block {
+                overflow-x: auto;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 18px;
+                background: var(--nt-color-bg-muted, #f6f6f6);
+            }
+
+            .docs-code-block code {
+                white-space: pre;
+                font-size: 0.9rem;
+                line-height: 1.7;
+            }
+
+            .docs-component-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .docs-component-link {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 14px;
+                min-height: 74px;
+                border: 1px solid var(--nt-color-border-default, #eaeaea);
+                border-radius: 8px;
+                padding: 16px;
+                background: var(--nt-color-bg-surface, #fff);
+                transition:
+                    border-color 0.2s ease,
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease;
+            }
+
+            .docs-component-link:hover {
+                border-color: var(--nt-color-primary-100, #d6001c);
+                box-shadow: 0 10px 32px rgb(40 41 43 / 9%);
+                transform: translateY(-2px);
+            }
+
+            .docs-component-link strong {
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            .docs-component-link span {
+                color: var(--nt-color-text-muted, #69696b);
+                font-size: 0.84rem;
+            }
+
+            .docs-showcase {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                align-items: start;
+            }
+
+            .docs-footer {
+                margin-top: 36px;
+                border-top: 1px solid var(--nt-color-border-default, #eaeaea);
+                background: var(--nt-color-bg-surface, #fff);
+            }
+
+            .docs-footer-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+                padding: 30px 0;
+                color: var(--nt-color-text-muted, #69696b);
+                font-size: 0.92rem;
+            }
+
+            .docs-footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+
+            @media (max-width: 960px) {
+                .docs-header-inner {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    padding: 16px 0;
+                }
+
+                .docs-nav {
+                    width: calc(100% - 56px);
+                    flex-wrap: wrap;
+                    align-items: flex-start;
+                }
+
+                .docs-header-actions {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                }
+
+                .docs-hero,
+                .docs-showcase {
+                    grid-template-columns: 1fr;
+                }
+
+                .docs-grid,
+                .docs-component-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            @media (max-width: 620px) {
+                .docs-header-inner,
+                .docs-section,
+                .docs-footer-inner {
+                    width: min(100% - 24px, var(--docs-max-width));
+                }
+
+                .docs-brand img {
+                    width: 112px;
+                }
+
+                .docs-nav {
+                    width: 100%;
+                    padding-right: 52px;
+                    gap: 2px;
+                }
+
+                .docs-nav a {
+                    padding: 8px 10px;
+                    font-size: 0.88rem;
+                }
+
+                .docs-hero {
+                    padding-top: 44px;
+                }
+
+                .docs-command,
+                .docs-preview-grid,
+                .docs-grid,
+                .docs-component-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .docs-command {
+                    padding: 14px;
+                }
+
+                .docs-footer-inner {
+                    align-items: flex-start;
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+    <body data-theme="nt-theme-light">
+        <div class="docs-shell">
+            <header class="docs-header">
+                <div class="docs-header-inner">
+                    <a class="docs-brand" href="#" aria-label="NT Stylesheet">
+                        <img alt="NashTech" src="assets/name.png" />
+                        <span>Stylesheet</span>
+                    </a>
+                    <nav class="docs-nav" aria-label="Primary navigation">
+                        <a href="#start">Get started</a>
+                        <a href="#customize">Customize</a>
+                        <a href="#components">Components</a>
+                        <a href="docs/icons.html">Icons</a>
+                        <a href="#javascript">JavaScript</a>
+                        <a href="docs/styles.html">Styles docs</a>
+                    </nav>
+                    <div class="docs-header-actions">
+                        <button
+                            class="docs-icon-button"
+                            id="theme-toggle"
+                            type="button"
+                            aria-label="Toggle dark theme"
+                            title="Toggle theme"
+                        >
+                            <i class="nti nti-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section class="docs-section docs-hero">
+                    <div>
+                        <div class="docs-kicker">
+                            <i class="nti nti-sparkles"></i>
+                            HTML, CSS, and JavaScript
+                        </div>
+                        <h1>Build consistent NashTech interfaces with NT Stylesheet</h1>
+                        <p class="docs-lead">
+                            A lightweight design system package with compiled
+                            CSS, brand themes, icons, utility classes, and
+                            optional JavaScript behavior for framework-free
+                            product screens.
+                        </p>
+                        <div class="docs-hero-actions">
+                            <a
+                                class="nt-button nt-button-primary"
+                                href="#start"
+                            >
+                                Read the docs
+                            </a>
+                            <a
+                                class="nt-button nt-button-outline-primary"
+                                href="#components"
+                            >
+                                Browse components
+                            </a>
+                        </div>
+                        <div class="docs-command">
+                            <code id="install-command"
+                                >npm install @nashtech-garage/stylesheet</code
+                            >
+                            <button
+                                class="nt-button nt-button-secondary"
+                                id="copy-install"
+                                type="button"
+                            >
+                                Copy
+                            </button>
+                        </div>
+                        <div class="docs-meta">
+                            <span id="package-version">Version loading...</span>
+                            <span>MIT licensed</span>
+                            <span>No Bootstrap dependency</span>
+                        </div>
+                    </div>
+
+                    <aside class="docs-preview" aria-label="Component preview">
+                        <div class="docs-preview-toolbar">
+                            <div class="docs-window-actions" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="nt-badge nt-badge-info">Live preview</span>
+                        </div>
+                        <div class="docs-preview-grid">
+                            <div class="nt-card-default docs-preview-main">
+                                <div class="nt-card-header">
+                                    <div>
+                                        <div class="nt-card-title">
+                                            Release readiness
+                                        </div>
+                                        <div class="nt-card-description">
+                                            Component coverage and package health
+                                        </div>
+                                    </div>
+                                    <div class="nt-card-actions">
+                                        <i class="nti nti-more-horizontal nt-card-action"></i>
+                                    </div>
+                                </div>
+                                <div class="nt-card-content">
+                                    <div style="width: 100%">
+                                        <div
+                                            style="
+                                                display: flex;
+                                                justify-content: space-between;
+                                                margin-bottom: 8px;
+                                            "
+                                        >
+                                            <strong>Documentation</strong>
+                                            <span>82%</span>
+                                        </div>
+                                        <div class="nt-progress">
+                                            <div
+                                                class="nt-progress-bar"
+                                                style="width: 82%"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="nt-card-default">
+                                <div class="nt-card-header">
+                                    <div class="nt-card-title">Theme</div>
+                                </div>
+                                <div class="nt-card-content">
+                                    <label class="nt-switch" for="preview-switch">
+                                        <input
+                                            id="preview-switch"
+                                            type="checkbox"
+                                            class="nt-switch-input"
+                                            checked
+                                        />
+                                        <span class="nt-switch-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="nt-card-default">
+                                <div class="nt-card-header">
+                                    <div class="nt-card-title">Status</div>
+                                </div>
+                                <div class="nt-card-content">
+                                    <span class="nt-badge nt-badge-success"
+                                        >Stable</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </section>
+
+                <section class="docs-section" id="start">
+                    <div class="docs-section-header">
+                        <h2>Get started any way you want</h2>
+                        <p>
+                            Use the package from npm, or load the compiled files
+                            from the generated dist folder. The page itself is
+                            built using these same assets.
+                        </p>
+                    </div>
+                    <div class="docs-grid">
+                        <article class="docs-card">
+                            <span class="docs-card-icon">
+                                <i class="nti nti-package"></i>
+                            </span>
+                            <h3>Install with npm</h3>
+                            <p>
+                                Pull the package into an app and import the
+                                compiled CSS and JavaScript entry points.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <span class="docs-card-icon">
+                                <i class="nti nti-file-code-2"></i>
+                            </span>
+                            <h3>Use compiled files</h3>
+                            <p>
+                                Reference dist assets directly from plain HTML
+                                when a simple static integration is enough.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <span class="docs-card-icon">
+                                <i class="nti nti-palette"></i>
+                            </span>
+                            <h3>Choose a theme</h3>
+                            <p>
+                                Start with the light or dark token set, then add
+                                NashTech brand styles on top.
+                            </p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="docs-section" id="customize">
+                    <div class="docs-showcase">
+                        <div>
+                            <div class="docs-section-header">
+                                <h2>Customize with tokens and themes</h2>
+                                <p>
+                                    NT Stylesheet exposes CSS variables for
+                                    colors, surfaces, borders, spacing, and
+                                    component-level behavior. Override the
+                                    variables where your product needs a local
+                                    adjustment.
+                                </p>
+                            </div>
+                            <a
+                                class="nt-button nt-button-outline-secondary"
+                                href="docs/styles.html"
+                            >
+                                Open styles docs
+                            </a>
+                        </div>
+                        <pre class="docs-code-block"><code>&lt;link rel="stylesheet" href="css/nt.css" /&gt;
+&lt;link rel="stylesheet" href="themes/nt-theme-light.css" /&gt;
+&lt;link rel="stylesheet" href="brands/nashtech.css" /&gt;
+&lt;script src="scripts/nt.js"&gt;&lt;/script&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="docs-section" id="components">
+                    <div class="docs-section-header">
+                        <h2>Components ready for HTML</h2>
+                        <p>
+                            Every item below links to a generated example page
+                            in this app. The list is loaded from the local
+                            component manifest during runtime.
+                        </p>
+                    </div>
+                    <div
+                        class="docs-component-grid"
+                        id="component-grid"
+                        aria-live="polite"
+                    ></div>
+                </section>
+
+                <section class="docs-section" id="javascript">
+                    <div class="docs-showcase">
+                        <div>
+                            <div class="docs-section-header">
+                                <h2>JavaScript where behavior belongs</h2>
+                                <p>
+                                    Dropdowns, modals, collapse, popovers,
+                                    tooltips, comboboxes, multiselects, and date
+                                    pickers can be enhanced by the package
+                                    script without bringing in Bootstrap or a UI
+                                    framework.
+                                </p>
+                            </div>
+                            <div class="docs-hero-actions">
+                                <a
+                                    class="nt-button nt-button-primary"
+                                    href="examples/view.html?component=modal"
+                                >
+                                    Modal example
+                                </a>
+                                <a
+                                    class="nt-button nt-button-outline-primary"
+                                    href="examples/view.html?component=dropdown"
+                                >
+                                    Dropdown example
+                                </a>
+                            </div>
+                        </div>
+                        <pre class="docs-code-block"><code>&lt;button class="nt-button nt-button-primary"&gt;
+    Save changes
+&lt;/button&gt;
+
+&lt;span class="nt-badge nt-badge-success"&gt;
+    Published
+&lt;/span&gt;</code></pre>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="docs-footer">
+                <div class="docs-footer-inner">
+                    <div>
+                        Built with NT Stylesheet assets from this app.
+                    </div>
+                    <nav class="docs-footer-links" aria-label="Footer links">
+                        <a href="#start">Get started</a>
+                        <a href="#components">Components</a>
+                        <a href="docs/icons.html">Icons</a>
+                        <a href="docs/styles.html">Styles docs</a>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+
+        <script src="scripts/nt.js"></script>
+        <script>
+            const componentGrid = document.getElementById('component-grid')
+            const versionLabel = document.getElementById('package-version')
+            const themeButton = document.getElementById('theme-toggle')
+            const themeIcon = themeButton.querySelector('.nti')
+            const themeStyle = document.getElementById('nt-theme-style')
+            const copyButton = document.getElementById('copy-install')
+            const installCommand =
+                document.getElementById('install-command').textContent
+
+            const descriptions = {
+                alert: 'Contextual feedback messages',
+                avatar: 'User images and presence states',
+                badge: 'Compact labels and statuses',
+                breadcrumb: 'Page hierarchy navigation',
+                button: 'Actions, variants, and sizes',
+                card: 'Flexible content containers',
+                checkbox: 'Binary selection controls',
+                collapse: 'Expandable content regions',
+                combobox: 'Searchable option picking',
+                'date-picker': 'Calendar-based date input',
+                dropdown: 'Menus and contextual actions',
+                'input-group': 'Grouped form controls',
+                inputs: 'Text fields and form inputs',
+                label: 'Form and metadata labels',
+                modal: 'Focused dialog experiences',
+                multiselect: 'Multiple option selection',
+                pagination: 'Paged data navigation',
+                popover: 'Rich floating content',
+                progress: 'Completion and loading states',
+                'radio-group': 'Single-choice groups',
+                select: 'Native select styling',
+                switch: 'On and off toggles',
+                table: 'Structured data display',
+                tooltip: 'Small contextual hints'
+            }
+
+            const iconByComponent = {
+                alert: 'nti-triangle-alert',
+                avatar: 'nti-user-round',
+                badge: 'nti-badge',
+                breadcrumb: 'nti-route',
+                button: 'nti-square-mouse-pointer',
+                card: 'nti-panels-top-left',
+                checkbox: 'nti-square-check',
+                collapse: 'nti-chevrons-up-down',
+                combobox: 'nti-list-filter',
+                'date-picker': 'nti-calendar-days',
+                dropdown: 'nti-menu',
+                'input-group': 'nti-panels-left-bottom',
+                inputs: 'nti-text-cursor-input',
+                label: 'nti-tag',
+                modal: 'nti-panels-top-left',
+                multiselect: 'nti-list-checks',
+                pagination: 'nti-ellipsis',
+                popover: 'nti-message-square-more',
+                progress: 'nti-chart-no-axes-column',
+                'radio-group': 'nti-circle-dot',
+                select: 'nti-list',
+                switch: 'nti-toggle-right',
+                table: 'nti-table',
+                tooltip: 'nti-message-circle-question'
+            }
+
+            const renderComponents = (components) => {
+                componentGrid.innerHTML = components
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .map((component) => {
+                        const description =
+                            descriptions[component.id] ||
+                            'Open the generated example'
+                        const icon =
+                            iconByComponent[component.id] || 'nti-box'
+
+                        return `
+                            <a class="docs-component-link" href="examples/view.html?component=${component.id}">
+                                <span>
+                                    <strong>${component.name}</strong>
+                                    <span>${description}</span>
+                                </span>
+                                <i class="nti ${icon}" aria-hidden="true"></i>
+                            </a>
+                        `
+                    })
+                    .join('')
+            }
+
+            fetch('components-manifest.json')
+                .then((response) => response.json())
+                .then((data) => renderComponents(data.components || []))
+                .catch(() => {
+                    componentGrid.innerHTML =
+                        '<p>Component manifest could not be loaded.</p>'
+                })
+
+            fetch('package.json')
+                .then((response) => response.json())
+                .then((data) => {
+                    versionLabel.textContent = `Currently v${data.version}`
+                })
+                .catch(() => {
+                    versionLabel.textContent = 'Version unavailable'
+                })
+
+            themeButton.addEventListener('click', () => {
+                const isDark =
+                    document.body.dataset.theme === 'nt-theme-dark'
+                const nextTheme = isDark
+                    ? 'nt-theme-light'
+                    : 'nt-theme-dark'
+
+                document.body.dataset.theme = nextTheme
+                themeStyle.href = `themes/${nextTheme}.css`
+                themeIcon.className = isDark ? 'nti nti-moon' : 'nti nti-sun'
+                themeButton.setAttribute(
+                    'aria-label',
+                    isDark ? 'Toggle dark theme' : 'Toggle light theme'
+                )
+            })
+
+            copyButton.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(installCommand)
+                    copyButton.textContent = 'Copied'
+                } catch {
+                    copyButton.textContent = 'Copy failed'
+                }
+
+                window.setTimeout(() => {
+                    copyButton.textContent = 'Copy'
+                }, 1800)
+            })
+        </script>
+    </body>
+</html>
