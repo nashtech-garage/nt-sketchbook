@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Styles Utilities - NT Stylesheet</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+            name="description"
+            content="Documentation for NT Stylesheet utility classes and Sass style modules."
+        />
+        <link rel="stylesheet" href="__NT_CSS__" />
+        <link
+            id="nt-theme-style"
+            rel="stylesheet"
+            href="__NT_THEME_LIGHT_CSS__"
+        />
+        <link rel="stylesheet" href="__NT_BRAND_CSS__" />
+        <link rel="stylesheet" href="__NT_ICONS_CSS__" />
+        <link
+            rel="stylesheet"
+            href="__PREVIEW_ASSET:styles/styles.css__"
+        />
+    </head>
+    <body data-theme="nt-theme-light">
+        <header class="docs-header">
+            <div class="docs-header-inner">
+                <a class="docs-brand" href="../index.html">
+                    <img alt="NashTech" src="../assets/name.png" />
+                    <span>Styles docs</span>
+                </a>
+                <nav class="docs-nav" aria-label="Primary navigation">
+                    <a href="../index.html">Home</a>
+                    <a href="icons.html">Icons</a>
+                    <a href="#usage">Usage</a>
+                    <a href="#spacing">Spacing</a>
+                    <a href="#grid">Grid</a>
+                    <a href="#sass">Sass</a>
+                </nav>
+                <div class="docs-header-actions">
+                    <button
+                        class="docs-icon-button"
+                        id="theme-toggle"
+                        type="button"
+                        aria-label="Toggle dark theme"
+                        title="Toggle theme"
+                    >
+                        <i class="nti nti-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="docs-layout">
+            <aside
+                class="docs-sidebar"
+                aria-label="Styles navigation"
+            >
+                <p class="docs-sidebar-title">Style modules</p>
+                <a href="#usage"
+                    ><i class="nti nti-book-open"></i> Usage</a
+                >
+                <a href="#border"
+                    ><i class="nti nti-square"></i> Border</a
+                >
+                <a href="#animation"
+                    ><i class="nti nti-sparkles"></i> Animation</a
+                >
+                <a href="#flex"
+                    ><i class="nti nti-align-justify"></i> Flex</a
+                >
+                <a href="#grid"
+                    ><i class="nti nti-layout-grid"></i> Grid</a
+                >
+                <a href="#size"
+                    ><i class="nti nti-maximize"></i> Size</a
+                >
+                <a href="#spacing"
+                    ><i class="nti nti-between-horizontal-start"></i>
+                    Spacing</a
+                >
+                <a href="#text"
+                    ><i class="nti nti-align-left"></i> Text</a
+                >
+                <a href="#typography"
+                    ><i class="nti nti-type"></i> Typography</a
+                >
+                <a href="#utilities"
+                    ><i class="nti nti-wrench"></i> Utilities</a
+                >
+                <a href="#sass"
+                    ><i class="nti nti-file-code-2"></i> Sass
+                    custom</a
+                >
+            </aside>
+            <div
+                class="docs-content"
+                id="styles-content"
+                aria-live="polite"
+            >
+                <p class="docs-loading">
+                    Loading style documentation...
+                </p>
+            </div>
+        </main>
+
+        <script src="__NT_SCRIPT__"></script>
+        <script src="__PREVIEW_ASSET:styles/styles.js__"></script>
+    </body>
+</html>

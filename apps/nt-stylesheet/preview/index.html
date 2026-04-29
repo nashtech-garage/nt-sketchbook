@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>NT Stylesheet</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+            name="description"
+            content="NT Stylesheet is NashTech's HTML, CSS, and JavaScript design system package."
+        />
+        <link rel="stylesheet" href="__NT_CSS__" />
+        <link
+            id="nt-theme-style"
+            rel="stylesheet"
+            href="__NT_THEME_LIGHT_CSS__"
+        />
+        <link rel="stylesheet" href="__NT_BRAND_CSS__" />
+        <link rel="stylesheet" href="__NT_ICONS_CSS__" />
+        <link
+            rel="stylesheet"
+            href="__PREVIEW_ASSET:home/home.css__"
+        />
+    </head>
+    <body data-theme="nt-theme-light">
+        <div class="docs-shell">
+            <header class="docs-header">
+                <div class="docs-header-inner">
+                    <a
+                        class="docs-brand"
+                        href="#"
+                        aria-label="NT Stylesheet"
+                    >
+                        <img alt="NashTech" src="assets/name.png" />
+                        <span>Stylesheet</span>
+                    </a>
+                    <nav
+                        class="docs-nav"
+                        aria-label="Primary navigation"
+                    >
+                        <a href="#start">Get started</a>
+                        <a href="#customize">Customize</a>
+                        <a href="#components">Components</a>
+                        <a href="docs/icons.html">Icons</a>
+                        <a href="#javascript">JavaScript</a>
+                        <a href="docs/styles.html">Styles docs</a>
+                    </nav>
+                    <div class="docs-header-actions">
+                        <button
+                            class="docs-icon-button"
+                            id="theme-toggle"
+                            type="button"
+                            aria-label="Toggle dark theme"
+                            title="Toggle theme"
+                        >
+                            <i class="nti nti-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section class="docs-section docs-hero">
+                    <div>
+                        <div class="docs-kicker">
+                            <i class="nti nti-sparkles"></i>
+                            HTML, CSS, and JavaScript
+                        </div>
+                        <h1>
+                            Build consistent NashTech interfaces with
+                            NT Stylesheet
+                        </h1>
+                        <p class="docs-lead">
+                            A lightweight design system package with
+                            compiled CSS, brand themes, icons, utility
+                            classes, and optional JavaScript behavior
+                            for framework-free product screens.
+                        </p>
+                        <div class="docs-hero-actions">
+                            <a
+                                class="nt-button nt-button-primary"
+                                href="#start"
+                            >
+                                Read the docs
+                            </a>
+                            <a
+                                class="nt-button nt-button-outline-primary"
+                                href="#components"
+                            >
+                                Browse components
+                            </a>
+                        </div>
+                        <div class="docs-command">
+                            <code id="install-command"
+                                >npm install
+                                @nashtech-garage/stylesheet</code
+                            >
+                            <button
+                                class="nt-button nt-button-secondary"
+                                id="copy-install"
+                                type="button"
+                            >
+                                Copy
+                            </button>
+                        </div>
+                        <div class="docs-meta">
+                            <span id="package-version"
+                                >Version loading...</span
+                            >
+                            <span>MIT licensed</span>
+                            <span>No Bootstrap dependency</span>
+                        </div>
+                    </div>
+
+                    <aside
+                        class="docs-preview"
+                        aria-label="Component preview"
+                    >
+                        <div class="docs-preview-toolbar">
+                            <div
+                                class="docs-window-actions"
+                                aria-hidden="true"
+                            >
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="nt-badge nt-badge-info"
+                                >Live preview</span
+                            >
+                        </div>
+                        <div class="docs-preview-grid">
+                            <div
+                                class="nt-card-default docs-preview-main"
+                            >
+                                <div class="nt-card-header">
+                                    <div>
+                                        <div class="nt-card-title">
+                                            Release readiness
+                                        </div>
+                                        <div
+                                            class="nt-card-description"
+                                        >
+                                            Component coverage and
+                                            package health
+                                        </div>
+                                    </div>
+                                    <div class="nt-card-actions">
+                                        <i
+                                            class="nti nti-more-horizontal nt-card-action"
+                                        ></i>
+                                    </div>
+                                </div>
+                                <div class="nt-card-content">
+                                    <div class="docs-progress-demo">
+                                        <div
+                                            class="docs-progress-label"
+                                        >
+                                            <strong
+                                                >Documentation</strong
+                                            >
+                                            <span>82%</span>
+                                        </div>
+                                        <div class="nt-progress">
+                                            <div
+                                                class="nt-progress-bar docs-progress-value"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="nt-card-default">
+                                <div class="nt-card-header">
+                                    <div class="nt-card-title">
+                                        Theme
+                                    </div>
+                                </div>
+                                <div class="nt-card-content">
+                                    <label
+                                        class="nt-switch"
+                                        for="preview-switch"
+                                    >
+                                        <input
+                                            id="preview-switch"
+                                            type="checkbox"
+                                            class="nt-switch-input"
+                                            checked
+                                        />
+                                        <span
+                                            class="nt-switch-slider"
+                                        ></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="nt-card-default">
+                                <div class="nt-card-header">
+                                    <div class="nt-card-title">
+                                        Status
+                                    </div>
+                                </div>
+                                <div class="nt-card-content">
+                                    <span
+                                        class="nt-badge nt-badge-success"
+                                        >Stable</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </section>
+
+                <section class="docs-section" id="start">
+                    <div class="docs-section-header">
+                        <h2>Get started any way you want</h2>
+                        <p>
+                            Use the package from npm, or load the
+                            compiled files from the generated dist
+                            folder. The page itself is built using
+                            these same assets.
+                        </p>
+                    </div>
+                    <div class="docs-grid">
+                        <article class="docs-card">
+                            <span class="docs-card-icon">
+                                <i class="nti nti-package"></i>
+                            </span>
+                            <h3>Install with npm</h3>
+                            <p>
+                                Pull the package into an app and
+                                import the compiled CSS and JavaScript
+                                entry points.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <span class="docs-card-icon">
+                                <i class="nti nti-file-code-2"></i>
+                            </span>
+                            <h3>Use compiled files</h3>
+                            <p>
+                                Reference dist assets directly from
+                                plain HTML when a simple static
+                                integration is enough.
+                            </p>
+                        </article>
+                        <article class="docs-card">
+                            <span class="docs-card-icon">
+                                <i class="nti nti-palette"></i>
+                            </span>
+                            <h3>Choose a theme</h3>
+                            <p>
+                                Start with the light or dark token
+                                set, then add NashTech brand styles on
+                                top.
+                            </p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="docs-section" id="customize">
+                    <div class="docs-showcase">
+                        <div>
+                            <div class="docs-section-header">
+                                <h2>
+                                    Customize with tokens and themes
+                                </h2>
+                                <p>
+                                    NT Stylesheet exposes CSS
+                                    variables for colors, surfaces,
+                                    borders, spacing, and
+                                    component-level behavior. Override
+                                    the variables where your product
+                                    needs a local adjustment.
+                                </p>
+                            </div>
+                            <a
+                                class="nt-button nt-button-outline-secondary"
+                                href="docs/styles.html"
+                            >
+                                Open styles docs
+                            </a>
+                        </div>
+                        <pre
+                            class="docs-code-block"
+                        ><code>&lt;link rel="stylesheet" href="css/nt.css" /&gt;
+&lt;link rel="stylesheet" href="themes/nt-theme-light.css" /&gt;
+&lt;link rel="stylesheet" href="brands/nashtech.css" /&gt;
+&lt;script src="scripts/nt.js"&gt;&lt;/script&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="docs-section" id="components">
+                    <div class="docs-section-header">
+                        <h2>Components ready for HTML</h2>
+                        <p>
+                            Every item below links to a generated
+                            example page in this app. The list is
+                            loaded from the local component manifest
+                            during runtime.
+                        </p>
+                    </div>
+                    <div
+                        class="docs-component-grid"
+                        id="component-grid"
+                        aria-live="polite"
+                    ></div>
+                </section>
+
+                <section class="docs-section" id="javascript">
+                    <div class="docs-showcase">
+                        <div>
+                            <div class="docs-section-header">
+                                <h2>
+                                    JavaScript where behavior belongs
+                                </h2>
+                                <p>
+                                    Dropdowns, modals, collapse,
+                                    popovers, tooltips, comboboxes,
+                                    multiselects, and date pickers can
+                                    be enhanced by the package script
+                                    without bringing in Bootstrap or a
+                                    UI framework.
+                                </p>
+                            </div>
+                            <div class="docs-hero-actions">
+                                <a
+                                    class="nt-button nt-button-primary"
+                                    href="examples/view.html?component=modal"
+                                >
+                                    Modal example
+                                </a>
+                                <a
+                                    class="nt-button nt-button-outline-primary"
+                                    href="examples/view.html?component=dropdown"
+                                >
+                                    Dropdown example
+                                </a>
+                            </div>
+                        </div>
+                        <pre
+                            class="docs-code-block"
+                        ><code>&lt;button class="nt-button nt-button-primary"&gt;
+    Save changes
+&lt;/button&gt;
+
+&lt;span class="nt-badge nt-badge-success"&gt;
+    Published
+&lt;/span&gt;</code></pre>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="docs-footer">
+                <div class="docs-footer-inner">
+                    <div>
+                        Built with NT Stylesheet assets from this app.
+                    </div>
+                    <nav
+                        class="docs-footer-links"
+                        aria-label="Footer links"
+                    >
+                        <a href="#start">Get started</a>
+                        <a href="#components">Components</a>
+                        <a href="docs/icons.html">Icons</a>
+                        <a href="docs/styles.html">Styles docs</a>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+
+        <script src="__NT_SCRIPT__"></script>
+        <script src="__PREVIEW_ASSET:home/home.js__"></script>
+    </body>
+</html>

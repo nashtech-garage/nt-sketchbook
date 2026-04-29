@@ -11,6 +11,7 @@ import {
     assetFileNames,
     makeInputs,
     OUT_DIR,
+    previewSitePlugin,
     ROOT
 } from './vite.common'
 
@@ -33,6 +34,7 @@ export default defineConfig(() => {
                 output: `css/nt-icons.css`,
                 iconSize: 14
             }),
+            previewSitePlugin(),
             viteStaticCopy({
                 targets: [
                     {
@@ -78,17 +80,6 @@ export default defineConfig(() => {
                 scss: {
                     additionalData: `@use 'sass:math'; @use 'sass:map';`
                 }
-            }
-        },
-        optimizeDeps: {
-            exclude: ['materialdesignicons.min.css']
-        },
-        resolve: {
-            alias: {
-                'materialdesignicons.min.css': path.resolve(
-                    ROOT,
-                    'node_modules/@mdi/font/css/materialdesignicons.min.css'
-                )
             }
         }
     } as UserConfig

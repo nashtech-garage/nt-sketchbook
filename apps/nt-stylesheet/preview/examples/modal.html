@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Modal Example - NT Stylesheet</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link rel="stylesheet" href="__NT_CSS__" />
+        <link rel="stylesheet" href="__NT_THEME_LIGHT_CSS__" />
+        <link rel="stylesheet" href="__NT_BRAND_CSS__" />
+        <link rel="stylesheet" href="__NT_ICONS_CSS__" />
+        <link
+            rel="stylesheet"
+            href="__PREVIEW_ASSET:examples/direct.css__"
+        />
+    </head>
+    <body data-theme="nt-theme-light">
+        <main class="example-direct-shell">
+            <nav
+                class="example-direct-nav"
+                aria-label="Example navigation"
+            >
+                <a href="../index.html">NT Stylesheet</a>
+                <a href="view.html?component=modal">Open in viewer</a>
+            </nav>
+            <div class="nt-page">
+                <div class="nt-page-body">
+                    <div class="nt-d-flex nt-flex-col nt-gap-2">
+                        <button
+                            class="nt-button nt-button-primary"
+                            data-nt-toggle="modal"
+                            data-nt-target="#modal-sm"
+                            style="width: 200px"
+                        >
+                            Open modal small
+                        </button>
+                        <button
+                            class="nt-button nt-button-primary"
+                            data-nt-toggle="modal"
+                            data-nt-target="#modal-md"
+                            style="width: 200px"
+                        >
+                            Open modal md
+                        </button>
+                        <button
+                            class="nt-button nt-button-primary"
+                            data-nt-toggle="modal"
+                            data-nt-target="#modal-lg"
+                            style="width: 200px"
+                        >
+                            Open modal large
+                        </button>
+                    </div>
+                    <div
+                        id="modal-sm"
+                        class="nt-modal hidden"
+                        tabindex="-1"
+                    >
+                        <div class="nt-modal-box nt-modal-box-sm">
+                            <div class="nt-modal-header">
+                                <div>
+                                    <h2 class="nt-modal-title">
+                                        Modal Title
+                                    </h2>
+                                    <p class="nt-modal-description">
+                                        This is the modal description
+                                        providing context.
+                                    </p>
+                                </div>
+                                <span
+                                    class="nt-modal-close"
+                                    data-nt-dismiss="modal"
+                                    >&times;
+                                </span>
+                            </div>
+                            <div class="nt-modal-content">
+                                <p>
+                                    This is the main content of the
+                                    modal. You can place forms, text,
+                                    or other HTML elements here.
+                                </p>
+                            </div>
+                            <div class="nt-modal-footer">
+                                <a
+                                    href="#"
+                                    class="nt-button nt-button-primary"
+                                    >Cancel
+                                </a>
+                                <a
+                                    href="#"
+                                    class="nt-button nt-button-secondary"
+                                    >Confirm
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        id="modal-md"
+                        class="nt-modal hidden"
+                        tabindex="-1"
+                    >
+                        <div class="nt-modal-box nt-modal-box-md">
+                            <div class="nt-modal-header">
+                                <div>
+                                    <h2 class="nt-modal-title">
+                                        Modal Title
+                                    </h2>
+                                    <p class="nt-modal-description">
+                                        This is the modal description
+                                        providing context.
+                                    </p>
+                                </div>
+                                <span
+                                    class="nt-modal-close"
+                                    data-nt-dismiss="modal"
+                                    >&times;
+                                </span>
+                            </div>
+                            <div class="nt-modal-content">
+                                <p>
+                                    This is the main content of the
+                                    modal. You can place forms, text,
+                                    or other HTML elements here.
+                                </p>
+                            </div>
+                            <div class="nt-modal-footer">
+                                <a
+                                    href="#"
+                                    class="nt-button nt-button-primary"
+                                    >Cancel
+                                </a>
+                                <a
+                                    href="#"
+                                    class="nt-button nt-button-secondary"
+                                    >Confirm
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        id="modal-lg"
+                        class="nt-modal hidden"
+                        tabindex="-1"
+                    >
+                        <div class="nt-modal-box nt-modal-box-lg">
+                            <div class="nt-modal-header">
+                                <div>
+                                    <h2 class="nt-modal-title">
+                                        Modal Title
+                                    </h2>
+                                    <p class="nt-modal-description">
+                                        This is the modal description
+                                        providing context.
+                                    </p>
+                                </div>
+                                <span
+                                    class="nt-modal-close"
+                                    data-nt-dismiss="modal"
+                                    >&times;
+                                </span>
+                            </div>
+                            <div class="nt-modal-content">
+                                <p>
+                                    This is the main content of the
+                                    modal. You can place forms, text,
+                                    or other HTML elements here.
+                                </p>
+                            </div>
+                            <div class="nt-modal-footer">
+                                <a
+                                    href="#"
+                                    class="nt-button nt-button-primary"
+                                    >Cancel
+                                </a>
+                                <a
+                                    href="#"
+                                    class="nt-button nt-button-secondary"
+                                    >Confirm
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="__NT_SCRIPT__"></script>
+        <script src="__PREVIEW_ASSET:examples/direct.js__"></script>
+    </body>
+</html>
