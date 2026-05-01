@@ -9,9 +9,11 @@
     },
     "devDependencies": {
         "stylelint": "catalog:",
+        "stylelint-config-standard": "catalog:",
         "stylelint-config-standard-scss": "catalog:",
         "stylelint-prettier": "catalog:",
         "stylelint-config-tailwindcss": "catalog:",
-        "stylelint-scss": "catalog:"
+        "stylelint-scss": "catalog:",
+        "stylelint-config-recommended": "catalog:"
     }
 }

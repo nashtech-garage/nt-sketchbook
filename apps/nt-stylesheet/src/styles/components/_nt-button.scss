@@ -206,7 +206,6 @@ $base-transition: all 0.2s ease-in-out;
         @extend %button-base;
         @include button-md;
         background: transparent;
-        background-color: transparent;
         border: 0.0625rem solid;
 
         &.nt-button {
