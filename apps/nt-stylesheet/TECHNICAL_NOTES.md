@@ -7,7 +7,7 @@ This note covers the implementation in `apps/nt-stylesheet`. The package is a Vi
 ## Technical Notes
 
 - The published package metadata is defined in `package.json` as `@nashtech-garage/stylesheet`, while README and component docs often refer to `@nashtech-garage/nt-stylesheet`. This creates install/import ambiguity.
-- The CSS build uses `vite.config.ts` and `vite.common.ts` to create multiple Rollup inputs: `nt` styles, icon styles, JavaScript enhancements, Tailwind integration, themes, and branding bundles.
+- The CSS build uses `vite.config.ts` and focused helpers in `vite/` to create multiple Rollup inputs: `nt` styles, icon styles, JavaScript enhancements, Tailwind integration, themes, and branding bundles.
 - The canonical stylesheet entry is `src/styles/index.scss`, which delegates to the existing `src/styles/_site.scss` bundle entry for backward compatibility.
 - Design tokens are split into primitive, semantic, and component contracts under `src/styles/tokens`, then emitted into `:root` through `src/styles/_variables.scss` and into theme scopes through `src/styles/themes/*`.
 - Theme and brand source files now live under `src/styles/themes` and `src/styles/brands`; previous `src/themes` and `src/branding` paths remain as compatibility shims.

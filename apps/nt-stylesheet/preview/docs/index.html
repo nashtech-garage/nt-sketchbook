@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Docs - NT Stylesheet</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+            name="description"
+            content="Documentation for installing and using NT Stylesheet."
+        />
+        <link rel="stylesheet" href="__NT_CSS__" />
+        <link
+            id="nt-theme-style"
+            rel="stylesheet"
+            href="__NT_THEME_LIGHT_CSS__"
+        />
+        <link rel="stylesheet" href="__NT_BRAND_CSS__" />
+        <link rel="stylesheet" href="__NT_ICONS_CSS__" />
+        <link
+            rel="stylesheet"
+            href="__DOCS_ASSET:styles/styles.css__"
+        />
+    </head>
+    <body data-theme="nt-theme-light">
+        <header class="docs-header">
+            <div class="docs-header-inner">
+                <a class="docs-brand" href="../index.html">
+                    <img alt="NashTech" src="../assets/name.png" />
+                    <span>Docs</span>
+                </a>
+                <nav class="docs-nav" aria-label="Primary navigation">
+                    <a href="index.html">Docs</a>
+                    <a href="components.html">Example</a>
+                    <a href="icons.html">Icons</a>
+                </nav>
+                <div class="docs-header-actions">
+                    <button
+                        class="docs-icon-button"
+                        id="theme-toggle"
+                        type="button"
+                        aria-label="Toggle dark theme"
+                        title="Toggle theme"
+                    >
+                        <i class="nti nti-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="docs-layout docs-layout-three">
+            <aside class="docs-sidebar" aria-label="Docs navigation">
+                <p class="docs-sidebar-title">Get started</p>
+                <a href="#overview">
+                    <i class="nti nti-book-open"></i> Overview
+                </a>
+                <a href="#install">
+                    <i class="nti nti-package"></i> Install
+                </a>
+                <a href="#dist">
+                    <i class="nti nti-folder"></i> Dist files
+                </a>
+                <a href="#theme">
+                    <i class="nti nti-palette"></i> Theme and brand
+                </a>
+                <p class="docs-sidebar-title">Customize</p>
+                <a href="#styles">
+                    <i class="nti nti-wrench"></i> Styles
+                </a>
+                <a href="#sass">
+                    <i class="nti nti-file-code-2"></i> Sass custom
+                </a>
+                <a href="styles.html#border">
+                    <i class="nti nti-square"></i> Border
+                </a>
+                <a href="styles.html#animation">
+                    <i class="nti nti-sparkles"></i> Animation
+                </a>
+                <a href="styles.html#flex">
+                    <i class="nti nti-align-justify"></i> Flex
+                </a>
+                <a href="styles.html#grid">
+                    <i class="nti nti-layout-grid"></i> Grid
+                </a>
+                <a href="styles.html#size">
+                    <i class="nti nti-maximize"></i> Size
+                </a>
+                <a href="styles.html#spacing">
+                    <i class="nti nti-between-horizontal-start"></i>
+                    Spacing
+                </a>
+                <a href="styles.html#text">
+                    <i class="nti nti-align-left"></i> Text
+                </a>
+                <a href="styles.html#typography">
+                    <i class="nti nti-type"></i> Typography
+                </a>
+                <a href="styles.html#utilities">
+                    <i class="nti nti-wrench"></i> Utilities
+                </a>
+                <p class="docs-sidebar-title">Build</p>
+                <a href="#components">
+                    <i class="nti nti-panels-top-left"></i> Components
+                </a>
+                <a href="#javascript">
+                    <i class="nti nti-code"></i> JavaScript
+                </a>
+                <a href="#icons">
+                    <i class="nti nti-sparkles"></i> Icons
+                </a>
+            </aside>
+
+            <div class="docs-content">
+                <section class="docs-hero" id="overview">
+                    <div class="docs-kicker">
+                        <i class="nti nti-book-open"></i>
+                        Documentation
+                    </div>
+                    <h1>How to work with NT Stylesheet</h1>
+                    <p class="docs-lead">
+                        Use this page as the main guide for installing
+                        the library, loading the generated files,
+                        applying themes, using utility styles, copying
+                        component examples, and finding icon classes.
+                    </p>
+                </section>
+
+                <section class="docs-section" id="install">
+                    <h2>Install</h2>
+                    <p>
+                        Add the package to your app when you want to
+                        consume the compiled stylesheet, icon font,
+                        themes, brand file, and optional JavaScript.
+                    </p>
+                    <pre
+                        class="docs-code"
+                    ><code>npm install @nashtech-garage/stylesheet</code></pre>
+                </section>
+
+                <section class="docs-section" id="dist">
+                    <h2>Use dist files</h2>
+                    <p>
+                        The generated dist folder contains the files a
+                        plain HTML page needs. Load the core CSS first,
+                        then theme, brand, icons, and script.
+                    </p>
+                    <pre class="docs-code"><code>&lt;link rel="stylesheet" href="css/nt.css" /&gt;
+&lt;link rel="stylesheet" href="themes/nt-theme-light.css" /&gt;
+&lt;link rel="stylesheet" href="brands/nashtech.css" /&gt;
+&lt;link rel="stylesheet" href="css/nt-icons.css" /&gt;
+&lt;script src="scripts/nt.js"&gt;&lt;/script&gt;</code></pre>
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>File</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>css/nt.css</code></td>
+                                <td>
+                                    Core reset, layout utilities,
+                                    component styles, and base classes.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>themes/nt-theme-light.css</code>
+                                </td>
+                                <td>
+                                    CSS variables for the active visual
+                                    theme.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>brands/nashtech.css</code></td>
+                                <td>
+                                    NashTech brand color and identity
+                                    overrides.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>css/nt-icons.css</code></td>
+                                <td>
+                                    Icon font classes using the
+                                    <code>nti</code> prefix.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>scripts/nt.js</code></td>
+                                <td>
+                                    Optional behavior for interactive
+                                    components.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="docs-section" id="theme">
+                    <h2>Theme and brand</h2>
+                    <p>
+                        Set the theme file in the page head and use the
+                        matching value on <code>data-theme</code>. Add
+                        the brand stylesheet after the theme so brand
+                        variables can refine the base tokens.
+                    </p>
+                    <pre class="docs-code"><code>&lt;body data-theme="nt-theme-light"&gt;
+    ...
+&lt;/body&gt;</code></pre>
+                </section>
+
+                <section class="docs-section" id="styles">
+                    <h2>Styles</h2>
+                    <p>
+                        Style modules document the utility classes used
+                        for layout, spacing, type, sizing, borders,
+                        animation, and helper behavior.
+                    </p>
+                    <div class="docs-grid">
+                        <a class="docs-card" href="styles.html#border">
+                            <h3>Border and size</h3>
+                            <p>
+                                Border radius, border width, sizing,
+                                width, height, and max-width helpers.
+                            </p>
+                        </a>
+                        <a class="docs-card" href="styles.html#spacing">
+                            <h3>Spacing and layout</h3>
+                            <p>
+                                Margin, padding, flex, grid, and layout
+                                utilities for page composition.
+                            </p>
+                        </a>
+                        <a class="docs-card" href="styles.html#text">
+                            <h3>Text and typography</h3>
+                            <p>
+                                Text alignment, color, weight,
+                                headings, and body copy styles.
+                            </p>
+                        </a>
+                        <a class="docs-card" href="styles.html#utilities">
+                            <h3>Utilities</h3>
+                            <p>
+                                General helpers for visibility,
+                                display, state, and common UI needs.
+                            </p>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="docs-section" id="sass">
+                    <h2>Sass custom</h2>
+                    <p>
+                        Customize from the Sass source when you need
+                        deeper control over modules like
+                        <code>_border.scss</code>,
+                        <code>_animation.scss</code>,
+                        <code>_flex.scss</code>,
+                        <code>_grid.scss</code>,
+                        <code>_size.scss</code>,
+                        <code>_spacing.scss</code>,
+                        <code>_text.scss</code>,
+                        <code>_typography.scss</code>, and
+                        <code>_utilities.scss</code>.
+                    </p>
+                    <a
+                        class="nt-button nt-button-outline-primary"
+                        href="styles.html#sass"
+                    >
+                        Open style modules
+                    </a>
+                </section>
+
+                <section class="docs-section" id="components">
+                    <h2>Components and examples</h2>
+                    <p>
+                        Component examples show the rendered UI and the
+                        HTML users can copy. This is the best place to
+                        learn class names for buttons, cards, forms,
+                        modals, dropdowns, tables, and more.
+                    </p>
+                    <div class="docs-grid">
+                        <a
+                            class="docs-card"
+                            href="components.html?component=button"
+                        >
+                            <h3>Button example</h3>
+                            <p>
+                                See button variants, sizes, and copied
+                                HTML markup.
+                            </p>
+                        </a>
+                        <a
+                            class="docs-card"
+                            href="components.html?component=modal"
+                        >
+                            <h3>Modal example</h3>
+                            <p>
+                                Check interactive behavior powered by
+                                the package script.
+                            </p>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="docs-section" id="javascript">
+                    <h2>JavaScript behavior</h2>
+                    <p>
+                        Include <code>scripts/nt.js</code> when a page
+                        uses interactive components such as modal,
+                        dropdown, tooltip, popover, collapse,
+                        combobox, multiselect, or date picker.
+                    </p>
+                    <pre class="docs-code"><code>&lt;button
+    class="nt-button nt-button-primary"
+    data-modal-target="#demo-modal"
+&gt;
+    Open modal
+&lt;/button&gt;</code></pre>
+                </section>
+
+                <section class="docs-section" id="icons">
+                    <h2>Icons</h2>
+                    <p>
+                        Icons have their own searchable catalog because
+                        users usually need to preview and copy icon
+                        class names quickly.
+                    </p>
+                    <pre
+                        class="docs-code"
+                    ><code>&lt;i class="nti nti-search"&gt;&lt;/i&gt;</code></pre>
+                    <a
+                        class="nt-button nt-button-outline-primary"
+                        href="icons.html"
+                    >
+                        Browse icons
+                    </a>
+                </section>
+            </div>
+
+            <aside class="docs-toc" aria-label="On this page">
+                <p class="docs-sidebar-title">On this page</p>
+                <a href="#overview">Overview</a>
+                <a href="#install">Install</a>
+                <a href="#dist">Use dist files</a>
+                <a href="#theme">Theme and brand</a>
+                <a href="#styles">Styles</a>
+                <a href="#sass">Sass custom</a>
+                <a href="#components">Components</a>
+                <a href="#javascript">JavaScript behavior</a>
+                <a href="#icons">Icons</a>
+            </aside>
+        </main>
+
+        <script src="__NT_SCRIPT__"></script>
+        <script src="__DOCS_ASSET:docs/theme.js__"></script>
+        <script src="__DOCS_ASSET:docs/sidebar.js__"></script>
+    </body>
+</html>
