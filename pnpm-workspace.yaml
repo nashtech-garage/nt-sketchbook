@@ -1,6 +1,7 @@
 packages:
     - apps/*
     - packages/*
+hoist: true
 catalog:
     '@commitlint/cli': 20.1.0
     '@commitlint/config-conventional': 20.0.0
@@ -63,10 +64,10 @@ catalog:
     jsdom: 26.0.0
     lint-staged: 13.2.3
     lucide-react: 0.474.0
-    next: 16.2.3
+    next: 16.2.4
     npm-package-json-lint: 10.2.0
     nx: 22.1.3
-    postcss: 8.5.3
+    postcss: 8.5.13
     postcss-import: 16.1.0
     postcss-nesting: 13.0.1
     postcss-preset-env: 10.2.4
@@ -78,16 +79,17 @@ catalog:
     rollup: 4.59.0
     sass: 1.88.0
     sass-embedded: 1.83.4
-    stylelint: 16.19.1
-    stylelint-config-standard-scss: 14.0.0
+    stylelint: 17.9.1
+    stylelint-config-standard: 40.0.0
+    stylelint-config-standard-scss: 17.0.0
     stylelint-config-tailwindcss: 1.0.0
     stylelint-prettier: 5.0.3
-    stylelint-scss: 6.11.1
+    stylelint-scss: 7.0.0
     tailwind-merge: 2.6.0
     tailwindcss: 3.4.17
     tailwindcss-animate: 1.0.7
     typescript: 5.8.2
-    vite: 8.0.5
+    vite: 8.0.10
     vite-bundle-visualizer: 1.2.1
     vite-plugin-dts: 4.5.4
     vite-plugin-sass-dts: 1.3.29
@@ -106,3 +108,4 @@ catalog:
     "typescript-eslint": 8.57.2
     "lucide-static": 1.8.0
     "vite-plugin-static-copy": 4.0.1
+    stylelint-config-recommended: 18.0.0

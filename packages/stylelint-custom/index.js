@@ -1,13 +1,18 @@
+import { fileURLToPath } from 'node:url'
+
+const resolveFromConfigPackage = (specifier) =>
+    fileURLToPath(import.meta.resolve(specifier))
+
 /** @type {import('stylelint').Config} */
 export default {
     extends: [
-        'stylelint-config-recommended',
-        'stylelint-config-standard',
-        'stylelint-config-standard-scss',
-        'stylelint-config-tailwindcss',
-        'stylelint-prettier'
+        resolveFromConfigPackage('stylelint-config-recommended'),
+        resolveFromConfigPackage('stylelint-config-standard'),
+        resolveFromConfigPackage('stylelint-config-standard-scss'),
+        resolveFromConfigPackage('stylelint-config-tailwindcss'),
+        resolveFromConfigPackage('stylelint-prettier')
     ],
-    plugins: ['stylelint-scss'],
+    plugins: [resolveFromConfigPackage('stylelint-scss')],
     rules: {
         'unit-allowed-list': [
             'em',

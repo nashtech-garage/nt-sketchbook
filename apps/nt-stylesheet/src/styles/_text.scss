@@ -48,8 +48,8 @@ $breakpoints: (
     }
 
     &-break {
-        word-wrap: break-word;
-        word-break: break-word; // newer syntax
+        overflow-wrap: break-word;
+        word-break: word-break;
     }
 
     &-lowercase {
