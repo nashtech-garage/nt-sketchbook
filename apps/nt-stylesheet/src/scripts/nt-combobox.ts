@@ -37,6 +37,8 @@ export class NtCombobox extends Singleton {
             return
         }
 
+        if (isInsidePopover) return
+
         if (!target) return
 
         if (this.popoverEl) {
@@ -56,7 +58,6 @@ export class NtCombobox extends Singleton {
     private createPopover(trigger: HTMLElement, options: string[]) {
         this.popoverEl = document.createElement('div')
         this.popoverEl.className = 'nt-combobox-popover show'
-        this.popoverEl.style.position = 'absolute'
 
         const input = document.createElement('input')
         input.className = 'nt-combobox-input'
@@ -74,8 +75,7 @@ export class NtCombobox extends Singleton {
 
         this.popoverEl.appendChild(input)
         this.popoverEl.appendChild(list)
-        document.body.appendChild(this.popoverEl)
-        this.positionPopover(trigger)
+        trigger.appendChild(this.popoverEl)
         input.focus()
     }
 
@@ -109,9 +109,11 @@ export class NtCombobox extends Singleton {
     }
 
     private selectOption(option: HTMLElement) {
-        const trigger = document.querySelector(
-            '[data-combobox] .nt-combobox-trigger'
-        ) as HTMLButtonElement
+        const trigger = this.popoverEl
+            ?.closest('[data-combobox]')
+            ?.querySelector(
+                '.nt-combobox-trigger'
+            ) as HTMLButtonElement
         if (trigger) trigger.textContent = option.textContent
 
         this.selectedValue = option.textContent
@@ -161,16 +163,6 @@ export class NtCombobox extends Singleton {
         } else if (noResultsMsg) {
             noResultsMsg.style.display = 'none'
         }
-    }
-
-    private positionPopover(trigger: HTMLElement) {
-        if (!this.popoverEl) return
-        const rect = trigger.getBoundingClientRect()
-        this.popoverEl.style.top = `${
-            rect.bottom + window.scrollY + 4
-        }px`
-        this.popoverEl.style.left = `${rect.left + window.scrollX}px`
-        this.popoverEl.style.minWidth = `${rect.width}px`
     }
 
     private removePopover() {

@@ -10,7 +10,7 @@
         "**/.next/**",
         "**/node_modules/**",
         "**/.nx/**",
-        "**/examples/**.html"
+        "**/preview/**/*.html"
     ],
     "absolute": true
 }

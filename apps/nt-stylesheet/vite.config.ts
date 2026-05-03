@@ -3,19 +3,18 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import { defineConfig, UserConfig } from 'vite'
 import dtsPlugin from 'vite-plugin-dts'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import { generateIconCss } from './plugins/vite-plugin-lucide-icons/vite-plugin-lucide-icons'
+import { generateIconCss } from './vite/plugins/vite-plugin-lucide-icons/vite-plugin-lucide-icons'
 
 import path from 'path'
-import {
-    assetCopies,
-    assetFileNames,
-    makeInputs,
-    OUT_DIR,
-    ROOT
-} from './vite.common'
+import { assetCopies } from './vite/copy-assets'
+import { makeInputs, themeManifestPlugin } from './vite/inputs'
+import { assetFileNames } from './vite/output'
+import { OUT_DIR, ROOT } from './vite/paths'
+import { previewPlugin } from './vite/preview'
 
 export default defineConfig(() => {
     const inputs = makeInputs()
+
     return {
         root: ROOT,
         publicDir: 'public',
@@ -29,10 +28,12 @@ export default defineConfig(() => {
             }),
             nxViteTsPaths(),
             nxCopyAssetsPlugin(assetCopies()),
+            themeManifestPlugin(inputs),
             generateIconCss({
                 output: `css/nt-icons.css`,
                 iconSize: 14
             }),
+            previewPlugin(),
             viteStaticCopy({
                 targets: [
                     {
@@ -78,17 +79,6 @@ export default defineConfig(() => {
                 scss: {
                     additionalData: `@use 'sass:math'; @use 'sass:map';`
                 }
-            }
-        },
-        optimizeDeps: {
-            exclude: ['materialdesignicons.min.css']
-        },
-        resolve: {
-            alias: {
-                'materialdesignicons.min.css': path.resolve(
-                    ROOT,
-                    'node_modules/@mdi/font/css/materialdesignicons.min.css'
-                )
             }
         }
     } as UserConfig

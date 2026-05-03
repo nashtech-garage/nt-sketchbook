@@ -1,0 +1,55 @@
+<section class="docs-section" id="animation">
+    <h2>Animation helpers</h2>
+    <p>
+        From <code>_animation.scss</code>. This module currently
+        exposes Sass mixins and keyframes used by components. The
+        mixins are intended for SCSS authors rather than direct HTML
+        utility classes.
+    </p>
+    <table class="docs-table">
+        <thead>
+            <tr>
+                <th>Mixin or keyframe</th>
+                <th>Use case</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <code
+                        >nt-expand-collapse($duration, $timing)</code
+                    >
+                </td>
+                <td>
+                    Creates hidden and
+                    <code>nt-expanded</code> states for collapsible
+                    content.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>fade-in</code> and
+                    <code>fade-in</code> mixin
+                </td>
+                <td>
+                    Fades an element in while moving it upward into
+                    place.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>pulse</code> and
+                    <code>animate-pulse</code> mixin
+                </td>
+                <td>Creates repeated opacity pulse behavior.</td>
+            </tr>
+        </tbody>
+    </table>
+    <pre
+        class="docs-code"
+    ><code>@use '@nashtech-garage/stylesheet/src/styles/animation' as animation;
+
+.product-panel {
+    @include animation.nt-expand-collapse;
+}</code></pre>
+</section>

@@ -1,0 +1,59 @@
+<section class="docs-section" id="sass">
+    <h2>Customize with Sass</h2>
+    <p>
+        The compiled package gives consumers the ready-to-use utility
+        classes. When working inside this app, customize the Sass maps
+        and mixins before running the build.
+    </p>
+    <div class="docs-grid">
+        <article class="docs-card">
+            <h3>Change spacing scale</h3>
+            <p>
+                Edit <code>$nt-space-scale</code> in
+                <code>src/styles/_spacing.scss</code>
+                to add, remove, or resize spacing steps.
+            </p>
+        </article>
+        <article class="docs-card">
+            <h3>Change flex breakpoints</h3>
+            <p>
+                Edit <code>$breakpoints</code> in
+                <code>src/styles/_flex.scss</code>
+                when utility generation needs a different responsive
+                scale.
+            </p>
+        </article>
+        <article class="docs-card">
+            <h3>Change grid containers</h3>
+            <p>
+                Edit
+                <code>$nt-container-max-widths</code>
+                in
+                <code>src/styles/_variables.scss</code>
+                to tune container widths.
+            </p>
+        </article>
+        <article class="docs-card">
+            <h3>Change type scale</h3>
+            <p>
+                Edit <code>$nt-font-sizes</code> or
+                <code>scale-font-size()</code> in
+                <code>src/styles/_utilities.scss</code>.
+            </p>
+        </article>
+    </div>
+    <pre class="docs-code"><code>// Example inside this app
+$nt-space-scale: (
+    '1': 0.25rem,
+    '2': 0.5rem,
+    '3': 0.75rem,
+    '4': 1rem,
+    '5': 1.25rem,
+    '6': 1.5rem,
+    '7': 1.75rem,
+    '8': 2rem
+);
+
+// Then rebuild
+// pnpm build:stylesheet-lib</code></pre>
+</section>
