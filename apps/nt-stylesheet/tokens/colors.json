@@ -1,0 +1,3712 @@
+[
+    {
+        "name": "Colors",
+        "colors": [
+            {
+                "name": "colors/black",
+                "value": "#000000"
+            },
+            {
+                "name": "colors/white",
+                "value": "#FFFFFF",
+                "duplicates": [
+                    {
+                        "name": "colors/orange"
+                    },
+                    {
+                        "name": "colors/green"
+                    }
+                ]
+            },
+            {
+                "name": "colors/primary",
+                "value": "#D6001C",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/red"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/red"
+                    },
+                    {
+                        "name": "colors/shade primary/100",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade red/100"
+                        }
+                    },
+                    {
+                        "name": "colors/shade red/100",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/red"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/secondary",
+                "value": "#6A1F7A",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/purple"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/purple"
+                    },
+                    {
+                        "name": "colors/shade secondary/100",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade purple/100"
+                        }
+                    },
+                    {
+                        "name": "colors/shade purple/100",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/purple"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/yellow",
+                "value": "#F4AD33",
+                "duplicates": [
+                    {
+                        "name": "colors/shade yellow/100",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/yellow"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/blue",
+                "value": "#0094D5",
+                "duplicates": [
+                    {
+                        "name": "colors/shade blue/100",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/blue"
+                        }
+                    },
+                    {
+                        "name": "colors/shade info/100",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/100"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/pink",
+                "value": "#E31C79",
+                "duplicates": [
+                    {
+                        "name": "colors/shade pink/100",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/pink"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/neutral",
+                "value": "#28292B",
+                "duplicates": [
+                    {
+                        "name": "colors/shade neutral/100",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/neutral"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/custom/grey",
+                "value": "#C9CCD4"
+            },
+            {
+                "name": "colors/custom/light blue",
+                "value": "#F0F5FE"
+            },
+            {
+                "name": "colors/shade primary/190",
+                "value": "#150003",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/190"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/190"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/190",
+                "value": "#0B030C",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/190"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/190"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/180",
+                "value": "#150618",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/180"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/180"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/170",
+                "value": "#200925",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/170"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/170"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/160",
+                "value": "#2A0C31",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/160"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/160"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/150",
+                "value": "#35103D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/150"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/150"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/140",
+                "value": "#401349",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/140"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/140"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/130",
+                "value": "#4A1655",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/130"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/130"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/120",
+                "value": "#551962",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/120"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/120"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/110",
+                "value": "#5F1C6E",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/110"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/110"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/90",
+                "value": "#793587",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/90"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/90"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/80",
+                "value": "#884C95",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/80"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/80"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/70",
+                "value": "#9762A2",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/70"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/70"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/60",
+                "value": "#A679AF",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/60"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/60"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/50",
+                "value": "#B58FBD",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/50"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/50"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/40",
+                "value": "#C3A5CA",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/40"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/40"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/30",
+                "value": "#D2BCD7",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/30"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/30"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/20",
+                "value": "#E1D2E4",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/20"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/20"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade secondary/10",
+                "value": "#F0E9F2",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade purple/10"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade purple/10"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/180",
+                "value": "#2B0006",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/180"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/180"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/170",
+                "value": "#400008",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/170"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/170"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/160",
+                "value": "#56000B",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/160"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/160"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/150",
+                "value": "#6B000E",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/150"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/150"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/140",
+                "value": "#800011",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/140"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/140"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/130",
+                "value": "#960014",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/130"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/130"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/120",
+                "value": "#AB0016",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/120"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/120"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/110",
+                "value": "#C10019",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/110"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/110"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/90",
+                "value": "#DA1A33",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/90"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/90"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/80",
+                "value": "#DE3349",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/80"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/80"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/70",
+                "value": "#E24D60",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/70"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/70"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/60",
+                "value": "#E66677",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/60"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/60"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/50",
+                "value": "#EB808E",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/50"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/50"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/40",
+                "value": "#EF99A4",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/40"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/40"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/30",
+                "value": "#F3B3BB",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/30"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/30"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/20",
+                "value": "#F7CCD2",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/20"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/20"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade primary/10",
+                "value": "#FBE6E8",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade red/10"
+                },
+                "duplicates": [
+                    {
+                        "name": "colors/shade red/10"
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade yellow/90",
+                "value": "#F5B547"
+            },
+            {
+                "name": "colors/shade yellow/80",
+                "value": "#F6BD5C"
+            },
+            {
+                "name": "colors/shade yellow/70",
+                "value": "#F7C670"
+            },
+            {
+                "name": "colors/shade yellow/60",
+                "value": "#F8CE85"
+            },
+            {
+                "name": "colors/shade yellow/50",
+                "value": "#FAD699"
+            },
+            {
+                "name": "colors/shade yellow/40",
+                "value": "#FBDEAD"
+            },
+            {
+                "name": "colors/shade yellow/30",
+                "value": "#FCE6C2"
+            },
+            {
+                "name": "colors/shade yellow/20",
+                "value": "#FDEFD6"
+            },
+            {
+                "name": "colors/shade yellow/10",
+                "value": "#FEF7EB"
+            },
+            {
+                "name": "colors/shade pink/90",
+                "value": "#E63386"
+            },
+            {
+                "name": "colors/shade pink/80",
+                "value": "#E94994"
+            },
+            {
+                "name": "colors/shade pink/70",
+                "value": "#EB60A1"
+            },
+            {
+                "name": "colors/shade pink/60",
+                "value": "#EE77AF"
+            },
+            {
+                "name": "colors/shade pink/50",
+                "value": "#F18EBC"
+            },
+            {
+                "name": "colors/shade pink/40",
+                "value": "#F4A4C9"
+            },
+            {
+                "name": "colors/shade pink/30",
+                "value": "#F7BBD7"
+            },
+            {
+                "name": "colors/shade pink/20",
+                "value": "#F9D2E4"
+            },
+            {
+                "name": "colors/shade pink/10",
+                "value": "#FCE8F2"
+            },
+            {
+                "name": "colors/shade blue/90",
+                "value": "#1A9FD9",
+                "duplicates": [
+                    {
+                        "name": "colors/shade info/90",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/90"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade blue/80",
+                "value": "#33A9DD",
+                "duplicates": [
+                    {
+                        "name": "colors/shade info/80",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/80"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade blue/70",
+                "value": "#4DB4E2",
+                "duplicates": [
+                    {
+                        "name": "colors/shade info/70",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/70"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade blue/60",
+                "value": "#66BFE6",
+                "duplicates": [
+                    {
+                        "name": "colors/shade info/60",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/60"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade blue/50",
+                "value": "#80CAEA",
+                "duplicates": [
+                    {
+                        "name": "colors/shade info/50",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/50"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade blue/40",
+                "value": "#99D4EE",
+                "duplicates": [
+                    {
+                        "name": "colors/shade info/40",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/40"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade blue/30",
+                "value": "#B3DFF2",
+                "duplicates": [
+                    {
+                        "name": "colors/shade info/30",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/30"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade blue/20",
+                "value": "#CCEAF7",
+                "duplicates": [
+                    {
+                        "name": "colors/shade info/20",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/20"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade blue/10",
+                "value": "#E6F4FB",
+                "duplicates": [
+                    {
+                        "name": "colors/shade info/10",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade blue/10"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "colors/shade neutral/90",
+                "value": "#3E3E40"
+            },
+            {
+                "name": "colors/shade neutral/80",
+                "value": "#535455"
+            },
+            {
+                "name": "colors/shade neutral/70",
+                "value": "#69696B"
+            },
+            {
+                "name": "colors/shade neutral/60",
+                "value": "#7E7F80"
+            },
+            {
+                "name": "colors/shade neutral/50",
+                "value": "#949495"
+            },
+            {
+                "name": "colors/shade neutral/40",
+                "value": "#A9A9AA"
+            },
+            {
+                "name": "colors/shade neutral/30",
+                "value": "#BFBFBF"
+            },
+            {
+                "name": "colors/shade neutral/20",
+                "value": "#D4D4D5"
+            },
+            {
+                "name": "colors/shade neutral/10",
+                "value": "#EAEAEA"
+            },
+            {
+                "name": "colors/shade neutral/9",
+                "value": "#F6F6F6"
+            },
+            {
+                "name": "colors/shade success/120",
+                "value": "#45881E"
+            },
+            {
+                "name": "colors/shade success/100",
+                "value": "#56AA26"
+            },
+            {
+                "name": "colors/shade success/90",
+                "value": "#61BF2B"
+            },
+            {
+                "name": "colors/shade success/80",
+                "value": "#6CD430"
+            },
+            {
+                "name": "colors/shade success/70",
+                "value": "#89DD59"
+            },
+            {
+                "name": "colors/shade success/60",
+                "value": "#98E16E"
+            },
+            {
+                "name": "colors/shade success/50",
+                "value": "#A7E583"
+            },
+            {
+                "name": "colors/shade success/40",
+                "value": "#B6EA98"
+            },
+            {
+                "name": "colors/shade success/30",
+                "value": "#C4EEAC"
+            },
+            {
+                "name": "colors/shade success/20",
+                "value": "#D3F2C1"
+            },
+            {
+                "name": "colors/shade success/10",
+                "value": "#E2F6D6"
+            },
+            {
+                "name": "colors/shade warning/100",
+                "value": "#E69900"
+            },
+            {
+                "name": "colors/shade warning/90",
+                "value": "#FFAA00"
+            },
+            {
+                "name": "colors/shade warning/80",
+                "value": "#FFB31A"
+            },
+            {
+                "name": "colors/shade warning/70",
+                "value": "#FFBB33"
+            },
+            {
+                "name": "colors/shade warning/60",
+                "value": "#FFC44D"
+            },
+            {
+                "name": "colors/shade warning/50",
+                "value": "#FFCC66"
+            },
+            {
+                "name": "colors/shade warning/40",
+                "value": "#FFD580"
+            },
+            {
+                "name": "colors/shade warning/30",
+                "value": "#FFDD99"
+            },
+            {
+                "name": "colors/shade warning/20",
+                "value": "#FFE6B3"
+            },
+            {
+                "name": "colors/shade warning/10",
+                "value": "#FFEECC"
+            },
+            {
+                "name": "colors/shade danger/100",
+                "value": "#E51010"
+            },
+            {
+                "name": "colors/shade danger/90",
+                "value": "#E82828"
+            },
+            {
+                "name": "colors/shade danger/80",
+                "value": "#EA4040"
+            },
+            {
+                "name": "colors/shade danger/70",
+                "value": "#ED5858"
+            },
+            {
+                "name": "colors/shade danger/60",
+                "value": "#EF7070"
+            },
+            {
+                "name": "colors/shade danger/50",
+                "value": "#F28888"
+            },
+            {
+                "name": "colors/shade danger/40",
+                "value": "#F59F9F"
+            },
+            {
+                "name": "colors/shade danger/30",
+                "value": "#F7B7B7"
+            },
+            {
+                "name": "colors/shade danger/20",
+                "value": "#FACFCF"
+            },
+            {
+                "name": "colors/shade danger/10",
+                "value": "#FCE7E7"
+            },
+            {
+                "name": "colors/transparent black/5%",
+                "value": "#0000000D"
+            },
+            {
+                "name": "colors/transparent black/8%",
+                "value": "#00000014"
+            },
+            {
+                "name": "colors/transparent black/10%",
+                "value": "#0000001A"
+            },
+            {
+                "name": "colors/transparent black/15%",
+                "value": "#00000026"
+            },
+            {
+                "name": "colors/transparent black/18%",
+                "value": "#0000002E"
+            },
+            {
+                "name": "colors/transparent black/20%",
+                "value": "#00000033"
+            },
+            {
+                "name": "colors/transparent black/25%",
+                "value": "#00000040"
+            },
+            {
+                "name": "colors/transparent black/30%",
+                "value": "#0000004D"
+            },
+            {
+                "name": "colors/transparent black/40%",
+                "value": "#00000066"
+            },
+            {
+                "name": "colors/transparent black/50%",
+                "value": "#00000080"
+            },
+            {
+                "name": "colors/transparent black/60%",
+                "value": "#00000099"
+            },
+            {
+                "name": "colors/transparent black/70%",
+                "value": "#000000B3"
+            },
+            {
+                "name": "colors/transparent black/80%",
+                "value": "#000000CC"
+            },
+            {
+                "name": "colors/transparent black/90%",
+                "value": "#000000E6"
+            },
+            {
+                "name": "colors/transparent white/5%",
+                "value": "#FFFFFF0D"
+            },
+            {
+                "name": "colors/transparent white/8%",
+                "value": "#FFFFFF14"
+            },
+            {
+                "name": "colors/transparent white/10%",
+                "value": "#FFFFFF1A"
+            },
+            {
+                "name": "colors/transparent white/15%",
+                "value": "#FFFFFF26"
+            },
+            {
+                "name": "colors/transparent white/18%",
+                "value": "#FFFFFF2E"
+            },
+            {
+                "name": "colors/transparent white/20%",
+                "value": "#FFFFFF33"
+            },
+            {
+                "name": "colors/transparent white/25%",
+                "value": "#FFFFFF40"
+            },
+            {
+                "name": "colors/transparent white/30%",
+                "value": "#FFFFFF4D"
+            },
+            {
+                "name": "colors/transparent white/40%",
+                "value": "#FFFFFF66"
+            },
+            {
+                "name": "colors/transparent white/50%",
+                "value": "#FFFFFF80"
+            },
+            {
+                "name": "colors/transparent white/60%",
+                "value": "#FFFFFF99"
+            },
+            {
+                "name": "colors/transparent white/70%",
+                "value": "#FFFFFFB3"
+            },
+            {
+                "name": "colors/transparent white/80%",
+                "value": "#FFFFFFCC"
+            },
+            {
+                "name": "colors/transparent white/90%",
+                "value": "#FFFFFFE6"
+            },
+            {
+                "name": "colors/transparent primary/5%",
+                "value": "#D6001C0D"
+            },
+            {
+                "name": "colors/transparent primary/8%",
+                "value": "#D6001C14"
+            },
+            {
+                "name": "colors/transparent primary/10%",
+                "value": "#D6001C1A"
+            },
+            {
+                "name": "colors/transparent primary/15%",
+                "value": "#D6001C26"
+            },
+            {
+                "name": "colors/transparent primary/18%",
+                "value": "#D6001C2E"
+            },
+            {
+                "name": "colors/transparent primary/20%",
+                "value": "#D6001C33"
+            },
+            {
+                "name": "colors/transparent primary/25%",
+                "value": "#D6001C40"
+            },
+            {
+                "name": "colors/transparent primary/30%",
+                "value": "#D6001C4D"
+            },
+            {
+                "name": "colors/transparent primary/40%",
+                "value": "#D6001C66"
+            },
+            {
+                "name": "colors/transparent primary/50%",
+                "value": "#D6001C80"
+            },
+            {
+                "name": "colors/transparent primary/60%",
+                "value": "#D6001C99"
+            },
+            {
+                "name": "colors/transparent primary/70%",
+                "value": "#D6001CB3"
+            },
+            {
+                "name": "colors/transparent primary/80%",
+                "value": "#D6001CCC"
+            },
+            {
+                "name": "colors/transparent primary/90%",
+                "value": "#D6001CE6"
+            },
+            {
+                "name": "colors/transparent secondary/5%",
+                "value": "#6A1F7A0D"
+            },
+            {
+                "name": "colors/transparent secondary/8%",
+                "value": "#6A1F7A14"
+            },
+            {
+                "name": "colors/transparent secondary/10%",
+                "value": "#6A1F7A1A"
+            },
+            {
+                "name": "colors/transparent secondary/15%",
+                "value": "#6A1F7A26"
+            },
+            {
+                "name": "colors/transparent secondary/18%",
+                "value": "#6A1F7A2E"
+            },
+            {
+                "name": "colors/transparent secondary/20%",
+                "value": "#6A1F7A33"
+            },
+            {
+                "name": "colors/transparent secondary/25%",
+                "value": "#6A1F7A40"
+            },
+            {
+                "name": "colors/transparent secondary/30%",
+                "value": "#6A1F7A4D"
+            },
+            {
+                "name": "colors/transparent secondary/40%",
+                "value": "#6A1F7A66"
+            },
+            {
+                "name": "colors/transparent secondary/50%",
+                "value": "#6A1F7A80"
+            },
+            {
+                "name": "colors/transparent secondary/60%",
+                "value": "#6A1F7A99"
+            },
+            {
+                "name": "colors/transparent secondary/70%",
+                "value": "#6A1F7AB3"
+            },
+            {
+                "name": "colors/transparent secondary/80%",
+                "value": "#6A1F7ACC"
+            },
+            {
+                "name": "colors/transparent secondary/90%",
+                "value": "#6A1F7AE6"
+            },
+            {
+                "name": "colors/transparent success/5%",
+                "value": "#6CD4300D"
+            },
+            {
+                "name": "colors/transparent success/8%",
+                "value": "#6CD43014"
+            },
+            {
+                "name": "colors/transparent success/10%",
+                "value": "#6CD4301A"
+            },
+            {
+                "name": "colors/transparent success/15%",
+                "value": "#6CD43026"
+            },
+            {
+                "name": "colors/transparent success/18%",
+                "value": "#6CD4302E"
+            },
+            {
+                "name": "colors/transparent success/20%",
+                "value": "#6CD43033"
+            },
+            {
+                "name": "colors/transparent success/25%",
+                "value": "#6CD43040"
+            },
+            {
+                "name": "colors/transparent success/30%",
+                "value": "#6CD4304D"
+            },
+            {
+                "name": "colors/transparent success/40%",
+                "value": "#6CD43066"
+            },
+            {
+                "name": "colors/transparent success/50%",
+                "value": "#6CD43080"
+            },
+            {
+                "name": "colors/transparent success/60%",
+                "value": "#6CD43099"
+            },
+            {
+                "name": "colors/transparent success/70%",
+                "value": "#6CD430B3"
+            },
+            {
+                "name": "colors/transparent success/80%",
+                "value": "#6CD430CC"
+            },
+            {
+                "name": "colors/transparent success/90%",
+                "value": "#6CD430E6"
+            },
+            {
+                "name": "colors/transparent warning/5%",
+                "value": "#FFAA000D"
+            },
+            {
+                "name": "colors/transparent warning/8%",
+                "value": "#FFAA0014"
+            },
+            {
+                "name": "colors/transparent warning/10%",
+                "value": "#FFAA001A"
+            },
+            {
+                "name": "colors/transparent warning/15%",
+                "value": "#FFAA0026"
+            },
+            {
+                "name": "colors/transparent warning/18%",
+                "value": "#FFAA002E"
+            },
+            {
+                "name": "colors/transparent warning/20%",
+                "value": "#FFAA0033"
+            },
+            {
+                "name": "colors/transparent warning/25%",
+                "value": "#FFAA0040"
+            },
+            {
+                "name": "colors/transparent warning/30%",
+                "value": "#FFAA004D"
+            },
+            {
+                "name": "colors/transparent warning/40%",
+                "value": "#FFAA0066"
+            },
+            {
+                "name": "colors/transparent warning/50%",
+                "value": "#FFAA0080"
+            },
+            {
+                "name": "colors/transparent warning/60%",
+                "value": "#FFAA0099"
+            },
+            {
+                "name": "colors/transparent warning/70%",
+                "value": "#FFAA00B3"
+            },
+            {
+                "name": "colors/transparent warning/80%",
+                "value": "#FFAA00CC"
+            },
+            {
+                "name": "colors/transparent warning/90%",
+                "value": "#FFAA00E6"
+            },
+            {
+                "name": "colors/transparent danger/5%",
+                "value": "#FF42420D"
+            },
+            {
+                "name": "colors/transparent danger/8%",
+                "value": "#FF424214"
+            },
+            {
+                "name": "colors/transparent danger/10%",
+                "value": "#FF42421A"
+            },
+            {
+                "name": "colors/transparent danger/15%",
+                "value": "#FF424226"
+            },
+            {
+                "name": "colors/transparent danger/18%",
+                "value": "#FF42422E"
+            },
+            {
+                "name": "colors/transparent danger/20%",
+                "value": "#FF424233"
+            },
+            {
+                "name": "colors/transparent danger/25%",
+                "value": "#FF424240"
+            },
+            {
+                "name": "colors/transparent danger/30%",
+                "value": "#FF42424D"
+            },
+            {
+                "name": "colors/transparent danger/40%",
+                "value": "#FF424266"
+            },
+            {
+                "name": "colors/transparent danger/50%",
+                "value": "#FF424280"
+            },
+            {
+                "name": "colors/transparent danger/60%",
+                "value": "#FF424299"
+            },
+            {
+                "name": "colors/transparent danger/70%",
+                "value": "#FF4242B3"
+            },
+            {
+                "name": "colors/transparent danger/80%",
+                "value": "#FF4242CC"
+            },
+            {
+                "name": "colors/transparent danger/90%",
+                "value": "#FF4242E6"
+            },
+            {
+                "name": "colors/transparent info/5%",
+                "value": "#0094D50D"
+            },
+            {
+                "name": "colors/transparent info/8%",
+                "value": "#0094D514"
+            },
+            {
+                "name": "colors/transparent info/10%",
+                "value": "#0094D51A"
+            },
+            {
+                "name": "colors/transparent info/15%",
+                "value": "#0094D526"
+            },
+            {
+                "name": "colors/transparent info/18%",
+                "value": "#0094D52E"
+            },
+            {
+                "name": "colors/transparent info/20%",
+                "value": "#0094D533"
+            },
+            {
+                "name": "colors/transparent info/25%",
+                "value": "#0094D540"
+            },
+            {
+                "name": "colors/transparent info/30%",
+                "value": "#0094D54D"
+            },
+            {
+                "name": "colors/transparent info/40%",
+                "value": "#0094D566"
+            },
+            {
+                "name": "colors/transparent info/50%",
+                "value": "#0094D580"
+            },
+            {
+                "name": "colors/transparent info/60%",
+                "value": "#0094D599"
+            },
+            {
+                "name": "colors/transparent info/70%",
+                "value": "#0094D5B3"
+            },
+            {
+                "name": "colors/transparent info/80%",
+                "value": "#0094D5CC"
+            },
+            {
+                "name": "colors/transparent info/90%",
+                "value": "#0094D5E6"
+            }
+        ]
+    },
+    {
+        "name": "Light",
+        "colors": [
+            {
+                "name": "general/fg header",
+                "value": "#28292B",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade neutral/100"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/fg body",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade neutral/100"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg white",
+                "value": "#FFFFFF",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/white"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg white",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    },
+                    {
+                        "name": "primary/fg light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    },
+                    {
+                        "name": "secondary/fg light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    },
+                    {
+                        "name": "secondary/fg light muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg description",
+                "value": "#7E7F80",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade neutral/60"
+                }
+            },
+            {
+                "name": "general/fg hint",
+                "value": "#BFBFBF",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade neutral/30"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/fg muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade neutral/30"
+                        }
+                    },
+                    {
+                        "name": "general/line bold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade neutral/30"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg placeholder",
+                "value": "#A9A9AA",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade neutral/40"
+                }
+            },
+            {
+                "name": "general/fg link",
+                "value": "#0094D5",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade blue/100"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/fg info",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade info/100"
+                        }
+                    },
+                    {
+                        "name": "general/bg info xbold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade info/100"
+                        }
+                    },
+                    {
+                        "name": "chart/blue",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/blue"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg link hover",
+                "value": "#4DB4E2",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade blue/70"
+                }
+            },
+            {
+                "name": "general/fg link muted",
+                "value": "#D4D4D5",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade neutral/20"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg bold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade neutral/20"
+                        }
+                    },
+                    {
+                        "name": "general/line regular",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade neutral/20"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg link visited",
+                "value": "#99D4EE",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade blue/40"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/fg info light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade info/40"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/bg regular",
+                "value": "#EAEAEA",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade neutral/10"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/line light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade neutral/10"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/bg light",
+                "value": "#F6F6F6",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade neutral/9"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade neutral/9"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg success",
+                "value": "#45881E",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade success/120"
+                }
+            },
+            {
+                "name": "general/fg success light",
+                "value": "#A7E583",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade success/50"
+                }
+            },
+            {
+                "name": "general/bg success xbold",
+                "value": "#56AA26",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade success/100"
+                }
+            },
+            {
+                "name": "general/bg success bold",
+                "value": "#6CD430",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade success/80"
+                },
+                "duplicates": [
+                    {
+                        "name": "chart/green",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade success/80"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/bg success light",
+                "value": "#E2F6D6",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade success/10"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg success muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade success/10"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/line success",
+                "value": "#C4EEAC",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade success/30"
+                }
+            },
+            {
+                "name": "general/fg warning",
+                "value": "#E69900",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade warning/100"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg warning xbold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade warning/100"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg warning light",
+                "value": "#FFBB33",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade warning/70"
+                }
+            },
+            {
+                "name": "general/bg warning bold",
+                "value": "#FFAA00",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade warning/90"
+                }
+            },
+            {
+                "name": "general/bg warning light",
+                "value": "#FFEECC",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade warning/10"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg warning muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade warning/10"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/line warning",
+                "value": "#FFDD99",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade warning/30"
+                }
+            },
+            {
+                "name": "general/fg danger",
+                "value": "#E51010",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade danger/100"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg danger xbold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade danger/100"
+                        }
+                    },
+                    {
+                        "name": "general/line danger",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade danger/100"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg danger light",
+                "value": "#F59F9F",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade danger/40"
+                }
+            },
+            {
+                "name": "general/bg danger bold",
+                "value": "#EA4040",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade danger/80"
+                }
+            },
+            {
+                "name": "general/bg danger light",
+                "value": "#FCE7E7",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade danger/10"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg danger muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade danger/10"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/bg danger shadow",
+                "value": "#FF424233",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent danger/20%"
+                }
+            },
+            {
+                "name": "general/bg info bold",
+                "value": "#33A9DD",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade info/80"
+                }
+            },
+            {
+                "name": "general/bg info light",
+                "value": "#E6F4FB",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade info/10"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg info muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade info/10"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/line info",
+                "value": "#B3DFF2",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade info/30"
+                }
+            },
+            {
+                "name": "general/bg regular custom",
+                "value": "#DBE8FF"
+            },
+            {
+                "name": "general/bg custom shadow",
+                "value": "#9BBFFF80"
+            },
+            {
+                "name": "general/bg light custom",
+                "value": "#F0F5FE",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/custom/light blue"
+                }
+            },
+            {
+                "name": "general/line custom",
+                "value": "#C8D9F9"
+            },
+            {
+                "name": "primary/fg",
+                "value": "#D6001C",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/primary"
+                },
+                "duplicates": [
+                    {
+                        "name": "primary/input bg bold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/100"
+                        }
+                    },
+                    {
+                        "name": "primary/input line bold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/100"
+                        }
+                    },
+                    {
+                        "name": "chart/red",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/red"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "primary/fg muted",
+                "value": "#EF99A4",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/40"
+                },
+                "duplicates": [
+                    {
+                        "name": "primary/fg light muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/40"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "primary/input bg xbold",
+                "value": "#C10019",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/110"
+                },
+                "duplicates": [
+                    {
+                        "name": "primary/input line xbold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/110"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "primary/input bg regular",
+                "value": "#DE3349",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/80"
+                },
+                "duplicates": [
+                    {
+                        "name": "primary/input line regular",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/80"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "primary/input bg light",
+                "value": "#FBE6E8",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/10"
+                },
+                "duplicates": [
+                    {
+                        "name": "primary/input bg muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/10"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "primary/input line light",
+                "value": "#F3B3BB",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/30"
+                }
+            },
+            {
+                "name": "primary/input line muted",
+                "value": "#F7CCD2",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/20"
+                }
+            },
+            {
+                "name": "secondary/fg",
+                "value": "#6A1F7A",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/secondary"
+                },
+                "duplicates": [
+                    {
+                        "name": "chart/purple",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/purple"
+                        }
+                    },
+                    {
+                        "name": "secondary/input bg bold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade secondary/100"
+                        }
+                    },
+                    {
+                        "name": "secondary/input line bold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade secondary/100"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "5%",
+                "value": "#FFFFFF0D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/5%"
+                }
+            },
+            {
+                "name": "chart/orange",
+                "value": "#FF5E00"
+            },
+            {
+                "name": "chart/yellow",
+                "value": "#F4AD33",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/yellow"
+                }
+            },
+            {
+                "name": "chart/pink",
+                "value": "#E31C79",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/pink"
+                }
+            },
+            {
+                "name": "chart/neutral",
+                "value": "#000000"
+            },
+            {
+                "name": "chart/red light",
+                "value": "#D6001C80",
+                "duplicates": [
+                    {
+                        "name": "transparent primary/50%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent primary/50%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "chart/orange light",
+                "value": "#FF5E0080"
+            },
+            {
+                "name": "chart/yellow light",
+                "value": "#F4AD3380"
+            },
+            {
+                "name": "chart/green light",
+                "value": "#6CD43080"
+            },
+            {
+                "name": "chart/blue light",
+                "value": "#0094D580"
+            },
+            {
+                "name": "chart/pink light",
+                "value": "#E31C7980"
+            },
+            {
+                "name": "chart/purple light",
+                "value": "#6A1F7A80",
+                "duplicates": [
+                    {
+                        "name": "transparent secondary/50%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent secondary/50%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "chart/neutral light",
+                "value": "#00000080",
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/50%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent black/50%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "chart/bg red",
+                "value": "#D6001C1A",
+                "duplicates": [
+                    {
+                        "name": "transparent primary/10%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent primary/10%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "chart/bg orange",
+                "value": "#FF5E001A"
+            },
+            {
+                "name": "chart/bg yellow",
+                "value": "#F4AD331A"
+            },
+            {
+                "name": "chart/bg green",
+                "value": "#6CD4301A"
+            },
+            {
+                "name": "chart/bg blue",
+                "value": "#0094D51A"
+            },
+            {
+                "name": "chart/bg pink",
+                "value": "#E31C791A"
+            },
+            {
+                "name": "chart/bg purple",
+                "value": "#6A1F7A1A",
+                "duplicates": [
+                    {
+                        "name": "transparent secondary/10%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent secondary/10%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "chart/bg neutral",
+                "value": "#0000001A",
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/10%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent black/10%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "8%",
+                "value": "#FFFFFF14",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/8%"
+                }
+            },
+            {
+                "name": "10%",
+                "value": "#FFFFFF1A",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/10%"
+                }
+            },
+            {
+                "name": "15%",
+                "value": "#FFFFFF26",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/15%"
+                }
+            },
+            {
+                "name": "18%",
+                "value": "#FFFFFF2E",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/18%"
+                }
+            },
+            {
+                "name": "20%",
+                "value": "#FFFFFF33",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/20%"
+                }
+            },
+            {
+                "name": "25%",
+                "value": "#FFFFFF40",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/25%"
+                }
+            },
+            {
+                "name": "30%",
+                "value": "#FFFFFF4D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/30%"
+                }
+            },
+            {
+                "name": "40%",
+                "value": "#FFFFFF66",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/40%"
+                }
+            },
+            {
+                "name": "50%",
+                "value": "#FFFFFF80",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/50%"
+                }
+            },
+            {
+                "name": "60%",
+                "value": "#FFFFFF99",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/60%"
+                }
+            },
+            {
+                "name": "70%",
+                "value": "#FFFFFFB3",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/70%"
+                }
+            },
+            {
+                "name": "80%",
+                "value": "#FFFFFFCC",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/80%"
+                }
+            },
+            {
+                "name": "90%",
+                "value": "#FFFFFFE6",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/90%"
+                }
+            },
+            {
+                "name": "transparent secondary/5%",
+                "value": "#6A1F7A0D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/5%"
+                }
+            },
+            {
+                "name": "transparent primary/5%",
+                "value": "#D6001C0D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/5%"
+                }
+            },
+            {
+                "name": "transparent neutral/5%",
+                "value": "#0000000D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/5%"
+                }
+            },
+            {
+                "name": "transparent neutral/8%",
+                "value": "#00000014",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/8%"
+                }
+            },
+            {
+                "name": "transparent neutral/15%",
+                "value": "#00000026",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/15%"
+                }
+            },
+            {
+                "name": "transparent neutral/18%",
+                "value": "#0000002E",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/18%"
+                }
+            },
+            {
+                "name": "transparent neutral/20%",
+                "value": "#00000033",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/20%"
+                }
+            },
+            {
+                "name": "transparent neutral/25%",
+                "value": "#00000040",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/25%"
+                }
+            },
+            {
+                "name": "transparent neutral/30%",
+                "value": "#0000004D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/30%"
+                }
+            },
+            {
+                "name": "transparent neutral/40%",
+                "value": "#00000066",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/40%"
+                }
+            },
+            {
+                "name": "transparent neutral/60%",
+                "value": "#00000099",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/60%"
+                }
+            },
+            {
+                "name": "transparent neutral/70%",
+                "value": "#000000B3",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/70%"
+                }
+            },
+            {
+                "name": "transparent neutral/80%",
+                "value": "#000000CC",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/80%"
+                }
+            },
+            {
+                "name": "transparent neutral/90%",
+                "value": "#000000E6",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent black/90%"
+                }
+            },
+            {
+                "name": "transparent primary/8%",
+                "value": "#D6001C14",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/8%"
+                }
+            },
+            {
+                "name": "transparent primary/15%",
+                "value": "#D6001C26",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/15%"
+                }
+            },
+            {
+                "name": "transparent primary/18%",
+                "value": "#D6001C2E",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/18%"
+                }
+            },
+            {
+                "name": "transparent primary/20%",
+                "value": "#D6001C33",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/20%"
+                }
+            },
+            {
+                "name": "transparent primary/25%",
+                "value": "#D6001C40",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/25%"
+                }
+            },
+            {
+                "name": "transparent primary/30%",
+                "value": "#D6001C4D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/30%"
+                }
+            },
+            {
+                "name": "transparent primary/40%",
+                "value": "#D6001C66",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/40%"
+                }
+            },
+            {
+                "name": "transparent primary/60%",
+                "value": "#D6001C99",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/60%"
+                }
+            },
+            {
+                "name": "transparent primary/70%",
+                "value": "#D6001CB3",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/70%"
+                }
+            },
+            {
+                "name": "transparent primary/80%",
+                "value": "#D6001CCC",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/80%"
+                }
+            },
+            {
+                "name": "transparent primary/90%",
+                "value": "#D6001CE6",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/90%"
+                }
+            },
+            {
+                "name": "transparent secondary/8%",
+                "value": "#6A1F7A14",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/8%"
+                }
+            },
+            {
+                "name": "transparent secondary/15%",
+                "value": "#6A1F7A26",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/15%"
+                }
+            },
+            {
+                "name": "transparent secondary/18%",
+                "value": "#6A1F7A2E",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/18%"
+                }
+            },
+            {
+                "name": "transparent secondary/20%",
+                "value": "#6A1F7A33",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/20%"
+                }
+            },
+            {
+                "name": "transparent secondary/25%",
+                "value": "#6A1F7A40",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/25%"
+                }
+            },
+            {
+                "name": "transparent secondary/30%",
+                "value": "#6A1F7A4D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/30%"
+                }
+            },
+            {
+                "name": "transparent secondary/40%",
+                "value": "#6A1F7A66",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/40%"
+                }
+            },
+            {
+                "name": "transparent secondary/60%",
+                "value": "#6A1F7A99",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/60%"
+                }
+            },
+            {
+                "name": "transparent secondary/70%",
+                "value": "#6A1F7AB3",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/70%"
+                }
+            },
+            {
+                "name": "transparent secondary/80%",
+                "value": "#6A1F7ACC",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/80%"
+                }
+            },
+            {
+                "name": "transparent secondary/90%",
+                "value": "#6A1F7AE6",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent secondary/90%"
+                }
+            },
+            {
+                "name": "secondary/fg hint",
+                "value": "#B58FBD",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade secondary/50"
+                },
+                "duplicates": [
+                    {
+                        "name": "secondary/fg muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade secondary/50"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "secondary/bg light",
+                "value": "#F0E9F2",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade secondary/10"
+                },
+                "duplicates": [
+                    {
+                        "name": "secondary/input bg light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade secondary/10"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "secondary/input bg xbold",
+                "value": "#551962",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade secondary/120"
+                },
+                "duplicates": [
+                    {
+                        "name": "secondary/input line xbold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade secondary/120"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "secondary/input bg regular",
+                "value": "#884C95",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade secondary/80"
+                },
+                "duplicates": [
+                    {
+                        "name": "secondary/input line regular",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade secondary/80"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "secondary/input bg muted",
+                "value": "#E1D2E4",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade secondary/20"
+                },
+                "duplicates": [
+                    {
+                        "name": "secondary/input line muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade secondary/20"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "secondary/input line light",
+                "value": "#D2BCD7",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade secondary/30"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Dark",
+        "colors": [
+            {
+                "name": "general/fg header",
+                "value": "#FFFFFF",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/white"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/fg body",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    },
+                    {
+                        "name": "general/fg white",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    },
+                    {
+                        "name": "general/fg success",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    },
+                    {
+                        "name": "general/fg warning",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    },
+                    {
+                        "name": "general/fg info",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    },
+                    {
+                        "name": "primary/fg light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    },
+                    {
+                        "name": "chart/neutral"
+                    },
+                    {
+                        "name": "secondary/fg light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/white"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg description",
+                "value": "#FFFFFF80",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/50%"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/line regular",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/50%"
+                        }
+                    },
+                    {
+                        "name": "chart/neutral light"
+                    },
+                    {
+                        "name": "50%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/50%"
+                        }
+                    },
+                    {
+                        "name": "transparent neutral/50%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/50%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg hint",
+                "value": "#FFFFFF4D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/30%"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/line light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/30%"
+                        }
+                    },
+                    {
+                        "name": "general/fg success light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/30%"
+                        }
+                    },
+                    {
+                        "name": "general/fg warning light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/30%"
+                        }
+                    },
+                    {
+                        "name": "general/fg danger light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/30%"
+                        }
+                    },
+                    {
+                        "name": "primary/fg muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/30%"
+                        }
+                    },
+                    {
+                        "name": "primary/fg light muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/30%"
+                        }
+                    },
+                    {
+                        "name": "30%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/30%"
+                        }
+                    },
+                    {
+                        "name": "transparent neutral/30%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/30%"
+                        }
+                    },
+                    {
+                        "name": "secondary/fg muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/30%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg placeholder",
+                "value": "#FFFFFF33",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/20%"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/fg muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/20%"
+                        }
+                    },
+                    {
+                        "name": "general/fg link muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/20%"
+                        }
+                    },
+                    {
+                        "name": "primary/input line muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/20%"
+                        }
+                    },
+                    {
+                        "name": "chart/bg neutral"
+                    },
+                    {
+                        "name": "20%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/20%"
+                        }
+                    },
+                    {
+                        "name": "transparent neutral/20%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/20%"
+                        }
+                    },
+                    {
+                        "name": "secondary/fg light muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/20%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg link",
+                "value": "#0094D5",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade blue/100"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg info xbold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade info/100"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/fg link hover",
+                "value": "#4DB4E2",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade blue/70"
+                }
+            },
+            {
+                "name": "general/fg link visited",
+                "value": "#99D4EE",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade blue/40"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/fg info light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade info/40"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/bg white",
+                "value": "#28292B",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade neutral/100"
+                }
+            },
+            {
+                "name": "general/bg bold",
+                "value": "#D4D4D5",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade neutral/20"
+                }
+            },
+            {
+                "name": "general/bg regular",
+                "value": "#FFFFFF1A",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/10%"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/10%"
+                        }
+                    },
+                    {
+                        "name": "general/bg muted",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/10%"
+                        }
+                    },
+                    {
+                        "name": "10%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/10%"
+                        }
+                    },
+                    {
+                        "name": "transparent neutral/10%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/10%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/line bold",
+                "value": "#FFFFFFB3",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/70%"
+                },
+                "duplicates": [
+                    {
+                        "name": "70%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/70%"
+                        }
+                    },
+                    {
+                        "name": "transparent neutral/70%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/70%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/bg success xbold",
+                "value": "#56AA26",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade success/100"
+                }
+            },
+            {
+                "name": "general/bg success bold",
+                "value": "#6CD430",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade success/80"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg success light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade success/80"
+                        }
+                    },
+                    {
+                        "name": "chart/green",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade success/80"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/bg success muted",
+                "value": "#6CD4304D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent success/30%"
+                }
+            },
+            {
+                "name": "general/line success",
+                "value": "#C4EEAC",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade success/30"
+                }
+            },
+            {
+                "name": "general/bg warning xbold",
+                "value": "#E69900",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade warning/100"
+                }
+            },
+            {
+                "name": "general/bg warning bold",
+                "value": "#FFB31A",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade warning/80"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg warning light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade warning/80"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/bg warning muted",
+                "value": "#FFAA004D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent warning/30%"
+                }
+            },
+            {
+                "name": "general/line warning",
+                "value": "#FFDD99",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade warning/30"
+                }
+            },
+            {
+                "name": "general/fg danger",
+                "value": "#F7B7B7",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade danger/30"
+                }
+            },
+            {
+                "name": "general/bg danger xbold",
+                "value": "#E51010",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade danger/100"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg danger light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade danger/100"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/bg danger bold",
+                "value": "#EA4040",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade danger/80"
+                }
+            },
+            {
+                "name": "general/bg danger muted",
+                "value": "#FF42424D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent danger/30%"
+                },
+                "duplicates": [
+                    {
+                        "name": "general/bg danger shadow",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent danger/30%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "general/line danger",
+                "value": "#ED5858",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade danger/70"
+                }
+            },
+            {
+                "name": "general/bg info bold",
+                "value": "#33A9DD",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade info/80"
+                }
+            },
+            {
+                "name": "general/bg info light",
+                "value": "#3CD5FF"
+            },
+            {
+                "name": "general/bg info muted",
+                "value": "#0094D54D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent info/30%"
+                }
+            },
+            {
+                "name": "general/line info",
+                "value": "#B3DFF2",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade info/30"
+                }
+            },
+            {
+                "name": "general/bg regular custom",
+                "value": "#7CABFF66",
+                "duplicates": [
+                    {
+                        "name": "general/line custom"
+                    }
+                ]
+            },
+            {
+                "name": "general/bg custom shadow",
+                "value": "#7CABFF99"
+            },
+            {
+                "name": "general/bg light custom",
+                "value": "#7CABFF33"
+            },
+            {
+                "name": "primary/fg",
+                "value": "#F3B3BB",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/30"
+                },
+                "duplicates": [
+                    {
+                        "name": "primary/input line light",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/30"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "primary/input bg xbold",
+                "value": "#AB0016",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/120"
+                },
+                "duplicates": [
+                    {
+                        "name": "primary/input line xbold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/120"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "primary/input bg bold",
+                "value": "#D6001C",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/100"
+                },
+                "duplicates": [
+                    {
+                        "name": "primary/input line bold",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/100"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "primary/input bg regular",
+                "value": "#DE3349",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade primary/80"
+                },
+                "duplicates": [
+                    {
+                        "name": "primary/input line regular",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/shade primary/80"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "primary/input bg light",
+                "value": "#D6001C4D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent primary/30%"
+                }
+            },
+            {
+                "name": "primary/input bg muted",
+                "value": "#FFFFFF26",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/15%"
+                },
+                "duplicates": [
+                    {
+                        "name": "15%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/15%"
+                        }
+                    },
+                    {
+                        "name": "transparent neutral/15%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/15%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "secondary/fg",
+                "value": "#C3A5CA",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade secondary/40"
+                }
+            },
+            {
+                "name": "5%",
+                "value": "#FFFFFF0D",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/5%"
+                },
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/5%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/5%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "chart/red",
+                "value": "#FF3030"
+            },
+            {
+                "name": "chart/orange",
+                "value": "#FF8040"
+            },
+            {
+                "name": "chart/yellow",
+                "value": "#FFD400"
+            },
+            {
+                "name": "chart/blue",
+                "value": "#2ED2FF"
+            },
+            {
+                "name": "chart/pink",
+                "value": "#FF46F6"
+            },
+            {
+                "name": "chart/purple",
+                "value": "#BB4EFF"
+            },
+            {
+                "name": "chart/red light",
+                "value": "#FF303080"
+            },
+            {
+                "name": "chart/orange light",
+                "value": "#FF804080"
+            },
+            {
+                "name": "chart/yellow light",
+                "value": "#FFD40080"
+            },
+            {
+                "name": "chart/green light",
+                "value": "#6CD43080"
+            },
+            {
+                "name": "chart/blue light",
+                "value": "#2ED2FF80"
+            },
+            {
+                "name": "chart/pink light",
+                "value": "#FF46F680"
+            },
+            {
+                "name": "chart/purple light",
+                "value": "#BB4EFF80"
+            },
+            {
+                "name": "chart/bg red",
+                "value": "#FF30301A"
+            },
+            {
+                "name": "chart/bg orange",
+                "value": "#FF80401A"
+            },
+            {
+                "name": "chart/bg yellow",
+                "value": "#FFD4001A"
+            },
+            {
+                "name": "chart/bg green",
+                "value": "#6CD4301A"
+            },
+            {
+                "name": "chart/bg blue",
+                "value": "#2ED2FF1A"
+            },
+            {
+                "name": "chart/bg pink",
+                "value": "#FF46F61A"
+            },
+            {
+                "name": "chart/bg purple",
+                "value": "#BB4EFF1A"
+            },
+            {
+                "name": "8%",
+                "value": "#FFFFFF14",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/8%"
+                },
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/8%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/8%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "18%",
+                "value": "#FFFFFF2E",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/18%"
+                },
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/18%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/18%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "25%",
+                "value": "#FFFFFF40",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/25%"
+                },
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/25%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/25%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "40%",
+                "value": "#FFFFFF66",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/40%"
+                },
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/40%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/40%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "60%",
+                "value": "#FFFFFF99",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/60%"
+                },
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/60%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/60%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "80%",
+                "value": "#FFFFFFCC",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/80%"
+                },
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/80%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/80%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "90%",
+                "value": "#FFFFFFE6",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/transparent white/90%"
+                },
+                "duplicates": [
+                    {
+                        "name": "transparent neutral/90%",
+                        "alias": {
+                            "collection": "Baseline",
+                            "name": "colors/transparent white/90%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "transparent secondary/5%",
+                "value": "#9646FF40",
+                "duplicates": [
+                    {
+                        "name": "transparent secondary/8%"
+                    },
+                    {
+                        "name": "transparent secondary/10%"
+                    },
+                    {
+                        "name": "transparent secondary/15%"
+                    },
+                    {
+                        "name": "transparent secondary/18%"
+                    },
+                    {
+                        "name": "transparent secondary/20%"
+                    },
+                    {
+                        "name": "transparent secondary/25%"
+                    }
+                ]
+            },
+            {
+                "name": "transparent primary/5%",
+                "value": "#FF444440",
+                "duplicates": [
+                    {
+                        "name": "transparent primary/8%"
+                    },
+                    {
+                        "name": "transparent primary/10%"
+                    },
+                    {
+                        "name": "transparent primary/15%"
+                    },
+                    {
+                        "name": "transparent primary/18%"
+                    },
+                    {
+                        "name": "transparent primary/20%"
+                    },
+                    {
+                        "name": "transparent primary/25%"
+                    }
+                ]
+            },
+            {
+                "name": "transparent primary/30%",
+                "value": "#FF44444D"
+            },
+            {
+                "name": "transparent primary/40%",
+                "value": "#FF444466"
+            },
+            {
+                "name": "transparent primary/50%",
+                "value": "#FF444480"
+            },
+            {
+                "name": "transparent primary/60%",
+                "value": "#FF444499"
+            },
+            {
+                "name": "transparent primary/70%",
+                "value": "#FF4444B3"
+            },
+            {
+                "name": "transparent primary/80%",
+                "value": "#FF4444CC"
+            },
+            {
+                "name": "transparent primary/90%",
+                "value": "#FF4444E6"
+            },
+            {
+                "name": "transparent secondary/30%",
+                "value": "#9646FF4D",
+                "duplicates": [
+                    {
+                        "name": "secondary/input bg xbold",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/30%"
+                        }
+                    },
+                    {
+                        "name": "secondary/input bg muted",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/30%"
+                        }
+                    },
+                    {
+                        "name": "secondary/input line muted",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/30%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "transparent secondary/40%",
+                "value": "#9646FF66"
+            },
+            {
+                "name": "transparent secondary/50%",
+                "value": "#9646FF80",
+                "duplicates": [
+                    {
+                        "name": "secondary/input bg bold",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/50%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "transparent secondary/60%",
+                "value": "#9646FF99"
+            },
+            {
+                "name": "transparent secondary/70%",
+                "value": "#9646FFB3",
+                "duplicates": [
+                    {
+                        "name": "secondary/input bg regular",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/70%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "transparent secondary/80%",
+                "value": "#9646FFCC"
+            },
+            {
+                "name": "transparent secondary/90%",
+                "value": "#9646FFE6",
+                "duplicates": [
+                    {
+                        "name": "secondary/fg hint",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/90%"
+                        }
+                    },
+                    {
+                        "name": "secondary/bg light",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/90%"
+                        }
+                    },
+                    {
+                        "name": "secondary/input bg light",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/90%"
+                        }
+                    },
+                    {
+                        "name": "secondary/input line xbold",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/90%"
+                        }
+                    },
+                    {
+                        "name": "secondary/input line bold",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/90%"
+                        }
+                    },
+                    {
+                        "name": "secondary/input line regular",
+                        "alias": {
+                            "collection": "Theme purple",
+                            "name": "transparent secondary/90%"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "secondary/input line light",
+                "value": "#D2BCD7",
+                "alias": {
+                    "collection": "Baseline",
+                    "name": "colors/shade secondary/30"
+                }
+            }
+        ]
+    }
+]

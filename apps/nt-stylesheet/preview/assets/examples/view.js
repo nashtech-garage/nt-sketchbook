@@ -4,7 +4,6 @@ const frame = document.getElementById('example-frame')
 const code = document.getElementById('example-code')
 const copyCode = document.getElementById('copy-code')
 const title = document.getElementById('example-title')
-const select = document.getElementById('component-select')
 const componentNav = document.getElementById('example-component-nav')
 const examplesRoot =
     document.querySelector('[data-examples-path]')?.dataset
@@ -100,15 +99,6 @@ const loadManifest = async () => {
         a.name.localeCompare(b.name)
     )
 
-    select.innerHTML = components
-        .map(
-            (component) =>
-                `<option value="${component.id}">${component.name}</option>`
-        )
-        .join('')
-
-    select.value = selectedComponent
-
     if (componentNav) {
         componentNav.innerHTML = components
             .map(
@@ -119,9 +109,15 @@ const loadManifest = async () => {
     }
 }
 
-select.addEventListener('change', () => {
-    const componentId = select.value
+componentNav?.addEventListener('click', (event) => {
+    const link = event.target.closest('[data-component-link]')
+
+    if (!link) return
+
+    event.preventDefault()
+    const componentId = link.dataset.componentLink
     const nextUrl = new URL(window.location.href)
+
     nextUrl.searchParams.set('component', componentId)
     history.replaceState(null, '', nextUrl)
     loadExample(componentId)

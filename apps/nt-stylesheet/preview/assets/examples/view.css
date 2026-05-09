@@ -29,10 +29,6 @@
     letter-spacing: 0;
 }
 
-.example-select {
-    min-width: 220px;
-}
-
 .example-frame {
     border: 1px solid var(--nt-color-border-default, #eaeaea);
     border-radius: 8px;
@@ -77,8 +73,7 @@
 .example-code code {
     display: block;
     color: var(--nt-color-text-primary, #28292b);
-    font-family:
-        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
         'Liberation Mono', monospace;
     font-size: 0.88rem;
     line-height: 1.65;
