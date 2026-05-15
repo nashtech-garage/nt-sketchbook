@@ -1,0 +1,31 @@
+.docs-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+}
+
+.docs-brand img {
+    width: 132px;
+    max-height: 34px;
+    object-fit: contain;
+}
+
+.docs-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--nt-color-text-secondary, #535455);
+    font-size: 0.925rem;
+}
+
+.docs-nav a,
+.docs-icon-button {
+    border-radius: 6px;
+    padding: 10px 12px;
+}
+
+.docs-nav a:hover,
+.docs-icon-button:hover {
+    background: var(--nt-color-bg-muted, #f6f6f6);
+}
