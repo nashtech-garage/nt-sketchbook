@@ -21,6 +21,8 @@ const MOCK_PANEL_LEFT = 10
 const MOCK_PANEL_TOP = 20
 const MOCK_PANEL_WIDTH = 0
 const MOCK_PANEL_HEIGHT = 20
+const MOCK_SCROLL_X = 100
+const MOCK_SCROLL_Y = 200
 
 const setup = (options?: Partial<DatePickerState>) => {
     const state = Object.assign(new NtDatePickerState(), {
@@ -68,6 +70,34 @@ describe('NtDatePickerPanel', () => {
         expect(panel.element.style.display).toBe('block')
         expect(panel.element.style.left).toBe(`${MOCK_PANEL_LEFT}px`)
         expect(panel.element.style.top).toBe(`${MOCK_PANEL_TOP}px`)
+    })
+
+    it('open() positions panel relative to document scroll', () => {
+        const { panel, input } = setup()
+        vi.spyOn(window, 'scrollX', 'get').mockReturnValue(
+            MOCK_SCROLL_X
+        )
+        vi.spyOn(window, 'scrollY', 'get').mockReturnValue(
+            MOCK_SCROLL_Y
+        )
+        input.getBoundingClientRect = vi.fn(
+            () =>
+                new DOMRect(
+                    MOCK_PANEL_LEFT,
+                    0,
+                    MOCK_PANEL_WIDTH,
+                    MOCK_PANEL_HEIGHT
+                )
+        )
+
+        panel.open(input)
+
+        expect(panel.element.style.left).toBe(
+            `${MOCK_PANEL_LEFT + MOCK_SCROLL_X}px`
+        )
+        expect(panel.element.style.top).toBe(
+            `${MOCK_PANEL_TOP + MOCK_SCROLL_Y}px`
+        )
     })
 
     it('close() hides the panel', () => {

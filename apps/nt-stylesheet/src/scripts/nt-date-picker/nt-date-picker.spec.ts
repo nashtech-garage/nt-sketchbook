@@ -27,6 +27,18 @@ describe('NtDatePicker', () => {
         expect(screen.getByRole('group')).toBeInTheDocument()
     })
 
+    it('keeps panel open when the opening click comes from a date picker trigger', async () => {
+        document.body.innerHTML = `
+            <label data-nt-datepicker for="date-input">Pick date</label>
+            <input id="date-input" data-nt-datepicker data-format="${DEFAULT_FORMAT}" />
+        `
+        new NtDatePicker()
+
+        await userEvent.click(screen.getByText('Pick date'))
+
+        expect(screen.getByRole('group')).toBeVisible()
+    })
+
     it('sets input value when date selected', async () => {
         await setup()
 
