@@ -28,11 +28,16 @@ export class NtDatePickerPanel implements DatePickerPanel {
         this.panel.style.display = 'block'
 
         const panelWidth = this.panel.offsetWidth
-        const left = rect.left + rect.width / 2 - panelWidth / 2
+        const left =
+            window.scrollX +
+            rect.left +
+            rect.width / 2 -
+            panelWidth / 2
+        const top = window.scrollY + rect.bottom
 
         Object.assign(this.panel.style, {
             left: `${left}px`,
-            top: `${rect.bottom}px`
+            top: `${top}px`
         })
 
         this.bindEvents()

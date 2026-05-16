@@ -51,16 +51,25 @@ export class NtDatePicker extends Singleton {
     }
 
     private bindGlobalEvents() {
-        document.addEventListener('click', (e) => {
+        document.addEventListener('pointerdown', (e) => {
             const target = e.target as Node
 
             if (
-                !this.panel.element.contains(target) &&
-                target !== this.activeInput
+                this.panel.element.contains(target) ||
+                this.isDatePickerTrigger(target)
             ) {
-                this.panel.close()
-                this.activeInput = null
+                return
             }
+
+            this.panel.close()
+            this.activeInput = null
         })
+    }
+
+    private isDatePickerTrigger(target: Node) {
+        return (
+            target instanceof Element &&
+            Boolean(target.closest('[data-nt-datepicker]'))
+        )
     }
 }
