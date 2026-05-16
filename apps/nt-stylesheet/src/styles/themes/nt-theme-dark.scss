@@ -1,13 +1,182 @@
+@use 'shared' as shared;
 @use '../tokens' as tokens;
 
 [data-theme='nt-theme-dark'] {
     @include tokens.nt-design-tokens;
 
-    --nt-bg-body: #111;
-    --nt-color-bg-body: #111;
+    /* Dark Theme Color Tokens */
+
+    /* general */
+    --nt-general-fg-header: #{shared.$color-fff}; /* alias: Baseline/colors/white */
+    --nt-general-fg-body: #{shared.$color-fff}; /* alias: Baseline/colors/white */
+    --nt-general-fg-white: #{shared.$color-fff}; /* alias: Baseline/colors/white */
+    --nt-general-fg-description: #{shared.$color-ffffff80}; /* alias: Baseline/colors/transparent white/50% */
+    --nt-general-fg-hint: #{shared.$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-general-fg-placeholder: #{shared.$color-fff3}; /* alias: Baseline/colors/transparent white/20% */
+    --nt-general-fg-muted: #{shared.$color-fff3}; /* alias: Baseline/colors/transparent white/20% */
+    --nt-general-fg-link: #{shared.$color-0094d5}; /* alias: Baseline/colors/shade blue/100 */
+    --nt-general-fg-link-hover: #{shared.$color-4db4e2}; /* alias: Baseline/colors/shade blue/70 */
+    --nt-general-fg-link-muted: #{shared.$color-fff3}; /* alias: Baseline/colors/transparent white/20% */
+    --nt-general-fg-link-visited: #{shared.$color-99d4ee}; /* alias: Baseline/colors/shade blue/40 */
+    --nt-general-bg-white: #{shared.$color-28292b}; /* alias: Baseline/colors/shade neutral/100 */
+    --nt-general-bg-bold: #{shared.$color-d4d4d5}; /* alias: Baseline/colors/shade neutral/20 */
+    --nt-general-bg-regular: #{shared.$color-ffffff1a}; /* alias: Baseline/colors/transparent white/10% */
+    --nt-general-bg-light: #{shared.$color-ffffff1a}; /* alias: Baseline/colors/transparent white/10% */
+    --nt-general-bg-muted: #{shared.$color-ffffff1a}; /* alias: Baseline/colors/transparent white/10% */
+    --nt-general-line-bold: #{shared.$color-ffffffb3}; /* alias: Baseline/colors/transparent white/70% */
+    --nt-general-line-regular: #{shared.$color-ffffff80}; /* alias: Baseline/colors/transparent white/50% */
+    --nt-general-line-light: #{shared.$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-general-fg-success: #{shared.$color-fff}; /* alias: Baseline/colors/white */
+    --nt-general-fg-success-light: #{shared.$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-general-bg-success-xbold: #{shared.$color-56aa26}; /* alias: Baseline/colors/shade success/100 */
+    --nt-general-bg-success-bold: #{shared.$color-6cd430}; /* alias: Baseline/colors/shade success/80 */
+    --nt-general-bg-success-light: #{shared.$color-6cd430}; /* alias: Baseline/colors/shade success/80 */
+    --nt-general-bg-success-muted: #6cd4304d; /* alias: Baseline/colors/transparent success/30% */
+    --nt-general-line-success: #{shared.$color-c4eeac}; /* alias: Baseline/colors/shade success/30 */
+    --nt-general-fg-warning: #{shared.$color-fff}; /* alias: Baseline/colors/white */
+    --nt-general-fg-warning-light: #{shared.$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-general-bg-warning-xbold: #{shared.$color-e69900}; /* alias: Baseline/colors/shade warning/100 */
+    --nt-general-bg-warning-bold: #{shared.$color-ffb31a}; /* alias: Baseline/colors/shade warning/80 */
+    --nt-general-bg-warning-light: #{shared.$color-ffb31a}; /* alias: Baseline/colors/shade warning/80 */
+    --nt-general-bg-warning-muted: #ffaa004d; /* alias: Baseline/colors/transparent warning/30% */
+    --nt-general-line-warning: #{shared.$color-fd9}; /* alias: Baseline/colors/shade warning/30 */
+    --nt-general-fg-danger: #f7b7b7; /* alias: Baseline/colors/shade danger/30 */
+    --nt-general-fg-danger-light: #{shared.$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-general-bg-danger-xbold: #{shared.$color-e51010}; /* alias: Baseline/colors/shade danger/100 */
+    --nt-general-bg-danger-bold: #{shared.$color-ea4040}; /* alias: Baseline/colors/shade danger/80 */
+    --nt-general-bg-danger-light: #{shared.$color-e51010}; /* alias: Baseline/colors/shade danger/100 */
+    --nt-general-bg-danger-muted: #{shared.$color-ff42424d}; /* alias: Baseline/colors/transparent danger/30% */
+    --nt-general-bg-danger-shadow: #{shared.$color-ff42424d}; /* alias: Baseline/colors/transparent danger/30% */
+    --nt-general-line-danger: #ed5858; /* alias: Baseline/colors/shade danger/70 */
+    --nt-general-fg-info: #{shared.$color-fff}; /* alias: Baseline/colors/white */
+    --nt-general-fg-info-light: #{shared.$color-99d4ee}; /* alias: Baseline/colors/shade info/40 */
+    --nt-general-bg-info-xbold: #{shared.$color-0094d5}; /* alias: Baseline/colors/shade info/100 */
+    --nt-general-bg-info-bold: #{shared.$color-33a9dd}; /* alias: Baseline/colors/shade info/80 */
+    --nt-general-bg-info-light: #3cd5ff;
+    --nt-general-bg-info-muted: #0094d54d; /* alias: Baseline/colors/transparent info/30% */
+    --nt-general-line-info: #{shared.$color-b3dff2}; /* alias: Baseline/colors/shade info/30 */
+    --nt-general-bg-regular-custom: #{shared.$color-7cabff66};
+    --nt-general-bg-custom-shadow: #7cabff99;
+    --nt-general-bg-light-custom: #7cabff33;
+    --nt-general-line-custom: #{shared.$color-7cabff66};
+
+    /* primary */
+    --nt-primary-fg: #{shared.$color-f3b3bb}; /* alias: Baseline/colors/shade primary/30 */
+    --nt-primary-fg-muted: #{shared.$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-primary-fg-light: #{shared.$color-fff}; /* alias: Baseline/colors/white */
+    --nt-primary-fg-light-muted: #{shared.$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-primary-input-bg-xbold: #{shared.$color-ab0016}; /* alias: Baseline/colors/shade primary/120 */
+    --nt-primary-input-bg-bold: #{shared.$color-d6001c}; /* alias: Baseline/colors/shade primary/100 */
+    --nt-primary-input-bg-regular: #{shared.$color-de3349}; /* alias: Baseline/colors/shade primary/80 */
+    --nt-primary-input-bg-light: #{shared.$color-d6001c4d}; /* alias: Baseline/colors/transparent primary/30% */
+    --nt-primary-input-bg-muted: #{shared.$color-ffffff26}; /* alias: Baseline/colors/transparent white/15% */
+    --nt-primary-input-line-xbold: #{shared.$color-ab0016}; /* alias: Baseline/colors/shade primary/120 */
+    --nt-primary-input-line-bold: #{shared.$color-d6001c}; /* alias: Baseline/colors/shade primary/100 */
+    --nt-primary-input-line-regular: #{shared.$color-de3349}; /* alias: Baseline/colors/shade primary/80 */
+    --nt-primary-input-line-light: #{shared.$color-f3b3bb}; /* alias: Baseline/colors/shade primary/30 */
+    --nt-primary-input-line-muted: #{shared.$color-fff3}; /* alias: Baseline/colors/transparent white/20% */
+
+    /* secondary */
+    --nt-secondary-fg: #c3a5ca; /* alias: Baseline/colors/shade secondary/40 */
+    --nt-secondary-fg-hint: #{shared.$color-9646ffe6}; /* alias: Theme purple/transparent secondary/90% */
+    --nt-secondary-fg-muted: #{shared.$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-secondary-fg-light: #{shared.$color-fff}; /* alias: Baseline/colors/white */
+    --nt-secondary-fg-light-muted: #{shared.$color-fff3}; /* alias: Baseline/colors/transparent white/20% */
+    --nt-secondary-bg-light: #{shared.$color-9646ffe6}; /* alias: Theme purple/transparent secondary/90% */
+    --nt-secondary-input-bg-xbold: #{shared.$color-9646ff4d}; /* alias: Theme purple/transparent secondary/30% */
+    --nt-secondary-input-bg-bold: #{shared.$color-9646ff80}; /* alias: Theme purple/transparent secondary/50% */
+    --nt-secondary-input-bg-regular: #{shared.$color-9646ffb3}; /* alias: Theme purple/transparent secondary/70% */
+    --nt-secondary-input-bg-light: #{shared.$color-9646ffe6}; /* alias: Theme purple/transparent secondary/90% */
+    --nt-secondary-input-bg-muted: #{shared.$color-9646ff4d}; /* alias: Theme purple/transparent secondary/30% */
+    --nt-secondary-input-line-xbold: #{shared.$color-9646ffe6}; /* alias: Theme purple/transparent secondary/90% */
+    --nt-secondary-input-line-bold: #{shared.$color-9646ffe6}; /* alias: Theme purple/transparent secondary/90% */
+    --nt-secondary-input-line-regular: #{shared.$color-9646ffe6}; /* alias: Theme purple/transparent secondary/90% */
+    --nt-secondary-input-line-light: #{shared.$color-d2bcd7}; /* alias: Baseline/colors/shade secondary/30 */
+    --nt-secondary-input-line-muted: #{shared.$color-9646ff4d}; /* alias: Theme purple/transparent secondary/30% */
+
+    /* base */
+    @include shared.transparent-white-scale;
+
+    /* chart */
+    --nt-chart-red: #ff3030;
+    --nt-chart-orange: #ff8040;
+    --nt-chart-yellow: #ffd400;
+    --nt-chart-green: #{shared.$color-6cd430}; /* alias: Baseline/colors/shade success/80 */
+    --nt-chart-blue: #2ed2ff;
+    --nt-chart-pink: #ff46f6;
+    --nt-chart-purple: #bb4eff;
+    --nt-chart-neutral: #{shared.$color-fff};
+    --nt-chart-red-light: #ff303080;
+    --nt-chart-orange-light: #ff804080;
+    --nt-chart-yellow-light: #ffd40080;
+    --nt-chart-green-light: #{shared.$color-6cd43080};
+    --nt-chart-blue-light: #2ed2ff80;
+    --nt-chart-pink-light: #ff46f680;
+    --nt-chart-purple-light: #bb4eff80;
+    --nt-chart-neutral-light: #{shared.$color-ffffff80};
+    --nt-chart-bg-red: #ff30301a;
+    --nt-chart-bg-orange: #ff80401a;
+    --nt-chart-bg-yellow: #ffd4001a;
+    --nt-chart-bg-green: #{shared.$color-6cd4301a};
+    --nt-chart-bg-blue: #2ed2ff1a;
+    --nt-chart-bg-pink: #ff46f61a;
+    --nt-chart-bg-purple: #bb4eff1a;
+    --nt-chart-bg-neutral: #{shared.$color-fff3};
+
+    /* transparent secondary */
+    --nt-transparent-secondary-5pct: #{shared.$color-9646ff40};
+    --nt-transparent-secondary-8pct: #{shared.$color-9646ff40};
+    --nt-transparent-secondary-10pct: #{shared.$color-9646ff40};
+    --nt-transparent-secondary-15pct: #{shared.$color-9646ff40};
+    --nt-transparent-secondary-18pct: #{shared.$color-9646ff40};
+    --nt-transparent-secondary-20pct: #{shared.$color-9646ff40};
+    --nt-transparent-secondary-25pct: #{shared.$color-9646ff40};
+    --nt-transparent-secondary-30pct: #{shared.$color-9646ff4d};
+    --nt-transparent-secondary-40pct: #9646ff66;
+    --nt-transparent-secondary-50pct: #{shared.$color-9646ff80};
+    --nt-transparent-secondary-60pct: #9646ff99;
+    --nt-transparent-secondary-70pct: #{shared.$color-9646ffb3};
+    --nt-transparent-secondary-80pct: #9646ffcc;
+    --nt-transparent-secondary-90pct: #{shared.$color-9646ffe6};
+
+    /* transparent primary */
+    --nt-transparent-primary-5pct: #{shared.$color-ff444440};
+    --nt-transparent-primary-8pct: #{shared.$color-ff444440};
+    --nt-transparent-primary-10pct: #{shared.$color-ff444440};
+    --nt-transparent-primary-15pct: #{shared.$color-ff444440};
+    --nt-transparent-primary-18pct: #{shared.$color-ff444440};
+    --nt-transparent-primary-20pct: #{shared.$color-ff444440};
+    --nt-transparent-primary-25pct: #{shared.$color-ff444440};
+    --nt-transparent-primary-30pct: #ff44444d;
+    --nt-transparent-primary-40pct: #f446;
+    --nt-transparent-primary-50pct: #ff444480;
+    --nt-transparent-primary-60pct: #f449;
+    --nt-transparent-primary-70pct: #ff4444b3;
+    --nt-transparent-primary-80pct: #f44c;
+    --nt-transparent-primary-90pct: #ff4444e6;
+
+    /* transparent neutral */
+    --nt-transparent-neutral-5pct: #{shared.$color-ffffff0d}; /* alias: Baseline/colors/transparent white/5% */
+    --nt-transparent-neutral-8pct: #{shared.$color-ffffff14}; /* alias: Baseline/colors/transparent white/8% */
+    --nt-transparent-neutral-10pct: #{shared.$color-ffffff1a}; /* alias: Baseline/colors/transparent white/10% */
+    --nt-transparent-neutral-15pct: #{shared.$color-ffffff26}; /* alias: Baseline/colors/transparent white/15% */
+    --nt-transparent-neutral-18pct: #{shared.$color-ffffff2e}; /* alias: Baseline/colors/transparent white/18% */
+    --nt-transparent-neutral-20pct: #{shared.$color-fff3}; /* alias: Baseline/colors/transparent white/20% */
+    --nt-transparent-neutral-25pct: #{shared.$color-ffffff40}; /* alias: Baseline/colors/transparent white/25% */
+    --nt-transparent-neutral-30pct: #{shared.$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-transparent-neutral-40pct: #{shared.$color-fff6}; /* alias: Baseline/colors/transparent white/40% */
+    --nt-transparent-neutral-50pct: #{shared.$color-ffffff80}; /* alias: Baseline/colors/transparent white/50% */
+    --nt-transparent-neutral-60pct: #{shared.$color-fff9}; /* alias: Baseline/colors/transparent white/60% */
+    --nt-transparent-neutral-70pct: #{shared.$color-ffffffb3}; /* alias: Baseline/colors/transparent white/70% */
+    --nt-transparent-neutral-80pct: #{shared.$color-fffc}; /* alias: Baseline/colors/transparent white/80% */
+    --nt-transparent-neutral-90pct: #{shared.$color-ffffffe6}; /* alias: Baseline/colors/transparent white/90% */
+
+    /* Legacy semantic overrides */
+    --nt-bg-body: #{shared.$color-111};
+    --nt-color-bg-body: #{shared.$color-111};
     --nt-color-bg-surface: #1d1d1f;
-    --nt-color-bg-muted: #28292b;
-    --nt-color-text-primary: #fff;
+    --nt-color-bg-muted: #{shared.$color-28292b};
+    --nt-color-text-primary: #{shared.$color-fff};
     --nt-color-text-secondary: var(--nt-color-gray-20);
     --nt-color-text-muted: var(--nt-color-gray-40);
     --nt-color-border-default: var(--nt-color-gray-80);

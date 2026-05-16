@@ -12,6 +12,7 @@ const STYLE_SECTION_DIR = path.resolve(
 const STYLE_SECTIONS = [
     'hero',
     'usage',
+    'colors',
     'border',
     'animation',
     'flex',

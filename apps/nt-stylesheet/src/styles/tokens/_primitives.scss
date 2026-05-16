@@ -97,6 +97,340 @@
     --nt-color-line-regular: #c9ccd4;
     --nt-color-pink: #e31c79;
 
+    /* --------- Generated Color Palette Tokens START --------- */
+
+    /* Generated Color Palette Tokens */
+
+    /* colors */
+    --nt-colors-black: #000;
+    --nt-colors-white: #FFF;
+    --nt-colors-primary: #D6001C; /* alias: Baseline/colors/red */
+    --nt-colors-secondary: #6A1F7A; /* alias: Baseline/colors/purple */
+    --nt-colors-red: #D6001C;
+    --nt-colors-orange: #FFF;
+    --nt-colors-yellow: #F4AD33;
+    --nt-colors-green: #FFF;
+    --nt-colors-blue: #0094D5;
+    --nt-colors-purple: #6A1F7A;
+    --nt-colors-pink: #E31C79;
+    --nt-colors-neutral: #28292B;
+
+    /* colors/custom */
+    --nt-colors-custom-grey: #C9CCD4;
+    --nt-colors-custom-light-blue: #F0F5FE;
+
+    /* colors/shade primary */
+    --nt-colors-shade-primary-190: #150003; /* alias: Baseline/colors/shade red/190 */
+    --nt-colors-shade-primary-180: #2B0006; /* alias: Baseline/colors/shade red/180 */
+    --nt-colors-shade-primary-170: #400008; /* alias: Baseline/colors/shade red/170 */
+    --nt-colors-shade-primary-160: #56000B; /* alias: Baseline/colors/shade red/160 */
+    --nt-colors-shade-primary-150: #6B000E; /* alias: Baseline/colors/shade red/150 */
+    --nt-colors-shade-primary-140: #800011; /* alias: Baseline/colors/shade red/140 */
+    --nt-colors-shade-primary-130: #960014; /* alias: Baseline/colors/shade red/130 */
+    --nt-colors-shade-primary-120: #AB0016; /* alias: Baseline/colors/shade red/120 */
+    --nt-colors-shade-primary-110: #C10019; /* alias: Baseline/colors/shade red/110 */
+    --nt-colors-shade-primary-100: #D6001C; /* alias: Baseline/colors/shade red/100 */
+    --nt-colors-shade-primary-90: #DA1A33; /* alias: Baseline/colors/shade red/90 */
+    --nt-colors-shade-primary-80: #DE3349; /* alias: Baseline/colors/shade red/80 */
+    --nt-colors-shade-primary-70: #E24D60; /* alias: Baseline/colors/shade red/70 */
+    --nt-colors-shade-primary-60: #E66677; /* alias: Baseline/colors/shade red/60 */
+    --nt-colors-shade-primary-50: #EB808E; /* alias: Baseline/colors/shade red/50 */
+    --nt-colors-shade-primary-40: #EF99A4; /* alias: Baseline/colors/shade red/40 */
+    --nt-colors-shade-primary-30: #F3B3BB; /* alias: Baseline/colors/shade red/30 */
+    --nt-colors-shade-primary-20: #F7CCD2; /* alias: Baseline/colors/shade red/20 */
+    --nt-colors-shade-primary-10: #FBE6E8; /* alias: Baseline/colors/shade red/10 */
+
+    /* colors/shade secondary */
+    --nt-colors-shade-secondary-190: #0B030C; /* alias: Baseline/colors/shade purple/190 */
+    --nt-colors-shade-secondary-180: #150618; /* alias: Baseline/colors/shade purple/180 */
+    --nt-colors-shade-secondary-170: #200925; /* alias: Baseline/colors/shade purple/170 */
+    --nt-colors-shade-secondary-160: #2A0C31; /* alias: Baseline/colors/shade purple/160 */
+    --nt-colors-shade-secondary-150: #35103D; /* alias: Baseline/colors/shade purple/150 */
+    --nt-colors-shade-secondary-140: #401349; /* alias: Baseline/colors/shade purple/140 */
+    --nt-colors-shade-secondary-130: #4A1655; /* alias: Baseline/colors/shade purple/130 */
+    --nt-colors-shade-secondary-120: #551962; /* alias: Baseline/colors/shade purple/120 */
+    --nt-colors-shade-secondary-110: #5F1C6E; /* alias: Baseline/colors/shade purple/110 */
+    --nt-colors-shade-secondary-100: #6A1F7A; /* alias: Baseline/colors/shade purple/100 */
+    --nt-colors-shade-secondary-90: #793587; /* alias: Baseline/colors/shade purple/90 */
+    --nt-colors-shade-secondary-80: #884C95; /* alias: Baseline/colors/shade purple/80 */
+    --nt-colors-shade-secondary-70: #9762A2; /* alias: Baseline/colors/shade purple/70 */
+    --nt-colors-shade-secondary-60: #A679AF; /* alias: Baseline/colors/shade purple/60 */
+    --nt-colors-shade-secondary-50: #B58FBD; /* alias: Baseline/colors/shade purple/50 */
+    --nt-colors-shade-secondary-40: #C3A5CA; /* alias: Baseline/colors/shade purple/40 */
+    --nt-colors-shade-secondary-30: #D2BCD7; /* alias: Baseline/colors/shade purple/30 */
+    --nt-colors-shade-secondary-20: #E1D2E4; /* alias: Baseline/colors/shade purple/20 */
+    --nt-colors-shade-secondary-10: #F0E9F2; /* alias: Baseline/colors/shade purple/10 */
+
+    /* colors/shade red */
+    --nt-colors-shade-red-190: #150003;
+    --nt-colors-shade-red-180: #2B0006;
+    --nt-colors-shade-red-170: #400008;
+    --nt-colors-shade-red-160: #56000B;
+    --nt-colors-shade-red-150: #6B000E;
+    --nt-colors-shade-red-140: #800011;
+    --nt-colors-shade-red-130: #960014;
+    --nt-colors-shade-red-120: #AB0016;
+    --nt-colors-shade-red-110: #C10019;
+    --nt-colors-shade-red-100: #D6001C; /* alias: Baseline/colors/red */
+    --nt-colors-shade-red-90: #DA1A33;
+    --nt-colors-shade-red-80: #DE3349;
+    --nt-colors-shade-red-70: #E24D60;
+    --nt-colors-shade-red-60: #E66677;
+    --nt-colors-shade-red-50: #EB808E;
+    --nt-colors-shade-red-40: #EF99A4;
+    --nt-colors-shade-red-30: #F3B3BB;
+    --nt-colors-shade-red-20: #F7CCD2;
+    --nt-colors-shade-red-10: #FBE6E8;
+
+    /* colors/shade purple */
+    --nt-colors-shade-purple-190: #0B030C;
+    --nt-colors-shade-purple-180: #150618;
+    --nt-colors-shade-purple-170: #200925;
+    --nt-colors-shade-purple-160: #2A0C31;
+    --nt-colors-shade-purple-150: #35103D;
+    --nt-colors-shade-purple-140: #401349;
+    --nt-colors-shade-purple-130: #4A1655;
+    --nt-colors-shade-purple-120: #551962;
+    --nt-colors-shade-purple-110: #5F1C6E;
+    --nt-colors-shade-purple-100: #6A1F7A; /* alias: Baseline/colors/purple */
+    --nt-colors-shade-purple-90: #793587;
+    --nt-colors-shade-purple-80: #884C95;
+    --nt-colors-shade-purple-70: #9762A2;
+    --nt-colors-shade-purple-60: #A679AF;
+    --nt-colors-shade-purple-50: #B58FBD;
+    --nt-colors-shade-purple-40: #C3A5CA;
+    --nt-colors-shade-purple-30: #D2BCD7;
+    --nt-colors-shade-purple-20: #E1D2E4;
+    --nt-colors-shade-purple-10: #F0E9F2;
+
+    /* colors/shade blue */
+    --nt-colors-shade-blue-100: #0094D5; /* alias: Baseline/colors/blue */
+    --nt-colors-shade-blue-90: #1A9FD9;
+    --nt-colors-shade-blue-80: #33A9DD;
+    --nt-colors-shade-blue-70: #4DB4E2;
+    --nt-colors-shade-blue-60: #66BFE6;
+    --nt-colors-shade-blue-50: #80CAEA;
+    --nt-colors-shade-blue-40: #99D4EE;
+    --nt-colors-shade-blue-30: #B3DFF2;
+    --nt-colors-shade-blue-20: #CCEAF7;
+    --nt-colors-shade-blue-10: #E6F4FB;
+
+    /* colors/shade pink */
+    --nt-colors-shade-pink-100: #E31C79; /* alias: Baseline/colors/pink */
+    --nt-colors-shade-pink-90: #E63386;
+    --nt-colors-shade-pink-80: #E94994;
+    --nt-colors-shade-pink-70: #EB60A1;
+    --nt-colors-shade-pink-60: #EE77AF;
+    --nt-colors-shade-pink-50: #F18EBC;
+    --nt-colors-shade-pink-40: #F4A4C9;
+    --nt-colors-shade-pink-30: #F7BBD7;
+    --nt-colors-shade-pink-20: #F9D2E4;
+    --nt-colors-shade-pink-10: #FCE8F2;
+
+    /* colors/shade yellow */
+    --nt-colors-shade-yellow-100: #F4AD33; /* alias: Baseline/colors/yellow */
+    --nt-colors-shade-yellow-90: #F5B547;
+    --nt-colors-shade-yellow-80: #F6BD5C;
+    --nt-colors-shade-yellow-70: #F7C670;
+    --nt-colors-shade-yellow-60: #F8CE85;
+    --nt-colors-shade-yellow-50: #FAD699;
+    --nt-colors-shade-yellow-40: #FBDEAD;
+    --nt-colors-shade-yellow-30: #FCE6C2;
+    --nt-colors-shade-yellow-20: #FDEFD6;
+    --nt-colors-shade-yellow-10: #FEF7EB;
+
+    /* colors/shade neutral */
+    --nt-colors-shade-neutral-100: #28292B; /* alias: Baseline/colors/neutral */
+    --nt-colors-shade-neutral-90: #3E3E40;
+    --nt-colors-shade-neutral-80: #535455;
+    --nt-colors-shade-neutral-70: #69696B;
+    --nt-colors-shade-neutral-60: #7E7F80;
+    --nt-colors-shade-neutral-50: #949495;
+    --nt-colors-shade-neutral-40: #A9A9AA;
+    --nt-colors-shade-neutral-30: #BFBFBF;
+    --nt-colors-shade-neutral-20: #D4D4D5;
+    --nt-colors-shade-neutral-10: #EAEAEA;
+    --nt-colors-shade-neutral-9: #F6F6F6;
+
+    /* colors/shade success */
+    --nt-colors-shade-success-120: #45881E;
+    --nt-colors-shade-success-100: #56AA26;
+    --nt-colors-shade-success-90: #61BF2B;
+    --nt-colors-shade-success-80: #6CD430;
+    --nt-colors-shade-success-70: #89DD59;
+    --nt-colors-shade-success-60: #98E16E;
+    --nt-colors-shade-success-50: #A7E583;
+    --nt-colors-shade-success-40: #B6EA98;
+    --nt-colors-shade-success-30: #C4EEAC;
+    --nt-colors-shade-success-20: #D3F2C1;
+    --nt-colors-shade-success-10: #E2F6D6;
+
+    /* colors/shade warning */
+    --nt-colors-shade-warning-100: #E69900;
+    --nt-colors-shade-warning-90: #FA0;
+    --nt-colors-shade-warning-80: #FFB31A;
+    --nt-colors-shade-warning-70: #FB3;
+    --nt-colors-shade-warning-60: #FFC44D;
+    --nt-colors-shade-warning-50: #FC6;
+    --nt-colors-shade-warning-40: #FFD580;
+    --nt-colors-shade-warning-30: #FD9;
+    --nt-colors-shade-warning-20: #FFE6B3;
+    --nt-colors-shade-warning-10: #FEC;
+
+    /* colors/shade danger */
+    --nt-colors-shade-danger-100: #E51010;
+    --nt-colors-shade-danger-90: #E82828;
+    --nt-colors-shade-danger-80: #EA4040;
+    --nt-colors-shade-danger-70: #ED5858;
+    --nt-colors-shade-danger-60: #EF7070;
+    --nt-colors-shade-danger-50: #F28888;
+    --nt-colors-shade-danger-40: #F59F9F;
+    --nt-colors-shade-danger-30: #F7B7B7;
+    --nt-colors-shade-danger-20: #FACFCF;
+    --nt-colors-shade-danger-10: #FCE7E7;
+
+    /* colors/shade info */
+    --nt-colors-shade-info-100: #0094D5; /* alias: Baseline/colors/shade blue/100 */
+    --nt-colors-shade-info-90: #1A9FD9; /* alias: Baseline/colors/shade blue/90 */
+    --nt-colors-shade-info-80: #33A9DD; /* alias: Baseline/colors/shade blue/80 */
+    --nt-colors-shade-info-70: #4DB4E2; /* alias: Baseline/colors/shade blue/70 */
+    --nt-colors-shade-info-60: #66BFE6; /* alias: Baseline/colors/shade blue/60 */
+    --nt-colors-shade-info-50: #80CAEA; /* alias: Baseline/colors/shade blue/50 */
+    --nt-colors-shade-info-40: #99D4EE; /* alias: Baseline/colors/shade blue/40 */
+    --nt-colors-shade-info-30: #B3DFF2; /* alias: Baseline/colors/shade blue/30 */
+    --nt-colors-shade-info-20: #CCEAF7; /* alias: Baseline/colors/shade blue/20 */
+    --nt-colors-shade-info-10: #E6F4FB; /* alias: Baseline/colors/shade blue/10 */
+
+    /* colors/transparent black */
+    --nt-colors-transparent-black-5pct: #0000000D;
+    --nt-colors-transparent-black-8pct: #00000014;
+    --nt-colors-transparent-black-10pct: #0000001A;
+    --nt-colors-transparent-black-15pct: #00000026;
+    --nt-colors-transparent-black-18pct: #0000002E;
+    --nt-colors-transparent-black-20pct: #0003;
+    --nt-colors-transparent-black-25pct: #00000040;
+    --nt-colors-transparent-black-30pct: #0000004D;
+    --nt-colors-transparent-black-40pct: #0006;
+    --nt-colors-transparent-black-50pct: #00000080;
+    --nt-colors-transparent-black-60pct: #0009;
+    --nt-colors-transparent-black-70pct: #000000B3;
+    --nt-colors-transparent-black-80pct: #000C;
+    --nt-colors-transparent-black-90pct: #000000E6;
+
+    /* colors/transparent white */
+    --nt-colors-transparent-white-5pct: #FFFFFF0D;
+    --nt-colors-transparent-white-8pct: #FFFFFF14;
+    --nt-colors-transparent-white-10pct: #FFFFFF1A;
+    --nt-colors-transparent-white-15pct: #FFFFFF26;
+    --nt-colors-transparent-white-18pct: #FFFFFF2E;
+    --nt-colors-transparent-white-20pct: #FFF3;
+    --nt-colors-transparent-white-25pct: #FFFFFF40;
+    --nt-colors-transparent-white-30pct: #FFFFFF4D;
+    --nt-colors-transparent-white-40pct: #FFF6;
+    --nt-colors-transparent-white-50pct: #FFFFFF80;
+    --nt-colors-transparent-white-60pct: #FFF9;
+    --nt-colors-transparent-white-70pct: #FFFFFFB3;
+    --nt-colors-transparent-white-80pct: #FFFC;
+    --nt-colors-transparent-white-90pct: #FFFFFFE6;
+
+    /* colors/transparent primary */
+    --nt-colors-transparent-primary-5pct: #D6001C0D;
+    --nt-colors-transparent-primary-8pct: #D6001C14;
+    --nt-colors-transparent-primary-10pct: #D6001C1A;
+    --nt-colors-transparent-primary-15pct: #D6001C26;
+    --nt-colors-transparent-primary-18pct: #D6001C2E;
+    --nt-colors-transparent-primary-20pct: #D6001C33;
+    --nt-colors-transparent-primary-25pct: #D6001C40;
+    --nt-colors-transparent-primary-30pct: #D6001C4D;
+    --nt-colors-transparent-primary-40pct: #D6001C66;
+    --nt-colors-transparent-primary-50pct: #D6001C80;
+    --nt-colors-transparent-primary-60pct: #D6001C99;
+    --nt-colors-transparent-primary-70pct: #D6001CB3;
+    --nt-colors-transparent-primary-80pct: #D6001CCC;
+    --nt-colors-transparent-primary-90pct: #D6001CE6;
+
+    /* colors/transparent secondary */
+    --nt-colors-transparent-secondary-5pct: #6A1F7A0D;
+    --nt-colors-transparent-secondary-8pct: #6A1F7A14;
+    --nt-colors-transparent-secondary-10pct: #6A1F7A1A;
+    --nt-colors-transparent-secondary-15pct: #6A1F7A26;
+    --nt-colors-transparent-secondary-18pct: #6A1F7A2E;
+    --nt-colors-transparent-secondary-20pct: #6A1F7A33;
+    --nt-colors-transparent-secondary-25pct: #6A1F7A40;
+    --nt-colors-transparent-secondary-30pct: #6A1F7A4D;
+    --nt-colors-transparent-secondary-40pct: #6A1F7A66;
+    --nt-colors-transparent-secondary-50pct: #6A1F7A80;
+    --nt-colors-transparent-secondary-60pct: #6A1F7A99;
+    --nt-colors-transparent-secondary-70pct: #6A1F7AB3;
+    --nt-colors-transparent-secondary-80pct: #6A1F7ACC;
+    --nt-colors-transparent-secondary-90pct: #6A1F7AE6;
+
+    /* colors/transparent success */
+    --nt-colors-transparent-success-5pct: #6CD4300D;
+    --nt-colors-transparent-success-8pct: #6CD43014;
+    --nt-colors-transparent-success-10pct: #6CD4301A;
+    --nt-colors-transparent-success-15pct: #6CD43026;
+    --nt-colors-transparent-success-18pct: #6CD4302E;
+    --nt-colors-transparent-success-20pct: #6CD43033;
+    --nt-colors-transparent-success-25pct: #6CD43040;
+    --nt-colors-transparent-success-30pct: #6CD4304D;
+    --nt-colors-transparent-success-40pct: #6CD43066;
+    --nt-colors-transparent-success-50pct: #6CD43080;
+    --nt-colors-transparent-success-60pct: #6CD43099;
+    --nt-colors-transparent-success-70pct: #6CD430B3;
+    --nt-colors-transparent-success-80pct: #6CD430CC;
+    --nt-colors-transparent-success-90pct: #6CD430E6;
+
+    /* colors/transparent warning */
+    --nt-colors-transparent-warning-5pct: #FFAA000D;
+    --nt-colors-transparent-warning-8pct: #FFAA0014;
+    --nt-colors-transparent-warning-10pct: #FFAA001A;
+    --nt-colors-transparent-warning-15pct: #FFAA0026;
+    --nt-colors-transparent-warning-18pct: #FFAA002E;
+    --nt-colors-transparent-warning-20pct: #FA03;
+    --nt-colors-transparent-warning-25pct: #FFAA0040;
+    --nt-colors-transparent-warning-30pct: #FFAA004D;
+    --nt-colors-transparent-warning-40pct: #FA06;
+    --nt-colors-transparent-warning-50pct: #FFAA0080;
+    --nt-colors-transparent-warning-60pct: #FA09;
+    --nt-colors-transparent-warning-70pct: #FFAA00B3;
+    --nt-colors-transparent-warning-80pct: #FA0C;
+    --nt-colors-transparent-warning-90pct: #FFAA00E6;
+
+    /* colors/transparent danger */
+    --nt-colors-transparent-danger-5pct: #FF42420D;
+    --nt-colors-transparent-danger-8pct: #FF424214;
+    --nt-colors-transparent-danger-10pct: #FF42421A;
+    --nt-colors-transparent-danger-15pct: #FF424226;
+    --nt-colors-transparent-danger-18pct: #FF42422E;
+    --nt-colors-transparent-danger-20pct: #FF424233;
+    --nt-colors-transparent-danger-25pct: #FF424240;
+    --nt-colors-transparent-danger-30pct: #FF42424D;
+    --nt-colors-transparent-danger-40pct: #FF424266;
+    --nt-colors-transparent-danger-50pct: #FF424280;
+    --nt-colors-transparent-danger-60pct: #FF424299;
+    --nt-colors-transparent-danger-70pct: #FF4242B3;
+    --nt-colors-transparent-danger-80pct: #FF4242CC;
+    --nt-colors-transparent-danger-90pct: #FF4242E6;
+
+    /* colors/transparent info */
+    --nt-colors-transparent-info-5pct: #0094D50D;
+    --nt-colors-transparent-info-8pct: #0094D514;
+    --nt-colors-transparent-info-10pct: #0094D51A;
+    --nt-colors-transparent-info-15pct: #0094D526;
+    --nt-colors-transparent-info-18pct: #0094D52E;
+    --nt-colors-transparent-info-20pct: #0094D533;
+    --nt-colors-transparent-info-25pct: #0094D540;
+    --nt-colors-transparent-info-30pct: #0094D54D;
+    --nt-colors-transparent-info-40pct: #0094D566;
+    --nt-colors-transparent-info-50pct: #0094D580;
+    --nt-colors-transparent-info-60pct: #0094D599;
+    --nt-colors-transparent-info-70pct: #0094D5B3;
+    --nt-colors-transparent-info-80pct: #0094D5CC;
+    --nt-colors-transparent-info-90pct: #0094D5E6;
+
+    /* --------- Generated Color Palette Tokens END --------- */
+
     /* --------- Font Families --------- */
     --nt-font-default: 'Mulish', sans-serif;
 

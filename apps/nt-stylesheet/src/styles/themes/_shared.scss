@@ -1,0 +1,86 @@
+$color-111: #111;
+$color-fd9: #FD9;
+$color-fec: #FEC;
+$color-fff: #FFF;
+$color-fff3: #FFF3;
+$color-fff6: #FFF6;
+$color-fff9: #FFF9;
+$color-fffc: #FFFC;
+$color-0094d5: #0094D5;
+$color-28292b: #28292B;
+$color-33a9dd: #33A9DD;
+$color-4db4e2: #4DB4E2;
+$color-551962: #551962;
+$color-56aa26: #56AA26;
+$color-6a1f7a: #6A1F7A;
+$color-6cd430: #6CD430;
+$color-884c95: #884C95;
+$color-99d4ee: #99D4EE;
+$color-ab0016: #AB0016;
+$color-b3dff2: #B3DFF2;
+$color-b58fbd: #B58FBD;
+$color-bfbfbf: #BFBFBF;
+$color-c10019: #C10019;
+$color-c4eeac: #C4EEAC;
+$color-d2bcd7: #D2BCD7;
+$color-d4d4d5: #D4D4D5;
+$color-d6001c: #D6001C;
+$color-de3349: #DE3349;
+$color-e1d2e4: #E1D2E4;
+$color-e2f6d6: #E2F6D6;
+$color-e51010: #E51010;
+$color-e69900: #E69900;
+$color-e6f4fb: #E6F4FB;
+$color-ea4040: #EA4040;
+$color-eaeaea: #EAEAEA;
+$color-ef99a4: #EF99A4;
+$color-f0e9f2: #F0E9F2;
+$color-f3b3bb: #F3B3BB;
+$color-f6f6f6: #F6F6F6;
+$color-fbe6e8: #FBE6E8;
+$color-fce7e7: #FCE7E7;
+$color-ffb31a: #FFB31A;
+$color-0000001a: #0000001A;
+$color-00000080: #00000080;
+$color-6a1f7a1a: #6A1F7A1A;
+$color-6a1f7a80: #6A1F7A80;
+$color-6cd4301a: #6CD4301A;
+$color-6cd43080: #6CD43080;
+$color-7cabff66: #7CABFF66;
+$color-9646ff40: #9646FF40;
+$color-9646ff4d: #9646FF4D;
+$color-9646ff80: #9646FF80;
+$color-9646ffb3: #9646FFB3;
+$color-9646ffe6: #9646FFE6;
+$color-d6001c1a: #D6001C1A;
+$color-d6001c4d: #D6001C4D;
+$color-d6001c80: #D6001C80;
+$color-ff42424d: #FF42424D;
+$color-ff444440: #FF444440;
+$color-ffffff0d: #FFFFFF0D;
+$color-ffffff14: #FFFFFF14;
+$color-ffffff1a: #FFFFFF1A;
+$color-ffffff26: #FFFFFF26;
+$color-ffffff2e: #FFFFFF2E;
+$color-ffffff40: #FFFFFF40;
+$color-ffffff4d: #FFFFFF4D;
+$color-ffffff80: #FFFFFF80;
+$color-ffffffb3: #FFFFFFB3;
+$color-ffffffe6: #FFFFFFE6;
+
+@mixin transparent-white-scale {
+    --nt-5pct: #{$color-ffffff0d}; /* alias: Baseline/colors/transparent white/5% */
+    --nt-8pct: #{$color-ffffff14}; /* alias: Baseline/colors/transparent white/8% */
+    --nt-10pct: #{$color-ffffff1a}; /* alias: Baseline/colors/transparent white/10% */
+    --nt-15pct: #{$color-ffffff26}; /* alias: Baseline/colors/transparent white/15% */
+    --nt-18pct: #{$color-ffffff2e}; /* alias: Baseline/colors/transparent white/18% */
+    --nt-20pct: #{$color-fff3}; /* alias: Baseline/colors/transparent white/20% */
+    --nt-25pct: #{$color-ffffff40}; /* alias: Baseline/colors/transparent white/25% */
+    --nt-30pct: #{$color-ffffff4d}; /* alias: Baseline/colors/transparent white/30% */
+    --nt-40pct: #{$color-fff6}; /* alias: Baseline/colors/transparent white/40% */
+    --nt-50pct: #{$color-ffffff80}; /* alias: Baseline/colors/transparent white/50% */
+    --nt-60pct: #{$color-fff9}; /* alias: Baseline/colors/transparent white/60% */
+    --nt-70pct: #{$color-ffffffb3}; /* alias: Baseline/colors/transparent white/70% */
+    --nt-80pct: #{$color-fffc}; /* alias: Baseline/colors/transparent white/80% */
+    --nt-90pct: #{$color-ffffffe6}; /* alias: Baseline/colors/transparent white/90% */
+}
