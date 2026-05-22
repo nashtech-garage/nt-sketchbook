@@ -24,6 +24,7 @@ export class NtDatePickerPanel implements DatePickerPanel {
     open(input: HTMLInputElement) {
         const rect = input.getBoundingClientRect()
 
+        this.syncTheme(input)
         this.render()
         this.panel.style.display = 'block'
 
@@ -53,6 +54,18 @@ export class NtDatePickerPanel implements DatePickerPanel {
 
     get element() {
         return this.panel
+    }
+
+    private syncTheme(input: HTMLInputElement) {
+        const theme =
+            input.closest<HTMLElement>('[data-theme]')?.dataset
+                .theme || document.body.dataset.theme
+
+        if (theme) {
+            this.panel.dataset.theme = theme
+        } else {
+            delete this.panel.dataset.theme
+        }
     }
 
     private bindEvents() {

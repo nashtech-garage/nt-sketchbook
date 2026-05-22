@@ -100,6 +100,18 @@ describe('NtDatePickerPanel', () => {
         )
     })
 
+    it('open() copies theme from the active date picker context', () => {
+        const { panel, input } = setup()
+        const wrapper = document.createElement('div')
+        wrapper.dataset.theme = 'nt-theme-dark'
+
+        wrapper.appendChild(input)
+        document.body.appendChild(wrapper)
+        panel.open(input)
+
+        expect(panel.element.dataset.theme).toBe('nt-theme-dark')
+    })
+
     it('close() hides the panel', () => {
         const { panel, input } = setup()
         panel.open(input)
