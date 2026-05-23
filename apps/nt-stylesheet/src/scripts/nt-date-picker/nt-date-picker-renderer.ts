@@ -60,12 +60,18 @@ export class NtDatePickerRenderer {
                 <button data-prev>
                     <span class="nti nti-chevron-left"></span>
                 </button>
-                <select data-month name="month" aria-label="month" class="nt-select nt-select-default nt-select-medium">
-                   ${this.monthOptions(state)}
-                </select>
-                <select data-year name="year" aria-label="year" class="nt-select nt-select-default nt-select-medium">
-                   ${this.yearOptions(state)}
-                </select>
+                <span class="nt-datepicker-select nt-datepicker-select-month">
+                    <select data-month name="month" aria-label="month" class="nt-select nt-select-default nt-select-medium">
+                       ${this.monthOptions(state)}
+                    </select>
+                    <span class="nt-datepicker-select-icon nti nti-chevron-down" aria-hidden="true"></span>
+                </span>
+                <span class="nt-datepicker-select nt-datepicker-select-year">
+                    <select data-year name="year" aria-label="year" class="nt-select nt-select-default nt-select-medium">
+                       ${this.yearOptions(state)}
+                    </select>
+                    <span class="nt-datepicker-select-icon nti nti-chevron-down" aria-hidden="true"></span>
+                </span>
                 <button data-next>
                     <span class="nti nti-chevron-right"></span>
                 </button>

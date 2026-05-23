@@ -8,10 +8,30 @@
     --nt-datepicker-outside-color: var(--nt-color-gray-30);
     --nt-datepicker-selected-bg: var(--nt-color-action-secondary);
     --nt-datepicker-selected-color: var(--nt-color-white);
+    --nt-datepicker-hover-bg: var(--nt-color-secondary-80);
+    --nt-datepicker-hover-color: var(--nt-color-white);
+    --nt-datepicker-keyboard-selected-bg: var(--nt-color-gray-80);
+    --nt-datepicker-keyboard-selected-color: var(--nt-color-white);
+    --nt-datepicker-nav-color: var(--nt-color-text-primary);
+    --nt-datepicker-select-bg-image: url('/assets/svg/arrow-down.svg');
     --nt-datepicker-font-family: var(--nt-font-default);
-    --nt-datepicker-shadow:
-        rgb(9 30 66 / 25%) 0 0.25rem 0.5rem -0.125rem,
+    --nt-datepicker-shadow: rgb(9 30 66 / 25%) 0 0.25rem 0.5rem -0.125rem,
         rgb(9 30 66 / 8%) 0 0 0 1px;
+}
+
+[data-theme='nt-theme-dark'] {
+    &.nt-datepicker-wrapper,
+    &.nt-datepicker-popper,
+    .nt-datepicker-wrapper,
+    .nt-datepicker-popper {
+        --nt-datepicker-bg: var(--nt-color-gray-100);
+        --nt-datepicker-muted-color: var(--nt-color-gray-40);
+        --nt-datepicker-outside-color: var(--nt-color-gray-80);
+        --nt-datepicker-nav-color: var(--nt-color-white);
+        --nt-datepicker-select-bg-image: url('data:image/svg+xml,<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.64661 4.14655C8.84188 3.95138 9.15841 3.95132 9.35364 4.14655C9.54873 4.3418 9.54876 4.65836 9.35364 4.85358L6.35364 7.85358C6.15843 8.0488 5.84188 8.0487 5.64661 7.85358L2.64661 4.85358L2.61243 4.8155C2.45226 4.61911 2.46355 4.32961 2.64661 4.14655C2.82967 3.96358 3.1192 3.95223 3.31556 4.11237L3.35364 4.14655L6.00013 6.79304L8.64661 4.14655Z" fill="%23FFF"/></svg>');
+        --nt-datepicker-shadow: rgb(0 0 0 / 35%) 0 1rem 2.5rem,
+            rgb(255 255 255 / 30%) 0 0 0 1px;
+    }
 }
 
 .nt-datepicker-wrapper {
@@ -56,6 +76,11 @@
             font-weight: var(--nt-font-weight-semi-bold);
             font-size: 13px;
 
+            &:hover {
+                background-color: var(--nt-datepicker-hover-bg);
+                color: var(--nt-datepicker-hover-color);
+            }
+
             &--selected {
                 background-color: var(--nt-datepicker-selected-bg);
                 color: var(--nt-datepicker-selected-color);
@@ -79,8 +104,10 @@
         &__quarter-text,
         &__year-text {
             &--keyboard-selected {
-                background-color: var(--nt-datepicker-selected-bg);
-                color: var(--nt-datepicker-selected-color);
+                background-color: var(
+                    --nt-datepicker-keyboard-selected-bg
+                );
+                color: var(--nt-datepicker-keyboard-selected-color);
             }
         }
     }
@@ -96,14 +123,37 @@
     select {
         height: 2.1875rem;
         font-family: var(--nt-datepicker-font-family);
+        padding-right: 1.75rem;
     }
 
-    select:nth-of-type(1) {
+    .nt-datepicker-select {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+
+        .nt-select {
+            background-image: none;
+        }
+
+        &-icon {
+            position: absolute;
+            right: 0.5rem;
+            background-color: var(--nt-datepicker-nav-color);
+            color: var(--nt-datepicker-nav-color);
+            pointer-events: none;
+        }
+    }
+
+    > .nt-select {
+        background-image: var(--nt-datepicker-select-bg-image);
+    }
+
+    .nt-datepicker-select-month {
         max-width: 4.375rem;
         margin-right: 0.3rem;
     }
 
-    select:nth-of-type(2) {
+    .nt-datepicker-select-year {
         max-width: 4.8125rem;
     }
 
@@ -115,5 +165,15 @@
     button:nth-of-type(2) {
         margin-left: 0.4375rem;
         font-size: 1.3125rem;
+    }
+
+    button {
+        color: var(--nt-datepicker-nav-color);
+    }
+
+    .nti-chevron-left,
+    .nti-chevron-down,
+    .nti-chevron-right {
+        color: inherit;
     }
 }
