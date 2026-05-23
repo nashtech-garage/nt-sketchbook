@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Menu Example - NT Stylesheet</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link rel="stylesheet" href="__NT_CSS__" />
+        <link rel="stylesheet" href="__NT_THEME_LIGHT_CSS__" />
+        <link rel="stylesheet" href="__NT_BRAND_CSS__" />
+        <link rel="stylesheet" href="__NT_ICONS_CSS__" />
+        <link
+            rel="stylesheet"
+            href="__DOCS_ASSET:examples/direct.css__"
+        />
+    </head>
+    <body data-theme="nt-theme-light">
+        <main class="example-direct-shell">
+            <nav
+                class="example-direct-nav"
+                aria-label="Example navigation"
+            >
+                <a href="../index.html">NT Stylesheet</a>
+                <a href="../docs/components.html?component=menu"
+                    >Open in docs</a
+                >
+            </nav>
+
+            <div class="nt-page">
+                <div class="nt-page-header">
+                    <h1 class="nt-title nt-page-header-title">
+                        Menu
+                    </h1>
+                </div>
+
+                <div
+                    class="nt-d-flex nt-flex-wrap nt-gap-5 nt-align-items-start"
+                >
+                    <section>
+                        <h2 class="nt-section-title nt-mb-3">
+                            Main menu
+                        </h2>
+                        <nav class="nt-menu" aria-label="Main menu">
+                            <section class="nt-menu-section">
+                                <h3 class="nt-menu-title">
+                                    Group Title
+                                </h3>
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-user nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Profile</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-receipt nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Billing</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-activity nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Activity</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section class="nt-menu-section">
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <i
+                                                class="nti nti-grid-2x2 nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Snap to grid</span
+                                            >
+                                            <span
+                                                class="nt-menu-shortcut"
+                                                >Cmd Shift T</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <i
+                                                class="nti nti-plus nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                            >
+                                                Show intersection
+                                                <span
+                                                    class="nt-menu-description"
+                                                    >Will show the
+                                                    lines of all the
+                                                    overlapping
+                                                    objects</span
+                                                >
+                                            </span>
+                                            <span
+                                                class="nt-menu-shortcut"
+                                                >Cmd Shift T</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <i
+                                                class="nti nti-ruler nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Show ruler</span
+                                            >
+                                            <span
+                                                class="nt-menu-shortcut"
+                                                >Cmd Shift T</span
+                                            >
+                                        </button>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section class="nt-menu-section">
+                                <h3 class="nt-menu-title">
+                                    More settings
+                                </h3>
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-keyboard nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Keyboard
+                                                shortcuts</span
+                                            >
+                                            <span
+                                                class="nt-menu-shortcut"
+                                                >Cmd Shift T</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item is-active"
+                                            type="button"
+                                        >
+                                            <i
+                                                class="nti nti-palette nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Themes</span
+                                            >
+                                            <i
+                                                class="nti nti-chevron-right nt-menu-chevron"
+                                            ></i>
+                                            <span
+                                                class="nt-menu nt-menu-compact nt-menu-submenu"
+                                            >
+                                                <span
+                                                    class="nt-menu-section"
+                                                >
+                                                    <span
+                                                        class="nt-menu-list"
+                                                    >
+                                                        <span
+                                                            class="nt-menu-item"
+                                                        >
+                                                            <i
+                                                                class="nti nti-sun nt-menu-icon"
+                                                            ></i>
+                                                            <span
+                                                                class="nt-menu-label"
+                                                                >Light
+                                                                theme</span
+                                                            >
+                                                        </span>
+                                                        <span
+                                                            class="nt-menu-item"
+                                                        >
+                                                            <i
+                                                                class="nti nti-moon nt-menu-icon"
+                                                            ></i>
+                                                            <span
+                                                                class="nt-menu-label"
+                                                                >Dark
+                                                                theme</span
+                                                            >
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span
+                                                    class="nt-menu-section"
+                                                >
+                                                    <span
+                                                        class="nt-menu-title"
+                                                        >Color
+                                                        palette</span
+                                                    >
+                                                    <span
+                                                        class="nt-menu-list"
+                                                    >
+                                                        <span
+                                                            class="nt-menu-item"
+                                                        >
+                                                            <span
+                                                                class="nt-menu-color-dot"
+                                                                style="
+                                                                    --nt-menu-dot-color: var(
+                                                                        --nt-color-primary-100
+                                                                    );
+                                                                "
+                                                            ></span>
+                                                            <span
+                                                                class="nt-menu-label"
+                                                                >Red</span
+                                                            >
+                                                        </span>
+                                                        <span
+                                                            class="nt-menu-item"
+                                                        >
+                                                            <span
+                                                                class="nt-menu-color-dot"
+                                                                style="
+                                                                    --nt-menu-dot-color: var(
+                                                                        --nt-color-success
+                                                                    );
+                                                                "
+                                                            ></span>
+                                                            <span
+                                                                class="nt-menu-label"
+                                                                >Green</span
+                                                            >
+                                                        </span>
+                                                        <span
+                                                            class="nt-menu-item"
+                                                        >
+                                                            <span
+                                                                class="nt-menu-color-dot"
+                                                                style="
+                                                                    --nt-menu-dot-color: var(
+                                                                        --nt-color-info
+                                                                    );
+                                                                "
+                                                            ></span>
+                                                            <span
+                                                                class="nt-menu-label"
+                                                                >Blue</span
+                                                            >
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-settings nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Preferences</span
+                                            >
+                                            <i
+                                                class="nti nti-chevron-right nt-menu-chevron"
+                                            ></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section class="nt-menu-section">
+                                <a class="nt-menu-item" href="#">
+                                    <i
+                                        class="nti nti-log-out nt-menu-icon"
+                                    ></i>
+                                    <span class="nt-menu-label"
+                                        >Log out</span
+                                    >
+                                </a>
+                            </section>
+                        </nav>
+                    </section>
+
+                    <section>
+                        <h2 class="nt-section-title nt-mb-3">
+                            Simple menu
+                        </h2>
+                        <div class="nt-menu nt-menu-select">
+                            <section class="nt-menu-section">
+                                <h3 class="nt-menu-title">Men</h3>
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <button
+                                            class="nt-menu-item is-active"
+                                            type="button"
+                                        >
+                                            <span
+                                                class="nt-menu-label"
+                                                >T-shirt</span
+                                            >
+                                            <i
+                                                class="nti nti-check nt-menu-check"
+                                            ></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Trousers</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Shoes</span
+                                            >
+                                        </button>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="nt-menu-section">
+                                <h3 class="nt-menu-title">Women</h3>
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Skirts</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Dress</span
+                                            >
+                                        </button>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="nt-section-title nt-mb-3">
+                            Countries
+                        </h2>
+                        <div class="nt-menu nt-menu-search">
+                            <div class="nt-menu-search-field">
+                                <i
+                                    class="nti nti-search nt-menu-search-icon"
+                                ></i>
+                                <input
+                                    class="nt-menu-search-input"
+                                    type="search"
+                                    value="Search country"
+                                    aria-label="Search country"
+                                />
+                            </div>
+                            <div class="nt-menu-scroll">
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span class="nt-menu-flag"
+                                                >AR</span
+                                            >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Argentina</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span class="nt-menu-flag"
+                                                >BR</span
+                                            >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Brazil</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span class="nt-menu-flag"
+                                                >CA</span
+                                            >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Canada</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span class="nt-menu-flag"
+                                                >DK</span
+                                            >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Denmark</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span class="nt-menu-flag"
+                                                >EG</span
+                                            >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Egypt</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span class="nt-menu-flag"
+                                                >FR</span
+                                            >
+                                            <span
+                                                class="nt-menu-label"
+                                                >France</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span class="nt-menu-flag"
+                                                >DE</span
+                                            >
+                                            <span
+                                                class="nt-menu-label"
+                                                >Germany</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <span class="nt-menu-flag"
+                                                >IN</span
+                                            >
+                                            <span
+                                                class="nt-menu-label"
+                                                >India</span
+                                            >
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="nt-section-title nt-mb-3">
+                            Action menu
+                        </h2>
+                        <div class="nt-menu nt-menu-compact">
+                            <section class="nt-menu-section">
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <i
+                                                class="nti nti-plus nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >New</span
+                                            >
+                                        </button>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="nt-menu-section">
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <i
+                                                class="nti nti-eye nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >View</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <i
+                                                class="nti nti-pencil nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Edit</span
+                                            >
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="nt-menu-item"
+                                            type="button"
+                                        >
+                                            <i
+                                                class="nti nti-copy nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Copy</span
+                                            >
+                                        </button>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="nt-menu-section">
+                                <button
+                                    class="nt-menu-item is-danger"
+                                    type="button"
+                                >
+                                    <i
+                                        class="nti nti-trash-2 nt-menu-icon"
+                                    ></i>
+                                    <span class="nt-menu-label"
+                                        >Delete</span
+                                    >
+                                </button>
+                            </section>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="nt-section-title nt-mb-3">
+                            Search empty
+                        </h2>
+                        <div class="nt-menu nt-menu-search">
+                            <div class="nt-menu-search-field">
+                                <i
+                                    class="nti nti-search nt-menu-search-icon"
+                                ></i>
+                                <input
+                                    class="nt-menu-search-input"
+                                    type="search"
+                                    value="Aloha jss"
+                                    aria-label="Search library"
+                                />
+                            </div>
+                            <p class="nt-menu-empty">
+                                No result found
+                            </p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="nt-section-title nt-mb-3">
+                            Sidebar menu
+                        </h2>
+                        <nav
+                            class="nt-menu nt-menu-sidebar"
+                            aria-label="Sidebar menu"
+                        >
+                            <section class="nt-menu-section">
+                                <h3 class="nt-menu-title">
+                                    Productivity
+                                </h3>
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <a
+                                            class="nt-menu-item is-active"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-layout-dashboard nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Dashboard</span
+                                            >
+                                            <span
+                                                class="nt-menu-badge"
+                                                >5</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-play nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Automation</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-chart-no-axes-combined nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Analytics</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="nt-menu-section">
+                                <h3 class="nt-menu-title">
+                                    Team activities
+                                </h3>
+                                <ul class="nt-menu-list">
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-briefcase nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Projects</span
+                                            >
+                                            <span
+                                                class="nt-menu-badge"
+                                                >20</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-calendar nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Team Calendar</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="nt-menu-item"
+                                            href="#"
+                                        >
+                                            <i
+                                                class="nti nti-file-box nt-menu-icon"
+                                            ></i>
+                                            <span
+                                                class="nt-menu-label"
+                                                >Shared Files</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="nt-menu-section">
+                                <a class="nt-menu-item" href="#">
+                                    <i
+                                        class="nti nti-settings nt-menu-icon"
+                                    ></i>
+                                    <span class="nt-menu-label"
+                                        >System Settings</span
+                                    >
+                                    <i
+                                        class="nti nti-chevron-right nt-menu-chevron"
+                                    ></i>
+                                </a>
+                                <a class="nt-menu-item" href="#">
+                                    <i
+                                        class="nti nti-palette nt-menu-icon"
+                                    ></i>
+                                    <span class="nt-menu-label"
+                                        >Themes</span
+                                    >
+                                    <i
+                                        class="nti nti-chevron-right nt-menu-chevron"
+                                    ></i>
+                                </a>
+                            </section>
+                            <section class="nt-menu-section">
+                                <a class="nt-menu-item" href="#">
+                                    <i
+                                        class="nti nti-log-out nt-menu-icon"
+                                    ></i>
+                                    <span class="nt-menu-label"
+                                        >Logout</span
+                                    >
+                                </a>
+                            </section>
+                        </nav>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <script src="__NT_SCRIPT__"></script>
+        <script src="__DOCS_ASSET:examples/direct.js__"></script>
+    </body>
+</html>
